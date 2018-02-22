@@ -54,7 +54,7 @@
             </div>
 
             <div class="cta">
-                <a href="#start-now" class="button">Get your API key</a>
+                <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
             </div>
         </div>
     </div>

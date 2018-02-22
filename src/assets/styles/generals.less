@@ -74,3 +74,37 @@ header {
     width: 1200px;
     margin: 40px auto;
 }
+
+
+div.table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    &>div {
+        text-align: center;
+        margin-left: 20px;
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &>div {
+            margin: 5px 0;
+        }
+
+        .headers {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+:not(pre) > code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}

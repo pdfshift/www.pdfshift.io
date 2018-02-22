@@ -4,48 +4,82 @@
             <div>
                 <header-component />
                 <h1>
-                    Pricing
+                    Pricing plans
+                    <small>Find what you need, we'll manage the rest</small>
                 </h1>
             </div>
         </header>
-
-        <div class="half">
-            <p>You only pay for what you use. The first 250 convertions each month are free. You will only be billed if you convert more than 250 documents.</p>
-
+        <div class="container">
             <div>
-                <div class="header">
-                    <span>Documents processed by the API</span>
-                    <span>Price per documents</span>
+                <div class="plan">
+                    <h3>Free</h3>
+                    <div class="plan">
+                        <div class="header">
+                            <span>$</span>0
+                            <p class="month">per month</p>
+                        </div>
+                        <ul>
+                            <li>250 credits</li>
+                            <li>2MB per documents</li>
+                        </ul>
+                    </div>
+
+                    <div class="price">
+                        <a href="#" class="bottom"><p class="cart">Add to cart</p></a>
+                    </div>
                 </div>
-                <div class="entry">
-                    <span>First <strong>250 documents</strong> per month</span>
-                    <span class="success">Free</span>
+                <div class="plan">
+                    <h3>Lite plan</h3>
+                    <div class="plan">
+                        <div class="header">
+                            <span>$</span>9
+                            <p class="month">per month</p>
+                        </div>
+                        <ul>
+                            <li>1.000 credits</li>
+                            <li>5MB per documents</li>
+                        </ul>
+                    </div>
+
+                    <div class="price">
+                        <router-link :to="{name: 'Register'}">Get your API key</router-link>
+                    </div>
                 </div>
-                <div class="entry">
-                    <span>Next <strong>9 750 documents</strong> per month</span>
-                    <span><strong>$0.01</strong> per document</span>
+                <div class="plan">
+                    <h3>Medium plan</h3>
+                    <div class="plan">
+                        <div class="header">
+                            <span>$</span>39
+                            <p class="month">per month</p>
+                        </div>
+                        <ul>
+                            <li>10.000 credits</li>
+                            <li>10MB per documents</li>
+                        </ul>
+                    </div>
+
+                    <div class="price">
+                        <router-link :to="{name: 'Register'}">Get your API key</router-link>
+                    </div>
                 </div>
-                <div class="entry">
-                    <span>After <strong>10 000 documents</strong> per month</span>
-                    <span><strong>$0.005</strong> per document</span>
+                <div class="plan">
+                    <h3>Full</h3>
+                    <div class="plan">
+                        <div class="header">
+                            <span>$</span>99
+                            <p class="month">per month</p>
+                        </div>
+                        <ul>
+                            <li>50.000 credits</li>
+                            <li>25MB per documents</li>
+                        </ul>
+                    </div>
+
+                    <div class="price">
+                        <router-link :to="{name: 'Register'}">Get your API key</router-link>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="half">
-            <p>There are no subscription costs, <strong>no file size limits</strong> and no minimum fees. Only successful compressions will be charged.</p>
-            <div class="price-calculator">
-                <h4>Price calculator</h4>
-                <p>Compressed images: <span>250</span></p>
-                <div class="progress-bar">
-                    <span></span>
-                </div>
-                <div class="price">
-                    <strong>$<span>6 065</span></strong> per month.
-                </div>
-            </div>
-        </div>
-        <div class="cta">
-            <a href="#start-now" class="button">Get your API key</a>
         </div>
     </div>
 </template>
