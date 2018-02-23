@@ -1,10 +1,10 @@
-/pricing          /    301
-/demo             /    301
-/features         /    301
-/documentation    /    301
-/faq              /    301
-/register         /    301
-/privacy          /    301
-/terms            /    301
+/pricing          /pricing          200!
+/demo             /demo             200!
+/features         /features         200!
+/documentation    /documentation    200!
+/faq              /faq              200!
+/register         /register         200!
+/privacy          /privacy          200!
+/terms            /terms            200!
 
-/*                /    404
+/*                /                 404
