@@ -190,7 +190,7 @@ X-RateLimit-Reset: 1466368960</code></pre>
     }
 
     a:not(.button) {
-        color: @second_color;
+        color: @secondary_color;
         text-decoration: none;
 
         &:hover {

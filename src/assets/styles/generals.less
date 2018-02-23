@@ -9,20 +9,21 @@
 .button {
     display: inline-block;
     text-decoration: none;
-    background-color: @second_color;
+    background-color: @secondary_color;
     color: #fff;
     border-radius: 4px;
     padding: 15px 40px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
     transition: background-color 0.25s;
+    cursor: pointer;
 
     &:hover {
-        background-color: darken(@second_color, 10%);
+        background-color: darken(@secondary_color, 10%);
     }
 }
 
 h2 {
-    color: lighten(@second_color, 10%);
+    color: lighten(@secondary_color, 10%);
     font-size: 30px;
     font-weight: normal;
     margin: 20px 0;
@@ -84,6 +85,8 @@ div.table {
 
     &>div {
         text-align: center;
+        flex-grow: 1;
+
         margin-left: 20px;
         &:first-child {
             margin-left: 0;
@@ -107,4 +110,15 @@ div.table {
     background-color: #f9f2f4;
     border-radius: 4px;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.message {
+    background-color: fade(@primary_color, 20%);
+    border-left: solid 5px @primary_color;
+    padding: 20px;
+
+    h3 {
+        color: darken(@primary_color, 10%);
+        margin: 0 0 30px;
+    }
 }

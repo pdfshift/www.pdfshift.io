@@ -69,9 +69,23 @@ export default {
         HeaderComponent: HeaderComponent,
         LanguageSwitch: LanguageSwitch
     },
-    created () {
-        console.log(this.$route.query.lang)
-        this.$router.replace({name: 'Features', query: {'lang': 'javascript'}})
+    beforeRouteEnter (to, from, next) {
+        next(vm => {
+            return vm.redirect(to.query.lang)
+        })
+    },
+    beforeRouteUpdate (to, from, next) {
+        next(this.redirect(to.query.lang))
+    },
+    methods: {
+        redirect (tab) {
+            if (tab === undefined) {
+                this.$router.replace({name: 'Features', query: {'lang': 'javascript'}})
+                return false
+            }
+
+            return true
+        }
     }
 }
 </script>

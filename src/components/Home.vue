@@ -90,36 +90,7 @@ Based on a single lighning fast RestFUL HTTP url, all options are easy to pass a
 Refund Guaranteed Service
 We guarantee 99.99% uptime. And if our downtime ever causes you problems, we'll refund you!
 -->
-                    <ul>
-                        <li>
-                            <h4>
-                                <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/money_box-64.png" />
-                                Free to start
-                            </h4>
-                            <p>Convert up to 250 documents per month for free. Start to pay after.</p>
-                        </li>
-                        <li>
-                            <h4>
-                                <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/speedometer-64.png" />
-                                Reliable
-                            </h4>
-                            <p>We rely on a cluster of servers to deliver the results in a breathe.</p>
-                        </li>
-                        <li>
-                            <h4>
-                                <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/thumb_up-64.png" />
-                                Easy
-                            </h4>
-                            <p>Our API has been build with developer set in mind.<br />Simple, complete, elegant.</p>
-                        </li>
-                        <li>
-                            <h4>
-                                <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/key-64.png" height="54"/>
-                                Secure
-                            </h4>
-                            <p>Requests are made over SSL and the documents generated are never stored.</p>
-                        </li>
-                    </ul>
+
                     <div>
                         <router-link :to="{name: 'Features'}" class="button">Take a look at all the features!</router-link>
                     </div>
@@ -134,12 +105,25 @@ import HeaderComponent from '@/components/partials/Header.vue'
 
 export default {
     components: {HeaderComponent: HeaderComponent},
-    created () {
-        this.$router.replace({name: 'Home', query: {'tab': 'javascript'}})
+    beforeRouteEnter (to, from, next) {
+        next(vm => {
+            return vm.redirect(to.query.tab)
+        })
+    },
+    beforeRouteUpdate (to, from, next) {
+        next(this.redirect(to.query.tab))
     },
     methods: {
         isTab (tab) {
             return this.$route.query.tab === tab
+        },
+        redirect (tab) {
+            if (tab === undefined) {
+                this.$router.replace({name: 'Home', query: {'tab': 'javascript'}})
+                return false
+            }
+
+            return true
         }
     }
 }
@@ -245,7 +229,7 @@ export default {
             margin-bottom: 0;
 
             h2 {
-                color: @second_color;
+                color: @secondary_color;
                 text-align: center;
 
                 small {
@@ -261,7 +245,7 @@ export default {
                 align-items: baseline;
 
                 li {
-                    width: 22%;
+                    flex-grow: 1;
 
                     h4 {
                         font-size: 1.2em;

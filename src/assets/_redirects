@@ -4,8 +4,7 @@
 /documentation    /index.html    301
 /faq              /index.html    301
 /register         /index.html    301
-
-/pages/privacy    /index.html    301
-/pages/terms      /index.html    301
+/privacy          /index.html    301
+/terms            /index.html    301
 
 /*                /index.html    404

@@ -6,6 +6,9 @@ import Features from '@/components/Features'
 import Documentation from '@/components/Documentation'
 import FAQ from '@/components/FAQ'
 import Register from '@/components/Register'
+import Terms from '@/components/Terms'
+import Privacy from '@/components/Privacy'
+import NotFound from '@/components/NotFound'
 
 Vue.use(Router)
 
@@ -25,7 +28,7 @@ export default new Router({
         {
             path: '/demo',
             name: 'Demo',
-            component: Pricing
+            component: Pricing // TODO
         },
         {
             path: '/features',
@@ -46,6 +49,21 @@ export default new Router({
             path: '/register',
             name: 'Register',
             component: Register
+        },
+        {
+            path: '/terms',
+            name: 'Terms',
+            component: Terms
+        },
+        {
+            path: '/privacy',
+            name: 'Privacy',
+            component: Privacy
+        },
+        {
+            path: '*',
+            name: 'NotFound',
+            component: NotFound
         }
     ]
 })

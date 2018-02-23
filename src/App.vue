@@ -5,8 +5,8 @@
         <div>
             <div>
                 <ul>
-                    <li><a href="javascript:;" title="Read our privacy policy (does someone do that?)">Privacy Policy</a></li>
-                    <li><a href="javascript:;" title="Read our Terms of Use (again, do you really do that?)">Terms of Use</a></li>
+                    <router-link :to="{name: 'Privacy'}" tag="li" active-class="active"><a title="Read our Privacy Policy">Privacy Policy</a></router-link>
+                    <router-link :to="{name: 'Terms'}" tag="li" active-class="active"><a title="Read our Terms of Use">Terms of Use</a></router-link>
                 </ul>
             </div>
             <div>
@@ -52,6 +52,7 @@ body {
             color: #fff;
             text-align: center;
             line-height: 1.65em;
+            flex-grow: 1;
 
             a {
                 color: #fff;

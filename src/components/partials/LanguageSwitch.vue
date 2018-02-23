@@ -24,6 +24,7 @@
         li {
             margin: 0 10px;
             padding: 0;
+            flex-grow: 1;
 
             &:first-child {
                 margin-left: 0;

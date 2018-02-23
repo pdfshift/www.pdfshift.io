@@ -12,9 +12,10 @@
   },
   "dependencies": {
     "highlightjs": "^9.10.0",
+    "normalize.css": "^8.0.0",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "normalize.css": "^8.0.0"
+    "vue-resource": "^1.4.0",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
