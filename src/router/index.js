@@ -10,6 +10,7 @@ import Register from '@/components/Register'
 Vue.use(Router)
 
 export default new Router({
+    mode: (window.location.hostname === 'pdfshift.io' ? 'history' : 'hash'),
     routes: [
         {
             path: '/',
