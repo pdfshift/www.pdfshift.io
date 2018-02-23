@@ -23,6 +23,11 @@ export default new Router({
             component: Pricing
         },
         {
+            path: '/demo',
+            name: 'Demo',
+            component: Pricing
+        },
+        {
             path: '/features',
             name: 'Features',
             component: Features

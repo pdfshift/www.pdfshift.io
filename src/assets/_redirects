@@ -1,1 +1,11 @@
-/*    /index.html   200
+/pricing          /index.html    301
+/demo             /index.html    301
+/features         /index.html    301
+/documentation    /index.html    301
+/faq              /index.html    301
+/register         /index.html    301
+
+/pages/privacy    /index.html    301
+/pages/terms      /index.html    301
+
+/*                /index.html    404
