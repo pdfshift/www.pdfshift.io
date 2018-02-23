@@ -16,7 +16,7 @@
             </p>
             <div>
                 <div class="plan">
-                    <h3>Free plan</h3>
+                    <h3>Free</h3>
                     <div>
                         <div class="header">
                             <span>$</span>0
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="plan">
-                    <h3>Lite plan</h3>
+                    <h3>Starter</h3>
                     <div>
                         <div class="header">
                             <span>$</span>9
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="plan">
-                    <h3>Medium plan</h3>
+                    <h3>Growth</h3>
                     <div>
                         <div class="header">
                             <span>$</span>39
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="plan">
-                    <h3>Full plan</h3>
+                    <h3>Business</h3>
                     <div>
                         <div class="header">
                             <span>$</span>99
