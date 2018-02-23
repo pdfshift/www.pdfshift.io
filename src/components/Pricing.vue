@@ -55,6 +55,7 @@
                         <ul>
                             <li>10.000 credits</li>
                             <li>10MB per documents</li>
+
                         </ul>
                     </div>
 
@@ -83,6 +84,9 @@
         </div>
     </div>
 </template>
+
+<style lang="less" scoped>
+</style>
 
 <script>
 import HeaderComponent from '@/components/partials/Header.vue'
