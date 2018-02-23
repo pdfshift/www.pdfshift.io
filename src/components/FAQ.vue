@@ -40,10 +40,9 @@
                 <h3>I didn't used the <code>sandbox</code> paramter, what now?</h3>
                 <p>You haven't seen it when you started testing? No problem! <a href="mailto:support@pdfshift.io">Contact us</a> and we will give you more credits the first monht!</p>
             </div>
-        </div>
-
-        <div class="cta">
-            <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
+            <div class="cta">
+                <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -51,6 +50,14 @@
 <style lang="less" scoped>
     .container>div {
         margin-top: 40px;
+    }
+
+    .container>div.cta {
+        margin: 80px 0;
+        text-align: center;
+        a {
+            padding: 20px 150px;
+        }
     }
 </style>
 
@@ -61,9 +68,3 @@ export default {
     components: {HeaderComponent: HeaderComponent}
 }
 </script>
-
-<style class="lang" scoped>
-@import '../assets/styles/colors.less';
-@import '../assets/styles/generals.less';
-
-</style>

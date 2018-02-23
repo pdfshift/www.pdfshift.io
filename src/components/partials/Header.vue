@@ -3,6 +3,7 @@
         <router-link :to="{name: 'Home'}" class="brand"><img src="../../assets/img/logo.png" alt="PDFShift" height="48" /></router-link>
         <nav>
             <ul>
+                <!--<router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Try PDFShift for free and see for yourself">Demo</a></router-link>-->
                 <router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Get a grasp of what you can do with PDFShift!">Features</a></router-link>
                 <router-link :to="{name: 'Documentation'}" tag="li" active-class="active"><a title="Read the documention and all the possibilities">Documentation</a></router-link>
                 <router-link :to="{name: 'Pricing'}" tag="li" active-class="active"><a title="Our pricing plans will cover all your needs">Pricing</a></router-link>

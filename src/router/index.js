@@ -14,6 +14,9 @@ Vue.use(Router)
 
 export default new Router({
     mode: (window.location.hostname === 'pdfshift.io' ? 'history' : 'hash'),
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    },
     routes: [
         {
             path: '/',

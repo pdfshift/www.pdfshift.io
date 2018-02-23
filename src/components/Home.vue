@@ -71,26 +71,32 @@ with open('invoice.pdf', 'wb') as f:
             <div class="container">
                 <div class="features">
                     <h2>Why using PDFShift?</h2>
-<!--
-High Quality Structured PDF
-Generate fully structured PDF documents with selectable / editable text and images.
-
-Browser Based PDF Engine
-Our HTML to PDF conversion engine is based on real browsers and faithfully renders HTML5/CSS3/SVG and Webfonts.
-
-Advanced Options
-Set dimensions, margins, page numbers, custom CSS, encryption, viewport, delay, and much more.
-
-Raw HTML Support
-There is no need to make your HTML publically on the web. You can pass raw HTML with POST method.
-
-Fast & Simple HTML to PDF API
-Based on a single lighning fast RestFUL HTTP url, all options are easy to pass and reason about.
-
-Refund Guaranteed Service
-We guarantee 99.99% uptime. And if our downtime ever causes you problems, we'll refund you!
--->
-
+                    <ul>
+                        <li>
+                            <h3>High Quality PDF</h3>
+                            <p>Generate a fully structured, almost identical to the source, PDF document, in a few seconds only.</p>
+                        </li>
+                        <li>
+                            <h3>Browser Based engine</h3>
+                            <p>Our HTML to PDF conversion engine rely on real browser and thus is capable of rendering HTML5, CSS3, SVG and Webfonts at ease.</p>
+                        </li>
+                        <li>
+                            <h3>Advanced Options</h3>
+                            <p>Set custom Headers and Footers with pagination, custom injected CSS and Javascript, encryption, watermark and many more!</p>
+                        </li>
+                        <li>
+                            <h3>Raw HTML support</h3>
+                            <p>No need to make a private page public for converting it. Simply send us the raw HTML data and we will convert it!</p>
+                        </li>
+                        <li>
+                            <h3>Fast and Simple API</h3>
+                            <p>Our cluster of server can handle many simultaneous requests, and with large files. Our RESTful endpoint has a quick learning curve.</p>
+                        </li>
+                        <li>
+                            <h3>High Availability</h3>
+                            <p>We guarantee a 99.99% uptime. And if our downtime ever causes you problem, we will refund you!</p>
+                        </li>
+                    </ul>
                     <div>
                         <router-link :to="{name: 'Features'}" class="button">Take a look at all the features!</router-link>
                     </div>
@@ -240,17 +246,17 @@ export default {
             ul {
                 margin-top: 40px;
                 display: flex;
+                flex-wrap: wrap;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: baseline;
 
                 li {
-                    flex-grow: 1;
+                    width: 50%;
 
-                    h4 {
-                        font-size: 1.2em;
-                        font-weight: normal;
-                        margin: 20px 0 10px;
+                    h3 {
+                        font-weight: 550;
+                        margin: 30px 0 10px;
                         padding: 0;
 
                         img {
@@ -261,12 +267,14 @@ export default {
 
                     p {
                         font-size: 0.9em;
+                        margin: 0;
+                        padding: 0;
                     }
                 }
             }
 
             &>div {
-                margin-top: 40px;
+                margin: 80px 0;
                 text-align: center;
                 a {
                     text-decoration: none;
