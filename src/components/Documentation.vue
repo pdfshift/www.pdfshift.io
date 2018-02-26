@@ -361,11 +361,11 @@ export default {
                             default: 'A4'
                         },
                         {
-                            name: 'view_port',
+                            name: 'viewport',
                             required: false,
                             type: 'String',
                             description: 'Viewport size. Defined as `width x height`. Default is 1200x1024.',
-                            example: '375x667 (iPhone 6)',
+                            example: '375x667',
                             default: '1200x1024'
                         },
                         {
@@ -392,7 +392,7 @@ export default {
                             default: 'null'
                         },
                         {
-                            name: 'basic_auth',
+                            name: 'auth',
                             required: false,
                             type: 'Object',
                             description: 'Object containing `username` and `password` for accessing password protected content.',
@@ -402,16 +402,16 @@ export default {
                         {
                             name: 'cookies',
                             required: false,
-                            type: 'Array of Object',
+                            type: 'Object',
                             description: 'List of cookies you want to send along with the requests when loading the source.',
-                            default: 'null'
+                            default: '{'session': 'xxx-xxxx-xxx', 'username': 'John'}'
                         },
                         {
                             name: 'http_headers',
                             required: false,
-                            type: 'Array of Objects',
+                            type: 'Object',
                             description: 'List of http headers that you can customize for a better end result.',
-                            example: '[{"Content-Type": "text/html; charset=utf-8"}, {"user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0"}]',
+                            example: '{"Content-Type": "text/html; charset=utf-8"}, {"user-agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0"}',
                             default: 'null'
                         },
                         {
@@ -471,27 +471,31 @@ export default {
                             type: 'String',
                             description: 'Space between the top and the content.',
                             example: '15px'
+                            default: 'null'
                         },
                         {
                             name: 'right',
                             required: false,
                             type: 'String',
                             description: 'Space between the right and the content.',
-                            example: '15px'
+                            example: '15px',
+                            default: 'null'
                         },
                         {
                             name: 'bottom',
                             required: false,
                             type: 'String',
                             description: 'Space between the bottom and the content.',
-                            example: '15px'
+                            example: '15px',
+                            default: 'null'
                         },
                         {
                             name: 'left',
                             required: false,
                             type: 'String',
                             description: 'Space between the left and the content.',
-                            example: '15px'
+                            example: '15px',
+                            default: 'null'
                         }
                     ]
                 },
@@ -513,6 +517,7 @@ export default {
                             required: false,
                             type: 'String',
                             description: 'Spacing between the header or footer and the content. For header, it\'s the space between the end of the header and the beginning of the document. For the footer, it\'s the space between the end of the document and the top of the footer.',
+                            default: 'null'
                             example: '150px'
                         },
                         {
@@ -520,6 +525,7 @@ export default {
                             required: false,
                             type: 'Array',
                             description: 'Array of page numbers on which the header/footer are not printed. Negatives values are possible and will indicate starding at the end of the document. [1, -1] means no header/footer on firts and last page.',
+                            default: 'null'
                             example: '1024px'
                         }
                     ]
@@ -629,6 +635,7 @@ export default {
                             required: false,
                             type: 'Boolean',
                             description: 'If set to true, will push the image to the background instead of the foreground.',
+                            default: 'false',
                             example: 'true'
                         }
                     ]
