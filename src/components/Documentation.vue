@@ -72,58 +72,19 @@ X-RateLimit-Reset: 1466368960</code></pre>
                 <div class="table">
                     <div>
                         <div class="headers">Variable</div>
-                        <div><code v-pre>{{page}}</code></div>
-                        <div><code v-pre>{{pages}}</code></div>
-                        <div><code v-pre>{{webpage}}</code></div>
+                        <div><code v-pre>{{date}}</code></div>
                         <div><code v-pre>{{title}}</code></div>
+                        <div><code v-pre>{{url}}</code></div>
+                        <div><code v-pre>{{page}}</code></div>
+                        <div><code v-pre>{{total}}</code></div>
                     </div>
                     <div>
                         <div class="headers">Description</div>
+                        <div>Formatted print date</div>
+                        <div>Title of the HTML document</div>
+                        <div>Page url</div>
                         <div>Current page</div>
                         <div>Total number of pages</div>
-                        <div>Page url</div>
-                        <div>Title of the HTML document</div>
-                    </div>
-                </div>
-            </div>
-            <div id="page-sizes" class="section">
-                <h3>Page sizes possible values</h3>
-                <div class="table">
-                    <div>
-                        <div>A0</div>
-                        <div>A1</div>
-                        <div>A2</div>
-                        <div>A3</div>
-                        <div>A4</div>
-                        <div>A5</div>
-                        <div>A6</div>
-                        <div>A7</div>
-                        <div>A8</div>
-                        <div>A9</div>
-                    </div>
-                    <div>
-                        <div>B0</div>
-                        <div>B1</div>
-                        <div>B2</div>
-                        <div>B3</div>
-                        <div>B4</div>
-                        <div>B5</div>
-                        <div>B6</div>
-                        <div>B7</div>
-                        <div>B8</div>
-                        <div>B9</div>
-                        <div>B10</div>
-                    </div>
-                    <div>
-                        <div>C5E</div>
-                        <div>Comm10E</div>
-                        <div>DLE</div>
-                        <div>Executive</div>
-                        <div>Folio</div>
-                        <div>Ledger</div>
-                        <div>Legal</div>
-                        <div>Letter</div>
-                        <div>Tabloid</div>
                     </div>
                 </div>
             </div>
@@ -345,7 +306,7 @@ export default {
                             default: '2000'
                         },
                         {
-                            name: 'use_print_stylesheet',
+                            name: 'use_print',
                             required: false,
                             type: 'Boolean',
                             description: 'Use the print stylesheet instead of the general one.',
@@ -353,11 +314,11 @@ export default {
                             default: 'false'
                         },
                         {
-                            name: 'page_size',
+                            name: 'format',
                             required: false,
                             type: 'String',
-                            description: 'Format of the document. You can either use the standard values (A{0-9}, B{0-9}, Executive, Folio, Ledger, Legal, Letter, Tabloid) or a custom `width x height` value.',
-                            example: 'A6',
+                            description: 'Format of the document. You can either use the standard values (Letter, Legal, Tabloid, Ledger, A0, A1, A2, A3, A4, A5) or a custom `{width}x{height}` value. For {width} and {height}, you can indicate the following units: in, cm, mm.',
+                            example: '800x600',
                             default: 'A4'
                         },
                         {
@@ -368,6 +329,7 @@ export default {
                             example: '375x667',
                             default: '1200x1024'
                         },
+                        /*
                         {
                             name: 'dpi',
                             required: false,
@@ -376,6 +338,7 @@ export default {
                             example: '100',
                             default: '75'
                         },
+                        */
                         {
                             name: 'zoom',
                             required: false,
@@ -402,9 +365,10 @@ export default {
                         {
                             name: 'cookies',
                             required: false,
-                            type: 'Object',
-                            description: 'List of cookies you want to send along with the requests when loading the source.',
-                            default: '{'session': 'xxx-xxxx-xxx', 'username': 'John'}'
+                            type: 'Array of Object',
+                            description: 'List of cookies you want to send along with the requests when loading the source. See the related part at the bottom of the document',
+                            example: '[{"name": "session", "value": "xxx-xxxx-xxxx"}]',
+                            default: 'null'
                         },
                         {
                             name: 'http_headers',
@@ -417,15 +381,15 @@ export default {
                         {
                             name: 'header',
                             required: false,
-                            type: 'Object',
-                            description: 'Defines a custom header. Useful for showing pagination, title, etc.',
+                            type: 'URL or String',
+                            description: 'Defines a custom header. You can indicate either an URL to load the data, or the data directly. You can use variables, indicated at the end of the document.',
                             default: 'null'
                         },
                         {
                             name: 'footer',
                             required: false,
-                            type: 'Object',
-                            description: 'Defines a custom footer. Can contain pagination, etc.',
+                            type: 'URL or String',
+                            description: 'Same as header.',
                             default: 'null'
                         },
                         {
@@ -461,6 +425,45 @@ export default {
                     ]
                 },
                 {
+                    name: 'Cookies',
+                    key: 'cookies',
+                    description: 'List of accepted parameters for the Cookie object.',
+                    parameters: [
+                        {
+                            name: 'name',
+                            required: true,
+                            type: 'String',
+                            description: 'Name of the cookie',
+                            example: 'session',
+                            default: 'null'
+                        },
+                        {
+                            name: 'value',
+                            required: true,
+                            type: 'String',
+                            description: 'Value for the specified cookie',
+                            example: '6ba7b810-9dad-11d1-80b4-00c04fd430c8',
+                            default: 'null'
+                        },
+                        {
+                            name: 'secure',
+                            required: false,
+                            type: 'Boolean',
+                            description: 'If set to true, This cookie will only be available for secure (https) connections.',
+                            example: 'true',
+                            default: 'false'
+                        },
+                        {
+                            name: 'http_only',
+                            required: false,
+                            type: 'Boolean',
+                            description: 'If set to true, this cookie will only be available to http request only (no javascript).',
+                            example: 'true',
+                            default: 'false'
+                        }
+                    ]
+                },
+                {
                     name: 'Margin',
                     key: 'margin',
                     description: 'Margin of the document can be defined using the four parameters below:',
@@ -470,7 +473,7 @@ export default {
                             required: false,
                             type: 'String',
                             description: 'Space between the top and the content.',
-                            example: '15px'
+                            example: '15px',
                             default: 'null'
                         },
                         {
@@ -517,17 +520,20 @@ export default {
                             required: false,
                             type: 'String',
                             description: 'Spacing between the header or footer and the content. For header, it\'s the space between the end of the header and the beginning of the document. For the footer, it\'s the space between the end of the document and the top of the footer.',
-                            default: 'null'
+                            default: 'null',
                             example: '150px'
-                        },
+                        }
+                        /*
+                        Not implemented yet ...
                         {
                             name: 'exclude',
                             required: false,
                             type: 'Array',
                             description: 'Array of page numbers on which the header/footer are not printed. Negatives values are possible and will indicate starding at the end of the document. [1, -1] means no header/footer on firts and last page.',
-                            default: 'null'
+                            default: 'null',
                             example: '1024px'
                         }
+                        */
                     ]
                 },
                 {
