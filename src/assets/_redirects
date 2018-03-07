@@ -1,1 +1,10 @@
-/*    /index.html   200
+/pricing          /index.html    200
+/demo             /index.html    200
+/features         /index.html    200
+/documentation    /index.html    200
+/faq              /index.html    200
+/register         /index.html    200
+/privacy          /index.html    200
+/terms            /index.html    200
+
+/*                /              404
