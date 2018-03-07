@@ -381,9 +381,9 @@ export default {
                         {
                             name: 'header',
                             required: false,
-                            type: 'URL or String',
-                            description: 'Defines a custom header. You can indicate either an URL to load the data, or the data directly. You can use variables, indicated at the end of the document.',
-                            default: 'null'
+                            type: 'Object',
+                            description: 'Defines a custom header. See the "Header/Footer" section for more details.',
+                            default: '{"source": "<div>Pages {{page}} of {{total}}</div>", "spacing": "150px"}'
                         },
                         {
                             name: 'footer',
@@ -392,6 +392,7 @@ export default {
                             description: 'Same as header.',
                             default: 'null'
                         },
+                        /*
                         {
                             name: 'paging_offset',
                             required: false,
@@ -408,11 +409,12 @@ export default {
                             example: 'true',
                             default: 'false'
                         },
+                        */
                         {
-                            name: 'pdf',
+                            name: 'protections',
                             required: false,
                             type: 'Object',
-                            description: 'Will add restrictions on the PDF document. See the #PDF part for more details',
+                            description: 'Will add restrictions on the PDF document. See the #Protections part for more details',
                             default: 'null'
                         },
                         {
@@ -511,15 +513,15 @@ export default {
                             name: 'source',
                             required: true,
                             type: 'URL or string',
-                            description: 'Element to add in the header/footer part of the document. PDFShift will automatically detect if it\'s an URL and load it, or an HTML data and charge it.',
+                            description: 'Element to add in the header/footer part of the document. You can use variables, indicated at the end of the document. PDFShift will automatically detect if it\'s an URL and load it, or an HTML data and charge it.',
                             example: '<h1>My awesome document!</h1>',
                             default: 'null'
                         },
                         {
                             name: 'spacing',
-                            required: false,
+                            required: true,
                             type: 'String',
-                            description: 'Spacing between the header or footer and the content. For header, it\'s the space between the end of the header and the beginning of the document. For the footer, it\'s the space between the end of the document and the top of the footer.',
+                            description: 'Spacing between the header or footer and the content. For header, it\'s the space between the header and the beginning of the document. For the footer, it\'s the space between the end of the document and the bottom of the page.',
                             default: 'null',
                             example: '150px'
                         }
@@ -537,8 +539,8 @@ export default {
                     ]
                 },
                 {
-                    name: 'PDF securisation',
-                    key: 'pdf',
+                    name: 'Protections',
+                    key: 'protections',
                     description: 'You can restrict access to your generated document using the following rules:',
                     parameters: [
                         {
