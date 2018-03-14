@@ -4,8 +4,12 @@
             <div>
                 <header-component />
                 <h1>
+                    <!--
                     An HTML to PDF conversion API that doesn't suck!
                     <small>Converts any HTML document to PDF with just 2 lines of code!</small>
+                    -->
+                    Converting HTML to Pdf - Just. Got. Better.
+                    <small>The HTML to PDF API you were waiting for.</small>
                 </h1>
 
                 <div class="tabs">

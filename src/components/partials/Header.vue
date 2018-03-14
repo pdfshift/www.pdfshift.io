@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-        <router-link :to="{name: 'Home'}" class="brand"><img src="../../assets/img/logo.png" alt="PDFShift" height="48" /></router-link>
+        <router-link :to="{name: 'Home'}" class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="48" /></router-link>
         <nav>
             <ul>
                 <!--<router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Try PDFShift for free and see for yourself">Demo</a></router-link>-->

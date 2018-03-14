@@ -10,6 +10,7 @@ import 'highlightjs/styles/atom-one-dark.css'
 Vue.config.productionTip = false
 
 Vue.use(VueResource)
+Vue.http.options.root = 'http://127.0.0.1:5000/v2/'
 
 Vue.directive('hljs', {
     inserted: function (el) {
