@@ -4,7 +4,6 @@
             <router-link :to="{name: 'Features', query: {'lang': 'javascript'}}" tag="li" active-class="active" exact replace><a>Javascript</a></router-link>
             <router-link :to="{name: 'Features', query: {'lang': 'python'}}" tag="li" active-class="active" exact replace><a>Python</a></router-link>
             <router-link :to="{name: 'Features', query: {'lang': 'php'}}" tag="li" active-class="active" exact replace><a>PHP</a></router-link>
-            <router-link :to="{name: 'Features', query: {'lang': 'ruby'}}" tag="li" active-class="active" exact replace><a>Ruby</a></router-link>
             <router-link :to="{name: 'Features', query: {'lang': 'curl'}}" tag="li" active-class="active" exact replace><a>cURL</a></router-link>
         </ul>
     </div>

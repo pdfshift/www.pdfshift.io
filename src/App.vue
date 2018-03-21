@@ -13,7 +13,7 @@
                 <a href="mailto:contact@pdfshift.io" title="Have a question? Want to say hi?">contact@pdfshift.io</a>
             </div>
             <div>
-                <p>Made with ☃<br />in Belfort, France</p>
+                <p>Made with ☕<br />in Belfort, France</p>
             </div>
         </div>
     </footer>

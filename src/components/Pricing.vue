@@ -11,7 +11,7 @@
         </header>
         <div class="container">
             <p>
-                Each plans comes with a defined number of credits. A credits represent one conversion.<br />
+                Each plans comes with a defined number of conversions. A conversions represent one document converted.<br />
                 We recommend you to start with the Free plan and upgrade depending on your needs. It's free, why not? ;)
             </p>
             <div>
@@ -23,7 +23,7 @@
                             <p class="month">per month</p>
                         </div>
                         <ul>
-                            <li><strong>250</strong> credits</li>
+                            <li><strong>250</strong> conversions</li>
                             <li><strong>2MB</strong> per documents</li>
                         </ul>
                     </div>
@@ -40,7 +40,7 @@
                             <p class="month">per month</p>
                         </div>
                         <ul>
-                            <li><strong>1.000</strong> credits</li>
+                            <li><strong>1.000</strong> conversions</li>
                             <li><strong>5MB</strong> per documents</li>
                         </ul>
                     </div>
@@ -57,7 +57,7 @@
                             <p class="month">per month</p>
                         </div>
                         <ul>
-                            <li><strong>10.000</strong> credits</li>
+                            <li><strong>10.000</strong> conversions</li>
                             <li><strong>10MB</strong> per documents</li>
 
                         </ul>
@@ -75,7 +75,7 @@
                             <p class="month">per month</p>
                         </div>
                         <ul>
-                            <li><strong>50.000</strong> credits</li>
+                            <li><strong>50.000</strong> conversions</li>
                             <li><strong>25MB</strong> per documents</li>
                         </ul>
                     </div>

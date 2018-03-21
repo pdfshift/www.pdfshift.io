@@ -14,7 +14,7 @@
             <div id="api-endpoint" class="section">
                 <h3>API Endpoint</h3>
                 <p>
-                    In order to convert an HTML document, you must send a <strong>POST</strong> request to
+                    In order to convert an HTML document to PDF, you must send a <strong>POST</strong> request to
                 </p>
                 <p class="center">
                     <code>https://api.pdfshift.io/v2/convert</code>.
@@ -411,10 +411,10 @@ export default {
                         },
                         */
                         {
-                            name: 'protections',
+                            name: 'protection',
                             required: false,
                             type: 'Object',
-                            description: 'Will add restrictions on the PDF document. See the #Protections part for more details',
+                            description: 'Will add restrictions on the PDF document. See the #Protection part for more details',
                             default: 'null'
                         },
                         {
@@ -539,8 +539,8 @@ export default {
                     ]
                 },
                 {
-                    name: 'Protections',
-                    key: 'protections',
+                    name: 'Protection',
+                    key: 'protection',
                     description: 'You can restrict access to your generated document using the following rules:',
                     parameters: [
                         {

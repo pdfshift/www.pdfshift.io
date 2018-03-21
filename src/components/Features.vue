@@ -14,43 +14,76 @@
                 <h3>Inline HTML</h3>
                 <p>Instead of providing an URL, you can directly send a HTML data, encoded in base64.</p>
                 <language-switch :active="$route.query.lang" />
-                <pre><code v-hljs>// Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
+-H "Content-Type: application/json" \
+-d '{"source":"&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello world&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;"}' \
+https://api.pdfshift.io/v2/convert/</code></pre>
             </div>
             <div class="example">
                 <h3>Custom CSS</h3>
                 <p>You can customize the document before generating the PDF, to adapt the page to your needs.</p>
                 <language-switch :active="$route.query.lang" />
-                <pre><code v-hljs>// Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>// cURL Code</code></pre>
             </div>
             <div class="example">
                 <h3>Add custom HTTP Headers</h3>
                 <p>It can be useful to add custom HTTP headers, like auth headers, http-agent, custom language, etc.</p>
                 <language-switch :active="$route.query.lang" />
-                <pre><code v-hljs>// Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>// cURL Code</code></pre>
+            </div>
+            <div class="example">
+                <h3>Accessing secured pages</h3>
+                <p>You can rely on custom HTTP headers to do the job, or directly provide the credentials. (These are never stored!).</p>
+                <language-switch :active="$route.query.lang" />
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>// cURL Code</code></pre>
             </div>
             <div class="example">
                 <h3>Add cookies (Feeling hungry?)</h3>
                 <p>You can add custom cookies to load a protected page.</p>
                 <language-switch :active="$route.query.lang" />
-                <pre><code v-hljs>// Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>// cURL Code</code></pre>
             </div>
             <div class="example">
                 <h3>Add Watermark</h3>
                 <p>Protect your PDF with a watermark at ease with PDFShift.</p>
                 <language-switch :active="$route.query.lang" />
-                <pre><code v-hljs>// Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>// cURL Code</code></pre>
             </div>
             <div class="example">
                 <h3>Custom Header / Footer for your PDF</h3>
                 <p>Add a custom header/footer to your PDF document with pagination.</p>
                 <language-switch :active="$route.query.lang" />
-                <pre><code v-hljs>// Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>// cURL Code</code></pre>
             </div>
             <div class="example">
                 <h3>Protect the generated PDF</h3>
                 <p>Define who can read/open your newly generated document.</p>
                 <language-switch :active="$route.query.lang" />
-                <pre><code v-hljs>// Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>// Javascript code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'python'}"><code class="python" v-hljs>// Python Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>// cURL Code</code></pre>
             </div>
 
             <div class="cta">
@@ -119,6 +152,11 @@ export default {
     code {
         padding: 10px;
         margin: 10px 0;
+    }
+
+    pre {
+        display: none;
+        &.visible {display: block}
     }
 }
 

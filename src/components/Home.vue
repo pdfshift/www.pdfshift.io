@@ -56,9 +56,10 @@ with open('invoice.pdf', 'wb') as f:
                             <pre><code class="ruby" v-hljs>Code for Ruby</code></pre>
                         </div>
                         <div v-bind:class="{'visible': isTab('curl')}">
-                            <pre><code class="bash" v-hljs>curl https://api.pdfshift.io/convert \
--u super_secret_api_key: \
--d source=html_data_base64</code></pre>
+                            <pre><code class="bash" v-hljs>curl \
+  -H "Content-Type: application/json" \
+  -d '{"source":"https://www.google.com"}' \
+  https://api.pdfshift.io/v2/convert/</code></pre>
                         </div>
                     </div>
                 </div>
