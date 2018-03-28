@@ -233,6 +233,7 @@ export default {
                             example: 'true',
                             default: 'false'
                         },
+                        /*
                         {
                             name: 'grayscale',
                             required: false,
@@ -241,6 +242,7 @@ export default {
                             example: 'true',
                             default: 'false'
                         },
+                        */
                         {
                             name: 'landscape',
                             required: false,
@@ -266,7 +268,7 @@ export default {
                             default: 'null'
                         },
                         {
-                            name: 'disable_image',
+                            name: 'disable_images',
                             required: false,
                             type: 'Boolean',
                             description: 'Images will not be included in the final document.',

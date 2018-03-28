@@ -8,7 +8,7 @@
                     An HTML to PDF conversion API that doesn't suck!
                     <small>Converts any HTML document to PDF with just 2 lines of code!</small>
                     -->
-                    Converting HTML to Pdf - Just. Got. Better.
+                    Converting HTML to PDF, Just. Got. Better.
                     <small>The HTML to PDF API you were waiting for.</small>
                 </h1>
 
@@ -40,10 +40,11 @@ f.write(result)
 pip install pdfshift
 
 # Step 2, import PDFShift
-import pdfshift
+import pdfshift, env
 
 # Step 3, execute
-result = pdfshift(env.getenv('PDFSHIFT_KEY')).convert(source=data)
+pdfshift.api_key = env.getenv('PDFSHIFT_KEY')
+result = pdfshift.convert(source=data)
 with open('invoice.pdf', 'wb') as f:
     f.write(result)
 
