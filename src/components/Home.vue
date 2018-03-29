@@ -17,7 +17,6 @@
                         <router-link :to="{name: 'Home', query: {'tab': 'javascript'}}" tag="li" active-class="active" exact replace><a>Javascript</a></router-link>
                         <router-link :to="{name: 'Home', query: {'tab': 'python'}}" tag="li" active-class="active" exact replace><a>Python</a></router-link>
                         <router-link :to="{name: 'Home', query: {'tab': 'php'}}" tag="li" active-class="active" exact replace><a>PHP</a></router-link>
-                        <router-link :to="{name: 'Home', query: {'tab': 'ruby'}}" tag="li" active-class="active" exact replace><a>Ruby</a></router-link>
                         <router-link :to="{name: 'Home', query: {'tab': 'curl'}}" tag="li" active-class="active" exact replace><a>cURL</a></router-link>
                     </ul>
                     <div class="tab-content">
@@ -26,12 +25,13 @@
 npm install pdfshift
 
 // Step 2, import PDFShift
-let pdfshift = require('pdfshift')
+const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+const fs = require('fs');
 
 // Step 3, execute
-result = pdfshift.convert(source=data)
-with open('invoice.pdf', 'wb') as f:
-f.write(result)
+pdfshift.convert('https://www.example.com').then(function (binary_file) {
+    fs.writeFile('result.pdf', binary_file, "binary", function () {})
+}).catch(function({message, code, response, errors = null}) {})
 
 // Step 4: Grab a beer and relax. You've won the web today!</code></pre>
                         </div>
@@ -43,7 +43,7 @@ pip install pdfshift
 import pdfshift, env
 
 # Step 3, execute
-pdfshift.api_key = env.getenv('PDFSHIFT_KEY')
+pdfshift.api_key = '120d8e8a86d2....................'
 result = pdfshift.convert(source=data)
 with open('invoice.pdf', 'wb') as f:
     f.write(result)
@@ -53,14 +53,20 @@ with open('invoice.pdf', 'wb') as f:
                         <div v-bind:class="{'visible': isTab('php')}">
                             <pre><code class="php" v-hljs>// Code for PHP</code></pre>
                         </div>
-                        <div v-bind:class="{'visible': isTab('ruby')}">
-                            <pre><code class="ruby" v-hljs>Code for Ruby</code></pre>
-                        </div>
                         <div v-bind:class="{'visible': isTab('curl')}">
                             <pre><code class="bash" v-hljs>curl \
-  -H "Content-Type: application/json" \
-  -d '{"source":"https://www.google.com"}' \
-  https://api.pdfshift.io/v2/convert/</code></pre>
+  -u '120d8e8a86d2....................:' \
+  -d source="https://www.google.com" \
+  https://api.pdfshift.io/v2/convert/
+
+# So simple we have this long black space available ...
+#
+# ...
+#
+# See ???
+#
+# Have you thought about grabing that beer? You should! :)
+</code></pre>
                         </div>
                     </div>
                 </div>

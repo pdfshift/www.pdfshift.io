@@ -546,7 +546,7 @@ export default {
                     description: 'You can restrict access to your generated document using the following rules:',
                     parameters: [
                         {
-                            name: 'encryption',
+                            name: 'encrypt',
                             required: false,
                             type: 'Number',
                             description: 'Level of encryption. There are two available: 40bit and 128bit.',
@@ -633,7 +633,7 @@ export default {
                             example: '240px'
                         },
                         {
-                            name: 'rotation',
+                            name: 'rotate',
                             required: false,
                             type: 'Number',
                             description: 'Rotation of the image, in degrees',
