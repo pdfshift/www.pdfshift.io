@@ -30,7 +30,7 @@ const fs = require('fs');
 
 // Step 3, execute
 pdfshift.convert('https://www.example.com').then(function (binary_file) {
-    fs.writeFile('result.pdf', binary_file, "binary", function () {})
+    fs.writeFile('invoice.pdf', binary_file, "binary", function () {})
 }).catch(function({message, code, response, errors = null}) {})
 
 // Step 4: Grab a beer and relax. You've won the web today!</code></pre>
@@ -51,13 +51,26 @@ with open('invoice.pdf', 'wb') as f:
 # Step 4: Grab a beer and relax. You've won the web today!</code></pre>
                         </div>
                         <div v-bind:class="{'visible': isTab('php')}">
-                            <pre><code class="php" v-hljs>// Code for PHP</code></pre>
+                            <pre><code class="php" v-hljs>// Step 1, install PDFShift
+composer require pdfshift/pdfshift-php
+
+// Step 2, import PDFShift
+require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+
+// Step 3, execute
+PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
+
+// Step 4: Grab a beer and relax. You've won the web today!
+                        </code></pre>
                         </div>
                         <div v-bind:class="{'visible': isTab('curl')}">
                             <pre><code class="bash" v-hljs>curl \
   -u '120d8e8a86d2....................:' \
   -d source="https://www.google.com" \
-  https://api.pdfshift.io/v2/convert/
+  https://api.pdfshift.io/v2/convert/ \
+  -O invoice.pdf
 
 # So simple we have this long black space available ...
 #

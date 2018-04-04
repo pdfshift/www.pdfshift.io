@@ -17,7 +17,7 @@
                 <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>const pdfshift = require('./')('120d8e8a86d2....................');
 const fs = require('fs');
 
-let data = fs.readFileSync('page.html', 'utf8');
+let data = fs.readFileSync('invoice.html', 'utf8');
 
 pdfshift.convert(data).then(function (binary_file) {
     fs.writeFile('result.pdf', binary_file, "binary", function () {})
@@ -33,7 +33,12 @@ binary_file = pdfshift.convert(document_content)
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)
 </code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+$data = file_get_content('invoice.html');
+PDFShift::convertTo($data, null, 'result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello world&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;" \
@@ -59,7 +64,12 @@ binary_file = pdfshift.convert(
 
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+$data = file_get_content('invoice.html');
+PDFShift::convertTo(data, ['css' => 'https://www.example.com/public/css/print.css'], 'result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://example.com" \
@@ -73,7 +83,7 @@ https://api.pdfshift.io/v2/convert/</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>const pdfshift = require('./')('120d8e8a86d2....................');
 const fs = require('fs');
 
-// We use .prepare() instead of .convert for easily handle advanced configuration
+// We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://httpbin.org/headers')
     .setHTTPHeaders({
         'X-Original-Header': 'Awesome value'
@@ -97,7 +107,16 @@ binary_file = pdfshift.convert(
 
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+// We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
+$pdfshift = new PDFShift();
+$pdfshift->setHTTPHeaders(['X-Original-Header' => 'Awesome value']);
+$pdfshift->addHTTPHeader('user-agent', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'); // Also works like this
+$pdfshift->convert('https://httpbin.org/headers');
+$pdfshift->save('result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://httpbin.org/headers" \
@@ -112,7 +131,7 @@ https://api.pdfshift.io/v2/convert/</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>const pdfshift = require('./')('120d8e8a86d2....................');
 const fs = require('fs');
 
-// We use .prepare() instead of .convert for easily handle advanced configuration
+// We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://httpbin.org/basic-auth/user/passwd')
     .auth('user', 'passwd')
     .convert()
@@ -127,7 +146,15 @@ binary_file = pdfshift.convert('https://httpbin.org/basic-auth/user/passwd', aut
 
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+// We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
+$pdfshift = new PDFShift();
+$pdfshift->auth('user', 'passwd');
+$pdfshift->convert('https://httpbin.org/basic-auth/user/passwd');
+$pdfshift->save('result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://httpbin.org/basic-auth/user/passwd" \
@@ -142,7 +169,7 @@ https://api.pdfshift.io/v2/convert/</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>const pdfshift = require('./')('120d8e8a86d2....................');
 const fs = require('fs');
 
-// We use .prepare() instead of .convert for easily handle advanced configuration
+// We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://httpbin.org/cookies')
     .addCookie({name: 'session', value: '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'})
     .convert()
@@ -162,7 +189,15 @@ binary_file = pdfshift.convert(
 
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+// We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
+$pdfshift = new PDFShift();
+$pdfshift->addCookie('session', '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac');
+$pdfshift->convert('https://httpbin.org/cookies');
+$pdfshift->save('result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://example.com" \
@@ -177,7 +212,7 @@ https://api.pdfshift.io/v2/convert/</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>const pdfshift = require('./')('120d8e8a86d2....................');
 const fs = require('fs');
 
-// We use .prepare() instead of .convert for easily handle advanced configuration
+// We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://www.example.com')
     .watermark({
         source: 'https://pdfshift.io/static/static/img/logo.png',
@@ -207,7 +242,21 @@ binary_file = pdfshift.convert(
 
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+// We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
+$pdfshift = new PDFShift();
+$pdfshift->watermark([
+    'source' => 'https://pdfshift.io/static/static/img/logo.png',
+    'offsetX' => 50,
+    'offsetY' => '100px',
+    'rotate' => 45,
+    'background' => true
+])
+$pdfshift->convert('https://www.example.com');
+$pdfshift->save('result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://example.com" \
@@ -225,7 +274,7 @@ https://api.pdfshift.io/v2/convert/</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>const pdfshift = require('./')('120d8e8a86d2....................');
 const fs = require('fs');
 
-// We use .prepare() instead of .convert for easily handle advanced configuration
+// We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://www.example.com')
     .footer({source: '&lt;div&gt;Page {{custom_header_template}}&lt;/div&gt;', spacing: '50px'})
     .convert()
@@ -246,7 +295,15 @@ binary_file = pdfshift.convert(
 
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+// We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
+$pdfshift = new PDFShift();
+$pdfshift->setFooter('<div>Page {{page}} of {{total}}</div>', '50px');
+$pdfshift->convert('https://www.example.com');
+$pdfshift->save('result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://example.com" \
@@ -261,7 +318,7 @@ https://api.pdfshift.io/v2/convert/</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'javascript'}"><code class="javascript" v-hljs>const pdfshift = require('./')('120d8e8a86d2....................');
 const fs = require('fs');
 
-// We use .prepare() instead of .convert for easily handle advanced configuration
+// We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://www.example.com')
     .protect({
         encrypt: 128,
@@ -289,7 +346,20 @@ binary_file = pdfshift.convert(
 
 with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code></pre>
-                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>// PHP Code coming soon!</code></pre>
+                <pre v-bind:class="{'visible': $route.query.lang == 'php'}"><code class="php" v-hljs>require_once('vendor/autoload.php');
+use \PDFShift\PDFShift;
+PDFShift::setApiKey('120d8e8a86d2....................');
+
+// We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
+$pdfshift = new PDFShift();
+$pdfshift->protect([
+    'encrypt' => 128,
+    'userPassword' => 'user',
+    'ownerPassword' => 'owner',
+    'noPrint' => true
+]);
+$pdfshift->convert('https://www.example.com');
+$pdfshift->save('result.pdf');</code></pre>
                 <pre v-bind:class="{'visible': $route.query.lang == 'curl'}"><code class="bash" v-hljs>curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://example.com" \
