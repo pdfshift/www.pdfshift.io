@@ -20,8 +20,7 @@
                         <router-link :to="{name: 'Home', query: {'tab': 'curl'}}" tag="li" active-class="active" exact replace><a>cURL</a></router-link>
                     </ul>
                     <div class="tab-content">
-                        <div v-bind:class="{'visible': isTab('javascript')}">
-                            <pre><code class="javascript" v-hljs>// Step 1, install PDFShift
+                        <code-section lang="javascript" :visible="isTab('javascript')">// Step 1, install PDFShift
 npm install pdfshift
 
 // Step 2, import PDFShift
@@ -30,13 +29,11 @@ const fs = require('fs');
 
 // Step 3, execute
 pdfshift.convert('https://www.example.com').then(function (binary_file) {
-    fs.writeFile('invoice.pdf', binary_file, "binary", function () {})
+fs.writeFile('invoice.pdf', binary_file, "binary", function () {})
 }).catch(function({message, code, response, errors = null}) {})
 
-// Step 4: Grab a beer and relax. You've won the web today!</code></pre>
-                        </div>
-                        <div v-bind:class="{'visible': isTab('python')}">
-                            <pre><code class="python" v-hljs># Step 1, install PDFShift
+// Step 4: Grab a beer and relax. You've won the web today!</code-section>
+                        <code-section lang="python" :visible="isTab('python')"># Step 1, install PDFShift
 pip install pdfshift
 
 # Step 2, import PDFShift
@@ -48,10 +45,8 @@ result = pdfshift.convert(source=data)
 with open('invoice.pdf', 'wb') as f:
     f.write(result)
 
-# Step 4: Grab a beer and relax. You've won the web today!</code></pre>
-                        </div>
-                        <div v-bind:class="{'visible': isTab('php')}">
-                            <pre><code class="php" v-hljs>// Step 1, install PDFShift
+# Step 4: Grab a beer and relax. You've won the web today!</code-section>
+                        <code-section lang="php" :visible="isTab('php')">// Step 1, install PDFShift
 composer require pdfshift/pdfshift-php
 
 // Step 2, import PDFShift
@@ -62,11 +57,8 @@ use \PDFShift\PDFShift;
 PDFShift::setApiKey('120d8e8a86d2....................');
 PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
 
-// Step 4: Grab a beer and relax. You've won the web today!
-                        </code></pre>
-                        </div>
-                        <div v-bind:class="{'visible': isTab('curl')}">
-                            <pre><code class="bash" v-hljs>curl \
+// Step 4: Grab a beer and relax. You've won the web today!</code-section>
+                        <code-section lang="bash" :visible="isTab('curl')">curl \
   -u '120d8e8a86d2....................:' \
   -d source="https://www.google.com" \
   https://api.pdfshift.io/v2/convert/ \
@@ -78,9 +70,7 @@ PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
 #
 # See ???
 #
-# Have you thought about grabing that beer? You should! :)
-</code></pre>
-                        </div>
+# Have you thought about grabing that beer? You should! :)</code-section>
                     </div>
                 </div>
             </div>
@@ -133,9 +123,13 @@ PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
 
 <script>
 import HeaderComponent from '@/components/partials/Header.vue'
+import CodeSection from '@/components/partials/CodeSection.vue'
 
 export default {
-    components: {HeaderComponent: HeaderComponent},
+    components: {
+        HeaderComponent: HeaderComponent,
+        CodeSection: CodeSection
+    },
     beforeRouteEnter (to, from, next) {
         next(vm => {
             return vm.redirect(to.query.tab)
@@ -161,6 +155,15 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+<style>
+header .tab-content .code-section .buttons {
+    visibility: hidden;
+}
+header .tab-content .code-section:hover .buttons {
+    visibility: visible;
+}
+</style>
+
 <style lang="less" scoped>
     @import '../assets/styles/generals.less';
     @import '../assets/styles/colors.less';
@@ -215,25 +218,6 @@ export default {
                 margin-top: 20px;
                 border: solid 2px fadeout(@primary_color, 40%);
                 box-shadow: 10px 10px 10px fadeout(@primary_color, 60%);
-
-                &>div {
-                    display: none;
-                    transition: 0.25s all;
-
-                    &.visible {
-                        display: block;
-                    }
-
-                    pre,code {margin: 0; padding: 0}
-                    code {
-                        padding: 20px;
-                        min-height: 325px;
-                        font-size: 18px;
-                        line-height: 1.5em;
-                        letter-spacing: 0.0625em;
-                        word-spacing: 0.0625em;
-                    }
-                }
             }
         }
     }
