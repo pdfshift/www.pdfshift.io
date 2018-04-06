@@ -157,6 +157,9 @@
 </template>
 
 <style lang="less" scoped>
+    .container {
+        max-width: 640px;
+    }
     .container>div {
         margin-top: 40px;
     }

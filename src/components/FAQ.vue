@@ -48,6 +48,8 @@
 </template>
 
 <style lang="less" scoped>
+    @import '../assets/styles/generals.less';
+    @import '../assets/styles/colors.less';
     .container {
         max-width: 640px;
     }

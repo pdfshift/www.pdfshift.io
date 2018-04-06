@@ -19,6 +19,8 @@
 
     &:hover {
         background-color: darken(@secondary_color, 10%);
+        color: #fff;
+        text-decoration: none;
     }
 }
 
@@ -68,6 +70,17 @@ header {
             display: block;
             font-size: 0.7em
         }
+    }
+}
+
+a {
+    color: #58488a;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+
+    &:hover {
+        color: darken(#58488a, 20%);
+        text-decoration: underline;
     }
 }
 
@@ -121,4 +134,14 @@ div.table {
         color: darken(@primary_color, 10%);
         margin: 0 0 30px;
     }
+}
+
+
+/* Code section with effects */
+.code-section .buttons {
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+.code-section:hover .buttons {
+    opacity: 1;
 }

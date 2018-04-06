@@ -88,12 +88,12 @@ PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
                     <h2>Why using PDFShift?</h2>
                     <ul>
                         <li>
-                            <h3>High Quality PDF</h3>
+                            <h3>High-Quality PDF</h3>
                             <p>Generate a fully structured, almost identical to the source, PDF document, in a few seconds only.</p>
                         </li>
                         <li>
                             <h3>Browser Based engine</h3>
-                            <p>Our HTML to PDF conversion engine rely on real browser and thus is capable of rendering HTML5, CSS3, SVG and Webfonts at ease.</p>
+                            <p>Our HTML to PDF conversion engine rely on a real browser and thus is capable of rendering HTML5, CSS3, SVG and, Webfonts at ease.</p>
                         </li>
                         <li>
                             <h3>Advanced Options</h3>
@@ -105,11 +105,11 @@ PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
                         </li>
                         <li>
                             <h3>Fast and Simple API</h3>
-                            <p>Our cluster of server can handle many simultaneous requests, and with large files. Our RESTful endpoint has a quick learning curve.</p>
+                            <p>Our cluster of servers can handle many simultaneous requests, and with large files. Our RESTful endpoint has a quick learning curve.</p>
                         </li>
                         <li>
                             <h3>High Availability</h3>
-                            <p>We guarantee a 99.99% uptime. And if our downtime ever causes you problem, we will refund you!</p>
+                            <p>We guarantee a 99.99% uptime. And if our downtime ever causes you any problems, we will refund you!</p>
                         </li>
                     </ul>
                     <div>
@@ -154,13 +154,9 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-header .tab-content .code-section .buttons {
-    visibility: hidden;
-}
-header .tab-content .code-section:hover .buttons {
-    visibility: visible;
+header .tabs .tab-content .code-section code {
+    min-height: 325px;
 }
 </style>
 

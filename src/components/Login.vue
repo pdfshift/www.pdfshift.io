@@ -3,23 +3,19 @@
         <header>
             <div>
                 <header-component />
-                <h1>Create your account now!</h1>
+                <h1>Login to your account</h1>
             </div>
         </header>
         <div class="container">
-            <router-link :to="{name: 'Login'}" class="login">Already have an account?</router-link>
+            <router-link :to="{name: 'Register'}" class="register">New here? Create your account.</router-link>
             <hr />
             <form method="post" v-if="!sent" @submit.prevent="send">
-                <legend>Fill the form and we will send you your <code>ACCESS_TOKEN</code> by email.</legend>
+                <legend>Indicate the email you used to create your account<br />we will send you a one-time login link.</legend>
                 <div class="input">
-                    <label for="start-now-name">Your name</label>
-                    <input type="text" name="name" placeholder="Your name" id="start-now-name" required v-model="form.name" />
+                    <label for="login-email">Your email</label>
+                    <input type="email" name="email" placeholder="Your email" id="login-email" required v-model="form.email" />
                 </div>
-                <div class="input">
-                    <label for="start-now-email">Your email</label>
-                    <input type="email" name="email" placeholder="Your email" id="start-now-email" required v-model="form.email" />
-                </div>
-                <input type="submit" name="send" value="Get your API key" class="button" />
+                <input type="submit" name="send" value="Log in to your account" class="button" />
             </form>
             <div class="back" v-if="sent">
                 <div class="message">
@@ -40,7 +36,6 @@ export default {
     data () {
         return {
             form: {
-                name: null,
                 email: null
             },
             sent: false
@@ -48,7 +43,7 @@ export default {
     },
     methods: {
         send () {
-            this.$http.post('accounts/', this.form)
+            this.$http.post('accounts/login', this.form)
             this.sent = true
             return true
         }
@@ -63,7 +58,7 @@ export default {
     .container {
         width: 600px;
 
-        &>a.login {
+        &>a.register {
             text-align: center;
             display: block;
             margin: 20px 0

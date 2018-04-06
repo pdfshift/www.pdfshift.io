@@ -5,7 +5,7 @@
                 <header-component />
                 <h1>
                     Documentation
-                    <small>The hub where coders meet 😉</small>
+                    <small>Find everything you need to know here.</small>
                 </h1>
             </div>
         </header>
@@ -20,23 +20,40 @@
                     <code>https://api.pdfshift.io/v2/convert</code>.
                 </p>
                 <p>
-                    In order to identify your account, you must use the <strong>Basic authentication</strong> by using your access key as the user.
+                    When starting, don't forget to add the <code>sandbox=True</code> parameter. This will let you make any number of calls to the API without losing any credits.<br />
+                    The resulting PDF will have a watermark on it, but it will help you make a working version of your code.
+                </p>
+                <p>
+                    And remove the <code>sandbox</code> parameter in production, and you will be all set!
                 </p>
                 <p class="cta">
                     <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
                 </p>
             </div>
+            <div id="api-authentication" class="section">
+                <h3>Authentication</h3>
+                <p>
+                    Authenticate your account by including your secret key in API requests. You can manage your API keys in the <router-link :to="{name: 'Register'}">Dashboard</router-link>.
+                </p>
+                <p>
+                    Authentication to the API is performed via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Auth</a>.
+                    Provide your API key as the basic auth username value. You do not need to provide a password.
+                </p>
+                <p>
+                    <code>curl -u '120d8e8a86d2....................:' -d source="https://www.example.com" https://api.pdfshift.io/v2/convert/</code>
+                </p>
+            </div>
             <div id="rate-limiting" class="section">
                 <h3>Rate limiting</h3>
                 <p>
-                    There is no restrictions per account. All accounts have the same rate limiting of <strong>45 requests per minutes</strong>.
+                    There are no restrictions per account. All accounts have the same rate limiting of <strong>45 requests per minutes</strong>.
                 </p>
                 <p>
                     If you frequently reach the rate limit, feel free to <a href="mailto:support@pdfshift.io">contact us</a> and we will see to configure a plan according to your needs.
                 </p>
                 <p>
                     When reaching the rate limit, you will get an HTTP status code of <code>429</code>.<br />
-                    Each requests will contains three headers to let you know your usage:
+                    Each request will contain three headers to let you know your usage:
                 </p>
                 <p>
                     <pre><code v-hljs class="json">X-RateLimit-Remaining: 30
@@ -44,8 +61,8 @@ X-RateLimit-Limit: 45
 X-RateLimit-Reset: 1466368960</code></pre>
                 </p>
                 <ul>
-                    <li><strong>X-RateLimit-Remaining</strong> Indicates the number of request before hitting the rate limit.</li>
-                    <li><strong>X-RateLimit-Reset</strong> Indicates the number of request you can make per minutes (always 45).</li>
+                    <li><strong>X-RateLimit-Remaining</strong> Indicates the number of requests before hitting the rate limit.</li>
+                    <li><strong>X-RateLimit-Reset</strong> Indicates the number of requests you can make per minutes (always 45).</li>
                     <li><strong>X-RateLimit-Reset</strong> Indicates when the rate limit will reset.</li>
                 </ul>
             </div>
@@ -82,7 +99,7 @@ X-RateLimit-Reset: 1466368960</code></pre>
                         <div class="headers">Description</div>
                         <div>Formatted print date</div>
                         <div>Title of the HTML document</div>
-                        <div>Page url</div>
+                        <div>Page URL</div>
                         <div>Current page</div>
                         <div>Total number of pages</div>
                     </div>
@@ -229,7 +246,7 @@ export default {
                             name: 'sandbox',
                             required: false,
                             type: 'Boolean',
-                            description: 'Will generates documents that does\'nt count in the credits. The generated document will come with a watermark.',
+                            description: 'Will generates documents that doesn\'t count in the credits. The generated document will come with a watermark.',
                             example: 'true',
                             default: 'false'
                         },
@@ -303,7 +320,7 @@ export default {
                             name: 'delay',
                             required: false,
                             type: 'Number',
-                            description: 'In miliseconds. Will wait this duration before capturing the document. Up to 10 seconds max. We wait 2seconds by default (2000ms)',
+                            description: 'In milliseconds. Will wait for this duration before capturing the document. Up to 10 seconds max. We wait 2seconds by default (2000ms)',
                             example: '2000',
                             default: '2000'
                         },
@@ -345,7 +362,7 @@ export default {
                             name: 'zoom',
                             required: false,
                             type: 'Number',
-                            description: 'Value between 0 and 50. Allows you to increase the zoom in the document for specific purposes.',
+                            description: 'A value between 0 and 50. Allows you to increase the zoom in the document for specific purposes.',
                             example: '15',
                             default: '1'
                         },
@@ -360,7 +377,7 @@ export default {
                             name: 'auth',
                             required: false,
                             type: 'Object',
-                            description: 'Object containing `username` and `password` for accessing password protected content.',
+                            description: 'Object containing `username` and `password` for accessing password-protected content.',
                             example: '{"username": "admin", "password": "r00t"}',
                             default: 'null'
                         },
@@ -423,7 +440,7 @@ export default {
                             name: 'watermark',
                             required: false,
                             type: 'Object',
-                            description: 'Add a watermark on the generated document. See the #Watermark part for more details.',
+                            description: 'Add a watermark to the generated document. See the #Watermark part for more details.',
                             default: 'null'
                         }
                     ]
@@ -461,7 +478,7 @@ export default {
                             name: 'http_only',
                             required: false,
                             type: 'Boolean',
-                            description: 'If set to true, this cookie will only be available to http request only (no javascript).',
+                            description: 'If set to true, this cookie will only be available to HTTP request only (no javascript).',
                             example: 'true',
                             default: 'false'
                         }
@@ -470,7 +487,7 @@ export default {
                 {
                     name: 'Margin',
                     key: 'margin',
-                    description: 'Margin of the document can be defined using the four parameters below:',
+                    description: 'The margin of the document can be defined using the four parameters below:',
                     parameters: [
                         {
                             name: 'top',
@@ -523,7 +540,7 @@ export default {
                             name: 'spacing',
                             required: true,
                             type: 'String',
-                            description: 'Spacing between the header or footer and the content. For header, it\'s the space between the header and the beginning of the document. For the footer, it\'s the space between the end of the document and the bottom of the page.',
+                            description: 'A spacing between the header or footer and the content. For header, it\'s the space between the header and the beginning of the document. For the footer, it\'s the space between the end of the document and the bottom of the page.',
                             default: 'null',
                             example: '150px'
                         }
@@ -565,7 +582,7 @@ export default {
                             name: 'user_password',
                             required: false,
                             type: 'String',
-                            description: 'User who have the password will be able to view the document and perform operations allowed bu the permission options',
+                            description: 'A user who has the password will be able to view the document and perform operations allowed by the permission options',
                             default: 'null',
                             example: 'super-secret-password'
                         },
@@ -573,7 +590,7 @@ export default {
                             name: 'owner_password',
                             required: false,
                             type: 'String',
-                            description: 'User who have the password will have unlimited access to the PDF, including changing the passwords and permission options.',
+                            description: 'A user who has the password will have unlimited access to the PDF, including changing the passwords and permission options.',
                             default: 'null',
                             example: 'super-secret-password'
                         },
@@ -606,7 +623,7 @@ export default {
                 {
                     name: 'Watermark',
                     key: 'watermark',
-                    description: 'You can add a watermark on your document easily. Here\'s how:',
+                    description: 'You can add a watermark to your document easily. Here\'s how:',
                     parameters: [
                         {
                             name: 'source',

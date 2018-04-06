@@ -6,6 +6,8 @@ import Features from '@/components/Features'
 import Documentation from '@/components/Documentation'
 import FAQ from '@/components/FAQ'
 import Register from '@/components/Register'
+import Login from '@/components/Login'
+import Account from '@/components/Account'
 import Terms from '@/components/Terms'
 import Privacy from '@/components/Privacy'
 import NotFound from '@/components/NotFound'
@@ -53,6 +55,16 @@ export default new Router({
             path: '/register',
             name: 'Register',
             component: Register
+        },
+        {
+            path: '/login',
+            name: 'Login',
+            component: Login
+        },
+        {
+            path: '/account/:token',
+            name: 'Account',
+            component: Account
         },
         {
             path: '/terms',

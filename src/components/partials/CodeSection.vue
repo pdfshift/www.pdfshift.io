@@ -91,9 +91,9 @@ div.code-section {
 }
 
 pre,code {margin: 0; padding: 0}
+
 code {
     padding: 20px;
-    min-height: 325px;
     font-size: 18px;
     line-height: 1.5em;
     letter-spacing: 0.0625em;

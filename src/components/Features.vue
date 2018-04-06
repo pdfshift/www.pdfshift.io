@@ -414,16 +414,6 @@ export default {
 }
 </script>
 
-<style>
-.container .example .code-section .buttons {
-    opacity: 0;
-    transition: opacity 0.25s ease-in-out;
-}
-.container .example .code-section:hover .buttons {
-    opacity: 1;
-}
-</style>
-
 <style lang="less" scoped>
 .example {
     margin-top: 60px;
@@ -445,19 +435,8 @@ export default {
         font-size: 0.9em
     }
 
-    pre, code {
-        margin: 0;
-        padding: 0;
-    }
-
-    code {
-        padding: 10px;
-        margin: 10px 0;
-    }
-
-    pre {
-        display: none;
-        &.visible {display: block}
+    .language-switch {
+        margin-bottom: 10px
     }
 }
 

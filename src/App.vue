@@ -3,17 +3,14 @@
     <router-view/>
     <footer>
         <div>
-            <div>
+            <div style="text-align: left">
                 <ul>
                     <router-link :to="{name: 'Privacy'}" tag="li" active-class="active"><a title="Read our Privacy Policy">Privacy Policy</a></router-link>
                     <router-link :to="{name: 'Terms'}" tag="li" active-class="active"><a title="Read our Terms of Use">Terms of Use</a></router-link>
                 </ul>
             </div>
-            <div>
+            <div style="text-align: right">
                 <a href="mailto:contact@pdfshift.io" title="Have a question? Want to say hi?">contact@pdfshift.io</a>
-            </div>
-            <div>
-                <p>Made with ☕<br />in Belfort, France</p>
             </div>
         </div>
     </footer>
@@ -36,8 +33,9 @@ body {
 }
 
 #app>footer {
-    background-color: fadeout(#5c62cd, 30%);
-    border-top: solid 1px #5c62cd;
+    background-color: #fff;
+    /* border-top: solid 1px #5c62cd; */
+    border-top: solid 1px #ddd;
     padding: 20px 0;
 
     &>div {
@@ -49,14 +47,18 @@ body {
         align-items: baseline;
 
         &>div {
-            color: #fff;
-            text-align: center;
+            color: #555;
             line-height: 1.65em;
             flex-grow: 1;
 
             a {
-                color: #fff;
+                color: #555;
                 text-decoration: none;
+                transition: color 0.25s ease-in-out;
+
+                &:hover {
+                    color: #222
+                }
             }
 
             ul>li {text-align: left}

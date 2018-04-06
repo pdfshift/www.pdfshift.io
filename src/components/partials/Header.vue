@@ -8,7 +8,7 @@
                 <router-link :to="{name: 'Documentation'}" tag="li" active-class="active"><a title="Read the documention and all the possibilities">Documentation</a></router-link>
                 <router-link :to="{name: 'Pricing'}" tag="li" active-class="active"><a title="Our pricing plans will cover all your needs">Pricing</a></router-link>
                 <router-link :to="{name: 'FAQ'}" tag="li" active-class="active"><a title="Have a question? We may have the answer!">FAQ</a></router-link>
-                <router-link :to="{name: 'Register'}" tag="li" active-class="active" class="register"><a title="Register now for free and start converting your documents!" class="button">Register</a></router-link>
+                <router-link :to="{name: 'Register'}" tag="li" active-class="active" class="register"><a title="Register now for free and start converting your documents!" class="button">Get your free API Key</a></router-link>
             </ul>
         </nav>
     </div>

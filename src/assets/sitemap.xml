@@ -10,11 +10,11 @@
         <lastmod>2018-02-23T10:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
     </url>
-    <url>
+    <!--<url>
         <loc>https://pdfshift.io/demo</loc>
         <lastmod>2018-02-23T10:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
-    </url>
+    </url>-->
     <url>
         <loc>https://pdfshift.io/documentation</loc>
         <lastmod>2018-02-23T10:00+00:00</lastmod>
