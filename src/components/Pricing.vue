@@ -132,6 +132,7 @@
 <style lang="less" scoped>
 @import '../assets/styles/generals.less';
 @import '../assets/styles/colors.less';
+@import '../assets/styles/plans.less';
 
     header {
         h1 {
@@ -239,86 +240,6 @@
                     &:first-child {
                         margin-right: 100px
                     }
-                }
-            }
-        }
-    }
-
-    .container>.plans {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: baseline;
-
-        .description {
-            flex-basis: 100%;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .plan {
-            &:first-child {
-                margin-left: 0;
-            }
-
-            flex-grow: 1;
-            flex-shrink: 1;
-            flex-basis: 0;
-            margin-left: 20px;
-            text-align: center;
-            background-color: fadeout(#5c62cd, 80%);
-            border: solid 1px @primary_color;
-
-            h3 {
-                margin: 0;
-                background-color: @secondary_color;
-                border-bottom: solid 5px darken(@primary_color, 10%);
-
-                padding: 20px;
-                color: #fff;
-                font-weight: 600;
-                text-transform: uppercase;
-            }
-
-            .header {
-                font-size: 90px;
-                border-bottom: 1px solid #bbb;
-                padding: 10px 0 40px;
-                color: #555;
-
-                span {
-                    font-size: 32px;
-                }
-
-                .month {
-                    font-size: 14px;
-                    color: #575757;
-                    padding: 0px;
-                    margin: -10px;
-                }
-            }
-
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                li {
-                    margin: 0;
-                    padding: 10px;
-                    border-bottom: solid 1px #bbb;
-                    color: #444;
-                }
-            }
-
-            .cta {
-                margin: 40px 0;
-                a {
-                    text-decoration: none;
-                    color: #fff;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    padding: 10px 30px;
                 }
             }
         }

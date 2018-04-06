@@ -8,6 +8,7 @@ import FAQ from '@/components/FAQ'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Account from '@/components/Account'
+import Upgrade from '@/components/Upgrade'
 import Terms from '@/components/Terms'
 import Privacy from '@/components/Privacy'
 import NotFound from '@/components/NotFound'
@@ -65,6 +66,11 @@ export default new Router({
             path: '/account/:token',
             name: 'Account',
             component: Account
+        },
+        {
+            path: '/account/:token/upgrade',
+            name: 'Upgrade',
+            component: Upgrade
         },
         {
             path: '/terms',
