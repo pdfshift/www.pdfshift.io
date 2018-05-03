@@ -184,7 +184,7 @@ header .tabs .tab-content .code-section code {
                         color: #fff;
                         font-weight: bold;
                         transition: color .25s ease, background-color 0.25s ease;
-                        width: 120px;
+                        min-width: 160px;
 
                         &:after {
                             background: none repeat scroll 0 0 transparent;

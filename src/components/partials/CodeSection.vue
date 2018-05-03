@@ -70,9 +70,8 @@ div.code-section {
 
         &>a {
             display: block;
-            width: 150px;
+            width: 180px;
             text-align: center;
-            width: 130px;
             padding: 10px 20px;
             background-color: #c7c7c7;
             color: #333;
