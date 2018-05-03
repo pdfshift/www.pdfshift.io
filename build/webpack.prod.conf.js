@@ -117,7 +117,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     },
     {
         from: path.resolve(__dirname, '../src/assets') + '/*',
-        to: config.build.assetsRoot,
+        to: config.build.assetsSubDirectory,
         flatten: true
     }
     ])

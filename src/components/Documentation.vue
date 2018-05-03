@@ -66,6 +66,12 @@ X-RateLimit-Reset: 1466368960</code></pre>
                     <li><strong>X-RateLimit-Reset</strong> Indicates when the rate limit will reset.</li>
                 </ul>
             </div>
+            <div id="api-result" class="section">
+                <h3>Result</h3>
+                <p>
+                    When the request is successful, PDFShift will return the raw PDF directly created.
+                </p>
+            </div>
             <div :id="'section-' + section.key" class="section" v-for="section in sections" :key="section.key">
                 <h3>{{ section.name }}</h3>
                 <p v-if="section.description">{{ section.description }}</p>
@@ -560,16 +566,8 @@ export default {
                 {
                     name: 'Protection',
                     key: 'protection',
-                    description: 'You can restrict access to your generated document using the following rules:',
+                    description: 'You can restrict access to your generated document using the following rules. The encryption is made in 128bits.',
                     parameters: [
-                        {
-                            name: 'encrypt',
-                            required: false,
-                            type: 'Number',
-                            description: 'Level of encryption. There are two available: 40bit and 128bit.',
-                            default: 'null',
-                            example: '128'
-                        },
                         {
                             name: 'author',
                             required: false,
@@ -584,7 +582,7 @@ export default {
                             type: 'String',
                             description: 'A user who has the password will be able to view the document and perform operations allowed by the permission options',
                             default: 'null',
-                            example: 'super-secret-password'
+                            example: 'super-user-password'
                         },
                         {
                             name: 'owner_password',
@@ -592,7 +590,7 @@ export default {
                             type: 'String',
                             description: 'A user who has the password will have unlimited access to the PDF, including changing the passwords and permission options.',
                             default: 'null',
-                            example: 'super-secret-password'
+                            example: 'super-owner-password'
                         },
                         {
                             name: 'no_print',
@@ -621,12 +619,51 @@ export default {
                     ]
                 },
                 {
-                    name: 'Watermark',
-                    key: 'watermark',
-                    description: 'You can add a watermark to your document easily. Here\'s how:',
+                    name: 'Watermark with Image',
+                    key: 'watermark-image',
+                    description: 'You can add an image as watermark to your document easily. Here\'s how:',
                     parameters: [
                         {
-                            name: 'source',
+                            name: 'image',
+                            required: false,
+                            type: 'String',
+                            description: 'Image file to add on top of the generated PDF. PDFShift will automatically detect if it\'s an URL or a data, and act accordingly. When sending as data, the value must be base64 encoded.',
+                            example: 'http://www.website.com/images/logo.png',
+                            default: 'null'
+                        },
+                        {
+                            name: 'offset_x',
+                            required: false,
+                            type: 'Number/String',
+                            description: 'Position starting from the left of the document. Accepted values are any number, "left", "right" or "center".',
+                            default: 'null',
+                            example: 'center'
+                        },
+                        {
+                            name: 'offset_y',
+                            required: false,
+                            type: 'Number/String',
+                            description: 'Position starting from the top of the document. Accepted values are any number, "top", "middle", "bottom".',
+                            default: 'null',
+                            example: 'middle'
+                        },
+                        {
+                            name: 'rotate',
+                            required: false,
+                            type: 'Number',
+                            description: 'Rotation of the image, in degrees',
+                            default: 'null',
+                            example: '90'
+                        }
+                    ]
+                },
+                {
+                    name: 'Watermark with Text',
+                    key: 'watermark',
+                    description: 'You can add a text as a watermark on your document easily. Here\'s how:',
+                    parameters: [
+                        {
+                            name: 'text',
                             required: false,
                             type: 'String',
                             description: 'Image or PDF (single page) document to add on top of the generated PDF. PDFShift will automatically detect if it\'s an URL or a data, and act accordingly. When sending as data, the value must be base64 encoded.',
@@ -637,7 +674,7 @@ export default {
                             name: 'offset_x',
                             required: false,
                             type: 'String',
-                            description: 'Position starting from the left of the document, if an image is provided.',
+                            description: 'Position starting from the left of the document. Accepted values are any number, "left", "right" or "center".',
                             default: 'null',
                             example: '150px'
                         },
@@ -645,7 +682,7 @@ export default {
                             name: 'offset_y',
                             required: false,
                             type: 'String',
-                            description: 'Position starting from the top of the document, if an image is provided.',
+                            description: 'Position starting from the top of the document. Accepted values are any number, "top", "middle", "bottom".',
                             default: 'null',
                             example: '240px'
                         },
@@ -653,17 +690,72 @@ export default {
                             name: 'rotate',
                             required: false,
                             type: 'Number',
-                            description: 'Rotation of the image, in degrees',
+                            description: 'Rotation of the text, in degrees',
                             default: 'null',
                             example: '90'
                         },
                         {
-                            name: 'background',
+                            name: 'font_size',
+                            required: false,
+                            type: 'Number',
+                            description: 'Size of the font, in points.',
+                            default: '16',
+                            example: '25'
+                        },
+                        {
+                            name: 'font_family',
+                            required: false,
+                            type: 'String',
+                            description: 'Font Family native to PDF. Allowed fonts are Helvetica, Times and Courier.',
+                            default: 'null',
+                            example: '90'
+                        },
+                        {
+                            name: 'font_color',
+                            required: false,
+                            type: 'String',
+                            description: 'Color of the font, in hexadecimal.',
+                            default: '#000',
+                            example: '#ccc'
+                        },
+                        {
+                            name: 'font_opacity',
+                            required: false,
+                            type: 'Number',
+                            description: 'Opacity of the font, between 0 (invisible) and 100.',
+                            default: '100',
+                            example: '50'
+                        },
+                        {
+                            name: 'font_bold',
                             required: false,
                             type: 'Boolean',
-                            description: 'If set to true, will push the image to the background instead of the foreground.',
+                            description: 'Set the font in Bold.',
                             default: 'false',
                             example: 'true'
+                        },
+                        {
+                            name: 'font_italic',
+                            required: false,
+                            type: 'Boolean',
+                            description: 'Set the font in italic.',
+                            default: 'false',
+                            example: 'true'
+                        }
+                    ]
+                },
+                {
+                    name: 'Watermark with PDF',
+                    key: 'watermark',
+                    description: 'You can also add a watermark to your document easily using an already existing PDF (one page) file.. Here\'s how:',
+                    parameters: [
+                        {
+                            name: 'source',
+                            required: false,
+                            type: 'String',
+                            description: 'PDF (single page) document to add on top of the generated PDF. PDFShift will automatically detect if it\'s an URL or a data, and act accordingly. When sending as data, the value must be base64 encoded.',
+                            example: 'http://www.website.com/images/watermark.pdf',
+                            default: 'null'
                         }
                     ]
                 }

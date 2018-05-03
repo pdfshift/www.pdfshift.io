@@ -6,10 +6,10 @@
                 <h1>Create your account now!</h1>
             </div>
         </header>
-        <div class="container">
+        <div class="container" v-if="!sent">
             <router-link :to="{name: 'Login'}" class="login">Already have an account?</router-link>
             <hr />
-            <form method="post" v-if="!sent" @submit.prevent="send">
+            <form method="post" @submit.prevent="send">
                 <legend>Fill the form and we will send you your <code>ACCESS_TOKEN</code> by email.</legend>
                 <div class="input">
                     <label for="start-now-name">Your name</label>
@@ -21,12 +21,12 @@
                 </div>
                 <input type="submit" name="send" value="Get your API key" class="button" />
             </form>
-            <div class="back" v-if="sent">
-                <div class="message">
-                    <h3>Welcome aboard, {{ form.name }}!</h3>
-                    <p>We just sent you an email to <strong>{{ form.email }}</strong> containing your new token to start playing with PDFShift.</p>
-                    <p>We are happy to have you as part of the PDFShift family!</p>
-                </div>
+        </div>
+        <div class="container back" v-if="sent">
+            <div class="message">
+                <h3>Welcome aboard, {{ form.name }}!</h3>
+                <p>We just sent you an email to <strong>{{ form.email }}</strong> containing your new token to start playing with PDFShift.</p>
+                <p>We are happy to have you as part of the PDFShift family!</p>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@ export default {
         send () {
             this.$http.post('accounts/', this.form)
             this.sent = true
-            return true
+            return false
         }
     }
 }

@@ -3,7 +3,7 @@
         <pre><code :class="lang" v-hljs ref="code"><slot></slot></code></pre>
         <div class="buttons">
             <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy" v-if="clipboard">{{ copyMessage }}</a>
-            <a href="javascript:;" title="Click here to copy to clipoard" class="button">Run this code</a>
+            <!--<a href="javascript:;" title="Click here to copy to clipoard" class="button">Run this code</a>-->
         </div>
     </div>
 </template>

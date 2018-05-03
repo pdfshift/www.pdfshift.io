@@ -3,24 +3,35 @@
         <header>
             <div>
                 <header-component />
-                <h1>Hi {{ account.firstname}}!</h1>
+                <h1>
+                    Hi {{ account.firstname}}!
+                    <small>Here's your account breakdown</small>
+                </h1>
             </div>
         </header>
         <div class="container">
             <div class="usage">
-                <h2>Your monthly usage ({{ getUsagePercentage()}}%)</h2>
-                <p>
-                    This month, you did <strong>{{ account.credits.used }}</strong> conversions over a total of <strong>{{ account.credits.credits }}</strong>.
-                    You still have <strong>{{ account.credits.remaining }}</strong> conversions remaining left.
-                </p>
-                <template v-if="account.plan">
-                    <p>You are on the <strong>{{ account.plan.name }}</strong> plan ({{ account.plan.price}}$/m).</p>
-                </template>
-                <template v-else>
-                    <p>You are on the <strong>Free</strong> plan.</p>
-                </template>
-                <div class="upgrade">
-                    <router-link :to="{name: 'Upgrade'}" title="Upgrade to a better plan" class="button">Upgrade to a better plan</router-link>
+                <h2>
+                    You are on the
+                    <template v-if="account.plan">
+                        &quot;{{ account.plan.name }}&quot; plan ({{ account.plan.price}}$/m).
+                    </template>
+                    <template v-else>
+                        &quot;Free&quot; plan.
+                    </template>
+                </h2>
+                <div class="rows">
+                    <div class="progression">
+                        <p>Conversions used: <strong>{{ account.credits.used }} / {{ account.credits.total }}</strong>.</p>
+                        <div class="progress-bar">
+                            <div class="bar">
+                                <div :style="'width:' + getUsagePercentage() + '%'"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upgrade">
+                        <router-link :to="{name: 'upgrade-plans'}" title="Upgrade to a bigger plan" class="button">Upgrade to a bigger plan</router-link>
+                    </div>
                 </div>
             </div>
 
@@ -44,8 +55,8 @@
                         </div>
                     </li>
                 </ul>
-                <p>
-                    <a href="javascript:;" title="Click here to create a new API token" class="create" v-on:click="createNewKey">Create a new key</a>
+                <p class="create">
+                    <a href="javascript:;" title="Click here to create a new API token" v-on:click="createNewKey">Create a new key</a>
                 </p>
             </div>
         </div>
@@ -63,42 +74,12 @@ export default {
         }
     },
     created () {
+        console.log('created')
         this.$http.get('accounts/' + this.$route.params.token).then(
             response => {
                 this.account = response.body
             },
-            response => {
-                // TODO Remove Fake data!
-                this.account = {
-                    'api_keys': [
-                        {
-                            'created': 1522942633000,
-                            'removed': null,
-                            'token': '1c2ace0def5a4ee4965b67591a08cab1'
-                        },
-                        {
-                            'created': 1522942626000,
-                            'removed': null,
-                            'token': 'fbe6a9506c1e4af39144810b0c93665b'
-                        },
-                        {
-                            'created': 1521036689000,
-                            'removed': 1522942431000,
-                            'token': '6675afcc506e464a9a13b4f96b24ad0b'
-                        }
-                    ],
-                    'created': 1521036922000,
-                    'credits': {
-                        'credits': 250,
-                        'remaining': 233,
-                        'used': 17
-                    },
-                    'email': 'contact@cnicodeme.com',
-                    'firstname': 'Antoine',
-                    'name': 'Antoine Minoux',
-                    'plan': null
-                }
-            }
+            this.handleErrorXhr
         )
     },
     methods: {
@@ -110,9 +91,7 @@ export default {
                 response => {
                     this.$set(this.account.api_keys, position, response.body)
                 },
-                response => {
-                    alert('An error occured.')
-                }
+                this.handleErrorXhr
             )
         },
         createNewKey () {
@@ -120,21 +99,61 @@ export default {
                 response => {
                     this.account.api_keys.unshift(response.body)
                 },
-                response => {
-                    alert('An error occured.')
-                }
+                this.handleErrorXhr
             )
+        },
+        handleErrorXhr (response) {
+            let error = "An error occured...\nWe're sorry about it, if this continue, please contact us!"
+            if ('error' in response.body) {
+                error = response.body.error
+            }
+            alert(error)
         }
     }
 }
 </script>
 
 <style lang="less" scoped>
-.usage {
+@import '../assets/styles/colors.less';
+h2 {
+    border-bottom: solid 1px lighten(@secondary_color, 30%);
+}
 
+.rows {
+    display: flex;
+    flex-direction: row;
+
+    .progression {
+        width: calc(100% / 4 * 3);
+        margin-right: 20px;
+    }
+    .upgrade {
+        width: calc(100% / 4 * 1);
+        margin: 35px 0 0 20px;
+        text-align: right;
+    }
+}
+
+.progress-bar {
+    .bar {
+        height: 24px;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        border: solid 1px @secondary_color;
+
+        &>div {
+            background-color: @secondary_color;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+    }
 }
 
 .keys {
+    margin-top: 50px;
     ul>li {
         margin: 5px 0;
         padding: 5px 0;
@@ -163,18 +182,21 @@ export default {
         }
     }
 
-    a.create {
-        background-color: #eee;
-        border: solid 1px #bbb;
-        color: #333;
-        padding: 10px 20px;
-        margin-top: 10px;
-        display: inline-block;
-        text-decoration: none;
+    p.create {
+        text-align: right;
+        a {
+            background-color: #eee;
+            border: solid 1px #bbb;
+            color: #333;
+            padding: 10px 20px;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
 
-        &:hover {
-            background-color: #ddd;
-            color: #222
+            &:hover {
+                background-color: #ddd;
+                color: #222
+            }
         }
     }
 }

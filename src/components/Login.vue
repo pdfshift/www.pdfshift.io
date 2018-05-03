@@ -6,23 +6,23 @@
                 <h1>Login to your account</h1>
             </div>
         </header>
-        <div class="container">
+        <div class="container" v-if="!sent">
             <router-link :to="{name: 'Register'}" class="register">New here? Create your account.</router-link>
             <hr />
-            <form method="post" v-if="!sent" @submit.prevent="send">
+            <form method="post" @submit.prevent="send">
                 <legend>Indicate the email you used to create your account<br />we will send you a one-time login link.</legend>
                 <div class="input">
                     <label for="login-email">Your email</label>
                     <input type="email" name="email" placeholder="Your email" id="login-email" required v-model="form.email" />
                 </div>
-                <input type="submit" name="send" value="Log in to your account" class="button" />
+                <input type="submit" name="send" value="Log in to your account" class="button" v-bind="{'disabled': sending}"/>
             </form>
-            <div class="back" v-if="sent">
-                <div class="message">
-                    <h3>Welcome aboard, {{ form.name }}!</h3>
-                    <p>We just sent you an email to <strong>{{ form.email }}</strong> containing your new token to start playing with PDFShift.</p>
-                    <p>We are happy to have you as part of the PDFShift family!</p>
-                </div>
+        </div>
+        <div class="container back" v-if="sent">
+            <div class="message">
+                <h3>Welcome back, {{ form.name }}!</h3>
+                <p>We just sent you an email at <strong>{{ form.email }}</strong> to access your accounts details.</p>
+                <p>If you don't receive anything, feel free to contact us at <a href="mailto:support@pdfshift.io">support@pdfshift.io</a>.</p>
             </div>
         </div>
     </div>
@@ -38,14 +38,25 @@ export default {
             form: {
                 email: null
             },
-            sent: false
+            sent: false,
+            sending: false
         }
     },
     methods: {
         send () {
-            this.$http.post('accounts/login', this.form)
-            this.sent = true
-            return true
+            if (this.sending) {
+                return
+            }
+            this.sending = true
+            this.$http.post('accounts/login', this.form).then(
+                response => {
+                    this.form.name = response.body.name
+                    this.sending = false
+                    this.sent = true
+                }
+            )
+
+            return false
         }
     }
 }

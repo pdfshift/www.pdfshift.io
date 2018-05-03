@@ -4,10 +4,10 @@
     <footer>
         <div>
             <div style="text-align: left">
-                <ul>
-                    <router-link :to="{name: 'Privacy'}" tag="li" active-class="active"><a title="Read our Privacy Policy">Privacy Policy</a></router-link>
-                    <router-link :to="{name: 'Terms'}" tag="li" active-class="active"><a title="Read our Terms of Use">Terms of Use</a></router-link>
-                </ul>
+                <router-link :to="{name: 'Privacy'}" active-class="active" title="Read our Privacy Policy">Privacy Policy</router-link>
+            </div>
+            <div style="text-align: center">
+                <router-link :to="{name: 'Terms'}" active-class="active" title="Read our Terms of Use">Terms of Use</router-link>
             </div>
             <div style="text-align: right">
                 <a href="mailto:contact@pdfshift.io" title="Have a question? Want to say hi?">contact@pdfshift.io</a>

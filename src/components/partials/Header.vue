@@ -1,5 +1,13 @@
 <template>
-    <div class="navbar">
+    <div class="navbar" v-if="hideMenu">
+        <a class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="48" /></a>
+        <nav>
+            <ul>
+                <router-link :to="{name: 'Account', token: $route.params.token}" tag="li"><a title="Go back to your account">Go back</a></router-link>
+            </ul>
+        </nav>
+    </div>
+    <div class="navbar" v-else>
         <router-link :to="{name: 'Home'}" class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="48" /></router-link>
         <nav>
             <ul>
@@ -13,6 +21,21 @@
         </nav>
     </div>
 </template>
+
+<script>
+export default {
+    data () {
+        return {
+            hideMenu: false
+        }
+    },
+    created () {
+        if (this.$route.meta.hideMenu) {
+            this.hideMenu = true
+        }
+    }
+}
+</script>
 
 <style lang="less" scoped>
 @import '../../assets/styles/generals.less';

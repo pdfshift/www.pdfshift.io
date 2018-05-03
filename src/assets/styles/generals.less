@@ -1,3 +1,5 @@
+*, *:before, *:after {box-sizing:border-box;}
+
 .clearfix() {
     &:after {
         content: "";
@@ -18,9 +20,22 @@
     cursor: pointer;
 
     &:hover {
-        background-color: darken(@secondary_color, 10%);
         color: #fff;
         text-decoration: none;
+    }
+
+    &:not(.disabled):hover {
+        background-color: darken(@secondary_color, 10%);
+    }
+
+    &[disabled] {
+        opacity: 0.75;
+
+        &:hover {
+            cursor: default;
+            background-color: @secondary_color;
+            color: #fff;
+        }
     }
 }
 

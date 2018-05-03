@@ -8,7 +8,10 @@ import FAQ from '@/components/FAQ'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Account from '@/components/Account'
-import Upgrade from '@/components/Upgrade'
+import UpgradeParent from '@/components/upgrade/Parent'
+import UpgradePlans from '@/components/upgrade/Plans'
+import UpgradeStripe from '@/components/upgrade/Stripe'
+
 import Terms from '@/components/Terms'
 import Privacy from '@/components/Privacy'
 import NotFound from '@/components/NotFound'
@@ -69,8 +72,21 @@ export default new Router({
         },
         {
             path: '/account/:token/upgrade',
-            name: 'Upgrade',
-            component: Upgrade
+            component: UpgradeParent,
+            children: [
+                {
+                    path: '',
+                    name: 'upgrade-plans',
+                    meta: {hideMenu: true},
+                    component: UpgradePlans
+                },
+                {
+                    path: ':plan',
+                    name: 'upgrade-stripe',
+                    meta: {hideMenu: true},
+                    component: UpgradeStripe
+                }
+            ]
         },
         {
             path: '/terms',
