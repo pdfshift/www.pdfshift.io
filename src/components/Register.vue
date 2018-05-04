@@ -48,9 +48,20 @@ export default {
     },
     methods: {
         send () {
-            this.$http.post('accounts/', this.form)
+            this.$http.post('accounts/', this.form).then(
+                response => {},
+                this.handleErrorXhr
+            )
             this.sent = true
             return false
+        },
+        handleErrorXhr (response) {
+            let error = "An error occured...\nWe're sorry about it, if this continue, please contact us!"
+            if ('error' in response.body) {
+                error = response.body.error
+            }
+            alert(error)
+            this.sent = false
         }
     }
 }

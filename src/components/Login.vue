@@ -53,10 +53,20 @@ export default {
                     this.form.name = response.body.name
                     this.sending = false
                     this.sent = true
-                }
+                },
+                this.handleErrorXhr
             )
 
             return false
+        }
+        ,
+        handleErrorXhr (response) {
+            let error = "An error occured...\nWe're sorry about it, if this continue, please contact us!"
+            if ('error' in response.body) {
+                error = response.body.error
+            }
+            alert(error)
+            this.sent = false
         }
     }
 }
