@@ -58,8 +58,7 @@ export default {
             )
 
             return false
-        }
-        ,
+        },
         handleErrorXhr (response) {
             let error = "An error occured...\nWe're sorry about it, if this continue, please contact us!"
             if ('error' in response.body) {
