@@ -45,12 +45,16 @@
             </div>
             <div id="rate-limiting" class="section">
                 <h3>Rate limiting</h3>
+                <p>Rate limiting is only forced for unauthenticated accounts with a limit of 2 requests per minutes.</p>
+                <p>As soon as you are authenticated, there is no rate limit restricting you.</p>
+                <!--
                 <p>
                     There are no restrictions per account. All accounts have the same rate limiting of <strong>45 requests per minutes</strong>.
                 </p>
                 <p>
                     If you frequently reach the rate limit, feel free to <a href="mailto:support@pdfshift.io">contact us</a> and we will see to configure a plan according to your needs.
                 </p>
+                -->
                 <p>
                     When reaching the rate limit, you will get an HTTP status code of <code>429</code>.<br />
                     Each request will contain three headers to let you know your usage:
