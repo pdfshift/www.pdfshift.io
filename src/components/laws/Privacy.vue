@@ -5,7 +5,7 @@
                 <header-component />
                 <h1>
                     Privacy Policy
-                    <small>Last Edited on 2018-05-17</small>
+                    <small>Last Edited on 2018-05-22</small>
                 </h1>
             </div>
         </header>
@@ -14,12 +14,12 @@
             <div class="page">
                 <p>This privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.</p>
                 <div>
-                    <h2>What personal information do we collect from the people that visit our blog, website or app?</h2>
-                    <p>When ordering or registering on our site, as appropriate, you may be asked to enter your name, email address or other details to help you with your experience.</p>
+                    <h2>What personal information do we collect from the people that visit our website?</h2>
+                    <p>When registering on our site, as appropriate, you may be asked to enter your name and email address. When upgrading your account, we will ask you for your address, company name and VAT number (if applicable).</p>
                 </div>
                 <div>
                     <h2>When do we collect information?</h2>
-                    <p>We collect information from you when you register on our site, place an order, subscribe to a newsletter or enter information on our site.</p>
+                    <p>We collect information from you when you register on our site or enter information on our site.</p>
                 </div>
                 <div>
                     <h2>How do we use your information?</h2>
@@ -43,14 +43,8 @@
                 <div>
                     <h2>Do we use 'cookies'?</h2>
                     <p>Yes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information. For instance, we use cookies to help us remember and process the items in your shopping cart. They are also used to help us understand your preferences based on previous or current site activity, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
-                    <p>
-                        We use cookies to:
-                        <ul>
-                            <li>Help remember and process the items in the shopping cart.</li>
-                            <li>Understand and save user's preferences for future visits.</li>
-                            <li>Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third-party services that track this information on our behalf.</li>
-                        </ul>
-                    </p>
+                    <p><router-link :to="{ name: 'GDPR' }">We made a specific page to explain the reason and our usage of Cookies</router-link>.</p>
+
                     <p>You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Since browser is a little different, look at your browser's Help Menu to learn the correct way to modify your cookies.</p>
 
                     <h2>If users disable cookies in their browser:</h2>
@@ -66,32 +60,21 @@
                 </div>
                 <div>
                     <h2>We have implemented the following</h2>
-                    <p>We, along with third-party vendors such as Google use first-party cookies (such as the Google Analytics cookies) and third-party cookies (such as the DoubleClick cookie) or other third-party identifiers together to compile data regarding user interactions with ad impressions and other ad service functions as they relate to our website.</p>
+                    <p>We, along with third-party vendors such as Google use first-party cookies (such as the Google Analytics cookies) and third-party cookiesor other third-party identifiers together to compile data regarding user interactions with ad impressions and other ad service functions as they relate to our website.</p>
                     <strong>Opting out:</strong>
                     <p>Users can set preferences for how Google advertises to you using the Google Ad Settings page. Alternatively, you can opt out by visiting the Network Advertising Initiative Opt Out page or by using the Google Analytics Opt Out Browser add on.</p>
                 </div>
                 <div>
                     <h2>California Online Privacy Protection Act</h2>
-                    <p>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law's reach stretches well beyond California to require any person or company in the United States (and conceivably the world) that operates websites collecting Personally Identifiable Information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals or companies with whom it is being shared. - See more at: <a href="http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf" target="_blank">http://consumercal.org/california-online-privacy-protection-act-caloppa/#sthash.0FdRbT51.dpuf</a>.</p>
+                    <p>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law's reach stretches well beyond California to require any person or company in the United States (and conceivably the world) that operates websites collecting Personally Identifiable Information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals or companies with whom it is being shared. - See more at: <a href="https://consumercal.org/about-cfc/cfc-education-foundation/california-online-privacy-protection-act-caloppa-3/#sthash.0FdRbT51.dpuf" target="_blank">https://consumercal.org/about-cfc/cfc-education-foundation/california-online-privacy-protection-act-caloppa-3/#sthash.0FdRbT51.dpuf</a>.</p>
                     <p>
                         According to CalOPPA, we agree to the following:
                         <ul>
                             <li>Users can visit our site anonymously.</li>
                             <li>Once this privacy policy is created, we will add a link to it on our home page or as a minimum, on the first significant page after entering our website.</li>
                             <li>Our Privacy Policy link includes the word 'Privacy' and can easily be found on the page specified above.</li>
-                            <li>
-                                You will be notified of any Privacy Policy changes:
-                                <ul>
-                                    <li>On our Privacy Policy Page</li>
-                                </ul>
-                            </li>
-                            <li>
-                                Can change your personal information:
-                                <ul>
-                                    <li>By emailing us</li>
-                                    <li>By logging in to your account</li>
-                                </ul>
-                            </li>
+                            <li>You will be notified of any Privacy Policy changes on our Privacy Policy Page</li>
+                            <li>Can change your personal information by emailing us or by logging in to your account</li>
                         </ul>
                     </p>
                 </div>
@@ -147,7 +130,8 @@
                 </div>
                 <div>
                     <h2>Your data protection rights under the General Data Protection Regulation (GDPR)</h2>
-                    <p>If you are a resident of the EEA, you have the following data protection rights:</p>
+                    <p>We made a <router-link :to="{ name: 'GDPR' }">specific page to fully explain our adherance to the General Data Protection Regulation (GDPR)</router-link>.</p>
+                    <!--<p>If you are a resident of the EEA, you have the following data protection rights:</p>
                     <p>
                         <ul>
                             <li>If you wish to <strong>access, correct, update, or request deletion</strong> of your personal information, you can do so at any time by emailing <a href="mailto:support@pdfshift.io" target="_blank">support@pdfshift.io</a>.</li>
@@ -157,12 +141,22 @@
                             <li>You have <strong>the right to complain to a data protection authority</strong> about our collection and use of your personal information. For more information, please contact your local data protection authority.</li>
                         </ul>
                     </p>
+                    <p>
+                        We use cookies to:
+                        <ul>
+                            <li>Help remember and process the items in the shopping cart.</li>
+                            <li>Understand and save user's preferences for future visits.</li>
+                            <li>Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third-party services that track this information on our behalf.</li>
+                        </ul>
+                    </p>
+
+                -->
                     <p>We respond to all requests we receive from individuals wishing to exercise their data protection rights in accordance with applicable data protection laws.</p>
                 </div>
                 <div>
                     <h2>Contacting Us</h2>
                     <p>If there are any questions regarding this privacy policy, you may contact us using the information below.</p>
-                    <pre><code>PDFShift<br />Cyril Nicodeme<br />30 rue de la claichiere<br />90800 BAVILLIERS<br />FRANCE<br />support@pdfshift.io</code></pre>
+                    <pre><code>PDFShift<br />Cyril Nicodeme<br />14bis rue de Chenebier<br />70400 CHALONVILLARS<br />FRANCE<br />support@pdfshift.io</code></pre>
                 </div>
             </div>
         </div>
@@ -174,14 +168,29 @@
     .container {
         max-width: 640px;
     }
+
     .container>div {
         margin-top: 40px;
     }
+
     ul {
         margin: 20px;
         li {
             list-style-type: disc;
         }
+    }
+
+    h2 {
+        margin: 40px 0 20px;
+    }
+
+    p {
+        line-height: 1.75em;
+    }
+
+    a {
+        text-decoration: underline;
+        font-weight: bold
     }
 </style>
 

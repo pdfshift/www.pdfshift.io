@@ -5,7 +5,7 @@
                 <header-component />
                 <h1>
                     Terms of Service
-                    <small>Last Edited on 2018-05-17</small>
+                    <small>Last Edited on 2018-05-22</small>
                 </h1>
             </div>
         </header>
@@ -19,7 +19,7 @@
 
                 <div>
                    <h2>Purchases</h2>
-                   <p>If you wish to purchase any product or service made available through the Service ("Purchase"), you may be asked to supply certain information relevant to your Purchase including, without limitation, your credit card number, the expiration date of your credit card, your billing address, and your shipping information.</p>
+                   <p>If you wish to purchase any product or service made available through the Service ("Purchase"), you may be asked to supply certain information relevant to your Purchase including, without limitation, your credit card number, the expiration date of your credit card and your billing address.</p>
                    <p>You represent and warrant that: (i) you have the legal right to use any credit card(s) or other payment method(s) in connection with any Purchase; and that (ii) the information you supply to us is true, correct and complete.</p>
                    <p>By submitting such information, you grant us the right to provide the information to third parties for purposes of facilitating the completion of Purchases.</p>
                 </div>
@@ -77,6 +77,14 @@
     }
     .container>div {
         margin-top: 40px;
+    }
+
+    h2 {
+        margin: 40px 0 20px;
+    }
+
+    p {
+        line-height: 1.75em;
     }
 
     ul {

@@ -19,6 +19,12 @@
                     <label for="start-now-email">Your email</label>
                     <input type="email" name="email" placeholder="Your email" id="start-now-email" required v-model="form.email" />
                 </div>
+                <div class="input">
+                    <label class="checkbox">
+                        <input type="checkbox" name="agree" value="1" required v-model="form.agree" />
+                        I agree to the <router-link :to="{name: 'Terms'}" target="_blank">Terms of Service</router-link> and the <router-link :to="{name: 'Privacy'}" target="_blank">Privacy Policy</router-link>.
+                    </label>
+                </div>
                 <input type="submit" name="send" value="Get your API key" class="button" />
             </form>
         </div>
@@ -41,7 +47,8 @@ export default {
         return {
             form: {
                 name: null,
-                email: null
+                email: null,
+                agree: false
             },
             sent: false
         }
@@ -98,7 +105,22 @@ export default {
                 margin-bottom: 10px;
             }
 
-            input {
+            label.checkbox {
+                cursor: pointer;
+
+                a {
+                    text-decoration: underline;
+                    font-weight: bold
+                }
+
+                input {
+                    width: auto;
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+
+            &>input {
                 padding: 10px 10px;
                 border-radius: 5px;
                 border: solid 1px @primary_color;
