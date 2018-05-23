@@ -28,12 +28,85 @@ Vue.directive('hljs', {
     }
 })
 
+function getQueryVariable (variable) {
+    var query = window.location.search.substring(1)
+    var vars = query.split('&')
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=')
+        if (decodeURIComponent(pair[0]) === variable) {
+            return decodeURIComponent(pair[1])
+        }
+    }
+    return null
+}
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
     components: { App },
-    template: '<App/>'
+    template: '<App/>',
+    data () {
+        return {
+            campaign: null
+        }
+    },
+    created: function () {
+        try {
+            try {
+                this.campaign = localStorage.getItem('campaign')
+            } catch (e) {}
+
+            if (this.campaign === null) {
+                try {
+                    this.campaign = sessionStorage.getItem('campaign')
+                } catch (e) {}
+            }
+
+            if (this.campaign === null) {
+                this.campaign = {}
+
+                if (document.referrer !== '') {
+                    this.campaign['referrer'] = document.referrer
+                }
+
+                let val = getQueryVariable('ref')
+                if (val !== null) {
+                    this.campaign['source'] = val
+                }
+
+                for (let k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term']) {
+                    let val = getQueryVariable(k)
+                    if (val !== null) {
+                        if (!('utm' in this.campaign)) {
+                            this.campaign['utm'] = {}
+                        }
+                        this.campaign['utm'][k.replace('utm', '')] = val
+                    }
+                }
+
+                if ('utm' in this.campaign) {
+                    if (!('source' in this.campaign) && 'utm_source' in this.campaign['utm']) {
+                        this.campaign['source'] = this.campaign['utm']['utm_source']
+                    }
+
+                    this.campaign['utm'] = JSON.stringify(this.campaign['utm'])
+                }
+
+                this.campaign = JSON.stringify(this.campaign)
+
+                try {
+                    localStorage.setItem('campaign', this.campaign)
+                } catch (e) {
+                    try {
+                        sessionStorage.setItem('campaign', this.campaign)
+                    } catch (e) {}
+                }
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
 })
 
 Vue.filter('datetime', (date) => {

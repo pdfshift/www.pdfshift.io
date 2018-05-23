@@ -55,7 +55,8 @@ export default {
     },
     methods: {
         send () {
-            this.$http.post('accounts/', this.form).then(
+            let formdata = Object.assign({}, JSON.parse(this.$root.campaign), this.form)
+            this.$http.post('accounts/', formdata).then(
                 response => {},
                 this.handleErrorXhr
             )
