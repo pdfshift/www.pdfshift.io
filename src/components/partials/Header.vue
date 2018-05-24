@@ -8,7 +8,7 @@
         </nav>
     </div>
     <div class="navbar" v-else>
-        <router-link :to="{name: 'Home'}" class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="48" /></router-link>
+        <router-link :to="{name: 'Home'}" class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="36" /></router-link>
         <nav>
             <ul>
                 <!--<router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Try PDFShift for free and see for yourself">Demo</a></router-link>-->
@@ -50,7 +50,7 @@ export default {
         font-weight: bold;
         text-decoration: none;
         float: left;
-        padding: 5px 10px
+        padding: 15px 10px 5px
     }
 
     nav ul {

@@ -9,7 +9,7 @@
                     <small>Converts any HTML document to PDF with just 2 lines of code!</small>
                     -->
                     Converting HTML to PDF, Just. Got. Better.
-                    <small>The HTML to PDF API you were waiting for.</small>
+                    <small>The HTML to PDF API you were waiting for!</small>
                 </h1>
 
                 <div class="tabs">
