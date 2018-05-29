@@ -14,7 +14,6 @@ import UpgradeStripe from '@/components/upgrade/Stripe'
 
 import Terms from '@/components/laws/Terms'
 import Privacy from '@/components/laws/Privacy'
-import Gdpr from '@/components/laws/Gdpr'
 import NotFound from '@/components/NotFound'
 
 Vue.use(Router)
@@ -98,11 +97,6 @@ export default new Router({
             path: '/privacy',
             name: 'Privacy',
             component: Privacy
-        },
-        {
-            path: '/gdpr',
-            name: 'GDPR',
-            component: Gdpr
         },
         {
             path: '*',
