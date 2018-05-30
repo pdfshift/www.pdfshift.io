@@ -215,11 +215,10 @@ const fs = require('fs');
 // We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://www.example.com')
     .watermark({
-        source: 'https://pdfshift.io/static/static/img/logo.png',
+        image: 'https://pdfshift.io/static/img/logo.png',
         offset_x: 50,
         offset_y: '100px',
-        rotate: 45,
-        background: true
+        rotate: 45
     })
     .convert()
     .then(function (binary_file) {
@@ -232,11 +231,10 @@ pdfshift.api_key = '120d8e8a86d2....................'
 binary_file = pdfshift.convert(
     'https://www.example.com',
     watermark={
-        'source': 'https://pdfshift.io/static/static/img/logo.png',
+        'image': 'https://pdfshift.io/static/img/logo.png',
         'offset_x': 50,
         'offset_y': '100px',
-        'rotate': 45,
-        'background': true
+        'rotate': 45
     }
 )
 
@@ -249,22 +247,20 @@ PDFShift::setApiKey('120d8e8a86d2....................');
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
 $pdfshift->watermark([
-    'source' => 'https://pdfshift.io/static/static/img/logo.png',
+    'image' => 'https://pdfshift.io/static/img/logo.png',
     'offsetX' => 50,
     'offsetY' => '100px',
-    'rotate' => 45,
-    'background' => true
+    'rotate' => 45
 ])
 $pdfshift->convert('https://www.example.com');
 $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://example.com" \
--d watermark[source]="https://pdfshift.io/static/static/img/logo.png" \
+-d watermark[image]="https://pdfshift.io/static/img/logo.png" \
 -d watermark[offset_x]= 50\
 -d watermark[offset_y]= "100px"\
 -d watermark[rotate]= 45\
--d watermark[background]= true\
 https://api.pdfshift.io/v2/convert/</code-section>
             </div>
             <div class="example">
