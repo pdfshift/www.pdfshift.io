@@ -317,7 +317,6 @@ const fs = require('fs');
 // We use .prepare() instead of .convert to easily handle advanced configuration
 pdfshift.prepare('https://www.example.com')
     .protect({
-        encrypt: 128,
         user_password: 'user',
         owner_password: 'owner',
         no_print: true
@@ -333,7 +332,6 @@ pdfshift.api_key = '120d8e8a86d2....................'
 binary_file = pdfshift.convert(
     'https://www.example.com',
     protection={
-        'encrypt': 128,
         'user_password': 'user',
         'owner_password': 'owner',
         'no_print': True
@@ -349,7 +347,6 @@ PDFShift::setApiKey('120d8e8a86d2....................');
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
 $pdfshift->protect([
-    'encrypt' => 128,
     'userPassword' => 'user',
     'ownerPassword' => 'owner',
     'noPrint' => true
@@ -359,7 +356,6 @@ $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
 -u '120d8e8a86d2....................:' \
 -d source="https://example.com" \
--d protection[encrypt]=128 \
 -d protection[user_password]="user" \
 -d protection[owner_password]="owner" \
 -d protection[no_print]=true \
