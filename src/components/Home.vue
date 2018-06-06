@@ -62,7 +62,7 @@ PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
   -u '120d8e8a86d2....................:' \
   -d source="https://www.google.com" \
   https://api.pdfshift.io/v2/convert/ \
-  -O invoice.pdf
+  -o invoice.pdf
 
 # So simple we have this long black space available ...
 #

@@ -53,6 +53,11 @@ export default {
                     this.form.name = response.body.name
                     this.sending = false
                     this.sent = true
+                    this.$ga.event({
+                        eventCategory: 'account',
+                        eventAction: 'login',
+                        eventLabel: 'Login'
+                    })
                 },
                 this.handleErrorXhr
             )
@@ -60,11 +65,13 @@ export default {
             return false
         },
         handleErrorXhr (response) {
-            let error = "An error occured...\nWe're sorry about it, if this continue, please contact us!"
-            if ('error' in response.body) {
-                error = response.body.error
+            try {
+                if ('error' in response.body) {
+                    alert(response.body.error[Object.keys(response.body.error)[0]])
+                }
+            } catch (e) {
+                alert("An error occured...\nWe're sorry about it, if this continue, please contact us!")
             }
-            alert(error)
             this.sent = false
         }
     }

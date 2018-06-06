@@ -57,7 +57,13 @@ export default {
         send () {
             let formdata = Object.assign({}, JSON.parse(this.$root.campaign), this.form)
             this.$http.post('accounts/', formdata).then(
-                response => {},
+                response => {
+                    this.$ga.event({
+                        eventCategory: 'account',
+                        eventAction: 'register',
+                        eventLabel: 'Register'
+                    })
+                },
                 this.handleErrorXhr
             )
             this.sent = true
