@@ -14,7 +14,7 @@
                 <h3>Inline HTML</h3>
                 <p>Instead of providing an URL, you can directly send HTML data.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 let data = fs.readFileSync('invoice.html', 'utf8');
@@ -48,7 +48,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Custom CSS</h3>
                 <p>You can customize the document before generating the PDF, to adapt the page to your needs.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 pdfshift.convert('https://www.example.com', {css: 'https://www.example.com/public/css/print.css'}).then(function (binary_file) {
@@ -80,7 +80,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Add custom HTTP Headers</h3>
                 <p>It can be useful to add custom HTTP headers, like auth headers, http-agent, custom language, etc.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -128,7 +128,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Accessing secured pages</h3>
                 <p>You can rely on custom HTTP headers to do the job, or directly provide the credentials. (These are never stored!).</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -166,7 +166,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Add cookies (Feeling hungry?)</h3>
                 <p>You can add custom cookies to load a protected page.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -209,7 +209,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Add Watermark</h3>
                 <p>Protect your PDF with a watermark at ease with PDFShift.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -267,7 +267,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Custom Header / Footer for your PDF</h3>
                 <p>Add a custom header/footer to your PDF document with pagination.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -311,7 +311,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Protecting the generated PDF</h3>
                 <p>Define who can read/open your newly generated document.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('./')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
