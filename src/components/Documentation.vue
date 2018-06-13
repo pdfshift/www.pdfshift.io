@@ -670,8 +670,8 @@ export default {
                             name: 'text',
                             required: false,
                             type: 'String',
-                            description: 'Image or PDF (single page) document to add on top of the generated PDF. PDFShift will automatically detect if it\'s an URL or a data, and act accordingly. When sending as data, the value must be base64 encoded.',
-                            example: 'http://www.website.com/images/logo.png',
+                            description: 'Text to add on top of the generated PDF.',
+                            example: 'My Awesome Service',
                             default: 'null'
                         },
                         {
