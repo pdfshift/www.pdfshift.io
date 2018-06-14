@@ -32,9 +32,21 @@ export default {
         account: Object,
         plans: Object
     },
+    created () {
+        /*
+        this.$http.get('credits/plans').then(
+            response => {
+                console.log(response.body.plans)
+            },
+            response => {
+
+            }
+        )
+        */
+    },
     methods: {
         getPlanName () {
-            return (this.account.plan === null) ? 'free' : this.account.plan.name.toLower()
+            return (this.account.plan === null) ? 'free' : this.account.plan.name.toLowerCase()
         },
         isPlan (name) {
             return this.getPlanName() === name

@@ -11,6 +11,7 @@ import Account from '@/components/Account'
 import UpgradeParent from '@/components/upgrade/Parent'
 import UpgradePlans from '@/components/upgrade/Plans'
 import UpgradeStripe from '@/components/upgrade/Stripe'
+import UpgradeFinished from '@/components/upgrade/Finished'
 
 import Terms from '@/components/laws/Terms'
 import Privacy from '@/components/laws/Privacy'
@@ -85,6 +86,12 @@ export default new Router({
                     name: 'upgrade-stripe',
                     meta: {hideMenu: true},
                     component: UpgradeStripe
+                },
+                {
+                    path: ':plan/success',
+                    name: 'upgrade-finished',
+                    meta: {hideMenu: true},
+                    component: UpgradeFinished
                 }
             ]
         },

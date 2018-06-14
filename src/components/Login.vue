@@ -73,6 +73,7 @@ export default {
                 alert("An error occured...\nWe're sorry about it, if this continue, please contact us!")
             }
             this.sent = false
+            this.sending = false
         }
     }
 }

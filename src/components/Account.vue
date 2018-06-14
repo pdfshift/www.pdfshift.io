@@ -74,7 +74,6 @@ export default {
         }
     },
     created () {
-        console.log('created')
         this.$http.get('accounts/' + this.$route.params.token).then(
             response => {
                 this.account = response.body

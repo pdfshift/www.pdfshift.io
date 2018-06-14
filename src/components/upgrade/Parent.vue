@@ -12,7 +12,7 @@
                 <template v-if="$route.name === 'upgrade-stripe'">
                 <h1>
                     Upgrade to {{ plans[$route.params.plan].name }} plan.
-                    <small>Select the plan that fits your needs</small>
+                    <small>Almost done! Please provide your payment details.</small>
                 </h1>
                 </template>
             </div>
@@ -30,7 +30,7 @@ export default {
     components: {HeaderComponent: HeaderComponent},
     data () {
         return {
-            account: this.loadAccount(),
+            account: null,
             plans: {
                 free: {
                     name: 'Free',
