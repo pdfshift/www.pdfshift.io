@@ -10,7 +10,7 @@
                 <router-link :to="{name: 'Terms'}" active-class="active" title="Read our Terms of Use">Terms of Use</router-link>
             </div>
             <div style="text-align: right">
-                <a href="mailto:contact@pdfshift.io" title="Have a question? Want to say hi?">contact@pdfshift.io</a>
+                <a href="mailto:support@pdfshift.io" title="Have a question? Need help?">support@pdfshift.io</a>
             </div>
         </div>
     </footer>

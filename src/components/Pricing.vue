@@ -4,7 +4,7 @@
             <div>
                 <header-component />
                 <h1>
-                    PDFShift is free forever!
+                    PDFShift is free to get started!
                     <small>Get up and running for free with <strong>250 conversions</strong> per month<br />and <strong>up to 1Mb per documents.</strong></small>
                     <div class="cta">
                         <router-link :to="{name: 'Register'}" class="button">Get your free API key</router-link>
@@ -50,7 +50,7 @@
                             <p class="month">per month</p>
                         </div>
                         <ul>
-                            <li><strong>1.000</strong> conversions</li>
+                            <li><strong>1,000</strong> conversions</li>
                             <li>Up to <strong>5MB</strong> per documents</li>
                         </ul>
                     </div>
@@ -67,7 +67,7 @@
                             <p class="month">per month</p>
                         </div>
                         <ul>
-                            <li><strong>10.000</strong> conversions</li>
+                            <li><strong>10,000</strong> conversions</li>
                             <li>Up to <strong>10MB</strong> per documents</li>
 
                         </ul>
@@ -85,7 +85,7 @@
                             <p class="month">per month</p>
                         </div>
                         <ul>
-                            <li><strong>50.000</strong> conversions</li>
+                            <li><strong>50,000</strong> conversions</li>
                             <li>Up to <strong>25MB</strong> per documents</li>
                         </ul>
                     </div>
