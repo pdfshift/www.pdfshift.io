@@ -11,7 +11,7 @@
                 </template>
                 <template v-if="$route.name === 'upgrade-stripe'">
                 <h1>
-                    Upgrade to {{ plans[$route.params.plan].name }} plan.
+                    Upgrade to {{ plans[$route.params.plan].display }} plan.
                     <small>Almost done! Please provide your payment details.</small>
                 </h1>
                 </template>
@@ -31,36 +31,7 @@ export default {
     data () {
         return {
             account: null,
-            plans: {
-                free: {
-                    name: 'Free',
-                    position: 0,
-                    conversions: 250,
-                    limit: 1,
-                    price: 0
-                },
-                starter: {
-                    name: 'Starter',
-                    position: 1,
-                    conversions: '1k',
-                    limit: 5,
-                    price: 9
-                },
-                growth: {
-                    name: 'Growth',
-                    position: 2,
-                    conversions: '10k',
-                    limit: 10,
-                    price: 39
-                },
-                business: {
-                    name: 'Business',
-                    position: 3,
-                    conversions: '50k',
-                    limit: 25,
-                    price: 99
-                }
-            },
+            plans: {},
             plan: null
         }
     },
@@ -70,7 +41,29 @@ export default {
                 this.account = response.body
             },
             response => {
-                console.log(response.body)
+                alert("An error occured...\nWe're sorry about it, if this continue, please contact us!")
+            }
+        )
+
+        this.$http.get('credits/plans', {'headers': {'Authorization': 'Bearer ' + this.$route.params.token}}).then(
+            response => {
+                this.plans = {
+                    free: {
+                        display: 'Free',
+                        name: 'free',
+                        position: 0,
+                        conversions: 250,
+                        limit: 1,
+                        price: 0
+                    }
+                }
+
+                for (let i = 0; i < response.body.plans.length; i++) {
+                    let current = response.body.plans[i]
+                    this.plans[current.name] = current
+                }
+            },
+            response => {
                 alert("An error occured...\nWe're sorry about it, if this continue, please contact us!")
             }
         )

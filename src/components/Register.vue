@@ -33,6 +33,7 @@
                 <h3>Welcome aboard, {{ form.name }}!</h3>
                 <p>We just sent you an email to <strong>{{ form.email }}</strong> containing your new token to start playing with PDFShift.</p>
                 <p>We are happy to have you as part of the PDFShift family!</p>
+                <img height="1" width="1" style="display:none" src="https://alb.reddit.com/snoo.gif?q=CAAHAAABAAoACQAAAAAB4F_gAA==&s=OiMon4vYov5k9ZQV8q1JgTh4VJgFzFql5XKHDBJNmOE="/>
             </div>
         </div>
     </div>

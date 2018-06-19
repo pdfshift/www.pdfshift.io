@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="finished">
-            <h2>YEAH! You are now on the {{ plans[$route.params.plan].name }} plan!</h2>
+            <h2>YEAH! You are now on the {{ plans[$route.params.plan].display }} plan!</h2>
             <p>Thank you for subscribing to our service!</p>
             <p>Your account is now updated and you will receive your invoice by email pretty soon.</p>
             <p>Feel free to <a href="mailto:support@pdfshift.io">reach out to us</a> if you have any questions!</p>

@@ -2,7 +2,7 @@
     <div>
         <div class="plans">
             <div v-for="(plan, name) in plans" v-bind:key="name" class="name" :class="{'selected': isPlan(name)}" v-on:click="setPlan(name)">
-                <h4>{{ plan.name }} plan</h4>
+                <h4>{{ plan.display }} plan</h4>
                 <span class="details">{{ plan.conversions }} conversions / month</span>
                 <span class="details">{{ plan.document }}Mb per documents</span>
                 <span class="price" v-if="plan.price">${{ plan.price}}/Mo</span>
@@ -13,12 +13,12 @@
                     </template>
                     <template v-else-if="isPlanBetterThan(name)">
                         <a href="javascript:;" class="button">
-                            Downgrade to {{ plan.name }}
+                            Downgrade to {{ plan.display }}
                             <template v-if="plan.price">(${{ plan.price }}/Mo)</template>
                         </a>
                     </template>
                     <template v-else>
-                        <a href="javascript:;" class="button">Upgrade to {{ plan.name }} (${{ plan.price }}/Mo)</a>
+                        <a href="javascript:;" class="button">Upgrade to {{ plan.display }} (${{ plan.price }}/Mo)</a>
                     </template>
                 </div>
             </div>
@@ -32,21 +32,9 @@ export default {
         account: Object,
         plans: Object
     },
-    created () {
-        /*
-        this.$http.get('credits/plans').then(
-            response => {
-                console.log(response.body.plans)
-            },
-            response => {
-
-            }
-        )
-        */
-    },
     methods: {
         getPlanName () {
-            return (this.account.plan === null) ? 'free' : this.account.plan.name.toLowerCase()
+            return (this.account.plan === null) ? 'free' : this.account.plan.name
         },
         isPlan (name) {
             return this.getPlanName() === name

@@ -25,7 +25,7 @@
                 <div id="card-element"></div>
                 <p class="help-block" v-if="error">{{ error }}</p>
             </div>
-            <input type="submit" class="button" name="pay" :value="'Subscribe to our ' + plans[$route.params.plan].name + ' plan (' + plans[$route.params.plan].price + '$/mo)'" v-bind:class="{'btn-disabled': sending}" v-bind:disabled="sending" />
+            <input type="submit" class="button" name="pay" :value="'Subscribe to our ' + plans[$route.params.plan].display + ' plan (' + plans[$route.params.plan].price + '$/mo)'" v-bind:class="{'btn-disabled': sending}" v-bind:disabled="sending" />
             <div class="back">
                 <router-link :to="{name: 'upgrade-plans'}">Choose another plan</router-link>
             </div>
