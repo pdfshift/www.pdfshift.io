@@ -25,7 +25,7 @@
                         <p>Conversions used: <strong>{{ account.credits.used }} / {{ account.credits.total }}</strong>.</p>
                         <div class="progress-bar">
                             <div class="bar">
-                                <div :style="'width:' + getUsagePercentage() + '%'"></div>
+                                <div :style="'width: ' + getUsagePercentage() + '%'"></div>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ export default {
     },
     methods: {
         getUsagePercentage () {
-            return ((this.account.credits.used / this.account.credits.credits) * 100).toFixed(2)
+            return ((this.account.credits.used / this.account.credits.total) * 100).toFixed(2)
         },
         toggleRemoved (token, position) {
             this.$http.post('accounts/api/' + token, {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
