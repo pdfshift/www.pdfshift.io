@@ -66,6 +66,10 @@ new Vue({
                 } catch (e) {}
             }
 
+            if (this.campaign === '{}') {
+                this.campaign = null
+            }
+
             if (this.campaign === null) {
                 this.campaign = {}
 
