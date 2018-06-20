@@ -101,7 +101,7 @@ export default {
                     } else {
                         // Send the token to your server
                         this.form.token = result.token.id
-                        this.$http.post('credits/' + this.$route.params.token + '/upgrade', this.form).then(
+                        this.$http.post('credits/upgrade', this.form, {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
                             response => {
                                 this.displayError(null)
                                 // TODO 3D Secure: https://stripe.com/docs/sources/three-d-secure

@@ -36,7 +36,7 @@ export default {
         }
     },
     created () {
-        this.$http.get('accounts/' + this.$route.params.token).then(
+        this.$http.get('accounts/', {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
             response => {
                 this.account = response.body
             },
@@ -45,7 +45,7 @@ export default {
             }
         )
 
-        this.$http.get('credits/plans', {'headers': {'Authorization': 'Bearer ' + this.$route.params.token}}).then(
+        this.$http.get('credits/plans', {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
             response => {
                 this.plans = {
                     free: {

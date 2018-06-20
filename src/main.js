@@ -97,6 +97,9 @@ new Vue({
                 }
 
                 this.campaign = JSON.stringify(this.campaign)
+                if (this.campaign === '{}') {
+                    return
+                }
 
                 try {
                     localStorage.setItem('campaign', this.campaign)
