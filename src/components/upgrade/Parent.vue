@@ -2,7 +2,7 @@
     <div v-if="account">
         <header>
             <div>
-                <header-component />
+                <header-component show-back />
                 <template v-if="$route.name === 'upgrade-plans'">
                 <h1>
                     Upgrade your account

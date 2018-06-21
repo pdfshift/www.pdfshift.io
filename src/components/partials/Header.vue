@@ -1,37 +1,38 @@
 <template>
-    <div class="navbar" v-if="hideMenu">
-        <a class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="48" /></a>
-        <nav>
-            <ul>
-                <router-link :to="{name: 'Account', token: $route.params.token}" tag="li"><a title="Go back to your account">Go back</a></router-link>
-            </ul>
-        </nav>
-    </div>
-    <div class="navbar" v-else>
-        <router-link :to="{name: 'Home'}" class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="36" /></router-link>
-        <nav>
-            <ul>
-                <!--<router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Try PDFShift for free and see for yourself">Demo</a></router-link>-->
-                <router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Get a grasp of what you can do with PDFShift!">Features</a></router-link>
-                <router-link :to="{name: 'Documentation'}" tag="li" active-class="active"><a title="Read the documention and all the possibilities">Documentation</a></router-link>
-                <router-link :to="{name: 'Pricing'}" tag="li" active-class="active"><a title="Our pricing plans will cover all your needs">Pricing</a></router-link>
-                <router-link :to="{name: 'FAQ'}" tag="li" active-class="active"><a title="Have a question? We may have the answer!">FAQ</a></router-link>
-                <router-link :to="{name: 'Register'}" tag="li" active-class="active" class="register"><a title="Register now for free and start converting your documents!" class="button">Get your free API Key</a></router-link>
-            </ul>
-        </nav>
+    <div v-if="!hideMenu">
+        <div class="navbar" v-if="showBack">
+            <nav style="margin: 20px 0 -28px">
+                <ul>
+                    <router-link :to="{name: 'Account', token: $route.params.token}" tag="li"><a title="Go back to your account">Return to your account</a></router-link>
+                </ul>
+            </nav>
+        </div>
+        <div class="navbar" v-else>
+            <router-link :to="{name: 'Home'}" class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="36" /></router-link>
+            <nav>
+                <ul>
+                    <!--<router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Try PDFShift for free and see for yourself">Demo</a></router-link>-->
+                    <router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Get a grasp of what you can do with PDFShift!">Features</a></router-link>
+                    <router-link :to="{name: 'Documentation'}" tag="li" active-class="active"><a title="Read the documention and all the possibilities">Documentation</a></router-link>
+                    <router-link :to="{name: 'Pricing'}" tag="li" active-class="active"><a title="Our pricing plans will cover all your needs">Pricing</a></router-link>
+                    <router-link :to="{name: 'FAQ'}" tag="li" active-class="active"><a title="Have a question? We may have the answer!">FAQ</a></router-link>
+                    <router-link :to="{name: 'Register'}" tag="li" active-class="active" class="register"><a title="Register now for free and start converting your documents!" class="button">Get your free API Key</a></router-link>
+                </ul>
+            </nav>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-            hideMenu: false
-        }
-    },
-    created () {
-        if (this.$route.meta.hideMenu) {
-            this.hideMenu = true
+    props: {
+        'hideMenu': {
+            type: Boolean,
+            default: false
+        },
+        'showBack': {
+            type: Boolean,
+            default: false
         }
     }
 }

@@ -20,7 +20,7 @@ import NotFound from '@/components/NotFound'
 Vue.use(Router)
 
 export default new Router({
-    mode: (window.location.hostname === 'pdfshift.io' ? 'history' : 'hash'),
+    mode: 'history', // (window.location.hostname === 'pdfshift.io' ? 'history' : 'hash'),
     scrollBehavior (to, from, savedPosition) {
         if (to.name === from.name) return false
         return { x: 0, y: 0 }
@@ -78,19 +78,16 @@ export default new Router({
                 {
                     path: '',
                     name: 'upgrade-plans',
-                    meta: {hideMenu: true},
                     component: UpgradePlans
                 },
                 {
                     path: ':plan',
                     name: 'upgrade-stripe',
-                    meta: {hideMenu: true},
                     component: UpgradeStripe
                 },
                 {
                     path: ':plan/success',
                     name: 'upgrade-finished',
-                    meta: {hideMenu: true},
                     component: UpgradeFinished
                 }
             ]

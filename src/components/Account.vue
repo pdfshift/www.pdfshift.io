@@ -2,7 +2,7 @@
     <div v-if="account">
         <header>
             <div>
-                <header-component />
+                <header-component hide-menu />
                 <h1>
                     Hi {{ account.firstname}}!
                     <small>Here's your account breakdown</small>
@@ -39,8 +39,11 @@
                 <h2>Your API Key</h2>
                 <ul>
                     <li v-for="(key, index) in account.api_keys" :key="key.created" v-bind:class="{'disabled': key.removed !== null}">
-                        <template v-if="key.removed"><code>{{ key.token }}</code></template>
-                        <template v-else><a href="javascript:;" title="Click to copy this API key"><code>{{ key.token }}</code></a></template>
+                        <template v-if="key.removed"><code>{{ key.token }}</code> {{ key.name }}</template>
+                        <template v-else>
+                            <a href="javascript:;" title="Click to copy this API key"><code>{{ key.token }}</code></a>
+                        </template>
+                        <em v-if="key.name">{{ key.name }}</em>
                         <div v-if="key.removed">
                             <span class="created">
                                 Disabled <time itemprop="releaseDate" :datetime="key.removed|datetime" class="time-relative">{{ key.removed|datetime }}</time>
@@ -77,6 +80,26 @@ export default {
         this.$http.get('accounts/', {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
             response => {
                 this.account = response.body
+                let heroku = document.location.search.indexOf('heroku=1') > -1
+                if (heroku) {
+                    let appName = null
+                    for (let i = 0; i < this.account.api_keys.length; i++) {
+                        if (this.account.api_keys[i].name) {
+                            appName = this.account.api_keys[i].name
+                            break
+                        }
+                    }
+
+                    if (appName) {
+                        let s = document.createElement('script')
+                        s.src = 'https://s3.amazonaws.com/assets.heroku.com/boomerang/boomerang.js'
+                        s.async = true
+                        s.onload = () => {
+                            window.Boomerang.init({app: appName, addon: 'pdfshift'})
+                        }
+                        document.querySelector('body').appendChild(s)
+                    }
+                }
             },
             this.handleErrorXhr
         )
@@ -164,6 +187,17 @@ h2 {
 
         &.disabled {
             opacity: 0.6
+        }
+
+        em {
+            color: #777;
+
+            &:before {
+                content: '"'
+            }
+            &:after {
+                content: '"'
+            }
         }
 
         div {
