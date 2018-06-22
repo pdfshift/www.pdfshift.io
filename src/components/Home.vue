@@ -17,6 +17,9 @@
                         <router-link :to="{name: 'Home', query: {'tab': 'javascript'}}" tag="li" active-class="active" exact replace><a>Javascript</a></router-link>
                         <router-link :to="{name: 'Home', query: {'tab': 'python'}}" tag="li" active-class="active" exact replace><a>Python</a></router-link>
                         <router-link :to="{name: 'Home', query: {'tab': 'php'}}" tag="li" active-class="active" exact replace><a>PHP</a></router-link>
+                        <router-link :to="{name: 'Home', query: {'tab': 'ruby'}}" tag="li" active-class="active" exact replace><a>Ruby</a></router-link>
+                        <router-link :to="{name: 'Home', query: {'tab': 'java'}}" tag="li" active-class="active" exact replace><a>Java</a></router-link>
+                        <!--<router-link :to="{name: 'Home', query: {'tab': 'csharp'}}" tag="li" active-class="active" exact replace><a>C#</a></router-link>-->
                         <router-link :to="{name: 'Home', query: {'tab': 'curl'}}" tag="li" active-class="active" exact replace><a>cURL</a></router-link>
                     </ul>
                     <div class="tab-content">
@@ -24,45 +27,78 @@
 npm install pdfshift
 
 // Step 2, import PDFShift
-const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+const pdfshift = require('pdfshift')('YOUR_API_KEY');
 const fs = require('fs');
 
 // Step 3, execute
-pdfshift.convert('https://www.example.com').then(function (binary_file) {
-fs.writeFile('invoice.pdf', binary_file, "binary", function () {})
+pdfshift.convert('https://pdfshift.io/documentation').then(function (binary_file) {
+fs.writeFile('pdfshift-documentation.pdf', binary_file, "binary", function () {})
 }).catch(function({message, code, response, errors = null}) {})
 
 // Step 4: Grab a beer and relax. You've won the web today!</code-section>
-                        <code-section lang="python" :visible="isTab('python')"># Step 1, install PDFShift
-pip install pdfshift
+                        <code-section lang="python" :visible="isTab('python')">import requests
 
-# Step 2, import PDFShift
-import pdfshift, env
+response = requests.post(
+    'https://api.pdfshift.io/v2/convert/',
+    auth=('YOUR_API_KEY', ''),
+    json={'source': 'https://pdfshift.io/documentation'}
+)
 
-# Step 3, execute
-pdfshift.api_key = '120d8e8a86d2....................'
-result = pdfshift.convert(source=data)
-with open('invoice.pdf', 'wb') as f:
-    f.write(result)
+response.raise_for_status()
 
-# Step 4: Grab a beer and relax. You've won the web today!</code-section>
-                        <code-section lang="php" :visible="isTab('php')">// Step 1, install PDFShift
-composer require pdfshift/pdfshift-php
+with open('pdfshift-documentation.pdf', 'wb') as f:
+    f.write(response.content)
 
-// Step 2, import PDFShift
-require_once('vendor/autoload.php');
-use \PDFShift\PDFShift;
+# We also have a package to simplify your work:
+# https://pypi.org/project/pdfshift/</code-section>
+                        <code-section lang="php" :visible="isTab('php')">&lt;?php
+$curl = curl_init();
 
-// Step 3, execute
-PDFShift::setApiKey('120d8e8a86d2....................');
-PDFShift::convertTo('https://www.example.com', null, 'invoice.pdf');
+curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://api.pdfshift.io/v2/convert/",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => json_encode({'source': 'https://pdfshift.io/documentation'}),
+    CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
+    CURLOPT_USERPWD => 'YOUR_API_KEY:'
+));
 
-// Step 4: Grab a beer and relax. You've won the web today!</code-section>
+$response = curl_exec($curl);
+file_put_content('pdfhsift-documentation.pdf', $response);
+
+// We also have a package to simplify your work:
+// https://packagist.org/packages/pdfshift/pdfshift-php</code-section>
+                        <code-section lang="ruby" :visible="isTab('ruby')">require 'uri'
+require 'net/http'
+
+url = URI("https://api.pdfshift.io/v2/convert/")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url, 'Content-Type' => 'application/json')
+request.basic_auth('YOUR_API_KEY', '')
+request.body = {source: 'https://pdfshift.io/documentation'}
+
+response = http.request(request)
+puts response.body</code-section>
+                        <code-section lang="java" :visible="isTab('java')">String encoding = Base64Encoder.encode ("YOUR_API_KEY:");
+
+HttpPost httppost = new HttpPost("https://api.pdfshift.io/v2/convert/");
+httppost.setHeader("Authorization", "Basic " + encoding);
+httppost.setHeader("Content-type", "application/json");
+
+StringEntity postingString = new StringEntity("{\"source\":\"https://pdfshift.io/documentation\"}");
+httppost.setEntity(postingString);
+HttpResponse response = httpclient.execute(httppost);
+HttpEntity entity = response.getEntity();</code-section>
+                        <code-section lang="csharp" :visible="isTab('csharp')"></code-section>
                         <code-section lang="bash" :visible="isTab('curl')">curl \
-  -u '120d8e8a86d2....................:' \
-  -d source="https://www.google.com" \
+  -u 'YOUR_API_KEY:' \
+  -d source="https://pdfshift.io/documentation" \
   https://api.pdfshift.io/v2/convert/ \
-  -o invoice.pdf
+  -o pdfhsift-documentation.pdf
 
 # So simple we have this long black space available ...
 #
@@ -178,13 +214,14 @@ header .tabs .tab-content .code-section code {
 
                     a {
                         display: block;
-                        padding: 10px 40px;
+                        padding: 10px 20px 5px;
                         margin: 0;
                         text-decoration: none;
                         color: #fff;
                         font-weight: bold;
                         transition: color .25s ease, background-color 0.25s ease;
-                        min-width: 160px;
+                        min-width: 100px;
+                        text-align: center;
 
                         &:after {
                             background: none repeat scroll 0 0 transparent;
@@ -197,6 +234,10 @@ header .tabs .tab-content .code-section code {
                             background-color: rgba(255, 255, 255, 0.6);
                             transition: width 0.3s ease 0s, left 0.3s ease 0s;
                             width: 0;
+                        }
+
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.1);
                         }
                     }
 
@@ -211,7 +252,7 @@ header .tabs .tab-content .code-section code {
                 }
             }
             .tab-content {
-                margin-top: 20px;
+                margin-top: 0px;
                 border: solid 2px fadeout(@primary_color, 40%);
                 box-shadow: 10px 10px 10px fadeout(@primary_color, 60%);
             }
