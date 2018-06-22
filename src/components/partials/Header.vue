@@ -3,7 +3,7 @@
         <div class="navbar" v-if="showBack">
             <nav style="margin: 20px 0 -28px">
                 <ul>
-                    <router-link :to="{name: 'Account', token: $route.params.token}" tag="li"><a title="Go back to your account">Return to your account</a></router-link>
+                    <router-link :to="{name: 'account', params: {token: $route.params.token}}" tag="li"><a title="Go back to your account">Return to your account</a></router-link>
                 </ul>
             </nav>
         </div>

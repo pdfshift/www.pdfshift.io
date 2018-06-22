@@ -32,6 +32,10 @@ export default {
         account: Object,
         plans: Object
     },
+    created () {
+        this.$parent.header = 'Upgrade your account'
+        this.$parent.subheader = 'Select the plan that fits your needs'
+    },
     methods: {
         getPlanName () {
             return (this.account.plan === null) ? 'free' : this.account.plan.name
@@ -52,7 +56,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../assets/styles/colors.less';
+@import '../../../assets/styles/colors.less';
 
 .plans {
     margin-top: 40px;

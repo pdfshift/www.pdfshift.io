@@ -7,11 +7,13 @@ import Documentation from '@/components/Documentation'
 import FAQ from '@/components/FAQ'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
-import Account from '@/components/Account'
-import UpgradeParent from '@/components/upgrade/Parent'
-import UpgradePlans from '@/components/upgrade/Plans'
-import UpgradeStripe from '@/components/upgrade/Stripe'
-import UpgradeFinished from '@/components/upgrade/Finished'
+
+import AccountParent from '@/components/account/Parent'
+import AccountDetails from '@/components/account/Details'
+import AccountEdit from '@/components/account/Edit'
+import UpgradePlans from '@/components/account/upgrade/Plans'
+import UpgradeStripe from '@/components/account/upgrade/Stripe'
+import UpgradeFinished from '@/components/account/upgrade/Finished'
 
 import Terms from '@/components/laws/Terms'
 import Privacy from '@/components/laws/Privacy'
@@ -68,25 +70,30 @@ export default new Router({
         },
         {
             path: '/account/:token',
-            name: 'Account',
-            component: Account
-        },
-        {
-            path: '/account/:token/upgrade',
-            component: UpgradeParent,
+            component: AccountParent,
             children: [
                 {
                     path: '',
+                    name: 'account',
+                    component: AccountDetails
+                },
+                {
+                    path: 'edit',
+                    name: 'account-edit',
+                    component: AccountEdit
+                },
+                {
+                    path: 'upgrade',
                     name: 'upgrade-plans',
                     component: UpgradePlans
                 },
                 {
-                    path: ':plan',
+                    path: 'upgrade/:plan',
                     name: 'upgrade-stripe',
                     component: UpgradeStripe
                 },
                 {
-                    path: ':plan/success',
+                    path: 'upgrade/:plan/success',
                     name: 'upgrade-finished',
                     component: UpgradeFinished
                 }

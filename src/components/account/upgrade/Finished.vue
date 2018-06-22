@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../assets/styles/colors.less';
+@import '../../../assets/styles/colors.less';
 
 .finished {
     width: 750px;
