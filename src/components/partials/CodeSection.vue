@@ -1,9 +1,9 @@
 <template>
     <div class="code-section" v-bind:class="{'visible': visible}">
-        <pre><code :class="lang" v-hljs ref="code"><slot></slot></code></pre>
+        <span style="display: none"><slot></slot></span>
+        <pre><code :class="lang" v-hljs ref="code" class="hljs"></code></pre>
         <div class="buttons">
             <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy" v-if="clipboard">{{ copyMessage }}</a>
-            <!--<a href="javascript:;" title="Click here to copy to clipoard" class="button">Run this code</a>-->
         </div>
     </div>
 </template>
@@ -51,6 +51,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style lang="less" scoped>
@@ -66,7 +67,7 @@ div.code-section {
         display: block;
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 30px;
 
         &>a {
             display: block;
@@ -97,5 +98,6 @@ code {
     line-height: 1.5em;
     letter-spacing: 0.0625em;
     word-spacing: 0.0625em;
+    overflow: scroll
 }
 </style>

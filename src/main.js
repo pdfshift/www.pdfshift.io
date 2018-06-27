@@ -26,8 +26,14 @@ if (window.document.location.hostname === 'pdfshift.io') {
 Vue.use(VueAnalytics, {id: 'UA-17593304-8', router})
 
 Vue.directive('hljs', {
-    inserted: function (el) {
-        Highlight.highlightBlock(el)
+    update (el, binding, vnode) {
+        if (!vnode.context.visible) {
+            return
+        }
+
+        let slotNode = el.parentNode.parentNode.childNodes[0]
+        let hljs = Highlight.highlight(vnode.data.class, slotNode.innerText)
+        el.innerHTML = hljs.value
     }
 })
 

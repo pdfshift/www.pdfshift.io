@@ -363,7 +363,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
             </div>
 
             <div class="cta">
-                <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
+                <router-link :to="{name: 'Register'}" class="button">Get my API key</router-link>
             </div>
         </div>
     </div>

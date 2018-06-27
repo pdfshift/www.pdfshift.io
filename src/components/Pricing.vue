@@ -7,7 +7,7 @@
                     PDFShift is free to get started!
                     <small>Get up and running for free with <strong>250 conversions</strong> per month<br />and <strong>up to 1Mb per documents.</strong></small>
                     <div class="cta">
-                        <router-link :to="{name: 'Register'}" class="button">Get your free API key</router-link>
+                        <router-link :to="{name: 'Register'}" class="button">Get my free API key</router-link>
                         <small>
                             Instant access to your API key, no credit cards required.<br />
                             Start generating PDFs in a minute!
@@ -17,26 +17,6 @@
             </div>
         </header>
         <div class="container">
-            <div class="plans-inline">
-                <div class="options">
-                    <h3>Want to get more conversions for free?</h3>
-                    <p>We offer two possibilities to increase your monthly usage for free, maybe it would interest you?</p>
-
-                    <ul>
-                        <li>
-                            <h4>Get +50 credits by sharing PDFShift on Twitter</h4>
-                            <p>Tweet about PDFShift, let us know and we will add 50 credits to your monthly usage.</p>
-                        </li>
-                        <li>
-                            <h4>Get +250 credits by writing a blog post about PDFShift</h4>
-                            <p>Write a blog post talking about PDFShift. It can be technical or not.<br />
-                                We will happily add +250 credits to your monthly usage.
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <h2>Need more? Upgrade to bigger volumes!</h2>
             <div class="plans">
                 <p class="description">
                     Each plan comes with a defined number of conversions. A conversion represents one document converted.<br />
@@ -56,7 +36,7 @@
                     </div>
 
                     <div class="cta">
-                        <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
+                        <router-link :to="{name: 'Register'}" class="button">Get my API key</router-link>
                     </div>
                 </div>
                 <div class="plan">
@@ -74,7 +54,7 @@
                     </div>
 
                     <div class="cta">
-                        <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
+                        <router-link :to="{name: 'Register'}" class="button">Get my API key</router-link>
                     </div>
                 </div>
                 <div class="plan">
@@ -91,35 +71,41 @@
                     </div>
 
                     <div class="cta">
-                        <router-link :to="{name: 'Register'}" class="button">Get your API key</router-link>
+                        <router-link :to="{name: 'Register'}" class="button">Get my API key</router-link>
                     </div>
                 </div>
+            </div>
+            <div class="extra">
+                <h4>Want to stay on the free plan?</h4>
+                <p>
+                    You can <u>get the $9 plan for free</u> by <router-link :to="{name: 'Increase'}">following these steps</router-link>.
+                </p>
             </div>
             <ul>
                 <li>
                     <h4>
-                        <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/money_box-64.png" />
+                        <img src="../../static/img/money.png" />
                         Free to start
                     </h4>
                     <p>Convert up to 250 documents per month for free. Start to pay after.</p>
                 </li>
                 <li>
                     <h4>
-                        <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/speedometer-64.png" />
+                        <img src="../../static/img/speed.png" />
                         Reliable
                     </h4>
                     <p>We rely on a cluster of servers to deliver the results in a breeze.</p>
                 </li>
                 <li>
                     <h4>
-                        <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/thumb_up-64.png" />
+                        <img src="../../static/img/good.png" />
                         Easy
                     </h4>
                     <p>Our API has been built for developer specifically.<br />Simple, complete, elegant.</p>
                 </li>
                 <li>
                     <h4>
-                        <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/key-64.png" height="54"/>
+                        <img src="../../static/img/key.png" height="54"/>
                         Secure
                     </h4>
                     <p>Requests are made over SSL and the documents generated are never stored.</p>
@@ -179,6 +165,21 @@
     .container {
         text-align: center;
         letter-spacing: 0.05em;
+
+        .extra {
+            margin-top: 50px;
+            background-color: fadeout(@secondary_color, 80%);
+            border-radius: 4px;
+            padding: 20px;
+
+            h4, p {
+                margin: 0;
+                padding: 0;
+                display: inline
+            }
+
+            h4 {margin-right: 20px}
+        }
     }
 
     .container>p {
@@ -186,62 +187,6 @@
         margin: 60px 0;
         color: #333;
         font-style: italic;
-    }
-
-    .container>.plans-inline {
-        margin: 40px 0;
-
-        .cta {
-            margin: 25px 0;
-
-            &>a {
-                margin-bottom: 25px;
-                padding: 25px 100px;
-            }
-        }
-
-        small {
-            display: block;
-        }
-
-        .options {
-            margin: 60px 0;
-            background-color: #eee;
-            padding: 20px;
-
-            h3 {
-                margin-bottom: 10px
-            }
-
-            h4 {
-                margin: 40px 0 5px;
-                padding: 0;
-            }
-
-            p {
-                margin: 0;
-                padding: 0;
-            }
-
-            ul {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: baseline;
-
-                &>li {
-                    flex-grow: 1;
-                    flex-shrink: 1;
-                    flex-basis: 0;
-                    line-height: 1.5em;
-
-                    &:first-child {
-                        margin-right: 100px
-                    }
-                }
-            }
-        }
     }
 
     .container>ul {
@@ -294,7 +239,7 @@
         }
 
         .plan {
-            &:first-child {
+            &:first-of-type {
                 margin-left: 0;
             }
 

@@ -23,6 +23,7 @@
                     <label class="checkbox">
                         <input type="checkbox" name="agree" value="1" required v-model="form.agree" />
                         I agree to the <router-link :to="{name: 'Terms'}" target="_blank">Terms of Service</router-link> and the <router-link :to="{name: 'Privacy'}" target="_blank">Privacy Policy</router-link>.
+                        (TLDR: We don't sell your data.)
                     </label>
                 </div>
                 <input type="submit" name="send" value="Get your API key" class="button" />

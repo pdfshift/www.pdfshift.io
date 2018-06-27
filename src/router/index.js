@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Pricing from '@/components/Pricing'
 import Features from '@/components/Features'
+import Increase from '@/components/Increase'
 import Documentation from '@/components/Documentation'
 import FAQ from '@/components/FAQ'
 import Register from '@/components/Register'
@@ -37,6 +38,11 @@ export default new Router({
             path: '/pricing',
             name: 'Pricing',
             component: Pricing
+        },
+        {
+            path: '/increase',
+            name: 'Increase',
+            component: Increase
         },
         {
             path: '/demo',
