@@ -42,18 +42,12 @@
                             </label>
                             <textarea rows="3" cols="25" name="css" placeholder="body {background-color: #8E56CF !important}" v-model="form.css" v-if="form.custom_css"></textarea>
                         </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="custom_header" value="true" v-model="form.custom_header" > Custom header
-                            </label>
-                            <textarea rows="3" cols="25" name="header" v-model="form.header" v-if="form.custom_header"></textarea>
+                        <div class="error" v-if="error">
+                            {{ error }}
                         </div>
                         <div class="buttons">
-                            <input type="submit" name="send" value="Try it!" :disabled="processing" />
+                            <input type="submit" name="send" value="Try it!" :disabled="sending" />
                         </div>
-                        <template v-if="finished">
-                            <div class="close"><a href="javascript:;" title="Reset the form" v-on:click.prevent="closePreview">Close the preview</a></div>
-                        </template>
                     </form>
                 </div>
                 <div class="tabs">
@@ -85,7 +79,7 @@ pdfshift.convert('{{ sourced }}', {{ generateParams('javascript') }}).then(funct
 response = requests.post(
     'https://api.pdfshift.io/v2/convert/',
     auth=('YOUR_API_KEY', ''),
-    json={'source': '{{ sourced }}'}
+    json={{ generateParams('python') }}
 )
 
 response.raise_for_status()
@@ -102,7 +96,7 @@ curl_setopt_array($curl, array(
     CURLOPT_URL => "https://api.pdfshift.io/v2/convert/",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => json_encode(array('source' => '{{ sourced }}')),
+    CURLOPT_POSTFIELDS => json_encode({{ generateParams('php') }}),
     CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
     CURLOPT_USERPWD => 'YOUR_API_KEY:'
 ));
@@ -123,7 +117,7 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Post.new(url, 'Content-Type' => 'application/json')
 request.basic_auth('YOUR_API_KEY', '')
-request.body = {source: '{{ sourced }}'}
+request.body = {{ generateParams('ruby') }}
 
 response = http.request(request)
 puts response.body</code-section>
@@ -132,7 +126,7 @@ HttpPost httppost = new HttpPost("https://api.pdfshift.io/v2/convert/");
 httppost.setHeader("Authorization", "Basic " + encoding);
 httppost.setHeader("Content-type", "application/json");
 
-HttpEntity postingString = new StringEntity("{\"source\":\"{{ sourced }}\"}");
+HttpEntity postingString = new StringEntity({{ generateParams('java') }});
 httppost.setEntity(postingString);
 
 CloseableHttpClient client = HttpClients.createDefault();
@@ -150,7 +144,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
 
 var values = new Dictionary&lt;string, string&gt;
 {
-   { "source", "https://www.example.com" }
+{{ generateParams('csharp') }}
 };
 
 var content = new FormUrlEncodedContent(values);
@@ -158,7 +152,7 @@ var response = await client.PostAsync("https://api.pdfshift.io/v2/convert/", con
 var binaryPdf = await response.Content.ReadAsByteArrayAsync();</code-section>
                         <code-section lang="bash" :visible="isTab('curl')">curl \
   -u 'YOUR_API_KEY:' \
-  -d source="{{ sourced }}" \
+{{ generateParams('bash') }}
   https://api.pdfshift.io/v2/convert/ \
   -o pdfhsift-documentation.pdf
 
@@ -254,13 +248,13 @@ export default {
                 landscape: 'false',
                 use_print: 'false',
                 custom_css: false,
-                custom_header: false,
-                css: null,
-                header: null
+                css: null
             },
             processing: false,
+            sending: false,
             finished: false,
-            pdfResult: null
+            pdfResult: null,
+            error: null
         }
     },
     computed: {
@@ -289,33 +283,48 @@ export default {
             return true
         },
         convertDocument () {
+            if (this.sending) {
+                return false
+            }
+
+            this.closePreview()
             this.processing = true
+            this.sending = true
+
             let params = {
                 source: this.sourced,
                 landscape: this.form.landscape,
                 use_print: this.form.use_print,
-                encode: false
+                encode: true,
+                timeout: 15
             }
 
             if (this.form.css) {
                 params['css'] = this.form.css
             }
 
-            if (this.form.header) {
-                params['header'] = this.form.header
-            }
-
-            this.$http.post('http://77.193.92.35:5000/v2/convert/', params).then(
+            this.$http.post('http://127.0.0.1:5000/v2/convert', params).then(
                 response => {
                     this.pdfResult = response.data
                     this.finished = true
+                    this.sending = false
                 },
                 response => {
-
+                    this.sending = false
+                    this.closePreview()
+                    if (response.body.hasOwnProperty('error')) {
+                        this.error = response.body.error
+                    } else if (response.body.hasOwnProperty('errors')) {
+                        let keyname = Object.keys(response.body.errors)[0]
+                        this.error = keyname + ' : ' + response.body.errors[keyname][0]
+                    } else {
+                        this.error = 'A fatal error occured!'
+                    }
                 }
             )
         },
         closePreview () {
+            this.error = null
             this.pdfResult = null
             this.finished = false
             this.processing = false
@@ -324,7 +333,32 @@ export default {
             switch (language) {
                 case 'javascript':
                     return this._getOptionsJavascript()
+                case 'python':
+                    return this._getOptionsPython()
+                case 'php':
+                    return this._getOptionsPhp()
+                case 'ruby':
+                    return this._getOptionsRuby()
+                case 'java':
+                    return this._getOptionsJava()
+                case 'csharp':
+                    return this._getOptionsCSharp()
+                case 'bash':
+                    return this._getOptionsBash()
             }
+        },
+        _getOrganicOptions () {
+            let options = {
+                source: this.sourced,
+                landscape: this.form.landscape === 'true',
+                use_print: this.form.use_print === 'true'
+            }
+
+            if (this.form.css) {
+                options['css'] = this.form.css
+            }
+
+            return options
         },
         _getOptionsJavascript () {
             let options = {
@@ -336,11 +370,73 @@ export default {
                 options['css'] = this.form.css
             }
 
-            if (this.form.header) {
-                options['header'] = this.form.header
-            }
-
             return JSON.stringify(options)
+        },
+        _getOptionsPython () {
+            let options = this._getOrganicOptions()
+
+            let result = JSON.stringify(options)
+            result = result.split(':true').join(':True')
+            result = result.split(':false').join(':False')
+            return result
+        },
+        _getOptionsPhp () {
+            let options = this._getOrganicOptions()
+
+            let result = 'array('
+            for (let k in options) {
+                if (!options.hasOwnProperty(k)) {
+                    continue
+                }
+
+                result += '"' + k + '" => ' + JSON.stringify(options[k]) + ', '
+            }
+            return result.substring(0, result.length - 2) + ')'
+        },
+        _getOptionsRuby () {
+            let options = this._getOrganicOptions()
+
+            let result = '{'
+            for (let k in options) {
+                if (!options.hasOwnProperty(k)) {
+                    continue
+                }
+
+                result += k + ': ' + JSON.stringify(options[k]) + ', '
+            }
+            return result.substring(0, result.length - 2) + '}'
+        },
+        _getOptionsJava () {
+            let options = this._getOrganicOptions()
+            return JSON.stringify(JSON.stringify(options))
+        },
+        _getOptionsCSharp () {
+            // { "source", "https://www.example.com" }
+            let options = this._getOrganicOptions()
+
+            let result = ''
+            for (let k in options) {
+                if (!options.hasOwnProperty(k)) {
+                    continue
+                }
+
+                result += '    { ' + JSON.stringify(k) + ', ' + JSON.stringify('' + options[k]) + ' },\n'
+            }
+            return result.substring(0, result.length - 2)
+        },
+        _getOptionsBash () {
+            // -d source="{{ sourced }}" \
+            let options = this._getOrganicOptions()
+
+            let result = ''
+            for (let k in options) {
+                if (!options.hasOwnProperty(k)) {
+                    continue
+                }
+
+                result += '  -d ' + k + '=' + JSON.stringify('' + options[k]) + ' \\\n'
+            }
+            return result.substring(0, result.length - 1)
         }
     }
 }
@@ -429,13 +525,10 @@ header .tabs .tab-content .code-section code {
                     }
                 }
 
-                .close {
+                .error {
                     text-align: center;
                     font-style: italic;
-                    a {
-                        color: lighten(#721c24, 15%) !important;
-                        font-size: 1.1em
-                    }
+                    color: lighten(#721c24, 15%) !important;
                 }
 
                 input[type="submit"] {

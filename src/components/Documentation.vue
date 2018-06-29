@@ -260,6 +260,22 @@ export default {
                             example: 'true',
                             default: 'false'
                         },
+                        {
+                            name: 'encode',
+                            required: false,
+                            type: 'Boolean',
+                            description: 'Will return the generated PDF in Base64 encoded format, instead of raw.',
+                            example: 'true',
+                            default: 'false'
+                        },
+                        {
+                            name: 'timeout',
+                            required: false,
+                            type: 'Number',
+                            description: 'If provided, will kill the page loading at a specified time without stopping with a TimeoutError. Value in seconds',
+                            example: '15',
+                            default: 'null'
+                        },
                         /*
                         {
                             name: 'grayscale',
@@ -330,9 +346,9 @@ export default {
                             name: 'delay',
                             required: false,
                             type: 'Number',
-                            description: 'In milliseconds. Will wait for this duration before capturing the document. Up to 10 seconds max. We wait 2seconds by default (2000ms)',
+                            description: 'In milliseconds. Will wait for this duration before capturing the document. Up to 10 seconds max.',
                             example: '2000',
-                            default: '2000'
+                            default: '0'
                         },
                         {
                             name: 'use_print',
