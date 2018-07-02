@@ -387,9 +387,9 @@ export default {
                         {
                             name: 'zoom',
                             required: false,
-                            type: 'Number',
-                            description: 'A value between 0 and 50. Allows you to increase the zoom in the document for specific purposes.',
-                            example: '15',
+                            type: 'Floating Number',
+                            description: 'A value between 0 and 2. Allows you to increase the zoom in the document for specific purposes. 1 is the default zoom, lower is smaller, higher is bigger.',
+                            example: '0.8',
                             default: '1'
                         },
                         {
