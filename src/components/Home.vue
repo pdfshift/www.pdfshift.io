@@ -303,7 +303,7 @@ export default {
                 params['css'] = this.form.css
             }
 
-            this.$http.post('http://127.0.0.1:5000/v2/convert', params).then(
+            this.$http.post('https://api.pdfshift.io/v2/convert', params).then(
                 response => {
                     this.pdfResult = response.data
                     this.finished = true
