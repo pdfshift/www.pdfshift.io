@@ -164,18 +164,20 @@ var binaryPdf = await response.Content.ReadAsByteArrayAsync();</code-section>
 #
 # Have you thought about grabing that beer? You should! :)</code-section>
                     </div>
-                    <div class="preview" v-if="processing" :class="{'visible': processing}">
-                        <template v-if="finished">
-                            <div>
-                                <div><a href="javascript:;" title="Close this preview" v-on:click.prevent="closePreview">&times;</a></div>
-                                <object :data="'data:application/pdf;base64,' + pdfResult" type="application/pdf">
-                                    <embed :src="'data:application/pdf;base64,' + pdfResult" type="application/pdf" />
-                                </object>
-                            </div>
-                        </template>
-                        <template v-else>
-                            <img src="../../static/img/loader.gif" />
-                        </template>
+                    <div class="loading" v-if="processing && !finished" :class="{'visible': processing}">
+                        <img src="../../static/img/loader.gif" />
+                    </div>
+                    <div class="preview" v-if="processing && finished" :class="{'visible': processing}">
+                        <div class="header"><a href="javascript:;" title="Close this preview" v-on:click.prevent="closePreview">&times;</a></div>
+                        <div>
+                            <a :href="result.url" target="_blank" title="Preview the result">
+                                <img src="../../static/img/pdf-icon.png" alt="pdf" />
+                                <span>
+                                    result.pdf<br />
+                                    <small>({{ result.filesize }}Mb)</small>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -250,10 +252,13 @@ export default {
                 custom_css: false,
                 css: null
             },
+            result: {
+                url: null,
+                filesize: 0
+            },
             processing: false,
             sending: false,
             finished: false,
-            pdfResult: null,
             error: null
         }
     },
@@ -296,6 +301,7 @@ export default {
                 landscape: this.form.landscape,
                 use_print: this.form.use_print,
                 encode: true,
+                filename: 'result.pdf',
                 timeout: 15
             }
 
@@ -305,9 +311,10 @@ export default {
 
             this.$http.post('https://api.pdfshift.io/v2/convert', params).then(
                 response => {
-                    this.pdfResult = response.data
                     this.finished = true
                     this.sending = false
+                    this.result.url = response.data.url
+                    this.result.filesize = (response.data.filesize / 1000 / 1000).toFixed(2)
                 },
                 response => {
                     this.sending = false
@@ -325,9 +332,9 @@ export default {
         },
         closePreview () {
             this.error = null
-            this.pdfResult = null
             this.finished = false
             this.processing = false
+            this.result = {url: null, filesize: 0}
         },
         generateParams (language) {
             switch (language) {
@@ -593,7 +600,7 @@ header .tabs .tab-content .code-section code {
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
             }
 
-            .preview {
+            .loading, .preview {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -604,31 +611,55 @@ header .tabs .tab-content .code-section code {
                 transition: opacity 0.35s ease-in-out;
                 border-radius: 4px 4px 0 0;
                 &.visible {opacity: 1}
-
                 display: flex;
+            }
+
+            .loading {
                 justify-content: center;
                 align-items: center;
+            }
 
-                >div {
-                    background-color: #000;
+            .preview {
+                flex-direction: column;
+
+                .header {
                     border-radius: 4px 4px 0 0;
+                    background-color: #000;
+                    text-align: right;
+                    display: block;
                     width: 100%;
-                    height: 100%;
+                    height: 34px;
 
-                    >div {
-                        text-align: right;
-                        font-size: 2em;
-                        padding-right: 10px;
-                        height: 36px;
+                    a {
+                        text-decoration: none;
+                        color: #ddd !important;
+                        font-size: 32px;
+                        margin-right: 5px;
 
-                        a {
-                            text-decoration: none;
-                            color: #ddd !important;
+                        &:hover {
+                            color: #ccc;
                         }
                     }
-                    object {
-                        width: 100%;
-                        height: calc(100% - 36px);
+                }
+
+                .header + div {
+                    background-color: #fff;
+                    height: calc(100% - 34px);
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    text-align: center;
+                    font-size: 2em;
+                    padding-right: 10px;
+
+                    a {
+                        text-decoration: none;
+                        color: #777;
+                        span {
+                            display: block
+                        }
                     }
                 }
             }
