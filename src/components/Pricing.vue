@@ -81,7 +81,7 @@
                     You can <u>get the $9 plan for free</u> by <router-link :to="{name: 'Increase'}">following these steps</router-link>.
                 </p>
             </div>
-            <ul>
+            <ul class="top--features">
                 <li>
                     <h4>
                         <img src="../../static/img/money.png" />

@@ -181,7 +181,7 @@ var binaryPdf = await response.Content.ReadAsByteArrayAsync();</code-section>
             </div>
 
             <div class="cta">
-                <router-link :to="{name: 'Register'}" class="button">Get my API key</router-link>
+                <router-link :to="{name: 'Register'}" class="button">Get my free API key</router-link>
                 <p>It's free and only takes 1 minute to get started!</p>
             </div>
         </div>

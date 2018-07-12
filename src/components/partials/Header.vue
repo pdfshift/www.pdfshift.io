@@ -9,14 +9,15 @@
         </div>
         <div class="navbar" v-else>
             <router-link :to="{name: 'Home'}" class="brand"><img src="../../../static/img/logo.png" alt="PDFShift" height="36" /></router-link>
-            <nav>
+            <a href="javascript:;" v-on:click="toggleMenu" class="nav--toggle">☰</a>
+            <nav v-bind:class="{'nav--hide': !showMobileMenu}">
                 <ul>
                     <!--<router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Try PDFShift for free and see for yourself">Demo</a></router-link>-->
                     <router-link :to="{name: 'Features'}" tag="li" active-class="active"><a title="Get a grasp of what you can do with PDFShift!">Features</a></router-link>
                     <router-link :to="{name: 'Documentation'}" tag="li" active-class="active"><a title="Read the documention and all the possibilities">Documentation</a></router-link>
-                    <router-link :to="{name: 'Pricing'}" tag="li" active-class="active"><a title="Our pricing plans will cover all your needs">Pricing</a></router-link>
+                    <router-link :to="{name: 'Pricing'}" tag="li" active-class="active"><a title="Our pricing HTML to PDF pricing plans will cover all your conversion needs">Pricing</a></router-link>
                     <router-link :to="{name: 'FAQ'}" tag="li" active-class="active"><a title="Have a question? We may have the answer!">FAQ</a></router-link>
-                    <router-link :to="{name: 'Register'}" tag="li" active-class="active" class="register"><a title="Register now for free and start converting your documents!" class="button">Get my free API Key</a></router-link>
+                    <router-link :to="{name: 'Register'}" tag="li" active-class="active" class="register"><a title="Register now for free and start converting HTML to PDF!" class="button">Get my free API Key</a></router-link>
                 </ul>
             </nav>
         </div>
@@ -33,6 +34,16 @@ export default {
         'showBack': {
             type: Boolean,
             default: false
+        }
+    },
+    data () {
+        return {
+            showMobileMenu: false
+        }
+    },
+    methods: {
+        toggleMenu () {
+            this.showMobileMenu = !this.showMobileMenu
         }
     }
 }

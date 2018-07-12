@@ -50,7 +50,7 @@ export default new Router({
             component: Pricing // TODO
         },
         {
-            path: '/features',
+            path: '/convert-html-to-pdf',
             name: 'Features',
             component: Features
         },

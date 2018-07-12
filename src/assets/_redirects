@@ -5,13 +5,14 @@ https://pdfshift.com/* https://pdfshift.io/:splat 301!
 https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 
 # Internal redirects
-/pricing          /index.html    200
-/demo             /index.html    200
-/features         /index.html    200
-/documentation    /index.html    200
-/faq              /index.html    200
-/register         /index.html    200
-/privacy          /index.html    200
-/terms            /index.html    200
+/pricing                /index.html             200
+/demo                   /index.html             200
+/features               /convert-html-to-pdf    301
+/convert-html-to-pdf    /index.html             200
+/documentation          /index.html             200
+/faq                    /index.html             200
+/register               /index.html             200
+/privacy                /index.html             200
+/terms                  /index.html             200
 
-/*                /index.html    404
+/*                      /index.html             404

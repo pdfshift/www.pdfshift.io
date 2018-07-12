@@ -679,7 +679,7 @@ export default {
                 },
                 {
                     name: 'Watermark with Text',
-                    key: 'watermark',
+                    key: 'watermark-text',
                     description: 'You can add a text as a watermark on your document easily. Here\'s how:',
                     parameters: [
                         {
@@ -766,7 +766,7 @@ export default {
                 },
                 {
                     name: 'Watermark with PDF',
-                    key: 'watermark',
+                    key: 'watermark-pdf',
                     description: 'You can also add a watermark to your document easily using an already existing PDF (one page) file.. Here\'s how:',
                     parameters: [
                         {

@@ -15,12 +15,12 @@ import VueAnalytics from 'vue-analytics'
 Vue.config.productionTip = false
 
 Vue.use(VueResource)
-if (window.document.location.hostname === 'pdfshift.io') {
-    Vue.http.options.root = 'https://api.pdfshift.io/v2/'
-    window.stripe_instance = window.Stripe('pk_live_Nu7cMuvIDlk7gHcksvN52v5S')
-} else {
+if (window.document.location.hostname === '127.0.0.1') {
     Vue.http.options.root = 'http://127.0.0.1:5000/v2/'
     window.stripe_instance = window.Stripe('pk_test_N1Lori9EgMNMzWplqBUHcVlB')
+} else {
+    Vue.http.options.root = 'https://api.pdfshift.io/v2/'
+    window.stripe_instance = window.Stripe('pk_live_Nu7cMuvIDlk7gHcksvN52v5S')
 }
 
 Vue.use(VueAnalytics, {id: 'UA-17593304-8', router})
