@@ -10,7 +10,7 @@
             </div>
         </header>
 
-        <div class="container">
+        <div class="container documentation">
             <div id="api-endpoint" class="section">
                 <h3>API Endpoint</h3>
                 <p>

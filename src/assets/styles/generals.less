@@ -45,7 +45,7 @@ h2 {
     font-weight: normal;
     margin: 20px 0;
     line-height: 1.5em;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 p {
@@ -281,6 +281,13 @@ div.table {
 }
 
 @media only screen and (max-width: 640px) {
+    body .documentation .section > div {
+        display:block;
+        .value, .description {
+            display:block;
+            width:100%;
+        }
+    }
     body .plans {
         display:block!important;
         .plan {display:block!important;width:100%!important;margin-left:0!important;margin-bottom:20px;}

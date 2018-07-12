@@ -26,10 +26,9 @@ require('normalize.css/normalize.css')
 @import 'assets/styles/generals.less';
 
 body {
-    font-family: Roboto, "Helvetica Neue", "Calibri Light", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0.02em;
 }
 
 #app>footer {
