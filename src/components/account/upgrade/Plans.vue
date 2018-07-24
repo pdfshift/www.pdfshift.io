@@ -3,9 +3,9 @@
         <div class="plans">
             <div v-for="(plan, name) in plans" v-bind:key="name" class="name" :class="{'selected': isPlan(name)}" v-on:click="setPlan(name)">
                 <h4>{{ plan.display }} plan</h4>
-                <span class="details">{{ plan.conversions }} conversions / month</span>
-                <span class="details">{{ plan.document }}Mb per documents</span>
-                <span class="price" v-if="plan.price">${{ plan.price}}/Mo</span>
+                <span class="details">{{ plan.credits }} conversions / month</span>
+                <span class="details">{{ plan.filesize }}Mb per documents</span>
+                <span class="price" v-if="plan.price">${{ plan.price}}/<template v-if="plan.yearly">Year</template><template v-else>Mo</template></span>
                 <span class="price" v-else>Free</span>
                 <div class="action">
                     <template v-if="isPlan(name)">
@@ -14,11 +14,11 @@
                     <template v-else-if="isPlanBetterThan(name)">
                         <a href="javascript:;" class="button">
                             Downgrade to {{ plan.display }}
-                            <template v-if="plan.price">(${{ plan.price }}/Mo)</template>
+                            <template v-if="plan.price">(${{ plan.price }}/<template v-if="plan.yearly">Year</template><template v-else>Mo</template>)</template>
                         </a>
                     </template>
                     <template v-else>
-                        <a href="javascript:;" class="button">Upgrade to {{ plan.display }} (${{ plan.price }}/Mo)</a>
+                        <a href="javascript:;" class="button">Upgrade to {{ plan.display }} (${{ plan.price }}/<template v-if="plan.yearly">Year</template><template v-else>Mo</template>)</a>
                     </template>
                 </div>
             </div>
@@ -48,7 +48,11 @@ export default {
         },
         setPlan (name) {
             if (name !== this.getPlanName()) {
-                this.$router.push({name: 'upgrade-stripe', params: {plan: name}})
+                if (name === 'free') {
+                    this.$router.push({name: 'cancel'})
+                } else {
+                    this.$router.push({name: 'upgrade-stripe', params: {plan: name}})
+                }
             }
         }
     }

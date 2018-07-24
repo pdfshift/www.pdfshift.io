@@ -13,6 +13,7 @@ import AccountParent from '@/components/account/Parent'
 import AccountDetails from '@/components/account/Details'
 import AccountEdit from '@/components/account/Edit'
 import UpgradePlans from '@/components/account/upgrade/Plans'
+import CancelPlan from '@/components/account/upgrade/Cancel'
 import UpgradeStripe from '@/components/account/upgrade/Stripe'
 import UpgradeFinished from '@/components/account/upgrade/Finished'
 
@@ -92,6 +93,11 @@ export default new Router({
                     path: 'upgrade',
                     name: 'upgrade-plans',
                     component: UpgradePlans
+                },
+                {
+                    path: 'cancel',
+                    name: 'cancel',
+                    component: CancelPlan
                 },
                 {
                     path: 'upgrade/:plan',

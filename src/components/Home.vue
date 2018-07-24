@@ -11,8 +11,8 @@
                     Converting HTML to PDF, Just. Got. Better.
                     <small>The HTML to PDF API you were waiting for!</small>
                     -->
-                    Convert HTML documents to PDF in one simple POST request.
-                    <small>The HTML to PDF API you were waiting for!</small>
+                    Convert HTML documents to PDF<br />
+                    In one simple POST request!
                 </h1>
             </div>
         </header>
@@ -473,6 +473,10 @@ header .tabs .tab-content .code-section code {
 
     header {
         padding-bottom: 200px;
+
+        h1 {
+            line-height: 1.5em
+        }
     }
 
     .showcase {

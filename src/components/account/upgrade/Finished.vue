@@ -17,6 +17,10 @@ export default {
     props: {
         account: Object,
         plans: Object
+    },
+    created () {
+        this.$parent.header = 'Thank you!'
+        this.$parent.subheader = 'Your account has been upgraded :)'
     }
 }
 </script>

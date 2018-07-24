@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="upgrade">
-                    <router-link :to="{name: 'upgrade-plans', params:{token: $route.params.token}}" title="Upgrade to a bigger plan" class="button">Upgrade to a bigger plan</router-link>
+                    <router-link :to="{name: 'upgrade-plans', params:{token: $route.params.token}}" title="Change your plan" class="button">Change your plan</router-link>
                 </div>
             </div>
         </div>
