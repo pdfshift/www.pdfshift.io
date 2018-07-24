@@ -91,8 +91,8 @@ export default {
                         display: 'Free',
                         name: 'free',
                         position: 0,
-                        conversions: 250,
-                        limit: 1,
+                        credits: 250,
+                        filesize: 1,
                         price: 0
                     }
                 }
