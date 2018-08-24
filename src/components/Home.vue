@@ -833,9 +833,13 @@ header .tabs .tab-content .code-section code {
 
                 li {
                     width: 50%;
+                    padding: 0 20px;
+                    text-align: justify;
 
                     h3 {
-                        font-weight: 550;
+                        font-weight: bold;
+                        font-size: 16px;
+                        color: #111;
                         margin: 30px 0 10px;
                         padding: 0;
                         font-family: 'Montserrat', sans-serif;
@@ -848,9 +852,11 @@ header .tabs .tab-content .code-section code {
                     }
 
                     p {
-                        font-size: 0.9em;
                         margin: 0;
                         padding: 0;
+                        font-size: 16px;
+                        color: #616161;
+                        font-weight: 100;
                     }
                 }
             }

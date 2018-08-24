@@ -4,9 +4,6 @@ TODO :
     * Better loading indicator (truck qui tourne donne l'impression que c'est long)
         => https://loading.io/
     * Show the "create form" right on the view page
-    * Add testimonials
-        https://dribbble.com/shots/3770978-G-Host-Landing-page/attachments/849151
-        https://dribbble.com/shots/3127232-Netguru-Redesign-Case-Study/attachments/661674
     * Enregistrer language pour le sélectionner automatiquement et envoyer le bon code snippet
     * Dans l'email avec code snippet, inclure un lien vers gist pour copier le code directement.
     * Changer le pricing : 39, 99, Enterprise
