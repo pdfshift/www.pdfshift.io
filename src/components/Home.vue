@@ -200,7 +200,7 @@ var binaryPdf = await response.Content.ReadAsByteArrayAsync();</code-section>
                     <div class="slide" v-for="t in tweets" v-bind:key="t.url">
                         <img :src="'https://avatars.io/twitter/' + t.handler" v-bind:alt="t.name + ' \'s avatar'" />
                         <h4>{{ t.name }}<span>@{{ t.handler }}</span></h4>
-                        <p>{{ t.message }}</p>
+                        <p v-html="twitter(t.message)"></p>
                         <div class="link"><a :href="t.url" v-bind:title="'View ' + t.name + '\'s message on Twitter'">View on Twitter</a></div>
                     </div>
                 </agile>
@@ -510,6 +510,14 @@ export default {
                 result += '  -d ' + k + '=' + JSON.stringify('' + options[k]) + ' \\\n'
             }
             return result.substring(0, result.length - 1)
+        },
+        twitter (text) {
+            let exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/i
+            text = text.replace(exp, '<a href="$1" target="_blank">$1</a>')
+            text = text.replace(/(^|\s)#(\w+)/g, '$1<a href="https://twitter.com/hashtag/$2?src=hash" target="_blank">#$2</a>')
+            text = text.replace(/(^|\s)@(\w+)/g, '$1<a href="https://www.twitter.com/$2" target="_blank">@$2</a>')
+            console.log(text)
+            return text
         }
     }
 }
@@ -884,6 +892,7 @@ header .tabs .tab-content .code-section code {
             display: flex;
             justify-content: flex-start;
             margin-top: 25px;
+            padding-bottom: 15px;
 
             .agile--disabled & {
                 display: block;
@@ -891,11 +900,15 @@ header .tabs .tab-content .code-section code {
             }
         }
 
+        .slide {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         &__slide {
             display: block;
             background-color: #fff;
             padding: 20px;
-            width: 500px;
 
             text-align: center;
             box-shadow: 10px 10px 10px rgba(0, 0, 0, 20%);
