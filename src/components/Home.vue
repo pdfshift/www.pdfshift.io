@@ -938,8 +938,8 @@ header .tabs .tab-content .code-section code {
             }
 
             img {
-                display: inline-block;
-                margin-top: -35px;
+                display: block;
+                margin: -42px auto 0;
                 background-color: #fff;
                 border-radius: 50%;
                 border: solid 2px #ccc;
@@ -1039,14 +1039,14 @@ header .tabs .tab-content .code-section code {
                 cursor: pointer;
                 display: block;
                 height: 14px;
-                width: 10px;
+                width: 14px;
                 font-size: 0;
                 line-height: 0;
                 margin: 0;
                 transition-duration: .3s;
 
-                background-color: transparent;
-                border: 1px solid @secondary_color;
+                background-color: #ddd;
+                border: none;
 
                 &:hover {
                     background-color: @secondary_color;
