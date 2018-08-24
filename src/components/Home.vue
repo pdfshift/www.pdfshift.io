@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="home">
         <header>
             <div>
                 <header-component />
@@ -190,10 +190,29 @@ var binaryPdf = await response.Content.ReadAsByteArrayAsync();</code-section>
                 <p>It's free and only takes 1 minute to get started!</p>
             </div>
         </div>
-        <div class="alternate">
+        <div id="testimonials" class="alternate">
+            <div class="container">
+                <h2>
+                    <span>Testimonials</span>
+                </h2>
+
+                <agile :fade="true">
+                    <div class="slide" v-for="t in tweets" v-bind:key="t.url">
+                        <img :src="'https://avatars.io/twitter/' + t.handler" v-bind:alt="t.name + ' \'s avatar'" />
+                        <h4>{{ t.name }}<span>@{{ t.handler }}</span></h4>
+                        <p>{{ t.message }}</p>
+                        <div class="link"><a :href="t.url" v-bind:title="'View ' + t.name + '\'s message on Twitter'">View on Twitter</a></div>
+                    </div>
+                </agile>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div>
             <div class="container">
                 <div class="features">
-                    <h2>Why are we better?</h2>
+                    <h2>
+                        <span>Why are we better?</span>
+                    </h2>
                     <ul>
                         <li>
                             <h3>High-Quality PDF</h3>
@@ -262,7 +281,51 @@ export default {
             processing: false,
             sending: false,
             finished: false,
-            error: null
+            error: null,
+            tweets: [
+                {
+                    name: 'Northcoders',
+                    handler: 'northcoders',
+                    message: 'The HTML to PDF #API you\'ve been waiting for is here and we love it! @pdfshift https://pdfshift.io/?tab=javascript  #javascript',
+                    url: 'https://twitter.com/northcoders/status/1017065907410042881'
+                },
+                {
+                    name: 'Gustavo Carreno',
+                    handler: 'gcarrenos',
+                    message: 'I\'m using https://pdfshift.io  to convert my HTML documents to PDF and it does the job really well. No need to write my own code anymore! :) @pdfshift',
+                    url: 'https://twitter.com/gcarrenos/status/1027575609092960256'
+                },
+                {
+                    name: 'JavaScript Daily',
+                    handler: 'JavaScriptDaily',
+                    message: 'PDFShift: An Easy-to-Use Remote HTML to PDF API - https://pdfshift.io/?tab=javascript  (A commercial service but free up to 250 conversions per month.)',
+                    url: 'https://twitter.com/JavaScriptDaily/status/1014944000304992256'
+                },
+                {
+                    name: 'JavaScriptKicks',
+                    handler: 'JavaScriptKicks',
+                    message: 'PDFShift - Convert HTML to PDF online with PDFShift\'s lightning-fast and powerful API by @pdfshift https://javascriptkicks.com/r/39676?url=https://pdfshift.io/pricing … #javascript via @JavaScriptKicks',
+                    url: 'https://twitter.com/JavaScriptKicks/status/1014195972417695744'
+                },
+                {
+                    name: 'Azat Mardan',
+                    handler: 'azatmardan',
+                    message: 'PDFShift: An Easy-to-Use Remote HTML to PDF API',
+                    url: 'https://twitter.com/azatmardan/status/1018329559136120832'
+                },
+                {
+                    name: 'مؤسسة عماد',
+                    handler: '3mad_co',
+                    message: '@pdfshift I have used it for PDF conversation and it\'s awesome.',
+                    url: 'https://twitter.com/3mad_co/status/1028026511918592006'
+                },
+                {
+                    name: 'ProgrammableWeb',
+                    handler: 'programmableweb',
+                    message: 'Convert HTML documents to watermarked, #encrypted PDFs with @PDFshift #API http://bit.ly/2yCXYQQ',
+                    url: 'https://twitter.com/programmableweb/status/1011685780878749696'
+                }
+            ]
         }
     },
     computed: {
@@ -719,17 +782,38 @@ header .tabs .tab-content .code-section code {
             }
         }
 
-        .features {
-            margin-bottom: 0;
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
 
-            h2 {
-                color: @secondary_color;
-                text-align: center;
+            span {
+                position: relative;
+                display: inline-block;
+                color: #afafaf !important;
+                font-weight: bold;
 
-                small {
-                    color: #9b9fa1
+                &:after {
+                    bottom: -5px;
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    position: absolute;
+                    background-color: @secondary_color;
+                    width: 80%;
+                    left: 50%;
+                    transform: translate(-50%, 0);
                 }
             }
+
+            &.alternate span {
+                color: darken(#afafaf, 10%) !important;
+            }
+        }
+
+        .features {
+            margin-bottom: 0;
 
             ul {
                 margin-top: 40px;
@@ -746,6 +830,8 @@ header .tabs .tab-content .code-section code {
                         font-weight: 550;
                         margin: 30px 0 10px;
                         padding: 0;
+                        font-family: 'Montserrat', sans-serif;
+                        letter-spacing: 1px;
 
                         img {
                             vertical-align: middle;
@@ -775,6 +861,184 @@ header .tabs .tab-content .code-section code {
     .alternate {
         background-color: @grey;
         border-top: solid 1px #c5c5c5;
-        padding: 20px 0;
+        padding: 0 0 20px;
+    }
+</style>
+
+<style lang="less">
+    @import '../assets/styles/colors.less';
+    .agile {
+        position: relative;
+        margin: 0 auto 60px;
+
+        &__list {
+            display: block;
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        &__track {
+            align-items: center;
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 25px;
+
+            .agile--disabled & {
+                display: block;
+                max-width: 100%;
+            }
+        }
+
+        &__slide {
+            display: block;
+            background-color: #fff;
+            padding: 20px;
+            width: 500px;
+
+            text-align: center;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 20%);
+            margin: 20px;
+
+            .agile--fade & {
+                opacity: 0;
+                position: relative;
+                z-index: 0;
+
+                &--active {
+                    opacity: 1;
+                    z-index: 2;
+                }
+
+                &--expiring {
+                    opacity: 1;
+                    transition-duration: 0s;
+                    z-index: 1;
+                }
+            }
+
+            img {
+                display: inline-block;
+                margin-top: -35px;
+                background-color: #fff;
+                border-radius: 50%;
+                border: solid 2px #ccc;
+                width: 48px;
+            }
+
+            h4 {
+                font-family: 'Montserrat', sans-serif;
+
+                span {
+                    margin-top: 10px;
+                    display: block;
+                    color: #cecece;
+                }
+            }
+
+            p {
+                font-size: 16px;
+                color: #616161;
+                position: relative;
+            }
+
+            p:before {
+                display: block;
+                padding-left: 10px;
+                content: "\201C";
+                font-size: 80px;
+                position: absolute;
+                left: -20px;
+                top: -20px;
+                color: @secondary_color;
+            }
+
+            .link {
+                text-align: right;
+                font-size: 0.9em;
+            }
+        }
+
+        &__arrow {
+            border: none;
+            bottom: -11px;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            transition-duration: .3s;
+            height: 100%;
+            top: 0;
+            width: 50px;
+            background-color: transparent;
+
+            &[disabled] {
+                display: none;
+            }
+
+            &:hover {
+                svg {
+                    fill: @secondary_color;
+                    cursor: pointer;
+                }
+            }
+
+            &--prev {
+                left: 0;
+            }
+
+            &--next {
+                right: 0;
+            }
+
+            svg {
+                fill: #ddd;
+                height: 48px;
+                transition-duration: .3s;
+            }
+        }
+
+        &__dots {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 15px 0 0;
+            padding: 0;
+            text-align: center;
+            white-space: nowrap;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+
+        &__dot {
+            margin: 0 10px;
+
+            button {
+                border-radius: 50%;
+                cursor: pointer;
+                display: block;
+                height: 14px;
+                width: 10px;
+                font-size: 0;
+                line-height: 0;
+                margin: 0;
+                transition-duration: .3s;
+
+                background-color: transparent;
+                border: 1px solid @secondary_color;
+
+                &:hover {
+                    background-color: @secondary_color;
+                }
+            }
+
+            &--current {
+                button {
+                    background-color: @secondary_color;
+                }
+            }
+        }
     }
 </style>

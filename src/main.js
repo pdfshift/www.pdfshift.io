@@ -11,6 +11,7 @@ import Highlight from 'highlightjs'
 import 'highlightjs/styles/atom-one-dark.css'
 import Moment from 'moment'
 import VueAnalytics from 'vue-analytics'
+import VueAgile from 'vue-agile'
 
 Vue.config.productionTip = false
 
@@ -48,6 +49,8 @@ function getQueryVariable (variable) {
     }
     return null
 }
+
+Vue.use(VueAgile)
 
 /* eslint-disable no-new */
 new Vue({
