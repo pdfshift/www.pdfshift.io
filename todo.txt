@@ -7,3 +7,10 @@ TODO :
     * Enregistrer language pour le sélectionner automatiquement et envoyer le bon code snippet
     * Dans l'email avec code snippet, inclure un lien vers gist pour copier le code directement.
     * Changer le pricing : 39, 99, Enterprise
+    * Revoir les features
+    * Logo pour les features?
+
+    * Se baser sur DocRaptor et Restpack pour l'UI
+    * Ajouter les conditions de Google Adwords
+
+    * Voir pour reprendre les emails en testimonials (ceux qui disent "j'ai testé 50 autres produits, celui la marche!")

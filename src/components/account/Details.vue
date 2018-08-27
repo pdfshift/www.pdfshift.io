@@ -74,7 +74,7 @@ export default {
             return ((this.account.credits.used / this.account.credits.total) * 100).toFixed(2)
         },
         toggleRemoved (token, position) {
-            this.$http.post('accounts/api/' + token, {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
+            this.$http.post('accounts/api/' + token, null, {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
                 response => {
                     this.$set(this.account.api_keys, position, response.body)
                 },
@@ -82,7 +82,7 @@ export default {
             )
         },
         createNewKey () {
-            this.$http.post('accounts/api/', {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
+            this.$http.post('accounts/api/', null, {headers: {'authorization': 'Bearer ' + this.$route.params.token}}).then(
                 response => {
                     this.account.api_keys.unshift(response.body)
                 },
