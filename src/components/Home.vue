@@ -284,6 +284,12 @@ export default {
             error: null,
             tweets: [
                 {
+                    name: 'Sujan Patel',
+                    handler: 'sujanpatel',
+                    message: 'Need to convert HTML documents to PDF? The team behind https://pdfshift.io  is doing a terrific job!',
+                    url: 'https://twitter.com/sujanpatel/status/1034113691564875776'
+                },
+                {
                     name: 'Northcoders',
                     handler: 'northcoders',
                     message: 'The HTML to PDF #API you\'ve been waiting for is here and we love it! @pdfshift https://pdfshift.io/?tab=javascript  #javascript',
