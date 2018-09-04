@@ -326,6 +326,12 @@ export default {
                     url: 'https://twitter.com/3mad_co/status/1028026511918592006'
                 },
                 {
+                    name: 'Jordan Kniest',
+                    handler: 'j_kniest',
+                    message: 'Dynamic #PDF generation was never easier. Simple, straightforward API to convert HTML code and websites to PDF files. https://pdfshift.io  #PDFShift @pdfshift',
+                    url: 'https://twitter.com/j_kniest/status/1036984306609139714'
+                },
+                {
                     name: 'ProgrammableWeb',
                     handler: 'programmableweb',
                     message: 'Convert HTML documents to watermarked, #encrypted PDFs with @PDFshift #API http://bit.ly/2yCXYQQ',
