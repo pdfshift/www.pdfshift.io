@@ -72,6 +72,13 @@ export default {
                         document.querySelector('body').appendChild(s)
                     }
                 }
+
+                try {
+                    this.$intercom.update({
+                        'email': this.account.email,
+                        'name': this.account.name
+                    })
+                } catch (e) {}
             },
             response => {
                 try {
