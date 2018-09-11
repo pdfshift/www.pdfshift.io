@@ -593,12 +593,14 @@ header .tabs .tab-content .code-section code {
     /* Website */
     #producthunt {
         position: absolute;
+        z-index: 9999;
         top: 0;
         left: 0;
         right: 0;
         background-color: rgb(218, 85, 47);
         color: #fff;
         text-align: center;
+        display: none;
 
         svg {
             vertical-align: middle;
@@ -632,6 +634,10 @@ header .tabs .tab-content .code-section code {
             &:hover {
                 color: rgba(255, 255, 255, 1);
             }
+        }
+
+        &.is-visible {
+            display: block;
         }
     }
 
