@@ -21,6 +21,7 @@
     "vue": "^2.5.2",
     "vue-agile": "^0.3.7",
     "vue-analytics": "^5.12.2",
+    "vue-intercom": "^1.0.12",
     "vue-resource": "^1.4.0",
     "vue-router": "^3.0.1"
   },

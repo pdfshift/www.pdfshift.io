@@ -1,5 +1,19 @@
 <template>
     <div class="home">
+        <div id="producthunt" v-bind:class="{'is-visible': producthunt}">
+            <a href="javascript:;" title="Close" v-on:click="closePH" class="close">&times;</a>
+            <p>
+                <a href="https://www.producthunt.com/posts/pdfshift">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M40 20c0 11.046-8.954 20-20 20S0 31.046 0 20 8.954 0 20 0s20 8.954 20 20" fill="#FFF"></path>
+                            <path d="M22.667 20H17v-6h5.667a3 3 0 0 1 0 6m0-10H13v20h4v-6h5.667a7 7 0 1 0 0-14" fill="#DA552F"></path>
+                        </g>
+                    </svg>
+                    We are featured on ProductHunt today! <strong>Come and say hi! 👋</strong>
+                </a>
+            </p>
+        </div>
         <header>
             <div>
                 <header-component />
@@ -282,6 +296,7 @@ export default {
             sending: false,
             finished: false,
             error: null,
+            producthunt: false,
             tweets: [
                 {
                     name: 'Sujan Patel',
@@ -352,6 +367,27 @@ export default {
 
             return this.form.source
         }
+    },
+    mounted () {
+        let campaign = null
+        try {
+            campaign = localStorage.getItem('campaign')
+        } catch (e) {}
+
+        if (campaign === null) {
+            try {
+                campaign = sessionStorage.getItem('campaign')
+            } catch (e) {}
+        }
+
+        if (campaign) {
+            campaign = JSON.parse(campaign)
+            if (campaign.source === 'producthunt') {
+                return
+            }
+        }
+
+        this.producthunt = true
     },
     methods: {
         isTab (tab) {
@@ -528,8 +564,10 @@ export default {
             text = text.replace(exp, '<a href="$1" target="_blank">$1</a>')
             text = text.replace(/(^|\s)#(\w+)/g, '$1<a href="https://twitter.com/hashtag/$2?src=hash" target="_blank">#$2</a>')
             text = text.replace(/(^|\s)@(\w+)/g, '$1<a href="https://www.twitter.com/$2" target="_blank">@$2</a>')
-            console.log(text)
             return text
+        },
+        closePH () {
+            this.producthunt = false
         }
     }
 }
@@ -553,6 +591,53 @@ header .tabs .tab-content .code-section code {
     @import '../assets/styles/colors.less';
 
     /* Website */
+    #producthunt {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgb(218, 85, 47);
+        color: #fff;
+        text-align: center;
+
+        svg {
+            vertical-align: middle;
+            margin-right: 0;
+            height: 32px;
+        }
+
+        a {
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            font-weight: normal;
+
+            &:hover {
+                text-decoration: none;
+
+                strong {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        a.close {
+            float: right;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            display: block;
+            font-size: 35px;
+            padding: 10px 20px;
+
+            &:hover {
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+
+    #producthunt.is-visible + header {
+        margin-top: 50px;
+    }
 
     header {
         padding-bottom: 200px;
