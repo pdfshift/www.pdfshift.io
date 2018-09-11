@@ -132,7 +132,6 @@ new Vue({
     },
     mounted () {
         this.$intercom.boot()
-        this.$intercom.show()
     }
 })
 
