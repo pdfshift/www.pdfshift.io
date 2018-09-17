@@ -65,7 +65,7 @@ export default {
                         eventLabel: 'Register'
                     })
                     try {
-                        this.$intercom.update({
+                        window.convertfox.identify({
                             'email': this.form.email,
                             'name': this.form.name
                         })

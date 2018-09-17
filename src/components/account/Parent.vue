@@ -74,10 +74,10 @@ export default {
                 }
 
                 try {
-                    this.$intercom.update({
+                    window.convertfox.identify({
                         'email': this.account.email,
                         'name': this.account.name
-                    })
+                    });
                 } catch (e) {}
             },
             response => {
