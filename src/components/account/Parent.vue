@@ -74,10 +74,13 @@ export default {
                 }
 
                 try {
-                    window.convertfox.identify({
-                        'email': this.account.email,
-                        'name': this.account.name
-                    });
+                    window.$crisp.push(["set", "user:email", [this.account.email]])
+                    window.$crisp.push(["set", "user:nickname", [this.account.name]])
+                    if (this.account.plan) {
+                        window.$crisp.push(["set", "session:data", [[
+                            ['plan_name', this.account.plan.name]
+                        ]]])
+                    }
                 } catch (e) {}
             },
             response => {

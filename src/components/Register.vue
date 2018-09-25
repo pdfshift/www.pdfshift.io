@@ -65,10 +65,8 @@ export default {
                         eventLabel: 'Register'
                     })
                     try {
-                        window.convertfox.identify({
-                            'email': this.form.email,
-                            'name': this.form.name
-                        })
+                        window.$crisp.push(["set", "user:email", [this.form.email]])
+                        window.$crisp.push(["set", "user:nickname", [this.form.name]])
                     } catch (e) {}
                 },
                 this.handleErrorXhr
