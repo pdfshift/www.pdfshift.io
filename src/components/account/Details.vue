@@ -10,7 +10,7 @@
                     &quot;Free&quot; plan.
                 </template>
 
-                <router-link :to="{name: 'account-edit'}" title="Edit your company credentials and your name.">&raquo; Edit your details</router-link>
+                <router-link :to="{name: 'account-edit'}" title="Edit your company credentials and your name." v-if="!manifold">&raquo; Edit your details</router-link>
             </h2>
             <div class="rows">
                 <div class="progression">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="upgrade">
+                <div class="upgrade" v-if="!manifold">
                     <router-link :to="{name: 'upgrade-plans', params:{token: $route.params.token}}" title="Change your plan" class="button">Change your plan</router-link>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     </div>
                 </li>
             </ul>
-            <p class="create">
+            <p class="create" v-if="!manifold">
                 <a href="javascript:;" title="Click here to create a new API token" v-on:click="createNewKey">Create a new key</a>
             </p>
         </div>
@@ -64,10 +64,19 @@ export default {
     props: {
         account: Object
     },
+    data () {
+        return {
+            manifold: false
+        }
+    },
     components: {HeaderComponent: HeaderComponent},
     created () {
         this.$parent.header = 'Hi ' + this.account.firstname + '!'
         this.$parent.subheader = 'Here\'s your account breakdown'
+
+        if (document.location.search.indexOf('manifold=1') > -1) {
+            this.manifold = true
+        }
     },
     methods: {
         getUsagePercentage () {

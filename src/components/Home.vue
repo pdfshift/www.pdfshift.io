@@ -68,7 +68,7 @@
 npm install pdfshift
 
 // Step 2, import PDFShift
-const pdfshift = require('pdfshift')('YOUR_API_KEY');
+const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 // Step 3, execute
@@ -81,7 +81,7 @@ pdfshift.convert('{{ sourced }}', {{ generateParams('javascript') }}).then(funct
 
 response = requests.post(
     'https://api.pdfshift.io/v2/convert/',
-    auth=('YOUR_API_KEY', ''),
+    auth=('{{ user_api_key }}', ''),
     json={{ generateParams('python') }}
 )
 
@@ -101,7 +101,7 @@ curl_setopt_array($curl, array(
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => json_encode({{ generateParams('php') }}),
     CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
-    CURLOPT_USERPWD => 'YOUR_API_KEY:'
+    CURLOPT_USERPWD => '{{ user_api_key }}:'
 ));
 
 $response = curl_exec($curl);
@@ -119,12 +119,12 @@ http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Post.new(url, 'Content-Type' => 'application/json')
-request.basic_auth('YOUR_API_KEY', '')
+request.basic_auth('{{ user_api_key }}', '')
 request.body = {{ generateParams('ruby') }}
 
 response = http.request(request)
 puts response.body</code-section>
-                        <code-section lang="java" :visible="isTab('java')">String encoding = Base64.getEncoder().encodeToString("YOUR_API_KEY:".getBytes());
+                        <code-section lang="java" :visible="isTab('java')">String encoding = Base64.getEncoder().encodeToString("{{ user_api_key }}:".getBytes());
 HttpPost httppost = new HttpPost("https://api.pdfshift.io/v2/convert/");
 httppost.setHeader("Authorization", "Basic " + encoding);
 httppost.setHeader("Content-type", "application/json");
@@ -143,7 +143,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
         "Basic",
         Convert.ToBase64String(
             System.Text.ASCIIEncoding.ASCII.GetBytes(
-                string.Format("{0}:{1}", "YOUR_API_KEY", ""))));
+                string.Format("{0}:{1}", "{{ user_api_key }}", ""))));
 
 var values = new Dictionary&lt;string, string&gt;
 {
@@ -154,7 +154,7 @@ var content = new FormUrlEncodedContent(values);
 var response = await client.PostAsync("https://api.pdfshift.io/v2/convert/", content);
 var binaryPdf = await response.Content.ReadAsByteArrayAsync();</code-section>
                         <code-section lang="bash" :visible="isTab('curl')">curl \
-  -u 'YOUR_API_KEY:' \
+  -u '{{ user_api_key }}:' \
 {{ generateParams('bash') }}
   https://api.pdfshift.io/v2/convert/ \
   -o pdfhsift-documentation.pdf
@@ -267,6 +267,7 @@ export default {
     },
     data () {
         return {
+            user_api_key: 'YOUR_API_KEY',
             form: {
                 source: 'https://www.pdfshift.io/documentation',
                 landscape: 'false',
@@ -351,6 +352,13 @@ export default {
             }
 
             return this.form.source
+        }
+    },
+    created () {
+        try {
+            this.user_api_key = this.$storage.getItem('api_key', 'YOUR_API_KEY')
+        } catch (e) {
+            this.user_api_key = 'YOUR_API_KEY'
         }
     },
     methods: {

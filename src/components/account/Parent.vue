@@ -80,6 +80,14 @@ export default {
                         'plan_id': (this.account.plan ? this.account.plan.name : null)
                     })
                 } catch (e) {}
+
+                try {
+                    if (this.account.api_keys.length > 0) {
+                        if (!this.$storage.getItem('api_key')) {
+                            this.$storage.setItem('api_key', this.account.api_keys[0].token)
+                        }
+                    }
+                } catch (e) {}
             },
             response => {
                 try {

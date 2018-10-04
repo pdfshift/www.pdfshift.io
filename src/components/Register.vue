@@ -10,7 +10,7 @@
             <router-link :to="{name: 'Login'}" class="login">Already have an account?</router-link>
             <hr />
             <form method="post" @submit.prevent="send">
-                <legend>Fill the form and we will send you your <code>ACCESS_TOKEN</code> by email.</legend>
+                <legend>Fill the form and we will send you your <code>API KEY</code> by email.</legend>
                 <div class="input">
                     <label for="start-now-name">Your name</label>
                     <input type="text" name="name" placeholder="Your name" id="start-now-name" required v-model="form.name" />
@@ -32,7 +32,7 @@
         <div class="container back" v-if="sent">
             <div class="message">
                 <h3>Welcome aboard, {{ form.name }}!</h3>
-                <p>We just sent you an email to <strong>{{ form.email }}</strong> containing your new token to start playing with PDFShift.</p>
+                <p>We just sent you an email to <strong>{{ form.email }}</strong> containing your API key to start playing with PDFShift.</p>
                 <p>We are happy to have you as part of the PDFShift family!</p>
             </div>
         </div>
@@ -59,6 +59,10 @@ export default {
             let formdata = Object.assign({}, JSON.parse(this.$root.campaign), this.form)
             this.$http.post('accounts/', formdata).then(
                 response => {
+                    if (this.account.api_key) {
+                        this.$storage.setItem('api_key', this.account.token)
+                    }
+
                     this.$ga.event({
                         eventCategory: 'account',
                         eventAction: 'register',

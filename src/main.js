@@ -12,6 +12,7 @@ import 'highlightjs/styles/atom-one-dark.css'
 import Moment from 'moment'
 import VueAnalytics from 'vue-analytics'
 import VueAgile from 'vue-agile' /* Carousel */
+import VueStorage from './plugins/Storage'
 
 Vue.config.productionTip = false
 
@@ -23,8 +24,10 @@ if (window.document.location.hostname === '127.0.0.1') {
     Vue.http.options.root = 'https://api.pdfshift.io/v2/'
     window.stripe_instance = window.Stripe('pk_live_Nu7cMuvIDlk7gHcksvN52v5S')
 }
-
+Vue.http.options.root = 'https://api.pdfshift.io/v2/'
 Vue.use(VueAnalytics, {id: 'UA-17593304-8', router})
+
+Vue.use(VueStorage)
 
 Vue.directive('hljs', {
     update (el, binding, vnode) {

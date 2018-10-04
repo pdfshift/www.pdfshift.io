@@ -14,7 +14,7 @@
                 <h3>Inline HTML</h3>
                 <p>Instead of providing an URL, you can directly send HTML data.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 let data = fs.readFileSync('invoice.html', 'utf8');
@@ -23,7 +23,7 @@ pdfshift.convert(data).then(function (binary_file) {
     fs.writeFile('result.pdf', binary_file, "binary", function () {})
 }).catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 document = open('page.html', 'r')
 document_content = document.read()
@@ -35,12 +35,12 @@ with open('result.pdf', 'wb') as output:
 </code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 $data = file_get_content('invoice.html');
 PDFShift::convertTo($data, null, 'result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello world&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;" \
 https://api.pdfshift.io/v2/convert/</code-section>
             </div>
@@ -48,14 +48,14 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Custom CSS</h3>
                 <p>You can customize the document before generating the PDF, to adapt the page to your needs.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 pdfshift.convert('https://www.example.com', {css: 'https://www.example.com/public/css/print.css'}).then(function (binary_file) {
     fs.writeFile('result.pdf', binary_file, "binary", function () {})
 }).catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 binary_file = pdfshift.convert(
     'https://www.example.com',
@@ -66,12 +66,12 @@ with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 $data = file_get_content('invoice.html');
 PDFShift::convertTo(data, ['css' => 'https://www.example.com/public/css/print.css'], 'result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="https://example.com" \
 -d css="https://www.example.com/public/css/print.css" \
 https://api.pdfshift.io/v2/convert/</code-section>
@@ -80,7 +80,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Add custom HTTP Headers</h3>
                 <p>It can be useful to add custom HTTP headers, like auth headers, http-agent, custom language, etc.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -95,7 +95,7 @@ pdfshift.prepare('https://httpbin.org/headers')
     })
     .catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 binary_file = pdfshift.convert(
     'https://httpbin.org/headers',
@@ -109,7 +109,7 @@ with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
@@ -118,7 +118,7 @@ $pdfshift->addHTTPHeader('user-agent', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64;
 $pdfshift->convert('https://httpbin.org/headers');
 $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="https://httpbin.org/headers" \
 -d http_headers[X-Original-Header]="Awesome value" \
 -d http_headers[user-agent]="Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0" \
@@ -128,7 +128,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Accessing secured pages</h3>
                 <p>You can rely on custom HTTP headers to do the job, or directly provide the credentials. (These are never stored!).</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -140,7 +140,7 @@ pdfshift.prepare('https://httpbin.org/basic-auth/user/passwd')
     })
     .catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 binary_file = pdfshift.convert('https://httpbin.org/basic-auth/user/passwd', auth=('user', 'passwd'))
 
@@ -148,7 +148,7 @@ with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
@@ -156,7 +156,7 @@ $pdfshift->auth('user', 'passwd');
 $pdfshift->convert('https://httpbin.org/basic-auth/user/passwd');
 $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="https://httpbin.org/basic-auth/user/passwd" \
 -d auth[username]="user" \
 -d auth[password]="passwd" \
@@ -166,7 +166,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Add cookies (Feeling hungry?)</h3>
                 <p>You can add custom cookies to load a protected page.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -178,7 +178,7 @@ pdfshift.prepare('https://httpbin.org/cookies')
     })
     .catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 binary_file = pdfshift.convert(
     'https://httpbin.org/cookies',
@@ -191,7 +191,7 @@ with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
@@ -199,7 +199,7 @@ $pdfshift->addCookie('session', '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac');
 $pdfshift->convert('https://httpbin.org/cookies');
 $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="https://example.com" \
 -d cookies[0][name]="session" \
 -d cookies[0][value]="4cb496a8-a3eb-4a7e-a704-f993cb6a4dac" \
@@ -209,7 +209,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Add Watermark</h3>
                 <p>Protect your PDF with a watermark at ease with PDFShift.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -226,7 +226,7 @@ pdfshift.prepare('https://www.example.com')
     })
     .catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 binary_file = pdfshift.convert(
     'https://www.example.com',
@@ -242,7 +242,7 @@ with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
@@ -255,7 +255,7 @@ $pdfshift->watermark([
 $pdfshift->convert('https://www.example.com');
 $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="https://example.com" \
 -d watermark[image]="https://pdfshift.io/static/img/logo.png" \
 -d watermark[offset_x]= 50\
@@ -267,7 +267,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Custom Header / Footer for your PDF</h3>
                 <p>Add a custom header/footer to your PDF document with pagination.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -279,7 +279,7 @@ pdfshift.prepare('https://www.example.com')
     })
     .catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 binary_file = pdfshift.convert(
     'https://www.example.com',
@@ -293,7 +293,7 @@ with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
@@ -301,7 +301,7 @@ $pdfshift->setFooter('<div>Page {{custom_header_template}}</div>', '50px');
 $pdfshift->convert('https://www.example.com');
 $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="https://example.com" \
 -d footer[source]="&lt;div&gt;Page {{custom_header_template}}&lt;/div&gt;" \
 -d footer[spacing]="150px" \
@@ -311,7 +311,7 @@ https://api.pdfshift.io/v2/convert/</code-section>
                 <h3>Protecting the generated PDF</h3>
                 <p>Define who can read/open your newly generated document.</p>
                 <language-switch :active="$route.query.lang" />
-                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('120d8e8a86d2....................');
+                <code-section lang="javascript" :visible="$route.query.lang == 'javascript'">const pdfshift = require('pdfshift')('{{ user_api_key }}');
 const fs = require('fs');
 
 // We use .prepare() instead of .convert to easily handle advanced configuration
@@ -327,7 +327,7 @@ pdfshift.prepare('https://www.example.com')
     })
     .catch(function({message, code, response, errors = null}) {})</code-section>
                 <code-section lang="python" :visible="$route.query.lang == 'python'">import pdfshift
-pdfshift.api_key = '120d8e8a86d2....................'
+pdfshift.api_key = '{{ user_api_key }}'
 
 binary_file = pdfshift.convert(
     'https://www.example.com',
@@ -342,7 +342,7 @@ with open('result.pdf', 'wb') as output:
     output.write(binary_file)</code-section>
                 <code-section lang="php" :visible="$route.query.lang == 'php'">require_once('vendor/autoload.php');
 use \PDFShift\PDFShift;
-PDFShift::setApiKey('120d8e8a86d2....................');
+PDFShift::setApiKey('{{ user_api_key }}');
 
 // We use an instance of PDFShift instead of the ::convertTo to easily handle advanced configuration
 $pdfshift = new PDFShift();
@@ -354,7 +354,7 @@ $pdfshift->protect([
 $pdfshift->convert('https://www.example.com');
 $pdfshift->save('result.pdf');</code-section>
                 <code-section lang="bash" :visible="$route.query.lang == 'curl'">curl \
--u '120d8e8a86d2....................:' \
+-u '{{ user_api_key }}:' \
 -d source="https://example.com" \
 -d protection[user_password]="user" \
 -d protection[owner_password]="owner" \
@@ -390,7 +390,15 @@ export default {
     },
     data () {
         return {
-            'custom_header_template': '{{page}} of {{total}}'
+            custom_header_template: '{{page}} of {{total}}',
+            user_api_key: 'YOUR_API_KEY'
+        }
+    },
+    created () {
+        try {
+            this.user_api_key = this.$storage.getItem('api_key', 'YOUR_API_KEY')
+        } catch (e) {
+            this.user_api_key = 'YOUR_API_KEY'
         }
     },
     methods: {

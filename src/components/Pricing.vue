@@ -78,7 +78,7 @@
             <div class="extra">
                 <h4>Want to stay on the free plan?</h4>
                 <p>
-                    You can <u>get the $9 plan for free</u> by <router-link :to="{name: 'Increase'}">following these steps</router-link>.
+                    You can <strong>get the $9 plan for free</strong> by <router-link :to="{name: 'Increase'}">following these steps</router-link>.
                 </p>
             </div>
             <ul class="top--features">
