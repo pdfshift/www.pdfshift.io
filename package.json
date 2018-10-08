@@ -21,6 +21,7 @@
     "vue": "^2.5.2",
     "vue-agile": "^0.3.7",
     "vue-analytics": "^5.12.2",
+    "vue-intercom": "^1.0.12",
     "vue-resource": "^1.4.0",
     "vue-router": "^3.0.1"
   },
@@ -51,7 +52,7 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
-    "less": "^3.0.1",
+    "less": "^3.8.1",
     "less-loader": "^4.0.5",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",

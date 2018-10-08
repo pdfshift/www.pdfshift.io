@@ -12,6 +12,7 @@ import 'highlightjs/styles/atom-one-dark.css'
 import Moment from 'moment'
 import VueAnalytics from 'vue-analytics'
 import VueAgile from 'vue-agile' /* Carousel */
+import VueIntercom from 'vue-intercom'
 import VueStorage from './plugins/Storage'
 
 Vue.config.productionTip = false
@@ -54,6 +55,8 @@ function getQueryVariable (variable) {
 }
 
 Vue.use(VueAgile)
+
+Vue.use(VueIntercom, { appId: 'kp7477du' })
 
 /* eslint-disable no-new */
 new Vue({
@@ -128,6 +131,9 @@ new Vue({
         } catch (e) {
             console.error(e)
         }
+    },
+    mounted () {
+        this.$intercom.boot()
     }
 })
 

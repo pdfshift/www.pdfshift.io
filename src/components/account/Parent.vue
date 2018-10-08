@@ -74,7 +74,7 @@ export default {
                 }
 
                 try {
-                    window.convertfox.identify({
+                    this.$intercom.update({
                         'email': this.account.email,
                         'name': this.account.name,
                         'plan_id': (this.account.plan ? this.account.plan.name : null)
