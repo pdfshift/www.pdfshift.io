@@ -59,15 +59,18 @@ export default {
             let formdata = Object.assign({}, JSON.parse(this.$root.campaign), this.form)
             this.$http.post('accounts/', formdata).then(
                 response => {
-                    if (this.account.api_key) {
-                        this.$storage.setItem('api_key', this.account.token)
-                    }
-
                     this.$ga.event({
                         eventCategory: 'account',
                         eventAction: 'register',
                         eventLabel: 'Register'
                     })
+
+                    /*
+                    if (this.account.api_key) {
+                        this.$storage.setItem('api_key', this.account.token)
+                    }
+                    */
+
                     try {
                         this.$intercom.update({
                             'email': this.form.email,
