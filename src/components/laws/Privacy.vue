@@ -110,6 +110,11 @@
                                 <td>__cfduid</td>
                                 <td>We rely on Cloudflare's CDN to provide you a faster loading pages.</td>
                             </tr>
+                            <tr>
+                                <td>Intercom</td>
+                                <td>intercom-id-kp7477du</td>
+                                <td>We use Intercom to provide our visitors with a chat to ask anything.</td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -151,6 +156,19 @@
                         </li>
                     </ul>
                     <p><strong>REMEMBER</strong>: We use these services only to provide you with a fantastic product that gives you easy access to things you like and to improve our general look and feel. If you choose to block, global opt out from some of the services that we use to deliver our product, you may run into errors, product bugs and other failures that influence your general experience and quality of our service. We are ok with that and respect your choice.</p>
+                </div>
+
+                <div id="data-privacy">
+                    <h2>Data Privacy (what do we store)</h2>
+                    <p>When you send a POST request to PDFShift in order to convert your HTML documents to PDF, our service doesn't store the content of your document nor the URL used.</p>
+                    <p>We only store the related information, including the date of the request, the duration of the conversion, the file size and the API key used for the conversion.</p>
+                    <p>In case an error occurs, the error message, the line, and the date are saved to our database for further analysis.</p>
+                    <p><strong>In no circumstances the content of your documents are stored on our servers</strong>, except for the following reason:</p>
+                    <p>
+                        When passing the "filename" parameter, instead of returning the PDF documents, our server will save the document to Amazon S3 and will return a JSON response with the link to Amazon S3.<br />
+                        The link is unique, generated via a unique identifier, and only shared to the user who made the request.<br />
+                        Moreover, the document is only stored for a limited amount of time (default to 2 (two) days), and will then be deleted automatically.
+                    </p>
                 </div>
 
                 <div id="privacy-access">
@@ -202,8 +220,19 @@
                 </div>
 
                 <div id="privacy-contact-us">
-                    <h2>Contact Us</h2>
+                    <h2>How you can contact us</h2>
                     <p>If you have questions or need to contact us about this Privacy Policy, please email us at <a href="mailto:support@pdfshift.io">support@pdfshift.io</a>.</p>
+                    <p>In addition, you may also contact PDFShift by writing to us at:</p>
+                    <address>
+                        S.A.S.U. PDFShift<br />
+                        30 rue de la claichiere<br />
+                        90800 BAVILLIERS<br />
+                        FRANCE
+                    </address>
+                </div>
+
+                <div id="last-modified">
+                    <p><strong>Date last modified</strong>: This Privacy Policy was last modified on Nov 20, 2018. Added "Data Privacy (what do we store)" chapter and physical address.</p>
                 </div>
             </div>
         </div>
