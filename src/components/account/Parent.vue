@@ -74,14 +74,6 @@ export default {
                 }
 
                 try {
-                    this.$intercom.update({
-                        'email': this.account.email,
-                        'name': this.account.name,
-                        'plan_id': (this.account.plan ? this.account.plan.name : null)
-                    })
-                } catch (e) {}
-
-                try {
                     if (this.account.api_keys.length > 0) {
                         if (!this.$storage.getItem('api_key')) {
                             this.$storage.setItem('api_key', this.account.api_keys[0].token)

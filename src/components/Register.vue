@@ -70,13 +70,6 @@ export default {
                         this.$storage.setItem('api_key', this.account.token)
                     }
                     */
-
-                    try {
-                        this.$intercom.update({
-                            'email': this.form.email,
-                            'name': this.form.name
-                        })
-                    } catch (e) {}
                 },
                 this.handleErrorXhr
             )

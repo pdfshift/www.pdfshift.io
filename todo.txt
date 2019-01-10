@@ -14,3 +14,28 @@ TODO :
     * Ajouter les conditions de Google Adwords
 
     * Voir pour reprendre les emails en testimonials (ceux qui disent "j'ai testé 50 autres produits, celui la marche!")
+
+New Website
+    Implémenter le design de Gregoire
+    Faire une landing page par language de programmation
+        Faire une pub AdWords dédiée
+    Faire le logo 99Design
+    Améliorer la documentation
+
+    Couleurs:
+
+        Violet:
+            #7f5ac9
+            #815acf
+            #62468b
+            #623e98
+
+            #744a97 -> #5a519c
+            #8860aa -> #523b7c
+            #9164b3 -> #533c7c
+            #704f88 -> #5b5197
+
+        Bleu:
+            #0092e6
+            #0e83c4 -> #176aab
+            #2c3288
