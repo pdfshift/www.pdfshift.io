@@ -96,6 +96,16 @@ a.button, input.button, button.button {
             background-color: $color-primary;
         }
     }
+
+    &.button-primary.button-disabled {
+        opacity: 0.5;
+        cursor: default;
+
+        &:hover {
+            background-color: lighten($color-primary, 10%);
+            color: $color-white;
+        }
+    }
 }
 
 /* Landing page */
@@ -176,6 +186,8 @@ a.button, input.button, button.button {
 
         .success {
             margin-top: 40px;
+            text-align: center;
+            color: lighten(#155724, 10%);
         }
     }
 
@@ -650,6 +662,7 @@ footer {
         opacity: 0;
         transition: opacity 0.75s ease-in-out;
         width: 100%;
+        text-align: center;
     }
 
     &.active {

@@ -12,7 +12,7 @@
         window.PDFShift.forms.clearErrors(form);
         event.preventDefault();
 
-        window.PDFShift.requests.post(window.PDFShift.api_url + 'contact', window.PDFShift.forms.asJSON(form)).then(
+        window.PDFShift.requests.post(window.PDFShift.api_url + 'contact/', window.PDFShift.forms.asJSON(form)).then(
             function (json) {
                 submitButton.classList.remove('button-disabled');
                 form.reset();

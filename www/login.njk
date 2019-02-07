@@ -14,6 +14,14 @@
     <div class="row">
         <div class="column six centered">
             <div class="transition" style="height: 265px">
+                <div class="back white-block success">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle cx="26" cy="26" r="25" fill="none"/>
+                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                    <h3>All good! Check your emails.</h3>
+                    <p>We just sent you a one time login by email to access your account.</p>
+                </div>
                 <div class="front">
                     <form id="login-form">
                         <div class="form-element">
@@ -24,14 +32,6 @@
                     </form>
                     <p>Don't have an account? <a href="/register/" title="Click here to create an account">Click here to create one</a>.</p>
                 </div>
-                <div class="back white-block success">
-                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                        <circle cx="26" cy="26" r="25" fill="none"/>
-                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                    </svg>
-                    <h3>All good! Check your emails.</h3>
-                    <p>We just sent you a one time login by email to access your account.</p>
-                </div>
             </div>
         </div>
     </div>
@@ -40,6 +40,44 @@
 
 {% block javascripts %}
 <script>
-{% include '_partials/js/register.js' %}
+// Create form
+(function () {
+    var form = document.querySelector('#login-form'),
+        submitButton = form.querySelector('.button');
+
+    form.addEventListener('submit', function (event) {
+        if (submitButton.classList.contains('button-disabled')) {
+            return false;
+        }
+
+        submitButton.classList.add('button-disabled');
+        window.PDFShift.forms.clearErrors(form);
+        event.preventDefault();
+
+        var params = window.PDFShift.forms.asJSON(form);
+
+        window.PDFShift.requests.post(window.PDFShift.api_url + 'accounts/login', params).then(
+            function (json) {
+                submitButton.classList.remove('button-disabled');
+                form.reset();
+                form.parentNode.parentNode.classList.add('active');
+            },
+            function (json, exception) {
+                var errors = {'email': ['An error occured.']};
+                if (json) {
+                    if (json.hasOwnProperty('error')) {
+                        var errors = {'email': [json.error]};
+                    } else if (json.hasOwnProperty('errors')) {
+                        errors = json['errors'];
+                    }
+                }
+
+                window.PDFShift.forms.setErrors(form, errors);
+                submitButton.classList.remove('button-disabled');
+            }
+        )
+        return false;
+    }, true);
+})();
 </script>
 {% endblock %}

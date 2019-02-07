@@ -13,34 +13,21 @@
     </p>
     <div class="row">
         <div class="column six centered">
-            <div class="transition" style="height: 435px">
-                <div class="front">
-                    <form id="create-form">
-                        <div class="form-element">
-                            <input type="text" name="name" placeholder="Full Name" required autofocus />
-                        </div>
-                        <div class="form-element">
-                            <input type="email" name="email" placeholder="Email Address" required />
-                        </div>
-
-                        <input type="submit" name="submit" value="Create your free account" class="button button-primary" />
-
-                        <p>
-                            <small>By signing up, you agree to the <a href="/terms/" title="Read our Terms of Service">Terms of Service</a> and <a href="/privacy/" title="Read our Privacy Policy">Privacy Policy</a>.</small>
-                        </p>
-                    </form>
-                    <p>Already have an account? <a href="/login/" title="Click here to switch to the login form">Click here to login</a>.</p>
+            <form id="create-form">
+                <div class="form-element">
+                    <input type="text" name="name" placeholder="Full Name" required autofocus />
                 </div>
-                <div class="back white-block success">
-                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                        <circle cx="26" cy="26" r="25" fill="none"/>
-                        <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                    </svg>
-                    <h3>All good! Check your emails.</h3>
-                    <p>We just sent you an email containing your API key to start implementing PDFShift.</p>
-                    <p>You'll be converting web documents to PDF in a few minutes now!</p>
+                <div class="form-element">
+                    <input type="email" name="email" placeholder="Email Address" required />
                 </div>
-            </div>
+
+                <input type="submit" name="submit" value="Create your free account" class="button button-primary" />
+
+                <p>
+                    <small>By signing up, you agree to the <a href="/terms/" title="Read our Terms of Service">Terms of Service</a> and <a href="/privacy/" title="Read our Privacy Policy">Privacy Policy</a>.</small>
+                </p>
+            </form>
+            <p>Already have an account? <a href="/login/" title="Click here to switch to the login form">Click here to login</a>.</p>
         </div>
     </div>
 </div>
