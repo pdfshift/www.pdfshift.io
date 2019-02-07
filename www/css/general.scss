@@ -1,0 +1,700 @@
+@mixin clearfix() {
+    &::after {
+        content: " ";
+        clear: both;
+        display: table;
+    }
+}
+
+@import '_colors';
+
+::selection {
+    background: $color-secondary; /* WebKit/Blink Browsers */
+    color: #fff;
+}
+::-moz-selection {
+    background: $color-secondary; /* Gecko Browsers */
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    color: $color-primary;
+}
+
+h2 {
+    color: lighten($color-primary, 20%);
+}
+
+h3 {
+    color: lighten($color-primary, 30%);
+}
+
+a {
+    transition: border-bottom 250ms ease-in-out;
+    border: none;
+    border-bottom: solid 1px transparent;
+    text-decoration: none;
+    color: $color-secondary;
+    font-weight: 400;
+
+    &:hover {
+        border-color: $color-secondary;
+        text-decoration: none;
+    }
+}
+
+/* Forms */
+
+form {
+    input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select {
+        border: solid 1px $color-light-grey;
+        background-color: #fff;
+        transition: border-color 250ms ease-in-out, box-shadow 250ms ease-in-out, color 250ms ease-in-out;
+        outline: none;
+        color: rgba(0, 0, 0, 0.6);
+
+        &:focus {
+            border-color: $color-primary;
+            box-shadow: 0px 0px 5px fade-out($color-primary, 0.5);
+            color: $color-primary;
+        }
+    }
+}
+
+a.button, input.button, button.button {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 20px 40px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    text-decoration: none;
+    transition: background-color 150ms ease-in-out;
+    cursor: pointer;
+    outline: none;
+
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+    }
+
+    &:active {
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5)
+    }
+
+    &.button-primary {
+        background-color: lighten($color-primary, 10%);
+        color: $color-white;
+
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+}
+
+/* Landing page */
+
+.unified {
+    &>div {
+        background-color: $color-primary;
+        background-image: linear-gradient(to right bottom,$color-primary, $color-secondary);
+        color: $color-white;
+        padding-bottom: 100px;
+    }
+
+    &>footer {
+        margin-top: 0;
+    }
+
+    main {
+        text-align: center;
+
+        a {
+            color: $color-white;
+            &:hover {
+                border-color: $color-white;
+            }
+        }
+
+        form a {
+            color: $color-secondary;
+        }
+    }
+    
+}
+
+.unified main, #contact {
+    color: $color-white;
+
+    h2 {
+        margin: 60px 0 40px;
+        color: $color-white;
+        text-align: center;
+    }
+
+    p.excerpt {
+        font-style: italic;
+        font-size: 1.1rem;
+    }
+
+    .container>p {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    form, .white-block {
+        border: solid 1px $color-light-grey;
+        background-color: #fbfbfb;
+        padding: 40px;
+        text-align: center;
+        border-radius: 5px;
+        color: rgba(0, 0, 0, 0.8);
+
+        .form-element {
+            margin: 10px;
+        }
+
+        p.error {
+            margin: 0;
+            font-size: 0.85em;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="email"] {
+            padding: 20px;
+        }
+
+        .button {
+            margin-top: 20px;
+        }
+
+        .success {
+            margin-top: 40px;
+        }
+    }
+
+    .success {
+        color: rgba(0, 0, 0, 0.8);
+        text-align: left;
+
+        h3 {
+            color: lighten(#155724, 10%);
+            text-align: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .checkmark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: lighten(#155724, 10%);
+            stroke-miterlimit: 10;
+            margin: 6% auto;
+
+            circle {
+                stroke-dasharray: 166;
+                stroke-dashoffset: 166;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+                stroke: lighten(#155724, 10%);
+                fill: none;
+            }
+    
+            path {
+                transform-origin: 50% 50%;
+                stroke-dasharray: 48;
+                stroke-dashoffset: 48;
+            }
+        }
+
+        .animated.checkmark {
+            animation: scale .3s ease-in-out .9s both;
+
+            circle {
+                animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+            }
+
+            path {
+                animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+            }
+        }
+    }
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+body:not(.unified) header {
+    background-color: $color-primary;
+    background-image: linear-gradient(to right bottom,$color-primary, $color-secondary);
+}
+
+header {
+    color: $color-white;
+    font-family: Sailec-Regular, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    h1 {
+        color: $color-white;
+    }
+
+
+    &.fixed-heading {
+        padding-top: 87px;
+
+        .heading {
+            z-index: 9999;
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: $color-primary;
+            background-image: none;
+            box-shadow: 0 5px 10px -5px #000;
+        }
+    }
+
+    .heading {
+        transition: box-shadow 250ms ease-in-out, background-color 250ms ease-in-out, background-image 250ms ease-in-out;
+
+        >div {
+            div.column {
+                flex: 0 0 160px;
+                margin: 5px 0;
+            }
+    
+            .brand {
+                color: $color-white;
+                text-decoration: none;
+                border: none;
+                margin-top: 10px;
+                display: block;
+                outline: none;
+    
+                svg {
+                    width: 158px;
+                    height: 60px;
+                    fill: #fff
+                }
+            }
+    
+            nav {
+                flex: 0 0 60%;
+                margin-top: 15px;
+    
+                ul {
+                    margin: 0;
+                    text-align: center;
+    
+                    &>li {
+                        display: inline-block;
+                        padding: 12px 0;
+                        margin: 0 5px;
+    
+                        a {
+                            color: $color-white;
+                            display: inline-block;
+                            margin: 0 10px;
+                            text-transform: uppercase;
+                            font-size: 14px;
+                            font-weight: 600;
+                            letter-spacing: 1px;
+                            border-bottom: 1px solid transparent;
+                            outline: none;
+
+                            svg {
+                                stroke: #fff;
+                                width: 10px;
+                                vertical-align: super;
+                                stroke-width: 2px;
+                            }
+    
+                            &:hover {
+                                border-bottom-color: $color-white;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .cta {
+                flex: 0 0 auto;
+                padding: 12px 0;
+                margin-top: 15px;
+                text-align: right;
+
+                a {
+                    color: $color-white;
+                    font-weight: 500;
+                    font-style: italic;
+                    transition: border 250ms ease-in-out, color 250ms ease-in-out, background-color 250ms ease-in-out;
+                    margin: 0 5px;
+
+                    &:last-child {
+                        border: solid 1px $color-white;
+                        border-radius: 5px;
+                        padding: 10px 20px;
+                        margin-right: 0;
+
+                        &:hover {
+                            background-color: #fff;
+                            color: $color-primary;
+                            border-color: $color-primary;
+        
+                            svg {
+                                fill: $color-primary;
+                            }
+                        }
+                    }
+    
+                    svg {
+                        height: 16px;
+                        width: 16px;
+                        fill: #fff;
+                        margin-right: 5px;
+                        transition: fill 250ms ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+
+    .hero>div {
+        margin: 80px 0;
+
+        &>.column>div {
+            padding: 0 40px 0 0;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 48px;
+            margin: 0;
+            line-height: 1.25em;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px 0;
+            opacity: 0.8;
+
+            a {
+                color: $color-white;
+                font-weight: bold;
+                display: inline-block;
+                margin-top: 30px;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                    border-bottom-color: $color-white;
+                }
+            }
+        }
+
+        form {
+            background-color: $color-white;
+            margin: 0;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+
+            h2 {
+                color: $color-secondary;
+                margin: 0 0 20px;
+                padding: 0;
+            }
+
+            input, select {
+                margin: 10px 0 0;
+
+                .disabled {
+                    opacity: 0.5
+                }
+            }
+
+            input.button {
+                padding: 15px;
+                width: 100%;
+            }
+
+            small {
+                display: block;
+                margin: 20px 0 10px;
+                color: $color-text-grey;
+                font-size: 0.8em;
+
+                a {
+                    color: lighten($color-text-grey, 5%);
+                    font-weight: 600;
+                    border-bottom: solid 1px transparent;
+
+                    &:hover {
+                        border-bottom-color: lighten($color-text-grey, 5%);
+                    }
+                }
+            }
+
+            div.error {
+                p.error {
+                    font-size: 14px;
+                    text-align: left;
+                    padding-left: 5px;
+                    margin: 0 0 5px 0;
+                }
+            }
+        }
+    }
+
+    @include clearfix();
+}
+
+.excerpt {
+    margin: 0 0 40px;
+    text-align: center;
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+main {
+    @include clearfix();
+}
+
+footer {
+    margin: 100px 0 0 0;
+    padding: 40px 0 20px;
+    background-color: #fbfbfb;
+    border-top: solid 1px $color-light-grey;
+
+    h5 {
+        margin: 0 0 10px;
+        font-size: 1em;
+    }
+
+    .brand {
+        a {
+            border: none;
+            &:hover {
+                border: none;
+            }
+        }
+
+        svg {
+            fill: $color-secondary;
+            height: 60px;
+            width: 158px;
+        }
+        
+        align-self: flex-start;
+    }
+
+    .links>div:first-child {
+        margin-top: -20px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        &>li {
+            padding: 2px 0;
+
+            a {
+                font-size: 0.9em;
+                color: lighten($color-text-grey, 10%);
+                border-bottom: solid 1px transparent;
+                font-weight: 400;
+
+                &:hover {
+                    border-color: $color-text-grey;
+                    color: darken($color-text-grey, 20%);
+                }
+            }
+        }
+    }
+
+    form {
+        position: relative;
+
+        input[type="email"] {
+            padding: 15px;
+            display: inline;
+            position: absolute;
+            left: 0;
+        }
+        button.button {
+            padding: 4px 30px;
+            display: block;
+            position: absolute;
+            right: 0;
+            margin: 5px;
+            outline: none;
+
+            &>svg {
+                height: 28px;
+                outline: none;
+            }
+
+            &:hover {
+                background-color: darken($color-light-grey, 10%);
+
+                &>svg {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    hr {
+        margin: 40px 0 20px;
+        border-top: solid 1px $color-light-grey;
+    }
+
+    .disclaimer {
+        font-size: 0.8em;
+        color: $color-text-grey;
+        margin-bottom: 20px;
+
+        p {
+            margin: 0;
+
+            a {
+                color: lighten($color-text-grey, 20%);
+                font-weight: bold;
+                border-bottom: solid 1px transparent;
+
+                &:hover {
+                    border-color: $color-text-grey;
+                }
+            }
+        }
+
+        .three>ul {
+            text-align: right;
+
+            li {
+                display: inline-block;
+                margin-left: 20px;
+                a {
+                    border: none;
+                    svg {
+                        width: 32px;
+                    }
+                }
+
+                &.facebook svg {fill: #37559c}
+                &.twitter svg {fill: #66abe2}
+                &.linkedin svg {fill: #257ab7}
+            }
+        }
+    }
+}
+
+#page-not-found {
+    margin-top: 60px;
+    text-align: center;
+    color: $color-text-grey;
+
+    svg {
+        height: 160px;
+        width: 185px;
+    }
+
+    h2 {
+        font-size: 5em;
+        color: rgba($color-primary, .5);
+        font-weight: 800;
+        text-align: center;
+        margin-top: 20px 0 60px;
+    }
+
+    h3 {
+        margin-top: 40px;
+    }
+
+    .cta {
+        margin-top: 60px;
+    }
+}
+
+.transition {
+    position: relative;
+
+    .front {
+        position: absolute;
+        opacity: 1;
+        transition: opacity 0.75s;
+        width: 100%;
+    }
+    .back {
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.75s ease-in-out;
+        width: 100%;
+    }
+
+    &.active {
+        .front {
+            opacity: 0;
+        }
+
+        .back {
+            opacity: 1;
+
+            .checkmark {
+                animation: scale .3s ease-in-out 1.2s both;
+
+                circle {
+                    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) .5s forwards;
+                }
+
+                path {
+                    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards;
+                }
+            }
+        }
+    }
+}
+
+/* https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/googlecode.min.css */
+.hljs{display:block;overflow-x:auto;padding:0.5em;background:white;color:black}
+.hljs-comment,.hljs-quote{color:#800}
+.hljs-keyword,.hljs-selector-tag,.hljs-section,.hljs-title,.hljs-name{color:#008}
+.hljs-variable,.hljs-template-variable{color:#660}
+.hljs-string,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-regexp{color:#080}
+.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-meta,.hljs-number,.hljs-link{color:#066}
+.hljs-title,.hljs-doctag,.hljs-type,.hljs-attr,.hljs-built_in,.hljs-builtin-name,.hljs-params{color:#606}
+.hljs-attribute,.hljs-subst{color:#000}
+.hljs-formula{background-color:#eee;font-style:italic}
+.hljs-selector-id,.hljs-selector-class{color:#9b703f}
+.hljs-addition{background-color:#baeeba}
+.hljs-deletion{background-color:#ffc8bd}
+.hljs-doctag,.hljs-strong{font-weight:bold}
+.hljs-emphasis{font-style:italic}
+
+@import '_home';
+@import '_pricing';
+@import '_contact';
+@import '_press';
+@import '_enterprise';
+@import '_guides';
+@import '_responsive';

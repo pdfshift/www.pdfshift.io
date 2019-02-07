@@ -1,0 +1,416 @@
+{% set seo_title = "Convert any HTML to PDF using Python" %}
+{% set seo_description = "A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Python." %}
+
+{% extends 'guides/_base.njk' %}
+
+{% block guide %}
+    {% markdown %}
+    # How to convert HTML to PDF in Ruby
+
+    It's really easy to convert your HTML documents to PDF using PDFShift with Ruby.
+    Ruby already has all the required library to make the request for converting your document, and this guides will explain how.
+
+    ## Documentation
+
+    See the full documentation on [PDFShift's documentation](https://docs.pdfshift.io/).
+
+    ## Requirements
+
+    * Ruby 1.9.1 or later
+
+    ## Usage
+
+    In order to convert documents, you need to be identified.
+    PDFShift's API requires a Basic Auth mechanism where the API Key is set as the username.
+
+    Like the following
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "sandbox" => true
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    We also highly recommend checking for errors after the conversion is made, before processing the document, in order to avoid issues later on.
+    This can be easily handled with `requests` by doing the following:
+
+    The `sandbox` parameter allows you to do unlimited conversion, but will add a watermark on top of the generated document.
+    No credits are deduced from your account when the sandbox mode is on.
+
+    ### With an URL
+
+    Converting an URL with PDFShift is really easy. All you have to do is send a POST request with the `source` parameter set to the URL, like the following:
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com"
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### With inline HTML data:
+
+    To convert a raw HTML data with PDFShift, simply send the raw string in the `source` parameter:
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    content = IO.binread("invoice.html")
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => content
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### Save the file to Amazon S3 and get an URL instead
+
+    By passing the `filename` parameter to your request, you will receive a JSON response instead of the binary PDF, with a `url` key that contains the path to the file stored on Amazon S3.
+    All files stored on Amazon S3 are kept for two days, then automatically deleted.
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+    require 'json'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "filename" => "result.pdf"
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    json_response = JSON.parse(response.Body)
+    
+    # the URL is at
+    json_response["url"]
+    ```
+
+    ### Custom HTTP Headers
+
+    You can pass custom HTTP headers, allowing you to adapt to the server handling your source. This can be a custom identification header, changing the language, or anything else.
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "headers" => {
+            "X-Original-Header" => "Awesome value",
+            "user-agent" => "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0"
+        }
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### Accessing secured pages
+
+    If your `source` requires a BASIC AUTH mechanism, you can either use the custom headers part or use the `auth` parameter from the API that behaves the same.
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://httpbin.org/basic-auth/user/passwd",
+        "auth" => {
+            "username" => "user",
+            "password" => "passwd"
+        }
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### Using cookies
+
+    Cookies might help you access unauthorized areas that aren't restricted by a simple Basic Auth mechanism. You can define as many cookies as you want.
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://httpbin.org/cookies",
+        "cookies" => {
+            "name" => "session",
+            "value" => "4cb496a8-a3eb-4a7e-a704-f993cb6a4dac"
+        }
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+
+    ### Loading CSS from an URL:
+
+    By passing a `css` parameter, you will be able to modify the page with your CSS.
+    This allows you to customize the rendering of the page.
+
+    You can also call multiple CSS by calling a root CSS (like "print.css" in that case) that will call @import in it for each CSS files.
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "css" => "https://www.example.com/public/css/print.css"
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### Loading CSS from a string:
+
+    Like for the `source` parameter, you can pass a raw set of CSS rules to the `css` parameter and they will be injected to the loaded document.
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "css" => "a {text-decoration: underline; color: blue}"
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### Adding Watermark
+
+    Some documents that you share need a watermark to clearly identify your brand. That's easy with PDFShift:
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "watermark" => {
+            "image" => "https://pdfshift.io/images/logo.png",
+            "offset_x" => 50,
+            "offset_y" => "100px",
+            "rotate" => 45
+        }
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### Custom Header (or Footer)
+
+    You can add some custom header or footer to your generated document. These are often used to indicate the current page, or show the logo of your company on every page.
+
+    Note that the header and footer **are not related to the body**. For this reason, the CSS in your body doesn't apply to your header/footer.
+    By default, the font-size will be really small. You will have to set it manually, like in the following example:
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "footer" => {
+            "source" => '<div style="font-size: 12px">Page {{ "{{page}}" }} of {{ "{{total}}" }}</div>',
+            "spacing" => "50px"
+        }
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+
+    ### Protecting the generated PDF
+
+    Protecting your document is easy with PDFShift. You can specify a password for the user and for the owner.
+    (The owner will have full rights access while the user will have limited access based on your choice).
+
+    Please keep in mind that some PDF reader doesn't respect the rights as long as the user is authenticated.
+    This means that if you set an empty password for the user, with no rights to print or copy, some PDF reader will ignore this and still allow printing and copying.
+
+    This is outside of our capabilities here at PDFShift as we can't enforce a reader to respect PDF's standard.
+
+    ```ruby
+    require 'uri'
+    require 'net/http'
+
+    url = URI("https://api.pdfshift.io/v2/convert/")
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(url, "Content-Type" => "application/json")
+    request.basic_auth("your_api_key", "")
+    request.body = {
+        "source" => "https://www.example.com",
+        "protection" => {
+            "user_password" => "user",
+            "owner_password" => "owner",
+            "no_print" => true
+        }
+    }
+
+    response = http.request(request)
+
+    # /!\ Ensure that response.code == 200!
+
+    # Since Ruby 1.9.1 only:
+    File.binwrite("result.pdf", response.body)
+    ```
+    {% endmarkdown %}
+{% endblock %}
