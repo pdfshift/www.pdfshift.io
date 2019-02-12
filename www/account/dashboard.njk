@@ -1,0 +1,82 @@
+{% extends 'account/_base.njk' %}
+
+{% block account_body %}
+    <div id="app"></div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="/js/account.js" async></script>
+<script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
+<script>
+(function () {
+    window.PDFShift.setAccount = function (body) {
+        console.log(body)
+        var template = window.document.getElementById('template-account').textContent.trim(),
+            parsed = nunjucks.renderString(template, { account: body });
+
+        window.document.querySelector('#account-app').innerHTML = parsed;
+    }
+})()
+</script>
+<script id="template-account" type="text/nunjucks-template">
+    {% raw %}
+    <h1>Welcome {{ name }}</h1>
+
+    <section>
+        <div class="title">
+            <a href="javascript:;" title="Click here to edit your details" class="button button-default">Edit your details</a>
+            <h2>You are on the "free" plan<h2>
+        </div>
+
+        <div class="row">
+            <div class="column eight">
+                <div class="progressbar">
+                </div>
+            </div>
+            <div class="column four">
+                <a href="/account/upgrade/" title="Upgrade or downgrade your plan" class="button button-primary">Change your plan</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="title">
+            <h2>Your API Keys</h2>
+        </div>
+
+        <div id="api_keys" class="listing">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Key</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key in keys %}
+                    <tr>
+                        <td>{{ key.name }}</td>
+                        <td>{{ key.token }}</td>
+                        <td>{{ key.created }}</td>
+                        <td><a href="javascript:;" title="Disable this key">Disable</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <form>
+                                <input type="text" name="name" placeholder="Name of your key" />
+                                <input type="submit" name="add" class="button button-default" value="Create a new key" />
+                            </form>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+    {% endraw %}
+</script>
+{% endblock %}

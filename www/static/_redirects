@@ -6,3 +6,5 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 
 # Internal redirects
 # @see https://www.netlify.com/docs/redirects/
+
+/account/:token      /account/auth/

@@ -1,0 +1,22 @@
+{% set bodyClass = 'account' %}
+{% extends '_partials/base.njk' %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="column three">
+            <ul>
+                <li><a href="javascript:;" title="">Dashboard</a></li>
+                <li><a href="javascript:;" title="">Api keys</a></li>
+                <li><a href="javascript:;" title="">Invoices</a></li>
+                <li><a href="javascript:;" title="">Account settings</a></li>
+                <li><a href="javascript:;" title="">---</a></li>
+                <li><a href="javascript:;" title="">Logout</a></li>
+            </ul>
+        </div>
+        <div class="column nine">
+            {% block account_body %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

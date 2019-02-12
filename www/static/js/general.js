@@ -115,11 +115,48 @@ window.PDFShift.load = function (urls, callback) {
 };
 
 window.PDFShift.requests = {
-    'post': function (url, data) {
+    'get': function (url, headers) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+
+            if (headers) {
+                for (var k in headers) {
+                    if (!headers.hasOwnProperty(k)) continue;
+                    xhr.setRequestHeader(k, headers[k]);
+                }
+            }
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    try {
+                        var json = JSON.parse(xhr.responseText);
+                        if (xhr.status === 200) {
+                            resolve(json);
+                        } else {
+                            reject(json, null);
+                        }
+                    } catch (e) {
+                        reject(null, e)
+                    }
+                }
+            };
+            xhr.send();
+        })
+    },
+    'post': function (url, data, headers) {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
+
+            if (headers) {
+                for (var k in headers) {
+                    if (!headers.hasOwnProperty(k)) continue;
+                    xhr.setRequestHeader(k, headers[k]);
+                }
+            }
+
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
                     try {
@@ -271,6 +308,11 @@ window.PDFShift.forms = {
     }
 
     stickyMenu(window.document.documentElement.scrollTop);
+
+    if (window.PDFShift.storage.get('token')) {
+        header.querySelector('.cta .unauthenticated').classList.add('hidden');
+        header.querySelector('.cta .authenticated').classList.remove('hidden');
+    }
 })();
 
 window.PDFShift.getQueryVariable = function (variable) {

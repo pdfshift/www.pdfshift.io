@@ -62,7 +62,7 @@
                                     <li><a href="/#try-me" title="Check out our features" itemprop="name">Try it out</a></li>
                                     <li><a href="/#pricing" title="More on our pricing plans" itemprop="name">Pricing</a></li>
                                     <li>
-                                        <a href="https://docs.pdfshift.io/v2/" title="Read our documentation" itemprop="name" target="_blank">
+                                        <a href="https://docs.pdfshift.io/" title="Read our documentation" itemprop="name" target="_blank">
                                             Documentation
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
                                                 <g>
@@ -74,13 +74,20 @@
                                 </ul>
                             </nav>
                             <div class="cta">
-                                <a href="/login/" title="Frequently Asked Questions" itemprop="name">Login</a> or
-                                <a href="/register/" title="Register now for free and start converting HTML to PDF!" class="column create-account">
-                                    <svg>
-                                        <use xlink:href="/images/sprites.svg#icon-key" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
-                                    </svg>
-                                    Register
-                                </a>
+                                <div class="unauthenticated">
+                                    <a href="/login/" title="Frequently Asked Questions" itemprop="name">Login</a> or
+                                    <a href="/register/" title="Register now for free and start converting HTML to PDF!" class="column create-account">
+                                        <svg>
+                                            <use xlink:href="/images/sprites.svg#icon-key" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                        </svg>
+                                        Register
+                                    </a>
+                                </div>
+                                <div class="authenticated hidden">
+                                    <a href="/account/dashboard/" title="Access your Dashboard" class="column">
+                                        Dashboard
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -211,6 +218,7 @@
         }
         </script>
         <script src="/js/general.js"></script>
+        <script src="/js/instantpage-v1.1.0.js"></script>
         {% block javascripts %}{% endblock %}
         {% include '_partials/google-analytics.njk' %}
     </body>

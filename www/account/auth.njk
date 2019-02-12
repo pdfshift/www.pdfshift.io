@@ -1,0 +1,25 @@
+{% extends '_partials/base.njk' %}
+
+{% block main %}
+<div class="container-small">
+    <h1>Authenticating</h1>
+    <p>Please wait while we authenticate you...</p>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    (function () {
+        var token = window.location.pathname.substr(9);
+        window.PDFShift.requests.get(window.PDFShift.api_url + 'accounts/', {'Authorization': 'Bearer ' + token}).then(
+            function () {
+                window.PDFShift.storage.set('token', token);
+                window.location.href = '/account/'
+            },
+            function () {
+                alert('An error occured. We were unable to authenticate you.\nPlease try again later.');
+            }
+        )
+    })()
+</script>
+{% endblock %}

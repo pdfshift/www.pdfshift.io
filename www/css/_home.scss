@@ -309,6 +309,7 @@
                         border-radius: 5px;
                         display: block;
                         transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+                        border-bottom: none;
 
                         &:hover {
                             background-color: fade-out(lighten($color-ternary, 20%), .7);
@@ -409,6 +410,7 @@
             width: 48px;
             height: 48px;
             outline: none;
+            border-bottom: none;
 
             &>svg {
                 width: 48px;

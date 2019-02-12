@@ -353,6 +353,10 @@ header {
                 margin-top: 15px;
                 text-align: right;
 
+                .hidden {
+                    display: none;
+                }
+
                 a {
                     color: $color-white;
                     font-weight: 500;
@@ -710,4 +714,5 @@ footer {
 @import '_press';
 @import '_enterprise';
 @import '_guides';
+@import '_account';
 @import '_responsive';
