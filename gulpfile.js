@@ -203,8 +203,8 @@ gulp.task('serve', gulp.series('clean', 'sass', 'nunjucks', 'js', 'static', 'ima
             baseDir: './dist'
         },
         open: false,
-        port: 8080,
-        host: '77.193.92.35'
+        port: 8080
+        // host: '77.193.92.35'
     });
 }));
 
