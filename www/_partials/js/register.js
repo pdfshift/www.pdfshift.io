@@ -40,13 +40,13 @@
                 form.reset();
                 document.location.href = '/register/thanks/'
             },
-            function (json, exception) {
+            function (response) {
                 var errors = {'name': ['An error occured.']};
-                if (json) {
-                    if (json.hasOwnProperty('error')) {
-                        var errors = {'name': [json.error]};
-                    } else if (json.hasOwnProperty('errors')) {
-                        errors = json['errors'];
+                if (response.data) {
+                    if (response.data.hasOwnProperty('error')) {
+                        var errors = {'name': [response.data.error]};
+                    } else if (response.data.hasOwnProperty('errors')) {
+                        errors = response.data['errors'];
                     }
                 }
 

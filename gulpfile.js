@@ -119,8 +119,8 @@ gulp.task('sass', () =>
 gulp.task('nunjucks', () =>
     gulp.src('./www/**/*.njk')
         .pipe(plumber())
-        .pipe(gulpIgnore.exclude('_partials/**'))
         .pipe(gulpnunjucks.compile(loadConfigData(), {env: nunjucksEnv}))
+        .pipe(gulpIgnore.exclude('**/_*.njk'))
         .pipe(gulpif(
             function (file) {
                 return file.basename.substr(0, 5).toLowerCase() === 'index'

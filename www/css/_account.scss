@@ -1,0 +1,287 @@
+body.account main>.container {
+    margin-top: 40px;
+    color: #888;
+
+    nav.column {
+        ul {
+            margin: 0 40px 0 0;
+            padding: 0;
+
+            >li {
+                padding: 0;
+                margin: 10px 0;
+
+                a {
+                    outline: none;
+                    padding: 10px 20px;
+                    font-weight: 400;
+                    background-color: $color-white;
+                    color: #9c9c9c;
+                    border-radius: 5px;
+                    display: block;
+                    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+                    border-bottom: none;
+
+                    &:hover {
+                        background-color: fade-out(lighten($color-ternary, 20%), .7);
+                        color: lighten($color-ternary, 10%);
+                    }
+                }
+
+                &.active a {
+                    background-color: fade-out($color-ternary, .7);
+                    color: $color-ternary;
+                }
+
+                &.separator {
+                    display: block;
+                    height: 2px;
+                    background-color: #e7e7e7;
+                    margin: 20px 10px;
+                }
+
+                &.logout>a:hover {
+                    color: #721c24;
+                    background-color: #f8d7da;
+                }
+            }
+        }
+    }
+
+    .column.account {
+        margin: 0;
+        padding: 20px 0 0 40px;
+
+        section {
+            margin-top: 80px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            line-height: 1em;
+            padding: 0;
+
+            small {
+                display: block;
+                color: #979797;
+                font-size: 0.5em;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    #account-app {
+        .profile {
+            width: 300px;
+            float: right;
+            display: flex;
+            color: #666;
+
+            &>div {
+                margin: 0 10px;
+
+                &:last-child>div {
+                    display: flex;
+                    justify-content: space-between;
+                    font-weight: bold;
+                }
+
+                a {
+                    text-align: right;
+                    text-transform: lowercase;
+                }
+            }
+
+            img {
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+        }
+
+        .progress {
+            @include clearfix();
+            background-color: #fafafa;
+            border: solid 1px #dcdcdc;
+            border-radius: 5px;
+            padding: 40px 20px;
+
+            .indicator {
+                font-size: 0.8em;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                position: relative;
+
+                span {
+                    position: absolute;
+                    display: block;
+                    width: 120px;
+                    padding: 0;
+                    margin: 0;
+                    text-align: center;
+                    color: $color-ternary;
+                    font-weight: bold;
+
+                    sup {
+                        vertical-align: top;
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            .progress-bar {
+                margin: 30px 0 10px;
+                background-color: #e7e7e7;
+                border-radius: 10px;
+
+                width: 100%;
+                height: 15px;
+
+                position: relative;
+                display: block;
+            }
+
+            .progress-bar > span {
+                background-color: $color-ternary;
+                border-radius: 10px;
+                height: 15px;
+
+                display: block;
+                text-indent: -9999px;
+            }
+
+            .meters {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                font-size: 0.8em;
+            }
+        }
+
+        .plan {
+            background-color: #fff;
+            border: solid 1px #dcdcdc;
+            border-radius: 5px;
+            margin: 20px 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            a {margin: 0}
+
+            div>strong {
+                font-weight: bold;
+                color: #666
+            }
+        }
+    }
+
+    #invoice-app {
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+
+            thead th {
+                padding-bottom: 5px;
+                color: #979797;
+                border-bottom: none;
+                padding: 0 20px;
+
+                &.center {text-align: center;}
+                &.right {text-align: right;}
+            }
+
+
+            tbody td {
+                background-color: #f6f6f6;
+                padding: 20px;
+                border-radius: 5px;
+
+                &.center {text-align: center;}
+                &.right {text-align: right;}
+            }
+
+            .button-primary {
+                background-color: $color-ternary;
+                margin: 0;
+                padding: 10px 20px;
+            }
+        }
+
+
+        p.info {
+            margin-top: 40px;
+            background-color: #e2e3e5;
+            border: solid 1px #d6d8db;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    }
+
+    #settings-app {
+        h2 {
+            margin-bottom: 40px;
+        }
+
+        form {
+            &>div {
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                input, textarea, select {
+                    background-color: #fafafa
+                }
+            }
+        }
+
+        .row>div {
+            &:first-child {
+                margin-right: 10px;
+            }
+            &:last-child {
+                margin-left: 10px;
+            }
+        }
+
+        form>.submit {
+            margin: 60px 0 0;
+            text-align: center;
+        }
+
+        p.success {
+            margin: 40px 0;
+            background-color: #dff0d8;
+            border: solid 1px #d0e9c6;
+            color: #3c763d;
+            padding: 20px;
+            vertical-align: middle;
+            border-radius: 5px;
+
+            &.hidden {
+                display: none;
+            }
+
+            .close {
+                float: right;
+                font-size: 2em;
+                color: #aaa;
+                transition: color 250ms ease-in-out;
+
+                &:hover {
+                    border: none;
+                    color: #777;
+                }
+            }
+        }
+
+    }
+}

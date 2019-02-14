@@ -132,22 +132,35 @@ window.PDFShift.requests = {
                     try {
                         var json = JSON.parse(xhr.responseText);
                         if (xhr.status === 200) {
-                            resolve(json);
+                            resolve(json, xhr.status);
                         } else {
-                            reject(json, null);
+                            reject({
+                                'data': json,
+                                'status': xhr.status
+                            });
                         }
                     } catch (e) {
-                        reject(null, e)
+                        reject({
+                            'data': null,
+                            'status': xhr.status
+                        });
                     }
                 }
             };
+
             xhr.send();
         })
     },
     'post': function (url, data, headers) {
+        return window.PDFShift.requests.request('POST', url, data, headers);
+    },
+    'put': function (url, data, headers) {
+        return window.PDFShift.requests.request('PUT', url, data, headers);
+    },
+    'request': function (method, url, data, headers) {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', url, true);
+            xhr.open(method.toUpperCase(), url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
 
             if (headers) {
@@ -162,15 +175,22 @@ window.PDFShift.requests = {
                     try {
                         var json = JSON.parse(xhr.responseText);
                         if (xhr.status === 200) {
-                            resolve(json);
+                            resolve(json, xhr.status);
                         } else {
-                            reject(json, null);
+                            reject({
+                                'data': json,
+                                'status': xhr.status
+                            });
                         }
                     } catch (e) {
-                        reject(null, e)
+                        reject({
+                            'data': null,
+                            'status': xhr.status
+                        });
                     }
                 }
             };
+
             xhr.send(JSON.stringify(data));
         })
     }
