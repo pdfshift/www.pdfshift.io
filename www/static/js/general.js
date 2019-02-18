@@ -132,35 +132,22 @@ window.PDFShift.requests = {
                     try {
                         var json = JSON.parse(xhr.responseText);
                         if (xhr.status === 200) {
-                            resolve(json, xhr.status);
+                            resolve(json);
                         } else {
-                            reject({
-                                'data': json,
-                                'status': xhr.status
-                            });
+                            reject(json, null);
                         }
                     } catch (e) {
-                        reject({
-                            'data': null,
-                            'status': xhr.status
-                        });
+                        reject(null, e)
                     }
                 }
             };
-
             xhr.send();
         })
     },
     'post': function (url, data, headers) {
-        return window.PDFShift.requests.request('POST', url, data, headers);
-    },
-    'put': function (url, data, headers) {
-        return window.PDFShift.requests.request('PUT', url, data, headers);
-    },
-    'request': function (method, url, data, headers) {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open(method.toUpperCase(), url, true);
+            xhr.open('POST', url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
 
             if (headers) {
@@ -175,22 +162,15 @@ window.PDFShift.requests = {
                     try {
                         var json = JSON.parse(xhr.responseText);
                         if (xhr.status === 200) {
-                            resolve(json, xhr.status);
+                            resolve(json);
                         } else {
-                            reject({
-                                'data': json,
-                                'status': xhr.status
-                            });
+                            reject(json, null);
                         }
                     } catch (e) {
-                        reject({
-                            'data': null,
-                            'status': xhr.status
-                        });
+                        reject(null, e)
                     }
                 }
             };
-
             xhr.send(JSON.stringify(data));
         })
     }
@@ -432,4 +412,27 @@ if (window.PDFShift._ready.length > 0) {
     }
 
     window.PDFShift._ready = null;
+}
+
+
+
+
+
+
+
+function show_mobile_menu(){
+var x = document.getElementById("main_nav");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  
+var x = document.getElementById("main_cta");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  
 }

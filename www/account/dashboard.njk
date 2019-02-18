@@ -1,33 +1,18 @@
-{% set active_menu = 'dashboard' %}
 {% extends 'account/_base.njk' %}
 
 {% block account_body %}
-    <div id="account-app">
-        <div class="loading">Please wait while we load your page ...</div>
-    </div>
+    <div id="app"></div>
 {% endblock %}
 
 {% block javascripts %}
 <script src="/js/account.js" async></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 <script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
 <script>
 (function () {
     window.PDFShift.setAccount = function (body) {
-        var nunjucksEnv = new nunjucks.Environment();
-        nunjucksEnv.addFilter('dateformat', function (str, format) {
-            return moment.utc(str).format(format || 'YYYY/MM/DD');
-        });
-        nunjucksEnv.addFilter('onemonth', function (str) {
-            return parseInt(moment.utc(str).add(1, 'M').format('x'));
-        });
-        nunjucksEnv.addFilter('percent', function (percent) {
-            if (percent > 100) return 100;
-            return percent;
-        });
-
+        console.log(body)
         var template = window.document.getElementById('template-account').textContent.trim(),
-            parsed = nunjucksEnv.renderString(template, { account: body });
+            parsed = nunjucks.renderString(template, { account: body });
 
         window.document.querySelector('#account-app').innerHTML = parsed;
     }
@@ -35,49 +20,21 @@
 </script>
 <script id="template-account" type="text/nunjucks-template">
     {% raw %}
+    <h1>Welcome {{ name }}</h1>
+
     <section>
-        <div class="profile">
-            <div>
-                <img src="{{ account.avatar }}" alt="{{ account.name }}'s avatar" />
-            </div>
-            <div>
-                <div>
-                    {{ account.name }}
-                    <a href="/account/settings/" title="Edit your account's details">Edit</a>
+        <div class="title">
+            <a href="javascript:;" title="Click here to edit your details" class="button button-default">Edit your details</a>
+            <h2>You are on the "free" plan<h2>
+        </div>
+
+        <div class="row">
+            <div class="column eight">
+                <div class="progressbar">
                 </div>
-                {{ account.email }}
             </div>
-        </div>
-        <h2>
-            Your current usage
-            <small>Period of {{ account.renew_date|dateformat('YYYY/MM') }} - {{ account.renew_date|onemonth|dateformat('YYYY/MM') }}</small>
-        </h2>
-
-        <div class="progress">
-            <div class="indicator">
-                <span style="left: calc({{ (((account.credits.used / account.credits.total ) * 100)|percent).toFixed(2) }}% - 60px)">
-                    {{ account.credits.used }}
-                    <sup>{{ ((account.credits.used / account.credits.total ) * 100).toFixed(2) }}%</sup>
-                </span>
-            </div>
-            <div class="progress-bar">
-                <span style="width: {{ (((account.credits.used / account.credits.total ) * 100)|percent).toFixed(2) }}%;">Progress: {{ (((account.credits.used / account.credits.total ) * 100)|percent).toFixed(2) }}%</span>
-            </div>
-            <div class="meters">
-                <span>0</span>
-                <span>{{ account.credits.total }}</span>
-            </div>
-        </div>
-
-        <div class="plan">
-            <div>
-                You are on the <strong>{% if account.plan %}{{ account.plan.name }}{% else %}Free{% endif %} plan</strong>.
-            </div>
-            <div>
-                <span>Renews on {{ account.renew_date|onemonth|dateformat }}</span>
-            </div>
-            <div>
-                <a href="/account/upgrade" title="Click here to upgrade" class="button button-primary">Upgrade</a>
+            <div class="column four">
+                <a href="/account/upgrade/" title="Upgrade or downgrade your plan" class="button button-primary">Change your plan</a>
             </div>
         </div>
     </section>
@@ -87,29 +44,36 @@
             <h2>Your API Keys</h2>
         </div>
 
-        <div class="keys">
+        <div id="api_keys" class="listing">
             <table>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Key</th>
                         <th>Created</th>
-                        <th>Delete</th>
+                        <th>Actions</th>
                     </tr>
-                <thead>
+                </thead>
                 <tbody>
-                {% for key in account.api_keys %}
+                    {% for key in keys %}
                     <tr>
-                        <td>{% if key.name %}{{ key.name }}{% else %}Unnamed API Key{% endif %}</td>
-                        <td>
-                            <input type="text" name="key" value="{{ key.token }}" />
-                            <button name="copy">Copy</button>
-                        </td>
-                        <td>{{ key.created|dateformat }}</td>
-                        <td><a href="javascript:;" title="Delete this key" class="delete">Delete</a></td>
+                        <td>{{ key.name }}</td>
+                        <td>{{ key.token }}</td>
+                        <td>{{ key.created }}</td>
+                        <td><a href="javascript:;" title="Disable this key">Disable</a></td>
                     </tr>
-                {% endfor %}
+                    {% endfor %}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <form>
+                                <input type="text" name="name" placeholder="Name of your key" />
+                                <input type="submit" name="add" class="button button-default" value="Create a new key" />
+                            </form>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </section>

@@ -62,13 +62,13 @@
                 form.reset();
                 form.parentNode.parentNode.classList.add('active');
             },
-            function (response) {
+            function (json, exception) {
                 var errors = {'email': ['An error occured.']};
-                if (response.data) {
-                    if (response.data.hasOwnProperty('error')) {
-                        var errors = {'email': [response.data.error]};
-                    } else if (response.data.hasOwnProperty('errors')) {
-                        errors = response.data['errors'];
+                if (json) {
+                    if (json.hasOwnProperty('error')) {
+                        var errors = {'email': [json.error]};
+                    } else if (json.hasOwnProperty('errors')) {
+                        errors = json['errors'];
                     }
                 }
 

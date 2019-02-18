@@ -50,13 +50,22 @@
                     <div class="container">
                         <div class="row">
                             <div class="column">
+							<div class="mobi_menu_butt"  onclick="show_mobile_menu()"/>
+								<div></div>
+								<div></div>
+								<div></div>
+								</div>
+								
+								
                                 <a href="/" title="Return to our Homepage" itemprop="name" class="brand">
                                     <svg>
                                         <use xlink:href="/images/sprites.svg#icon-logo" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
                                     </svg>
                                 </a>
+								
+								
                             </div>
-                            <nav class="column">
+                            <nav id="main_nav" class="column">
                                 <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                                     <li><a href="/#features" title="Check out our features" itemprop="name">Features</a></li>
                                     <li><a href="/#try-me" title="Check out our features" itemprop="name">Try it out</a></li>
@@ -73,7 +82,7 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <div class="cta">
+                            <div id="main_cta" class="cta">
                                 <div class="unauthenticated">
                                     <a href="/login/" title="Frequently Asked Questions" itemprop="name">Login</a> or
                                     <a href="/register/" title="Register now for free and start converting HTML to PDF!" class="column create-account">

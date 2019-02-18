@@ -617,14 +617,14 @@ https://api.pdfshift.io/v2/convert/ \
                     submitButton.classList.remove('button-disabled');
                     window.open(json.url, '_blank').focus();
                 },
-                function (response) {
+                function (json, exception) {
                     var error = 'A fatal error occured.';
-                    if (response.data) {
-                        if (response.data.hasOwnProperty('error')) {
-                            error = response.data.error;
-                        } else if (response.data.hasOwnProperty('errors')) {
-                            var keyname = Object.keys(response.data.errors)[0]
-                            error = keyname + ' : ' + response.data.errors[keyname][0]
+                    if (json) {
+                        if (json.hasOwnProperty('error')) {
+                            error = json.error;
+                        } else if (json.hasOwnProperty('errors')) {
+                            var keyname = Object.keys(json.errors)[0]
+                            error = keyname + ' : ' + json.errors[keyname][0]
                         }
                     }
 
