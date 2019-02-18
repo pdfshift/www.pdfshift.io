@@ -11,7 +11,7 @@
 <script>
     (function () {
         var token = window.location.pathname.substr(9);
-        window.PDFShift.requests.get(window.PDFShift.api_url + 'accounts/', {'Authorization': 'Bearer ' + token}).then(
+        window.PDFShift.requests.get('accounts/', {'Authorization': 'Bearer ' + token}).then(
             function () {
                 window.PDFShift.storage.set('token', token);
                 window.location.href = '/account/'

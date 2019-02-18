@@ -114,11 +114,45 @@ window.PDFShift.load = function (urls, callback) {
     }
 };
 
+window.PDFShift.on = function (selector, event) {
+    var callback = null,
+        child = null,
+        elements = document.querySelectorAll(selector);
+
+    if (arguments.length === 3) {
+        callback = arguments[2];
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener(event, callback);
+        }
+    } else {
+        child = arguments[2];
+        callback = arguments[3];
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener.apply(elements[i], [event, function(ev) {
+                var possibleTargets = this.querySelectorAll(child);
+
+                for (var y = 0; y < possibleTargets.length; y++) {
+                    var el = ev.target;
+
+                    while (el && el !== this) {
+                        if (el === possibleTargets[y]) {
+                            return callback.call(possibleTargets[y], ev);
+                        }
+
+                        el = el.parentNode;
+                    }
+                }
+            }]);
+        }
+    }
+}
+
 window.PDFShift.requests = {
     'get': function (url, headers) {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
+            xhr.open('GET', window.PDFShift.api_url + url, true);
 
             if (headers) {
                 for (var k in headers) {
@@ -160,7 +194,7 @@ window.PDFShift.requests = {
     'request': function (method, url, data, headers) {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
-            xhr.open(method.toUpperCase(), url, true);
+            xhr.open(method.toUpperCase(), window.PDFShift.api_url + url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
 
             if (headers) {
@@ -232,8 +266,12 @@ window.PDFShift.forms = {
         }
     },
     'setErrors': function (form, errors) {
+        var firstElement = null;
         for (var i = 0; i < form.elements.length; i++) {
             if (form.elements[i].name in errors) {
+                if (firstElement === null) {
+                    firstElement = form.elements[i];
+                }
                 var parent = form.elements[i].parentNode;
                 parent.classList.add('error');
                 var p = document.createElement('p');
@@ -242,6 +280,8 @@ window.PDFShift.forms = {
                 parent.appendChild(p);
             }
         }
+
+        window.scrollTo(0, firstElement.parentNode.offsetTop - 250);
     }
 };
 
@@ -297,19 +337,22 @@ window.PDFShift.forms = {
     })
 
     // Click on the menu
-    header.querySelector('nav>ul').addEventListener('click', function (event) {
-        if (event.target.nodeName.toLowerCase() !== 'a') {
-            return true;
-        }
-
-        var targetHref = event.target.getAttribute('href');
-        if (!targetHref || targetHref.substr(0, 1) !== '#') {
-            return true;
-        }
-
-        event.preventDefault();
-        return scrollTo(targetHref, true);
-    }, false);
+    var navUl = header.querySelector('nav>ul');
+    if (navUl) {
+        navUl.addEventListener('click', function (event) {
+            if (event.target.nodeName.toLowerCase() !== 'a') {
+                return true;
+            }
+    
+            var targetHref = event.target.getAttribute('href');
+            if (!targetHref || targetHref.substr(0, 1) !== '#') {
+                return true;
+            }
+    
+            event.preventDefault();
+            return scrollTo(targetHref, true);
+        }, false);
+    }
 
     if (window.location.hash && window.location.hash.substr(0, 1) === '#' && window.location.hash.length > 1) {
         window.addEventListener('scroll', function (scroll) {

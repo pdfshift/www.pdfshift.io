@@ -612,7 +612,7 @@ https://api.pdfshift.io/v2/convert/ \
             params['filename'] = 'result.pdf';
             params['timeout'] = 15;
 
-            window.PDFShift.requests.post(window.PDFShift.api_url + 'convert', params).then(
+            window.PDFShift.requests.post('convert', params).then(
                 function (json) {
                     submitButton.classList.remove('button-disabled');
                     window.open(json.url, '_blank').focus();

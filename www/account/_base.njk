@@ -1,6 +1,10 @@
 {% set bodyClass = 'account' %}
 {% extends '_partials/base.njk' %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/account.css" />
+{% endblock %}
+
 {% block main %}
 <div class="container">
     <div class="row">
@@ -18,4 +22,22 @@
         </div>
     </div>
 </div>
+<script>
+    (function () {
+        if (document.location.search.indexOf('heroku=1') > -1) {
+            var s = document.createElement('script')
+            s.src = 'https://s3.amazonaws.com/assets.heroku.com/boomerang/boomerang.js'
+            s.async = true
+            s.onload = () => {
+                window.Boomerang.init({app: '', addon: 'pdfshift'})
+            }
+            document.querySelector('body').appendChild(s)
+        }
+
+        document.querySelector('main .container .column.three .logout>a').addEventListener('click', function () {
+            window.PDFShift.storage.remove('token');
+            window.location.href = '/';
+        }, false);
+    })()
+</script>
 {% endblock %}

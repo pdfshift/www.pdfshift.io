@@ -5,7 +5,7 @@
         return false;
     }
 
-    window.PDFShift.requests.get(window.PDFShift.api_url + 'accounts/', {'Authorization': 'Bearer ' + token}).then(
+    window.PDFShift.requests.get('accounts/', {'Authorization': 'Bearer ' + token}).then(
         function (body) {
             if ('setAccount' in window.PDFShift) {
                 window.PDFShift.setAccount(body);

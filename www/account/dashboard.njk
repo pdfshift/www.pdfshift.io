@@ -13,6 +13,33 @@
 <script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
 <script>
 (function () {
+    var token = window.PDFShift.storage.get('token');
+
+    var getClosest = function (elem, selector) {
+        // @see https://gomakethings.com/how-to-get-the-closest-parent-element-with-a-matching-selector-using-vanilla-javascript/
+        // Element.matches() polyfill
+        if (!Element.prototype.matches) {
+            Element.prototype.matches =
+                Element.prototype.matchesSelector ||
+                Element.prototype.mozMatchesSelector ||
+                Element.prototype.msMatchesSelector ||
+                Element.prototype.oMatchesSelector ||
+                Element.prototype.webkitMatchesSelector ||
+                function(s) {
+                    var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+                        i = matches.length;
+                    while (--i >= 0 && matches.item(i) !== this) {}
+                    return i > -1;
+                };
+        }
+
+        // Get the closest matching element
+        for ( ; elem && elem !== document; elem = elem.parentNode ) {
+            if ( elem.matches( selector ) ) return elem;
+        }
+        return null;
+    };
+
     window.PDFShift.setAccount = function (body) {
         var nunjucksEnv = new nunjucks.Environment();
         nunjucksEnv.addFilter('dateformat', function (str, format) {
@@ -26,10 +53,103 @@
             return percent;
         });
 
-        var template = window.document.getElementById('template-account').textContent.trim(),
-            parsed = nunjucksEnv.renderString(template, { account: body });
+        var template = window.document.getElementById('template-account').textContent.trim();
+        window.document.querySelector('#account-app').innerHTML = nunjucksEnv.renderString(template, { 'account': body });
 
-        window.document.querySelector('#account-app').innerHTML = parsed;
+        var apiTemplate = window.document.getElementById('template-api-keys').textContent.trim(),
+            apiKeyList = window.document.querySelector('#account-app .keys ul');
+        for (var k = 0; k < body.api_keys.length; k++) {
+            apiKeyList.insertAdjacentHTML('beforeend', nunjucksEnv.renderString(apiTemplate, { 'key': body.api_keys[k] }));
+        }
+
+        var editingElement = null;
+
+        // Add new key
+        window.PDFShift.on('#account-app .keys .title .actions>a', 'click', function (event) {
+            window.PDFShift.requests.post('accounts/api/', {}, {'Authorization': 'Bearer ' + token}).then(
+                function (body) {
+                    apiKeyList.insertAdjacentHTML('afterbegin', nunjucksEnv.renderString(apiTemplate, { 'key': body }));
+                },
+                function (error) {
+                    alert("We are sorry, but an error occured.");
+                }
+            )
+        });
+
+        // Toggle to edit mode
+        window.PDFShift.on('#api_keys', 'click', 'li h4 .view', function (event) {
+            if (editingElement) {
+                updateKeyName();
+            }
+
+            event.stopPropagation();
+            var parent = getClosest(event.target, 'h4');
+            parent.classList.add('editing');
+            editingElement= getClosest(parent, 'li');
+            parent.querySelector('input').focus();
+        });
+
+        function updateKeyName() {
+            var value = editingElement.querySelector('.editing .edit input').value;
+                editingElement.querySelector('h4').classList.remove('editing');
+            
+            if (value === '') value = null;
+
+            if (value) {
+                editingElement.querySelector('h4 .view>span').innerText = value;
+            } else {
+                editingElement.querySelector('h4 .view>span').innerText = 'Unnamed API Key';
+            }
+
+            window.PDFShift.requests.put('accounts/api/' + editingElement.dataset.token, {'name': value}, {'Authorization': 'Bearer ' + token}).then(
+                function () {},
+                function (error) {
+                    alert("We are sorry, but an error occured.");
+                }
+            )
+
+            editingElement = null;
+        }
+
+        // Save + Toggle to view mode
+        window.PDFShift.on('#api_keys', 'keypress', 'li h4 .edit input', function (event) {
+            var keycode = event.which || event.keyCode;
+            if (keycode === 13) {
+                updateKeyName();
+            }
+        });
+
+        // Save + Toggle to view mode
+        window.document.addEventListener('click', function (event) {
+            if (!editingElement) return;
+
+            if (!event.target.classList.contains('key-input')) {
+                updateKeyName();
+            }
+        }, false);
+
+        // Delete mode
+        window.PDFShift.on('#api_keys', 'click', 'li .infos a', function (event) {
+            var target = event.target,
+                parent = getClosest(event.target, 'li');
+            
+            if (target.classList.contains('pending')) return false;
+            target.classList.add('pending');
+
+            window.PDFShift.requests.post('accounts/api/' + parent.dataset.token, {}, {'Authorization': 'Bearer ' + token}).then(
+                function (body) {
+                    parent.outerHTML = nunjucksEnv.renderString(apiTemplate, { 'key': body })
+                },
+                function (error) {
+                    target.classList.remove('pending');
+
+                    if ('error' in error.data) {
+                        return alert(error.data.error);
+                    }
+                    alert("We are sorry, but an error occured.");
+                }
+            )
+        });
     }
 })()
 </script>
@@ -71,7 +191,7 @@
 
         <div class="plan">
             <div>
-                You are on the <strong>{% if account.plan %}{{ account.plan.name }}{% else %}Free{% endif %} plan</strong>.
+                You are on the <strong>{% if account.plan %}{{ account.plan.display }}{% else %}Free{% endif %} plan</strong>.
             </div>
             <div>
                 <span>Renews on {{ account.renew_date|onemonth|dateformat }}</span>
@@ -82,37 +202,61 @@
         </div>
     </section>
 
-    <section>
+    <section class="keys">
         <div class="title">
+            <div class="actions">
+                <a href="javascript:;" title="Add a new API Key" class="button button-primary button-small">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                        <g>
+                            <path d="M21,12.5a.5.5,0,0,1-.5.5H13v7.5a.5.5,0,0,1-1,0V13H4.5a.5.5,0,0,1,0-1H12V4.5a.5.5,0,0,1,1,0V12h7.5A.5.5,0,0,1,21,12.5Z" />
+                        </g>
+                    </svg>
+                    Add a new API Key
+                </a>
+            </div>
             <h2>Your API Keys</h2>
         </div>
 
-        <div class="keys">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Key</th>
-                        <th>Created</th>
-                        <th>Delete</th>
-                    </tr>
-                <thead>
-                <tbody>
-                {% for key in account.api_keys %}
-                    <tr>
-                        <td>{% if key.name %}{{ key.name }}{% else %}Unnamed API Key{% endif %}</td>
-                        <td>
-                            <input type="text" name="key" value="{{ key.token }}" />
-                            <button name="copy">Copy</button>
-                        </td>
-                        <td>{{ key.created|dateformat }}</td>
-                        <td><a href="javascript:;" title="Delete this key" class="delete">Delete</a></td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+        <div>
+            <ul id="api_keys" class="unstyled"></ul>
         </div>
     </section>
+    {% endraw %}
+</script>
+<script id="template-api-keys" type="text/nunjucks-template">
+    {% raw %}
+    <li data-token="{{ key.token }}">
+        <h4>
+            <div>
+                <div class="view">
+                    <span>{% if key.name %}{{ key.name }}{% else %}Unnamed API Key{% endif %}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                        <g>
+                            <path d="M24.5613,7.2666,21.7329,4.4385a1.5015,1.5015,0,0,0-2.1213,0L4.439,19.6113A1.4889,1.4889,0,0,0,4,20.6719V24a1.0007,1.0007,0,0,0,1,1H8.328a1.4906,1.4906,0,0,0,1.0607-.4395L24.5613,9.3882A1.5018,1.5018,0,0,0,24.5613,7.2666ZM8.6816,23.8535A.5028.5028,0,0,1,8.328,24H5V20.6719a.5052.5052,0,0,1,.1464-.3535L18.5505,6.9136l3.5356,3.5356ZM23.8542,8.6812l-1.061,1.061L19.2576,6.2065l1.061-1.061a.5.5,0,0,1,.7072,0l2.8285,2.8286A.5006.5006,0,0,1,23.8542,8.6812Z" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="edit">
+                    <input type="text" name="name" value="{{ key.name }}" class="key-input" />
+                </div>
+            </div>
+            {% if key.removed %}
+            <div class="infos removed">
+                <p>Removed on {{ key.created|dateformat }}</p>
+                <a href="javascript:;" title="Re-enable this key" class="delete">Re-enable this key</a>
+            </div>
+            {% else %}
+            <div class="infos">
+                <p>Created on {{ key.created|dateformat }}</p>
+                <a href="javascript:;" title="Delete this key" class="delete">Delete this key</a>
+            </div>
+            {% endif %}
+        </h4>
+        <div class="copy">
+            <input type="text" name="key" value="{{ key.token }}" />
+            <button name="copy">Copy</button>
+        </div>
+    </li>
     {% endraw %}
 </script>
 {% endblock %}

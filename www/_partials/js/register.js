@@ -31,7 +31,7 @@
         var params = window.PDFShift.forms.asJSON(form);
         params['language'] = params['language'] || window.PDFShift.storage.get('language');
 
-        window.PDFShift.requests.post(window.PDFShift.api_url + 'accounts/', params).then(
+        window.PDFShift.requests.post('accounts/', params).then(
             function (json) {
                 if (typeof(window.gtag) === 'function') {
                     gtag('event', 'register', {'event_category': 'account', 'event_label': 'register'})
