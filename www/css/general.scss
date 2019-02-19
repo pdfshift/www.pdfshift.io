@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-=======
-@mixin clearfix() {
-    &::after {
-        content: " ";
-        clear: both;
-        display: table;
-    }
-}
-
-
-
-
 $min: min-width;
 $max: max-width;
 @mixin at-query ($constraint, $viewport1, $viewport2:null) {
@@ -29,7 +16,6 @@ $max: max-width;
   }
 }
 
->>>>>>> aec31c7a6b58c55c8ee7b11ad0ae1c28958652a8
 @import '_colors';
 
 ::selection {
@@ -301,9 +287,6 @@ header {
 
     &.fixed-heading {
         padding-top: 87px;
-		
-		
-
         .heading {
             z-index: 9999;
             position: fixed !important;

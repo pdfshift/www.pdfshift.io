@@ -1,11 +1,15 @@
+{% set active_menu = 'dashboard' %}
 {% extends 'account/_base.njk' %}
 
 {% block account_body %}
-    <div id="app"></div>
+    <div id="account-app">
+        <div class="loading">Please wait while we load your page ...</div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
 <script src="/js/account.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 <script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
 <script>
 (function () {
@@ -37,7 +41,6 @@
     };
 
     window.PDFShift.setAccount = function (body) {
-<<<<<<< HEAD
         var nunjucksEnv = new nunjucks.Environment();
         nunjucksEnv.addFilter('dateformat', function (str, format) {
             return moment.utc(str).format(format || 'YYYY/MM/DD');
@@ -119,11 +122,6 @@
         // Save + Toggle to view mode
         window.document.addEventListener('click', function (event) {
             if (!editingElement) return;
-=======
-        console.log(body)
-        var template = window.document.getElementById('template-account').textContent.trim(),
-            parsed = nunjucks.renderString(template, { account: body });
->>>>>>> aec31c7a6b58c55c8ee7b11ad0ae1c28958652a8
 
             if (!event.target.classList.contains('key-input')) {
                 updateKeyName();
@@ -157,12 +155,38 @@
 </script>
 <script id="template-account" type="text/nunjucks-template">
     {% raw %}
-    <h1>Welcome {{ name }}</h1>
-
     <section>
-        <div class="title">
-            <a href="javascript:;" title="Click here to edit your details" class="button button-default">Edit your details</a>
-            <h2>You are on the "free" plan<h2>
+        <div class="profile">
+            <div>
+                <img src="{{ account.avatar }}" alt="{{ account.name }}'s avatar" />
+            </div>
+            <div>
+                <div>
+                    {{ account.name }}
+                    <a href="/account/settings/" title="Edit your account's details">Edit</a>
+                </div>
+                {{ account.email }}
+            </div>
+        </div>
+        <h2>
+            Your current usage
+            <small>Period of {{ account.renew_date|dateformat('YYYY/MM') }} - {{ account.renew_date|onemonth|dateformat('YYYY/MM') }}</small>
+        </h2>
+
+        <div class="progress">
+            <div class="indicator">
+                <span style="left: calc({{ (((account.credits.used / account.credits.total ) * 100)|percent).toFixed(2) }}% - 60px)">
+                    {{ account.credits.used }}
+                    <sup>{{ ((account.credits.used / account.credits.total ) * 100).toFixed(2) }}%</sup>
+                </span>
+            </div>
+            <div class="progress-bar">
+                <span style="width: {{ (((account.credits.used / account.credits.total ) * 100)|percent).toFixed(2) }}%;">Progress: {{ (((account.credits.used / account.credits.total ) * 100)|percent).toFixed(2) }}%</span>
+            </div>
+            <div class="meters">
+                <span>0</span>
+                <span>{{ account.credits.total }}</span>
+            </div>
         </div>
 
         <div class="plan">
@@ -172,8 +196,8 @@
             <div>
                 <span>Renews on {{ account.renew_date|onemonth|dateformat }}</span>
             </div>
-            <div class="column four">
-                <a href="/account/upgrade/" title="Upgrade or downgrade your plan" class="button button-primary">Change your plan</a>
+            <div>
+                <a href="/account/upgrade" title="Click here to upgrade" class="button button-primary">Upgrade</a>
             </div>
         </div>
     </section>
