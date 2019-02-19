@@ -1,3 +1,35 @@
+<<<<<<< HEAD
+=======
+@mixin clearfix() {
+    &::after {
+        content: " ";
+        clear: both;
+        display: table;
+    }
+}
+
+
+
+
+$min: min-width;
+$max: max-width;
+@mixin at-query ($constraint, $viewport1, $viewport2:null) {
+  @if $constraint == $min {
+    @media all and ($min: $viewport1) {
+      @content;
+    }
+  } @else if $constraint == $max {
+    @media all and ($max: $viewport1) {
+      @content;
+    }
+  } @else {
+    @media all and ($min: $viewport1) and ($max: $viewport2) {
+      @content;
+    }
+  }
+}
+
+>>>>>>> aec31c7a6b58c55c8ee7b11ad0ae1c28958652a8
 @import '_colors';
 
 ::selection {
@@ -253,6 +285,7 @@ a.button, input.button, button.button {
 }
 
 body:not(.unified) header {
+	
     background-color: $color-primary;
     background-image: linear-gradient(to right bottom,$color-primary, $color-secondary);
 }
@@ -268,6 +301,8 @@ header {
 
     &.fixed-heading {
         padding-top: 87px;
+		
+		
 
         .heading {
             z-index: 9999;
@@ -289,6 +324,37 @@ header {
                 flex: 0 0 160px;
                 margin: 5px 0;
             }
+			
+			.mobi_menu_butt{
+				display:none;
+				cursor:pointer;
+				z-index: 99999;
+				
+				@include at-query ($max,'786px') {
+					display: inline-block;
+					position: absolute;
+					width: 45px;
+					height: 35px;
+					top: 20px;
+					left: 20px;
+					border: 2px solid #fff;
+					border-radius: 3px;
+		 			}
+					
+					>div{
+						width: calc(100% - 14px);
+						margin: 7px 7px;
+						height: 2px;
+						border-radius: 3px;
+						background: #fff;
+					}
+							  
+		  
+		  
+		  
+		  
+				}
+			
     
             .brand {
                 color: $color-white;
@@ -297,6 +363,10 @@ header {
                 margin-top: 10px;
                 display: block;
                 outline: none;
+				
+				@include at-query ($max,'786px') {
+					margin-left:100px;
+							  }
     
                 svg {
                     width: 158px;
@@ -308,6 +378,10 @@ header {
             nav {
                 flex: 0 0 60%;
                 margin-top: 15px;
+				
+				@include at-query ($max,'786px') {
+					display:inline-block;
+				  }
     
                 ul {
                     margin: 0;
@@ -317,6 +391,13 @@ header {
                         display: inline-block;
                         padding: 12px 0;
                         margin: 0 5px;
+						
+						@include at-query ($max,'786px') {
+									display: inline-block;
+									width:100%;
+									float:left;
+									margin: 0;
+							  }
     
                         a {
                             color: $color-white;
@@ -328,6 +409,18 @@ header {
                             letter-spacing: 1px;
                             border-bottom: 1px solid transparent;
                             outline: none;
+							
+							@include at-query ($max,'786px') {
+									display: inline-block;
+									width:100%;
+									float:left;
+									
+							  }
+							
+							
+							@include at-query ($max,'786px') {
+								width:100%;
+							  }
 
                             svg {
                                 stroke: #fff;
@@ -349,6 +442,10 @@ header {
                 padding: 12px 0;
                 margin-top: 15px;
                 text-align: right;
+				
+				@include at-query ($max,'786px') {
+								text-align:center;
+							  }
 
                 .hidden {
                     display: none;
@@ -392,6 +489,11 @@ header {
 
     .hero>div {
         margin: 80px 0;
+		
+		@include at-query ($max,'786px') {
+			padding:20px;
+			width: calc(100% - 40px);
+		  }
 
         &>.column>div {
             padding: 0 40px 0 0;
@@ -415,7 +517,10 @@ header {
                 display: inline-block;
                 margin-top: 30px;
                 border-bottom: 1px solid transparent;
-
+				
+				@include at-query ($max,'786px') {
+							margin-bottom:20px;
+						  }
                 &:hover {
                     border-bottom-color: $color-white;
                 }
@@ -497,6 +602,21 @@ footer {
     padding: 40px 0 20px;
     background-color: #fbfbfb;
     border-top: solid 1px $color-light-grey;
+	
+	@include at-query($max , '786px'){
+		padding: 40px 20px 20px;
+		
+	}
+	.row{
+		.column{
+			@include at-query($max , '786px'){
+					margin-bottom:20px;
+					
+				}
+			
+		}	
+		
+	}
 
     h5 {
         margin: 0 0 10px;
@@ -716,3 +836,78 @@ footer {
 @import '_enterprise';
 @import '_guides';
 @import '_responsive';
+
+
+
+
+
+
+
+
+
+
+
+
+#testimonials .container>div>a:last-child {
+    right: -50px;
+	
+	@include at-query($max , '786px'){
+		display:none;
+		
+	}
+}
+
+
+
+$break-small: 320px;
+$break-large: 1200px;
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+	
+.container {
+    width: 100%;
+}	
+
+.row {
+    display:inline-block;
+	width:100%;
+}
+#main_nav,
+#main_cta{
+	display:none;
+}
+#main_nav{
+	margin-top:0;
+	margin-bottom: 20px;
+    float: left;
+}
+
+.row .column,
+.row .column.one,
+.row .column.two,
+.row .column.three,
+.row .column.four,
+.row .column.five,
+.row .column.six,
+.row .column.seven,
+.row .column.eight,
+.row .column.nine,
+.row .column.ten,
+.row .column.eleven,
+.row .column.twelve {flex: 0 0 100%; max-width: 100%}
+
+
+#pricing .column { display:inline-block;width: 100%;}
+
+
+
+
+}
+

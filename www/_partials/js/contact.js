@@ -19,13 +19,13 @@
                 submitButton.style.display = 'none';
                 submitButton.parentNode.querySelector('.success').style.display = 'block';
             },
-            function (response) {
+            function (json, exception) {
                 var errors = {'message': ['An error occured.']};
-                if (response.data) {
-                    if (response.data.hasOwnProperty('error')) {
-                        var errors = {'message': [response.data.error]};
-                    } else if (response.data.hasOwnProperty('errors')) {
-                        errors = response.data['errors'];
+                if (json) {
+                    if (json.hasOwnProperty('error')) {
+                        var errors = {'message': [json.error]};
+                    } else if (json.hasOwnProperty('errors')) {
+                        errors = json['errors'];
                     }
                 }
 

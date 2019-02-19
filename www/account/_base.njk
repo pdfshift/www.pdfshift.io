@@ -8,16 +8,17 @@
 {% block main %}
 <div class="container">
     <div class="row">
-        <nav class="column three">
-            <ul class="unstyled">
-                <li{% if active_menu == 'dashboard' %} class="active"{% endif %}><a href="/account/dashboard/" title="View your usage and manage your API keys">Dashboard</a></li>
-                <li{% if active_menu == 'invoices' %} class="active"{% endif %}><a href="/account/invoices/" title="View and download all your invoices">Invoices</a></li>
-                <li{% if active_menu == 'settings' %} class="active"{% endif %}><a href="/account/settings/" title="Update your account details">Account settings</a></li>
-                <li class="separator"></li>
-                <li class="logout"><a href="javascript:;" title="Logout from your account">Logout</a></li>
+        <div class="column three">
+            <ul>
+                <li><a href="javascript:;" title="">Dashboard</a></li>
+                <li><a href="javascript:;" title="">Api keys</a></li>
+                <li><a href="javascript:;" title="">Invoices</a></li>
+                <li><a href="javascript:;" title="">Account settings</a></li>
+                <li><a href="javascript:;" title="">---</a></li>
+                <li><a href="javascript:;" title="">Logout</a></li>
             </ul>
-        </nav>
-        <div class="column nine account">
+        </div>
+        <div class="column nine">
             {% block account_body %}{% endblock %}
         </div>
     </div>

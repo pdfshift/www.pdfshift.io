@@ -11,11 +11,7 @@
                 window.PDFShift.setAccount(body);
             }
         },
-        function (response) {
-            if (response.status === 0) {
-                return alert('An error occured.');
-            }
-
+        function () {
             window.PDFShift.storage.set('token', null);
             window.location.href = '/login/';
         }
