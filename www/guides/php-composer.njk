@@ -251,5 +251,52 @@
     $pdfshift->convert('https://www.example.com');
     $pdfshift->save('result.pdf');
     ```
+
+    ### Real life example - Sending an invoice by email
+
+    One frequent use of PDFShift is to generate an invoice when receiving a payment, and sending that invoice - in PDF format - by email, to the customer.
+
+    This can be done really easily and quickly, with the following lines:
+
+    ```php
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require 'vendor/autoload.php';
+
+    $source = file_get_contents('invoice.html');
+
+    $binary_pdf = pdfshift('your_api_key_here', array (
+        'source' => $source
+    ));
+
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp1.example.com;smtp2.example.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'billing@your-site.tld';
+        $mail->Password = 'secret';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom('billing@your-site.tld', 'Billing at Your-Site');
+        $mail->addAddress('customer@gmail.com', 'John Doe');
+
+        // Body of the email
+        $mail->isHTML(true);
+        $mail->Subject = 'Thank you for your purchase';
+        $mail->Body    = file_get_contents('templates/emails/invoice.html');
+        $mail->AltBody = file_get_contents('templates/emails/invoice.txt');
+
+        // Add the invoice from PDFShift:
+        $mail->addStringAttachment($binary_pdf, 'invoice.pdf', 'base64', 'application/pdf');
+
+        $mail->send();
+        return redirect('/thank-you');
+    } catch (Exception $e) {
+        // Manage exception
+    }
+    ```
     {% endmarkdown %}
 {% endblock %}
