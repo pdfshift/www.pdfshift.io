@@ -40,18 +40,27 @@
     justify-content: space-around;
     margin: 0;
 	
-	@include at-query ($max,'786px') {
+	
+	
+	@include at-query ($max,'768px') {
 			display: inline-block;
 		  }
 	li{	
-	  @include at-query ($max,'786px') {
-			display: inline-block;
-			width:50%;
-			text-align:center;
-			float:left;
-		  }
+	
+	
+	@include respond-to(handhelds) { width:100%; float:left; text-align:center; }
+	@include respond-to(medium-screens) { width:50%; float:left; text-align:center; }
+	/*@include respond-to(wide-screens) {width: auto;}*/
+	
+	
+	 
+		  
+		  
     img {
         width: 150px;
+		@include respond-to(handhelds) { width:200px;}
+		@include respond-to(medium-screens) { width:75%;}
+		/*@include respond-to(wide-screens) {width: auto;}*/
     }
 	}
 }
@@ -59,12 +68,18 @@
 #try-me {
     border-top: solid 1px $color-light-grey;
     background-color: #fbfbfb;
-
+	
+	
+	@include at-query ($max,'1024px') {
+		padding:20px;
+	}
+	
+	
     .container {
         width: 600px;
         text-align: center;
 		
-		@include at-query ($max,'786px') {
+		@include at-query ($max,'1024px') {
 			width: 100%;
 		  }
 		
@@ -114,6 +129,11 @@
                 margin-top: 40px;
                 display: flex;
                 justify-content: space-between;
+				
+				@include at-query ($max,'1024px') {
+					display: inline-block;
+				  }
+		
 
                 .sep {
                     width: 1px;
@@ -126,6 +146,11 @@
                     padding: 0.5rem 10px 0.5rem;
                     position: relative;
                     text-align: center;
+					
+					@include at-query ($max,'1024px') {
+						width:100%;
+					  }
+					
 
                     input[type="radio"] {
                         position: absolute;
@@ -224,6 +249,11 @@
 #numbers {
     background-color: #192638;
     color: $color-white;
+	
+	@include at-query ($max,'1024px') {
+		padding:20px;
+	}
+	
     h2 {
         color: $color-white;
     }
@@ -236,17 +266,17 @@
         width: 100%;
         justify-content: space-between;
 		
-		@include at-query ($max,'786px') {
+		@include at-query ($max,'1024px') {
 			display: inline-block;
 			margin: 30px 0 0;
 		  }
 
         >li {
             text-align: center;
-			@include at-query ($max,'786px') {
+			@include at-query ($max,'1024px') {
 				display: inline-block;
 				float: left;
-				width:50%;
+				width:100%;
 				min-height: 167px;
 				margin-bottom: 30px;
 			}
@@ -275,6 +305,12 @@
 #code {
     background-color: $color-white;
 
+
+	@include at-query ($max,'1024px') {
+			padding:20px;
+		}
+		
+		
     .row {
 		
 		
@@ -328,7 +364,7 @@
                 padding: 0;
 
 
-				@include at-query($max , '786px'){
+				@include at-query ($max,'1024px') {
 						margin:0px;
 						
 					}
@@ -369,7 +405,7 @@
                 margin: 0px 0 0 40px;
                 padding: 10px 20px;
 				
-				@include at-query($max , '786px'){
+				@include at-query ($max,'1024px') {
 						margin:0px;
 						
 					}
@@ -382,6 +418,10 @@
 #features {
     border-top: solid 1px $color-light-grey;
     background-color: #fbfbfb;
+	
+	@include at-query ($max,'1024px') {
+			padding:20px;
+		}
 
     .column {
         margin-top: 20px;
@@ -490,9 +530,10 @@
 		
 		
 		
-		@include at-query ($max,'786px') {
-			display: inline-block;
-			width:100%;
+		@include at-query ($max,'1024px') {
+			/*display: inline-block;
+			width:100%;*/
+			padding:0 50px;
 		  }
 
         >li {
@@ -506,14 +547,20 @@
             padding: 40px 20px;
             margin: 0 10px;
             text-align: center;
-            width: 280px;
+            
             transition: transform 500ms ease-in-out;
 			
-			@include at-query ($max,'786px') {
+			@include respond-to(handhelds) { width:100%;}
+			@include respond-to(medium-screens) { width:46%;margin: 2%; }
+			@include respond-to(wide-screens) {width:280px;}
+			
+			
+			
+			/*@include at-query ($max,'1024px') {
 				display: inline-block;
 				width:100%;
 				margin: 0 0px;
-		  }
+		  }*/
 
             img {
                 width: 96px;
@@ -553,13 +600,13 @@
     background-color: #fbfbfb;
     text-align: center;
 	
-	@include at-query ($max,'786px') {
+	@include at-query ($max,'1024px') {
 		padding:0 20px;
 		margin:30px;
 		  }
 	.container {
 		.row{
-			@include at-query ($max,'786px') {
+			@include at-query ($max,'1024px') {
 				    display: inline-block;
 			}
 		}
@@ -577,6 +624,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+		
+		
+		@include at-query ($max,'1024px') {
+			margin:20px 0;
+		  }
 
         &:last-child {
             margin-right: 0;
