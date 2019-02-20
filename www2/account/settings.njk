@@ -1,0 +1,124 @@
+{% set active_menu = 'settings' %}
+{% extends 'account/_base.njk' %}
+
+{% block account_body %}
+    <div id="settings-app">
+        <div class="loading">Please wait while we load your page ...</div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="/js/account.js" async></script>
+<script src="/js/countries.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+<script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
+<script id="template-account" type="text/nunjucks-template">
+    {% raw %}
+    <h2>Update your account</h2>
+
+    <p class="success">
+        Your account's information has been successfully updated.
+        <a href="javascript:;" title="Close this message" class="close">&times;</a>
+    </p>
+
+    <form>
+        <div class="row">
+            <div class="form-group column">
+                <label for="settings-edit-name">Your name</label>
+                <input type="text" name="name" value="{{ account.name }}" id="settings-edit-name" />
+            </div>
+            <div class="form-group column">
+                <label for="settings-edit-email">Your email</label>
+                <input type="email" name="email" value="{{ account.email }}" id="settings-edit-email" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="settings-edit-company_details">Your company details</label>
+            <textarea name="company_details" rows="5" cols="50" id="settings-edit-company_details" placeholder="Company name, address">{{ account.company_details }}</textarea>
+        </div>
+        <div class="row">
+            <div class="form-group column">
+                <label for="settings-edit-country">Your country</label>
+                <select id="settings-edit-country" name="country" required>
+                    <optgroup>
+                        <option value="US"{% if account.country == 'US' %} selected {% endif %}>United States</option>
+                        <option value="CA"{% if account.country == 'CA' %} selected {% endif %}>Canada</option>
+                        <option value="GB"{% if account.country == 'GB' %} selected {% endif %}>United Kingdom</option>
+                        <option value="FR"{% if account.country == 'FR' %} selected {% endif %}>France</option>
+                        <option value="DE"{% if account.country == 'DE' %} selected {% endif %}>Germany</option>
+                    </optgroup>
+                    <optgroup label="-----------">
+                        {% for code, country in countries %}
+                            <option value="{{ code }}"{% if account.country == code %} selected {% endif %}>{{ country }}</option>
+                        {% endfor %}
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group column">
+                <label for="settings-edit-company_vat">Your company VAT number</label>
+                <input type="text" placeholder="Your company VAT number" name="company_vat" value="{{ account.company_vat }}"  id="settings-edit-company_vat" />
+            </div>
+        </div>
+        <div class="submit">
+            <input type="submit" class="button button-primary" name="update" value="Update your details" />
+        </div>
+    </form>
+    {% endraw %}
+</script>
+<script>
+(function () {
+    window.PDFShift.setAccount = function (body) {
+        var token = window.PDFShift.storage.get('token');
+        var template = window.document.getElementById('template-account').textContent.trim(),
+            parsed = nunjucks.renderString(template, { 'account': body, 'countries': window.countries });
+
+        window.document.querySelector('#settings-app').innerHTML = parsed;
+
+        var form = window.document.querySelector('#settings-app form'),
+            submitButton = form.querySelector('.submit>input'),
+            successMessage = window.document.querySelector('#settings-app p.success');
+        
+        successMessage.querySelector('a.close').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            successMessage.classList.add('hidden');
+        }, false);
+
+        form.addEventListener('submit', function (event) {
+            if (submitButton.classList.contains('button-disabled')) {
+                return false;
+            }
+
+            successMessage.classList.add('hidden');
+            submitButton.classList.add('button-disabled');
+            window.PDFShift.forms.clearErrors(form);
+            event.preventDefault();
+
+            var params = window.PDFShift.forms.asJSON(form);
+
+            window.PDFShift.requests.put('accounts/', params, {'Authorization': 'Bearer ' + token}).then(
+                function (json) {
+                    submitButton.classList.remove('button-disabled');
+                    successMessage.classList.remove('hidden');
+                    window.scrollTo(0, 0);
+                },
+                function (response) {
+                    var errors = {'name': ['An error occured.']};
+                    if (response.data) {
+                        if (response.data.hasOwnProperty('error')) {
+                            var errors = {'name': [response.data.error]};
+                        } else if (response.data.hasOwnProperty('errors')) {
+                            errors = response.data['errors'];
+                        }
+                    }
+
+                    window.PDFShift.forms.setErrors(form, errors);
+                    submitButton.classList.remove('button-disabled');
+                }
+            )
+            return false;
+        }, true);
+    }
+})()
+</script>
+{% endblock %}

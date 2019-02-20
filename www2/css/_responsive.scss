@@ -1,0 +1,25 @@
+@media screen and (max-width: 1220px) {
+    .container {
+        width: 800px;
+    }
+}
+@media screen and (max-width: 768px) {
+.row .column.one,
+.row .column.two,
+.row .column.three,
+.row .column.four,
+.row .column.five,
+.row .column.six,
+.row .column.seven,
+.row .column.eight,
+.row .column.nine,
+.row .column.ten,
+.row .column.eleven,
+.row .column.twelve {flex: 0 0 100%; max-width: 100%}
+}
+
+
+
+
+
+

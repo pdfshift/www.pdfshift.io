@@ -1,0 +1,18 @@
+{% set bodyClass = 'unified' %}
+{% set seo_title = "Contact our sales team" %}
+{% set seo_description = "Fill out the form to reach out to our sales team and get all the answers you need." %}
+
+{% extends '_partials/base.njk' %}
+
+{% block main %}
+<div id="contact" class="container">
+    {% set contactFocus = true %}
+    {% include '_partials/contact.njk' %}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+{% include '_partials/js/contact.js' %}
+</script>
+{% endblock %}

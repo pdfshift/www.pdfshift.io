@@ -746,11 +746,29 @@ https://api.pdfshift.io/v2/convert/ \
 
     // Testimonials
     (function () {
+	
+	
+	
         var sliderItems = document.querySelectorAll('#testimonials .slider>li'),
             buttonPrev = document.querySelector('#testimonials .button-prev')
             buttonNext = document.querySelector('#testimonials .button-next'),
-            itemDisplayedByDefault = 4,
-            position = 0;
+            position = 0,
+			itemDisplayedByDefault = 1;
+			
+			
+window.addEventListener("resize", function() {
+		if (window.matchMedia("(max-width: 1050px)").matches) {
+				var itemDisplayedByDefault = 2;
+		}
+		else if (window.matchMedia("(max-width: 768px)").matches) {
+				var itemDisplayedByDefault = 1;
+			} 
+		else {
+				var itemDisplayedByDefault = 4;
+		}
+});
+			
+			
         
         var sliderItemWidth = sliderItems[0].offsetWidth,
             style = sliderItems[0].currentStyle || window.getComputedStyle(sliderItems[0]);

@@ -1,0 +1,43 @@
+{% set bodyClass = 'account' %}
+{% extends '_partials/base.njk' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/account.css" />
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <nav class="column three">
+            <ul class="unstyled">
+                <li{% if active_menu == 'dashboard' %} class="active"{% endif %}><a href="/account/dashboard/" title="View your usage and manage your API keys">Dashboard</a></li>
+                <li{% if active_menu == 'invoices' %} class="active"{% endif %}><a href="/account/invoices/" title="View and download all your invoices">Invoices</a></li>
+                <li{% if active_menu == 'settings' %} class="active"{% endif %}><a href="/account/settings/" title="Update your account details">Account settings</a></li>
+                <li class="separator"></li>
+                <li class="logout"><a href="javascript:;" title="Logout from your account">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="column nine account">
+            {% block account_body %}{% endblock %}
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        if (document.location.search.indexOf('heroku=1') > -1) {
+            var s = document.createElement('script')
+            s.src = 'https://s3.amazonaws.com/assets.heroku.com/boomerang/boomerang.js'
+            s.async = true
+            s.onload = () => {
+                window.Boomerang.init({app: '', addon: 'pdfshift'})
+            }
+            document.querySelector('body').appendChild(s)
+        }
+
+        document.querySelector('main .container .column.three .logout>a').addEventListener('click', function () {
+            window.PDFShift.storage.remove('token');
+            window.location.href = '/';
+        }, false);
+    })()
+</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+.home #contact {
+    background-color: $color-secondary;
+
+    h2 {
+        margin: 0 0 60px;
+    }
+
+    margin-bottom: 220px;
+    form {
+        margin-bottom: -260px;
+
+        .success {
+            text-align: center;
+            color: lighten(#155724, 10%);
+        }
+    }
+}
