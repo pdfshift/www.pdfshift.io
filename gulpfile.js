@@ -84,20 +84,6 @@ gulp.task('images', () =>
         ]))
         .pipe(gulp.dest('./dist/images'))
 )
-/*
-gulp.task('icons', () => 
-    gulp.src('./www/static/icons/*.svg')
-        .pipe(iconfont({
-            fontName: 'icons',
-            prependUnicode: true,
-            formats: ['ttf', 'eot', 'woff'],
-            timestamp: runTimestamp,
-            fontHeight: 1001,
-            normalize: true
-        }))
-        .pipe(gulp.dest('./dist/fonts/'))
-)
-*/
 
 // Generate css files from sass
 gulp.task('sass', () =>
