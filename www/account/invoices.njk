@@ -18,7 +18,7 @@
         return false;
     }
 
-    window.PDFShift.requests.get('accounts/invoices', {'Authorization': 'Bearer ' + token}).then(
+    window.PDFShift.requests.get('credits/invoices', {'Authorization': 'Bearer ' + token}).then(
         function (body) {
             var nunjucksEnv = new nunjucks.Environment();
             nunjucksEnv.addFilter('dateformat', function (str, format) {

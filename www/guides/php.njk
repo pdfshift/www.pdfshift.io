@@ -178,9 +178,11 @@
     Cookies might help you access unauthorized areas that aren't restricted by a simple Basic Auth mechanism. You can define as many cookies as you want.
 
     ```php
+    // cookies is a list of object, that's why we call twice `array`.
+    // First for the list, second as an object.
     $response = pdfshift('your_api_key_here', array (
         'source' => 'https://httpbin.org/cookies',
-        'cookies' => array ('name' => 'session', 'value' => '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac')
+        'cookies' => array(array ('name' => 'session', 'value' => '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'))
     ));
 
     file_put_contents('result.pdf', $response);

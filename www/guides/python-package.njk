@@ -130,10 +130,12 @@
     import pdfshift
     pdfshift.api_key = 'your_api_key_here'
 
+    # cookies is a list of dict
+    # That way, you can add as many dict (cookie) as you want.
     binary_file = pdfshift.convert(
         'https://httpbin.org/cookies',
         cookies=[
-            {'name': 'session', 'value': '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'}
+            [{'name': 'session', 'value': '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'}]
         ]
     )
 

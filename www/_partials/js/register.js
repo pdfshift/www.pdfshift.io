@@ -28,8 +28,12 @@
         window.PDFShift.forms.clearErrors(form);
         event.preventDefault();
 
-        var params = window.PDFShift.forms.asJSON(form);
-        params['language'] = params['language'] || window.PDFShift.storage.get('language');
+        var params = Object.assign(
+            {}, // Default type
+            {'language': window.PDFShift.storage.get('language')}, // Language
+            window.PDFShift.storage.get('campaign', {}), // Campaign params
+            window.PDFShift.forms.asJSON(form) // Form data
+        );
 
         window.PDFShift.requests.post('accounts/', params).then(
             function (json) {
