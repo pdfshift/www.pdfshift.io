@@ -67,8 +67,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### With inline HTML data:
@@ -92,8 +92,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### Save the file to Amazon S3 and get an URL instead
@@ -142,8 +142,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### Accessing secured pages
@@ -169,8 +169,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### Using cookies
@@ -180,12 +180,14 @@
     ```python
     import requests
 
+    # cookies is a list of dict
+    # That way, you can add as many dict (cookie) as you want.
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
         auth=('your_api_key_here', ''),
         json={
             'source': 'https://httpbin.org/cookies',
-            'cookies': {'name': 'session', 'value': '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'}
+            'cookies': [{'name': 'session', 'value': '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'}]
         },
         stream=True
     )
@@ -193,8 +195,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
 
@@ -221,8 +223,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### Loading CSS from a string:
@@ -245,8 +247,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### Adding Watermark
@@ -274,8 +276,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### Custom Header (or Footer)
@@ -304,8 +306,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
 
     ### Protecting the generated PDF
@@ -338,8 +340,8 @@
     response.raise_for_status()
 
     with open('result.pdf', 'wb') as output:
-        for chunck in response.iter_content(chunck_size=1024):
-            output.write(chunck)
+        for chunk in response.iter_content(chunk_size=1024):
+            output.write(chunk)
     ```
     {% endmarkdown %}
 {% endblock %}
