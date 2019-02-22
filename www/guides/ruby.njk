@@ -229,10 +229,12 @@
     request.basic_auth("your_api_key", "")
     request.body = {
         "source" => "https://httpbin.org/cookies",
-        "cookies" => {
-            "name" => "session",
-            "value" => "4cb496a8-a3eb-4a7e-a704-f993cb6a4dac"
-        }
+        "cookies" => [
+            {
+                "name" => "session",
+                "value" => "4cb496a8-a3eb-4a7e-a704-f993cb6a4dac"
+            }
+        ]
     }
 
     response = http.request(request)

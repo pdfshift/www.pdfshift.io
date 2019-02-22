@@ -337,6 +337,11 @@ header {
             div.column {
                 flex: 0 0 160px;
                 margin: 5px 0;
+				
+				@include at-query ($max,'1024px') {
+						margin:0;
+						
+					}
             }
 			
 			.mobi_menu_butt{
@@ -349,7 +354,7 @@ header {
 					position: absolute;
 					width: 45px;
 					height: 35px;
-					top: 20px;
+					top: 14px;
 					left: 20px;
 					border: 2px solid #fff;
 					border-radius: 3px;
@@ -380,6 +385,7 @@ header {
 				
 				@include at-query ($max,'1024px') {
 					margin-left:100px;
+					margin-top:0;
 							  }
     
                 svg {
@@ -674,6 +680,9 @@ footer {
 	}
 	
 	
+
+	
+	
 	}
 	
 	
@@ -766,6 +775,16 @@ footer {
         font-size: 0.8em;
         color: $color-text-grey;
         margin-bottom: 20px;
+		
+		@include at-query ($max,'1024px') {
+						margin-bottom: 0px;
+					}
+		.column {
+			@include at-query ($max,'1024px') {
+						margin-bottom: 0px;
+					}
+			
+		}
 
         p {
             margin: 0;
@@ -799,6 +818,27 @@ footer {
                 &.linkedin svg {fill: #257ab7}
             }
         }
+		
+		
+		
+		
+		.column:nth-child(2),
+		.column:nth-child(3),
+		.column:nth-child(4)
+		{
+			@include at-query ($max,'1024px') {
+						width:50%;
+						min-height:auto;
+						
+					}
+		}
+		.column:nth-child(5){
+			@include at-query ($max,'1024px') {
+						width:100%;
+						
+					}
+		}
+	
     }
   }
 
@@ -934,7 +974,13 @@ footer {
 }*/
 
 
-
+main{
+	@include at-query ($max,'1024px') {
+		padding: 0px 20px;
+		
+	}
+	
+	}
 
 
 @media screen and (max-width: 1024px) {
@@ -982,5 +1028,31 @@ footer {
 	float:left;
 }*/
 
+}
+
+
+.container-small {
+	
+	@include at-query ($max,'1024px') {
+						width:100%;
+					}
+}
+
+
+
+#cookie-policy{
+	
+	.table_area{
+		
+		@include at-query ($max,'1024px') {
+						width:100%;
+						overflow:scroll;
+					}
+		
+	}
+	
+	
+	
+	
 }
 

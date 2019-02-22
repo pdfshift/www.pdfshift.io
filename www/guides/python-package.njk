@@ -130,10 +130,12 @@
     import pdfshift
     pdfshift.api_key = 'your_api_key_here'
 
+    # cookies is a list of dict
+    # That way, you can add as many dict (cookie) as you want.
     binary_file = pdfshift.convert(
         'https://httpbin.org/cookies',
         cookies=[
-            {'name': 'session', 'value': '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'}
+            [{'name': 'session', 'value': '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'}]
         ]
     )
 
@@ -249,42 +251,6 @@
 
     with open('result.pdf', 'wb') as output:
         output.write(binary_file)
-    ```
-
-
-    ### Real life example - Sending an invoice by email
-
-    One frequent use of PDFShift is to generate an invoice when receiving a payment, and sending that invoice - in PDF format - by email, to the customer.
-
-    This can be done really easily and quickly, with the following lines:
-
-    ```python
-    from django.core.mail import EmailMultiAlternatives
-    from django.shortcuts import redirect
-    import pdfshift
-
-    pdfshift.api_key = 'your_api_key_here'
-
-    document = open('invoice.html', 'r')
-    document_content = document.read()
-    document.close()
-
-    binary_file = pdfshift.convert(document_content)
-
-    text_content = None
-    with open('templates/emails/invoice.txt', 'r') as f:
-        text_content = f.read()
-    
-    html_content = None
-    with open('templates/emails/invoice.html', 'r') as f:
-        html_content = f.read()
-
-    msg = EmailMultiAlternatives("Thank you for your purchase", text_content, 'billing@your-site.tld', ['customer@gmail.com'])
-    msg.attach_alternative(html_content, "text/html")
-    msg.attach('invoice.pdf', binary_file, 'application/pdf')
-    msg.send()
-
-    return redirect('/thank-you')
     ```
     {% endmarkdown %}
 {% endblock %}
