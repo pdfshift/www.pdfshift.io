@@ -1,5 +1,8 @@
 body.press main {
     padding-top: 100px;
+	@include at-query ($max,'1024px') {
+						padding-top: 50px;
+					}
 
     .container {
         text-align: left;
@@ -34,10 +37,21 @@ body.press main {
                 margin: 10px 0;
                 text-align: left;
                 padding: 5px 10px;
+				
+				
+				
+
+
 
                 img {
                     margin: 0;
                     text-align: left;
+					
+				@include at-query ($max,'1024px') {
+						width:100%;
+						
+					}	
+					
                 }
 
                 &.invert {
@@ -46,27 +60,110 @@ body.press main {
 
                 span {
                     margin-left: 40px;
+					
+					@include at-query ($max,'1024px') {
+						margin-left: 0px
+						
+					}
                 }
             }
+			
+			&.logos ul li {
+                @include at-query ($max,'1024px') {
+						display: inline-block;
+						text-align: center;
+						
+					}
+            }
+			
 
             &.logos ul img {
                 width: 256px;
                 min-width: 256px;
+				
+				@include at-query ($max,'1024px') {
+					width:100%;
+						
+					}
             }
+			
+			
+			&.icons ul{ 
+			
+			
+				li {
+                @include at-query ($max,'1024px') {
+						/*display: inline-block;
+						text-align: center;*/
+						
+						
+					}
+					
+					
+					img {
+							width: 64px;
+							min-width: 64px;
+							
+							
+						}
+						
+						span{
+							
+							@include at-query ($max,'1024px') {
+									margin-left: 40px;
+								}
+						}
+            	  }
+			}
 
-            &.icons ul img {
-                width: 64px;
-                min-width: 64px;
-            }
+           
 
-            &.banners ul img {
-                width: 512px;
-                min-width: 512px;
-            }
+			&.banners ul{
+				li{
+					@include at-query ($max,'1024px') {
+							display:inline-block;
+							text-align:center;
+						}
+					
+					img {
+							width: 512px;
+							min-width: 512px;
+							
+							@include at-query ($max,'1024px') {
+									width:100%;
+									min-width:100%
+									
+							}
+						}
+					
+					  span{
+								
+								@include at-query ($max,'1024px') {
+										margin-left: 0px;
+									}
+							}
+					
+				}
+			}
+
+         
+			
+			
+			
+			
+			
         }
+		
+		
+		
+		
 
         address {
             padding: 40px 60px;
+			
+			@include at-query ($max,'1024px') {
+										padding: 40px 0px;
+									}
         }
 
         .downloads>div {

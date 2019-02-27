@@ -344,44 +344,5 @@
         for chunk in response.iter_content(chunk_size=1024):
             output.write(chunk)
     ```
-
-    ### Real life example - Sending an invoice by email
-
-    One frequent use of PDFShift is to generate an invoice when receiving a payment, and sending that invoice - in PDF format - by email, to the customer.
-
-    This can be done really easily and quickly, with the following lines:
-
-    ```python
-    from django.core.mail import EmailMultiAlternatives
-    from django.shortcuts import redirect
-    import requests
-
-    document = open('invoice.html', 'r')
-    document_content = document.read()
-    document.close()
-
-    response = requests.post(
-        'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
-        json={'source': document_content}
-    )
-
-    response.raise_for_status()
-
-    text_content = None
-    with open('templates/emails/invoice.txt', 'r') as f:
-        text_content = f.read()
-    
-    html_content = None
-    with open('templates/emails/invoice.html', 'r') as f:
-        html_content = f.read()
-
-    msg = EmailMultiAlternatives("Thank you for your purchase", text_content, 'billing@your-site.tld', ['customer@gmail.com'])
-    msg.attach_alternative(html_content, "text/html")
-    msg.attach('invoice.pdf', response.content, 'application/pdf')
-    msg.send()
-
-    return redirect('/thank-you')
-    ```
     {% endmarkdown %}
 {% endblock %}

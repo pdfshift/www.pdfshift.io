@@ -281,58 +281,5 @@
         })
         .catch(function({message, code, response, errors = null}) {})
     ```
-
-
-    ### Real life example - Sending an invoice by email
-
-    One frequent use of PDFShift is to generate an invoice when receiving a payment, and sending that invoice - in PDF format - by email, to the customer.
-
-    This can be done really easily and quickly, with the following lines:
-
-    ```python
-    const express = require('express');
-    const fs = require('fs');
-    const nodemail = require('nodemailer');
-    const pdfshift = require('pdfshift')('your_api_key');
-
-    const app = express();
-
-    app.get('/send/',  (req, res, next) => {
-        let invoice = fs.readFileSync('invoice.html', 'utf8');
-
-        pdfshift.convert(invoice).then(function (binary_pdf) {
-            let transporter = nodemailer.createTransport({
-                host: "smtp.gmail.com",
-                port: 587,
-                secure: true,
-                auth: {
-                    user: account.user,
-                    pass: account.pass
-                }
-            });
-
-            let mailOptions = {
-                from: '"Billing at Your-Site" <billing@your-site.tld>',
-                to: "customer@gmail.com"
-                subject: "Thank you for your purchase",
-                text: fs.readFileSync('templates/emails/invoice.txt', 'utf8'),
-                html: fs.readFileSync('templates/emails/invoice.html', 'utf8'),
-                attachments: [
-                    {
-                        filename: 'invoice.pdf',
-                        contentType: 'application/pdf',
-                        content: binary_pdf
-                    }
-                ]
-            };
-
-            // send mail with defined transport object
-            await transporter.sendMail(mailOptions)
-
-            // Then, we redirect
-            res.redirect(301, '/thank-you');
-        }).catch(function({message, code, response, errors = null}) {})
-    })
-    ```
     {% endmarkdown %}
 {% endblock %}
