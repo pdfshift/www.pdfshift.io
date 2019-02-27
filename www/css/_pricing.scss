@@ -11,127 +11,108 @@
     .pricing {
         background-color: #f8f8f8;
         padding: 60px 0 100px;
-		
-	.container {
-		
-		@include at-query ($max,'1024px') {
-						width:100%;
-						overflow:scroll;
-					}	
 
-        table {
-            background-color: #fff;
-            width: 100%;
-            box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
-            border-collapse: collapse;
-            border-style: hidden;
-            border-radius: 5px;
-        }
-
-        tr, td, th {
-            margin: 0;
-            padding: 0;
-        }
-
-        thead th {
-            text-align: center;
-            background-color: $color-primary;
-            color: #fff;
-            font-weight: 500;
-            padding: 20px 0;
-            border: solid 1px #fff;
-			
-			@include at-query ($max,'1024px') {
-						padding: 5px 0;
-					}	
-
-            &:first-child {
-                border-radius: 5px 0 0 0;
-                width: 275px;
-				
-				
+        .container {
+            table {
+                background-color: #fff;
+                width: 100%;
+                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
+                border-collapse: collapse;
+                border-style: hidden;
+                border-radius: 5px;
             }
 
-            &:last-child {
-                border-radius: 0 5px 0 0;
-            }
-
-            svg {
-                width: 80px;
+            tr, td, th {
                 margin: 0;
                 padding: 0;
             }
 
-            h4 {
-                margin-top: 0;
-                padding-top: 0;
-            }
-        }
-
-        tbody {
-            tr>td {
+            thead th {
                 text-align: center;
-                padding: 20px;
-                border: solid 1px #ccc;
-                vertical-align: middle;
-				
-				@include at-query ($max,'1024px') {
-						padding: 5px 0;
-					}	
+                background-color: $color-primary;
+                color: #fff;
+                font-weight: 500;
+                padding: 20px 0;
+                border: solid 1px #fff;
 
-                sup {
-                    vertical-align: super;
-                    font-size: 0.8em;
+                &:first-child {
+                    border-radius: 5px 0 0 0;
+                    width: 275px;
                 }
 
-                &.key {
-                    text-align: left;
-                    font-weight: 500;
-                    font-size: 0.9em;
-                    background-color: #fbfbfb;
+                &:last-child {
+                    border-radius: 0 5px 0 0;
+                }
 
-                    small {
-                        font-weight: 400;
+                svg {
+                    width: 80px;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                h4 {
+                    margin-top: 0;
+                    padding-top: 0;
+                }
+            }
+
+            tbody {
+                tr>td {
+                    text-align: center;
+                    padding: 20px;
+                    border: solid 1px #ccc;
+                    vertical-align: middle;
+
+                    sup {
+                        vertical-align: super;
                         font-size: 0.8em;
+                    }
+
+                    &.key {
+                        text-align: left;
+                        font-weight: 500;
+                        font-size: 0.9em;
+                        background-color: #fbfbfb;
+
+                        small {
+                            font-weight: 400;
+                            font-size: 0.8em;
+                        }
+                    }
+
+                    &.yes {
+                        background: url("/images/checkmark.svg") no-repeat center center;
                     }
                 }
 
-                &.yes {
-                    background: url("/images/checkmark.svg") no-repeat center center;
+                tr:last-child {
+                    td:first-child {
+                        border-radius: 0 0 0 5px;
+                    }
+
+                    td:last-child {
+                        border-radius: 0 0 5px 0;
+                    }
                 }
-            }
 
-            tr:last-child {
-                td:first-child {
-                    border-radius: 0 0 0 5px;
+                .separator {
+                    td {
+                        background-color: #fff;
+                        text-align: left;
+                        font-weight: 500;
+                    }
                 }
 
-                td:last-child {
-                    border-radius: 0 0 5px 0;
-                }
-            }
+                .ctas td {
+                    padding: 20px 10px;
 
-            .separator {
-                td {
-                    background-color: #fff;
-                    text-align: left;
-                    font-weight: 500;
-                }
-            }
-
-
-            .ctas td {
-                padding: 20px 10px;
-				
-				
-
-                a.button {
-                    padding: 10px 20px;
+                    a.button {
+                        padding: 10px 20px;
+                    }
                 }
             }
         }
     }
-}
 
     #faq {
         h3 {
@@ -149,18 +130,10 @@
 
             .column:first-child {
                 padding-right: 40px;
-				
-				@include at-query ($max,'1024px') {
-						padding-right: 0px;
-					}
             }
 
             .column:last-child {
                 padding-left: 40px;
-				
-				@include at-query ($max,'1024px') {
-						padding-left: 0px;
-					}
             }
 
             p {

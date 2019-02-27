@@ -1,58 +1,10 @@
-$min: min-width;
-$max: max-width;
-@mixin at-query ($constraint, $viewport1, $viewport2:null) {
-  @if $constraint == $min {
-    @media all and ($min: $viewport1) {
-      @content;
-    }
-  } @else if $constraint == $max {
-    @media all and ($max: $viewport1) {
-      @content;
-    }
-  } @else {
-    @media all and ($min: $viewport1) and ($max: $viewport2) {
-      @content;
-    }
-  }
-}
-
-$break-small: 767px;
-$break-large: 1024px;
-
-@mixin respond-to($media) {
-  @if $media == handhelds {
-    @media only screen and (max-width: $break-small) { @content; }
-  }
-  @else if $media == medium-screens {
-    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
-  }
-  @else if $media == wide-screens {
-    @media only screen and (min-width: $break-large) { @content; }
-  }
-}
-
-/*$break-small: 320px;
-$break-large: 1024px;
-
-@mixin respond-to($media) {
-  @if $media == handhelds {
-    @media only screen and (max-width: $break-small) { @content; }
-  }
-  @else if $media == medium-screens {
-    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
-  }
-  @else if $media == wide-screens {
-    @media only screen and (min-width: $break-large) { @content; }
-  }
-}*/
-
-
 @import '_colors';
 
 ::selection {
     background: $color-secondary; /* WebKit/Blink Browsers */
     color: #fff;
 }
+
 ::-moz-selection {
     background: $color-secondary; /* Gecko Browsers */
     color: #fff;
@@ -302,7 +254,6 @@ a.button, input.button, button.button {
 }
 
 body:not(.unified) header {
-	
     background-color: $color-primary;
     background-image: linear-gradient(to right bottom,$color-primary, $color-secondary);
 }
@@ -314,7 +265,6 @@ header {
     h1 {
         color: $color-white;
     }
-
 
     &.fixed-heading {
         padding-top: 87px;
@@ -333,48 +283,26 @@ header {
     .heading {
         transition: box-shadow 250ms ease-in-out, background-color 250ms ease-in-out, background-image 250ms ease-in-out;
 
-        >div {
+        &>div {
             div.column {
                 flex: 0 0 160px;
                 margin: 5px 0;
-				
-				@include at-query ($max,'1024px') {
-						margin:0;
-						
-					}
             }
-			
-			.mobi_menu_butt{
-				display:none;
-				cursor:pointer;
-				z-index: 99999;
-				
-				@include at-query ($max,'1024px') {
-					display: inline-block;
-					position: absolute;
-					width: 45px;
-					height: 35px;
-					top: 14px;
-					left: 20px;
-					border: 2px solid #fff;
-					border-radius: 3px;
-		 			}
-					
-					>div{
-						width: calc(100% - 14px);
-						margin: 7px 7px;
-						height: 2px;
-						border-radius: 3px;
-						background: #fff;
-					}
-							  
-		  
-		  
-		  
-		  
-				}
-			
-    
+            
+            .mobi_menu_butt { // XXX
+                display:none;
+                cursor:pointer;
+                z-index: 99999;
+
+                &>div {
+                    width: calc(100% - 14px);
+                    margin: 7px 7px;
+                    height: 2px;
+                    border-radius: 3px;
+                    background: #fff;
+                }
+            }
+
             .brand {
                 color: $color-white;
                 text-decoration: none;
@@ -382,43 +310,27 @@ header {
                 margin-top: 10px;
                 display: block;
                 outline: none;
-				
-				@include at-query ($max,'1024px') {
-					margin-left:100px;
-					margin-top:0;
-							  }
-    
+
                 svg {
                     width: 158px;
                     height: 60px;
                     fill: #fff
                 }
             }
-    
+
             nav {
                 flex: 0 0 60%;
                 margin-top: 15px;
-				
-				@include at-query ($max,'1024px') {
-					display:inline-block;
-				  }
-    
+
                 ul {
                     margin: 0;
                     text-align: center;
-    
+
                     &>li {
                         display: inline-block;
                         padding: 12px 0;
                         margin: 0 5px;
-						
-						@include at-query ($max,'1024px') {
-									display: inline-block;
-									width:100%;
-									float:left;
-									margin: 0;
-							  }
-    
+
                         a {
                             color: $color-white;
                             display: inline-block;
@@ -429,18 +341,6 @@ header {
                             letter-spacing: 1px;
                             border-bottom: 1px solid transparent;
                             outline: none;
-							
-							@include at-query ($max,'1024px') {
-									display: inline-block;
-									width:100%;
-									float:left;
-									
-							  }
-							
-							
-							@include at-query ($max,'1024px') {
-								width:100%;
-							  }
 
                             svg {
                                 stroke: #fff;
@@ -448,7 +348,7 @@ header {
                                 vertical-align: super;
                                 stroke-width: 2px;
                             }
-    
+
                             &:hover {
                                 border-bottom-color: $color-white;
                             }
@@ -456,16 +356,12 @@ header {
                     }
                 }
             }
-    
+
             .cta {
                 flex: 0 0 auto;
                 padding: 12px 0;
                 margin-top: 15px;
                 text-align: right;
-				
-				@include at-query ($max,'1024px') {
-								text-align:center;
-							  }
 
                 .hidden {
                     display: none;
@@ -509,18 +405,10 @@ header {
 
     .hero>div {
         margin: 80px 0;
-		
-		@include at-query ($max,'1024px') {
-			padding:20px;
-			width: calc(100% - 40px);
-			text-align:center;
-		  }
 
         &>.column>div {
             padding: 0 40px 0 0;
-			@include at-query ($max,'1024px') {
-				padding:0;
-		  }
+
         }
 
         h1 {
@@ -528,11 +416,6 @@ header {
             font-size: 48px;
             margin: 0;
             line-height: 1.25em;
-			
-			@include at-query ($max,'1024px') {
-				width:100%;
-				text-align: center;
-		  }
         }
 
         p {
@@ -546,10 +429,7 @@ header {
                 display: inline-block;
                 margin-top: 30px;
                 border-bottom: 1px solid transparent;
-				
-				@include at-query ($max,'1024px') {
-							margin-bottom:20px;
-						  }
+
                 &:hover {
                     border-bottom-color: $color-white;
                 }
@@ -631,61 +511,6 @@ footer {
     padding: 40px 0 20px;
     background-color: #fbfbfb;
     border-top: solid 1px $color-light-grey;
-	
-	@include at-query ($max,'1024px') {
-		padding: 40px 20px 20px;
-		
-	}
-	.row{
-		.column{
-			
-			@include at-query ($max,'1024px') {
-					margin-bottom:20px;
-					width:50%;
-					float:left;
-					
-				}
-				
-				
-			
-		}
-		
-		
-		.brand{
-				@include at-query ($max,'1024px') {
-					margin-bottom:20px;
-					width:100%;
-					float:left;
-					
-				}
-				
-				}
-	
-	
-	.column:nth-child(2),
-	.column:nth-child(3),
-	.column:nth-child(4)
-	{
-		@include at-query ($max,'1024px') {
-					width:50%;
-					min-height:200px;
-					
-				}
-	}
-	.column:nth-child(5){
-		@include at-query ($max,'1024px') {
-					width:100%;
-					
-				}
-	}
-	
-	
-
-	
-	
-	}
-	
-	
 
     h5 {
         margin: 0 0 10px;
@@ -775,16 +600,6 @@ footer {
         font-size: 0.8em;
         color: $color-text-grey;
         margin-bottom: 20px;
-		
-		@include at-query ($max,'1024px') {
-						margin-bottom: 0px;
-					}
-		.column {
-			@include at-query ($max,'1024px') {
-						margin-bottom: 0px;
-					}
-			
-		}
 
         p {
             margin: 0;
@@ -818,32 +633,11 @@ footer {
                 &.linkedin svg {fill: #257ab7}
             }
         }
-		
-		
-		
-		
-		.column:nth-child(2),
-		.column:nth-child(3),
-		.column:nth-child(4)
-		{
-			@include at-query ($max,'1024px') {
-						width:50%;
-						min-height:auto;
-						
-					}
-		}
-		.column:nth-child(5){
-			@include at-query ($max,'1024px') {
-						width:100%;
-						
-					}
-		}
-	
     }
-  }
+}
 
 
-#page-not-found {
+#page-not-found { // XXX
     margin-top: 60px;
     text-align: center;
     color: $color-text-grey;
@@ -937,122 +731,3 @@ footer {
 @import '_enterprise';
 @import '_guides';
 @import '_responsive';
-
-
-
-
-
-
-
-
-
-
-
-
-#testimonials .container>div>a:last-child {
-    right: -50px;
-	
-	@include at-query($max , '1024px'){
-		/*display:none;*/
-		right: 10px;
-		top:180px;
-	}
-}
-
-
-
-
-
-/*@media screen and (max-width: 1200px) {
-#brands ul li{
-	display: inline-block;
-	width:50%;
-	text-align:center;
-	float:left;
-}
-
-}*/
-
-
-main{
-	@include at-query ($max,'1024px') {
-		padding: 0px 20px;
-		
-	}
-	
-	}
-
-
-@media screen and (max-width: 1024px) {
-	
-.container {
-    width: 100%;
-}	
-
-.row {
-    display:inline-block;
-	width:100%;
-}
-#main_nav,
-#main_cta{
-	display:none;
-}
-#main_nav{
-	margin-top:0;
-	margin-bottom: 20px;
-    float: left;
-}
-
-.row .column,
-.row .column.one,
-.row .column.two,
-.row .column.three,
-.row .column.four,
-.row .column.five,
-.row .column.six,
-.row .column.seven,
-.row .column.eight,
-.row .column.nine,
-.row .column.ten,
-.row .column.eleven,
-.row .column.twelve {flex: 0 0 100%; max-width: 100%}
-
-
-#pricing .column { display:inline-block;width: 100%;}
-
-
-/*#brands ul li{
-	display: inline-block;
-	width:100%;
-	text-align:center;
-	float:left;
-}*/
-
-}
-
-
-.container-small {
-	
-	@include at-query ($max,'1024px') {
-						width:100%;
-					}
-}
-
-
-
-#cookie-policy{
-	
-	.table_area{
-		
-		@include at-query ($max,'1024px') {
-						width:100%;
-						overflow:scroll;
-					}
-		
-	}
-	
-	
-	
-	
-}
-

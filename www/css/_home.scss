@@ -39,53 +39,21 @@
     display: flex;
     justify-content: space-around;
     margin: 0;
-	
-	
-	
-	@include at-query ($max,'768px') {
-			display: inline-block;
-		  }
-	li{	
-	
-	
-	@include respond-to(handhelds) { width:100%; float:left; text-align:center; }
-	@include respond-to(medium-screens) { width:50%; float:left; text-align:center; }
-	/*@include respond-to(wide-screens) {width: auto;}*/
-	
-	
-	 
-		  
-		  
-    img {
+
+    li img {
         width: 150px;
-		@include respond-to(handhelds) { width:200px;}
-		@include respond-to(medium-screens) { width:75%;}
-		/*@include respond-to(wide-screens) {width: auto;}*/
     }
-	}
 }
 
 #try-me {
     border-top: solid 1px $color-light-grey;
     background-color: #fbfbfb;
-	
-	
-	@include at-query ($max,'1024px') {
-		padding:20px;
-	}
-	
-	
+
     .container {
         width: 600px;
         text-align: center;
-		
-		@include at-query ($max,'1024px') {
-			width: 100%;
-		  }
-		
 
         form {
-
             >p.error {
                 height: 0;
                 font-weight: bold;
@@ -129,11 +97,6 @@
                 margin-top: 40px;
                 display: flex;
                 justify-content: space-between;
-				
-				@include at-query ($max,'1024px') {
-					display: inline-block;
-				  }
-		
 
                 .sep {
                     width: 1px;
@@ -146,11 +109,6 @@
                     padding: 0.5rem 10px 0.5rem;
                     position: relative;
                     text-align: center;
-					
-					@include at-query ($max,'1024px') {
-						width:100%;
-					  }
-					
 
                     input[type="radio"] {
                         position: absolute;
@@ -249,15 +207,10 @@
 #numbers {
     background-color: #192638;
     color: $color-white;
-	
-	@include at-query ($max,'1024px') {
-		padding:20px;
-	}
-	
+
     h2 {
         color: $color-white;
     }
-
 
     ul {
         margin: 80px 0 0;
@@ -265,21 +218,9 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
-		
-		@include at-query ($max,'1024px') {
-			display: inline-block;
-			margin: 30px 0 0;
-		  }
 
         >li {
             text-align: center;
-			@include at-query ($max,'1024px') {
-				display: inline-block;
-				float: left;
-				width:100%;
-				min-height: 167px;
-				margin-bottom: 30px;
-			}
 
             h5 {
                 font-size: 2rem;
@@ -305,16 +246,7 @@
 #code {
     background-color: $color-white;
 
-
-	@include at-query ($max,'1024px') {
-			padding:20px;
-		}
-		
-		
     .row {
-		
-		
-		
         .nine {
             border: solid 1px $color-light-grey;
             border-radius: 5px;
@@ -363,13 +295,6 @@
                 margin: 0 0 0 40px;
                 padding: 0;
 
-
-				@include at-query ($max,'1024px') {
-						margin:0px;
-						
-					}
-					
-					
                 >li {
                     padding: 0;
                     margin: 5px 0;
@@ -404,11 +329,6 @@
                 display: block;
                 margin: 0px 0 0 40px;
                 padding: 10px 20px;
-				
-				@include at-query ($max,'1024px') {
-						margin:0px;
-						
-					}
             }
         }
     }
@@ -418,10 +338,6 @@
 #features {
     border-top: solid 1px $color-light-grey;
     background-color: #fbfbfb;
-	
-	@include at-query ($max,'1024px') {
-			padding:20px;
-		}
 
     .column {
         margin-top: 20px;
@@ -527,14 +443,6 @@
         scroll-snap-points-x: repeat(300px);
         scroll-snap-type: mandatory;
         display: flex;
-		
-		
-		
-		@include at-query ($max,'1024px') {
-			/*display: inline-block;
-			width:100%;*/
-			padding:0 50px;
-		  }
 
         >li {
             box-sizing: border-box;
@@ -549,18 +457,6 @@
             text-align: center;
             
             transition: transform 500ms ease-in-out;
-			
-			@include respond-to(handhelds) { width:100%;}
-			@include respond-to(medium-screens) { width:46%;margin: 2%; }
-			@include respond-to(wide-screens) {width:280px;}
-			
-			
-			
-			/*@include at-query ($max,'1024px') {
-				display: inline-block;
-				width:100%;
-				margin: 0 0px;
-		  }*/
 
             img {
                 width: 96px;
@@ -599,20 +495,7 @@
 #pricing {
     background-color: #fbfbfb;
     text-align: center;
-	
-	@include at-query ($max,'1024px') {
-		padding:0 20px;
-		margin:30px 0;
-		  }
-	.container {
-		.row{
-			@include at-query ($max,'1024px') {
-				    display: inline-block;
-			}
-		}
-		
-		
-	}
+
     .column {
         margin-right: 20px;
         margin-left: 0;
@@ -624,11 +507,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-		
-		
-		@include at-query ($max,'1024px') {
-			margin:20px 0;
-		  }
 
         &:last-child {
             margin-right: 0;
