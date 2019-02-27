@@ -21,7 +21,8 @@
 
     ## Usage
 
-    This library needs to be configured with your `api_key` received when creating an account.
+    Using Python's `requests` package, you can send a POST request toward PDFShift's API by simply passing your `api_key` as the user parameter of a basic authentication.
+    The `api_key` is the one you received by email when creating your account, or any you created from your dashboard.
     Setting it is easy as:
 
     ```python
@@ -131,7 +132,7 @@
         auth=('your_api_key_here', ''),
         json={
             'source': 'https://www.example.com',
-            'headers': {
+            'http_headers': {
                 'X-Original-Header': 'Awesome value',
                 'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'
             }
