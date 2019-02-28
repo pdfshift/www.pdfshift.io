@@ -96,12 +96,10 @@
             .options {
                 margin-top: 40px;
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
 
-                .sep {
-                    width: 1px;
-                    display: block;
-                    background-color: $color-light-grey;
+                &:first-child {
+                    border-right: solid 1px $color-light-grey;
                 }
 
                 .radio {
@@ -265,25 +263,29 @@
                         display: block;
                     }
 
-                    .copy>a {
+                    .copy {
                         position: absolute;
                         top: 0;
                         right: 0;
+                        display: inline-block;
+                        text-align: right;
                         margin: 0;
-                        background-color: $color-light-grey;
-                        color: $color-text-grey;
-                        opacity: 0.5;
-                        transition: opacity 250ms ease-in-out;
-                        padding: 10px 30px;
-                        font-style: italic;
+                        a {
+                            background-color: $color-light-grey;
+                            color: $color-text-grey;
+                            opacity: 0.5;
+                            transition: opacity 250ms ease-in-out;
+                            padding: 10px 30px;
+                            font-style: italic;
 
-                        &.button-disabled {
-                            opacity: 0.5 !important;
-                            cursor: default;
-                        }
+                            &.button-disabled {
+                                opacity: 0.5 !important;
+                                cursor: default;
+                            }
 
-                        &:hover {
-                            opacity: 1;
+                            &:hover {
+                                opacity: 1;
+                            }
                         }
                     }
                 }

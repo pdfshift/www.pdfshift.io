@@ -239,20 +239,6 @@ a.button, input.button, button.button {
     }
 }
 
-@keyframes stroke {
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-@keyframes scale {
-    0%, 100% {
-        transform: none;
-    }
-    50% {
-        transform: scale3d(1.1, 1.1, 1);
-    }
-}
-
 body:not(.unified) header {
     background-color: $color-primary;
     background-image: linear-gradient(to right bottom,$color-primary, $color-secondary);
@@ -289,9 +275,9 @@ header {
                 margin: 5px 0;
             }
             
-            .mobi_menu_butt { // XXX
-                display:none;
-                cursor:pointer;
+            .accordion-menu { // XXX
+                display: none;
+                cursor: pointer;
                 z-index: 99999;
 
                 &>div {
@@ -320,7 +306,7 @@ header {
 
             nav {
                 flex: 0 0 60%;
-                margin-top: 15px;
+                margin-top: 20px;
 
                 ul {
                     margin: 0;
@@ -360,7 +346,7 @@ header {
             .cta {
                 flex: 0 0 auto;
                 padding: 12px 0;
-                margin-top: 15px;
+                margin-top: 20px;
                 text-align: right;
 
                 .hidden {

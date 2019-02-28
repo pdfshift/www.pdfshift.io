@@ -11,7 +11,7 @@
     <div id="account-view-plans" class="active container">
         <h2>Select the plan that fits you best</h2>
 
-        <div class="toggle fade-in delay-1">
+        <div class="toggle fade-in from-bottom delay-1">
             <a href="javascript:;" title="Yearly plans" data-type="yearly">Yearly</a>
             <a href="javascript:;" title="Monthly plans" data-type="monthly" class="active">Monthly</a>
         </div>
@@ -294,7 +294,7 @@
 </script>
 <script id="template-plan" type="text/nunjucks-template">
 {% raw %}
-<li class="fade-in delay-{{ index }}" data-plan="{{ plan.name }}" data-state="{{ allgrade(plan, account.plan) }}" data-display="{{ plan.display }}">
+<li class="fade-in from-bottom delay-{{ index }}" data-plan="{{ plan.name }}" data-state="{{ allgrade(plan, account.plan) }}" data-display="{{ plan.display }}">
     <h4>{{ plan.display|clean }}</h4>
 
     <div class="price">

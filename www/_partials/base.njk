@@ -48,7 +48,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="column">
-                                <div class="mobi_menu_butt" onclick="show_mobile_menu()"/>
+                                <div class="accordion-menu">
                                     <div></div>
                                     <div></div>
                                     <div></div>
@@ -61,7 +61,7 @@
                                 </a>
                             </div>
                             {% if not disableSurrounds %}
-                            <nav id="main_nav" class="column">
+                            <nav id="header-main-menu" class="column">
                                 <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                                     <li><a href="/#features" title="Check out our features" itemprop="name">Features</a></li>
                                     <li><a href="/#try-me" title="Check out our features" itemprop="name">Try it out</a></li>
@@ -79,7 +79,7 @@
                                 </ul>
                             </nav>
                             {% endif %}
-                            <div id="main_cta" class="cta">
+                            <div id="header-main-cta" class="cta">
                                 <div class="unauthenticated">
                                     <a href="/login/" title="Frequently Asked Questions" itemprop="name">Login</a> or
                                     <a href="/register/" title="Register now for free and start converting HTML to PDF!" class="column create-account">

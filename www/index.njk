@@ -10,15 +10,17 @@
         <div class="column seven">
             <div>
                 <!--<h1>Automate your HTML to PDF conversion.</h1>-->
-                <h1>Web to PDF conversion API</h1>
+                <h1 class="fade-in from-left delay-1">Web to PDF conversion API</h1>
                 <!--<h1>Convert HTML documents to PDF in seconds</h1>-->
-                <p>Stop wasting time implementing and maintaining a third-party software/library.</p>
-                <p>With PDFShift, rely on an up-to-date, high-fidelity conversion API with no maintenance costs.</p>
-                <p><a href="#try-me" title="Try in the browser now">➡ See for yourself</a></p>
+                <div class="fade-in from-left delay-2">
+                    <p>Stop wasting time implementing and maintaining a third-party software/library.</p>
+                    <p>With PDFShift, rely on an up-to-date, high-fidelity conversion API with no maintenance costs.</p>
+                    <p><a href="#try-me" title="Try in the browser now">➡ See for yourself</a></p>
+                </div>
             </div>
         </div>
         <div class="column five">
-            <form id="register">
+            <form id="register" class="fade-in from-right delay-3">
                 <h2>Get started now</h2>
 
                 <div><input type="text" name="name" placeholder="Full Name" required /></div>
@@ -66,23 +68,26 @@
         <form method="post">
             <input type="url" name="source" placeholder="Enter any URL" value="https://en.wikipedia.org/wiki/PDF" required />
             <p class="error"></p>
-            <div class="options">
-                <div class="radio">
-                    <input type="radio" name="landscape" value="0" id="try-me-landscape-off" checked />
-                    <label for="try-me-landscape-off">Portrait</label>
+            <div class="row">
+                <div class="options column six">
+                    <div class="radio">
+                        <input type="radio" name="landscape" value="0" id="try-me-landscape-off" checked />
+                        <label for="try-me-landscape-off">Portrait</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="landscape" value="1" id="try-me-landscape-on" />
+                        <label for="try-me-landscape-on">Landscape</label>
+                    </div>
                 </div>
-                <div class="radio">
-                    <input type="radio" name="landscape" value="1" id="try-me-landscape-on" />
-                    <label for="try-me-landscape-on">Landscape</label>
-                </div>
-                <div class="sep"></div>
-                <div class="radio">
-                    <input type="radio" name="use_print" value="0" id="try-me-use_print-off" checked />
-                    <label for="try-me-use_print-off">Screen</label>
-                </div>
-                <div class="radio">
-                    <input type="radio" name="use_print" value="1" id="try-me-use_print-on" />
-                    <label for="try-me-use_print-on">Print</label>
+                <div class="options column six">
+                    <div class="radio">
+                        <input type="radio" name="use_print" value="0" id="try-me-use_print-off" checked />
+                        <label for="try-me-use_print-off">Screen</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="use_print" value="1" id="try-me-use_print-on" />
+                        <label for="try-me-use_print-on">Print</label>
+                    </div>
                 </div>
             </div>
             <div class="css">
@@ -640,6 +645,10 @@ https://api.pdfshift.io/v2/convert/ \
                 return false;
             }
 
+            var popup = window.open('https://pdfshift.io/loading/', '_blank');
+            popup.blur();
+            window.focus();
+
             form.classList.remove('error')
 
             submitButton.classList.add('button-disabled');
@@ -652,7 +661,7 @@ https://api.pdfshift.io/v2/convert/ \
             window.PDFShift.requests.post('convert', params).then(
                 function (json) {
                     submitButton.classList.remove('button-disabled');
-                    window.open(json.url, '_blank').focus();
+                    popup.location.href = json.url
                 },
                 function (response) {
                     var error = 'A fatal error occured.';
@@ -667,6 +676,7 @@ https://api.pdfshift.io/v2/convert/ \
                     form.classList.add('error')
                     form.querySelector('p.error').innerText = error
                     submitButton.classList.remove('button-disabled');
+                    popup.close();
                 }
             )
 
@@ -746,32 +756,27 @@ https://api.pdfshift.io/v2/convert/ \
 
     // Testimonials
     (function () {
-    
-    
-    
         var sliderItems = document.querySelectorAll('#testimonials .slider>li'),
             buttonPrev = document.querySelector('#testimonials .button-prev')
             buttonNext = document.querySelector('#testimonials .button-next'),
             position = 0,
             itemDisplayedByDefault = 1;
-            
-            
-window.addEventListener("resize", function() {
-        if (window.matchMedia("(max-width: 1050px)").matches) {
+
+        window.addEventListener("resize", function() {
+            if (window.matchMedia("(max-width: 1024px)").matches) {
                 var itemDisplayedByDefault = 2;
-        }
-        else if (window.matchMedia("(max-width: 768px)").matches) {
+            }
+            else if (window.matchMedia("(max-width: 768px)").matches) {
                 var itemDisplayedByDefault = 1;
             } 
-        else {
+            else {
                 var itemDisplayedByDefault = 4;
-        }
-});
-            
-            
-        
+            }
+        });
+
         var sliderItemWidth = sliderItems[0].offsetWidth,
             style = sliderItems[0].currentStyle || window.getComputedStyle(sliderItems[0]);
+
         sliderItemWidth += parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
         buttonNext.addEventListener('click', function (evt) {

@@ -31,7 +31,24 @@ $color-text-grey: #484848;
     }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInBottom {
     from {
         opacity: 0;
         transform: translate(0px, 30px);
@@ -42,18 +59,58 @@ $color-text-grey: #484848;
     }
 }
 
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate(-30px, 0px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate(30px, 0px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
 .fade-in {
     opacity: 0;
-    /* make things invisible upon start */
-    /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-    animation: fadeIn ease-in-out 1;
-    /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-    animation-fill-mode: forwards;
-    animation-duration: 0.5s;
-    transform: translate(0px, 0px);
+
+    &.from-bottom {
+        animation: fadeInBottom ease-in-out 1;
+        /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+        animation-fill-mode: forwards;
+        animation-duration: 0.5s;
+        transform: translate(0px, 0px);
+    }
+
+    &.from-left {
+        animation: fadeInLeft ease-in-out 1;
+        /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+        animation-fill-mode: forwards;
+        animation-duration: 0.5s;
+        transform: translate(0px, 0px);
+    }
+
+    &.from-right {
+        animation: fadeInRight ease-in-out 1;
+        /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+        animation-fill-mode: forwards;
+        animation-duration: 0.5s;
+        transform: translate(0px, 0px);
+    }
+
+    &.delay-1 {animation-delay: .25s;}
+    &.delay-2 {animation-delay: .5s;}
+    &.delay-3 {animation-delay: .75s;}
+    &.delay-4 {animation-delay: 1s;}
+    &.delay-5 {animation-delay: 1.25s;}
 }
-.fade-in.delay-1 {animation-delay: .25s;}
-.fade-in.delay-2 {animation-delay: .5s;}
-.fade-in.delay-3 {animation-delay: .75s;}
-.fade-in.delay-4 {animation-delay: 1s;}
-.fade-in.delay-5 {animation-delay: 1.25s;}
