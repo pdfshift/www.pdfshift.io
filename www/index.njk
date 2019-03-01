@@ -878,18 +878,24 @@ https://api.pdfshift.io/v2/convert/ \
             buttonNext = document.querySelector('#testimonials .button-next'),
             position = 0,
             itemDisplayedByDefault = 1;
-
-        window.addEventListener("resize", function() {
-            if (window.matchMedia("(max-width: 1024px)").matches) {
-                var itemDisplayedByDefault = 2;
+        
+        function onResize() {
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                console.log('768');
+                itemDisplayedByDefault = 1;
             }
-            else if (window.matchMedia("(max-width: 768px)").matches) {
-                var itemDisplayedByDefault = 1;
-            } 
+            else if (window.matchMedia("(max-width: 1024px)").matches) {
+                console.log('1024');
+                itemDisplayedByDefault = 2;
+            }
             else {
-                var itemDisplayedByDefault = 4;
+                console.log('big');
+                itemDisplayedByDefault = 4;
             }
-        });
+        }
+
+        window.addEventListener("resize", onResize);
+        onResize();
 
         var sliderItemWidth = sliderItems[0].offsetWidth,
             style = sliderItems[0].currentStyle || window.getComputedStyle(sliderItems[0]);

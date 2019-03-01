@@ -107,6 +107,24 @@ body {
             }
         }
     }
+
+    #testimonials {
+        .container>div {
+    
+            >a {
+                &:first-child {
+                    left: 0;
+                }
+                &:last-child {
+                    right: 0;
+                }
+            }
+        }
+
+        ul>li {
+            flex: 0 0 100% !important;
+        }
+    }
 }
 
 // tablets
@@ -135,6 +153,23 @@ body {
     .row .column.eleven,
     .row .column.twelve {
         flex: 0 0 100%; max-width: 100%
+    }
+
+    #testimonials {
+        .container>div {
+    
+            >a {
+                &:first-child {
+                    left: 0px;
+                }
+                &:last-child {
+                    right: 0px;
+                }
+            }
+        }
+        ul>li {
+            flex: 0 0 50% !important;
+        }
     }
 }
 
@@ -357,17 +392,6 @@ body {
 
     #features .column>div {
         width: 100%;
-    }
-
-    #testimonials {
-        ul {
-            padding: 0 50px;
-        }
-
-        .container>div>a:last-child {
-            right: 10px;
-            top: 180px;
-        }
     }
 
     #pricing {
