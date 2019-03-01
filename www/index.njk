@@ -166,11 +166,9 @@ const pdfshift = require('pdfshift')('user_api_key');
 const fs = require('fs');
 
 // Step 3, execute
-pdfshift.convert('https://en.wikipedia.org/wiki/PDF', {"landscape":false,"use_print":false}).then(function (binary_file) {
+pdfshift.convert('https://en.wikipedia.org/wiki/PDF', {"landscape": false, "use_print": false}).then(function (binary_file) {
 fs.writeFile('pdfshift-documentation.pdf', binary_file, "binary", function () {})
-}).catch(function({message, code, response, errors = null}) {})
-
-// Step 4: Sit back, relax, and enjoy a worry free conversion system.</code></pre>
+}).catch(function({message, code, response, errors = null}) {})</code></pre>
                             <div class="copy">
                                 <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy">Copy to clipboard</a>
                             </div>
@@ -183,7 +181,7 @@ fs.writeFile('pdfshift-documentation.pdf', binary_file, "binary", function () {}
 response = requests.post(
 'https://api.pdfshift.io/v2/convert/',
 auth=('user_api_key', ''),
-json={"source":"https://en.wikipedia.org/wiki/PDF","landscape":False,"use_print":False}
+json={"source": "https://en.wikipedia.org/wiki/PDF", "landscape": False, "use_print": False}
 )
 
 response.raise_for_status()
@@ -225,20 +223,28 @@ file_put_contents('pdfhsift-documentation.pdf', $response);
                     <div id="code-ruby">
                         <div class="code-section">
                             <pre><code class="ruby">require 'uri'
-require 'net/http'
+require 'net/https'
+require 'json' # for hash to_json conversion
 
-url = URI("https://api.pdfshift.io/v2/convert/")
+uri = URI("https://api.pdfshift.io/v2/convert/")
+data = {"source" => "https://www.example.com"}
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.body = data.to_json
+    request["Content-Type"] = "application/json"
+    request.basic_auth 'your_api_key', ''
 
-request = Net::HTTP::Post.new(url, 'Content-Type' => 'application/json')
-request.basic_auth('user_api_key', '')
-request.body = {source: "https://en.wikipedia.org/wiki/PDF", landscape: false, use_print: false}
+    response = http.request(request)
 
-response = http.request(request)
-puts response.body</code></pre>
+    if response.code == '200'
+        # Since Ruby 1.9.1 only:
+        File.binwrite("result.pdf", response.body)
+    else
+        # Handle other codes here
+        puts "#{response.code} #{response.body}"
+    end
+end</code></pre>
                             <div class="copy">
                                 <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy">Copy to clipboard</a>
                             </div>
@@ -246,19 +252,47 @@ puts response.body</code></pre>
                     </div>
                     <div id="code-java">
                         <div class="code-section">
-                            <pre><code class="java">String encoding = Base64.getEncoder().encodeToString("user_api_key:".getBytes());
-HttpPost httppost = new HttpPost("https://api.pdfshift.io/v2/convert/");
-httppost.setHeader("Authorization", "Basic " + encoding);
-httppost.setHeader("Content-type", "application/json");
+                            <pre><code class="java">import java.io.File;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.time.Duration;
+import org.json.JSONObject;
 
-HttpEntity postingString = new StringEntity("{\"source\":\"https://en.wikipedia.org/wiki/PDF\",\"landscape\":false,\"use_print\":false}");
-httppost.setEntity(postingString);
+public class Application {
 
-CloseableHttpClient client = HttpClients.createDefault();
+    private static final String API_KEY = "your_api_key";
 
-try (CloseableHttpResponse response = client.execute(httppost)) {
-HttpEntity entity = response.getEntity();
-// Use the entity
+    public static void main(String... args) throws Exception {
+        var jsonObject = new JSONObject();
+        jsonObject.put("source", "https://example.com");
+        var httpRequest = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                .timeout(Duration.ofSeconds(20))
+                .header("Content-Type", "application/json")
+                .header("Authentication", "Basic " + API_KEY)
+                .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
+                .build();
+
+        var httpClient = HttpClient.newBuilder()
+                .version(HttpClient.Version.HTTP_1_1)
+                .build();
+
+        var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofInputStream());
+
+        var statusCode = response.statusCode();
+        if (statusCode == 200 || statusCode == 201) {
+            // Save the file locally
+            var targetFile = new File("src/main/resources/targetFile.pdf");
+            Files.copy(response.body(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } else {
+            // error occurred
+        }
+    }
 }</code></pre>
                             <div class="copy">
                                 <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy">Copy to clipboard</a>
@@ -267,23 +301,105 @@ HttpEntity entity = response.getEntity();
                     </div>
                     <div id="code-csharp">
                         <div class="code-section">
-                            <pre><code class="csharp">HttpClient client = new HttpClient();
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-"Basic",
-Convert.ToBase64String(
-System.Text.ASCIIEncoding.ASCII.GetBytes(
-    string.Format("{0}:{1}", "user_api_key", ""))));
+                            <pre><code class="csharp">using System;
+using RestSharp;
+using Newtonsoft.Json;
+using System.IO;
+using RestSharp.Authenticators;
+using RestSharp.Serialization;
+using System.Net.Mail;
+using System.Net;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
-var values = new Dictionary&lt;string, string&gt;
+namespace PDFShiftExample
 {
-{ "source", "https://en.wikipedia.org/wiki/PDF" },
-{ "landscape", "false" },
-{ "use_print", "false" }
-};
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IRestClient client = new RestClient("https://api.pdfshift.io/v2/convert");
+            client.Authenticator = new HttpBasicAuthenticator("your_api_key", "");
 
-var content = new FormUrlEncodedContent(values);
-var response = await client.PostAsync("https://api.pdfshift.io/v2/convert/", content);
-var binaryPdf = await response.Content.ReadAsByteArrayAsync();</code></pre>
+            IRestRequest request = new RestRequest(Method.POST);
+
+            var json = new
+            {
+                source = "https://www.example.com"
+            };
+            request.AddJsonBody(json);
+
+            IRestResponse response = client.Execute(request);
+            if (!response.IsSuccessful)
+            {
+                // Check why status is not int 2xx.
+            }
+            else
+            {
+                File.WriteAllBytes("result.pdf", response.RawBytes);
+            }
+        }
+    }
+}</code></pre>
+                            <div class="copy">
+                                <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy">Copy to clipboard</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="code-go">
+                        <div class="code-section">
+                            <pre><code class="go">package main
+
+import (
+    "bytes"
+    "encoding/json"
+    "io/ioutil"
+    "log"
+    "net/http"
+)
+
+func main() {
+    API_KEY := "your_api_key"
+
+    message := map[string]interface{}{
+        "source":  "https://example.com",
+    }
+
+    bytesRepresentation, err := json.Marshal(message)
+    if err != nil {
+        log.Fatalln(err)
+    }
+
+    client := http.Client{}
+    request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+    if err != nil {
+        log.Fatalln(err)
+    }
+    request.Header.Set("Content-Type", "application/json")
+    request.Header.Set("Authorization", "Basic " + API_KEY)
+
+    resp, err := client.Do(request)
+    if err != nil {
+        log.Fatalln(err)
+    }
+
+    if resp.StatusCode >= 200 && resp.StatusCode < 300 {
+        body, err := ioutil.ReadAll(resp.Body)
+        if err != nil {
+            log.Fatalln(err)
+        }
+        // write the response to file
+        ioutil.WriteFile("example.pdf", body, 0644)
+    } else {
+        // An error occurred
+        var result map[string]interface{}
+
+        json.NewDecoder(resp.Body).Decode(&result)
+
+        log.Println(result)
+        log.Println(result["data"])
+    }
+}</code></pre>
                             <div class="copy">
                                 <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy">Copy to clipboard</a>
                             </div>
@@ -315,6 +431,7 @@ https://api.pdfshift.io/v2/convert/ \
                     <li><a href="javascript:;" title="View our code sample in Ruby" data-language="ruby">Ruby</a></li>
                     <li><a href="javascript:;" title="View our code sample in JAVA" data-language="java">JAVA</a></li>
                     <li><a href="javascript:;" title="View our code sample in C#" data-language="csharp">C#</a></li>
+                    <li><a href="javascript:;" title="View our code sample in GO" data-language="go">GO</a></li>
                     <li><a href="javascript:;" title="View our code sample in cURL" data-language="curl">cURL</a></li>
                 </ul>
                 <a href="https://docs.pdfshift.io/" title="View our advanced documentation" class="button button-primary">Full API Reference ➡</a>

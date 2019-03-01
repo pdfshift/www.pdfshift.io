@@ -1,10 +1,33 @@
-.guides {
-    ul a {
-        font-weight: normal;
+body.guides main .page {
+    ul.listing li {
+        display: block;
+        margin: 20px 0 0 0;
 
-        strong {
-            font-weight: bold;
+        &:first-child {
+            margin-top: 0;
         }
+
+        a {
+            font-weight: normal;
+            display: block;
+            padding: 20px;
+            background-color: #eee;
+            border: solid 1px #ddd;
+            border-radius: 5px;
+
+            font-size: 0.9em;
+            font-style: italic;
+
+            strong {
+                font-weight: bold;
+                font-size: 1.1em;
+                font-style: normal;
+            }
+        }
+    }
+
+    h3 {
+        margin-top: 60px;
     }
 
     code {
@@ -13,18 +36,15 @@
         border-radius: 5px;
 
         &:not(.hljs) {
+            padding: 5px;
             color: red;
-            padding: 5px 5px;
+            font-family: consolas;
         }
 
         &.hljs {
             margin: 20px 0;
             padding: 10px;
         }
-    }
-
-    h3 {
-        margin-top: 60px;
     }
 
     .container-small p.small {

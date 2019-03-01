@@ -89,59 +89,12 @@
 
     We also highly recommend checking for errors after the conversion is made, before processing the document, in order to avoid issues later on.
 
-    ```java
-    import java.io.File;
-    import java.net.URI;
-    import java.net.http.HttpClient;
-    import java.net.http.HttpRequest;
-    import java.net.http.HttpResponse;
-    import java.nio.file.Files;
-    import java.nio.file.Paths;
-    import java.nio.file.StandardCopyOption;
-    import java.time.Duration;
-    import org.json.JSONObject;
-
-    public class Application {
-
-        private static final String API_KEY = "your_api_key";
-
-        public static void main(String... args) throws Exception {
-            var jsonObject = new JSONObject();
-            jsonObject.put("source", "https://example.com");
-            jsonObject.put("sandbox", true);
-            var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
-                    .timeout(Duration.ofSeconds(20))
-                    .header("Content-Type", "application/json")
-                    .header("Authentication", "Basic " + API_KEY)
-                    .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
-                    .build();
-
-            var httpClient = HttpClient.newBuilder()
-                    .version(HttpClient.Version.HTTP_1_1)
-                    .build();
-
-            var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofInputStream());
-
-            var statusCode = response.statusCode();
-            if (statusCode == 200 || statusCode == 201) {
-                // Save the file locally
-                var targetFile = new File("src/main/resources/targetFile.pdf");
-                Files.copy(response.body(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            } else {
-                // error occurred
-            }
-        }
-    }
-    ```
-
     The `sandbox` parameter allows you to do unlimited conversion, but will add a watermark on top of the generated document.
     No credits are deduced from your account when the sandbox mode is on.
 
-    ## Requirements
+    ### With an URL
 
-    * JAVA JDK 1.6 or later
-    * `org.apache.http` library.
+    Converting an URL with PDFShift is really easy. All you have to do is send a POST request with the `source` parameter set to the URL, like the following:
 
     ```java
     import java.io.File;
@@ -190,7 +143,7 @@
 
     ### With inline HTML data:
 
-                HttpResponse response = client.execute(request);
+
 
     ```java
     import org.json.JSONObject;

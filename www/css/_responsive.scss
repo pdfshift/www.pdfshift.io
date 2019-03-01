@@ -6,11 +6,13 @@ body {
 @media all and (max-width: 767px) {
     .container, .container-small {
         width: 100%;
+        max-width: 100%;
     }
 
     .row {
         display: block;
         width: 100%;
+        max-width: 100%;
     }
 
     .row .column.one,
@@ -139,6 +141,11 @@ body {
 
 // small screen
 @media all and (max-width: 1024px) {
+    .row {
+        .offset-one, .offset-two, .offset-three, .offset-four, .offset-five, .offset-six, .offset-seven, .offset-eight, .offset-nine, .offset-ten, .offset-eleven {
+            margin-left: 0;
+        }
+    }
     // Global
     /*
     XXX Doesn't work !
@@ -146,7 +153,6 @@ body {
         animation: fadeInLeft ease-in-out 1 !important;
     }
     */
-
 
     table {
         display: block;
@@ -162,10 +168,10 @@ body {
     header {
         .heading {
             div.column {
-                margin: 0;
+                margin: 0 !important;
             }
 
-            .accordion-menu { // XXX
+            .accordion-menu {
                 display: block !important;
                 position: absolute;
                 width: 45px;
@@ -177,8 +183,9 @@ body {
             }
 
             .brand {
-                margin-left: 100px;
-                margin-top: 0;
+                margin-top: 0 !important;
+                padding: 5px 0;
+                text-align: center;
             }
 
             #header-main-menu, #header-main-cta {
@@ -203,7 +210,7 @@ body {
 
         .hero>div {
             padding: 20px;
-            width: calc(100% - 40px);
+            width: 100%;
             text-align: center;
             margin: 20px 0 0;
 
@@ -268,16 +275,22 @@ body {
         }
     }
 
+    *, *:before, *:after {box-sizing:border-box;}
+
     // Home
     body.home main>div {
-        box-sizing: border-box;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    body main .container-small {
         padding-left: 20px;
         padding-right: 20px;
     }
 
     #try-me {
         .container {
-            width: calc(100% - 40px);
+            width: 100%;
         }
 
         form>.row {
@@ -395,87 +408,119 @@ body {
         }
     }
 
-    // Guides
-    body.guides main>div {
-        box-sizing: border-box;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
     // enterprise:
     body.enterprise {
-        header .hero .cta {
-            padding: 10px 20px;
+        header .hero, main .actions {
+            background-position: top center !important;
 
-            .button {
-                padding: 10px 20px;
+            .cta a {
+                padding: 20px 50px !important;
+            }
+
+            h3 {
+                margin-top: 0;
+            }
+
+            p>br {
+                display: none;
             }
         }
 
-        main .actions .cta {
-            padding:10px 20px;
-
-            .button {
-                padding: 10px 20px;
+        main .actions {
+            padding: 60px 20px;
+            .cta {
+                margin-bottom: 0;
             }
         }
     }
 
     // press
     body.press main {
-        padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
 
-        .container {
-            .details {
-                ul li img {
-                    width: 100%;
+        .container .details {
+            &.logos ul li {
+                margin-top: 40px;
+                display: block;
+                text-align: center;
+
+                &:first-child {
+                    margin-top: 0;
                 }
 
-                ul li span {
-                    margin-left: 0px
+                img {
+                    width: 80%;
                 }
 
-                &.logos ul li {
-                    display: inline-block;
+                span {
+                    margin: 0;
+                    display: block;
+                }
+            }
+
+            &.banners ul {
+                li {
+                    display: block;
                     text-align: center;
 
                     img {
                         width: 100%;
                     }
-                }
 
-                &.icons ul li span {
-                    margin-left: 40px;
-                }
-
-                &.banners ul {
-                    li {
-                        display: inline-block;
-                        text-align: center;
-
-                        img {
-                            width: 100%;
-                            min-width: 100%
-                        }
-
-                        span {
-                            margin-left: 0px;
-                        }
+                    span {
+                        margin: 0;
+                        display: block;
                     }
                 }
             }
 
-            address {
-                padding: 40px 0px;
+        }
+    }
+
+    body.unified>div {
+        padding-bottom: 20px !important;
+
+        main>div {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    // Guides
+    body.guides {
+        main>div {
+            box-sizing: border-box;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            h1 {
+                text-align: center;
+                font-size: 2.5rem;
             }
 
+            h2 {
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.8rem;
+            }
+
+            ul li a {
+                text-align: center;
+            }
+        }
+
+        footer {
+            margin-top: 20px;
         }
     }
 }
 
 // Wide screens
-@media all and (min-width: 1024px) {
-    #testimonials ul>li {
-        width: 280px;
+@media all and (min-width: 1024px) and (max-width: 1250px) {
+    .container {
+        width: 900px;
     }
 }

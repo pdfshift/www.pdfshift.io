@@ -281,8 +281,8 @@ header {
                 z-index: 99999;
 
                 &>div {
-                    width: calc(100% - 14px);
-                    margin: 7px 7px;
+                    width: calc(100% - 12px);
+                    margin: 6px 6px;
                     height: 2px;
                     border-radius: 3px;
                     background: #fff;
@@ -553,7 +553,16 @@ footer {
             display: inline;
             position: absolute;
             left: 0;
+
+            &:focus + button.button {
+                background-color: rgba($color-primary, 1);
+
+                &>svg {
+                    fill: rgba(250, 250, 250, 1);
+                }
+            }
         }
+
         button.button {
             padding: 4px 30px;
             display: block;
@@ -561,10 +570,14 @@ footer {
             right: 0;
             margin: 5px;
             outline: none;
+            background-color: rgba($color-primary, .7);
+            transition: background-color 250ms ease-in-out, fill 250ms ease-in-out;
 
             &>svg {
                 height: 28px;
+                fill: rgba(250, 250, 250, 0.7);
                 outline: none;
+                transition: fill 250ms ease-in-out;
             }
 
             &:hover {
