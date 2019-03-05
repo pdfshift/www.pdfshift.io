@@ -3,7 +3,7 @@
 {% extends '_partials/base.njk' %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="/css/account.css" />
+<link rel="stylesheet" href="/static/css/account.css" />
 {% endblock %}
 
 {% block main %}
@@ -73,8 +73,8 @@
 {% endblock %}
 
 {% block javascripts %}
-<script src="/js/account.js" async></script>
-<script src="/js/countries.js" async></script>
+<script src="/static/js/account.js" async></script>
+<script src="/static/js/countries.js" async></script>
 <script src="https://mozilla.github.io/nunjucks/files/nunjucks.min.js"></script>
 <script>
 (function () {
@@ -376,7 +376,7 @@
                 All our payments are handled via Stripe.com.<br />
                 We don't view nor handle your credit card informations.
             </p>
-            <img src="/images/cards/cards.png" alt="Accepted cards" />
+            <img src="/static/images/cards/cards.png" alt="Accepted cards" />
         </div>
         <div>
             <div id="card-element"></div>

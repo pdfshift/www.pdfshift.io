@@ -9,11 +9,9 @@ const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
-const changed = require('gulp-changed');
 const plumber = require('gulp-plumber');
 const imagemin = require('gulp-imagemin');
 const cssnano = require('gulp-cssnano');
-const iconfont = require('gulp-iconfont');
 const filter = require('gulp-filter');
 const gulpIgnore = require('gulp-ignore');
 const gulpif = require('gulp-if');
@@ -55,39 +53,40 @@ function loadConfigData() {
 
 // Copy all the static assets to the dist folder
 gulp.task('static', () =>
-    gulp.src(['./www/**/*.html', './www/static/**/*.!(png|jpg|gif|svg)', './www/**/*.css'])
+    gulp.src(['./www/**/*.html', './www/static/*', './www/static/**/*.!(png|svg|jpg|gif|ico|js|css)', '!./www/_partials/**/*'])
         .pipe(plumber())
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulpif(
+            function (file) {
+                if (file.isDirectory()) {
+                    return false;
+                }
+
+                var path = file.path.substring(file.path.indexOf('/www/static/') + 12);
+                if (path.indexOf('/') === -1) {
+                    return true;
+                }
+
+                return file.basename.substr(-5) === '.html'
+            },
+            gulp.dest('./dist/'),
+            gulp.dest('./dist/static')
+        ))
         .pipe(browserSync.stream())
 )
 
 gulp.task('images', () => 
-    gulp.src('./www/static/images/**/*.+(png|jpg|gif|svg)')
+    gulp.src(['./www/static/images/**/*.+(png|jpg|gif|svg|ico)', '!./www/_partials/**/*'])
         .pipe(plumber())
-        .pipe(changed('./dist/images/'))
         .pipe(imagemin([
             imagemin.jpegtran({progressive: true}),
             imagemin.gifsicle({interlaced: true})
-            /*
-            imagemin.svgo({
-                plugins: [
-                    {removeViewBox: true},
-                    {removeMetadata: true},
-                    {removeTitle: true},
-                    {removeDesc: true},
-                    {removeEmptyAttrs: true},
-                    {removeHiddenElems: true},
-                    {removeEmptyText: true}
-                ]
-            })
-            */
         ]))
-        .pipe(gulp.dest('./dist/images'))
+        .pipe(gulp.dest('./dist/static/images/'))
 )
 
 // Generate css files from sass
 gulp.task('sass', () =>
-    gulp.src('./www/**/*.+(scss|sass)')
+    gulp.src(['./www/**/*.+(scss|sass)', '!./www/_partials/**/*'])
         .pipe(plumber())
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sass())
@@ -97,13 +96,30 @@ gulp.task('sass', () =>
         }))
         .pipe(cssnano())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('./dist/static/'))
+        .pipe(browserSync.stream({match: '**/*.css'}))
+)
+
+// Compile CSS
+gulp.task('css', () =>
+    gulp.src(['./www/**/*.css', '!./www/_partials/**/*'])
+        .pipe(plumber())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(cssnano())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulpif(
+            function (file) {
+                return file.path.indexOf('static') > -1
+            },
+            gulp.dest('./dist/'),
+            gulp.dest('./dist/static')
+        ))
         .pipe(browserSync.stream({match: '**/*.css'}))
 )
 
 // Generate HTML from nunjucks files
 gulp.task('nunjucks', () =>
-    gulp.src('./www/**/*.njk')
+    gulp.src(['./www/**/*.njk', '!./www/_partials/**/*'])
         .pipe(plumber())
         .pipe(gulpnunjucks.compile(loadConfigData(), {env: nunjucksEnv}))
         .pipe(gulpIgnore.exclude('**/_*.njk'))
@@ -123,15 +139,21 @@ gulp.task('nunjucks', () =>
 )
 
 gulp.task('js', () =>
-    gulp.src(['./www/**/*.js', '!./www/_config.js'])
+    gulp.src(['./www/**/*.js', '!./www/_config.js', '!./www/_partials/**/*'])
         .pipe(plumber())
-        .pipe(changed('./dist/'))
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulpif(
+            function (file) {
+                return file.path.indexOf('static') > -1
+            },
+            gulp.dest('./dist/'),
+            gulp.dest('./dist/static')
+        ))
 )
 
+// TODO rev?
 gulp.task('rev', () => {
     const assetFilter = filter(['./dist/**/*', '!./dist/**/*.html'], { restore: true });
 
@@ -147,7 +169,6 @@ gulp.task('rev', () => {
         .pipe(rev.manifest())
         .pipe(gulp.dest('./dist/'))
 })
-
 
 // Clean the dist folder before generating a new one
 gulp.task('clean', () =>
@@ -171,10 +192,10 @@ gulp.task('init', function (done) {
     done()
 })
 
-gulp.task('build', gulp.series('clean', 'sass', 'nunjucks', 'js', 'static', 'images', 'rev'))
+gulp.task('build', gulp.series('clean', 'sass', 'css', 'nunjucks', 'js', 'static', 'images', 'rev'))
 
 // Serve the current www folder, compilled (dist)
-gulp.task('serve', gulp.series('clean', 'sass', 'nunjucks', 'js', 'static', 'images', function () {
+gulp.task('serve', gulp.series('clean', 'sass', 'css', 'nunjucks', 'js', 'static', 'images', function () {
     gulp.watch('./www/_config.js', gulp.series('nunjucks'))
     gulp.watch('./www/**/*.md', gulp.series('nunjucks'))
     gulp.watch('./www/**/*.njk', gulp.series('nunjucks'))
