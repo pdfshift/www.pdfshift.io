@@ -1,0 +1,101 @@
+@import '_colors';
+
+* {
+    box-sizing:border-box;
+}
+
+@keyframes progressing {
+    0% {width: 0%;}
+    100% {width: 100%;}
+}
+
+@keyframes hesitate {
+    0% {width: 80%;}
+    100% {width: 100%;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+body {
+    background-color: $color-primary;
+    background-image: linear-gradient(to right bottom,$color-primary, $color-secondary);
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /*centers items on the line (the x-axis by default)*/
+    align-items: center; /*centers items on the cross-axis (y by default)*/
+
+    &>div {
+        width: 500px;
+        padding: 20px;
+
+        img {
+            width: 100%;
+        }
+
+        .progress-bar {
+            margin: 20px 0 40px;
+            width: 100%;
+            height: 2px;
+            position: relative;
+
+            span {
+                display: block;
+                height: 100%;
+                background-color: #fff;
+                width: 0%;
+                animation: progressing 5s ease-out 0s 1 forwards, hesitate 2.5s 5s 2 ease-in-out;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+
+            li {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                color: #fff;
+                text-align: center;
+                margin: 0 !important;
+                padding: 0;
+                opacity: 0;
+
+                &.active {
+                    animation: fadeIn ease-in-out 1;
+                    /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+                    animation-fill-mode: forwards;
+                    animation-duration: 0.5s;
+                }
+            }
+        }
+
+        &.finished {
+            .progress-bar span {
+                animation: none !important;
+            }
+
+            ul>li.active {
+                opacity: 0 !important;
+                animation: none;
+            }
+
+            ul>li:last-child {
+                opacity: 1 !important;
+                animation: fadeIn ease-in-out 1;
+                /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+                animation-fill-mode: forwards;
+                animation-duration: 0.5s;
+            }
+        }
+    }
+}

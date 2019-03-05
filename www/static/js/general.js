@@ -285,7 +285,7 @@ window.PDFShift.forms = {
     }
 };
 
-// Sticky header
+// Misc
 (function () {
     var header = document.getElementById('header');
     function stickyMenu (position) {
@@ -317,15 +317,6 @@ window.PDFShift.forms = {
         });
 
         return false;
-    }
-
-    // Specific to home page!
-    if (window.location.pathname === '/') {
-        document.querySelector('header .cta .create-account').addEventListener('click', function (event) {
-            event.preventDefault();
-            scrollTo('#register', true);
-            document.getElementById('register').elements[0].focus();
-        }, false);
     }
 
     // Click on logo
@@ -382,6 +373,46 @@ window.PDFShift.forms = {
         document.getElementById("header-main-menu").classList.toggle('visible');
         document.getElementById("header-main-cta").classList.toggle('visible');
     });
+})();
+
+(function () {
+    var form = document.getElementById('subscribe-newsletter'),
+        button = form.querySelector('.button');
+
+    // Subscribe to our newsletter:
+    document.getElementById('subscribe-newsletter').addEventListener('submit', function (event) {
+        event.preventDefault();
+        
+        if (submitButton.classList.contains('button-disabled')) {
+            return false;
+        }
+
+        submitButton.classList.add('button-disabled');
+        window.PDFShift.forms.clearErrors(form);
+        event.preventDefault();
+
+        window.PDFShift.requests.post('accounts/', window.PDFShift.forms.asJSON(form)).then(
+            function (json) {
+                submitButton.classList.remove('button-disabled');
+                form.reset();
+                document.location.href = '/register/thanks/'
+            },
+            function (response) {
+                var errors = {'email': ['An error occured.']};
+                if (response.data) {
+                    if (response.data.hasOwnProperty('error')) {
+                        var errors = {'email': [response.data.error]};
+                    } else if (response.data.hasOwnProperty('errors')) {
+                        errors = response.data['errors'];
+                    }
+                }
+
+                window.PDFShift.forms.setErrors(form, errors);
+                submitButton.classList.remove('button-disabled');
+            }
+        )
+        return false;
+    }, true);
 })();
 
 window.PDFShift.getQueryVariable = function (variable) {

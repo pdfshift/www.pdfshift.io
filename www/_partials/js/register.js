@@ -1,23 +1,7 @@
 // Create form
 (function () {
-    var form = document.querySelector('#create-form'),
-        submitButton = form.querySelector('.button'),
-        items = document.querySelectorAll('.create-account'),
-        scrollToPos = form.offsetTop - header.querySelector('.heading').clientHeight - 40;
-    
-    scrollToPos = (scrollToPos < 0 ? 0 : scrollToPos);
-    for (var i = 0; i < items.length; i++) {
-        items[i].addEventListener('click', function (event) {
-            event.preventDefault();
-            form.elements[0].focus({preventScroll: true});
-            setTimeout(function () {
-                window.scroll({
-                    top: scrollToPos, 
-                    left: 0
-                });
-            }, 50);
-        }, false);
-    }
+    var form = document.getElementById('register'),
+        submitButton = form.querySelector('.button');
 
     form.addEventListener('submit', function (event) {
         if (submitButton.classList.contains('button-disabled')) {

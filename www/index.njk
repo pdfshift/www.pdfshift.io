@@ -1,5 +1,5 @@
 {% set bodyClass = 'home' %}
-{% set seo_title = "The Leading Web to PDF conversion API" %}
+{% set seo_title = "The Leading HTML to PDF conversion API" %}
 {% set seo_description = "Stop wasting time implementing and maintaining a third-party software/library. With PDFShift, rely on an up-to-date, high-fidelity conversion API with no maintenance costs." %}
 
 {% extends '_partials/base.njk' %}
@@ -10,7 +10,7 @@
         <div class="column seven">
             <div>
                 <!--<h1>Automate your HTML to PDF conversion.</h1>-->
-                <h1 class="fade-in from-left delay-1">Web to PDF conversion API</h1>
+                <h1 class="fade-in from-left delay-1">HTML to PDF conversion API</h1>
                 <!--<h1>Convert HTML documents to PDF in seconds</h1>-->
                 <div class="fade-in from-left delay-2">
                     <p>Stop wasting time implementing and maintaining a third-party software/library.</p>
@@ -25,6 +25,12 @@
 
                 <div><input type="text" name="name" placeholder="Full Name" required /></div>
                 <div><input type="email" name="email" placeholder="Email Address" required /></div>
+                <div>
+                    <label class="checkbox">
+                        <input type="checkbox" name="newsletter" value="1" />
+                        Keep me posted on news related to PDFShift (rarely)
+                    </label>
+                </div>
                 <input type="submit" name="submit" value="Create your free account" class="button button-primary" />
 
                 <small>By signing up, you agree to the <a href="/terms/" title="Read our Terms of Service">Terms of Service</a> and <a href="/privacy/" title="Read our Privacy Policy">Privacy Policy</a>.</small>
@@ -746,7 +752,27 @@ https://api.pdfshift.io/v2/convert/ \
 
 {% block javascripts %}
 <script>
+    {% include '_partials/js/register.js' %}
     {% include '_partials/js/contact.js' %}
+
+    // CTA Actions
+    var form = document.getElementById('register'),
+        items = document.querySelectorAll('.create-account'),
+        scrollToPos = form.offsetTop - header.querySelector('.heading').clientHeight - 40;
+
+    scrollToPos = (scrollToPos < 0 ? 0 : scrollToPos);
+    for (var i = 0; i < items.length; i++) {
+        items[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            form.elements[0].focus({preventScroll: true});
+            setTimeout(function () {
+                window.scroll({
+                    top: scrollToPos, 
+                    left: 0
+                });
+            }, 50);
+        }, false);
+    }
 
     // Try me
     (function () {
@@ -763,11 +789,9 @@ https://api.pdfshift.io/v2/convert/ \
             }
 
             var popup = window.open('https://pdfshift.io/loading/', '_blank');
-            popup.blur();
-            window.focus();
+            popup.focus();
 
             form.classList.remove('error')
-
             submitButton.classList.add('button-disabled');
             
             event.preventDefault();
@@ -881,15 +905,12 @@ https://api.pdfshift.io/v2/convert/ \
         
         function onResize() {
             if (window.matchMedia("(max-width: 768px)").matches) {
-                console.log('768');
                 itemDisplayedByDefault = 1;
             }
             else if (window.matchMedia("(max-width: 1024px)").matches) {
-                console.log('1024');
                 itemDisplayedByDefault = 2;
             }
             else {
-                console.log('big');
                 itemDisplayedByDefault = 4;
             }
         }

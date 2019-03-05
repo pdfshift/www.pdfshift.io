@@ -56,6 +56,13 @@ form {
             color: $color-primary;
         }
     }
+
+    label.checkbox {
+        color: rgba(0, 0, 0, 0.6);
+        text-align: left;
+        display: block;
+        cursor: pointer;
+    }
 }
 
 a.button, input.button, button.button {
