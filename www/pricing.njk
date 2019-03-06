@@ -1,6 +1,6 @@
 {% set bodyClass = 'pricing-details' %}
 {% set seo_title = "Pricing plans that scale with you." %}
-{% set seo_description = "View our various pricing plans and their differences." %}
+{% set seo_description = "PDFShift offers various pricings that adjust to your needs. This page is a detailled view of all the available options." %}
 
 {% extends '_partials/base.njk' %}
 
@@ -178,34 +178,25 @@
                     <tr class="ctas">
                         <td class="key label"></td>
                         <td>
-                            <a href="/register/?plan=free" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
                         </td>
                         <td>
-                            <a href="/register/?plan=starter" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
                         </td>
                         <td>
-                            <a href="/register/?plan=growth" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
                         </td>
                         <td>
-                            <a href="/register/?plan=business" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
     <div id="faq" class="container">
         <h3>Frequently Asked Questions</h3>
-        <div class="row">
-            <div class="column half">
-                <h4>What about data privacy?</h4>
-                <p>We take privacy very seriously! We do not store the requests nor the generated documents. It's impossible for us to take a look at what you convert.</p>
-            </div>
-            <div class="column half">
-                <h4>Which payment methods are supported?</h4>
-                <p>We rely on Stripe for the payment, which supports Visa, Mastercard, American Express, Discover, JCB, Diner's Club, 3DS and China Union Pay.</p>
-            </div>
-        </div>
         <div class="row">
             <div class="column half">
                 <h4>Do you have a free trial?</h4>
@@ -213,7 +204,17 @@
             </div>
             <div class="column half">
                 <h4>Do you offer annual plans?</h4>
-                <p>Yes absolutely, we offer two months for free!</p>
+                <p>Yes indeed. If you decide to take an annual plan, we will offer you two months for free. You will only pay for 10 months.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column half">
+                <h4>What about data privacy?</h4>
+                <p>We take privacy very seriously! We do not store the requests nor the generated documents. It's impossible for us to take a look at what you convert.</p>
+            </div>
+            <div class="column half">
+                <h4>Are you GDPR compliant?</h4>
+                <p>Yes, we are fully compliant. You can read our <a href="/dpa/" title="Read our DPA">Data Processing Agreement</a> along with our <a href="/privacy/" title="Read our Privacy Policy">Privacy Policy</a> for more details.</p>
             </div>
         </div>
         <div class="row">
@@ -223,22 +224,26 @@
             </div>
             <div class="column half">
                 <h4>What happens if I exceed my API request volume?</h4>
-                <p>We will automatically notify at 50%, 80% and 100% of your credit usage. Further conversion request will fail.</p>
+                <p>We will automatically notify at 50%, 80% and 100% of your credit usage. You can also enable our overage system to not be blocked after hitting 100%.</p>
             </div>
         </div>
         <div class="row">
-            <div class="column half">
+            <!--<div class="column half">
                 <h4>Can I get additional free credits for testing?</h4>
                 <p>We will offer you a better solution instead! You can use the <code>sandbox</code> parameter to generate requests for free!</p>
+            </div>-->
+            <div class="column half">
+                <h4>Which payment methods are supported?</h4>
+                <p>We rely on Stripe for the payment, which supports Visa, Mastercard, American Express, Discover, JCB and Diner's Club.</p>
             </div>
             <div class="column half">
                 <h4>I didn't use the <code>sandbox</code> parameter, what now?</h4>
-                <p>You haven't seen it when you started testing? No problem! <a href="mailto:support@pdfshift.io">Contact us</a> and we will give you more credits the first month!</p>
+                <p>You haven't seen it when you started testing? No problem! <a href="mailto:support@pdfshift.io">Contact us</a> and we will give you more credits for the first month for free!</p>
             </div>
         </div>
 
         <div class="cta">
-            <a href="/contact/" title="Click here to contact us.">Have some questions? Ask us.</a>
+            <a href="/contact/" title="Click here to contact us.">Have more questions? Ask us.</a>
         </div>
     </div>
 </div>
