@@ -51,6 +51,7 @@
 }
 
 #try-me {
+    box-sizing: border-box;
     border-top: solid 1px $color-light-grey;
     background-color: #fbfbfb;
 
@@ -345,6 +346,7 @@
 #features {
     border-top: solid 1px $color-light-grey;
     background-color: #fbfbfb;
+    box-sizing: border-box;
 
     .column {
         margin-top: 20px;
@@ -514,6 +516,7 @@
 #pricing {
     background-color: #fbfbfb;
     text-align: center;
+    box-sizing: border-box;
 
     .column {
         margin-right: 20px;
@@ -580,17 +583,8 @@
 
         a.button {
             margin-top: auto;
-            background-color: #fff;
-            border: solid 1px $color-ternary;
-            color: $color-ternary;
             display: inline-block;
             margin-bottom: 20px;
-            transition: background-color 250ms ease-in-out, color 250ms ease-in-out, box-shadow 250ms ease-in-out;
-
-            &:hover {
-                background-color: $color-ternary;
-                color: $color-white;
-            }
         }
     }
 

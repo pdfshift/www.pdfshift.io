@@ -323,27 +323,34 @@ window.PDFShift.forms = {
     header.querySelector('.brand').addEventListener('click', function (event) {
         if (window.location.pathname === '/') {
             event.preventDefault();
+            window.location.hash = '';
             window.scroll(0, 0);
         }
     })
 
-    // Click on the menu
-    var navUl = header.querySelector('nav>ul');
-    if (navUl) {
-        navUl.addEventListener('click', function (event) {
-            if (event.target.nodeName.toLowerCase() !== 'a') {
-                return true;
-            }
-    
-            var targetHref = event.target.getAttribute('href');
-            if (!targetHref || targetHref.substr(0, 1) !== '#') {
-                return true;
-            }
-    
-            event.preventDefault();
-            return scrollTo(targetHref, true);
-        }, false);
-    }
+    // TODO Add event listener on all the a
+    PDFShift.on('a', 'click', function (event) {
+        if (event.target.nodeName.toLowerCase() !== 'a') {
+            return true;
+        }
+
+        var targetHref = event.target.getAttribute('href');
+        if (!targetHref) {
+            return true;
+        }
+
+        if (targetHref.substr(0, 1) === '/') {
+            targetHref = targetHref.substr(1);
+        }
+
+        if (targetHref.substr(0, 1) !== '#') {
+            return true;
+        }
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return scrollTo(targetHref, true);
+    });
 
     if (window.location.hash && window.location.hash.substr(0, 1) === '#' && window.location.hash.length > 1) {
         window.addEventListener('scroll', function (scroll) {

@@ -269,19 +269,47 @@ a.button, input.button, button.button {
     &.button-primary {
         background-color: lighten($color-primary, 10%);
         color: $color-white;
+        text-decoration: none;
 
         &:hover {
             background-color: $color-primary;
+            border: none;
+        }
+
+        &.button-disabled {
+            opacity: 0.5;
+            cursor: default;
+
+            &:hover {
+                background-color: lighten($color-primary, 10%);
+                color: $color-white;
+            }
         }
     }
 
-    &.button-primary.button-disabled {
-        opacity: 0.5;
-        cursor: default;
+    &.button-secondary {
+        text-decoration: none;
+        background-color: $color-white;
+        border: solid 1px $color-primary;
+        border-radius: 5px;
+        color: $color-primary;
+        transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 
         &:hover {
-            background-color: lighten($color-primary, 10%);
-            color: $color-white;
+            background-color: $color-primary;
+            text-decoration: none;
+            border: solid 1px $color-primary;
+            color: #fff;
+        }
+
+        &.button-disabled {
+            opacity: 0.5;
+            cursor: default;
+
+            &:hover {
+                background-color: lighten($color-primary, 10%);
+                color: $color-white;
+            }
         }
     }
 
@@ -575,6 +603,7 @@ header {
         }
     }
 
+    // For home page
     .hero>div {
         margin: 80px 0;
 
@@ -586,7 +615,7 @@ header {
         h1 {
             text-align: left;
             font-size: 48px;
-            margin: 0;
+            margin: 0 0 40px;
             line-height: 1.25em;
         }
 
@@ -600,10 +629,36 @@ header {
                 font-weight: bold;
                 display: inline-block;
                 margin-top: 30px;
-                border-bottom: 1px solid transparent;
 
                 &:hover {
                     border-bottom-color: $color-white;
+                }
+
+                &.button {
+                    background-color: #fff;
+                    color: $color-primary;
+                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4) !important;
+                    border: none !important;
+                    position: relative;
+
+                    /* Button 4c */
+                    &:before {
+                        left: 80%;
+                        opacity: 0;
+                        top: 0;
+                        content: "➡";
+                        position: absolute;
+                        height: 100%;
+                        font-size: 125%;
+                        line-height: 3.5;
+                        color: $color-primary;
+                        transition: all 0.3s;
+                    }
+
+                    &:hover:before {
+                        left: 88%;
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -614,6 +669,7 @@ header {
             padding: 20px;
             border-radius: 5px;
             text-align: center;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
 
             h2 {
                 color: $color-secondary;

@@ -32,7 +32,7 @@
         <textarea rows="5" cols="50" name="message" placeholder="Please describe the reason you need to talk to us." required min="25"></textarea>
     </div>
 
-    <input type="submit" name="send" value="Send my message" class="button button-primary" />
+    <input type="submit" name="send" value="Send my message" class="button {% if contactFocus %}button-primary{% else %}button-secondary{% endif %}" />
     <div class="success" style="display: none">
         Thank you for contacting us.<br />
         We will respond to your inquiry shortly.

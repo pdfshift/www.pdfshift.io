@@ -135,7 +135,6 @@ gulp.task('nunjucks', () =>
             })
         ))
         .pipe(gulp.dest('./dist'))
-        .pipe(browserSync.stream())
 )
 
 gulp.task('js', () =>
