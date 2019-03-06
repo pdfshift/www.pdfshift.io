@@ -623,12 +623,22 @@ header {
             font-size: 20px;
             margin: 10px 0;
             opacity: 0.8;
+        }
+
+        div.actions {
+            margin-top: 30px;
+
+            span {
+                opacity: 0.8;
+                display: inline-block;
+                margin: 0 20px;
+            }
 
             a {
                 color: $color-white;
                 font-weight: bold;
                 display: inline-block;
-                margin-top: 30px;
+                margin: 0;
 
                 &:hover {
                     border-bottom-color: $color-white;
