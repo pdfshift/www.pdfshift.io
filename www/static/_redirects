@@ -6,8 +6,6 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 # Internal redirects
 # @see https://www.netlify.com/docs/redirects/
 
-/account/:token         /account/auth/ 200!
-
 /documentation       https://docs.pdfshift.io/         301
 /pricing             /pricing/     301!
 /register            /register/    301!
@@ -17,3 +15,9 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 /features            /    302!
 /faq                 /    302!
 
+# Backward compatibility for accounts
+/account/:token            /account/auth/:token 301!
+/account/:token/upgrade    /account/auth/:token?path=upgrade 301!
+
+/account/:token    manifold=:manifold    /account/auth/:token?manifold=:manifold 301!
+/account/:token    heroku=:heroku        /account/auth/:token?heroku=:heroku 301!
