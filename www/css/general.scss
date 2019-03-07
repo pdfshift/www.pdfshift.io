@@ -917,14 +917,17 @@ footer {
 
 .transition {
     position: relative;
+    box-sizing: border-box;
 
     .front {
+        box-sizing: border-box;
         position: absolute;
         opacity: 1;
         transition: opacity 0.75s;
         width: 100%;
     }
     .back {
+        box-sizing: border-box;
         position: absolute;
         opacity: 0;
         transition: opacity 0.75s ease-in-out;
