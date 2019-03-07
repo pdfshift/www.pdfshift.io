@@ -125,7 +125,8 @@ gulp.task('nunjucks', () =>
         .pipe(gulpIgnore.exclude('**/_*.njk'))
         .pipe(gulpif(
             function (file) {
-                return file.basename.substr(0, 5).toLowerCase() === 'index'
+                var filename = file.basename.substr(0, file.basename.indexOf('.')).toLowerCase();
+                return ['index', '404'].indexOf(filename) > -1;
             },
             rename(function (path) {
                 path.extname = ".html";
