@@ -12,8 +12,9 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 /terms               /terms/       301!
 /privacy             /privacy/     301!
 
-/features            /    302
-/faq                 /    302
+/features            /             302
+/faq                 /             302
+
 
 # Backward compatibility for accounts
 /account/:token    manifold=:manifold    /account/auth/:token?manifold=:manifold 301
