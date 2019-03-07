@@ -6,7 +6,8 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 # Internal redirects
 # @see https://www.netlify.com/docs/redirects/
 
-/account/:token      /account/auth/
+/account/:token         /account/auth/:token
+/account/auth/:token    /account/auth/ 200!
 
 /documentation       https://docs.pdfshift.io/         301
 /pricing             /pricing/     301!
@@ -14,6 +15,6 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 /terms               /terms/       301!
 /privacy             /privacy/     301!
 
-/features            /    307
-/faq                 /    307
+/features            /    307!
+/faq                 /    307!
 
