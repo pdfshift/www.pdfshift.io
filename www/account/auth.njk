@@ -9,19 +9,24 @@
 
 {% block javascripts %}
 <script>
-    /*
     (function () {
-        var token = window.location.pathname.substr(9);
+        var token = window.location.pathname.substr(14);
         window.PDFShift.requests.get('accounts/', {'Authorization': 'Bearer ' + token}).then(
             function () {
                 window.PDFShift.storage.set('token', token);
-                window.location.href = '/account/'
+                var redirect_url = window.PDFShift.getQueryVariable('path') or '/account/dashboard/';
+                if (window.PDFShift.getQueryVariable('heroku')) {
+                    redirect_url += '?heroku=' + window.PDFShift.getQueryVariable('heroku');
+                } else if (window.PDFShift.getQueryVariable('manifold')) {
+                    redirect_url += '?manifold=' + window.PDFShift.getQueryVariable('manifold');
+                }
+
+                window.location.href = redirect_url;
             },
             function () {
                 alert('An error occured. We were unable to authenticate you.\nPlease try again later.');
             }
         )
     })()
-    */
 </script>
 {% endblock %}
