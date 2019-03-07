@@ -131,7 +131,7 @@ body {
 @media all and (min-width: 768px) and (max-width: 1024px) {
     .container, .container-small {
         width: 100%;
-        max-width: 800px;
+        max-width: 960px;
     }
 
     .row {
@@ -543,8 +543,9 @@ body {
 }
 
 // Wide screens
-@media all and (min-width: 1024px) and (max-width: 1250px) {
+@media all and (min-width: 1024px) and (max-width: 1450px) {
     .container {
-        width: 900px;
+        width: 960px;
+        max-width: 960px;
     }
 }
