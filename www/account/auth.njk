@@ -14,7 +14,7 @@
         window.PDFShift.requests.get('accounts/', {'Authorization': 'Bearer ' + token}).then(
             function () {
                 window.PDFShift.storage.set('token', token);
-                var redirect_url = window.PDFShift.getQueryVariable('path') or '/account/dashboard/';
+                var redirect_url = window.PDFShift.getQueryVariable('path') || '/account/dashboard/';
                 if (window.PDFShift.getQueryVariable('heroku')) {
                     redirect_url += '?heroku=' + window.PDFShift.getQueryVariable('heroku');
                 } else if (window.PDFShift.getQueryVariable('manifold')) {
