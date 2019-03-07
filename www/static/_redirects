@@ -21,3 +21,5 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 
 /account/:token    manifold=:manifold    /account/auth/:token?manifold=:manifold 301!
 /account/:token    heroku=:heroku        /account/auth/:token?heroku=:heroku 301!
+
+/account/auth/:token    /account/auth/ 200!
