@@ -253,6 +253,10 @@ body {
                 padding: 0;
             }
 
+            &>.column:first-child {
+                margin-bottom: 40px;
+            }
+
             h1 {
                 width: 100%;
                 text-align: center;

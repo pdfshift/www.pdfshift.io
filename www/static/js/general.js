@@ -402,7 +402,7 @@ window.PDFShift.forms = {
             function (json) {
                 submitButton.classList.remove('button-disabled');
                 form.reset();
-                document.location.href = '/register/thanks/'
+                document.location.href = '/subscription/thank-you/'
             },
             function (response) {
                 var errors = {'email': ['An error occured.']};

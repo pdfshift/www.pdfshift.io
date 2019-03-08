@@ -1,0 +1,20 @@
+{% set bodyClass = 'unified' %}
+{% extends '_partials/base.njk' %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="column six centered" style="margin-top: 60px">
+            <div class="white-block success">
+                <svg class="animated checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle cx="26" cy="26" r="25" fill="none"/>
+                    <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+                <h3>One last step...</h3>
+                <p><strong>Thank you so much!</strong> We appreciate your interest in our newsletter.</p>
+                <p>You just have to validate it now by clicking on the button in the email we just sent you.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
