@@ -483,7 +483,10 @@ header {
             left: 0;
             right: 0;
             background-color: $color-primary;
-            background-image: none;
+            background-image: url('/static/images/trianglify.svg');
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
             box-shadow: 0 5px 10px -5px #000;
         }
     }
@@ -847,6 +850,15 @@ footer {
                     outline: none;
                 }
             }
+        }
+
+        .error {
+            position: absolute;
+            color: red;
+            top: 60px;
+            left: 0;
+            right: 0;
+            width: 100%
         }
     }
 
