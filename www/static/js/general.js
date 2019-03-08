@@ -384,10 +384,10 @@ window.PDFShift.forms = {
 
 (function () {
     var form = document.getElementById('subscribe-newsletter'),
-        var submitButton = form.querySelector('.button');
+        submitButton = form.querySelector('.button');
 
     // Subscribe to our newsletter:
-    document.getElementById('subscribe-newsletter').addEventListener('submit', function (event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
         
         if (submitButton.classList.contains('button-disabled')) {
@@ -396,7 +396,6 @@ window.PDFShift.forms = {
 
         submitButton.classList.add('button-disabled');
         window.PDFShift.forms.clearErrors(form);
-        event.preventDefault();
 
         window.PDFShift.requests.post('accounts/', window.PDFShift.forms.asJSON(form)).then(
             function (json) {
