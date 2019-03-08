@@ -397,7 +397,7 @@ window.PDFShift.forms = {
         submitButton.classList.add('button-disabled');
         window.PDFShift.forms.clearErrors(form);
 
-        window.PDFShift.requests.post('accounts/', window.PDFShift.forms.asJSON(form)).then(
+        window.PDFShift.requests.post('website/subscribe', window.PDFShift.forms.asJSON(form)).then(
             function (json) {
                 submitButton.classList.remove('button-disabled');
                 form.reset();
