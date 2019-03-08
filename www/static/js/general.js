@@ -384,7 +384,7 @@ window.PDFShift.forms = {
 
 (function () {
     var form = document.getElementById('subscribe-newsletter'),
-        button = form.querySelector('.button');
+        var submitButton = form.querySelector('.button');
 
     // Subscribe to our newsletter:
     document.getElementById('subscribe-newsletter').addEventListener('submit', function (event) {
