@@ -15,6 +15,14 @@ body {
         max-width: 100%;
     }
 
+    header .hero .actions {
+        text-align: center;
+
+        a.button, span {
+            display: none !important;
+        }
+    }
+
     .row .column.one,
     .row .column.two,
     .row .column.three,
