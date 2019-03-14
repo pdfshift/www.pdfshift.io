@@ -339,17 +339,18 @@ window.PDFShift.forms = {
             return true;
         }
 
-        if (targetHref.substr(0, 1) === '/') {
-            targetHref = targetHref.substr(1);
+        if (targetHref.indexOf('#') === -1) {
+            return true;
         }
 
-        if (targetHref.substr(0, 1) !== '#') {
+        var parts = targetHref.split('#');
+        if (parts[0] !== window.location.pathname) {
             return true;
         }
 
         event.preventDefault();
         event.stopImmediatePropagation();
-        return scrollTo(targetHref, true);
+        return scrollTo('#' + parts[1], true);
     });
 
     if (window.location.hash && window.location.hash.substr(0, 1) === '#' && window.location.hash.length > 1) {

@@ -1,0 +1,119 @@
+{% set active_menu = 'billing' %}
+{% set seo_title = "Manage your credit card details." %}
+{% set seo_description = "Manage your credit card details." %}
+{% extends 'account/_base.njk' %}
+
+
+{% block account_body %}
+<div id="account-billing">
+    <div>
+        <h2>Your billing details</h2>
+        <form>
+            <fieldset>
+                <legend>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                        <g>
+                            <path d="M13.5,14a2.6635,2.6635,0,0,0-.6865.0914,2.4589,2.4589,0,0,0-1.7,1.65,2.4879,2.4879,0,0,0,.7592,2.6415l-.8463,1.9586A.5.5,0,0,0,11.5,21H15.5a.5.5,0,0,0,.4743-.6581l-.8463-1.9586A2.49,2.49,0,0,0,13.5,14Zm1.3059,6H12.1941l.8385-1.9352-.506-.4377a1.4967,1.4967,0,0,1-.455-1.6,1.4532,1.4532,0,0,1,.9993-.97A1.6706,1.6706,0,0,1,13.5,15,1.5017,1.5017,0,0,1,15,16.5a1.4757,1.4757,0,0,1-.5266,1.127l-.506.4377ZM20.5,10H19V5.5a5.5,5.5,0,0,0-11,0V10H6.5A1.5,1.5,0,0,0,5,11.5v12A1.5,1.5,0,0,0,6.5,25h14A1.5,1.5,0,0,0,22,23.5v-12A1.5,1.5,0,0,0,20.5,10ZM9,5.5a4.5,4.5,0,0,1,9,0V10H9Zm12,18a.5006.5006,0,0,1-.5.5H6.5a.5006.5006,0,0,1-.5-.5v-12a.5006.5006,0,0,1,.5-.5h14a.5006.5006,0,0,1,.5.5Z" />
+                        </g>
+                    </svg>
+                    Credit Card Details
+                </legend>
+                <div class="cards">
+                    <p>
+                        All our payments are handled via Stripe.com.<br />
+                        We don't view nor handle your credit card informations.
+                    </p>
+                    <img src="/static/images/cards.png" alt="Accepted cards" />
+                </div>
+                <div>
+                    <div id="card-element"></div>
+                    <input type="hidden" name="token" />
+                </div>
+            </fieldset>
+            <div class="submit">
+                <input type="submit" class="button button-primary" name="update" value="Submit and pay" />
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="/static/js/account.js" async></script>
+<script>
+(function () {
+    var token = window.PDFShift.storage.get('token');
+
+    window.PDFShift.setAccount = function (account) {
+        window.PDFShift.requests.get('credits/plans', {'Authorization': 'Bearer ' + token}).then(
+            function (body) {
+                
+            },
+            function () {
+                alert("We are sorry but an error occured.\nIf this issue persists, please reach out to us.");
+            }
+        );
+
+        var stripeForm = window.document.querySelector('#account-billing form'),
+            elements = window.stripe_instance.elements(),
+            card = elements.create('card');
+
+        card.mount('#card-element');
+        card.addEventListener('change', function (event) {
+            if (event.error) {
+                window.PDFShift.forms.setErrors(stripeForm, {'token': [event.error.message]});
+            } else {
+                window.PDFShift.forms.clearErrors(stripeForm);
+            }
+        });
+
+        stripeForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var button = stripeForm.querySelector('.button');
+
+            if (button.classList.contains('button-disabled')) return false;
+            button.classList.add('button-disabled');
+
+            window.PDFShift.forms.clearErrors(stripeForm);
+
+            window.stripe_instance.createToken(card).then(
+                function (result) {
+                    if (result.error) {
+                        window.PDFShift.forms.setErrors(stripeForm, {'token': [result.error.message]});
+                        return;
+                    }
+
+                    // TODO Manage 3D Secure
+
+                    var params = window.PDFShift.forms.asJSON(stripeForm);
+                    params['token'] = result.token.id;
+                    params['plan'] = document.location.hash.substring(1);
+                    window.PDFShift.requests.post('credits/upgrade', params, {'Authorization': 'Bearer ' + token}).then(
+                        function (body) {
+                            // TODO Change rendering
+                        },
+                        function (response) {
+                            button.classList.remove('button-disabled');
+                            var errors = response.data.errors;
+                            if ('error' in response.data) {
+                                errors = {'token': [response.data.error]};
+                            }
+                            window.PDFShift.forms.setErrors(stripeForm, errors);
+                        }
+                    )
+                }
+            )
+        }, false);
+    }
+})()
+</script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+if (window.document.location.hostname === '127.0.0.1') {
+    window.stripe_instance = window.Stripe('pk_test_N1Lori9EgMNMzWplqBUHcVlB')
+} else {
+    window.stripe_instance = window.Stripe('pk_live_Nu7cMuvIDlk7gHcksvN52v5S')
+}
+</script>
+{% endblock %}
