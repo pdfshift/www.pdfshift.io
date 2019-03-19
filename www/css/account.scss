@@ -331,7 +331,7 @@ body.account main>.container {
             margin-bottom: 60px;
 
             &>div:first-child {
-                display: block;
+                display: block !important;
             }
 
             &>div:last-child {
@@ -459,7 +459,7 @@ body.account main>.container {
             margin-bottom: 1rem;
             border: 1px solid transparent;
             padding: 20px;
-                border-radius: 5px;
+            border-radius: 5px;
 
             p {
                 margin: 0;
@@ -468,6 +468,7 @@ body.account main>.container {
 
             a {
                 font-weight: bold;
+                border: none;
                 &:hover {
                     text-decoration: underline;
                 }
