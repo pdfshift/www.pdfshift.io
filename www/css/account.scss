@@ -478,12 +478,20 @@ body.account main>.container {
                 color: #004085;
                 background-color: #cce5ff;
                 border-color: #b8daff;
+
+                a {
+                    color: #004085;
+                }
             }
 
             &.alert-success {
                 background-color: #dff0d8;
                 border: solid 1px #d0e9c6;
                 color: #3c763d;
+
+                a {
+                    color: #3c763d;
+                }
             }
         }
     }
