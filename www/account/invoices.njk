@@ -44,74 +44,74 @@
 
             if (body.card) {
                 renderCardSection(body.card, false);
-            }
 
-            window.PDFShift.on('#invoice-app .card .card-list', 'click', '.button-secondary', function () {
-                window.document.querySelector('#invoice-app .card').classList.add('active');
-            });
-
-            window.document.querySelector('#invoice-app .card .card-form .submit>a').addEventListener('click', function () {
-                var successMessage = window.document.querySelector('#invoice-app .card .alert-success');
-                if (successMessage) {
-                    successMessage.parentNode.removeChild(successMessage);
-                }
-                window.document.querySelector('#invoice-app .card').classList.remove('active');
-            }, false);
-
-            var stripeForm = window.document.querySelector('#invoice-app .card .card-form form');
-            if (stripeForm !== null) {
-                var elements = window.stripe_instance.elements(),
-                    card = elements.create('card');
-
-                card.mount('#card-element');
-                card.addEventListener('change', function (event) {
-                    if (event.error) {
-                        window.PDFShift.forms.setErrors(stripeForm, {'token': [event.error.message]});
-                    } else {
-                        window.PDFShift.forms.clearErrors(stripeForm);
-                    }
+                window.PDFShift.on('#invoice-app .card .card-list', 'click', '.button-secondary', function () {
+                    window.document.querySelector('#invoice-app .card').classList.add('active');
                 });
 
-                stripeForm.addEventListener('submit', function (event) {
-                    event.preventDefault();
-
-                    var button = stripeForm.querySelector('.button');
-
-                    if (button.classList.contains('button-disabled')) return false;
-                    button.classList.add('button-disabled');
-
-                    window.PDFShift.forms.clearErrors(stripeForm);
-
-                    window.stripe_instance.createToken(card).then(
-                        function (result) {
-                            if (result.error) {
-                                window.PDFShift.forms.setErrors(stripeForm, {'token': [result.error.message]});
-                                return;
-                            }
-
-                            // TODO Manage 3D Secure
-
-                            var params = window.PDFShift.forms.asJSON(stripeForm);
-                            params['token'] = result.token.id;
-                            window.PDFShift.requests.post('credits/change', params, {'Authorization': 'Bearer ' + token}).then(
-                                function (body) {
-                                    renderCardSection(body.card, true);
-                                    card.clear();
-                                    window.document.querySelector('#invoice-app .card').classList.remove('active');
-                                    button.classList.remove('button-disabled');
-                                },
-                                function (response) {
-                                    button.classList.remove('button-disabled');
-                                    var errors = response.data.errors;
-                                    if ('error' in response.data) {
-                                        errors = {'token': [response.data.error]};
-                                    }
-                                    window.PDFShift.forms.setErrors(stripeForm, errors);
-                                }
-                            )
-                        }
-                    )
+                window.document.querySelector('#invoice-app .card .card-form .submit>a').addEventListener('click', function () {
+                    var successMessage = window.document.querySelector('#invoice-app .card .alert-success');
+                    if (successMessage) {
+                        successMessage.parentNode.removeChild(successMessage);
+                    }
+                    window.document.querySelector('#invoice-app .card').classList.remove('active');
                 }, false);
+
+                var stripeForm = window.document.querySelector('#invoice-app .card .card-form form');
+                if (stripeForm !== null) {
+                    var elements = window.stripe_instance.elements(),
+                        card = elements.create('card');
+
+                    card.mount('#card-element');
+                    card.addEventListener('change', function (event) {
+                        if (event.error) {
+                            window.PDFShift.forms.setErrors(stripeForm, {'token': [event.error.message]});
+                        } else {
+                            window.PDFShift.forms.clearErrors(stripeForm);
+                        }
+                    });
+
+                    stripeForm.addEventListener('submit', function (event) {
+                        event.preventDefault();
+
+                        var button = stripeForm.querySelector('.button');
+
+                        if (button.classList.contains('button-disabled')) return false;
+                        button.classList.add('button-disabled');
+
+                        window.PDFShift.forms.clearErrors(stripeForm);
+
+                        window.stripe_instance.createToken(card).then(
+                            function (result) {
+                                if (result.error) {
+                                    window.PDFShift.forms.setErrors(stripeForm, {'token': [result.error.message]});
+                                    return;
+                                }
+
+                                // TODO Manage 3D Secure
+
+                                var params = window.PDFShift.forms.asJSON(stripeForm);
+                                params['token'] = result.token.id;
+                                window.PDFShift.requests.post('credits/change', params, {'Authorization': 'Bearer ' + token}).then(
+                                    function (body) {
+                                        renderCardSection(body.card, true);
+                                        card.clear();
+                                        window.document.querySelector('#invoice-app .card').classList.remove('active');
+                                        button.classList.remove('button-disabled');
+                                    },
+                                    function (response) {
+                                        button.classList.remove('button-disabled');
+                                        var errors = response.data.errors;
+                                        if ('error' in response.data) {
+                                            errors = {'token': [response.data.error]};
+                                        }
+                                        window.PDFShift.forms.setErrors(stripeForm, errors);
+                                    }
+                                )
+                            }
+                        )
+                    }, false);
+                }
             }
         },
         function (response) {
