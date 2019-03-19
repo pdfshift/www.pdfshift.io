@@ -20,6 +20,16 @@
         return false;
     }
 
+    function renderCardSection(card, displaySuccessMessage) {
+        var destination = window.document.querySelector('#invoice-app .card .card-list');
+        if (destination !== null) {
+            var template = window.document.getElementById('template-cards').textContent.trim(),
+            parsed = nunjucks.renderString(template, { 'card': card, 'success': displaySuccessMessage });
+
+            destination.innerHTML = parsed;
+        }
+    }
+
     window.PDFShift.requests.get('credits/invoices', {'Authorization': 'Bearer ' + token}).then(
         function (body) {
             var nunjucksEnv = new nunjucks.Environment();
@@ -28,9 +38,81 @@
             });
 
             var template = window.document.getElementById('template-invoices').textContent.trim(),
-                parsed = nunjucksEnv.renderString(template, { 'invoices': body.invoices });
+                parsed = nunjucksEnv.renderString(template, { 'invoices': body.invoicess, 'card': body.card });
 
             window.document.querySelector('#invoice-app').innerHTML = parsed;
+
+            if (body.card) {
+                renderCardSection(body.card, false);
+            }
+
+            window.PDFShift.on('#invoice-app .card .card-list', 'click', '.button-secondary', function () {
+                window.document.querySelector('#invoice-app .card').classList.add('active');
+            });
+
+            window.document.querySelector('#invoice-app .card .card-form .submit>a').addEventListener('click', function () {
+                var successMessage = window.document.querySelector('#invoice-app .card .alert-success');
+                if (successMessage) {
+                    successMessage.parentNode.removeChild(successMessage);
+                }
+                window.document.querySelector('#invoice-app .card').classList.remove('active');
+            }, false);
+
+            var stripeForm = window.document.querySelector('#invoice-app .card .card-form form');
+            if (stripeForm !== null) {
+                var elements = window.stripe_instance.elements(),
+                    card = elements.create('card');
+
+                card.mount('#card-element');
+                card.addEventListener('change', function (event) {
+                    if (event.error) {
+                        window.PDFShift.forms.setErrors(stripeForm, {'token': [event.error.message]});
+                    } else {
+                        window.PDFShift.forms.clearErrors(stripeForm);
+                    }
+                });
+
+                stripeForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    var button = stripeForm.querySelector('.button');
+
+                    if (button.classList.contains('button-disabled')) return false;
+                    button.classList.add('button-disabled');
+
+                    window.PDFShift.forms.clearErrors(stripeForm);
+
+                    window.stripe_instance.createToken(card).then(
+                        function (result) {
+                            if (result.error) {
+                                window.PDFShift.forms.setErrors(stripeForm, {'token': [result.error.message]});
+                                return;
+                            }
+
+                            // TODO Manage 3D Secure
+
+                            var params = window.PDFShift.forms.asJSON(stripeForm);
+                            params['token'] = result.token.id;
+                            window.PDFShift.requests.post('credits/change', params, {'Authorization': 'Bearer ' + token}).then(
+                                function (body) {
+                                    renderCardSection(body.card, true);
+                                    card.clear();
+                                    window.document.querySelector('#invoice-app .card').classList.remove('active');
+                                    button.classList.remove('button-disabled');
+                                },
+                                function (response) {
+                                    button.classList.remove('button-disabled');
+                                    var errors = response.data.errors;
+                                    if ('error' in response.data) {
+                                        errors = {'token': [response.data.error]};
+                                    }
+                                    window.PDFShift.forms.setErrors(stripeForm, errors);
+                                }
+                            )
+                        }
+                    )
+                }, false);
+            }
         },
         function (response) {
             if (response.status === 0) {
@@ -46,31 +128,99 @@
 </script>
 <script id="template-invoices" type="text/nunjucks-template">
     {% raw %}
+    <h2>Your billing informations</h2>
+    <div class="card">
+        {% if card %}
+            <div class="card-list"></div>
+            <div class="card-form">
+                <form>
+                    <h3>Please provide your new credit card details</h3>
+                    <div class="cards">
+                        <p>
+                            (All our payments are handled via Stripe.com.
+                            We don't view nor handle your credit card informations.)
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <div id="card-element"></div>
+                        <input type="hidden" name="token" />
+                    </div>
+                    <div class="submit">
+                        <a href="javascript:;" title="Cancel the modifications">Cancel</a>
+                        <input type="submit" class="button button-primary" name="update" value="Update my credit card" />
+                    </div>
+                </form>
+            </div>
+        {% else %}
+        <div class="alert alert-info">
+            <p>You don't have any card registered to your account right now.</p>
+            <p><a href="/account/upgrade/">Upgrade your account</a> to start a new PDFShift subscription.</p>
+        </div>
+        {% endif %}
+    </div>
     <h2>Your latest invoices</h2>
-    {% if invoices.length %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Reference</th>
-                    <th class="center">Date</th>
-                    <th class="center">Amount</th>
-                    <th class="right">Download</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for invoice in invoices %}
-                <tr>
-                    <td><strong>{{ invoice.reference }}</strong></td>
-                    <td class="center">{% if invoice.refunded %}Refunded on {{ invoice.refunded|dateformat }}{% else %}Paid on {{ invoice.created|dateformat }}{% endif %}</td>
-                    <td class="center">{{ invoice.amount }} {{ invoice.currency.toUpperCase() }}</td>
-                    <td class="right"><a href="{{ invoice.download_url }}" title="Download this Invoice" class="button button-primary" target="_blank">Download</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p class="info">No invoices at the moment.</p>
-    {% endif %}
+    <div class="invoices">
+        {% if invoices.length %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th class="center">Date</th>
+                        <th class="center">Amount</th>
+                        <th class="right">Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for invoice in invoices %}
+                    <tr>
+                        <td><strong>{{ invoice.reference }}</strong></td>
+                        <td class="center">{% if invoice.refunded %}Refunded on {{ invoice.refunded|dateformat }}{% else %}Paid on {{ invoice.created|dateformat }}{% endif %}</td>
+                        <td class="center">{{ invoice.amount }} {{ invoice.currency.toUpperCase() }}</td>
+                        <td class="right"><a href="{{ invoice.download_url }}" title="Download this Invoice" class="button button-primary" target="_blank">Download</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-info">No invoices at the moment.</div>
+        {% endif %}
+    </div>
     {% endraw %}
+</script>
+<script id="template-cards" type="text/nunjucks-template">
+    {% raw %}
+    {% if success %}
+    <div class="alert alert-success">Your credit card informations has been successfully updated!</div>
+    {% endif %}
+    <table>
+        <thead>
+            <tr>
+                <th>Card Type</th>
+                <th>Card Number</th>
+                <th class="center">Expiration Date</th>
+                <th>&nbsp;</th>
+            </tr>
+        <thead>
+        <tbody>
+            <tr>
+                <td><img src="/static/images/cards/{{ card.brand_img }}.png" alt="{{ card.brand }}" /></td>
+                <td>&#9679;&#9679;&#9679;&#9679;-&#9679;&#9679;&#9679;&#9679;-&#9679;&#9679;&#9679;&#9679;-{{ card.last4 }}</td>
+                <td class="center">{{ card.expire }}</td>
+                <td class="right">
+                    <a href="javascript:;" title="Change your credit card" class="button button-secondary">Change my credit card</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% endraw %}
+</script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+if (window.document.location.hostname === '127.0.0.1') {
+    window.stripe_instance = window.Stripe('pk_test_N1Lori9EgMNMzWplqBUHcVlB')
+} else {
+    window.stripe_instance = window.Stripe('pk_live_Nu7cMuvIDlk7gHcksvN52v5S')
+}
 </script>
 {% endblock %}

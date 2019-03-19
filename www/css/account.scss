@@ -327,45 +327,163 @@ body.account main>.container {
     }
 
     #invoice-app {
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 10px;
+        .card {
+            margin-bottom: 60px;
 
-            thead th {
-                padding-bottom: 5px;
-                color: #979797;
-                border-bottom: none;
-                padding: 0 20px;
-
-                &.center {text-align: center;}
-                &.right {text-align: right;}
+            &>div:first-child {
+                display: block;
             }
 
+            &>div:last-child {
+                display: none;
+            }
 
-            tbody td {
-                background-color: #f6f6f6;
+            &.active {
+                &>div:first-child {
+                    display: none;
+                }
+    
+                &>div:last-child {
+                    display: block;
+                }
+            }
+
+            table {
+                width: 100%;
+
+                thead th {
+                    font-size: 0.8em;
+                    color: rgba(136, 136, 136, .7)
+                }
+
+                img {
+                    height: 48px;
+                }
+
+                td {
+                    vertical-align: middle;
+                    padding: 10px;
+
+                    .button {
+                        padding: 5px 20px;
+                    }
+                }
+
+                th, td {
+                    &.center {
+                        text-align: center;
+                    }
+    
+                    &.right {
+                        text-align: right;
+                    }
+                }
+            }
+
+            .card-form {
+                border: solid 1px #d7d7d7;
                 padding: 20px;
+                margin: 40px 0;
                 border-radius: 5px;
+                text-align: center;
 
-                &.center {text-align: center;}
-                &.right {text-align: right;}
-            }
+                font-size: 0.9em;
+                line-height: 1.2em;
 
-            .button-primary {
-                background-color: $color-ternary;
-                margin: 0;
-                padding: 10px 20px;
+                .cards {
+                    text-align: center;
+
+                    p {
+                        margin: 10px 0;
+                    }
+                    img {height: 48px;}
+                }
+
+                h3 {
+                    margin: 0;
+                    color: #888;
+                }
+
+                #card-element {
+                    background-color: #eee;
+                    border-radius: 5px;
+                    padding: 20px;
+                    margin: 20px auto;
+                    width: 80%;
+                }
+
+                .submit a {
+                    &:hover {
+                        text-decoration: underline
+                    }
+                }
             }
         }
 
+        .invoices {
+            table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0 10px;
+    
+                thead th {
+                    padding-bottom: 5px;
+                    color: #979797;
+                    border-bottom: none;
+                    padding: 0 20px;
+    
+                    &.center {text-align: center;}
+                    &.right {text-align: right;}
+                }
+    
+    
+                tbody td {
+                    background-color: #f6f6f6;
+                    padding: 20px;
+                    border-radius: 5px;
+    
+                    &.center {text-align: center;}
+                    &.right {text-align: right;}
+                }
+    
+                .button-primary {
+                    background-color: $color-ternary;
+                    margin: 0;
+                    padding: 10px 20px;
+                }
+            }
+        }
 
-        p.info {
-            margin-top: 40px;
-            background-color: #e2e3e5;
-            border: solid 1px #d6d8db;
+        .alert {
+            position: relative;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
             padding: 20px;
-            border-radius: 5px;
+                border-radius: 5px;
+
+            p {
+                margin: 0;
+                padding: 0;
+            }
+
+            a {
+                font-weight: bold;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            &.alert-info {
+                color: #004085;
+                background-color: #cce5ff;
+                border-color: #b8daff;
+            }
+
+            &.alert-success {
+                background-color: #dff0d8;
+                border: solid 1px #d0e9c6;
+                color: #3c763d;
+            }
         }
     }
 
