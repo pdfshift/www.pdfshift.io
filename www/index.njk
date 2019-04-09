@@ -177,7 +177,7 @@ const fs = require('fs');
 
 // Step 3, execute
 pdfshift.convert('https://en.wikipedia.org/wiki/PDF', {"landscape": false, "use_print": false}).then(function (binary_file) {
-fs.writeFile('pdfshift-documentation.pdf', binary_file, "binary", function () {})
+    fs.writeFile('wikipedia.pdf', binary_file, "binary", function () {})
 }).catch(function({message, code, response, errors = null}) {})</code></pre>
                             <div class="copy">
                                 <a href="javascript:;" title="Click here to copy to clipoard" class="button" ref="copy">Copy to clipboard</a>
@@ -189,15 +189,15 @@ fs.writeFile('pdfshift-documentation.pdf', binary_file, "binary", function () {}
                             <pre><code class="python">import requests
 
 response = requests.post(
-'https://api.pdfshift.io/v2/convert/',
-auth=('user_api_key', ''),
-json={"source": "https://en.wikipedia.org/wiki/PDF", "landscape": False, "use_print": False}
+    'https://api.pdfshift.io/v2/convert/',
+    auth=('user_api_key', ''),
+    json={"source": "https://en.wikipedia.org/wiki/PDF", "landscape": False, "use_print": False}
 )
 
 response.raise_for_status()
 
-with open('pdfshift-documentation.pdf', 'wb') as f:
-f.write(response.content)
+with open('wikipedia.pdf', 'wb') as f:
+    f.write(response.content)
 
 # We also have a package to simplify your work:
 # https://pypi.org/project/pdfshift/</code></pre>
@@ -212,16 +212,16 @@ f.write(response.content)
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-CURLOPT_URL => "https://api.pdfshift.io/v2/convert/",
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_POST => true,
-CURLOPT_POSTFIELDS => json_encode(array("source" => "https://en.wikipedia.org/wiki/PDF", "landscape" => false, "use_print" => false)),
-CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
-CURLOPT_USERPWD => 'user_api_key:'
+    CURLOPT_URL => "https://api.pdfshift.io/v2/convert/",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => json_encode(array("source" => "https://en.wikipedia.org/wiki/PDF", "landscape" => false, "use_print" => false)),
+    CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
+    CURLOPT_USERPWD => 'user_api_key:'
 ));
 
 $response = curl_exec($curl);
-file_put_contents('pdfhsift-documentation.pdf', $response);
+file_put_contents('wikipedia.pdf', $response);
 
 // We also have a package to simplify your work:
 // https://packagist.org/packages/pdfshift/pdfshift-php</code></pre>
@@ -237,7 +237,7 @@ require 'net/https'
 require 'json' # for hash to_json conversion
 
 uri = URI("https://api.pdfshift.io/v2/convert/")
-data = {"source" => "https://www.example.com"}
+data = {"source" => "https://en.wikipedia.org/wiki/PDF"}
 
 Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
     request = Net::HTTP::Post.new(uri.request_uri)
@@ -249,7 +249,7 @@ Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
 
     if response.code == '200'
         # Since Ruby 1.9.1 only:
-        File.binwrite("result.pdf", response.body)
+        File.binwrite("wikipedia.pdf", response.body)
     else
         # Handle other codes here
         puts "#{response.code} #{response.body}"
@@ -279,7 +279,7 @@ public class Application {
 
     public static void main(String... args) throws Exception {
         var jsonObject = new JSONObject();
-        jsonObject.put("source", "https://example.com");
+        jsonObject.put("source", "https://en.wikipedia.org/wiki/PDF");
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v2/convert"))
                 .timeout(Duration.ofSeconds(20))
@@ -297,7 +297,7 @@ public class Application {
         var statusCode = response.statusCode();
         if (statusCode == 200 || statusCode == 201) {
             // Save the file locally
-            var targetFile = new File("src/main/resources/targetFile.pdf");
+            var targetFile = new File("src/main/resources/wikipedia.pdf");
             Files.copy(response.body(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } else {
             // error occurred
@@ -335,7 +335,7 @@ namespace PDFShiftExample
 
             var json = new
             {
-                source = "https://www.example.com"
+                source = "https://en.wikipedia.org/wiki/PDF"
             };
             request.AddJsonBody(json);
 
@@ -346,7 +346,7 @@ namespace PDFShiftExample
             }
             else
             {
-                File.WriteAllBytes("result.pdf", response.RawBytes);
+                File.WriteAllBytes("wikipedia.pdf", response.RawBytes);
             }
         }
     }
@@ -372,7 +372,7 @@ func main() {
     API_KEY := "your_api_key"
 
     message := map[string]interface{}{
-        "source":  "https://example.com",
+        "source":  "https://en.wikipedia.org/wiki/PDF",
     }
 
     bytesRepresentation, err := json.Marshal(message)
@@ -399,7 +399,7 @@ func main() {
             log.Fatalln(err)
         }
         // write the response to file
-        ioutil.WriteFile("example.pdf", body, 0644)
+        ioutil.WriteFile("wikipedia.pdf", body, 0644)
     } else {
         // An error occurred
         var result map[string]interface{}
@@ -418,12 +418,12 @@ func main() {
                     <div id="code-curl">
                         <div class="code-section">
                             <pre><code class="bash">curl \
--u 'user_api_key:' \
--d source="https://en.wikipedia.org/wiki/PDF" \
--d landscape="false" \
--d use_print="false" \
-https://api.pdfshift.io/v2/convert/ \
--o pdfhsift-documentation.pdf
+    -u 'user_api_key:' \
+    -d source="https://en.wikipedia.org/wiki/PDF" \
+    -d landscape="false" \
+    -d use_print="false" \
+    https://api.pdfshift.io/v2/convert/ \
+    -o wikipedia.pdf
 
 # That's all!</code></pre>
                             <div class="copy">
