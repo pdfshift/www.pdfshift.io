@@ -8,5 +8,28 @@
     </div>
     <p class="small">(Read our <a href="https://docs.pdfshift.io" target="_blank" title="PDFShift's API Reference.">API documentation</a> for more, in depth, details.)</p>
 </div>
+{% endblock %}
 
+{% block javascripts %}
+<script>
+window.PDFShift.onReady(function () {
+    window.PDFShift.storage.set('language', '{{ language }}');
+    if (window.location.hash && window.location.hash.substr(0, 4) === '#key') {
+        window.PDFShift.storage.set('apikey', window.location.hash.substr(5));
+    }
+
+    if (window.PDFShift.storage.get('apikey')) {
+        var samples = document.querySelectorAll('pre>code'),
+            apikey = window.PDFShift.storage.get('apikey');
+
+        for (var i = 0; i < samples.length; i++) {
+            if (samples[i].innerText.indexOf('your_api_key') === -1) {
+                continue;
+            }
+
+            samples[i].innerHTML = samples[i].innerHTML.replace('your_api_key', apikey);
+        }
+    }
+});
+</script>
 {% endblock %}

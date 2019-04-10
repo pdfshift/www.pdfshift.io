@@ -1,5 +1,6 @@
 {% set seo_title = "Convert any HTML to PDF using PHP" %}
 {% set seo_description = "A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and PHP." %}
+{% set language = 'php' %}
 
 {% extends 'guides/_base.njk' %}
 
@@ -66,7 +67,7 @@
     Setting it is easy as:
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com'
     ));
 
@@ -78,7 +79,7 @@
 
     ```php
     try {
-        $response = pdfshift('your_api_key_here', array (
+        $response = pdfshift('your_api_key', array (
             'source' => 'https://www.example.com'
         ));
     } catch ($e) {
@@ -92,7 +93,7 @@
     No credits are deduced from your account when the sandbox mode is on.
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'sandbox' => true
     ));
@@ -105,7 +106,7 @@
     Converting an URL with PDFShift is really easy. All you have to do is send a POST request with the `source` parameter set to the URL, like the following:
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com'
     ));
 
@@ -119,7 +120,7 @@
     ```php
     $source = file_get_contents('invoice.html');
 
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => $source
     ));
 
@@ -132,7 +133,7 @@
     All files stored on Amazon S3 are kept for two days, then automatically deleted.
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'filename' => 'result.pdf'
     ));
@@ -146,7 +147,7 @@
     You can pass custom HTTP headers, allowing you to adapt to the server handling your source. This can be a custom identification header, changing the language, or anything else.
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'http_headers' => array (
             'X-Original-Header' => 'Awesome value',
@@ -162,7 +163,7 @@
     If your `source` requires a BASIC AUTH mechanism, you can either use the custom headers part or use the `auth` parameter from the API that behaves the same.
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://httpbin.org/basic-auth/user/passwd',
         'auth' => array (
             'username' => 'user',
@@ -180,7 +181,7 @@
     ```php
     // cookies is a list of object, that's why we call twice `array`.
     // First for the list, second as an object.
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://httpbin.org/cookies',
         'cookies' => array(array ('name' => 'session', 'value' => '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'))
     ));
@@ -197,7 +198,7 @@
     You can also call multiple CSS by calling a root CSS (like "print.css" in that case) that will call @import in it for each CSS files.
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'css' => 'https://www.example.com/public/css/print.css'
     ));
@@ -210,7 +211,7 @@
     Like for the `source` parameter, you can pass a raw set of CSS rules to the `css` parameter and they will be injected to the loaded document.
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'css' => 'a {text-decoration: underline; color: blue}'
     ));
@@ -223,7 +224,7 @@
     Some documents that you share need a watermark to clearly identify your brand. That's easy with PDFShift:
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'watermark' => array (
             'image' => 'https://pdfshift.io/images/logo.png',
@@ -244,7 +245,7 @@
     By default, the font-size will be really small. You will have to set it manually, like in the following example:
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'footer' => array (
             'source' => '<div style="font-size: 12px">Page {{ "{{page}}" }} of {{ "{{total}}" }}</div>',
@@ -266,7 +267,7 @@
     This is outside of our capabilities here at PDFShift as we can't enforce a reader to respect PDF's standard.
 
     ```php
-    $response = pdfshift('your_api_key_here', array (
+    $response = pdfshift('your_api_key', array (
         'source' => 'https://www.example.com',
         'protection' => array (
             'user_password' => 'user',

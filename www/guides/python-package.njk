@@ -1,5 +1,6 @@
 {% set seo_title = "Convert any HTML to PDF using Python" %}
 {% set seo_description = "A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Python." %}
+{% set language = 'python' %}
 
 {% extends 'guides/_base.njk' %}
 
@@ -40,7 +41,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
     ```
 
     The `sandbox` parameter allows you to do unlimited conversion, but will add a watermark on top of the generated document.
@@ -50,7 +51,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert('https://www.example.com', sandbox=True)
     with open('result.pdf', 'wb') as output:
@@ -63,7 +64,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert('https://www.example.com')
 
@@ -77,7 +78,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     document = open('invoice.html', 'r')
     document_content = document.read()
@@ -94,7 +95,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert(
         'https://httpbin.org/headers',
@@ -114,7 +115,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert('https://httpbin.org/basic-auth/user/passwd', auth=('user', 'passwd'))
 
@@ -128,7 +129,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     # cookies is a list of dict
     # That way, you can add as many dict (cookie) as you want.
@@ -153,7 +154,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert(
         'https://www.example.com',
@@ -170,7 +171,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert(
         'https://www.example.com',
@@ -187,7 +188,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert(
         'https://www.example.com',
@@ -212,7 +213,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert(
         'https://www.example.com',
@@ -238,7 +239,7 @@
 
     ```python
     import pdfshift
-    pdfshift.api_key = 'your_api_key_here'
+    pdfshift.api_key = 'your_api_key'
 
     binary_file = pdfshift.convert(
         'https://www.example.com',

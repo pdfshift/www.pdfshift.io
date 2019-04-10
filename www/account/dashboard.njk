@@ -59,9 +59,16 @@
         window.document.querySelector('#account-app').innerHTML = nunjucksEnv.renderString(template, { 'account': body });
 
         var apiTemplate = window.document.getElementById('template-api-keys').textContent.trim(),
-            apiKeyList = window.document.querySelector('#account-app .keys ul');
+            apiKeyList = window.document.querySelector('#account-app .keys ul'),
+            isAlreadySet = false;
+
         for (var k = 0; k < body.api_keys.length; k++) {
             apiKeyList.insertAdjacentHTML('beforeend', nunjucksEnv.renderString(apiTemplate, { 'key': body.api_keys[k] }));
+            // We set the token for documentation usage
+            if (!isAlreadySet && !body.api_keys[k].removed) {
+                window.PDFShift.storage.set('apikey', body.api_keys[k].token);
+                isAlreadySet = true;
+            }
         }
 
         var editingElement = null;

@@ -1,5 +1,6 @@
 {% set seo_title = "Convert any HTML to PDF using Python" %}
 {% set seo_description = "A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Python." %}
+{% set language = 'python' %}
 
 {% extends 'guides/_base.njk' %}
 
@@ -29,7 +30,7 @@
     import requests
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'sandbox': True
@@ -41,7 +42,7 @@
     This can be easily handled with `requests` by doing the following:
 
     ```python
-    response = requests.post('https://api.pdfshift.io/v2/convert', json={'source': 'https://www.example.com'}, auth=('your_api_key_here', ''))
+    response = requests.post('https://api.pdfshift.io/v2/convert', json={'source': 'https://www.example.com'}, auth=('your_api_key', ''))
 
     # Ensuring everything went fine:
     # raise_for_status will raise an exception if the status code is 4xx or 5xx
@@ -60,7 +61,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={'source': 'https://www.example.com'},
         stream=True
     )
@@ -85,7 +86,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={'source': document_content},
         stream=True
     )
@@ -107,7 +108,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'filename': 'result.pdf'
@@ -129,7 +130,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'http_headers': {
@@ -156,7 +157,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://httpbin.org/basic-auth/user/passwd',
             'auth': {
@@ -185,7 +186,7 @@
     # That way, you can add as many dict (cookie) as you want.
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://httpbin.org/cookies',
             'cookies': [{'name': 'session', 'value': '4cb496a8-a3eb-4a7e-a704-f993cb6a4dac'}]
@@ -213,7 +214,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'css': 'https://www.example.com/public/css/print.css'
@@ -237,7 +238,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'css': 'a {text-decoration: underline; color: blue}'
@@ -261,7 +262,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'watermark': {
@@ -293,7 +294,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'footer': {
@@ -326,7 +327,7 @@
 
     response = requests.post(
         'https://api.pdfshift.io/v2/convert',
-        auth=('your_api_key_here', ''),
+        auth=('your_api_key', ''),
         json={
             'source': 'https://www.example.com',
             'protection': {
