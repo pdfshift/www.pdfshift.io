@@ -268,7 +268,8 @@
                     position: relative;
 
                     pre>code {
-                        font-size: 1.1em;
+                        font-family: monospace;
+                        font-size: 1rem;
                     }
 
                     pre {
@@ -598,7 +599,9 @@
         }
     }
 
-    .action {
-        margin-top: 60px;
+    .free-plan {
+        margin: 40px 0;
+        color: #626262;
+        font-style: italic;
     }
 }
