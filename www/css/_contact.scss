@@ -1,12 +1,14 @@
 .home #contact {
     background-color: $color-secondary;
+}
 
+#contact {
     h2 {
         margin: 0 0 60px;
     }
 
     .excerpt {
-        color: #fff;
+        color: #fff !important;
     }
 
     margin-bottom: 220px;

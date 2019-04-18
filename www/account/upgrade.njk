@@ -133,11 +133,11 @@
                     'credits': 250,
                     'yearly': false
                 };
-                ulPlansMonthly.insertAdjacentHTML('beforeend', nunjucksEnv.renderString(planTemplate, { 'plan': freePlan, 'account': account, 'index': 2 }));
+                ulPlansMonthly.insertAdjacentHTML('beforeend', nunjucksEnv.renderString(planTemplate, { 'plan': freePlan, 'account': account, 'index': 0 }));
                 freePlan.yearly = true;
-                ulPlansYearly.insertAdjacentHTML('beforeend', nunjucksEnv.renderString(planTemplate, { 'plan': freePlan, 'account': account, 'index': 2 }));
+                ulPlansYearly.insertAdjacentHTML('beforeend', nunjucksEnv.renderString(planTemplate, { 'plan': freePlan, 'account': account, 'index': 0 }));
 
-                var monthlyIndex = 2, yearlyIndex = 2;
+                var monthlyIndex = 0, yearlyIndex = 0;
                 for (var i = 0; i < body.plans.length; i++) {
                     var plan = body.plans[i];
                     if (plan.yearly) {

@@ -384,42 +384,44 @@ window.PDFShift.forms = {
 })();
 
 (function () {
-    var form = document.getElementById('subscribe-newsletter'),
-        submitButton = form.querySelector('.button');
+    var form = document.getElementById('subscribe-newsletter');
+    if (form) {
+        var submitButton = form.querySelector('.button');
 
-    // Subscribe to our newsletter:
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        
-        if (submitButton.classList.contains('button-disabled')) {
-            return false;
-        }
-
-        submitButton.classList.add('button-disabled');
-        window.PDFShift.forms.clearErrors(form);
-
-        window.PDFShift.requests.post('website/subscribe', window.PDFShift.forms.asJSON(form)).then(
-            function (json) {
-                submitButton.classList.remove('button-disabled');
-                form.reset();
-                document.location.href = '/subscription/thank-you/'
-            },
-            function (response) {
-                var errors = {'email': ['An error occured.']};
-                if (response.data) {
-                    if (response.data.hasOwnProperty('error')) {
-                        var errors = {'email': [response.data.error]};
-                    } else if (response.data.hasOwnProperty('errors')) {
-                        errors = response.data['errors'];
-                    }
-                }
-
-                window.PDFShift.forms.setErrors(form, errors);
-                submitButton.classList.remove('button-disabled');
+        // Subscribe to our newsletter:
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            if (submitButton.classList.contains('button-disabled')) {
+                return false;
             }
-        )
-        return false;
-    }, true);
+    
+            submitButton.classList.add('button-disabled');
+            window.PDFShift.forms.clearErrors(form);
+    
+            window.PDFShift.requests.post('website/subscribe', window.PDFShift.forms.asJSON(form)).then(
+                function (json) {
+                    submitButton.classList.remove('button-disabled');
+                    form.reset();
+                    document.location.href = '/subscription/thank-you/'
+                },
+                function (response) {
+                    var errors = {'email': ['An error occured.']};
+                    if (response.data) {
+                        if (response.data.hasOwnProperty('error')) {
+                            var errors = {'email': [response.data.error]};
+                        } else if (response.data.hasOwnProperty('errors')) {
+                            errors = response.data['errors'];
+                        }
+                    }
+    
+                    window.PDFShift.forms.setErrors(form, errors);
+                    submitButton.classList.remove('button-disabled');
+                }
+            )
+            return false;
+        }, true);
+    }
 })();
 
 window.PDFShift.getQueryVariable = function (variable) {

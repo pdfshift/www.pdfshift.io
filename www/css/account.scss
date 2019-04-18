@@ -799,14 +799,14 @@ body.account main #account-upgrade {
         }
 
         &.active .animated.checkmark {
-            animation: scale .3s ease-in-out .9s both;
+            animation: animscale .3s ease-in-out .9s both;
 
             circle {
-                animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+                animation: animstroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
             }
 
             path {
-                animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+                animation: animstroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
             }
         }
 
@@ -821,7 +821,9 @@ body.account main #account-upgrade {
 
                 .checkmark {
                     stroke: darken(#d4edda, 50%);
-                    circle {stroke: lighten(#155724, 10%);}
+                    circle {
+                        stroke: lighten(#155724, 10%);
+                    }
                 }
 
                 strong {

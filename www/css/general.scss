@@ -120,72 +120,6 @@ a {
     }
 }
 
-@keyframes stroke {
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-
-@keyframes scale {
-    0%, 100% {
-        transform: none;
-    }
-    50% {
-        transform: scale3d(1.1, 1.1, 1);
-    }
-}
-
-@keyframes fadeInFromNone {
-    0% {
-        display: none;
-        opacity: 0;
-    }
-
-    1% {
-        display: block;
-        opacity: 0;
-    }
-
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInBottom {
-    from {
-        opacity: 0;
-        transform: translate(0px, 30px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translate(-30px, 0px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translate(30px, 0px);
-    }
-    to {
-        opacity: 1;
-        transform: translate(0px, 0px);
-    }
-}
-
-
 .fade-in {
     opacity: 0;
 
@@ -447,14 +381,14 @@ a.button, input.button, button.button {
         }
 
         .animated.checkmark {
-            animation: scale .3s ease-in-out .9s both;
+            animation: animscale .3s ease-in-out .9s both;
 
             circle {
-                animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+                animation: animstroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
             }
 
             path {
-                animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+                animation: animstroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
             }
         }
     }
@@ -967,14 +901,14 @@ footer {
             opacity: 1;
 
             .checkmark {
-                animation: scale .3s ease-in-out 1.2s both;
+                animation: animscale .3s ease-in-out 1.2s both;
 
                 circle {
-                    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) .5s forwards;
+                    animation: animstroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) .5s forwards;
                 }
 
                 path {
-                    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards;
+                    animation: animstroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 1s forwards;
                 }
             }
         }
