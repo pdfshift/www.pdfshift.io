@@ -1,0 +1,44 @@
+{% set seo_title = "Privacy Policy" %}
+{% set seo_description = "Our Privacy Policy is designed to help you understand what information we collect and how we use and share that information." %}
+
+{% extends '_partials/base.njk' %}
+
+{% block main %}
+<div class="container-small">
+    <div class="page">
+        <h1>List of Sub-processors engaged by PDFShift</h1>
+        <p class="excerpt">We use the following 3rd party services to improve, understand troubleshoot, report bugs and provide support for you:</p>
+
+        <ul>
+            <li>
+                <p>
+                    <strong>Google Analytics</strong><br />
+                    We use this service to understand general usage, traffic sources and to measure campaign success.</p>
+            </li>
+            <li>
+                <p>
+                    <strong>Amplitude</strong><br />
+                    We (also) use this service to understand general usage, traffic sources and to measure campaign success.</p>
+            </li>
+            <li>
+                <p>
+                    <strong>Stripe</strong><br />
+                    We use this service to handle all the payments made on the Service. The sole purpose is to increase security regarding the handle of sensible payments informations such as your credit cards details.</p>
+            </li>
+            <li>
+                <p>
+                    <strong>Mailgun</strong><br />
+                    We use this service to send emails on our behalf. The sole purpose is to increase email deliverability and success over sending via our own servers which may be blacklisted.</p>
+            </li>
+            <li>
+                <p>
+                    <strong>ProveSource</strong><br />
+                    We use this service to show you the little widgets at the bottom left on some pages.<br />
+                </p>
+            </li>
+        </ul>
+        
+        <p><strong>REMEMBER</strong>: We use these services only to provide you with a fantastic product that gives you easy access to things you like and to improve our general look and feel. If you choose to block, global opt out from some of the services that we use to deliver our product, you may run into errors, product bugs and other failures that influence your general experience and quality of our service. We are ok with that and respect your choice.</p>
+    </div>
+</div>
+{% endblock %}

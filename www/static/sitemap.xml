@@ -50,8 +50,14 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://pdfshift-dev.netlify.com/dpa/</loc>
-        <lastmod>2019-03-05</lastmod>
+        <loc>https://pdfshift-dev.netlify.com/gdpr/</loc>
+        <lastmod>2019-04-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://pdfshift-dev.netlify.com/subprocessors/</loc>
+        <lastmod>2019-04-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
