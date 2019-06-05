@@ -38,7 +38,7 @@
             });
 
             var template = window.document.getElementById('template-invoices').textContent.trim(),
-                parsed = nunjucksEnv.renderString(template, { 'invoices': body.invoicess, 'card': body.card });
+                parsed = nunjucksEnv.renderString(template, { 'invoices': body.invoices, 'card': body.card });
 
             window.document.querySelector('#invoice-app').innerHTML = parsed;
 
@@ -123,7 +123,6 @@
             window.location.href = '/login/';
         }
     )
-
 })()
 </script>
 <script id="template-invoices" type="text/nunjucks-template">
