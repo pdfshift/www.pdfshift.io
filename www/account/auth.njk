@@ -16,7 +16,7 @@
                 window.PDFShift.storage.set('token', token);
                 var redirect_url = window.PDFShift.getQueryVariable('path') || '/account/dashboard/';
                 if (window.PDFShift.getQueryVariable('heroku')) {
-                    redirect_url += '?heroku=' + window.PDFShift.getQueryVariable('heroku');
+                    redirect_url += window.location.search;
                 } else if (window.PDFShift.getQueryVariable('manifold')) {
                     redirect_url += '?manifold=' + window.PDFShift.getQueryVariable('manifold');
                 }
