@@ -55,8 +55,9 @@
             return percent;
         });
 
-        var template = window.document.getElementById('template-account').textContent.trim();
-        window.document.querySelector('#account-app').innerHTML = nunjucksEnv.renderString(template, { 'account': body });
+        var template = window.document.getElementById('template-account').textContent.trim(),
+            has_heroku = document.location.search.indexOf('heroku=1') > -1;
+        window.document.querySelector('#account-app').innerHTML = nunjucksEnv.renderString(template, { 'account': body, 'heroku': !has_heroku });
 
         var apiTemplate = window.document.getElementById('template-api-keys').textContent.trim(),
             apiKeyList = window.document.querySelector('#account-app .keys ul'),
@@ -172,9 +173,9 @@
             <div>
                 <div>
                     {{ account.name }}
-                    <a href="/account/settings/" title="Edit your account's details">Edit</a>
+                    {% if heroku %}<a href="/account/settings/" title="Edit your account's details">Edit</a>{% endif %}
                 </div>
-                {{ account.email }}
+                {% if heroku %}{{ account.email }}{% endif %}
             </div>
         </div>
         <h2>
@@ -205,9 +206,11 @@
             <div>
                 <span>Renews on {{ account.renew_date|onemonth|dateformat }}</span>
             </div>
+            {% if heroku %}
             <div>
                 <a href="/account/upgrade" title="Click here to upgrade" class="button button-primary">Upgrade</a>
             </div>
+            {% endif %}
         </div>
     </section>
 

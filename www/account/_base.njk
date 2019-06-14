@@ -25,13 +25,16 @@
 <script>
     (function () {
         if (document.location.search.indexOf('heroku=1') > -1) {
+            document.querySelector('main>.container>.row>.three').style.display = 'none';
+            document.querySelector('main>.container>.row>.nine').classList.remove('nine');
+
             var s = document.createElement('script')
             s.src = 'https://s3.amazonaws.com/assets.heroku.com/boomerang/boomerang.js'
             s.async = true
             s.onload = () => {
-                window.Boomerang.init({app: '', addon: 'pdfshift'})
+                window.Boomerang.init({app: window.PDFShift.getQueryVariable('app_name'), addon: 'pdfshift'})
             }
-            document.querySelector('body').appendChild(s)
+            document.querySelector('body').appendChild(s);
         }
 
         document.querySelector('main .container .column.three .logout>a').addEventListener('click', function () {
