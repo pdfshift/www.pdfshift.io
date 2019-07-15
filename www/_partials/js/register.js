@@ -35,6 +35,8 @@
                         var errors = {'name': [response.data.error]};
                     } else if (response.data.hasOwnProperty('errors')) {
                         errors = response.data['errors'];
+                    } else {
+                        errors = response.data;
                     }
                 }
 
