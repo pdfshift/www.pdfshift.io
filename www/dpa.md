@@ -222,23 +222,4 @@ Vendor ensure that backups are frequently made, and encrypted when stored.
 
 ## ANNEX 3: List of Sub-processors engaged by PDFShift
 
-**Google Analytics**
-We use this service to understand general usage, traffic sources and to measure campaign success.
-
-**Amplitude**
-We (also) use this service to understand general usage, traffic sources and to measure campaign success.
-
-**Stripe**
-We use this service to handle all the payments made on the Service. The sole purpose is to increase security regarding the handle of sensible payments informations such as your credit cards details.
-
-**Mailgun**
-We use this service to send emails on our behalf. The sole purpose is to increase email deliverability and success over sending via our own servers which may be blacklisted.
-
-**SendInBlue**
-Vendor uses this service to communicate with their users and customers about news related to the service.
-
-**Replay.io**
-Vendor uses this service to send you campaigns related to improving the service.
-
-**ProveSource**
-We use this service to show you the little widgets at the bottom left on some pages.
+See [List of Subprocessors](/subprocessors/).
