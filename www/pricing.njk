@@ -133,17 +133,18 @@
                     <tr>
                         <td class="key label">Asynchronous response</td>
                         <td class="no">&dash;</td>
-                        <td class="no">&dash;</td>
+                        <td class="yes"></td>
                         <td class="yes"></td>
                         <td class="yes"></td>
                     </tr>
                     <tr>
                         <td class="key label">Parallel Conversion</td>
                         <td class="no">&dash;</td>
-                        <td class="no">&dash;</td>
+                        <td class="yes"></td>
                         <td class="yes"></td>
                         <td class="yes"></td>
                     </tr>
+                    <!--
                     <tr>
                         <td class="key label">PDF Compression</td>
                         <td class="no">&dash;</td>
@@ -151,13 +152,7 @@
                         <td class="no">&dash;</td>
                         <td class="yes"></td>
                     </tr>
-                    <tr>
-                        <td class="key label">Amazon S3 delivery</td>
-                        <td class="no">&dash;</td>
-                        <td class="no">&dash;</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                    </tr>
+                    -->
                     <tr class="separator">
                         <td colspan="5">Service</td>
                     </tr>
@@ -228,10 +223,6 @@
             </div>
         </div>
         <div class="row">
-            <!--<div class="column half">
-                <h4>Can I get additional free credits for testing?</h4>
-                <p>We will offer you a better solution instead! You can use the <code>sandbox</code> parameter to generate requests for free!</p>
-            </div>-->
             <div class="column half">
                 <h4>Which payment methods are supported?</h4>
                 <p>We rely on Stripe for the payment, which supports Visa, Mastercard, American Express, Discover, JCB and Diner's Club.</p>
@@ -241,6 +232,52 @@
                 <p>You haven't seen it when you started testing? No problem! <a href="mailto:support@pdfshift.io">Contact us</a> and we will give you more credits for the first month for free!</p>
             </div>
         </div>
+
+        <div class="row">
+            <div class="column half">
+                <h4>What is the timeout for the conversion?</h4>
+                <p>We wait up to 75 seconds by default, but if your document needs more, you can request us with the required amount of time needed and we'll adjust it accordingly.</p>
+            </div>
+            <div class="column half">
+                <h4>What happens when the requests times out?</h4>
+                <p>When the conversion takes too long, we return you with a JSON response along with a 408 Status code to let you know.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column half">
+                <h4>How many parallel conversions can I make? Is it different for each plan?</h4>
+                <p>You can make up to 50 parallel conversions at the same time. The limit is the same for each plans.</p>
+            </div>
+            <div class="column half">
+                <h4>Is it required to pass a "webhook" parameter when using parallel conversion?</h4>
+                <p>Yes. When you do parallel conversion, we queue each requests to be processed independantly. For this reason, your POST request is treated almost instantly with a 202 status code (Accepted). You will then receive a POST response at your Webhook URL for <strong>each</strong> sources converted.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column half">
+                <h4>If I use the Amazon S3 Storage, how is my privacy managed?</h4>
+                <p>This is an interesting question. When you pass the "filename" parameter, we store your resulting document at Amazon's S3 storage. In this case, the PDF's content is subject to Amazon's privacy policy.</p>
+            </div>
+            <div class="column half">
+                <h4>I still have questions, what now?</h4>
+                <p>Don't hesitate to <a href="mailto:support@pdfshift.io">reach out to us</a> and we'll be happy to answer to all your questions.</p>
+            </div>
+        </div>
+
+        <!--
+        <div class="row">
+            <div class="column half">
+                <h4></h4>
+                <p></p>
+            </div>
+            <div class="column half">
+                <h4></h4>
+                <p></p>
+            </div>
+        </div>
+        -->
 
         <div class="cta">
             <a href="/contact/" title="Click here to contact us.">Have more questions? Ask us.</a>
