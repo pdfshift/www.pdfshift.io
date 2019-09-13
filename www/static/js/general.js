@@ -1,22 +1,9 @@
-window.PDFShift.storage = (function () {
-    /**
-     * Creates new cookie or removes cookie with negative expiration
-     * @param  key       The key or identifier for the store
-     * @param  value     Contents of the store
-     * @param  exp       Expiration - creation defaults to 30 days
-     */
-    function createCookie (key, value, exp) {
-        var date = new Date();
-        date.setTime(date.getTime() + (exp * 24 * 60 * 60 * 1000));
-        var expires = '; expires=' + date.toGMTString();
-        document.cookie = key + '=' + value + expires + '; path=/';
-    }
-
+window.PDFShift.cookies ={
     /**
      * Returns contents of cookie
      * @param  key       The key or identifier for the store
      */
-    function readCookie (key) {
+    'read': function (key) {
         var nameEQ = key + '=';
         var ca = document.cookie.split(';');
         for (var i = 0, max = ca.length; i < max; i++) {
@@ -25,8 +12,23 @@ window.PDFShift.storage = (function () {
             if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
+    },
+    /**
+     * Creates new cookie or removes cookie with negative expiration
+     * @param  key       The key or identifier for the store
+     * @param  value     Contents of the store
+     * @param  exp       Expiration - creation defaults to 31 days
+     */
+    'create': function (key, value, exp) {
+        var date = new Date();
+        if (!exp) exp = 31;
+        date.setTime(date.getTime() + (exp * 24 * 60 * 60 * 1000));
+        var expires = '; expires=' + date.toGMTString();
+        document.cookie = key + '=' + value + expires + '; path=/';
     }
+}
 
+window.PDFShift.storage = (function () {
     return {
         'get': function (key, def) {
             if (def === undefined) {
@@ -40,7 +42,7 @@ window.PDFShift.storage = (function () {
                 try {
                     data = window.sessionStorage.getItem(key);
                 } catch (e) {
-                    data = readCookie(key);
+                    data = window.PDFShift.cookies.read(key);
                 }
             }
 
@@ -62,7 +64,7 @@ window.PDFShift.storage = (function () {
                 try {
                     window.sessionStorage.setItem(key, value);
                 } catch (e) {
-                    createCookie(key, value, 30);
+                    window.PDFShift.cookies.create(key, value, 30);
                 }
             }
         },
@@ -73,7 +75,7 @@ window.PDFShift.storage = (function () {
                 try {
                     window.sessionStorage.removeItem(key);
                 } catch (e) {
-                    createCookie(key, '', -1);
+                    window.PDFShift.cookies.create(key, '', -1);
                 }
             }
         }

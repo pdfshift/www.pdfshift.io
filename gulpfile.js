@@ -210,6 +210,7 @@ gulp.task('serve', gulp.series('clean', 'sass', 'css', 'nunjucks', 'js', 'static
             baseDir: './dist'
         },
         open: false,
+        ghostMode: false,
         port: 8080,
         host: '86.77.97.2'
     });

@@ -56,7 +56,7 @@
 
         var params = window.PDFShift.forms.asJSON(form);
 
-        window.PDFShift.requests.post('accounts/login', params).then(
+        window.PDFShift.requests.post('auth/lost-password', params).then(
             function (json) {
                 submitButton.classList.remove('button-disabled');
                 form.reset();

@@ -15,12 +15,7 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 /features            /             302
 /faq                 /             302
 
+/account/:token            https://api.pdfshift.io/v2/auth/login/:token 301
+/account/:token/upgrade    https://api.pdfshift.io/v2/auth/login/:token 301
 
-# Backward compatibility for accounts
-/account/:token    manifold=:manifold    /account/auth/:token?manifold=:manifold 301
-/account/:token    heroku=:heroku        /account/auth/:token?heroku=:heroku 301
-
-/account/:token            /account/auth/:token 301
-/account/:token/upgrade    /account/auth/:token?path=upgrade 301
-
-/account/auth/:token    /account/auth/ 200
+/account/auth/:token    https://api.pdfshift.io/v2/auth/login/:token 200
