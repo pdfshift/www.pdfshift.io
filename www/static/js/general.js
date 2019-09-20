@@ -373,11 +373,6 @@ window.PDFShift.forms = {
 
     stickyMenu(window.document.documentElement.scrollTop);
 
-    if (window.PDFShift.storage.get('token')) {
-        header.querySelector('.cta .unauthenticated').classList.add('hidden');
-        header.querySelector('.cta .authenticated').classList.remove('hidden');
-    }
-
     // Accordion menu
     document.querySelector('#header .heading .accordion-menu').addEventListener('click', function () {
         document.getElementById("header-main-menu").classList.toggle('visible');
