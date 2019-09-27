@@ -1,0 +1,358 @@
+{% set body_class = 'landing' %}
+{% set custom_css = 'developers' %}
+
+{% set seo_title = "The Leading HTML to PDF conversion API" %}
+{% set seo_description = "An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs." %}
+
+{% extends '_partials/base.njk' %}
+
+{% block hero %}
+<div class="container landing-hero">
+    <div class="landing-hero__text">
+        <h1 class="fade-in from-bottom delay-1">Creating PDF documents in NodeJS<br />has never been easier!</h1>
+        <div class="fade-in from-bottom delay-2">
+            <p>Tired to fight with misplaced divs, odd CSS reslults and complicated libraries for your PDF?<br />We have the solution for you!</p>
+            <div class="actions fade-in from-bottom delay-3">
+                <a href="/register/" title="Create an account now" class="button">Sign up for free</a>
+            </div>
+        </div>
+    </div>
+    <div class="landing-hero__code-section fade-in from-bottom delay-4">
+        <div class="landing-hero__title">
+            {% include 'developers/icons/js-logo.svg' %}
+            <h3>NodeJS</h3>
+        </div>
+        <div class="landing-hero__code">
+            <pre><code class="javascript">
+// Step 1, install PDFShift
+npm install pdfshift
+
+// Step 2, import PDFShift
+const pdfshift = require('pdfshift')('{user_api_key}');
+const fs = require('fs');
+
+// Step 3, load your HTML
+let source = fs.readFileSync('./invoice.html');
+
+// Step 4, convert your HTML in PDF
+pdfshift.convert(source, {"landscape": false, "use_print": false}).then(function (binary_file) {
+ fs.writeFile('wikipedia.pdf', binary_file, "binary", function () {})
+}).catch(function({message, code, response, errors = null}) {})
+            </code></pre>
+            <div class="landing-hero__copy">
+                <a href="javascript:;" class="button button-secondary" title="Click here to copy to clipoard" ref="copy">
+                    {% include 'developers/icons/copy.svg' %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block main %}
+<section id="brands">
+    <div class="container">
+        <ul class="unstyled">
+            <li>
+                <!-- vivino.com -->
+                <img src="/static/images/partners/vivino.png" alt="Vivino" />
+            </li>
+            <li>
+                <!-- betterproposals.io -->
+                <img src="/static/images/partners/betterproposals.png" alt="Better Proposals" />
+            </li>
+            <li>
+                <!-- resumez.com -->
+                <img src="/static/images/partners/resumez.png" alt="Resumez" />
+            </li>
+            <li>
+                <!-- payrollcrm.com -->
+                <img src="/static/images/partners/payroll.png" alt="Payroll CRM" />
+            </li>
+            <li>
+                <!-- podia.com -->
+                <img src="/static/images/partners/podia.png" alt="Podia" />
+            </li>
+            <!--
+            <li>
+                roofstreet.io
+                <img src="/static/images/partners/roofstreet.png" alt="Roofstreet" />
+            </li>
+            -->
+        </ul>
+    </div>
+</section>
+
+<section id="code-samples">
+    <div class="container">
+        <h2>Integrate PDFShift with just three lines of code</h2>
+        <p class="excerpt">
+            Convert a documents with a single POST request, using your favorite library such as `request`, `axios` or any other one.
+        </p>
+
+        <div>
+            <div>
+                <div>
+                    <h2>Render any HTML documents in PDF</h2>
+                    <p>Instead of spending lost of time trying to place each elements in your PDF, write your document as HTML and simply send it to PDFShift to get your PDF back in no time.</p>
+                </div>
+                <div>
+                    <pre><code></code></pre>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <code></code>
+                </div>
+                <div>
+                    <h2>High fidelity results with recents CSS features</h2>
+                    <p>Need to use Flexbox or Grids? They works fine with PDFShift! And all the recents CSS3 features too including <span class="gradient">gradients</span> and <span>Web fonts</span>!</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h2>Run tasks Asynchronously</h2>
+                    <p>You can send up to 50 parallel tasks and wait for the result on your endpoint via our <span>webhook</span> parameter in order to not block your process.</p>
+                </div>
+                <div>
+                    <code></code>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <code></code>
+                </div>
+                <div>
+                    <h2>Waiting for custom elements before converting</h2>
+                    <p>Need to wait for a chart to render? Or wait on a specific javascript function to finish before converting your document? This is easily done with PDFShift too.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <div class="container">
+        <h2>Our users <span>love</span> PDFShift!</h2>
+        <p class="excerpt">See what our users have to say about PDFShift.</p>
+
+        <div>
+            <div class="row">
+                <div class="column four">
+                    <div>
+                        <blockquote cite="https://www.capterra.com/p/184246/PDFShift/#reviews">Stop rolling your own PDF generator - PDFShift has done it better.</blockquote>
+                        <div>
+                            {# greg@geptechstudios.com #}
+                            <img src="https://secure.gravatar.com/avatar/5b5de1b1555183679389a8d656f19e65?d=mm&s=96" alt="Greg's profile" />
+                            <div class="details">
+                                <span class="stars">
+                                    {% include 'developers/icons/5-stars.svg' %}
+                                    <!--
+                                    Half:
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524v-12.005zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z"/>
+                                    </svg>
+                                    Empty:
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z"/>
+                                    </svg>
+                                    -->
+                                </span>
+                                <span class="author">
+                                    Greg P.
+                                    <a href="https://www.capterra.com/p/184246/PDFShift/#reviews">(view on Capterra)</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column four">
+                    <div>
+                        <blockquote cite="https://www.capterra.com/p/184246/PDFShift/#reviews">Works exactly as advertised</blockquote>
+                        <div>
+                            {# jacqui.maher@societyone.com.au #}
+                            <img src="https://secure.gravatar.com/avatar/014f25983cce753f5155f0417e9afe74?d=mm&s=96" alt="Jacqui's profile" />
+                            <div class="details">
+                                <span class="stars">
+                                    {% include 'developers/icons/5-stars.svg' %}
+                                </span>
+                                <span class="author">
+                                    Jacqui M.
+                                    <a href="https://www.capterra.com/p/184246/PDFShift/#reviews">(view on Capterra)</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column four">
+                    <div>
+                        <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1420927">Easy and developer-oriented API</blockquote>
+                        <div>
+                            {# aaron.barchechath@protonmail.com #}
+                            <img src="https://secure.gravatar.com/avatar/72f516dba2f8ca489196fe95693a0330?d=mm&s=96" alt="Aaron's profile" />
+                            <div class="details">
+                                <span class="stars">
+                                    {% include 'developers/icons/5-stars.svg' %}
+                                </span>
+                                <span class="author">
+                                    Aaron B.
+                                    <a href="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1420927">(view on G2Crowd)</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column four">
+                    <div>
+                        <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1353501">Perfect rendering, easy to setup and use</blockquote>
+                        <div>
+                            {# billy.braga@gmail.com #}
+                            <img src="https://secure.gravatar.com/avatar/c115a34f03cc728c051f17ef7254e1bf?d=mm&s=96" alt="Billy's profile" />
+                            <div class="details">
+                                <span class="stars">
+                                    {% include 'developers/icons/5-stars.svg' %}
+                                </span>
+                                <span class="author">
+                                    Billy B.
+                                    <a href="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1353501">(view on G2Crowd)</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column four">
+                    <div>
+                        <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1802905">Super easy way to create PDFs</blockquote>
+                        <div>
+                            {# greg.russon@nebo.edu #}
+                            <img src="https://secure.gravatar.com/avatar/a028846ecf1bb497171b61ced320dadc?d=mm&s=96" alt="Greg's profile" />
+                            <div class="details">
+                                <span class="stars">
+                                    {% include 'developers/icons/5-stars.svg' %}
+                                </span>
+                                <span class="author">
+                                    Greg R.
+                                    <a href="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1802905">(view on G2Crowd)</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column four">
+                    <div>
+                        <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1346205">Very easy and redivable</blockquote>
+                        <div>
+                            {# lukas@productgang.com #}
+                            <img src="https://secure.gravatar.com/avatar/791126905fc0984e80dbf7fa0fcda0e8?d=mm&s=96" alt="Lukas's profile" />
+                            <div class="details">
+                                <span class="stars">
+                                    {% include 'developers/icons/5-stars.svg' %}
+                                </span>
+                                <span class="author">
+                                    Lukas K.
+                                    <a href="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1346205">(view on G2Crowd)</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                Capterra Logo
+                4.5 stars
+                <a href="https://www.capterra.com/reviews/184246/PDFShift?utm_source=vendor&utm_medium=badge&utm_campaign=capterra_reviews_badge" title="See our reviews on Capterra" target="_blank">
+                    Read all reviews on Capterra &gt;
+                </a>
+            </div>
+            <div>
+                G2Crowd Logo
+                4.5 stars
+                <a href="https://www.g2.com/products/pdfshift/reviews#reviews" title="See our reviews on G2Crowd" target="_blank">
+                    Read all reviews on G2Crowd &gt;
+                </a>
+            </div>
+            <div>
+                AlternativeTo Logo
+                5 stars
+                <a href="https://alternativeto.net/software/pdfshift/reviews/" title="See our reviews on AlternativeTo" target="_blank">
+                    Read all reviews on AlternativeTo &gt;
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    # pricing
+</section>
+
+<section id="start">
+    # Start your free trial
+</section>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    // Code blocks
+    window.PDFShift.onReady(function () {
+        window.PDFShift.load(['//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js', '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js'], function () {
+            // Highlighting the blocks:
+            var blocks = document.querySelectorAll('pre code');
+            for (var i = 0; i < blocks.length; i++) {
+                hljs.highlightBlock(blocks[i]);
+            }
+
+            var code = document.querySelector('#code');
+
+            if (ClipboardJS.isSupported()) {
+                function setCopyEvent(target) {
+                    var parent = target.parentElement, innerText = null;
+                    while (true) {
+                        if (parent === null) {
+                            return // We can't find it so we stop, useless to continue ...
+                        }
+                        if (parent.classList.contains('code-section')) {
+                            break
+                        }
+                        parent = parent.parentElement;
+                    }
+
+                    innerText = parent.querySelector('pre>code').innerText;
+
+                    var clipboard = new ClipboardJS(target, {
+                        'text': function (trigger) {
+                            return innerText
+                        }
+                    })
+
+                    clipboard.on('success', function (e) {
+                        target.querySelector('span').innerText = 'Copied!'
+                        target.classList.add('button-disabled')
+                        setTimeout(function () {
+                            target.querySelector('span').innerText = '';
+                            target.classList.remove('button-disabled')
+                        }, 5000)
+                        e.clearSelection()
+                    })
+
+                    clipboard.on('error', function (e) {
+                        target.querySelector('span').innerText = 'An error occured!'
+                        target.classList.add('button-disabled')
+                    })
+                }
+
+                var buttons = code.querySelectorAll('.js-code-copy > a');
+                for (var i = 0 ; i < buttons.length; i++) {
+                    setCopyEvent(buttons[i]);
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
+
