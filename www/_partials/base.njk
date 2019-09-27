@@ -10,6 +10,7 @@
         <meta name="viewport"              content="width=device-width,initial-scale=1,shrink-to-fit=no" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link href="/static/css/general.css" rel="stylesheet" />
+        {% if custom_css %}<link href="/static/css/{{ custom_css }}.css" rel="stylesheet" />{% endif %}
         {% block stylesheets %}{% endblock %}
 
         <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicons/apple-touch-icon.png">
@@ -39,7 +40,7 @@
         <meta name="twitter:description" content="{{ seo_description | safe }}" />
         <meta name="twitter:image"       content="https://pdfshift.io/static/images/banner/slogan.png">
     </head>
-    <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+    <body{% if body_class %} class="{{ body_class }}"{% endif %}>
         <div>
             <header id="header">
                 <div class="heading">

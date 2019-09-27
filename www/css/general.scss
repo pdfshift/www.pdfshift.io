@@ -1,5 +1,6 @@
 @import '../static/css/zeplin';
-@import '_colors';
+@import '_common';
+@import '_animations';
 
 #ads {display: none} // ...
 
@@ -80,6 +81,8 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+
+
 ::selection {
     background: $color-secondary; /* WebKit/Blink Browsers */
     color: #fff;
@@ -92,6 +95,10 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    min-width: 325px;
 }
 
 h1 {
@@ -305,7 +312,7 @@ a.button, input.button, button.button {
     }
 
     p.excerpt {
-        color: #626262;
+        color: #fff;
         font-style: italic;
         font-size: 1.1rem;
     }
@@ -333,7 +340,7 @@ a.button, input.button, button.button {
             text-align: left;
         }
 
-        input[type="text"], input[type="email"] {
+        input[type="text"], input[type="email"], textarea {
             padding: 20px;
         }
 
@@ -939,10 +946,241 @@ footer {
 .hljs-doctag,.hljs-strong{font-weight:bold}
 .hljs-emphasis{font-style:italic}
 
-@import '_home';
-@import '_pricing';
-@import '_contact';
-@import '_press';
-@import '_enterprise';
-@import '_guides';
-@import '_responsive';
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~ Responsive ~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// handled
+@include media-mobiles {
+    .container, .container-small {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .row {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    header .hero .actions {
+        text-align: center;
+
+        a.button, span {
+            display: none !important;
+        }
+    }
+
+    .row .column.one,
+    .row .column.two,
+    .row .column.three,
+    .row .column.four,
+    .row .column.five,
+    .row .column.six,
+    .row .column.seven,
+    .row .column.eight,
+    .row .column.nine,
+    .row .column.ten,
+    .row .column.eleven,
+    .row .column.twelve {
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+
+    footer {
+        .row {
+            display: block !important;
+            text-align: center;
+        }
+        
+        .disclaimer ul {
+            li {
+                display: block !important;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+// tablets
+@include media-tablets {
+    .container, .container-small {
+        width: 100%;
+        max-width: 960px;
+    }
+
+    .row {
+        display: block;
+        width: 100%;
+    }
+
+    .row .column,
+    .row .column.one,
+    .row .column.two,
+    .row .column.three,
+    .row .column.four,
+    .row .column.five,
+    .row .column.six,
+    .row .column.seven,
+    .row .column.eight,
+    .row .column.nine,
+    .row .column.ten,
+    .row .column.eleven,
+    .row .column.twelve {
+        flex: 0 0 100%; max-width: 100%
+    }
+}
+
+
+// small screen
+@include media-small {
+    .row {
+        .offset-one, .offset-two, .offset-three, .offset-four, .offset-five, .offset-six, .offset-seven, .offset-eight, .offset-nine, .offset-ten, .offset-eleven {
+            margin-left: 0;
+        }
+    }
+    // Global
+    /*
+    XXX Doesn't work !
+    &.from-right {
+        animation: fadeInLeft ease-in-out 1 !important;
+    }
+    */
+
+    table {
+        display: block;
+        width: 100%;
+
+        .button, .label {
+            white-space: nowrap
+        }
+    }
+
+
+    // general
+    header {
+        .heading {
+            div.column {
+                margin: 0 !important;
+            }
+
+            .accordion-menu {
+                display: block !important;
+                position: absolute;
+                width: 45px;
+                height: 35px;
+                top: 20px;
+                left: 20px;
+                border: 2px solid #fff;
+                border-radius: 5px;
+            }
+
+            .brand {
+                margin-top: 0 !important;
+                padding: 5px 0;
+                text-align: center;
+            }
+
+            #header-main-menu, #header-main-cta {
+                display: none;
+                opacity: 0;
+                text-align: center;
+                margin: 0 0 20px;
+        
+                &.visible {
+                    display: block;
+                    opacity: 1;
+                    animation: fadeInFromNone 0.25s ease-in-out;
+                }
+            }
+        
+            #header-main-menu {
+                li, a {
+                    display: block;
+                }
+            }
+        }
+
+        .hero>div {
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            margin: 20px 0 0;
+
+            &>.column>div {
+                padding: 0;
+            }
+
+            &>.column:first-child {
+                margin-bottom: 40px;
+            }
+
+            h1 {
+                width: 100%;
+                text-align: center;
+            }
+
+            p a {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    footer {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            .column {
+                margin-top: 40px;
+                flex: 1 0 45% !important;
+
+                &:first-child {
+                    margin-top: 0;
+                    flex: 1 0 98% !important;
+                }
+            }
+        }
+
+        .disclaimer {
+            display: block !important;
+            margin-bottom: 0;
+
+            .three {
+                margin-top: 20px;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                text-align: left !important;
+                li {
+                    padding: 0;
+                    margin: 0 0 0 20px !important;
+                    display: inline-block;
+
+                    &:first-child {
+                        margin: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    *, *:before, *:after {box-sizing:border-box;}
+}
+
+// Wide screens
+@media all and (min-width: 1024px) and (max-width: 1450px) {
+    .container {
+        width: 960px;
+        max-width: 960px;
+    }
+}

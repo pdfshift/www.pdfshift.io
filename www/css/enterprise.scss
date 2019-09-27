@@ -1,3 +1,5 @@
+@import '_common';
+
 body.enterprise {
     header {
         text-align: center;
@@ -141,5 +143,37 @@ body.enterprise {
 
     footer {
         margin-top: 0;
+    }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~ Responsive ~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@include media-small {
+    body.enterprise {
+        header .hero, main .actions {
+            background-position: top center !important;
+
+            .cta a {
+                padding: 20px 50px !important;
+            }
+
+            h3 {
+                margin-top: 0;
+            }
+
+            p>br {
+                display: none;
+            }
+        }
+
+        main .actions {
+            padding: 60px 20px;
+            .cta {
+                margin-bottom: 0;
+            }
+        }
     }
 }

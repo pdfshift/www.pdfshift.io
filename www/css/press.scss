@@ -1,3 +1,5 @@
+@import '_common';
+
 body.press main {
     padding-top: 100px;
 
@@ -110,6 +112,65 @@ body.press main {
                     }
                 }
             }
+        }
+    }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~ Responsive ~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@include media-small {
+    body.press main {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .container .details {
+            &.logos ul li {
+                margin-top: 40px;
+                display: block;
+                text-align: center;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                img {
+                    width: 80%;
+                }
+
+                span {
+                    margin: 0;
+                    display: block;
+                }
+            }
+
+            &.banners ul {
+                li {
+                    display: block;
+                    text-align: center;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    span {
+                        margin: 0;
+                        display: block;
+                    }
+                }
+            }
+
+        }
+    }
+
+    body.unified>div {
+        padding-bottom: 20px !important;
+
+        main>div {
+            padding-left: 20px;
+            padding-right: 20px;
         }
     }
 }

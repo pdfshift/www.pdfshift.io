@@ -1,0 +1,518 @@
+@import '_common';
+
+// Ana :
+// I moved these variables here since they are custom to the landing for the developers.
+// Depending on how we work on it, they might move later on.
+
+$color-text: #24272A;
+$color-text-pale: #a1a1a1;
+
+/* Shadows */
+$purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
+
+/* Gradients */
+$purple-bg: linear-gradient(180deg, #F3F0F8 0%, #FBFBFB 100%);
+
+
+/*
+
+        &__language {
+            display: flex;
+            align-content: center;
+            margin-bottom: 1em;
+            h3 {
+                display: inline-block;
+                color: $color-text;
+                font-size: 1.3em;
+                font-weight: normal;
+                margin: 0 0 0 0.5em;
+            }
+            a {
+                margin-left: auto;
+                color: rgba($color-text-grey, 0.5);
+                &:hover {
+                    border-color: rgba($color-text-grey, 0.5);
+                }
+            }
+        }
+
+        &__code {
+            max-width: 960px;
+            margin: 0 auto;
+            &__wrap {
+                background-color: $color-white;
+                border-radius: 5px;
+                padding: 1.5em;
+                box-shadow: $purple-shadow;
+                margin-bottom: -10rem;
+                position: relative;
+
+                pre {
+                    overflow: auto;
+                    border: solid 1px $color-light-grey;
+                    border-radius: 5px;
+                }
+
+                pre>code {
+                    font-family: monospace;
+                    font-size: 0.75em;
+                    background-color: rgba($color-light-grey, 0.2);
+                    padding-left: 2em;
+                }
+
+                .code-section {
+                    position: relative;
+                }
+            }
+        }
+        &__copy {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            width: 2em;
+            height: 2em;
+            a {
+                height: 100%;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                svg {
+                    margin: 0 auto;
+                    transition: fill ease-in-out 250ms;
+                    width: 20px;
+                    fill: #9874CE;
+                }
+                &:hover svg {
+                    fill:#fff;
+                }
+            }
+            span {
+                position: absolute;
+                font-size: 0.5em;
+                top: 1em;
+                right: 5em;
+                font-weight: 700;
+                background-color: rgba(0, 0, 0, 0.4);
+                border-radius: 2px;
+                color: $color-white;
+            }
+        }
+*/
+
+
+
+section {
+    padding: 2em 0;
+
+    h2 {
+        color: $color-text;
+        margin: 2em 0 0.5em;
+        padding: 0;
+        text-align: center;
+    }
+}
+
+#brands {
+    padding-bottom: 0px;
+    ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 10em 0 3em 0;
+        border-bottom: 1px solid $color-light-grey;
+
+        h2 small {
+            display: block;
+            font-size: 0.8em;
+            font-style: italic;
+        }
+
+        li img {
+            width: 150px;
+        }
+    }
+}
+
+#numbers {
+  background-color: $color-white;
+  color: $color-text;
+
+  ul {
+        margin: 80px 0 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+      >li {
+            text-align: center;
+
+            h5 {
+                font-size: 2rem;
+                margin: 0.5em 0;
+            }
+
+            svg {
+                width: 64px;
+            }
+
+            span {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// adjust navi
+header {
+  .landing-heading {
+    &>div nav ul {
+      text-align: right;
+      margin-right: 1em;
+    }
+    &>div .cta a {
+      font-style: normal;
+      font-size: 0.8em;
+      background: $color-white;
+      color: $color-primary;
+    }
+  }
+}
+
+// adjust button
+.landing-cta {
+    a {
+        font-style: normal;
+    }
+}
+
+
+#testimonials {
+    background: $purple-bg;
+
+    .text-accent {
+        color: $color-ternary;
+    }
+
+    .landing__testimonial {
+        display: flex;
+        align-items: center;
+        margin-top: 4em;
+
+        &__info {
+            margin-left: 1em;
+        }
+
+        &__heading {
+            display: flex;
+            align-items: center;
+            color: $color-text-pale;
+            span {
+                margin-left: 0.5em;
+                font-weight: bold;
+            }
+        }
+        &__wrap {
+            position: relative;
+            padding: 0 0 2em;
+
+            &:after {
+                content: "";
+                position: absolute;
+                background: linear-gradient(180deg, rgba(249, 247, 250, 0) 0%, #FAFAFB 100%);
+                width: 100%;
+                height: 200px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+        &__button {
+            margin: 3em auto;
+            font-size: 0.8em;
+            background-color: $color-white;
+            border: 1px solid $color-ternary;
+            &__wrap {
+                text-align: center;
+            } 
+        }
+    }
+}
+
+.reviews {
+    background-color: $color-white;
+    padding: 4em 0;
+    &__item {
+        margin: 2em 2em 0;
+        padding-bottom: 1em;
+        text-align: center;
+        > * {
+            text-align: center;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &__link {
+        font-weight: bold;
+        color: $color-text-pale;
+        font-size: 0.8em;
+        > svg {
+            margin-left: 0.3em;
+        }
+    }
+}
+
+#pricing {
+    background: $color-white;
+    text-align: center;
+    box-sizing: border-box;
+    padding-bottom: 8em;
+
+    .excerpt {
+        max-width: 960px;
+        margin: 0 auto 4em;
+    }
+
+
+    .landing__pricing {
+        &__card {
+            margin-right: 2em;
+            margin-left: 0;
+            font-size: 0.9em;
+            background-color: $color-white;
+            box-shadow: $purple-shadow;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3em 1.5em 0;
+            text-align: center;
+            flex-grow: 1;
+            box-sizing: border-box;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            svg {
+                width: 80px;
+            }
+
+            h4 {
+                color: $color-text;
+                font-size: 1.5em;
+                margin: .9em 0 .4em;
+            }
+
+            .price {
+                color: $color-ternary;
+                font-weight: bold;
+                font-size: 2em;
+                margin: 0;
+
+                small {
+                    font-size: 0.6em;
+                }
+            }
+
+            ul {
+                color: $color-text-pale;
+                margin: 2em 0;
+
+                li {
+                    margin: 0.5em 0
+                }
+            }
+
+            p {
+                margin: 2em 0;
+                color: $color-text-pale;
+            }
+
+            strong {
+                font-weight: bold;
+            }
+        }
+
+        &__button {
+            margin-top: auto;
+            margin-bottom: 1.5em;
+            font-size: 0.8em;
+            width: 80%;
+            background-color: $color-white;
+            border: 1px solid $color-ternary;
+            &-fill {
+                background-color: $color-ternary;
+                color: $color-white;
+            }
+        }
+    }
+
+    .free-plan {
+        margin: 3em 0 1em;
+        &__action {
+            color: $color-primary;
+            font-weight: 700;
+            svg {
+                margin-left: 0.5em;
+            }
+        }
+    }
+}
+
+.trial {
+    background-image: url('/static/images/trianglify.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: $color-white;
+    padding: 6em 0;
+    // remove footer gap
+    margin-bottom: -100px;
+    &__header {
+        color: $color-white;
+        margin-top: 0;
+    }
+    &__excerpt {
+        line-height: 1.8;
+        max-width: 40em;
+        margin: 0 auto;
+    }
+    &__buttons {
+        margin-top: 2em;
+    }
+    &__button {
+        color: $color-white;
+        border: 1px solid $color-white !important;
+        margin: 0.5em;
+        font-size: 0.9em;
+        min-width: 200px;
+        &-fill {
+            color: $color-ternary;
+            background-color: $color-white;
+        }
+        &:hover {
+            color: $color-ternary;
+            background-color: $color-white;
+            border-width: 1px;
+        }
+    }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~ Responsive ~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+@include media-small {
+    #brands ul {
+        display: block;
+        text-align: center;
+        padding-bottom: 2em;
+        li {
+            padding: 2em;
+            display: inline-block;
+            height: 100px;
+            img {
+                width: auto;
+                max-width: 150px;
+            }
+        }
+    }
+
+    header .landing-heading>div nav ul {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    #features {
+        .landing__feat__card {
+            width: 100%;
+        }
+
+        .landing__feat__button {
+            margin: 2em 0 3em;
+        }
+    }
+
+
+    #testimonials .landing__testimonial {
+        display: block;
+        text-align: center;
+
+        &__info {
+            margin-left: 0;
+        }
+
+        &__heading {
+            display: block;
+            span {
+                display: block;
+                margin: 0;
+            }
+        }
+
+        &__wrap {
+            padding: 0;
+        }
+    }
+
+    #pricing {
+        padding-bottom: 4em;
+
+        .excerpt {
+            margin: 0 auto 2em;
+        }
+
+        .landing__pricing {
+            &__card {
+                margin-right: 1em;
+
+                ul {
+                    margin: 1em 0;
+                }
+
+                p {
+                    margin: 1em 0;
+                }
+            }
+
+            &__button {
+                width: 90%;
+                margin-bottom: 2em;
+            }
+        }
+        .landing__pricing__card {
+            display: inline-block;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto 2em;
+        }
+    } 
+
+    .trial__buttons {
+        text-align: center;
+    }
+
+
+    .landing-hero h1 {
+        font-size: 2em;
+    }
+}
+
+@include media-mobiles {
+
+    #numbers ul {
+        display: block;
+        margin: 30px 0 0;
+
+        >li {
+            margin: 30px 0 0 0 !important;
+        }
+    }
+
+}

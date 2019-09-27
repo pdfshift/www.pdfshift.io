@@ -1,3 +1,5 @@
+@import '_common';
+
 .home {
     #register label.checkbox {
         font-size: 0.9em;
@@ -327,7 +329,7 @@
                         border-radius: 5px;
                         display: block;
                         transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
-                        border-bottom: none;
+                        border: solid 1px transparent;
 
                         &:hover {
                             background-color: fade-out(lighten($color-ternary, 20%), .7);
@@ -336,8 +338,9 @@
                     }
 
                     &.selected>a {
-                        background-color: fade-out($color-ternary, .7);
-                        color: $color-ternary;
+                        color: $color-primary;
+                        border: solid 1px $color-ternary;
+                        background-color: fade-out($color-ternary, 0.8);
                     }
                 }
             }
@@ -458,7 +461,6 @@
             }
 
             @media all and (max-width: 1500px) {
-
                 &:first-child {
                     left: -20px;
                 }
@@ -525,83 +527,229 @@
 }
 
 #pricing {
+    border-top: 1px solid #e8e8e8;
     background-color: #fbfbfb;
-    text-align: center;
-    box-sizing: border-box;
+}
 
-    .column {
-        margin-right: 20px;
-        margin-left: 0;
-        border: solid 1px $color-light-grey;
-        background-color: $color-white;
-        border-radius: 5px;
-        transition: border 250ms ease-in-out;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+@import '_pricing';
 
-        &:last-child {
-            margin-right: 0;
-        }
+#contact {
+    background-color: $color-secondary;
+    p.excerpt {
+        color: $color-white;
+    }
+}
 
-        &.active {
-            border-color: $color-ternary;
-        }
+@import '_contact';
 
-        >div {
-            padding: 20px 20px 0 20px;
-            text-align: center;
-            flex-grow: 1;
-        
-            svg {
-                width: 80px;
-            }
 
-            h4 {
-                color: #24272a;
-                font-size: 1.8em;
-                margin: 20px 0;
-            }
 
-            .price {
-                color: $color-ternary;
-                font-weight: bold;
-                font-size: 2em;
-                margin: 0;
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~ Responsive ~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-                small {
-                    font-size: 0.6em;
+// handled
+@include media-mobiles {
+    #try-me {
+        form>.row {
+            .options {
+                flex: 1 0 100% !important;
+                margin-top: 20px !important;
+                &:first-child {
+                    margin-top: 0 !important;
+                }
+
+                .radio {
+                    text-align: center !important;
                 }
             }
 
-            ul {
-                color: #a2a2a2;
-                margin: 40px 0;
-
-                strong {
-                    font-weight: bold;
-                }
-
-                li {margin: 10px 0}
-            }
-
-            p {
-                margin: 60px 0;
-                color: #888;
-            }
-        }
-
-        a.button {
-            margin-top: auto;
-            display: inline-block;
-            margin-bottom: 20px;
         }
     }
 
-    .free-plan {
-        margin: 40px 0;
-        color: #626262;
-        font-style: italic;
+    #brands ul {
+        display: block;
+
+        li {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            img {
+                width: 50% !important;
+            }
+        }
+    }
+
+    #numbers {
+        ul {
+            display: block !important;
+            margin: 30px 0 0;
+
+            &>li {
+                margin: 30px 0 0 0 !important;
+
+                &:first-child {
+                    margin-top: 0 !important;
+                }
+            }
+        }
+    }
+
+    #code {
+        .code-section {
+            pre {
+                padding-top: 50px;
+            }
+
+            .copy {
+                left: 0;
+                text-align: center !important;
+            }
+        }
+    }
+
+    #testimonials {
+        .container>div {
+    
+            >a {
+                &:first-child {
+                    left: 0;
+                }
+                &:last-child {
+                    right: 0;
+                }
+            }
+        }
+
+        ul>li {
+            flex: 0 0 100% !important;
+        }
+    }
+}
+
+// tablets
+@include media-tablets {
+    #testimonials {
+        .container>div {
+    
+            >a {
+                &:first-child {
+                    left: 0px;
+                }
+                &:last-child {
+                    right: 0px;
+                }
+            }
+        }
+        ul>li {
+            flex: 0 0 50% !important;
+        }
+    }
+}
+
+// small screen
+@include media-small {
+    body.home main>div {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    body main .container-small {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #try-me {
+        .container {
+            width: 100%;
+        }
+
+        form>.row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px !important;
+
+            .options {
+                margin-top: 0;
+                display: block;
+                flex: 1 0 40%;
+
+                &:first-child {
+                    border-right: none !important;
+                }
+
+                .radio {
+                    text-align: left;
+                }
+            }
+        }
+
+        form .button {
+            font-size: 1em;
+            margin: 0;
+        }
+    }
+
+    #brands ul li {
+        text-align: center;
+
+        img {
+            width: 75%;
+        }
+    }
+
+    #numbers {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 30px 0 0;
+
+            &>li {
+                display: block;
+                flex: 1 0 45%;
+                min-height: 167px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    #code {
+        .row .three {
+            ul {
+                margin: 0px;
+            }
+
+            &>a {
+                margin: 20px 0 0;
+            }
+        }
+    }
+
+    #features .column>div {
+        width: 100%;
+    }
+
+    .pricing {
+        &__card-wrapper {
+            height: 250px;
+        }
+
+        &__slider {
+            display: none;
+        }
+
+        &__main {
+            padding-left: 0;
+        }
+
+        &__main-input {
+            display: none;
+        }
     }
 }

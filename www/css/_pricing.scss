@@ -1,151 +1,319 @@
-.pricing-details .hero {
-    text-align: center;
 
-    h1 {
+.pricing {
+    &__slider {
+        margin: 10px 0;
+        width: 100%;
         text-align: center;
+        border-radius: 5px;
+
+        &__range {
+            -webkit-appearance: none;
+            width: calc(100% - 1.7em);
+            margin: 0 auto;
+            height: 10px;
+            border-radius: 5px;
+            background: #d7dcdf;
+            outline: none;
+            padding: 0;
+            margin: 0;
+          
+            // Range Handle
+            &::-webkit-slider-thumb {
+                outline: none;
+                appearance: none;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background: $color-secondary;
+                cursor: pointer;
+                transition: background-color .15s ease-in-out;
+                border: 3px solid #fff;
+            
+                &:hover {
+                    background: $color-primary;
+                }
+            }
+          
+            &:active::-webkit-slider-thumb {
+               background: $color-primary;
+               outline: none;
+            }
+          
+            &::-moz-range-thumb {
+                outline: none;
+                appearance: none;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background: $color-secondary;
+                cursor: pointer;
+                transition: background-color .15s ease-in-out;
+                border: 3px solid #fff;
+
+                &:hover {
+                    background: $color-primary;
+                }
+            }
+            &:active::-moz-range-thumb {
+                background: $color-primary;
+                outline: none;
+            }
+        }
+
+        &__values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5em;
+
+            div {
+                font-size: 12px;
+                color: $color-text-grey;
+                text-align: center;
+                width: 50px;
+                position: relative;
+                padding-top: 1em;
+                &:before {
+                    content: "";
+                    width: 1px;
+                    height: 0.8em;
+                    background-color: $color-light-grey;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                }
+
+                &.active {
+                    color: $color-primary;
+                    font-weight: bold;
+
+                    &:before {
+                        background-color: fade-out($color-primary, 0.6);
+                    }
+                }
+            }
+        }
+    }
+
+    &__board {
+        margin-top: 3em;
+    }
+
+    &__titles {
+        display: flex;
+        justify-content: space-between;
+        // adding a custom scrollbar width
+        padding: 0 20px 10px 0;
+
+        div {
+            font-size: 0.7em;
+            font-weight: 600;
+            width: 33%;
+            text-align: left;
+            color: $color-text-grey-secondary;
+        }
+    }
+
+    &__card-wrapper {
+        padding: 0;
+        padding-right: 0.5em;
+        border-radius: 5px;
+        height: 375px;
+        overflow-y: scroll;
+        position: relative;
+
+        &::-webkit-scrollbar-track {
+            // Empty zone scrollbar
+            -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.2);
+            border-radius: 10px;
+            background-color: fade-out($color-ternary, .8);
+        }
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: $color-ternary;
+        }
+
+        label:last-child .pricing__card-item {
+            margin-bottom: 0;
+        }
+    }
+
+    &__card-input {
+        display: none !important;
+    }
+
+    &__card-input:checked + .pricing__card-item {
+        border: 1px solid $color-ternary;
+        color: $color-primary;
+        background-color: fade-out($color-ternary, 0.8);
+
+        div {
+            color: fade-out($color-primary, 0.2);
+
+            &:first-child {
+                color: $color-primary;
+            }
+        }
+    }
+
+    &__card-item {
+        background-color: rgba(236, 236, 236, 0.5);
+        display: flex;
+        padding: 0.7em 1em;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        margin-bottom: 0.5em;
+        cursor: pointer;
+
+        &>div {
+            color: $color-text-grey-secondary;
+            width: 33.3%;
+            font-size: 1em;
+            font-weight: 600;
+            &:first-of-type {
+                color: $color-text-grey;
+            }
+
+            span {
+                font-size: 0.75em;
+                top: -.6em;
+                position: relative;
+            }
+        }
+    }
+
+    &__main {
+        padding-left: 2em;
+    }
+    
+    &__main-input {
+        display: flex;
+        align-items: center;
+        margin-top: 1.5em;
+
+        span {
+            width: 45%;
+            padding-right: 1em;
+            font-weight: 600;
+            color: $color-text-grey-secondary;
+        }
+        input {
+            color: $color-text-grey;
+            width: 55%;
+            font-size: 1.4em;
+            font-weight: 700;
+            background-color: $color-white;
+            text-align: center;
+            padding: 0.5em;
+        }
+    }
+
+    &__main-card {
+        background-color: $color-white;
+        border: 1px solid $color-light-grey;
+        border-radius: 5px;
+        padding: 1em 1.5em;
+        margin-top: 1em;
+        box-shadow: 0 8px 25px $color-light-grey;
+
+        &__top {
+            display: flex;
+            align-content: space-between;
+            align-items: center;
+            font-size: 2em;
+            font-weight: 500;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $color-light-grey;
+        }
+
+        &__title {
+            color: $color-text-grey;
+        }
+
+        &__price {
+            margin-left: auto;
+            color: $color-primary;
+
+            span {
+                font-size: 0.4em;
+                top: -1.3em;
+                position: relative;
+            }
+        }
+
+        &__body {
+            color: $color-text-grey;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            margin: 1rem 0;
+            line-height: 2em;
+        }
+
+        &__footer {
+            font-size: 0.8em;
+        }
+
+        &__button {
+            margin: 1.5rem 0 0.5rem;
+            a {
+                width: 100%;
+                display: inline-block;
+                box-sizing: border-box;
+                margin: 0;
+                text-align: center;
+                text-transform: uppercase;
+                padding: 1em 0;
+            }
+        }
+    }
+
+    &__main-enterprise .pricing__main-card__body {
+        display: block;
+        text-align: center;
+        line-height: 1.2em;
+
+        strong {
+            display: block;
+            margin-bottom: 1em;
+        }
+    }
+
+    &__excerpt {
+        color: $color-text-grey-secondary;
+        margin-top: 3em;
+        text-align: center;
+        font-size: .9em;
+
+        p {
+            margin: 0 0 .1em 0;
+            padding: 0;
+        }
     }
 }
 
-
-#pricing-details {
+// small screen
+@include media-small {
     .pricing {
-        background-color: #f8f8f8;
-        padding: 60px 0 100px;
-
-        .container {
-            table {
-                background-color: #fff;
-                width: 100%;
-                box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
-                border-collapse: collapse;
-                border-style: hidden;
-                border-radius: 5px;
-            }
-
-            tr, td, th {
-                margin: 0;
-                padding: 0;
-            }
-
-            thead th {
-                text-align: center;
-                background-color: $color-primary;
-                color: #fff;
-                font-weight: 500;
-                padding: 20px 0;
-                border: solid 1px #fff;
-
-                &:first-child {
-                    border-radius: 5px 0 0 0;
-                    width: 275px;
-                }
-
-                &:last-child {
-                    border-radius: 0 5px 0 0;
-                }
-
-                svg {
-                    width: 80px;
-                    margin: 0;
-                    padding: 0;
-                }
-
-                h4 {
-                    margin-top: 0;
-                    padding-top: 0;
-                }
-            }
-
-            tbody {
-                tr>td {
-                    text-align: center;
-                    padding: 20px;
-                    border: solid 1px #ccc;
-                    vertical-align: middle;
-
-                    sup {
-                        vertical-align: super;
-                        font-size: 0.8em;
-                    }
-
-                    &.key {
-                        text-align: left;
-                        font-weight: 500;
-                        font-size: 0.9em;
-                        background-color: #fbfbfb;
-
-                        small {
-                            font-weight: 400;
-                            font-size: 0.8em;
-                        }
-                    }
-
-                    &.yes {
-                        background: url("/static/images/checkmark.svg") no-repeat center center;
-                    }
-                }
-
-                tr:last-child {
-                    td:first-child {
-                        border-radius: 0 0 0 5px;
-                    }
-
-                    td:last-child {
-                        border-radius: 0 0 5px 0;
-                    }
-                }
-
-                .separator {
-                    td {
-                        background-color: #fff;
-                        text-align: left;
-                        font-weight: 500;
-                    }
-                }
-
-                .ctas td {
-                    padding: 20px 10px;
-
-                    a.button {
-                        padding: 10px 20px;
-                    }
-                }
-            }
-        }
-    }
-
-    #faq {
-        h3 {
-            text-align: center;
-            margin: 80px 0 80px;
-            color: lighten($color-primary, 20%);
+        &__card-wrapper {
+            height: 250px;
         }
 
-        .row {
-            margin-top: 40px;
-
-            h4 {
-                color: lighten($color-primary, 30%);
-            }
-
-            .column:first-child {
-                padding-right: 40px;
-            }
-
-            .column:last-child {
-                padding-left: 40px;
-            }
-
-            p {
-                text-align: justify;
-                color: $color-text-grey;
-                font-size: 0.9em;
-            }
+        &__slider {
+            display: none;
         }
 
-        .cta {
-            text-align: center;
-            margin: 80px 0 0;
+        &__main {
+            padding-left: 0;
+        }
+
+        &__main-input {
+            display: none;
         }
     }
 }

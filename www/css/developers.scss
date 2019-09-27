@@ -1,0 +1,274 @@
+@import '_common';
+@import '_animations';
+
+
+.landing {
+    a {
+        border-color: transparent;
+    }
+
+    &-hero {
+        margin-bottom: -100px;
+        &__text {
+            text-align: center;
+            margin: 40px auto 80px;
+
+            h1 {
+                text-align: center;
+                font-size: 3em;
+                margin: 0 0 40px;
+                line-height: 1.25em;
+            }
+
+            p {
+                font-size: 20px;
+                margin: 10px 0;
+                opacity: 0.8;
+            }
+
+            .actions {
+                margin-top: 60px;
+
+                .button {
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    background-color: $color-white;
+                    color: $color-primary;
+                    border-radius: 0;
+                    padding-left: 80px;
+                    padding-right: 80px;
+
+                    border: 1px solid transparent;
+                    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+                    outline: 1px solid;
+                    outline-color: rgba(255, 255, 255, .5);
+                    outline-offset: 0px;
+                    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+
+                    &:hover {
+                        border: 1px solid  $color-white;
+                        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+                        outline-color: rgba(255, 255, 255, 0);
+                        outline-offset: 15px;
+                    }
+                }
+            }
+        }
+
+        &__code-section {
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+            background-color: $color-white;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 0 auto;
+            width: 760px;
+            box-shadow: 0 8px 25px fade-out($color-primary, 0.6);
+
+            .landing-hero__title {
+                display: flex;
+                flex-direction: row;
+
+                h3 {
+                    display: inline-block;
+                    color: $color-text-grey;
+                    font-size: 1.3em;
+                    font-weight: normal;
+                    margin: 0 0 0 0.5em;
+                }
+            }
+        }
+
+        &__code {
+            background-color: $color-white;
+            border-radius: 5px;
+            padding-top: 20px;
+            position: relative;
+
+            pre {
+                overflow: auto;
+                border: solid 1px $color-light-grey;
+                border-radius: 5px;
+            }
+
+            pre>code {
+                font-family: monospace;
+                font-size: 0.75em;
+                background-color: rgba($color-light-grey, 0.2);
+                padding-left: 2em;
+            }
+        }
+
+        &__copy {
+            position: absolute;
+            top: 30px;
+            right: 15px;
+            width: 48px;
+            height: 48px;
+
+            a {
+                height: 100%;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    margin: 0 auto;
+                    transition: fill ease-in-out 250ms;
+                    width: 20px;
+                    fill: $color-primary;
+                }
+
+                &:hover svg {
+                    fill: $color-white;
+                }
+            }
+        }
+
+    }
+}
+
+main>section {
+    padding: 80px 0;
+}
+
+#brands ul {
+    display: flex;
+    justify-content: space-around;
+    margin: 140px 0 0;
+
+    h2 small {
+        display: block;
+        font-size: 0.8em;
+        font-style: italic;
+    }
+
+    li img {
+        width: 150px;
+    }
+}
+
+#numbers {
+    background-color: #192638;
+    color: $color-white;
+
+    h2 {
+        text-align: center;
+        color: $color-white;
+        margin: 0 0 20px 0;
+    }
+
+    ul {
+        margin: 80px 0 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        >li {
+            text-align: center;
+
+            h5 {
+                font-size: 2rem;
+                color: $color-white;
+                margin: 20px 0 10px;
+            }
+
+            svg {
+                fill: #fbfbfb;
+                width: 64px;
+            }
+
+            span {
+                color: rgba(141, 147, 155, 0.8);
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        }
+
+    }
+}
+
+
+#features {
+    background: $color-light-gradient;
+    text-align: center;
+
+    h2 {
+        margin: 0 0 40px;
+    }
+
+    .column {
+        margin-top: 2em;
+        margin-right: 2em;
+        margin-left: 0;
+        display: flex;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    .landing__feat {
+        &__card {
+            padding: 2em 1.5em;
+            margin: 0;
+            align-items: center;
+            text-align: center;
+            background-color: $color-white;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px fade-out($color-primary, 0.8);
+            
+            svg {
+                height: 50px;
+            }
+
+            h5 {
+                font-size: 1.2em;
+                color: $color-text-grey;
+                margin: 1em 0;
+                padding: 0;
+            }
+
+            p {
+                margin: 0;
+                padding: 0;
+                line-height: 1.6em;
+                color: #7e7e7e;
+            }
+        }
+        &__button {
+            margin: 4em 0 6em;
+            border: 1px solid $color-ternary;
+            background-color: $color-white;
+        }
+    }
+}
+
+
+#g2crowd-banner .container>div {
+    margin: 60px auto;
+    width: 760px;
+    box-shadow: 0 8px 25px fade-out($color-primary, 0.6);
+
+    border-radius: 5px;
+    display: flex;
+    padding: 1em 1.5em;
+    // background: $purple-bg;
+    align-items: center;
+    box-sizing: border-box;
+
+    svg {
+        height: 128px;
+    }
+    .description {
+        margin-left: 1.5em;
+        h3 {
+            color: $color-ternary;
+            margin: 0 0 0.5em;
+            text-align: left;
+        }
+    }
+}

@@ -1,0 +1,77 @@
+@import '_common';
+@import '_pricing.scss';
+
+.pricing-details .hero {
+    text-align: center;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+
+#pricing-details {
+    margin-top: 60px;
+
+    #pricing {
+        background-color: #fbfbfb;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    #faq {
+        h3 {
+            text-align: center;
+            margin: 80px 0 80px;
+            color: lighten($color-primary, 20%);
+        }
+
+        .row {
+            margin-top: 40px;
+
+            h4 {
+                color: lighten($color-primary, 30%);
+            }
+
+            .column:first-child {
+                padding-right: 40px;
+            }
+
+            .column:last-child {
+                padding-left: 40px;
+            }
+
+            p {
+                text-align: justify;
+                color: $color-text-grey;
+                font-size: 0.9em;
+            }
+        }
+
+        .cta {
+            text-align: center;
+            margin: 80px 0 0;
+        }
+    }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~ Responsive ~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+// small screen
+@include media-small {
+    #pricing-details {
+        #faq .row {
+            .column:first-child {
+                padding-right: 0px;
+            }
+
+            .column:last-child {
+                padding-left: 0px;
+            }
+        }
+    }
+}

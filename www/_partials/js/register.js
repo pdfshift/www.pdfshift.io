@@ -15,8 +15,9 @@
         var params = Object.assign(
             {}, // Default type
             {
-                'language': window.PDFShift.storage.get('language')
-            }, // Language
+                'language': window.PDFShift.storage.get('language'),
+                'quantity': window.PDFShift.storage.get('quantity')
+            },
             window.PDFShift.storage.get('campaign', {}), // Campaign params
             window.PDFShift.forms.asJSON(form) // Form data
         );

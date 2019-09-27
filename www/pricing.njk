@@ -1,4 +1,6 @@
-{% set bodyClass = 'pricing-details' %}
+{% set body_class = 'pricing-details' %}
+{% set custom_css = 'pricing' %}
+
 {% set seo_title = "Pricing plans that scale with you." %}
 {% set seo_description = "PDFShift offers various pricings that adjust to your needs. This page is a detailled view of all the available options." %}
 
@@ -17,176 +19,9 @@
 
 {% block main %}
 <div id="pricing-details">
-    <div class="pricing">
-        <div  class="container">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th><h4>Free</h4></th>
-                        <th><h4>Starter</h4></th>
-                        <th><h4>Growth</h4></th>
-                        <th><h4>Business</h4></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="key label">Monthly price</td>
-                        <td><em>Free</em></td>
-                        <td><strong>$9 USD</strong></td>
-                        <td><strong>$39 USD</strong></td>
-                        <td><strong>$99 USD</strong></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Monthly conversions</td>
-                        <td>50</td>
-                        <td>500</td>
-                        <td>5,000</td>
-                        <td>25,000</td>
-                    </tr>
-                    <tr>
-                        <td class="key label">
-                            File size limit
-                            <small>(per PDF)</small>
-                        </td>
-                        <td>1MB</td>
-                        <td>5MB</td>
-                        <td>10MB</td>
-                        <td>25MB</td>
-                    </tr>
-                    <tr>
-                        <td class="key label">
-                            Overage
-                            <small>(if enabled)</small>
-                        </td>
-                        <td>N/A</td>
-                        <td>$1 <sup>per 100</sup><br />conversions</td>
-                        <td>$0.50 <sup>per 100</sup><br />conversions</td>
-                        <td>$0.25 <sup>per 100</sup><br />conversions</td>
-                    </tr>
-                    <tr class="separator">
-                        <td colspan="5">Features</td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Raw HTML input</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">CSS Injection</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Javascript Injection</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Delay</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Custom Page Size</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Custom HTTP Headers</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Custom Header &amp; Footer</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Encryption</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Watermark</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Asynchronous response</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Parallel Conversion</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <!--
-                    <tr>
-                        <td class="key label">PDF Compression</td>
-                        <td class="no">&dash;</td>
-                        <td class="no">&dash;</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                    </tr>
-                    -->
-                    <tr class="separator">
-                        <td colspan="5">Service</td>
-                    </tr>
-                    <tr>
-                        <td class="key label">Email support</td>
-                        <td>24h</td>
-                        <td>12h</td>
-                        <td>6h</td>
-                        <td>2h</td>
-                    </tr>
-                    <tr>
-                        <td class="key label">HTML/CSS support</td>
-                        <td class="no">&dash;</td>
-                        <td class="no">&dash;</td>
-                        <td class="yes"></td>
-                        <td class="yes"></td>
-                    </tr>
-                    <tr class="ctas">
-                        <td class="key label"></td>
-                        <td>
-                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
-                        </td>
-                        <td>
-                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
-                        </td>
-                        <td>
-                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
-                        </td>
-                        <td>
-                            <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div id="pricing" class="pricing">
+        <div class="container">
+            {% include '_partials/pricing.njk' %}
         </div>
     </div>
 
@@ -284,4 +119,10 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+{% include '_partials/js/pricing.js' %}
+</script>
 {% endblock %}
