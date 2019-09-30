@@ -172,98 +172,11 @@
         text-align: center;
         color: #444;
         span {
-            font-style: italic;
+            font-weight: bold;
+            text-decoration: underline;
             color: lighten($color-primary, 15);
         }
     }
 
-    .row {
-        margin-top: 20px;
-
-        &:first-child {
-            margin-top: 80px;
-        }
-    }
-
-    .column {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        &>div {
-            margin: 20px 20px 0 20px;
-            padding: 40px 20px;
-            border: 1px solid #ececec;
-            background-color: #fbfbfb;
-            box-shadow: 0 8px 25px #00000020;
-            border-radius: 5px;
-            height: 100%;
-
-            blockquote {
-                position: relative;
-                margin: 0;
-                padding: 0 0 0 2.5em;
-                color: lighten($color-primary, 15);
-                font-weight: bold;
-                font-size: 1.2em;
-                font-style: italic;
-    
-                &:before {
-                    position: absolute;
-                    display: block;
-                    top: 5px;
-                    left: 0;
-                    font-family: serif;
-                    content: "\201C";
-                    font-size: 4em;
-                    font-weight: bold;
-                    color: rgba($color-primary, .2);
-                }
-            }
-    
-            &>div {
-                border-top: solid 1px #ddd;
-                margin: 20px 0 0;
-                padding: 20px 0 0;
-                display: flex;
-                flex-direction: row;
-                justify-content: left;
-                vertical-align: middle;
-    
-                &>img {
-                    width: 64px;
-                    height: 64px;
-                    border-radius: 50%;
-                }
-        
-                &>div {
-                    padding-left: 20px;
-                }
-    
-                span.stars {
-                    display: flex;
-                    flex-direction: row;
-    
-                    svg {
-                        fill: #ffca00;
-                        display: block;
-                        width: 24px;
-                        height: 24px;
-                    }
-                }
-    
-                span.author {
-                    color: $color-text-grey;
-                    font-weight: bold;
-    
-                    a {
-                        color: #666;
-                        text-decoration: underline;
-                        font-size: .9em;
-                    }
-                }
-            }
-        }
-    }
+    @import '_testimonials';
 }
