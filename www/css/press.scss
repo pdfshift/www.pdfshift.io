@@ -1,176 +1,161 @@
 @import '_common';
 
-body.press main {
-    padding-top: 100px;
+$purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
 
-    .container {
-        text-align: left;
-        h1 {
-            margin: 0 0 20px;
-            font-weight: 400;
-            color: $color-primary;
-        }
-
-        p.excerpt {
-            text-align: left;
-            color: $color-text-grey;
-            font-size: 1.2em;
-            letter-spacing: 0;
-        }
-
-        .details {
-            text-align: justify;
-
-            h2 {
-                color: lighten($color-primary, 10%);
+.press {
+    color: $color-text-grey;
+    padding: 4em 0;
+    line-height: 1.8;
+    p {
+        line-height: inherit;
+    }
+    &--grey {
+        background-color: rgba($color-light-grey, 0.2);
+    }
+    &__breadcrumbs {
+        list-style: none;
+        color: $color-text-grey;
+        font-size: 0.9em;
+        font-weight: 500;
+        margin: -2em 0 4em;
+        li {
+            display: inline-block;
+            margin-left: 0 !important;
+            margin-right: 1em !important;
+            a {
+                color: $color-grey;
+                border-bottom-width: 0;
+                font-weight: 500;
             }
 
-            p {
-                letter-spacing: 0;
-                line-height: 33px;
-            }
-
-            ul li {
-                display: flex;
-                align-items: center;
-                margin: 10px 0;
-                text-align: left;
-                padding: 5px 10px;
-
-                img {
-                    margin: 0;
-                    text-align: left;
-                }
-
-                span {
-                    margin-left: 40px;
-                }
-            }
-
-            &.logos ul img {
-                width: 256px;
-                min-width: 256px;
-            }
-
-            &.icons ul { 
-                li {
-                    img {
-                        width: 64px;
-                        min-width: 64px;
-                    }
-                }
-            }
-
-            &.banners ul li img {
-                width: 512px;
-                min-width: 512px;
-            }
-        }
-
-        address {
-            margin: 40px;
-            background-color: #eee;
-            border: solid 1px #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            font-style: italic;
-        }
-
-        .downloads>div {
-            border: solid 1px $color-light-grey;
-            border-radius: 5px;
-
-            &>div {
-                border-top: solid 1px $color-light-grey;
-
-                &:first-child {
-                    border-top: none;
-                }
-            }
-
-            h4 {
-                padding: 0;
-                margin: 0;
-                font-weight: 200;
-                font-size: 1.2em;
-                color: lighten($color-text-grey, 20%);
-                padding: 20px 20px 0;
-            }
-
-            ul {
-                padding: 40px 20px;
-                margin: 0;
-
-                li {
-                    font-weight: bold;
-                    letter-spacing: 2px;
-                    padding: 5px 0;
-
-                    a {
-                        font-weight: normal;
-                        letter-spacing: 1px;
-                    }
+            &:not(:last-child) {
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    width: 0.7em;
+                    height: 0.7em;
+                    background-image: url('/static/images/press/angle-right.svg');
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    margin-left: 1em;
+                    
                 }
             }
         }
     }
-}
+    &__heading {
+        color: $color-black !important;
+        margin: 1em 0 !important;
+        font-size: 2.4em;
+        font-weight: 600 !important;
+    }
+    &__button {
+        margin: 3em 0 !important;
+        padding: 1em 4em !important;
+        text-transform: uppercase;
+        background-image: url('/static/images/press/download-purple.svg');
+        background-repeat: no-repeat;
+        background-position-x: 94%;
+        background-position-y: 50%;
+        font-size: 0.8em;
+        &:hover {
+            background-image: url('/static/images/press/download-white.svg');
+        }
+    }
+    &__cards {
+        margin-top: 3em;
+    }
+    &__card {
+        border: 1px solid $color-light-grey;
+        border-radius: 5px;
+        margin: 1em;
+        box-shadow: $purple-shadow;
+        background-color: $color-white;
+        &__img {
+            height: 180px;
+            display: block;
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-color: rgba($color-light-grey, 0.2);
 
+            &--logo {
+                background-image: url('/static/images/logo/logo-violet.png');
+            }
+            &--icons {
+                background-image: url('/static/images/press/icons.png');
+            }
+            &--banners {
+                background-image: url('/static/images/banner/slogan.png');
+                background-size: cover;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+        }
+        &__text {
+            padding: 2em;
+            h4 {
+                font-size: 1.3rem;
+                color: $color-black;
+                font-weight: 600;
+                margin: 0 0 1em;
+            }
+        }
+        &__list {
+            margin: 1em 0 0;
+            li {
+                line-height: 2em;
+            }
+        }
+    }
+    &__address {
+        font-weight: 500;
+        padding: 0 1em;
+        margin: 1em 0;
+        border-left: 3px solid $color-ternary;
+        line-height: 1.8;
+    }
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~~~~~~~~~~ Responsive ~~~~~~~~~~
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-@include media-small {
-    body.press main {
-        padding-left: 20px;
-        padding-right: 20px;
-
-        .container .details {
-            &.logos ul li {
-                margin-top: 40px;
-                display: block;
-                text-align: center;
-
-                &:first-child {
-                    margin-top: 0;
-                }
-
-                img {
-                    width: 80%;
-                }
-
-                span {
-                    margin: 0;
-                    display: block;
-                }
+@include media-tablets {
+    .press {
+        padding: 2em 1em;
+        &__card {
+            display: flex;
+            min-height: 280px;
+            &__img {
+                width: 300px;
+                height: auto;
+                border-top-right-radius: 0;
+                border-bottom-left-radius: 5px;
             }
-
-            &.banners ul {
-                li {
-                    display: block;
-                    text-align: center;
-
-                    img {
-                        width: 100%;
-                    }
-
-                    span {
-                        margin: 0;
-                        display: block;
-                    }
-                }
-            }
-
         }
     }
+}
 
-    body.unified>div {
-        padding-bottom: 20px !important;
-
-        main>div {
-            padding-left: 20px;
-            padding-right: 20px;
+@include media-mobiles {
+    .press {
+        padding: 2em 1em;
+        &__heading {
+            margin: 0.5em 0 !important;
+        }
+        &__button {
+            font-size: 0.8em !important;
+            padding: 1em !important;
+            width: 100%;
+            text-align: center;
+            background-position-x: 96%;
+        }
+        &__breadcrumbs {
+            margin: 0 0 2em;
+        }
+        &__cards {
+            margin-top: 1em;
         }
     }
 }
