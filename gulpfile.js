@@ -4,14 +4,14 @@ const nunjucks = require('nunjucks');
 const gulpnunjucks = require('gulp-nunjucks');
 const rename = require("gulp-rename");
 const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
+// const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const plumber = require('gulp-plumber');
 const imagemin = require('gulp-imagemin');
-const cssnano = require('gulp-cssnano');
+// const postcss = require('gulp-postcss');
 const filter = require('gulp-filter');
 const gulpIgnore = require('gulp-ignore');
 const gulpif = require('gulp-if');
@@ -90,11 +90,13 @@ gulp.task('sass', () =>
         .pipe(plumber())
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sass())
+        /*
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: true
         }))
-        .pipe(cssnano())
+        */
+        // .pipe(postcss())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./dist/static/'))
         .pipe(browserSync.stream({match: '**/*.css'}))
@@ -105,7 +107,7 @@ gulp.task('css', () =>
     gulp.src(['./www/**/*.css', '!./www/_partials/**/*'])
         .pipe(plumber())
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(cssnano())
+        // .pipe(postcss())
         .pipe(sourcemaps.write('.'))
         .pipe(gulpif(
             function (file) {
