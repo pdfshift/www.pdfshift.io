@@ -5,16 +5,45 @@
 {% extends 'guides/_base.njk' %}
 
 {% block guide %}
+<ul class="guides__breadcrumbs">
+    <li><a href="/">Home</a></li>
+    <li><a href="/guides/">Guides</a></li>
+    <li>{{ seo_title }}</li>
+</ul>
+
+<div class="guide-page__wrap">
+<div>
+    <ul class='guide-page__navi'>
+        <li><a href='#documentation'>Documentation</a></li>
+        <li><a href='#installation'>Installation</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href='#usage'>Usage</a></li>
+        <ul>
+            <li><a href="#with-a-url">With a URL</a></li>
+            <li><a href="#with-inline-html-data">With inline HTML data</a></li>
+            <li><a href="#custom-http-headers">Custom HTTP Headers</a></li>
+            <li><a href="#accessing-secured-pages">Accessing secured pages</a></li>
+            <li><a href="#using-cookies">Using cookies</a></li>
+            <li><a href="#loading-css-from-a-url">Loading CSS from a URL</a></li>
+            <li><a href="#loading-css-from-a-string">Loading CSS from a string</a></li>
+            <li><a href="#adding-watermark">Adding Watermark</a></li>
+            <li><a href="#custom-header-or-footer">Custom Header or Footer</a></li>
+            <li><a href="#protecting-the-generated-pdf">Protecting The Generated PDF</a></li>
+        </ul>
+    </ul>
+</div>
+
+<div class='guide-page__content'>
     {% markdown %}
     # How to convert HTML to PDF in Python using PDFShift's package.
 
     PDFShift provides a Python package available for free at https://github.com/pdfshift/pdfshift-python
 
-    ## Documentation
+    ## [Documentation](#documentation)
 
     See the full documentation on [PDFShift's documentation](https://docs.pdfshift.io/).
 
-    ## Installation
+    ## [Installation](#installation)
 
     You should not require this code directly. Instead, just run:
 
@@ -28,13 +57,13 @@
     easy_install --upgrade pdfshift
     ```
 
-    ## Requirements
+    ## [Requirements](#requirements)
 
     * Python 2.6+
     * [Requests](http://docs.python-requests.org/en/master/)
 
 
-    ## Usage
+    ## [Usage](#usage)
 
     This library needs to be configured with your `api_key` received when creating an account.
     Setting it is easy as:
@@ -58,7 +87,7 @@
         output.write(binary_file)
     ```
 
-    ### With an URL
+    ### [With a URL](#with-a-url)
 
     Converting an URL with PDFShift is really easy. All you have to do is send a POST request with the `source` parameter set to the URL, like the following:
 
@@ -72,7 +101,7 @@
         output.write(binary_file)
     ```
 
-    ### With inline HTML data:
+    ### [With inline HTML data](#with-inline-html-data)
 
     To convert a raw HTML data with PDFShift, simply send the raw string in the `source` parameter:
 
@@ -89,7 +118,7 @@
         output.write(binary_file)
     ```
 
-    ### Custom HTTP Headers
+    ### [Custom HTTP Headers](#custom-http-headers)
 
     You can pass custom HTTP headers, allowing you to adapt to the server handling your source. This can be a custom identification header, changing the language, or anything else.
 
@@ -109,7 +138,7 @@
         output.write(binary_file)
     ```
 
-    ### Accessing secured pages
+    ### [Accessing secured pages](#accessing-secured-pages)
 
     If your `source` requires a BASIC AUTH mechanism, you can either use the custom headers part, or use the `auth` parameter from the API that behaves the same.
 
@@ -123,7 +152,7 @@
         output.write(binary_file)
     ```
 
-    ### Using cookies
+    ### [Using cookies](#using-cookies)
 
     Cookies might help you access unauthorized areas that aren't restricted by a simple Basic Auth mechanism. You can define as many cookies as you want.
 
@@ -145,7 +174,7 @@
     ```
 
 
-    ### Loading CSS from an URL:
+    ### [Loading CSS from a URL](#loading-css-from-a-url)
 
     By passing a `css` parameter, you will be able to modify the page with your CSS.
     This allows you to customize the rendering of the page.
@@ -165,7 +194,7 @@
         output.write(binary_file)
     ```
 
-    ### Loading CSS from a string:
+    ### [Loading CSS from a string](#loading-css-from-a-string)
 
     Like for the `source` parameter, you can pass a raw set of CSS rules to the `css` parameter and they will be injected to the loaded document.
 
@@ -182,7 +211,7 @@
         output.write(binary_file)
     ```
 
-    ### Adding Watermark
+    ### [Adding Watermark](#adding-watermark)
 
     Some documents that you share need a watermark to clearly identify your brand. That's easy with PDFShift:
 
@@ -204,7 +233,7 @@
         output.write(binary_file)
     ```
 
-    ### Custom Header (or Footer)
+    ### [Custom Header or Footer](#custom-header-or-footer)
 
     You can add some custom header or footer to your generated document. These are often used to indicate the current page, or show the logo of your company on every page.
 
@@ -227,7 +256,7 @@
         output.write(binary_file)
     ```
 
-    ### Protecting the generated PDF
+    ### [Protecting the generated PDF](#protecting-the-generated-pdf)
 
     Protecting your document is easy with PDFShift. You can specify a password for the user and for the owner.
     (The owner will have full rights access while the user will have limited access based on your choice).

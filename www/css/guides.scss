@@ -87,7 +87,101 @@ $purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
     }
 }
 
-
+.guide-page {
+    background-color: rgba($color-light-grey, 0.2);
+    padding: 4em 0;
+    margin-bottom: -100px;
+    &__wrap {
+        display: flex;
+    }
+    &__navi {
+        list-style: none;
+        padding-right: 2em;
+        margin: 0;
+        position: sticky;
+        top: 100px;
+        li {
+            margin: 1em 0 0.5em !important;
+            padding: 0;
+            font-weight: 600;
+            > a {
+                padding: 0.5em;
+                border: 0;
+                color: $color-black;
+                opacity: 0.7;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        > ul {
+            list-style: none;
+            > li {
+                font-size: 0.8em;
+                margin: 0.1em 0 !important;
+                padding-left: 2em;
+                &:before {
+                    content: "-";
+                    opacity: 0.5;
+                    margin-left: -1em;
+                }
+                a {
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+    &__content {
+        background-color: $color-white;
+        border: 1px solid $color-light-grey;
+        padding: 2em;
+        width: 70%;
+        & > p {
+            line-height: 1.8;
+        }
+        pre {
+            overflow-x: scroll;
+            border: 1px solid $color-light-grey;
+            border-radius: 10px;
+            font-size: 0.8em;
+            font-family: monospace;
+            margin: 1.5em 0;
+        }
+        h1 {
+            margin: 0.5em 0;
+            font-size: 2.5em;
+            color: $color-black
+        }
+        h2, h3 {
+            line-height: 1.4;
+            margin-top: 0;
+            padding-top: 1.7em;
+            a {
+                color: $color-black;
+                border: 0;
+                display: flex;
+                align-items: center;
+                &:hover {
+                    &:after {
+                        content: '';
+                        height: 0.8em;
+                        width: 1em;
+                        display: inline-block;
+                        background: url('/static/images/guides/link.svg') no-repeat center center;
+                        margin-top: 0.2em;
+                    }
+                }
+            }
+        }
+        ul {
+            margin: 1em 0 !important;
+        }
+    }
+    &__docs {
+        text-align: right;
+        margin-top: 1em;
+    }
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~~~~~~~~~~ Responsive ~~~~~~~~~~
@@ -131,6 +225,23 @@ $purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
             &:hover {
                 transform: scale(1);
             }
+        }
+    }
+
+    .guide-page {
+        &__wrap {
+            display: flex;
+            flex-flow: column;
+        }
+        &__navi {
+            padding-right: 0;
+            padding-bottom: 2em;
+        }
+        &__content {
+            width: 100%;
+        }
+        &__docs {
+            text-align: center;
         }
     }
 }

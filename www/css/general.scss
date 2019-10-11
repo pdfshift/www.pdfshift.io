@@ -781,19 +781,15 @@ footer {
             right: 0;
             margin: 5px;
             outline: none;
-            background-color: rgba($color-primary, .7);
-            transition: background-color 250ms ease-in-out, fill 250ms ease-in-out;
 
             &>svg {
                 height: 28px;
-                fill: rgba(250, 250, 250, 0.7);
+                fill: #fff;
                 outline: none;
                 transition: fill 250ms ease-in-out;
             }
 
             &:hover {
-                background-color: darken($color-light-grey, 10%);
-
                 &>svg {
                     outline: none;
                 }

@@ -5,17 +5,47 @@
 {% extends 'guides/_base.njk' %}
 
 {% block guide %}
+<ul class="guides__breadcrumbs">
+    <li><a href="/">Home</a></li>
+    <li><a href="/guides/">Guides</a></li>
+    <li>{{ seo_title }}</li>
+</ul>
+
+<div class="guide-page__wrap">
+<div>
+    <ul class='guide-page__navi'>
+        <li><a href='#documentation'>Documentation</a></li>
+        <li><a href='#curl-function'>cURL function</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href='#usage'>Usage</a></li>
+        <ul>
+            <li><a href="#with-a-url">With a URL</a></li>
+            <li><a href="#with-inline-data">With inline HTML data</a></li>
+            <li><a href="#save-file-to-amazon-s3">Save the file to Amazon S3 and get an URL instead</a></li>
+            <li><a href="#custom-http-headers">Custom HTTP Headers</a></li>
+            <li><a href="#accessing-secured-pages">Accessing secured pages</a></li>
+            <li><a href="#using-cookies">Using cookies</a></li>
+            <li><a href="#loading-css-from-url">Loading CSS from a URL</a></li>
+            <li><a href="#loading-css-from-string">Loading CSS from a string</a></li>
+            <li><a href="#adding-watermark">Adding Watermark</a></li>
+            <li><a href="or Footer)](#custom-header-footer">Custom Header (or Footer)</a></li>
+            <li><a href="#protecting-the-pdf">Protecting the generated PDF</a></li>
+        </ul>
+    </ul>
+</div>
+
+<div class='guide-page__content'>
     {% markdown %}
     # How to convert HTML to PDF in PHP
 
     PDFShift provides a powerful API that let you convert any HTML documents to PDF using a simple POST request.
     Python provides a great package, called `requests` that will handle all the network issues for us, so we recommend using it.
 
-    ## Documentation
+    ## [Documentation](#documentation)
 
     See the full documentation on [PDFShift's documentation](https://docs.pdfshift.io/).
 
-    ## cURL function
+    ## [cURL function](#curl-function)
 
     We provide a custom made function that works well with PHP for those who don't use Composer.
     It uses `curl_*` functions to do a POST request like intended by the API, and throws exception in case the server returns a 4xx or 5xx response.
@@ -56,12 +86,12 @@
     }
     ```
 
-    ## Requirements
+    ## [Requirements](#requirements)
 
     * PHP 5.4 or later
     * cURL functions enabled on your server.
 
-    ## Usage
+    ## [Usage](#usage)
 
     This function needs to be configured with your `api_key` received when creating an account.
     Setting it is easy as:
@@ -101,7 +131,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### With an URL
+    ### [With a URL](#with-a-url)
 
     Converting an URL with PDFShift is really easy. All you have to do is send a POST request with the `source` parameter set to the URL, like the following:
 
@@ -113,7 +143,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### With inline HTML data:
+    ### [With inline HTML data](#with-inline-data)
 
     To convert a raw HTML data with PDFShift, simply send the raw string in the `source` parameter:
 
@@ -127,7 +157,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### Save the file to Amazon S3 and get an URL instead
+    ### [Save the file to Amazon S3 and get an URL instead](#save-file-to-amazon-s3)
 
     By passing the `filename` parameter to your request, you will receive a JSON response instead of the binary PDF, with a `url` key that contains the path to the file stored on Amazon S3.
     All files stored on Amazon S3 are kept for two days, then automatically deleted.
@@ -142,7 +172,7 @@
     // The URL is at $json['url'];
     ```
 
-    ### Custom HTTP Headers
+    ### [Custom HTTP Headers](#custom-http-headers)
 
     You can pass custom HTTP headers, allowing you to adapt to the server handling your source. This can be a custom identification header, changing the language, or anything else.
 
@@ -158,7 +188,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### Accessing secured pages
+    ### [Accessing secured pages](#accessing-secured-pages)
 
     If your `source` requires a BASIC AUTH mechanism, you can either use the custom headers part or use the `auth` parameter from the API that behaves the same.
 
@@ -174,7 +204,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### Using cookies
+    ### [Using cookies](#using-cookies)
 
     Cookies might help you access unauthorized areas that aren't restricted by a simple Basic Auth mechanism. You can define as many cookies as you want.
 
@@ -190,7 +220,7 @@
     ```
 
 
-    ### Loading CSS from an URL:
+    ### [Loading CSS from a URL](#loading-css-from-url)
 
     By passing a `css` parameter, you will be able to modify the page with your CSS.
     This allows you to customize the rendering of the page.
@@ -206,7 +236,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### Loading CSS from a string:
+    ### [Loading CSS from a string](#loading-css-from-string)
 
     Like for the `source` parameter, you can pass a raw set of CSS rules to the `css` parameter and they will be injected to the loaded document.
 
@@ -219,7 +249,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### Adding Watermark
+    ### [Adding Watermark](#adding-watermark)
 
     Some documents that you share need a watermark to clearly identify your brand. That's easy with PDFShift:
 
@@ -237,7 +267,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### Custom Header (or Footer)
+    ### [Custom Header (or Footer)](#custom-header-footer)
 
     You can add some custom header or footer to your generated document. These are often used to indicate the current page, or show the logo of your company on every page.
 
@@ -256,7 +286,7 @@
     file_put_contents('result.pdf', $response);
     ```
 
-    ### Protecting the generated PDF
+    ### [Protecting the generated PDF](#protecting-the-pdf)
 
     Protecting your document is easy with PDFShift. You can specify a password for the user and for the owner.
     (The owner will have full rights access while the user will have limited access based on your choice).
