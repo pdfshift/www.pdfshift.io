@@ -24,9 +24,6 @@
 
         window.PDFShift.requests.post('accounts/', params).then(
             function (json) {
-                if (typeof(window.gtag) === 'function') {
-                    gtag('event', 'register', {'event_category': 'account', 'event_label': 'register'})
-                }
                 submitButton.classList.remove('button-disabled');
                 form.reset();
                 document.location.href = '/register/thanks/'
