@@ -22,6 +22,18 @@
             window.PDFShift.forms.asJSON(form) // Form data
         );
 
+        if (Rewardful && Rewardful.referral) {
+            var viaLink = null;
+            try {
+                viaLink = window.PDFShift.cookies.read('_via')
+            } catch (e) {}
+
+            // Exclude custom affiliates
+            if (['pdfshift', 'adwords', 'linkedin', 'fbpixel'].indexOf(viaLink) === -1) {
+                params['affiliate'] = Rewardful.referral
+            }
+        }
+
         window.PDFShift.requests.post('accounts/', params).then(
             function (json) {
                 submitButton.classList.remove('button-disabled');

@@ -502,6 +502,19 @@ window.PDFShift.onReady(function () {
     }
 
     window.PDFShift.storage.set('campaign', campaign);
+
+    // Via
+    var viaValue = window.PDFShift.getQueryVariable('via');
+    if (isEmpty(viaValue)) {
+        viaValue = 'pdfshift';
+    }
+
+    try {
+        if (isEmpty(window.PDFShift.cookies.read('_via'))) {
+            window.PDFShift.cookies.create('_via', viaValue, 60);
+        }
+    } catch (e) {}
+    
 })
 
 window.PDFShift.onReady = function (fn) {
