@@ -22,7 +22,7 @@
             window.PDFShift.forms.asJSON(form) // Form data
         );
 
-        if (Rewardful && Rewardful.referral) {
+        if (window.Rewardful && window.Rewardful.referral) {
             var viaLink = null;
             try {
                 viaLink = window.PDFShift.cookies.read('_via')
@@ -30,7 +30,7 @@
 
             // Exclude custom affiliates
             if (['pdfshift', 'adwords', 'linkedin', 'fbpixel'].indexOf(viaLink) === -1) {
-                params['affiliate'] = Rewardful.referral
+                params['affiliate'] = window.Rewardful.referral
             }
         }
 
