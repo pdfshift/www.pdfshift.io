@@ -19,6 +19,9 @@ $color-text-grey: #484848;
 $color-black: #24272A;
 $color-text-grey-secondary: #818181;
 
+$color-grey-purple: #CAC6CD;
+$purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
+
 /* Mixins */
 @mixin clearfix() {
     &::after {

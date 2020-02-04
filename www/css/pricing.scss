@@ -14,9 +14,104 @@
     margin-top: 60px;
 
     #pricing {
-        background-color: #fbfbfb;
-        padding-bottom: 40px;
-        border-bottom: 1px solid #e8e8e8;
+        table {
+            background-color: #fff;
+            width: 100%;
+            box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+            border-style: hidden;
+            border-radius: 5px;
+        }
+
+        tr, td, th {
+            margin: 0;
+            padding: 0;
+        }
+
+        thead th {
+            text-align: center;
+            background-color: lighten($color-primary, 10%);
+            color: #fff;
+            font-weight: 500;
+            padding: 20px 0;
+            border: solid 1px #fff;
+
+            &:first-child {
+                border-radius: 5px 0 0 0;
+                width: 275px;
+            }
+
+            &:last-child {
+                border-radius: 0 5px 0 0;
+            }
+
+            svg {
+                width: 80px;
+                margin: 0;
+                padding: 0;
+            }
+
+            h4 {
+                margin-top: 0;
+                padding-top: 0;
+            }
+        }
+
+        tbody {
+            tr>td {
+                text-align: center;
+                padding: 20px;
+                border: solid 1px #ccc;
+                vertical-align: middle;
+
+                sup {
+                    vertical-align: super;
+                    font-size: 0.8em;
+                }
+
+                &.key {
+                    text-align: left;
+                    font-weight: 500;
+                    font-size: 0.9em;
+                    background-color: #fbfbfb;
+
+                    small {
+                        font-weight: 400;
+                        font-size: 0.8em;
+                    }
+                }
+
+                &.yes {
+                    background: url("/static/images/checkmark.svg") no-repeat center center;
+                }
+            }
+
+            tr:last-child {
+                td:first-child {
+                    border-radius: 0 0 0 5px;
+                }
+
+                td:last-child {
+                    border-radius: 0 0 5px 0;
+                }
+            }
+
+            .separator {
+                td {
+                    background-color: #fff;
+                    text-align: left;
+                    font-weight: 500;
+                }
+            }
+
+            .ctas td {
+                padding: 20px 10px;
+
+                a.button {
+                    padding: 10px 20px;
+                }
+            }
+        }
     }
 
     #faq {
