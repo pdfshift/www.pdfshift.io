@@ -494,6 +494,7 @@ window.PDFShift.onReady(function () {
         if (!('source' in campaign) && 'source' in campaign['utm']) {
             campaign['source'] = campaign['utm']['source'];
         }
+        campaign['utm'] = JSON.stringify(campaign['utm'])
     }
 
     campaign = JSON.stringify(campaign)
