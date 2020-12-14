@@ -101,7 +101,7 @@
             jsonObject.put("sandbox", true);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -150,7 +150,7 @@
             var jsonObject = new JSONObject();
             jsonObject.put("source", "https://example.com");
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -203,7 +203,7 @@
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("source", documentContent);
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -255,7 +255,7 @@
             jsonObject.put("filename", "result.pdf");
             
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -312,7 +312,7 @@
             jsonObject.put("headers", headers);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -364,7 +364,7 @@
             jsonObject.put("auth", auth);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -433,7 +433,7 @@
             jsonObject.put("cookies", cookies);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -488,7 +488,7 @@
             jsonObject.put("css", "https://www.example.com/public/css/print.css");
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -540,7 +540,7 @@
             jsonObject.put("css", "a {text-decoration: underline; color: blue}");
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -598,7 +598,7 @@
             jsonObject.put("watermark", watermark);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -657,7 +657,7 @@
             jsonObject.put("footer", footer);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -720,7 +720,7 @@
             jsonObject.put("protection", protection);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -802,7 +802,7 @@
             jsonObject.put("source", documentContent);
             
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                     .timeout(Duration.ofSeconds(10))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)

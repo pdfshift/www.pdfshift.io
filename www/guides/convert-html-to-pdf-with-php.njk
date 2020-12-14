@@ -58,7 +58,7 @@
         $curl = curl_init();
 
         curl_setopt_array ($curl, array (
-            CURLOPT_URL => "https://api.pdfshift.io/v3/convert/",
+            CURLOPT_URL => "https://api.pdfshift.io/v3/convert/pdf",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => json_encode($params),

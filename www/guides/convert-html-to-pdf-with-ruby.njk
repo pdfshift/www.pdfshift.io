@@ -59,7 +59,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://www.example.com", "sandbox" => true}
 
     Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
@@ -94,7 +94,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://www.example.com"}
 
     Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
@@ -125,7 +125,7 @@
     require 'json' # for hash to_json conversion
 
     file = File.read("invoice.html")
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => file}
 
     Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
@@ -156,7 +156,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = { "source" => 'http://www.example.com',
         "filename" => "result.pdf" }
 
@@ -190,7 +190,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://www.example.com",
         "http_headers" => {
             "X-Original-Header" => "Awesome value",
@@ -224,7 +224,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://httpbin.org/basic-auth/user/passwd",
         "auth" => {
             "username" => "user",
@@ -258,7 +258,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://httpbin.org/cookies",
         "cookies" => [{"name" => "session",
         "value" => "4cb496a8-a3eb-4a7e-a704-f993cb6a4dac" }] }
@@ -294,7 +294,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://www.w3.org/",
         "css" => "https://www.w3.≤≤≤org/2008/site/css/print" }
 
@@ -325,7 +325,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://www.example.com",
         "css" => "body { background-color: red }" }
 
@@ -356,7 +356,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://example.com",
         "watermark" => {
             "image" => "https://pdfshift-dev.netlify.com/images/logo/logo-violet.png",
@@ -395,7 +395,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://www.example.com",
         'footer' => {
             'source' => '<div style="font-size: 12px">Page {{ "{{page}}" }} of {{ "{{total}}" }}</div>',
@@ -435,7 +435,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v3/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/pdf")
     data = {"source" => "https://www.example.com",
         'protection' => {
             'user_password' => 'user',
@@ -487,7 +487,7 @@
 
     def generate_invoice
         file = File.read("invoice.html")
-        uri = URI("https://api.pdfshift.io/v3/convert/")
+        uri = URI("https://api.pdfshift.io/v3/convert/pdf")
         data = {"source" => file}
 
         Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|

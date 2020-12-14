@@ -58,7 +58,7 @@
     ```python
     import requests
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
@@ -71,7 +71,7 @@
     This can be easily handled with `requests` by doing the following:
 
     ```python
-    response = requests.post('https://api.pdfshift.io/v3/convert', json={'source': 'https://www.example.com'}, auth=('api', 'your_api_key'))
+    response = requests.post('https://api.pdfshift.io/v3/convert/pdf', json={'source': 'https://www.example.com'}, auth=('api', 'your_api_key'))
 
     # Ensuring everything went fine:
     # raise_for_status will raise an exception if the status code is 4xx or 5xx
@@ -89,7 +89,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={'source': 'https://www.example.com'},
         stream=True
@@ -114,7 +114,7 @@
     document.close()
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={'source': document_content},
         stream=True
@@ -136,7 +136,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
@@ -158,7 +158,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
@@ -185,7 +185,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://httpbin.org/basic-auth/user/passwd',
@@ -214,7 +214,7 @@
     # cookies is a list of dict
     # That way, you can add as many dict (cookie) as you want.
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://httpbin.org/cookies',
@@ -242,7 +242,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
@@ -266,7 +266,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
@@ -290,7 +290,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
@@ -322,7 +322,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
@@ -355,7 +355,7 @@
     import requests
 
     response = requests.post(
-        'https://api.pdfshift.io/v3/convert',
+        'https://api.pdfshift.io/v3/convert/pdf',
         auth=('api', 'your_api_key'),
         json={
             'source': 'https://www.example.com',
