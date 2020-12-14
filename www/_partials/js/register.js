@@ -22,7 +22,7 @@
             window.PDFShift.forms.asJSON(form) // Form data
         );
 
-        window.PDFShift.requests.post('accounts/', params).then(
+        window.PDFShift.requests.post('account/', params).then(
             function (json) {
                 submitButton.classList.remove('button-disabled');
                 form.reset();
