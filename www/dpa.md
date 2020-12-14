@@ -1,7 +1,7 @@
 # Data Processing Addendum
 
 This Data Processing Addendum (**DPA**) forms part of the electronic agreement for the purchase of the Vendor Service as identified in such agreement ("**Principal Agreement**") between:
-(i) S.A.S.U PDFShift, 30 rue de la claichiere, 90800 BAVILLIERS, France (European Union) ("**Vendor**" or "**Data Processor**") and
+(i) S.A.S.U PDFShift, 128 rue la Boétie, 75008 PARIS, France (European Union) ("**Vendor**" or "**Data Processor**") and
 (ii) {COMPANY_NAME_ADDRESS} ("**Company**"). Data Controller and Vendor are each a "Party" and collectively, the "Parties".
 
 Except as modified below, the terms of the Principal Agreement shall remain in full force and effect.  

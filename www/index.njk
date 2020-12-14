@@ -32,14 +32,9 @@
                 <div><input type="text" name="name" placeholder="Full Name" required /></div>
                 <div><input type="email" name="email" placeholder="Email Address" required /></div>
                 <div>
-                    <label class="checkbox">
-                        <input type="checkbox" name="newsletter" value="1" />
-                        Keep me posted on news related to PDFShift (rarely)
-                    </label>
+                    <small>By signing up, you agree to the <a href="/terms/" title="Read our Terms of Service">Terms of Service</a> and <a href="/privacy/" title="Read our Privacy Policy">Privacy Policy</a>.</small>
                 </div>
                 <input type="submit" name="submit" value="Create your free account" class="button button-primary" />
-
-                <small>By signing up, you agree to the <a href="/terms/" title="Read our Terms of Service">Terms of Service</a> and <a href="/privacy/" title="Read our Privacy Policy">Privacy Policy</a>.</small>
             </form>
         </div>
     </div>
@@ -164,7 +159,7 @@
 npm install pdfshift
 
 // Step 2, import PDFShift
-const pdfshift = require('pdfshift')('user_api_key');
+const pdfshift = require('pdfshift')('your_api_key');
 const fs = require('fs');
 
 // Step 3, execute
@@ -181,8 +176,8 @@ pdfshift.convert('https://en.wikipedia.org/wiki/PDF', {"landscape": false, "use_
                             <pre><code class="python">import requests
 
 response = requests.post(
-    'https://api.pdfshift.io/v2/convert/',
-    auth=('user_api_key', ''),
+    'https://api.pdfshift.io/v3/convert/',
+    auth=('api', 'your_api_key'),
     json={"source": "https://en.wikipedia.org/wiki/PDF", "landscape": False, "use_print": False}
 )
 
@@ -204,12 +199,12 @@ with open('wikipedia.pdf', 'wb') as f:
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://api.pdfshift.io/v2/convert/",
+    CURLOPT_URL => "https://api.pdfshift.io/v3/convert/",
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => json_encode(array("source" => "https://en.wikipedia.org/wiki/PDF", "landscape" => false, "use_print" => false)),
     CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
-    CURLOPT_USERPWD => 'user_api_key:'
+    CURLOPT_USERPWD => 'api:your_api_key'
 ));
 
 $response = curl_exec($curl);
@@ -228,14 +223,14 @@ file_put_contents('wikipedia.pdf', $response);
 require 'net/https'
 require 'json' # for hash to_json conversion
 
-uri = URI("https://api.pdfshift.io/v2/convert/")
+uri = URI("https://api.pdfshift.io/v3/convert/")
 data = {"source" => "https://en.wikipedia.org/wiki/PDF"}
 
 Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
     request = Net::HTTP::Post.new(uri.request_uri)
     request.body = data.to_json
     request["Content-Type"] = "application/json"
-    request.basic_auth 'your_api_key', ''
+    request.basic_auth 'api', 'your_api_key'
 
     response = http.request(request)
 
@@ -267,13 +262,13 @@ import org.json.JSONObject;
 
 public class Application {
 
-    private static final String API_KEY = "your_api_key";
+    private static final String API_KEY = "api:your_api_key";
 
     public static void main(String... args) throws Exception {
         var jsonObject = new JSONObject();
         jsonObject.put("source", "https://en.wikipedia.org/wiki/PDF");
         var httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
                 .header("Authentication", "Basic " + API_KEY)
@@ -320,8 +315,8 @@ namespace PDFShiftExample
     {
         static void Main(string[] args)
         {
-            IRestClient client = new RestClient("https://api.pdfshift.io/v2/convert");
-            client.Authenticator = new HttpBasicAuthenticator("your_api_key", "");
+            IRestClient client = new RestClient("https://api.pdfshift.io/v3/convert");
+            client.Authenticator = new HttpBasicAuthenticator("api", "your_api_key");
 
             IRestRequest request = new RestRequest(Method.POST);
 
@@ -361,7 +356,7 @@ import (
 )
 
 func main() {
-    API_KEY := "your_api_key"
+    API_KEY := "api:your_api_key"
 
     message := map[string]interface{}{
         "source":  "https://en.wikipedia.org/wiki/PDF",
@@ -373,7 +368,7 @@ func main() {
     }
 
     client := http.Client{}
-    request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+    request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
     if err != nil {
         log.Fatalln(err)
     }
@@ -410,11 +405,11 @@ func main() {
                     <div id="code-curl">
                         <div class="code-section">
                             <pre><code class="bash">curl \
-    -u 'user_api_key:' \
+    -u 'api:your_api_key' \
     -d source="https://en.wikipedia.org/wiki/PDF" \
     -d landscape="false" \
     -d use_print="false" \
-    https://api.pdfshift.io/v2/convert/ \
+    https://api.pdfshift.io/v3/convert/ \
     -o wikipedia.pdf
 
 # That's all!</code></pre>

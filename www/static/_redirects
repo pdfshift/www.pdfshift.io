@@ -15,7 +15,7 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 /features            /             302!
 /faq                 /             302!
 
-/account/:token            https://api.pdfshift.io/v2/auth/login/:token 301!
-/account/:token/upgrade    https://api.pdfshift.io/v2/auth/login/:token 301!
+/account/:token            https://api.pdfshift.io/v3/auth/login/:token 301!
+/account/:token/upgrade    https://api.pdfshift.io/v3/auth/login/:token 301!
 
-/account/auth/:token    https://api.pdfshift.io/v2/auth/login/:token 200!
+/account/auth/:token    https://api.pdfshift.io/v3/auth/login/:token 200!

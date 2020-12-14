@@ -70,7 +70,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://example.com",
@@ -83,7 +83,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -111,7 +111,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source":  "https://example.com",
@@ -124,7 +124,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -178,7 +178,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source":  "https://example.com",
@@ -190,7 +190,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -238,7 +238,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         encoded, err := ioutil.ReadFile("example.html")
         if err != nil {
@@ -257,7 +257,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -306,7 +306,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://example.com",
@@ -319,7 +319,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -365,7 +365,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://example.com",
@@ -381,7 +381,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -428,7 +428,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://httpbin.org/basic-auth/user/passwd",
@@ -444,7 +444,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -491,7 +491,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         cookies := make([]map[string]string, 1)
 
@@ -510,7 +510,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -559,7 +559,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://www.example.com",
@@ -572,7 +572,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -618,7 +618,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://www.example.com",
@@ -631,7 +631,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -676,7 +676,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://www.example.com",
@@ -694,7 +694,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -742,7 +742,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://www.example.com",
@@ -758,7 +758,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -809,7 +809,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         message := map[string]interface{}{
             "source": "https://www.example.com",
@@ -826,7 +826,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }
@@ -881,7 +881,7 @@
     )
 
     func main() {
-        API_KEY := "your_api_key"
+        API_KEY := "api:your_api_key"
 
         encoded, err := ioutil.ReadFile("example.html")
         if err != nil {
@@ -901,7 +901,7 @@
         }
 
         client := http.Client{}
-        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v2/convert", bytes.NewBuffer(bytesRepresentation))
+        request, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert", bytes.NewBuffer(bytesRepresentation))
         if err != nil {
             log.Fatalln(err)
         }

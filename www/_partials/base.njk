@@ -176,7 +176,7 @@
                 <div class="row disclaimer">
                     <div class="column nine">
                         <p>
-                            © PDFShift S.A.S. Software, Inc. <script>document.write(new Date().getFullYear())</script>. 30 rue de la claichiere, 2nd floor, 90800 BAVILLIERS, France.<br />
+                            © PDFShift S.A.S. Software, Inc. <script>document.write(new Date().getFullYear())</script>. 128 rue la boétie, 2nd floor, 75008 PARIS, France.<br />
                             Send us a note to <a href="mailto:hi@pdfshift.io" title="Say hi, ask a question or just reach out and talk to us">hi@pdfshift.io</a>
                         </p>
                     </div>
@@ -202,16 +202,16 @@
         }
 
         if (window.document.location.hostname === '127.0.0.1') {
-            window.PDFShift.api_url = 'http://127.0.0.1:5000/v2/';
+            window.PDFShift.api_url = 'http://127.0.0.1:5000/v3/';
         } else {
-            window.PDFShift.api_url = 'https://api.pdfshift.io/v2/';
+            window.PDFShift.api_url = 'https://api.pdfshift.io/v3/';
         }
         </script>
         <script src="/static/js/general.js"></script>
         <script src="/static/js/instantpage-v1-1-0.js"></script>
         {% block javascripts %}{% endblock %}
         <script>
-        var i=new Image;i.src="https://api.pdfshift.io/v2/t/page.gif?u="+encodeURIComponent(window.location.href)+"&r="+encodeURIComponent(window.document.referrer)+"&t="+encodeURIComponent(window.document.title)+"&sr="+encodeURIComponent(window.screen.width+"x"+window.screen.height)+"&vp="+encodeURIComponent(Math.max(document.documentElement.clientWidth,window.innerWidth||0)+"x"+Math.max(document.documentElement.clientHeight,window.innerHeight||0));
+        var i=new Image;i.src="https://api.pdfshift.io/v3/t/page.gif?u="+encodeURIComponent(window.location.href)+"&r="+encodeURIComponent(window.document.referrer)+"&t="+encodeURIComponent(window.document.title)+"&sr="+encodeURIComponent(window.screen.width+"x"+window.screen.height)+"&vp="+encodeURIComponent(Math.max(document.documentElement.clientWidth,window.innerWidth||0)+"x"+Math.max(document.documentElement.clientHeight,window.innerHeight||0));
         // ProveSource 
         !function(o,i){
             window.provesrc&&window.console&&console.error&&console.error("ProveSource is included twice in this page."),provesrc=window.provesrc={dq:[],display:function(o,i){this.dq.push({n:o,g:i})}},o._provesrcAsyncInit=function(){provesrc.init({apiKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI1Y2FjOTI2ODVhZmJjNzNmOWE3OTg4MWQiLCJpYXQiOjE1NTQ4MTM1NDR9.S0M_uClBBPlCV30eCiNkwhf_oLGShbV-MmbtkNT_Dw8",v:"0.0.3"})};
@@ -221,6 +221,6 @@
             e.parentNode.insertBefore(r,e)
         }(window,document);
         </script>
-        <noscript><img src="https://api.pdfshift.io/v2/t/page.gif" async /></noscript>
+        <noscript><img src="https://api.pdfshift.io/v3/t/page.gif" async /></noscript>
     </body>
 </html>

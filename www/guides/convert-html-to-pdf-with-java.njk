@@ -93,7 +93,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -101,7 +101,7 @@
             jsonObject.put("sandbox", true);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -144,13 +144,13 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
             jsonObject.put("source", "https://example.com");
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -194,7 +194,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             byte[] encoded = Files.readAllBytes(Paths.get("src/main/resources/example.html"));
@@ -203,7 +203,7 @@
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("source", documentContent);
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -247,7 +247,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             JSONObject jsonObject = new JSONObject();
@@ -255,7 +255,7 @@
             jsonObject.put("filename", "result.pdf");
             
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -299,7 +299,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -312,7 +312,7 @@
             jsonObject.put("headers", headers);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -351,7 +351,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -364,7 +364,7 @@
             jsonObject.put("auth", auth);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -417,7 +417,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -433,7 +433,7 @@
             jsonObject.put("cookies", cookies);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -480,7 +480,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -488,7 +488,7 @@
             jsonObject.put("css", "https://www.example.com/public/css/print.css");
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -532,7 +532,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -540,7 +540,7 @@
             jsonObject.put("css", "a {text-decoration: underline; color: blue}");
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -583,7 +583,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -598,7 +598,7 @@
             jsonObject.put("watermark", watermark);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -644,7 +644,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -657,7 +657,7 @@
             jsonObject.put("footer", footer);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -706,7 +706,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             var jsonObject = new JSONObject();
@@ -720,7 +720,7 @@
             jsonObject.put("protection", protection);
 
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(20))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)
@@ -792,7 +792,7 @@
 
     public class Application {
 
-        private static final String API_KEY = "your_api_key";
+        private static final String API_KEY = "api:your_api_key";
 
         public static void main(String... args) throws Exception {
             byte[] encoded = Files.readAllBytes(Paths.get("src/main/resources/example.html"));
@@ -802,7 +802,7 @@
             jsonObject.put("source", documentContent);
             
             var httpRequest = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.pdfshift.io/v2/convert"))
+                    .uri(URI.create("https://api.pdfshift.io/v3/convert"))
                     .timeout(Duration.ofSeconds(10))
                     .header("Content-Type", "application/json")
                     .header("Authentication", "Basic " + API_KEY)

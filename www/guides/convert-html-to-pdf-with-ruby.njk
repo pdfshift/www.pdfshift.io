@@ -59,14 +59,14 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://www.example.com", "sandbox" => true}
 
     Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -94,14 +94,14 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://www.example.com"}
 
     Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -125,14 +125,14 @@
     require 'json' # for hash to_json conversion
 
     file = File.read("invoice.html")
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => file}
 
     Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -156,7 +156,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = { "source" => 'http://www.example.com',
         "filename" => "result.pdf" }
 
@@ -164,7 +164,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -190,7 +190,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://www.example.com",
         "http_headers" => {
             "X-Original-Header" => "Awesome value",
@@ -201,7 +201,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -224,7 +224,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://httpbin.org/basic-auth/user/passwd",
         "auth" => {
             "username" => "user",
@@ -235,7 +235,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -258,7 +258,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://httpbin.org/cookies",
         "cookies" => [{"name" => "session",
         "value" => "4cb496a8-a3eb-4a7e-a704-f993cb6a4dac" }] }
@@ -267,7 +267,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -294,7 +294,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://www.w3.org/",
         "css" => "https://www.w3.≤≤≤org/2008/site/css/print" }
 
@@ -302,7 +302,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -325,7 +325,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://www.example.com",
         "css" => "body { background-color: red }" }
 
@@ -333,7 +333,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -356,7 +356,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://example.com",
         "watermark" => {
             "image" => "https://pdfshift-dev.netlify.com/images/logo/logo-violet.png",
@@ -369,7 +369,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -395,7 +395,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://www.example.com",
         'footer' => {
             'source' => '<div style="font-size: 12px">Page {{ "{{page}}" }} of {{ "{{total}}" }}</div>',
@@ -406,7 +406,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -435,7 +435,7 @@
     require 'net/https'
     require 'json' # for hash to_json conversion
 
-    uri = URI("https://api.pdfshift.io/v2/convert/")
+    uri = URI("https://api.pdfshift.io/v3/convert/")
     data = {"source" => "https://www.example.com",
         'protection' => {
             'user_password' => 'user',
@@ -447,7 +447,7 @@
         request = Net::HTTP::Post.new(uri.request_uri)
         request.body = data.to_json
         request["Content-Type"] = "application/json"
-        request.basic_auth 'your_api_key', ''
+        request.basic_auth 'api', 'your_api_key'
 
         response = http.request(request)
 
@@ -487,14 +487,14 @@
 
     def generate_invoice
         file = File.read("invoice.html")
-        uri = URI("https://api.pdfshift.io/v2/convert/")
+        uri = URI("https://api.pdfshift.io/v3/convert/")
         data = {"source" => file}
 
         Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
             request = Net::HTTP::Post.new(uri.request_uri)
             request.body = data.to_json
             request["Content-Type"] = "application/json"
-            request.basic_auth 'your_api_key', ''
+            request.basic_auth 'api', 'your_api_key'
 
             response = http.request(request)
 
