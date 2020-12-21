@@ -1,9 +1,14 @@
 @import '_common';
 
 .home {
-    #register label.checkbox {
-        font-size: 0.9em;
-        margin: 10px 0 10px 5px;
+    #register {
+        p>small { font-size: .75rem }
+        p { color: #484848; font-size: .9em }
+
+        label.checkbox {
+            font-size: 0.9em;
+            margin: 10px 0 10px 5px;
+        }
     }
 
     main>div {
