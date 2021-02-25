@@ -16,7 +16,8 @@
             {}, // Default type
             {
                 'language': window.PDFShift.storage.get('language'),
-                'quantity': window.PDFShift.storage.get('quantity')
+                'quantity': window.PDFShift.storage.get('quantity'),
+                '_t': window.PDFShift.cookies.read('_t')
             },
             window.PDFShift.storage.get('campaign', {}), // Campaign params
             window.PDFShift.forms.asJSON(form) // Form data
