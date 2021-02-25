@@ -479,7 +479,7 @@ window.PDFShift.onReady(function () {
         campaign['source'] = ref;
     }
 
-    var utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term'];
+    var utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid'];
     for (var i = 0; i < utms.length; i++) {
         var val = window.PDFShift.getQueryVariable(utms[i]);
         if (!isEmpty(val)) {
