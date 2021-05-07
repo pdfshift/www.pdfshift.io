@@ -560,6 +560,7 @@ func main() {
 
             <div class="pricing__cards-grid">
                 <!-- First card -->
+                <!--
                 <div class="pricing__card">
                     <div class="pricing__card__top">
                         <div class="pricing__card__top--monthly">
@@ -588,15 +589,16 @@ func main() {
                     </div>
                     <a href="/register/" class="button button-secondary pricing__card__button">Sign up for free now</a>
                 </div>
+                -->
                 <!-- Second card -->
-                <div class="pricing__card pricing__card--highlight">
+                <div class="pricing__card">
                     <div class="pricing__card__top">
                         <div>
                             <div class="pricing__card__name">Boost</div>
                             <div class="pricing__card__price fade-in from-bottom active">$24<sup>mo</sup></div>
                             <div class="pricing__card__price fade-in from-bottom">$240<sup>yr</sup></div>
                         </div>
-                        {% include 'static/images/pricing/pricing-m.svg' %}
+                        {% include 'static/images/pricing/pricing-s.svg' %}
                     </div>
                     <div class="pricing__card__body">
                         <ul class="pricing__card__body-list">
@@ -615,13 +617,12 @@ func main() {
                             + Advanced Custom Header & Footer, Encryption, Watermark, Asynchronous requests, Parallel Conversion, Wait for custom elements, ...
                         </div>
                     </div>
-                    <a href="/register/" class="button button-primary pricing__card__button">Sign up for free now</a>
+                    <a href="/register/" class="button button-secondary pricing__card__button">Sign up for free now</a>
                 </div>
-                <!-- Third card -->
-                <div class="pricing__card">
+                <div class="pricing__card pricing__card--highlight">
                     <div class="pricing__card__top">
                         <div>
-                            <div class="pricing__card__name">Growth</div>
+                            <div class="pricing__card__name">Ggrowth</div>
                             <div class="pricing__card__price fade-in from-bottom active">$39<sup>mo</sup></div>
                             <div class="pricing__card__price fade-in from-bottom">$390<sup>yr</sup></div>
                         </div>
@@ -645,6 +646,35 @@ func main() {
                         </div>
                     </div>
                     <a href="/register/" class="button button-primary pricing__card__button">Sign up for free now</a>
+                </div>
+                <!-- Third card -->
+                <div class="pricing__card">
+                    <div class="pricing__card__top">
+                        <div>
+                            <div class="pricing__card__name">Business</div>
+                            <div class="pricing__card__price fade-in from-bottom active">$99<sup>mo</sup></div>
+                            <div class="pricing__card__price fade-in from-bottom">$990<sup>yr</sup></div>
+                        </div>
+                        {% include 'static/images/pricing/pricing-l.svg' %}
+                    </div>
+                    <div class="pricing__card__body">
+                        <ul class="pricing__card__body-list">
+                            <li>Monthly credits<span>25,000</span></li>
+                            <li>Overage cost<span>0.020$/conv</span></li>
+                            <li>
+                                Dynamic file size limit
+                                <div class="pricing__card__tooltip">
+                                    <i class="pricing__card__tooltip-icon">{% include 'static/images/pricing/question-circle.svg' %}</i>
+                                    <div class="pricing__card__tooltip-content">A credit is counted per 5Mb chunks.<br />For instance, a 15Mb PDF will use 3 credits.</div>
+                                </div>
+                                <span>1 conv. per 5Mb</span>
+                            </li>
+                        </ul>
+                        <div class="pricing__card__body__sub">
+                            + Advanced Custom Header & Footer, Encryption, Watermark, Asynchronous requests, Parallel Conversion, Wait for custom elements, ...
+                        </div>
+                    </div>
+                    <a href="/register/" class="button button-secondary pricing__card__button">Sign up for free now</a>
                 </div>
             </div>
 
