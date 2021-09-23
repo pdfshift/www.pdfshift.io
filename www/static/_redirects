@@ -7,10 +7,6 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 # @see https://www.netlify.com/docs/redirects/
 
 /documentation       https://docs.pdfshift.io/         301!
-/pricing             /pricing/     301!
-/register            /register/    301!
-/terms               /terms/       301!
-/privacy             /privacy/     301!
 
 /features            /             302!
 /faq                 /             302!
