@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "highlight.js": "^10.4.1",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "npm": "^6.14.6",
     "nunjucks-markdown": "^2.0.1"
   },
