@@ -1,0 +1,196 @@
+<template>
+    <div class="container-small">
+        <div class="page">
+            <h1>General Data Protection Regulation(GDPR) compliance</h1>
+            <p class="excerpt">Everything you need to know about PDFShift's GDPR compliance.</p>
+
+            <p>
+                PDFShift is committed to privacy, security, compliance and transparency.
+                This approach includes supporting our customers’ compliance with EU data protection requirements, including those set out in the General Data Protection Regulation (“GDPR”), which becomes enforceable on May 25, 2018.
+            </p>
+
+            <div id="what-is-gdpr">
+                <h2>What is GDPR?</h2>
+                <p>The General Data Protection Regulation (GDPR) (Regulation (EU) 2016/679) is a regulation by which the European Parliament, the Council of the European Union and the European Commission intend to strengthen and unify data protection for all individuals within the European Union (EU).</p>
+            </div>
+
+            <div id="to-whom-does-the-gdpr-apply">
+                <h2>To Whom Does the GDPR Apply?</h2>
+                <p>
+                    One way in which the personal data of an EU citizen could be collected when using PDFShift is when you build a database of contacts, their information, and business dealings with them (i.e. a CRM system).<br />
+                    Not all customers will be "data subjects", as data subjects are only individuals. Some of your customers may be businesses or government organizations, which the GDPR does not apply to.
+                </p>
+            </div>
+
+            <div id="is-pdfshift-gdpr-compliant">
+                <h2>Is PDFShift GDPR compliant?</h2>
+                <p>Yes, PDFShift is compliant with the GDPR.</p>
+            </div>
+
+            <div id="information-we-hold">
+                <h2>Information We Hold</h2>
+                <p><strong>Registration and Contact Information.</strong> We collect information about you when you (a) register to use the Services and (b) otherwise provide contact information to us via email, mail, or through our Service. This information you provide may include your username, first and last name, email address.</p>
+
+                <p><strong>Payment Information.</strong> When you purchase the Services, we will also collect transaction information, which may include your company name, company VAT (when applicable), credit card information, billing and mailing address. We describe <NuxtLink to="/privacy/#privacy-payments">how Payment Information are collected and processed</NuxtLink> later in this document.</p>
+
+                <p><strong>Technical, Usage and Location Information.</strong> We automatically collect information on how you interact with the Service, such as the IP address from which you access the Service, date and time, referrer website and campaigns informations ("utm" fields). We may also collect location information, including location information automatically provided by your computer or device. We use cookies and similar technologies to collect some of this information. For more information, please see PDFShift's <NuxtLink to="/privacy/#cookie-policy">Cookie Policy.</NuxtLink></p>
+
+                <p><strong>Third Party Platforms.</strong> We may collect information when you interact with our service on third-party sites or platforms, such as analyticals sites. This may include information such as actions or the fact that you viewed or interacted with our content.</p>
+
+                <p><strong>Other Information.</strong>We may collect other information from you that is not specifically listed here. We may use any such information in accordance with this Privacy Policy or as otherwise permitted by you.</p>
+            </div>
+
+            <div id="data-security-and-data-breaches">
+                <h2>Data security and data breaches</h2>
+
+                <p>
+                    We take data protection and security very seriously at PDFShift.
+                    We constantly monitor for security flaws and unauthorized access and we will take action immediately if something suspicious is been detected.
+                    In an unlikely case of a data breach, we willl notify all of our customers within 72 hours after the breach was detected.
+                </p>
+
+                <p>Some of the preventive measures we take include:</p>
+                <ul>
+                    <li>Encrypted HTTPS communication layers for all data transfers</li>
+                    <li>Isolated data containers and data network</li>
+                    <li>Multiple encrypted backups at database and disk level, stored for one week</li>
+                    <li>Data retention for expired trial and cancelled users of 2 years</li>
+                </ul>
+            </div>
+
+            <div id="data-subject-rights">
+                <h2>Data subject rights</h2>
+
+                <p>
+                    All individual rights regarding GDPR will be enforced by our PDFShift team.
+                    If you want to exercise yur GDPR rights, you can reach out to us with your request at <a href="mailto:support@pdfshift.io">support@pdfshift.io</a>.<br />
+                    Those rights include:
+                </p>
+
+                <ul>
+                    <li><strong>Right To Be Informed</strong>: for the parties where we act as a controller, we inform our users what we do with their data.</li>
+                    <li><strong>Right To Access</strong>: we can show all data stored.</li>
+                    <li><strong>Right To Object</strong>: you can use the form above for any objection you or a user has about how PDFShift is processing your/their personal data.</li>
+                    <li><strong>Right To Be Forgotten</strong>: we can erase data we hold about any individual.</li>
+                    <li><strong>Right To Data Portability</strong>: we can export data held by an individual as a CSV on request.</li>
+                    <li><strong>Right To Rectification</strong>: a person's data can be updated either by API, from the user account or manually by us on request.</li>
+                </ul>
+            </div>
+
+            <div id="data-processing-agreements">
+                <h2>Data Processing Agreements</h2>
+                <p>
+                    We act as a data processor for our customers (see "Information we hold") which means we need to provide a signed Data Processing Agreement on request.
+                    If you are a customer (paid user) of PDFShift and you need the DPA, please contact us via email and we'll send it to you ASAP.
+                </p>
+
+                <p>We also requested and signed DPAs from our sub-processors and made sure they are GDPR compliant.</p>
+            </div>
+
+            <div id="gdpr-ready-privacy-policy">
+                <h2>GDPR-ready Privacy and Cookie Policy</h2>
+
+                <p>
+                    We updated our <NuxtLink to="/privacy/" title="Read our privacy policy">privacy policy and cookies policy</NuxtLink> to be GDPR compliant.
+                    {# We also added cookie consent plugins to our website to make sure we store cookies only after consent is given. #}
+                </p>
+            </div>
+
+            <div id="gdpr-faq">
+                <h2>GDPR FAQ</h2>
+
+                <ul>
+                    <li>
+                        <strong>How will you verify to customers that you are in compliance with the new regulation?</strong>
+                        <p><em>If you wish for formal verification, you can provide us with your Data Processing Agreement template, which we can returned filled and signed.</em></p>
+                    </li>
+                    <li>
+                        <strong>How is sensitive information stored, and do you have processes in place in the event of a data breach?</strong>
+                        <p><em>Sensitive information is stored securely, with limited access. We react to Data breaches immediately, by notifying affected parties.</em></p>
+                    </li>
+                    <li>
+                        <strong>For how long do you store customer data?</strong>
+                        <p><em>We store customers' data only for the time of using our services or until they request to delete their data.</em></p>
+                    </li>
+                    <li>
+                        <strong>Where is your customer data physically stored?</strong>
+                        <p><em>Data of our EU customers are stored in our FR (French) datacenters hosted by OVH.</em></p>
+                    </li>
+                    <li>
+                        <strong>Which of your teams will have access to customer personal information</strong>
+                        <p><em>We access customer's personal information only based on prior request by the customer or with the customer's approval. In most common cases, it is the customer support team, development team or marketing team.</em></p>
+                    </li>
+                    <li>
+                        <strong>How does your organization handle instances when customers request their data be removed from your system(s)?</strong>
+                        <p><em>When a customer requests deletion of their data, we proceed with the deletion immediately, with no further delay.</em></p>
+                    </li>
+                    <li>
+                        <strong>How you handle data protection requirements with any of your sub-processors?</strong>
+                        <p><em>We sign Data Processing Agreements with each of our sub-processors or subcontractors.</em></p>
+                    </li>
+                    <li>
+                        <strong>What third party organizations (sub-processors) do you work with that may also have access to the data we share with you?</strong>
+                        <p><em>See list of <NuxtLink to="/subprocessors/">PDFShift sub-processors and subcontractors</NuxtLink>.</em></p>
+                    </li>
+                    <li>
+                        <strong>What processing operations are done by the Data Processor (PDFShift)?</strong>
+                        <p><em>All actions necessary to provide adequate customer support and reliable service.</em></p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="additional-security-measures">
+                <h2>Additional security measures</h2>
+
+                <ul>
+                    <li>
+                        <strong>HTTPS Encryption</strong>
+                        <p><em>All PDFShift hosted accounts run over a secure connection using the HTTPS protocol. Hyper Text Transfer Protocol Secure (HTTPS) is the secure version of HTTP, the protocol over which data is sent between your browser and the website that you are connected to. It means all communication between your browser and PDFShift is encrypted, including your chat and email communication.</em></p>
+                    </li>
+                    <li>
+                        <strong>Secure credential storage</strong>
+                        <p><em>We follow latest best practices to store and protect user login credentials and passwords in the cloud.</em></p>
+                    </li>
+                    <li>
+                        <strong>API Security</strong>
+                        <p><em>PDFShift REST API is restricted to accredited users based API tokens.</em></p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="additional-resources">
+                <h2>Additional resources</h2>
+
+                <ul>
+                    <li><NuxtLink to="/privacy/">PDFShift Privacy Policy</NuxtLink></li>
+                    <li><NuxtLink to="/terms/">PDFShift Terms & Conditions</NuxtLink></li>
+                    <li><NuxtLink to="/subprocessors/">List of Sub-processors & Subcontractors</NuxtLink></li>
+                </ul>
+            </div>
+
+            <div id="do-you-have-any-questions">
+                <h2>Do you have questions?</h2>
+
+                <p>Contact us at <a href="mailto:support@pdfshift.io">support@pdfshift.io</a></p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+const seoTitle = 'General Data Protection Regulation(GDPR) compliance'
+const seoDescription = "Everything you need to know about PDFShift's GDPR compliance."
+
+export default {
+    head: {
+        title: seoTitle + ' — PDFShift',
+        meta: [
+            { hid: 'description', name: 'description', content: seoDescription },
+            { hid: 'twitter:title', name: 'twitter:title', content: seoTitle },
+            { hid: 'og:title', name: 'og:title', content: seoTitle },
+            { hid: 'twitter:description', name: 'twitter:description', content: seoDescription },
+            { hid: 'og:description', name: 'og:description', content: seoDescription }
+        ]
+    }
+}
+</script>
