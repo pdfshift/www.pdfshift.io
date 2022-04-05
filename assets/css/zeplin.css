@@ -183,7 +183,7 @@ body {
 
 .row {
     display: flex;
-    flex-wrap: no-wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
 }

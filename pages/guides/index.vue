@@ -11,49 +11,49 @@
             <div class="guides__cards">
                 <a class="column guides__card" href="/guides/convert-html-to-pdf-with-node/" title="Using Node.js">
                     <div class="guides__card__img">
-                        <img src="/static/images/guides/node.svg" alt="NodeJS's logo" />
+                        <img src="/images/guides/node.svg" alt="NodeJS's logo" />
                     </div>
                     <p>Convert HTML to PDF using Node.js</p>
                     <div class="guides__more">Read Guide</div>
                 </a>
                 <a class="column guides__card" href="/guides/convert-html-to-pdf-with-python/" title="Using Python">
                     <div class="guides__card__img">
-                        <img src="/static/images/guides/python-requests.svg" alt="Python's logo" />
+                        <img src="/images/guides/python-requests.svg" alt="Python's logo" />
                     </div>
                     <p>Convert HTML to PDF using Python and `requests` package</p>
                     <div class="guides__more">Read Guide</div>
                 </a>
                 <a class="column guides__card" href="/guides/convert-html-to-pdf-with-php/" title="Using PHP">
                     <div class="guides__card__img">
-                        <img src="/static/images/guides/php.svg" alt="PHP's logo" />
+                        <img src="/images/guides/php.svg" alt="PHP's logo" />
                     </div>
                     <p>Convert HTML to PDF using PHP</p>
                     <div class="guides__more">Read Guide</div>
                 </a>
                 <a class="column guides__card" href="/guides/convert-html-to-pdf-with-ruby/" title="Using Ruby">
                     <div class="guides__card__img">
-                        <img src="/static/images/guides/ruby.svg" alt="Ruby's logo" />
+                        <img src="/images/guides/ruby.svg" alt="Ruby's logo" />
                     </div>
                     <p>Convert HTML to PDF using Ruby</p>
                     <div class="guides__more">Read Guide</div>
                 </a>
                 <a class="column guides__card" href="/guides/convert-html-to-pdf-with-java/" title="Using Java">
                     <div class="guides__card__img">
-                        <img src="/static/images/guides/java.svg" alt="Java's logo" />
+                        <img src="/images/guides/java.svg" alt="Java's logo" />
                     </div>
                     <p>Convert HTML to PDF using Java</p>
                     <div class="guides__more">Read Guide</div>
                 </a>
                 <a class="column guides__card" href="/guides/convert-html-to-pdf-with-csharp/" title="Using C#">
                     <div class="guides__card__img">
-                        <img src="/static/images/guides/c-sharp.svg" alt="C#'s logo" />
+                        <img src="/images/guides/csharp.svg" alt="C#'s logo" />
                     </div>
                     <p>Convert HTML to PDF using C#</p>
                     <div class="guides__more">Read Guide</div>
                 </a>
                 <a class="column guides__card" href="/guides/convert-html-to-pdf-with-go/" title="Using GO">
                     <div class="guides__card__img">
-                        <img src="/static/images/guides/go.svg" alt="GO's logo" />
+                        <img src="/images/guides/go.svg" alt="GO's logo" />
                     </div>
                     <p>Convert HTML to PDF using GO</p>
                     <div class="guides__more">Read Guide</div>
@@ -117,7 +117,7 @@ $purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
                     display: inline-block;
                     width: 0.7em;
                     height: 0.7em;
-                    background-image: url('/static/images/press/angle-right.svg');
+                    background-image: url('/images/guides/angle-right.svg');
                     background-size: contain;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -167,7 +167,7 @@ $purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
         bottom: 1em;
         font-weight: 500;
         &:after {
-            content: url('/static/images/guides/arrow-right-purple.svg');
+            content: url('/images/guides/arrow-right-purple.svg');
             position: absolute;
             margin-left: 0.5em;
             top: 0.1em;

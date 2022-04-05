@@ -6,7 +6,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="column">
-                                <div class="accordion-menu">
+                                <div class="accordion-menu" @click="showAccordionMenu">
                                     <div />
                                     <div />
                                     <div />
@@ -18,7 +18,7 @@
                                     </svg>
                                 </NuxtLink>
                             </div>
-                            <nav id="header-main-menu" class="column">
+                            <nav id="header-main-menu" ref="header-main-menu" class="column">
                                 <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                                     <li><NuxtLink to="/#features" title="Check out our features" itemprop="name">Features</NuxtLink></li>
                                     <!--<li><NuxtLink to="/#try-me" title="Check out our features" itemprop="name">Try it out</NuxtLink></li>-->
@@ -35,7 +35,7 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <div id="header-main-cta" class="cta">
+                            <div id="header-main-cta" ref="header-main-cta" class="cta">
                                 <div>
                                     <a href="https://app.pdfshift.io" title="Login on PDFShift.io" itemprop="name">Login</a> or
                                     <NuxtLink to="/register/" title="Register now for free and start converting HTML to PDF!" class="column create-account">
@@ -177,7 +177,12 @@
 import SvgOutsideLink from '~/static/images/outside-link.svg?inline'
 export default {
     components: { SvgOutsideLink },
-    mouted () {
+    computed: {
+        fullYear () {
+            return new Date().getFullYear()
+        }
+    },
+    mounted () {
         /*
         var i = new Image;
         i.src = [
@@ -202,19 +207,34 @@ export default {
             window.PDFShift.getQueryVariable('utm_campaign')
         ].join('')
         // =window.PDFShift.api_url + "t/page.gif?u="+encodeURIComponent(window.location.href)+"&r="+encodeURIComponent(window.document.referrer)+"&t="+encodeURIComponent(window.document.title)+"&sr="+encodeURIComponent(window.screen.width+"x"+window.screen.height)+"&vp="+encodeURIComponent(Math.max(document.documentElement.clientWidth,window.innerWidth||0)+"x"+Math.max(document.documentElement.clientHeight,window.innerHeight||0));
+        */
+
         // ProveSource
-        !function(o,i){
+        /* eslint-disable */
+        !function (o,i) {
             window.provesrc&&window.console&&console.error&&console.error("ProveSource is included twice in this page."),provesrc=window.provesrc={dq:[],display:function(o,i){this.dq.push({n:o,g:i})}},o._provesrcAsyncInit=function(){provesrc.init({apiKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI1Y2FjOTI2ODVhZmJjNzNmOWE3OTg4MWQiLCJpYXQiOjE1NTQ4MTM1NDR9.S0M_uClBBPlCV30eCiNkwhf_oLGShbV-MmbtkNT_Dw8",v:"0.0.3"})};
             var r=i.createElement("script");
             r.type="text/javascript",r.async=!0,r["ch"+"ar"+"set"]="UTF-8",r.src="https://cdn.provesrc.com/provesrc.js";
             var e=i.getElementsByTagName("script")[0];
             e.parentNode.insertBefore(r,e)
         }(window,document);
-        */
+        /* eslint-enable */
+
+        window.addEventListener('scroll', () => { this.stickyMenu(window.scrollY) })
+        this.stickyMenu(window.document.documentElement.scrollTop)
     },
-    computed: {
-        fullYear () {
-            return new Date().getFullYear()
+    methods: {
+        stickyMenu (position) {
+            const header = document.getElementById('header')
+            if (header.classList.contains('fixed-heading') && position < 30) {
+                header.classList.remove('fixed-heading')
+            } else if (!header.classList.contains('fixed-heading') && position >= 30) {
+                header.classList.add('fixed-heading')
+            }
+        },
+        showAccordionMenu () {
+            this.$refs['header-main-menu'].classList.toggle('visible')
+            this.$refs['header-main-cta'].classList.toggle('visible')
         }
     }
 }

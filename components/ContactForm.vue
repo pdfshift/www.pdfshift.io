@@ -101,8 +101,6 @@ export default {
                     this.errors.name = error.response?.data?.error || 'An error occured'
                 }
             )
-            // Clear errors
-            // send data
         }
     }
 }

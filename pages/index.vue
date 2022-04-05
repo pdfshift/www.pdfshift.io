@@ -497,53 +497,31 @@ func main() {
                         </div>
                     </div>
                 </div>
-                <NuxtLink to="/register/" title="Get your API key for free and start converting now." class="button button-primary create-account">Get my free API key ➡</NuxtLink>
+                <a href="javascript:;" title="Get your API key for free and start converting now." class="button button-primary create-account">Get my free API key ➡</a>
             </div>
         </div>
 
         <div id="testimonials">
             <div class="container">
                 <h2>They trust us.</h2>
-                <p class="excerpt">See what our users have to say about PDFShift.</p>
+                <p class="excerpt">More than 90 positives reviews can not lie, see for yourself:</p>
 
                 <div class="testimonials__list">
-                    <!--
-                    Half:
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524v-12.005zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z"/>
-                    </svg>
-                    Empty:
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z"/>
-                    </svg>
-                    -->
+                    <div class="testimonials__list--item">
+                        <img src="/images/testimonials/nomadwebdesign.jpg" alt="Nomad Web Design's profile" class="testimonials__list--avatar" />
+                        <div class="testimonials__list--quote">
+                            <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-64326">So far this is one of the best HTML to PDF converters I have come across. I like that it's simple and does a good job. Also, their support and pricing is great!</blockquote>
+                            <div class="testimonials__list--details">
+                                <span class="testimonials__list--author">Nomad WebDesign (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-64326" target="_blank">AlternativeTo</a>)</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="testimonials__list--item">
                         <img src="https://secure.gravatar.com/avatar/5b5de1b1555183679389a8d656f19e65?d=mm&s=96" alt="Greg's profile" class="testimonials__list--avatar" />
                         <div class="testimonials__list--quote">
                             <blockquote cite="https://www.capterra.com/p/184246/PDFShift/#reviews">Stop rolling your own PDF generator - PDFShift has done it better.</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Greg P.</span>
-                                <span class="testimonials__list--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonials__list--item">
-                        <img src="/images/testimonials/jacqui.jpg" alt="Jacqui's profile" class="testimonials__list--avatar" />
-                        <div class="testimonials__list--quote">
-                            <blockquote cite="https://www.capterra.com/p/184246/PDFShift/#reviews">Works exactly as advertised.</blockquote>
-                            <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Jacqui M.</span>
-                                <span class="testimonials__list--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonials__list--item">
-                        <img src="/images/testimonials/aaron.png" alt="Aaron's profile" class="testimonials__list--avatar" />
-                        <div class="testimonials__list--quote">
-                            <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1420927">Easy and developer-oriented API.</blockquote>
-                            <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Aaron B.</span>
-                                <span class="testimonials__list--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /></span>
+                                <span class="testimonials__list--author">Greg P. (<a href="https://www.capterra.com/p/184246/PDFShift/#reviews" target="_blank">Capterra</a>)</span>
                             </div>
                         </div>
                     </div>
@@ -552,28 +530,25 @@ func main() {
                         <div class="testimonials__list--quote">
                             <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1353501">Perfect rendering, easy to setup and use.</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Billy B.</span>
-                                <span class="testimonials__list--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /></span>
+                                <span class="testimonials__list--author">Billy B. (<a href="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1353501" target="_blank">G2</a>)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonials__list--item">
+                        <img src="/images/testimonials/sk.png" alt="Sky's profile" class="testimonials__list--avatar" />
+                        <div class="testimonials__list--quote">
+                            <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-71289">Very easy to use, highly customizeable, and works just as intended. The biggest feature missing from other PDF APIs was the ability to decide where a page "breaks" and continues on to a new page. PDFShift made doing so easy with a simple CSS class.</blockquote>
+                            <div class="testimonials__list--details">
+                                <span class="testimonials__list--author">Skystover (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-71289" target="_blank">AlternativeTo</a>)</span>
                             </div>
                         </div>
                     </div>
                     <div class="testimonials__list--item">
                         <img src="/images/testimonials/greg.png" alt="Greg's profile" class="testimonials__list--avatar" />
                         <div class="testimonials__list--quote">
-                            <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1802905">Super easy way to create PDFs.</blockquote>
+                            <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-66794">PDFShift is awesome! Before I was creating PHP PDF files through fPDF and it was very time consuming and difficult. Now with PDFShift, I can just mock them up in HTML and CSS and then through a very simple and easy to use API I can create a PDF in a matter of seconds. I highly recommend PDFShift.</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Greg R.</span>
-                                <span class="testimonials__list--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonials__list--item">
-                        <img src="/images/testimonials/lukas.jpeg" alt="Lukas's profile" class="testimonials__list--avatar" />
-                        <div class="testimonials__list--quote">
-                            <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1346205">Very easy and reliable.</blockquote>
-                            <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Lukas K.</span>
-                                <span class="testimonials__list--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /></span>
+                                <span class="testimonials__list--author">Greg R. (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-66794" target="_blank">AlternativeTo</a>)</span>
                             </div>
                         </div>
                     </div>
@@ -718,7 +693,7 @@ func main() {
                             <h3 class="pricing__contact__title">Need MORE?</h3>
                             <p>PDFShift adjusts to your need with higher plan, from <strong>25k credits (99$/m) to up to 1 Millions credits (1,000$/m)</strong>.</p>
                         </div>
-                        <button class="button pricing__contact__button" type="button">Contact Us</button>
+                        <NuxtLink to="/contact/" title="Compare our pricing" class="button pricing__contact__button">Contact US</NuxtLink>
                     </div>
                     <div class="pricing__footer">
                         <NuxtLink to="/pricing/" title="Compare our pricing">
@@ -989,6 +964,8 @@ main h2 {
                                 &.button-disabled {
                                     opacity: 0.5 !important;
                                     cursor: default;
+                                    pointer-events: none;
+                                    user-select: none;
                                 }
 
                                 &:hover {
@@ -1160,7 +1137,7 @@ main h2 {
                 blockquote {
                     color: $color-text-grey;
                     font-weight: 600;
-                    font-size: 1.1em;
+                    font-size: 1em;
                     margin: 0 auto 0.5em;
                     line-height: 1.7;
                 }
@@ -1487,6 +1464,7 @@ main h2 {
                 padding: 1em 0.5em !important;
                 margin: 0.5em 0 0 0.5em !important;
                 width: 200px;
+                text-align: center;
                 text-transform: uppercase;
                 transition: background-color 200ms ease-in-out;
                 &:hover {

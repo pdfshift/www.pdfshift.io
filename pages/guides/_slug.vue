@@ -5,19 +5,20 @@
                 <ul class="guides__breadcrumbs">
                     <li><a href="/">Home</a></li>
                     <li><a href="/guides/">Guides</a></li>
-                    <li>{{ seo_title }}</li>
+                    <li>{{ document.title }}</li>
                 </ul>
 
                 <div class="guide-page__wrap">
                     <div>
-                        <ul class='guide-page__navi'>
+                        <ul class="guide-page__navi">
                             <li v-for="link in document.toc" :key="link.id" :class="{ 'toc2': link.depth === 2, 'toc3': link.depth === 3 }">
                                 <NuxtLink :to="`#${link.id}`">{{ link.text }}</NuxtLink>
                             </li>
                         </ul>
                     </div>
 
-                    <div class='guide-page__content'>
+                    <div class="guide-page__content">
+                        <p><img :src="`/images/guides/${document.logo}`" :alt="`${document.language}'s logo`" /></p>
                         <nuxt-content :document="document" />
                     </div>
                 </div>
@@ -53,7 +54,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~/assets/css/_common';
 
 .guides {
@@ -79,7 +80,7 @@ export default {
                     display: inline-block;
                     width: 0.7em;
                     height: 0.7em;
-                    background-image: url('/static/images/press/angle-right.svg');
+                    background-image: url('/images/guides/angle-right.svg');
                     background-size: contain;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -103,7 +104,7 @@ export default {
         margin: 0;
         position: sticky;
         top: 100px;
-        li {
+        li.toc2 {
             margin: 1em 0 0.5em !important;
             padding: 0;
             font-weight: 600;
@@ -117,19 +118,23 @@ export default {
                 }
             }
         }
-        > ul {
-            list-style: none;
-            > li {
-                font-size: 0.8em;
-                margin: 0.1em 0 !important;
-                padding-left: 2em;
-                &:before {
-                    content: "-";
-                    opacity: 0.5;
-                    margin-left: -1em;
-                }
-                a {
-                    font-weight: 300;
+        li.toc3 {
+            margin: 0.1em 0 !important;
+            font-size: 0.8em;
+            padding-left: 2em;
+            &:before {
+                content: "-";
+                opacity: 0.5;
+                margin-left: -1em;
+            }
+            a {
+                font-weight: 300;
+                padding: 0.5em;
+                border: 0;
+                color: $color-black;
+                opacity: 0.7;
+                &:hover {
+                    opacity: 1;
                 }
             }
         }
@@ -170,7 +175,7 @@ export default {
                         height: 0.8em;
                         width: 1em;
                         display: inline-block;
-                        background: url('/static/images/guides/link.svg') no-repeat center center;
+                        background: url('/images/guides/link.svg') no-repeat center center;
                         margin-top: 0.2em;
                     }
                 }

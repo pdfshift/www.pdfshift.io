@@ -2,6 +2,7 @@
 title: Convert any HTML to PDF using Node.JS
 description: A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Node.JS.
 language: node
+logo: node.svg
 ---
 
 ![node js](/static/images/guides/node.svg "Node JS Logo")

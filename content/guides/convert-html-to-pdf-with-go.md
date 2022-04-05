@@ -2,6 +2,7 @@
 title: Convert any HTML to PDF using GO
 description: A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and GO.
 language: go
+logo: go.svg
 ---
 
 # How to convert HTML to PDF in Go

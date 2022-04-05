@@ -2,6 +2,7 @@
 title: Convert any HTML to PDF using PHP
 description: A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and PHP.
 language: php
+logo: php.svg
 ---
 
 # How to convert HTML to PDF in PHP

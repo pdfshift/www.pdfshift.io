@@ -2,6 +2,7 @@
 title: Convert any HTML to PDF using Java
 description: A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Java.
 language: java
+logo: java.svg
 ---
 
 # How to convert HTML to PDF in Java

@@ -2,6 +2,7 @@
 title: Convert any HTML to PDF using Python
 description: A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Python.
 language: python
+logo: python-requests.svg
 ---
 
 # How to convert HTML to PDF in Python
