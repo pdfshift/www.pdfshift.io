@@ -5,7 +5,6 @@ language: node
 logo: node.svg
 ---
 
-![node js](/static/images/guides/node.svg "Node JS Logo")
 # How to convert HTML to PDF in Node.js
 
 We recommand you to use a standard request library like "Axios", "Fetch", "Superhuman" or any other that you like.
@@ -199,7 +198,7 @@ Some documents that you share need a watermark to clearly identify your brand. T
 pdfshift('your_api_key', {
     source: 'https://example.com',
     watermark: {
-        image: 'https://pdfshift.io/static/img/logo.png',
+        image: 'https://pdfshift.io/images/logo.png',
         offset_x: 50,
         offset_y: '100px',
         rotate: 45

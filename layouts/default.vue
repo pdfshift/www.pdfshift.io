@@ -67,15 +67,34 @@
                             </div>
                         </div>
                         <div class="column five">
-                            <form id="register" class="fade-in from-right delay-3">
-                                <h2>Get started now</h2>
-                                <p>Get started with <strong>50 free credits per months</strong><br />and upgrade whenever you are ready.</p>
-                                <div><input type="text" name="name" placeholder="Full Name" required /></div>
-                                <div><input type="email" name="email" placeholder="Email Address" required /></div>
-                                <div>
-                                    <p><small>By signing up, you agree to the <NuxtLink to="/terms/" title="Read our Terms of Service">Terms of Service</NuxtLink> and <NuxtLink to="/privacy/" title="Read our Privacy Policy">Privacy Policy</NuxtLink>.</small></p>
-                                </div>
-                                <input type="submit" name="submit" value="Create your free account" class="button button-primary" />
+                            <form id="register" class="fade-in from-right delay-3" @submit.prevent="register">
+                                <template v-if="registered">
+                                    <div class="success">
+                                        <svg class="animated checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                            <circle cx="26" cy="26" r="25" fill="none" />
+                                            <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                        </svg>
+                                        <h3>All good! Check your emails.</h3>
+                                        <p>We just sent you an email containing your API key to start implementing PDFShift.</p>
+                                        <p>You'll be converting web documents to PDF in a few minutes now!</p>
+                                    </div>
+                                </template>
+                                <template v-else>
+                                    <h2>Get started now</h2>
+                                    <p>Get started with <strong>50 free credits per months</strong><br />and upgrade whenever you are ready.</p>
+                                    <div :class="{'error': errors.name}">
+                                        <input v-model="form.name" type="text" name="name" placeholder="Full Name" required />
+                                        <p v-if="errors.name" class="error">{{ errors.name }}</p>
+                                    </div>
+                                    <div :class="{'error': errors.email}">
+                                        <input v-model="form.email" type="email" name="email" placeholder="Email Address" required />
+                                        <p v-if="errors.email" class="error">{{ errors.email }}</p>
+                                    </div>
+                                    <div>
+                                        <p><small>By signing up, you agree to the <NuxtLink to="/terms/" title="Read our Terms of Service">Terms of Service</NuxtLink> and <NuxtLink to="/privacy/" title="Read our Privacy Policy">Privacy Policy</NuxtLink>.</small></p>
+                                    </div>
+                                    <input type="submit" name="submit" value="Create your free account" class="button button-primary" :class="{'button-disabled': sending}" />
+                                </template>
                             </form>
                         </div>
                     </div>
@@ -175,8 +194,25 @@
 
 <script>
 import SvgOutsideLink from '~/static/images/outside-link.svg?inline'
+import register from '@/mixins/register'
+
 export default {
     components: { SvgOutsideLink },
+    mixins: [register],
+    data () {
+        return {
+            form: {
+                name: null,
+                email: null
+            },
+            errors: {
+                name: null,
+                email: null
+            },
+            sending: false,
+            registered: false
+        }
+    },
     computed: {
         fullYear () {
             return new Date().getFullYear()
@@ -222,6 +258,8 @@ export default {
 
         window.addEventListener('scroll', () => { this.stickyMenu(window.scrollY) })
         this.stickyMenu(window.document.documentElement.scrollTop)
+
+        this.loadCampaign()
     },
     methods: {
         stickyMenu (position) {
@@ -235,6 +273,58 @@ export default {
         showAccordionMenu () {
             this.$refs['header-main-menu'].classList.toggle('visible')
             this.$refs['header-main-cta'].classList.toggle('visible')
+        },
+        loadCampaign () {
+            let campaign = null
+            try {
+                campaign = window.localStorage.getItem('pdfshift-campaign')
+                if (campaign) {
+                    console.log('already present !')
+                    console.log(JSON.parse(campaign))
+                    return
+                }
+
+                campaign = {}
+            } catch (e) {
+                return
+            }
+
+            if (document.referrer) {
+                campaign.referrer = document.referrer
+            }
+
+            if ('ref' in this.$route.query && this.$route.query.ref) {
+                campaign.source = this.$route.query.ref
+            }
+
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid'].forEach((key) => {
+                if (key in this.$route.query && this.$route.query[key]) {
+                    if (key.substr(0, 4) === 'utm_') {
+                        if (!('utm' in campaign)) {
+                            campaign.utm = {}
+                        }
+
+                        campaign.utm[key.substr(4)] = this.$route.query[key]
+                    } else {
+                        campaign[key] = this.$route.query[key]
+                    }
+                }
+            })
+
+            if ('utm' in campaign) {
+                if (!('source' in campaign) && 'source' in campaign.utm) {
+                    campaign.source = campaign.utm.source
+                }
+            }
+
+            const result = JSON.stringify(campaign)
+            if (result === '{}') {
+                return
+            }
+
+            try {
+                window.localStorage.setItem('pdfshift-campaign', result)
+            } catch (e) {}
         }
     }
 }
@@ -249,6 +339,59 @@ export default {
             font-size: 0.9em;
             margin: 10px 0 10px 5px;
         }
+
+        .success {
+            color: rgba(0, 0, 0, 0.8);
+            text-align: left;
+
+            h3 {
+                color: lighten(#155724, 10%);
+                text-align: center;
+                margin: 2rem 0 3rem;
+            }
+
+            .checkmark {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                display: block;
+                stroke-width: 2;
+                stroke: lighten(#155724, 10%);
+                stroke-miterlimit: 10;
+                margin: 6% auto;
+
+                circle {
+                    stroke-dasharray: 166;
+                    stroke-dashoffset: 166;
+                    stroke-width: 2;
+                    stroke-miterlimit: 10;
+                    stroke: lighten(#155724, 10%);
+                    fill: none;
+                }
+
+                path {
+                    transform-origin: 50% 50%;
+                    stroke-dasharray: 48;
+                    stroke-dashoffset: 48;
+                }
+            }
+
+            .animated.checkmark {
+                animation: animscale .3s ease-in-out .9s both;
+
+                circle {
+                    animation: animstroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+                }
+
+                path {
+                    animation: animstroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+                }
+            }
+        }
+    }
+
+    #register-success {
+        background-color: #fff;
     }
 
     #hero-pricing-details {

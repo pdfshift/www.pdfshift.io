@@ -84,7 +84,7 @@ $purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
         bottom: 1em;
         font-weight: 500;
         &:after {
-            content: url('/static/images/guides/arrow-right-purple.svg');
+            content: url('/images/guides/arrow-right-purple.svg');
             position: absolute;
             margin-left: 0.5em;
             top: 0.1em;
@@ -172,7 +172,7 @@ $purple-shadow: 0px 8px 25px rgba(130, 96, 182, 0.15);
                         height: 0.8em;
                         width: 1em;
                         display: inline-block;
-                        background: url('/static/images/guides/link.svg') no-repeat center center;
+                        background: url('/images/guides/link.svg') no-repeat center center;
                         margin-top: 0.2em;
                     }
                 }

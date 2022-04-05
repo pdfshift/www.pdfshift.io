@@ -647,7 +647,7 @@ func main() {
     message := map[string]interface{}{
         "source": "https://www.example.com",
         "watermark": map[string]string{
-            "image": "https://pdfshift.io/static/img/logo.png",
+            "image": "https://pdfshift.io/img/logo.png",
             "offset_x": 50,
             "offset_y": "100px",
             "rotate": 45,

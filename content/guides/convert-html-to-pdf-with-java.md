@@ -556,7 +556,7 @@ public class Application {
         jsonObject.put("source", "https://www.example.com");
         
         var watermark = new JSONObject();
-        watermark.put("image", "https://pdfshift.io/static/img/logo.png");
+        watermark.put("image", "https://pdfshift.io/images/logo.png");
         watermark.put("offset_x", 50);
         watermark.put("offset_y", "100px");
         watermark.put("rotate", 45);
