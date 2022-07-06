@@ -112,7 +112,7 @@
                             </g>
                         </svg>
                         <h5>99.99%</h5>
-                        <span>SLA</span>
+                        <span>Uptime</span>
                     </li>
                 </ul>
             </div>
@@ -120,7 +120,7 @@
 
         <div id="code">
             <div class="container">
-                <h2>Integrate PDFShift with just three lines of code</h2>
+                <h2>Integrate PDFShift with just a simple request</h2>
                 <p class="excerpt">
                     We believe that developers should focus their time on things that matter, not setting up yet another PDF library.
                     Because we eliminate needless complexity and provide an up-to-date service, you can get up and running with PDFShift in just a couple of minutes.
@@ -131,17 +131,25 @@
                         <div class="code-samples">
                             <div :class="{'visible': language == 'javascript'}">
                                 <div class="code-section">
-                                    <pre class="line-numbers language-javascript"><code>// Step 1, install PDFShift
-npm install pdfshift
+                                    <pre class="line-numbers language-javascript"><code>const fetch = require('node-fetch')
 
-// Step 2, import PDFShift
-const pdfshift = require('pdfshift')('your_api_key');
-const fs = require('fs');
+fetch('https://api.pdfshift.io/v3/convert/pdf', {
+    method: 'POST',
+    headers: {
+        Authorization: 'Basic ' + Buffer.from('api:your_api_key').toString('base64'),
+        'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+        source: 'https://en.wikipedia.org/wiki/PDF',
+        landscape: false,
+        use_print: false
+    })
+}).then(response => {
+    response.body.pipe(fs.createWriteStream('wikipedia.pdf'))
+})
 
-// Step 3, execute
-pdfshift.convert('https://en.wikipedia.org/wiki/PDF', {"landscape": false, "use_print": false}).then(function (binary_file) {
-    fs.writeFile('wikipedia.pdf', binary_file, "binary", function () {})
-}).catch(function({message, code, response, errors = null}) {})</code></pre>
+// You can also use Axios if you want:
+// https://gist.github.com/cnicodeme/28ade69b269ca0a4af0a7c29c479b747</code></pre>
                                     <div class="copy">
                                         <a ref="copy" href="javascript:;" title="Click here to copy to clipoard" class="button" @click="copyCode">Copy to clipboard</a>
                                     </div>
@@ -182,7 +190,10 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
-file_put_contents('wikipedia.pdf', $response);</code></pre>
+file_put_contents('wikipedia.pdf', $response);
+
+// We even made a GIST for you at:
+// https://gist.github.com/cnicodeme/f2c73d89ac49313d023d738b5cdb7046</code></pre>
                                     <div class="copy">
                                         <a ref="copy" href="javascript:;" title="Click here to copy to clipoard" class="button" @click="copyCode">Copy to clipboard</a>
                                     </div>
@@ -737,7 +748,7 @@ const seoTitle = 'The Leading HTML to PDF conversion API'
 const seoDescription = 'An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.'
 
 const statistics = {
-    conversions: '20+ Millions',
+    conversions: '22+ Millions',
     users: '15,000+'
 }
 
