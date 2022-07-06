@@ -43,7 +43,7 @@ export default {
             { name: 'msapplication-config', content: '/images/favicons/browserconfig.xml' },
             { name: 'theme-color', content: '#ffffff' },
             { name: 'apple-mobile-web-app-title', content: 'PDFShift' },
-            { name: 'application-name', content: 'PDFShift' },
+            { name: 'application-name', content: 'PDFShift' }
         ],
         link: [
             /*
@@ -64,6 +64,9 @@ export default {
             { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/images/favicons/android-chrome-512x512.png' },
             { rel: 'mask-icon', color: '#5bbad5', href: '/images/favicons/safari-pinned-tab.svg' },
             { rel: 'manifest', href: '/images/favicons/site.webmanifest' },
+        ],
+        script: [
+            { src: '/plausible/js/script.js', 'data-domain': 'pdfshift.io', 'data-api': '/plausible/api/event' }
         ]
     },
 
@@ -71,6 +74,41 @@ export default {
     css: [
         '@/assets/css/general.scss'
     ],
+
+    router: {
+        scrollBehavior: (to, from, savedPosition) => {
+            if (savedPosition) {
+                return savedPosition
+            }
+
+            const findEl = (hash, x) => {
+                return document.querySelector(hash) ||
+                new Promise((resolve, reject) => {
+                    if (x > 50) {
+                        return resolve()
+                    }
+                    setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+                })
+            }
+
+            if (to.hash) {
+                let delay = 0
+                if (to.name !== from.name) {
+                    delay = 100
+                }
+                setTimeout(async () => {
+                    const el = await findEl(to.hash)
+                    if ('scrollBehavior' in document.documentElement.style) {
+                        return window.scrollTo({ top: el.offsetTop - 87, behavior: 'smooth' })
+                    } else {
+                        return window.scrollTo(0, el.offsetTop - 87)
+                    }
+                }, delay)
+            }
+
+            return { x: 0, y: 0 }
+        }
+    },
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [

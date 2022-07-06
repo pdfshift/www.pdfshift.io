@@ -1,4 +1,4 @@
-* **Google Analytics**
+* **Plausible**
   We use this service to understand general usage, traffic sources and to measure campaign success.
 * **Amplitude**
   We (also) use this service to understand general usage, traffic sources and to measure campaign success.

@@ -222,7 +222,7 @@ Vendor ensure that backups are frequently made, and encrypted when stored.
 
 ## ANNEX 3: List of Sub-processors engaged by PDFShift
 
-* **Google Analytics**
+* **Plausible.io**
   We use this service to understand general usage, traffic sources and to measure campaign success.
 * **Amplitude**
   We (also) use this service to understand general usage, traffic sources and to measure campaign success.

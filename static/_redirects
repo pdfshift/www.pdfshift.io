@@ -15,3 +15,6 @@ https://www.pdfshift.com/* https://pdfshift.io/:splat 301!
 /account/:token/upgrade    https://api.pdfshift.io/v3/auth/login/:token 301!
 
 /account/auth/:token    https://api.pdfshift.io/v3/auth/login/:token 200!
+
+/plausible/js/script.js  https://plausible.io/js/script.js  200
+/plausible/api/event     https://plausible.io/api/event     200

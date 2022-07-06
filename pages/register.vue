@@ -21,7 +21,7 @@
                 <template v-else>
                     <form @submit.prevent="register">
                         <div class="form-element" :class="{'error': errors.name}">
-                            <input v-model="form.name" type="text" name="name" placeholder="Full Name" required autofocus />
+                            <input ref="registerName" v-model="form.name" type="text" name="name" placeholder="Full Name" required autofocus />
                             <p v-if="errors.name" class="error">{{ errors.name }}</p>
                         </div>
                         <div class="form-element" :class="{'error': errors.email}">
@@ -73,6 +73,11 @@ export default {
             { hid: 'twitter:description', name: 'twitter:description', content: seoDescription },
             { hid: 'og:description', name: 'og:description', content: seoDescription }
         ]
+    },
+    mounted () {
+        setTimeout(() => {
+            this.$refs.registerName.focus()
+        }, 250)
     }
 }
 </script>

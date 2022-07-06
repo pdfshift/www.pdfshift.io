@@ -159,12 +159,11 @@ The following third parties serve cookies through PDFShift for analytics and oth
 NAME | PURPOSE
 --- | ---
 [Stripe](https://stripe.com) | Our payment gateway. This allows us to accept credit card payments securely.
-[Google Analytics](https://analytics.google.com/analytics/web/) | Our visitor’s statistics. We track visits from our server so the Google javascript is not installed and you are never tracked. (Your IP is anonymized, no cookies or tracking device are installed on your computer).
+[Plausible](https://plausible.io) | Our visitor’s statistics. We track visits from our server so the Google javascript is not installed and you are never tracked. (Your IP is anonymized, no cookies or tracking device are installed on your computer).
 [Mailgun](https://mailgun.com) | Mailgun is used on PDFShift’s application to send Email.
 [Customer.io](https://customer.io) | We use Customer.io to send you emails related to your account and general messages like newsletters.
 [Amplitude](https://amplitude.com) | We track a few key metrics on our service and Amplitude help us visualize them. All the data are anonymized.
 [Sentry](https://sentry.io) | We use sentry to retrieve, review and handle issues that might occurs within PDFShift.
-[ProveSource](https://provesrc.com) | We use ProveSource to inform about recent purchases done by other via a widget on the website.
 
 
 Here is a list of the cookies we use in PDFShift:
@@ -174,7 +173,6 @@ VENDOR | COOKIE NAME | PURPOSE
 **PDFShift** | \_t | Session tracking cookie.
 **Stripe** | \_\_lc.visitor\_id.XXXXXXX, \_\_stripe\_mid,<br />\_\_stripe\_orig\_props, stripe.csrf,<br />cid, lang, machine\_identifier,<br />merchant, mp\_{token}\_mixpanel,<br />private\_machine\_identifier, lc\_window\_state | We rely on Stripe to handle payments made on PDFShift.
 **Intercom** | intercom-id-\*, gtm\_id | Used for the chat on app.PDFShift
-**ProveSource** | psuid, ps-goals | Used to know your preferences on how to display the ProveSrc widget.
 
 You can remove or reject functional and advertising cookies. However, if you do not accept certain cookies, some functionalities and features of the sites and apps may not function properly and you may experience some inconvenience in their use.
 

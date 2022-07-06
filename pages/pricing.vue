@@ -192,19 +192,19 @@
                         <tr class="ctas">
                             <td class="key label"></td>
                             <td>
-                                <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                                <a href="javascript:;" title="Click here to create an account and get started" class="button button-primary" @click="$nuxt.$emit('showRegister')">Get my API Key</a>
                             </td>
                             <td>
-                                <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                                <a href="javascript:;" title="Click here to create an account and get started" class="button button-primary" @click="$nuxt.$emit('showRegister')">Get my API Key</a>
                             </td>
                             <td>
-                                <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                                <a href="javascript:;" title="Click here to create an account and get started" class="button button-primary" @click="$nuxt.$emit('showRegister')">Get my API Key</a>
                             </td>
                             <td>
-                                <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                                <a href="javascript:;" title="Click here to create an account and get started" class="button button-primary" @click="$nuxt.$emit('showRegister')">Get my API Key</a>
                             </td>
                             <td>
-                                <a href="/register/" title="Click here to create an account and get started" class="button button-primary">Get my API Key</a>
+                                <a href="javascript:;" title="Click here to create an account and get started" class="button button-primary" @click="$nuxt.$emit('showRegister')">Get my API Key</a>
                             </td>
                         </tr>
                     </tbody>

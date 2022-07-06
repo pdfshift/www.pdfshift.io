@@ -38,13 +38,13 @@
                             <div id="header-main-cta" ref="header-main-cta" class="cta">
                                 <div>
                                     <a href="https://app.pdfshift.io" title="Login on PDFShift.io" itemprop="name">Login</a> or
-                                    <NuxtLink to="/register/" title="Register now for free and start converting HTML to PDF!" class="column create-account">
+                                    <a href="javascript:;" title="Register now for free and start converting HTML to PDF!" class="column create-account" @click="goToRegister">
                                         <svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M23.004 0c-5.523 0-10 4.478-10 10a9.87 9.87 0 0 0 .713 3.629L1.568 25.777C1.217 26.129 1 26.463 1 27v3c0 1.07.929 2 2 2h3c.536 0 .875-.215 1.226-.564L8.661 30h2.343a2 2 0 0 0 2-2v-2h2a2 2 0 0 0 2-2v-2.344l2.369-2.371c1.129.445 2.344.715 3.631.715 5.521 0 10-4.478 10-10s-4.479-10-10-10zm0 18c-1.48 0-2.852-.43-4.041-1.132l-.344.343-1.125 1.125-1.905 1.906a1.999 1.999 0 0 0-.586 1.414V24h-2a2 2 0 0 0-2 2v2H8.661a2 2 0 0 0-1.414.586l-1.418 1.418L3.003 30 3 27.15l11.665-11.644.001.002 1.469-1.469c-.702-1.189-1.132-2.56-1.132-4.04A8.001 8.001 0 1 1 23.004 18z" class="svg-fill" />
                                             <path d="M28.82 8.239a17.71 17.71 0 0 0-4.055-4.054.961.961 0 0 0-.882-.127c-1.389.489-2.34 1.439-2.826 2.828a.952.952 0 0 0 .127.882 17.736 17.736 0 0 0 4.053 4.053.966.966 0 0 0 .881.128c1.391-.486 2.342-1.438 2.83-2.828a.952.952 0 0 0-.128-.882zm-3 2.771A17.122 17.122 0 0 1 22 7.217c.387-1.103 1.111-1.827 2.182-2.221a16.75 16.75 0 0 1 3.816 3.811c-.391 1.095-1.113 1.815-2.178 2.203z" class="svg-fill" />
                                         </svg>
                                         Register
-                                    </NuxtLink>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -61,13 +61,13 @@
                                     <p>Stop wasting time implementing and maintaining a third-party software/library.</p>
                                     <p>With PDFShift, rely on an up-to-date, high-fidelity conversion API with no maintenance costs.</p>
                                     <div class="actions">
-                                        <NuxtLink to="/register/" title="Create an account now" class="button create-account">Create an account</NuxtLink>
+                                        <a href="javascript:;" title="Create an account now" class="button create-account" @click="focusRegister">Create an account</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="column five">
-                            <form id="register" class="fade-in from-right delay-3" @submit.prevent="register">
+                            <form id="register" ref="registerForm" class="fade-in from-right delay-3" @submit.prevent="register">
                                 <template v-if="registered">
                                     <div class="success">
                                         <svg class="animated checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -83,7 +83,7 @@
                                     <h2>Get started now</h2>
                                     <p>Get started with <strong>50 free credits per months</strong><br />and upgrade whenever you are ready.</p>
                                     <div :class="{'error': errors.name}">
-                                        <input v-model="form.name" type="text" name="name" placeholder="Full Name" required />
+                                        <input ref="registerName" v-model="form.name" type="text" name="name" placeholder="Full Name" required />
                                         <p v-if="errors.name" class="error">{{ errors.name }}</p>
                                     </div>
                                     <div :class="{'error': errors.email}">
@@ -218,55 +218,40 @@ export default {
             return new Date().getFullYear()
         }
     },
+    created () {
+        this.$nuxt.$on('showRegister', () => this.goToRegister())
+    },
     mounted () {
-        /*
-        var i = new Image;
-        i.src = [
-            window.PDFShift.api_url,
-            "t/page.gif?u=",
-            encodeURIComponent(window.location.href),
-            "&r=",
-            encodeURIComponent(window.document.referrer),
-            "&t=",
-            encodeURIComponent(window.document.title),
-            "&sr=",
-            encodeURIComponent(window.screen.width+"x"+window.screen.height),
-            "&vp=",
-            encodeURIComponent(Math.max(document.documentElement.clientWidth,window.innerWidth||0)+"x"+Math.max(document.documentElement.clientHeight,window.innerHeight||0)),
-            "&gclid=",
-            window.PDFShift.getQueryVariable('gclid'),
-            "&cs=",
-            window.PDFShift.getQueryVariable('utm_source'),
-            "&cm=",
-            window.PDFShift.getQueryVariable('utm_medium'),
-            "&cn=",
-            window.PDFShift.getQueryVariable('utm_campaign')
-        ].join('')
-        // =window.PDFShift.api_url + "t/page.gif?u="+encodeURIComponent(window.location.href)+"&r="+encodeURIComponent(window.document.referrer)+"&t="+encodeURIComponent(window.document.title)+"&sr="+encodeURIComponent(window.screen.width+"x"+window.screen.height)+"&vp="+encodeURIComponent(Math.max(document.documentElement.clientWidth,window.innerWidth||0)+"x"+Math.max(document.documentElement.clientHeight,window.innerHeight||0));
-        */
-
-        // ProveSource
-        /* eslint-disable */
-        !function (o,i) {
-            window.provesrc&&window.console&&console.error&&console.error("ProveSource is included twice in this page."),provesrc=window.provesrc={dq:[],display:function(o,i){this.dq.push({n:o,g:i})}},o._provesrcAsyncInit=function(){provesrc.init({apiKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI1Y2FjOTI2ODVhZmJjNzNmOWE3OTg4MWQiLCJpYXQiOjE1NTQ4MTM1NDR9.S0M_uClBBPlCV30eCiNkwhf_oLGShbV-MmbtkNT_Dw8",v:"0.0.3"})};
-            var r=i.createElement("script");
-            r.type="text/javascript",r.async=!0,r["ch"+"ar"+"set"]="UTF-8",r.src="https://cdn.provesrc.com/provesrc.js";
-            var e=i.getElementsByTagName("script")[0];
-            e.parentNode.insertBefore(r,e)
-        }(window,document);
-        /* eslint-enable */
-
         window.addEventListener('scroll', () => { this.stickyMenu(window.scrollY) })
         this.stickyMenu(window.document.documentElement.scrollTop)
 
         this.loadCampaign()
     },
     methods: {
+        focusRegister () {
+            this.$refs.registerName.scrollIntoView()
+            this.$nextTick(() => {
+                this.$refs.registerName.focus()
+                this.$refs.registerForm.classList.remove('fade-in', 'from-right', 'delay-3')
+                this.$refs.registerForm.classList.add('animate')
+                setTimeout(() => {
+                    this.$refs.registerForm.classList.remove('animate')
+                }, 1500)
+            })
+        },
+        goToRegister () {
+            if (this.$route.name !== 'index') {
+                return this.$router.push('/register/')
+            }
+
+            // We scroll, we don't redirect)
+            this.focusRegister()
+        },
         stickyMenu (position) {
             const header = document.getElementById('header')
-            if (header.classList.contains('fixed-heading') && position < 30) {
+            if (header.classList.contains('fixed-heading') && position < 150) {
                 header.classList.remove('fixed-heading')
-            } else if (!header.classList.contains('fixed-heading') && position >= 30) {
+            } else if (!header.classList.contains('fixed-heading') && position >= 150) {
                 header.classList.add('fixed-heading')
             }
         },
@@ -279,8 +264,6 @@ export default {
             try {
                 campaign = window.localStorage.getItem('pdfshift-campaign')
                 if (campaign) {
-                    console.log('already present !')
-                    console.log(JSON.parse(campaign))
                     return
                 }
 
@@ -331,74 +314,112 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    #register {
-        p>small { font-size: .75rem }
-        p { color: #484848; font-size: .9em }
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
 
-        label.checkbox {
-            font-size: 0.9em;
-            margin: 10px 0 10px 5px;
-        }
+#register {
+    &.animate {
+        animation: swing 1s ease;
+        animation-iteration-count: 1;
+    }
+    p>small { font-size: .75rem }
+    p { color: #484848; font-size: .9em }
 
-        .success {
-            color: rgba(0, 0, 0, 0.8);
-            text-align: left;
-
-            h3 {
-                color: lighten(#155724, 10%);
-                text-align: center;
-                margin: 2rem 0 3rem;
-            }
-
-            .checkmark {
-                width: 56px;
-                height: 56px;
-                border-radius: 50%;
-                display: block;
-                stroke-width: 2;
-                stroke: lighten(#155724, 10%);
-                stroke-miterlimit: 10;
-                margin: 6% auto;
-
-                circle {
-                    stroke-dasharray: 166;
-                    stroke-dashoffset: 166;
-                    stroke-width: 2;
-                    stroke-miterlimit: 10;
-                    stroke: lighten(#155724, 10%);
-                    fill: none;
-                }
-
-                path {
-                    transform-origin: 50% 50%;
-                    stroke-dasharray: 48;
-                    stroke-dashoffset: 48;
-                }
-            }
-
-            .animated.checkmark {
-                animation: animscale .3s ease-in-out .9s both;
-
-                circle {
-                    animation: animstroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-                }
-
-                path {
-                    animation: animstroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-                }
-            }
-        }
+    label.checkbox {
+        font-size: 0.9em;
+        margin: 10px 0 10px 5px;
     }
 
-    #register-success {
-        background-color: #fff;
-    }
+    .success {
+        color: rgba(0, 0, 0, 0.8);
+        text-align: left;
 
-    #hero-pricing-details {
-        text-align: center;
-
-        h1 {
+        h3 {
+            color: lighten(#155724, 10%);
             text-align: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .checkmark {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: lighten(#155724, 10%);
+            stroke-miterlimit: 10;
+            margin: 6% auto;
+
+            circle {
+                stroke-dasharray: 166;
+                stroke-dashoffset: 166;
+                stroke-width: 2;
+                stroke-miterlimit: 10;
+                stroke: lighten(#155724, 10%);
+                fill: none;
+            }
+
+            path {
+                transform-origin: 50% 50%;
+                stroke-dasharray: 48;
+                stroke-dashoffset: 48;
+            }
+        }
+
+        .animated.checkmark {
+            animation: animscale .3s ease-in-out .9s both;
+
+            circle {
+                animation: animstroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+            }
+
+            path {
+                animation: animstroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+            }
         }
     }
+}
+
+#register-success {
+    background-color: #fff;
+}
+
+#hero-pricing-details {
+    text-align: center;
+
+    h1 {
+        text-align: center;
+    }
+}
 </style>

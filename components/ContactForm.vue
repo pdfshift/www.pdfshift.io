@@ -62,7 +62,9 @@ export default {
     },
     mounted () {
         if (this.main) {
-            this.$refs.firstField.focus()
+            setTimeout(() => {
+                this.$refs.firstField.focus()
+            }, 250)
         }
     },
     methods: {

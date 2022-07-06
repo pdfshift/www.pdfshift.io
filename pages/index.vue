@@ -627,7 +627,7 @@ func main() {
                                     + Advanced Custom Header & Footer, Encryption, Watermark, Asynchronous requests, Parallel Conversion, Wait for custom elements, ...
                                 </div>
                             </div>
-                            <NuxtLink to="/register/" class="button button-secondary pricing__card__button">Sign up for free now</NuxtLink>
+                            <a href="javascript:;" class="button button-secondary pricing__card__button" @click="$nuxt.$emit('showRegister')">Sign up for free now</a>
                         </div>
                         <!-- Second card -->
                         <div class="pricing__card pricing__card--highlight">
@@ -656,7 +656,7 @@ func main() {
                                     + Advanced Custom Header & Footer, Encryption, Watermark, Asynchronous requests, Parallel Conversion, Wait for custom elements, ...
                                 </div>
                             </div>
-                            <NuxtLink to="/register/" class="button button-primary pricing__card__button">Sign up for free now</NuxtLink>
+                            <a href="javascript:;" class="button button-primary pricing__card__button" @click="$nuxt.$emit('showRegister')">Sign up for free now</a>
                         </div>
                         <div class="pricing__card">
                             <div class="pricing__card__top">
@@ -684,7 +684,7 @@ func main() {
                                     + Advanced Custom Header & Footer, Encryption, Watermark, Asynchronous requests, Parallel Conversion, Wait for custom elements, ...
                                 </div>
                             </div>
-                            <NuxtLink to="/register/" class="button button-secondary pricing__card__button">Sign up for free now</NuxtLink>
+                            <a href="javascript:;" class="button button-secondary pricing__card__button" @click="$nuxt.$emit('showRegister')">Sign up for free now</a>
                         </div>
                     </div>
 
