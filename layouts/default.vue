@@ -316,35 +316,17 @@ export default {
 <style lang="scss" scoped>
 @keyframes swing
 {
-    15%
+    0%
     {
-        -webkit-transform: translateX(5px);
-        transform: translateX(5px);
+        transform: scale(1);
     }
     30%
     {
-        -webkit-transform: translateX(-5px);
-        transform: translateX(-5px);
-    }
-    50%
-    {
-        -webkit-transform: translateX(3px);
-        transform: translateX(3px);
-    }
-    65%
-    {
-        -webkit-transform: translateX(-3px);
-        transform: translateX(-3px);
-    }
-    80%
-    {
-        -webkit-transform: translateX(2px);
-        transform: translateX(2px);
+        transform: scale(1.1);
     }
     100%
     {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
+        transform: scale(1);
     }
 }
 
