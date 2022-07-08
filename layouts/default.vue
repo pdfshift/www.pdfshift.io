@@ -6,7 +6,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="column">
-                                <div class="accordion-menu" @click="showAccordionMenu">
+                                <div class="accordion-menu" @click.stop="toggleAccordionMenu">
                                     <div />
                                     <div />
                                     <div />
@@ -18,7 +18,7 @@
                                     </svg>
                                 </NuxtLink>
                             </div>
-                            <nav id="header-main-menu" ref="header-main-menu" class="column">
+                            <nav id="header-main-menu" ref="header-main-menu" class="column" :class="{'visible': showAccordionMenu}">
                                 <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
                                     <li><NuxtLink to="/#features" title="Check out our features" itemprop="name">Features</NuxtLink></li>
                                     <!--<li><NuxtLink to="/#try-me" title="Check out our features" itemprop="name">Try it out</NuxtLink></li>-->
@@ -35,7 +35,7 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <div id="header-main-cta" ref="header-main-cta" class="cta">
+                            <div id="header-main-cta" ref="header-main-cta" class="cta" :class="{'visible': showAccordionMenu}">
                                 <div>
                                     <a href="https://app.pdfshift.io" title="Login on PDFShift.io" itemprop="name">Login</a> or
                                     <a href="javascript:;" title="Register now for free and start converting HTML to PDF!" class="column create-account" @click="goToRegister">
@@ -210,7 +210,9 @@ export default {
                 email: null
             },
             sending: false,
-            registered: false
+            registered: false,
+            scrollTrackTimeout: null,
+            showAccordionMenu: false
         }
     },
     computed: {
@@ -229,15 +231,23 @@ export default {
     },
     methods: {
         focusRegister () {
-            this.$refs.registerName.scrollIntoView()
-            this.$nextTick(() => {
+            this.$refs.registerForm.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
+            this.$refs.registerForm.classList.remove('fade-in', 'from-right', 'delay-3')
+            window.addEventListener('scroll', this.trackScrollToRegister)
+        },
+        trackScrollToRegister () {
+            if (this.scrollTrackTimeout) {
+                clearTimeout(this.scrollTrackTimeout)
+            }
+
+            this.scrollTrackTimeout = setTimeout(() => {
+                window.removeEventListener('scroll', this.trackScrollToRegister)
                 this.$refs.registerName.focus()
-                this.$refs.registerForm.classList.remove('fade-in', 'from-right', 'delay-3')
                 this.$refs.registerForm.classList.add('animate')
                 setTimeout(() => {
                     this.$refs.registerForm.classList.remove('animate')
                 }, 1500)
-            })
+            }, 100)
         },
         goToRegister () {
             if (this.$route.name !== 'index') {
@@ -255,9 +265,18 @@ export default {
                 header.classList.add('fixed-heading')
             }
         },
-        showAccordionMenu () {
-            this.$refs['header-main-menu'].classList.toggle('visible')
-            this.$refs['header-main-cta'].classList.toggle('visible')
+        toggleAccordionMenu () {
+            if (this.showAccordionMenu) {
+                return this.closeAccordionMenu()
+            }
+
+            this.showAccordionMenu = true
+            window.addEventListener('click', this.closeAccordionMenu, { once: true })
+        },
+        closeAccordionMenu () {
+            if (this.showAccordionMenu) {
+                this.showAccordionMenu = false
+            }
         },
         loadCampaign () {
             let campaign = null
@@ -314,7 +333,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@keyframes swing
+@keyframes wow
 {
     0%
     {
@@ -332,7 +351,7 @@ export default {
 
 #register {
     &.animate {
-        animation: swing 1s ease;
+        animation: wow 1s ease;
         animation-iteration-count: 1;
     }
     p>small { font-size: .75rem }

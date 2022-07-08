@@ -18,6 +18,7 @@ export default function (to, from, savedPosition) {
         if (to.name !== from.name) {
             delay = 100
         }
+
         setTimeout(async () => {
             const el = await findEl(to.hash)
             if ('scrollBehavior' in document.documentElement.style) {

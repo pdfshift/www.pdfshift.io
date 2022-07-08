@@ -508,7 +508,7 @@ func main() {
                         </div>
                     </div>
                 </div>
-                <a href="javascript:;" title="Get your API key for free and start converting now." class="button button-primary create-account">Get my free API key ➡</a>
+                <a href="javascript:;" title="Get your API key for free and start converting now." class="button button-primary create-account" @click.prevent="$nuxt.$emit('showRegister')">Get my free API key ➡</a>
             </div>
         </div>
 
