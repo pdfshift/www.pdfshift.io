@@ -234,10 +234,12 @@ export default {
             this.$refs.registerForm.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
             this.$refs.registerForm.classList.remove('fade-in', 'from-right', 'delay-3')
             window.addEventListener('scroll', this.trackScrollToRegister)
+            this.trackScrollToRegister()
         },
         trackScrollToRegister () {
             if (this.scrollTrackTimeout) {
                 clearTimeout(this.scrollTrackTimeout)
+                this.scrollTrackTimeout = null
             }
 
             this.scrollTrackTimeout = setTimeout(() => {

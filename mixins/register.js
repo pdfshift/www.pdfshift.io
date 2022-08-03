@@ -14,7 +14,7 @@ export default {
                 {
                     language: this.getStorageData('language', null)
                 },
-                this.getStorageData('campaign', {}), // Campaign params
+                JSON.parse(this.getStorageData('campaign', {})), // Campaign params
                 this.form
             )
 
