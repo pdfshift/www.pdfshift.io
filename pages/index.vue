@@ -388,9 +388,8 @@ func main() {
                                 <div class="code-section">
                                     <pre class="line-numbers language-bash"><code>curl \
     -u 'api:your_api_key' \
-    -d source="https://en.wikipedia.org/wiki/PDF" \
-    -d landscape="false" \
-    -d use_print="false" \
+    -H 'Content-Type: application/json' \
+    -d '{"source":"https://en.wikipedia.org/wiki/PDF","landscape": false, "use_print": false}' \
     https://api.pdfshift.io/v3/convert/pdf \
     -o wikipedia.pdf
 
