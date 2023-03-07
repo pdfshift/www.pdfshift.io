@@ -390,7 +390,7 @@ func main() {
     -u 'api:your_api_key' \
     -H 'Content-Type: application/json' \
     -d '{"source":"https://en.wikipedia.org/wiki/PDF","landscape": false, "use_print": false}' \
-    https://api.pdfshift.io/v3/convert/pdf \
+    "https://api.pdfshift.io/v3/convert/pdf" \
     -o wikipedia.pdf
 
 # That's all!</code></pre>
