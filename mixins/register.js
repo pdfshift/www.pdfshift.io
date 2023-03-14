@@ -22,6 +22,7 @@ export default {
                 (response) => {
                     this.sending = false
                     this.registered = true
+                    try { window.plausible('Signup') } catch (e) {}
                 },
                 (error) => {
                     this.sending = false

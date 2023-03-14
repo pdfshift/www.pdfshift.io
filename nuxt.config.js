@@ -63,7 +63,7 @@ export default {
             { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/images/favicons/android-chrome-192x192.png' },
             { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/images/favicons/android-chrome-512x512.png' },
             { rel: 'mask-icon', color: '#5bbad5', href: '/images/favicons/safari-pinned-tab.svg' },
-            { rel: 'manifest', href: '/images/favicons/site.webmanifest' },
+            { rel: 'manifest', href: '/images/favicons/site.webmanifest' }
         ],
         script: [
             { src: '/plausible/js/script.js', 'data-domain': 'pdfshift.io', 'data-api': '/plausible/api/event' }
@@ -77,8 +77,9 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        { src: '~/plugins/prism' },
-        '~/plugins/axios'
+        '~/plugins/prism',
+        '~/plugins/axios',
+        { src: '~plugins/plausible.js', mode: 'client' }
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
