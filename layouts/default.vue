@@ -137,8 +137,8 @@
                         <ul class="unstyled">
                             <li><NuxtLink to="/#features" title="">Features</NuxtLink></li>
                             <li><NuxtLink to="/pricing/" title="">Pricing</NuxtLink></li>
-                            <li><a ref="https://docs.pdfshift.io" title="Read our documentation">Documentation <SvgOutsideLink /></a></li>
-                            <li><a ref="https://status.pdfshift.io" title="View our status page">Status page <SvgOutsideLink /></a></li>
+                            <li><a href="https://docs.pdfshift.io" title="Read our documentation">Documentation <SvgOutsideLink /></a></li>
+                            <li><a href="https://status.pdfshift.io" title="View our status page">Status page <SvgOutsideLink /></a></li>
                         </ul>
                     </div>
                     <div class="column two">
