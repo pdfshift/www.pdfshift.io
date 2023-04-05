@@ -137,6 +137,7 @@
                         <ul class="unstyled">
                             <li><NuxtLink to="/#features" title="">Features</NuxtLink></li>
                             <li><NuxtLink to="/pricing/" title="">Pricing</NuxtLink></li>
+                            <li><a href="https://playground.pdfshift.io" title="Try our Playground">Playground <SvgOutsideLink /></a></li>
                             <li><a href="https://docs.pdfshift.io" title="Read our documentation">Documentation <SvgOutsideLink /></a></li>
                             <li><a href="https://status.pdfshift.io" title="View our status page">Status page <SvgOutsideLink /></a></li>
                         </ul>
