@@ -41,7 +41,7 @@ export default {
         }
 
         return {
-            title: this.document.title + ' — PDFShift',
+            title: this.document.title + ' | PDFShift',
             meta: [
                 { hid: 'description', name: 'description', content: this.document.description },
                 { hid: 'twitter:title', name: 'twitter:title', content: this.document.title },

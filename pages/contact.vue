@@ -14,7 +14,7 @@ const seoDescription = 'Fill out the form to reach out to our sales team and get
 export default {
     components: { ContactForm },
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         bodyAttrs: { class: 'unified' },
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },

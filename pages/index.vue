@@ -743,8 +743,8 @@ import SvgPricingQuestion from '~/static/images/pricing/question-circle.svg?inli
 
 import ContactForm from '~/components/ContactForm'
 
-const seoTitle = 'The Leading HTML to PDF conversion API'
-const seoDescription = 'An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.'
+const seoTitle = 'Fast, Easy Website and HTML to PDF Converter via API'
+const seoDescription = 'Convert HTML to PDF fast and easy with PDFShift. High-quality website and HTML conversion to PDF via API. Compatible with Python, Node JS, PHP, Ruby, more.'
 
 const statistics = {
     conversions: '22+ Millions',
@@ -772,7 +772,7 @@ export default {
         }
     },
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },
             { hid: 'twitter:title', name: 'twitter:title', content: seoTitle },

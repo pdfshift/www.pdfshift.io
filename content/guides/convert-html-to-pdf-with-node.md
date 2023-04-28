@@ -1,6 +1,6 @@
 ---
-title: Convert any HTML to PDF using Node.JS
-description: A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Node.JS.
+title: "PDFShift Guide: Convert HTML to PDF Using Node.JS"
+description: With PDFShift, you can convert any HTML to PDF using PHP. Learn more about our PHP API including general documentation, easy installation, and usage.
 language: node
 logo: node.svg
 ---

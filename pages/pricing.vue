@@ -309,12 +309,12 @@
 </template>
 
 <script>
-const seoTitle = 'Pricing plans that scale with you.'
-const seoDescription = 'PDFShift offers various pricings that adjust to your needs. This page is a detailled view of all the available options.'
+const seoTitle = 'Free And Paid HTML to PDF Plans, Pricing, FAQ'
+const seoDescription = 'Starting using PDFShift to convert your HTML to PDF for free or consider the benefits of our paid plans. You can also review our PDF conversion and other FAQ.'
 
 export default {
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },
             { hid: 'twitter:title', name: 'twitter:title', content: seoTitle },

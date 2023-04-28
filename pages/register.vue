@@ -64,7 +64,7 @@ export default {
         }
     },
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         bodyAttrs: { class: 'unified' },
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },

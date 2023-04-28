@@ -64,12 +64,12 @@
 </template>
 
 <script>
-const seoTitle = 'List of our guides'
-const seoDescription = 'Here are a list of all our guides that might help you integrate PDFSHift to your service.'
+const seoTitle = 'HTML to PDF Conversion Guides and Documentation | PDFShift'
+const seoDescription = 'How-to guides, documentation and codebase to complete website and HTML to PDF conversion for Node.js, Python, PHP, Ruby, Java, C+, GO and more.'
 
 export default {
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },
             { hid: 'twitter:title', name: 'twitter:title', content: seoTitle },

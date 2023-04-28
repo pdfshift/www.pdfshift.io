@@ -8,7 +8,7 @@ const seoDescription = ''
 
 export default {
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },
             { hid: 'twitter:title', name: 'twitter:title', content: seoTitle },

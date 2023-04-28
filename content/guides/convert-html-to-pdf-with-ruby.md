@@ -1,6 +1,6 @@
 ---
-title: Convert any HTML to PDF using Ruby
-description: A guide to get started in converting your HTML documents or URLs to PDF using PDFShift and Ruby.
+title: "PDFShift Guide: Convert HTML to PDF Using Ruby"
+description: With PDFShift, you can convert any HTML to PDF using Ruby. Learn more about our Ruby API including general documentation, easy installation, and usage.
 language: ruby
 logo: ruby.svg
 ---

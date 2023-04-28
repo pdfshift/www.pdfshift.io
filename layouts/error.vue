@@ -92,7 +92,7 @@ const seoDescription = 'The page you were looking for was not found.'
 export default {
     layout: 'default',
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },
             { hid: 'twitter:title', name: 'twitter:title', content: seoTitle },

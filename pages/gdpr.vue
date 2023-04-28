@@ -183,7 +183,7 @@ const seoDescription = "Everything you need to know about PDFShift's GDPR compli
 
 export default {
     head: {
-        title: seoTitle + ' — PDFShift',
+        title: seoTitle + ' | PDFShift',
         meta: [
             { hid: 'description', name: 'description', content: seoDescription },
             { hid: 'twitter:title', name: 'twitter:title', content: seoTitle },
