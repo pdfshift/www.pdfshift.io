@@ -43,7 +43,8 @@ export default {
             { name: 'msapplication-config', content: '/images/favicons/browserconfig.xml' },
             { name: 'theme-color', content: '#ffffff' },
             { name: 'apple-mobile-web-app-title', content: 'PDFShift' },
-            { name: 'application-name', content: 'PDFShift' }
+            { name: 'application-name', content: 'PDFShift' },
+            { name: 'google-site-verification', content: 'Fz9BzvQci5_milN-1hUvE_H8oSYWTCiPzK-nbhjj7VE' }
         ],
         link: [
             /*
