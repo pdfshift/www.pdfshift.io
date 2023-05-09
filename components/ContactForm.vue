@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="form-element" :class="{'error': errors.message}">
-                    <textarea v-model="form.message" rows="5" cols="50" name="message" placeholder="Please describe the reason you need to talk to us." min="25" required></textarea>
+                    <textarea v-model="form.message" rows="5" cols="50" name="message" placeholder="Please describe the reason you need to talk to us." minlength="25" required></textarea>
                     <p v-if="errors.message" class="error">{{ errors.message }}</p>
                 </div>
 

@@ -17,7 +17,7 @@ export default {
             { hid: 'description', name: 'description', content: 'An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.' },
             { hid: 'keyword', name: 'keyword', content: 'api, pdf, html, convert, document, web, conversion, text, pdfshift, raw, link' },
             { hid: 'author', name: 'author', content: 'Cyril Nicodeme' },
-            { httpEquiv: 'X-UA-Compatible', content: 'IE=edge' },
+            { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
 
             // Twitter
             { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },

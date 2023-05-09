@@ -162,7 +162,7 @@ body {
     -webkit-tap-highlight-color: transparent;
     text-rendering: optimizeLegibility;
     font-kerning: normal;
-    font-variant-ligatures: common-ligatures, contextual;
+    font-variant-ligatures: common-ligatures;
     -moz-font-feature-settings: "kern", "liga", "clig", "calt";
     -ms-font-feature-settings: "kern", "liga", "clig", "alt";
     -webkit-font-feature-settings: "kern", "liga", "clig", "calt";

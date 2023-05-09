@@ -4,7 +4,7 @@
             <header id="header">
                 <div class="heading">
                     <div class="container">
-                        <div class="row">
+                        <div class="row" itemtype="http://schema.org/SiteNavigationElement">
                             <div class="column">
                                 <div class="accordion-menu" @click.stop="toggleAccordionMenu">
                                     <div />
@@ -19,7 +19,7 @@
                                 </NuxtLink>
                             </div>
                             <nav id="header-main-menu" ref="header-main-menu" class="column" :class="{'visible': showAccordionMenu}">
-                                <ul itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                                <ul itemscope="itemscope">
                                     <li><NuxtLink to="/#features" title="Check out our features" itemprop="name">Features</NuxtLink></li>
                                     <!--<li><NuxtLink to="/#try-me" title="Check out our features" itemprop="name">Try it out</NuxtLink></li>-->
                                     <li><NuxtLink to="/#pricing" title="More on our pricing plans" itemprop="name">Pricing</NuxtLink></li>
@@ -188,7 +188,7 @@
                     </div>
                 </div>
             </div>
-            <noscript><img src="https://api.pdfshift.io/v3/t/page.gif" async height="1" width="1" /></noscript>
+            <noscript><img src="https://api.pdfshift.io/v3/t/page.gif" alt="" loading="lazy" height="1" width="1" /></noscript>
         </footer>
     </div>
 </template>

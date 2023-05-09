@@ -603,7 +603,7 @@ func main() {
                         <div class="pricing__toggle">
                             <label class="pricing__toggle__checkbox" for="pricing-toggle-checkbox">
                                 <input id="pricing-toggle-checkbox" type="checkbox" @change="togglePricing" />
-                                <div class="pricing__toggle__slider"></div>
+                                <span class="pricing__toggle__slider"></span>
                             </label>
                         </div>
                         <label for="pricing-toggle-checkbox" class="pricing__switchgroup__title" :class="{'active': pricingPlan === 'yearly'}">Annual</label>
