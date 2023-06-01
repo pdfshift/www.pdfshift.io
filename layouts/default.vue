@@ -300,6 +300,8 @@ export default {
             } else if (!('utm_source' in this.$route.query)) {
                 // We only add details if the user came back with a google ads campaign
                 return
+            } else {
+                campaign = JSON.parse(campaign)
             }
 
             if (!campaign.referrer && document.referrer) {
