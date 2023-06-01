@@ -283,33 +283,41 @@ export default {
         },
         loadCampaign () {
             let campaign = null
+            let usingSessionStorage = false
             try {
                 campaign = window.localStorage.getItem('pdfshift-campaign')
-                if (campaign) {
+            } catch (e) {
+                try {
+                    campaign = window.sessionStorage.getItem('pdfshift-campaign')
+                    usingSessionStorage = true
+                } catch (e) {
                     return
                 }
+            }
 
-                campaign = {}
-            } catch (e) {
+            if (!campaign) {
+                campaign = {} // We init one
+            } else if (!('utm_source' in this.$route.query)) {
+                // We only add details if the user came back with a google ads campaign
                 return
             }
 
-            if (document.referrer) {
+            if (!campaign.referrer && document.referrer) {
                 campaign.referrer = document.referrer
             }
 
-            if ('ref' in this.$route.query && this.$route.query.ref) {
+            if (!campaign.source && 'ref' in this.$route.query && this.$route.query.ref) {
                 campaign.source = this.$route.query.ref
             }
 
             ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'gclid'].forEach((key) => {
                 if (key in this.$route.query && this.$route.query[key]) {
-                    if (key.substr(0, 4) === 'utm_') {
+                    if (key.substring(0, 4) === 'utm_') {
                         if (!('utm' in campaign)) {
                             campaign.utm = {}
                         }
 
-                        campaign.utm[key.substr(4)] = this.$route.query[key]
+                        campaign.utm[key.substring(4)] = this.$route.query[key]
                     } else {
                         campaign[key] = this.$route.query[key]
                     }
@@ -317,7 +325,7 @@ export default {
             })
 
             if ('utm' in campaign) {
-                if (!('source' in campaign) && 'source' in campaign.utm) {
+                if (!campaign.source && 'source' in campaign.utm) {
                     campaign.source = campaign.utm.source
                 }
             }
@@ -328,7 +336,11 @@ export default {
             }
 
             try {
-                window.localStorage.setItem('pdfshift-campaign', result)
+                if (usingSessionStorage) {
+                    window.sessionStorage.setItem('pdfshift-campaign', result)
+                } else {
+                    window.localStorage.setItem('pdfshift-campaign', result)
+                }
             } catch (e) {}
         }
     }
