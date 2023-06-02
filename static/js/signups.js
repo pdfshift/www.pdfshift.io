@@ -12,17 +12,20 @@
             .join('');
     }
 
-    function t(event, meta) {
+    async function t(event, meta) {
         if (/^localhost$|^127(\.[0-9]+){0,2}\.[0-9]+$|^\[::1?\]$/.test(a.hostname) || "file:" === a.protocol) return null;
         if (window._phantom || window.__nightmare || window.navigator.webdriver || window.Cypress) return null;
 
         var n = {}
-        n.e = event, n.u = a.href, n.r = r.referrer || null, n.d = o.getAttribute("data-domain") || new URL(a.href).hostname
-
-        if (event !== 'visit' && meta) {
-            Object.keys(meta).forEach(async k => {
-                n['m.' + k] = k === 'email' ? await sha1(meta[k]) : meta[k]
-            })
+        n.d = o.getAttribute("data-domain") || new URL(a.href).hostname
+        n.e = event
+        if (event === 'visit') {
+            n.u = a.href, n.r = r.referrer || null
+        } else if (meta) {
+            for (var k in meta) {
+                if (k === 'email') n['m.' + k] = await sha1(meta[k])
+                else n['m.' + k] = meta[k]
+            }
         }
 
         var qs = new URLSearchParams(n)
