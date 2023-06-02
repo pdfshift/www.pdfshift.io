@@ -67,7 +67,8 @@ export default {
             { rel: 'manifest', href: '/images/favicons/site.webmanifest' }
         ],
         script: [
-            { src: '/plausible/js/script.js', 'data-domain': 'pdfshift.io', 'data-api': '/plausible/api/event' }
+            { src: '/plausible/js/script.js', 'data-domain': 'pdfshift.io', 'data-api': '/plausible/api/event' },
+            { src: '/js/signups.js', 'data-domain': 'pdfshift.io' }
         ]
     },
 
