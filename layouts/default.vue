@@ -75,13 +75,13 @@
                                             <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
                                         </svg>
                                         <h3>All good! Check your emails.</h3>
-                                        <p>We just sent you an email containing your API key to start implementing PDFShift.</p>
-                                        <p>You'll be converting web documents to PDF in a few minutes now!</p>
+                                        <p class="excerpt">We just sent you an email containing your API key to start implementing PDFShift.</p>
+                                        <p class="excerpt">You'll be converting web documents to PDF in a few minutes now!</p>
                                     </div>
                                 </template>
                                 <template v-else>
                                     <h2>Start Converting Now</h2>
-                                    <p>Get started for free with <strong>50 credits per month</strong><br />and flexible options to upgrade later.</p>
+                                    <p class="excerpt">Get started for free with <strong>50 credits per month</strong><br />and flexible options to upgrade later.</p>
                                     <div :class="{'error': errors.name}">
                                         <input ref="registerName" v-model="form.name" type="text" name="name" placeholder="Full Name" required />
                                         <p v-if="errors.name" class="error">{{ errors.name }}</p>
