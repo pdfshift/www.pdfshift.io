@@ -173,7 +173,7 @@
                 <div class="row disclaimer">
                     <div class="column nine">
                         <p>
-                            © PDFShift S.A.S. Software, Inc. {{ fullYear }}. 128 rue la boétie, 2nd floor, 75008 PARIS, France.<br />
+                            SASU PDFShift - 128 rue la boétie, 75008 PARIS, France.<br />
                             Send us a note to <a href="mailto:hi@pdfshift.io" title="Say hi, ask a question or just reach out and talk to us">hi@pdfshift.io</a>
                         </p>
                     </div>
@@ -320,6 +320,9 @@ export default {
                         }
 
                         campaign.utm[key.substring(4)] = this.$route.query[key]
+                        if (Array.isArray(campaign.utm[key.substring(4)])) {
+                            campaign.utm[key.substring(4)] = campaign.utm[key.substring(4)][0]
+                        }
                     } else {
                         campaign[key] = this.$route.query[key]
                     }
