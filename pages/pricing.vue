@@ -217,7 +217,7 @@
             <div class="row">
                 <div class="column half">
                     <h4>Do you have a free trial?</h4>
-                    <p>We offer a free version that includes 50 credits requests per month for free. This covers a great majority of simple case, like generating invoices for your customers.</p>
+                    <p>Yes. Our free version includes up to 50 credits per month. This covers a broad range of PDF conversion use cases, such as invoice generation for customers and many more.</p>
                 </div>
                 <div class="column half">
                     <h4>Do you offer annual plans?</h4>
@@ -273,7 +273,7 @@
                 </div>
                 <div class="column half">
                     <h4>Is it required to pass a "webhook" parameter when using parallel conversion?</h4>
-                    <p>Yes. When you do parallel conversion, we queue each requests to be processed independantly. For this reason, your POST request is treated almost instantly with a 202 status code (Accepted). You will then receive a POST response at your Webhook URL for <strong>each</strong> sources converted.</p>
+                    <p>Yes. When you do parallel conversion, we queue each request to be processed independently. For this reason, your POST request is treated almost instantly with a 202 status code (Accepted). You will then receive a POST response at your Webhook URL for <strong>each</strong> sources converted.</p>
                 </div>
             </div>
 

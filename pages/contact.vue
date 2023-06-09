@@ -1,6 +1,6 @@
 <template>
     <div id="contact" class="container">
-        <h1>Contact Our Sales Team</h1>
+        <h1>Contact Us</h1>
         <contact-form :main="true" />
     </div>
 </template>

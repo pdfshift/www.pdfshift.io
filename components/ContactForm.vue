@@ -1,8 +1,8 @@
 <template>
     <div>
         <p class="excerpt">
-            Our team is happy to answer your sales questions.<br />
-            Fill out the form below and we will be in touch as soon as possible
+            We’re happy to help or answer any questions about PDFShift.<br />
+            Please provide your information below and we will response as soon as possible.
         </p>
 
         <form method="post" @submit.prevent="send">

@@ -74,8 +74,8 @@
 
         <div id="numbers">
             <div class="container">
-                <h2>Rely on a leading conversion service.</h2>
-                <p class="excerpt">Thousands of users trust us to quickly convert documents with a high-fidelity result</p>
+                <h2>Rely on leading conversion science.</h2>
+                <p class="excerpt">Users all over the world trust PDFShift for high-quality document conversion.</p>
 
                 <ul class="unstyled">
                     <li>
@@ -94,7 +94,7 @@
                             </g>
                         </svg>
                         <h5>{{ statistics.users }}</h5>
-                        <span>Users that trusts us</span>
+                        <span>Loyal users</span>
                     </li>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
@@ -120,10 +120,10 @@
 
         <div id="code">
             <div class="container">
-                <h2>Integrate PDFShift with just a simple request</h2>
+                <h2>Integrate PDFShift with one simple request</h2>
                 <p class="excerpt">
-                    We believe that developers should focus their time on things that matter, not setting up yet another PDF library.
-                    Because we eliminate needless complexity and provide an up-to-date service, you can get up and running with PDFShift in just a couple of minutes.
+                    We believe that designers, developers and business owners should maximize efficiency instead of setting up countless PDF libraries.
+                    Our modern HTML to PDF solution removes complexity and allows setup and conversions in a matter of minutes.
                 </p>
 
                 <div class="row">
@@ -460,7 +460,7 @@ func main() {
                             </svg>
                             <div>
                                 <h5>Advanced Options</h5>
-                                <p>Set custom headers and footers with pagination, inject custom CSS and javascript, encrypt your documents and many more!</p>
+                                <p>Customize headers and footers with pagination, inject custom CSS and javascript, encrypt your documents, and more.</p>
                             </div>
                         </div>
                     </div>
@@ -501,8 +501,8 @@ func main() {
                                 </g>
                             </svg>
                             <div>
-                                <h5>Privacy-focused</h5>
-                                <p>That's why your documents are not stored on our server (except when explicitly requested) and are not kept for more than 2 days.</p>
+                                <h5>Private &amp; Secure</h5>
+                                <p>Your documents aren’t stored on our servers (unless you’d like them to be) and are removed within two days.</p>
                             </div>
                         </div>
                     </div>
@@ -513,8 +513,8 @@ func main() {
 
         <div id="testimonials">
             <div class="container">
-                <h2>They trust us.</h2>
-                <p class="excerpt">More than 90 positives reviews can not lie, see for yourself:</p>
+                <h2>A trusted solution.</h2>
+                <p class="excerpt">Hear from satisfied PDFShift users converting files from all over the world:</p>
 
                 <div class="testimonials__list">
                     <div class="testimonials__list--item">
@@ -547,7 +547,7 @@ func main() {
                     <div class="testimonials__list--item">
                         <img src="/images/testimonials/sk.png" alt="Sky's profile" class="testimonials__list--avatar" />
                         <div class="testimonials__list--quote">
-                            <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-71289">Very easy to use, highly customizeable, and works just as intended. The biggest feature missing from other PDF APIs was the ability to decide where a page "breaks" and continues on to a new page. PDFShift made doing so easy with a simple CSS class.</blockquote>
+                            <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-71289">Very easy to use, highly customizable, and works just as intended. The biggest feature missing from other PDF APIs was the ability to decide where a page "breaks" and continues on to a new page. PDFShift made doing so easy with a simple CSS class.</blockquote>
                             <div class="testimonials__list--details">
                                 <span class="testimonials__list--author">Skystover (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-71289" target="_blank">AlternativeTo</a>)</span>
                             </div>
@@ -595,7 +595,7 @@ func main() {
             <div class="container">
                 <div class="pricing">
                     <div class="pricing__intro">
-                        Start with a <strong>Free 50 credits per month at up to 1Mb per PDF</strong>,<br />and upgrade to the plan that best match your needs..
+                        Start for <strong>free with up to 50 credits per month at up to 1 Mb per converted PDF</strong>, or upgrade to one of our flexible plans.
                     </div>
 
                     <div class="pricing__switchgroup">
@@ -700,8 +700,8 @@ func main() {
 
                     <div class="pricing__contact">
                         <div>
-                            <h3 class="pricing__contact__title">Need MORE?</h3>
-                            <p>PDFShift adjusts to your need with higher plan, from <strong>25k credits (99$/m) to up to 1 Millions credits (1,000$/m)</strong>.</p>
+                            <h3 class="pricing__contact__title">Need More?</h3>
+                            <p>PDFShift can meet your needs with higher volume plans. <a href="mailto:contact@pdfshift.io" title="Contact us">Dontact us</a> to ask for a dedicated plan.</p>
                         </div>
                         <NuxtLink to="/contact/" title="Compare our pricing" class="button pricing__contact__button">Contact US</NuxtLink>
                     </div>
@@ -719,7 +719,7 @@ func main() {
 
         <div id="contact">
             <div class="container">
-                <h2>Contact Our Sales Team</h2>
+                <h2>Contact Us</h2>
                 <ContactForm />
             </div>
         </div>
@@ -747,8 +747,8 @@ const seoTitle = 'Fast, Easy Website and HTML to PDF Converter via API'
 const seoDescription = 'Convert HTML to PDF fast and easy with PDFShift. High-quality website and HTML conversion to PDF via API. Compatible with Python, Node JS, PHP, Ruby, more.'
 
 const statistics = {
-    conversions: '22+ Millions',
-    users: '15,000+'
+    conversions: '30+ Million',
+    users: '17,000+'
 }
 
 export default {

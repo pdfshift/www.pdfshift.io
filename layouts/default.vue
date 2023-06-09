@@ -55,11 +55,11 @@
                         <div class="column seven">
                             <div>
                                 <!--<h1>Automate your HTML to PDF conversion.</h1>-->
-                                <h1 class="fade-in from-left delay-1">HTML to PDF conversion API</h1>
+                                <h1 class="fade-in from-left delay-1">Convert Your HTML to PDF Fast, Easy and Safe</h1>
                                 <!--<h1>Convert HTML documents to PDF in seconds</h1>-->
                                 <div class="fade-in from-left delay-2">
-                                    <p>Stop wasting time implementing and maintaining a third-party software/library.</p>
-                                    <p>With PDFShift, rely on an up-to-date, high-fidelity conversion API with no maintenance costs.</p>
+                                    <p>PDFShift delivers instant, high-quality website and HTML conversion to PDF via API. </p>
+                                    <p>Our up-to-date, high-fidelity integration works with Python, Node JS, PHP, Ruby and other common web programming.</p>
                                     <div class="actions">
                                         <a href="javascript:;" title="Create an account now" class="button create-account" @click="focusRegister">Create an account</a>
                                     </div>
@@ -80,8 +80,8 @@
                                     </div>
                                 </template>
                                 <template v-else>
-                                    <h2>Get started now</h2>
-                                    <p>Get started with <strong>50 free credits per months</strong><br />and upgrade whenever you are ready.</p>
+                                    <h2>Start Converting Now</h2>
+                                    <p>Get started for free with <strong>50 credits per month</strong><br />and flexible options to upgrade later.</p>
                                     <div :class="{'error': errors.name}">
                                         <input ref="registerName" v-model="form.name" type="text" name="name" placeholder="Full Name" required />
                                         <p v-if="errors.name" class="error">{{ errors.name }}</p>
