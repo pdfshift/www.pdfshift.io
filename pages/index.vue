@@ -701,7 +701,7 @@ func main() {
                     <div class="pricing__contact">
                         <div>
                             <h3 class="pricing__contact__title">Need More?</h3>
-                            <p>PDFShift can meet your needs with higher volume plans. <a href="mailto:contact@pdfshift.io" title="Contact us">Dontact us</a> to ask for a dedicated plan.</p>
+                            <p>PDFShift can meet your needs with higher volume plans. <a href="mailto:contact@pdfshift.io" title="Contact us">Contact us</a> to ask for a dedicated plan.</p>
                         </div>
                         <NuxtLink to="/contact/" title="Compare our pricing" class="button pricing__contact__button">Contact US</NuxtLink>
                     </div>
