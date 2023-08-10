@@ -61,9 +61,12 @@ In the event it is brought to PDFShift’s attention that any User has engaged i
 
 Without limiting the generality of the foregoing, responses to inquiries posted on PDFShift.io’s “live chat service” or submitted to PDFShift.io via e-mail are not to be construed or interpreted as guaranties, warranties or assurance that your activities using the Service comply with all applicable laws, rules and regulations that may apply to those activities.
 
-## 4. Account Information and Data
+## 4. Account Information and Data; Compliance with HIPAA
 
 PDFShift.io does not own any data, information or material that you submit to the Service in the course of using the Service ("Customer Data"). You, not PDFShift.io, shall have sole responsibility for the accuracy, quality, integrity, legality, reliability, appropriateness, and intellectual property ownership or right to use of all Customer Data, and PDFShift.io shall not be responsible or liable for the deletion, correction, destruction, damage, loss or failure to store any Customer Data. In the event this Agreement is terminated (other than by reason of your breach), PDFShift.io will make available to you a file of the Customer Data within 30 days of termination if you so request at the time of termination. PDFShift.io reserves the right to withhold, remove and/or discard Customer Data without notice for any breach, including, without limitation, your non-payment. Upon termination for cause, your right to access or use Customer Data immediately ceases, and PDFShift.io shall have no obligation to maintain or forward any Customer Data.
+
+If you are a provider of medical services within the United States of America or are otherwise a “covered entity” for purposes of the U.S. Health Insurance Portability and Accountability Act of 1996, Public Law 104-191, and all corresponding regulations as the same may be amended from time to time (collectively, “HIPAA”), then any and all “Personal Health Information” or “Electronic Personal Health Information” you submit to PDFShift.io in the course of using the Service shall be subject to PDFShift.io’s Business Associate and Qualified Service Organization Agreement (“BAA”), a copy of which can be found here: <a href="/documents/baa.pdf" title="Download our BAA" target="_blank" rel="noreferer,noopener">Download our BAA</a>. By accessing or using the Service and/or signifying your acceptance to these Terms of Service, you agree to the terms of the BAA without further act or instrument. If you have questions about the BAA or PDFShift.io’s compliance with HIPAA, please send an email to [support@pdfshift.io](mailto:support@pdfshift.io).
+
 
 ## 5. Intellectual Property Ownership
 

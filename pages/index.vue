@@ -412,7 +412,7 @@ func main() {
                             <li :class="{'selected': language === 'go'}"><a href="javascript:;" title="View our code sample in GO" @click="language = 'go'">GO</a></li>
                             <li :class="{'selected': language === 'bash'}"><a href="javascript:;" title="View our code sample in cURL" @click="language = 'bash'">cURL</a></li>
                         </ul>
-                        <a href="https://docs.pdfshift.io/" title="View our advanced documentation" class="button button-secondary" target="_blank">Full API Reference ➡</a>
+                        <a href="https://docs.pdfshift.io/" title="View our advanced documentation" class="button button-secondary" target="_blank" rel="noreferer,noopener">Full API Reference ➡</a>
                     </div>
                 </div>
             </div>
@@ -522,7 +522,7 @@ func main() {
                         <div class="testimonials__list--quote">
                             <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-64326">So far this is one of the best HTML to PDF converters I have come across. I like that it's simple and does a good job. Also, their support and pricing is great!</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Nomad WebDesign (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-64326" target="_blank">AlternativeTo</a>)</span>
+                                <span class="testimonials__list--author">Nomad WebDesign (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-64326" target="_blank" rel="noreferer,noopener">AlternativeTo</a>)</span>
                             </div>
                         </div>
                     </div>
@@ -531,7 +531,7 @@ func main() {
                         <div class="testimonials__list--quote">
                             <blockquote cite="https://www.capterra.com/p/184246/PDFShift/#reviews">Stop rolling your own PDF generator - PDFShift has done it better.</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Greg P. (<a href="https://www.capterra.com/p/184246/PDFShift/#reviews" target="_blank">Capterra</a>)</span>
+                                <span class="testimonials__list--author">Greg P. (<a href="https://www.capterra.com/p/184246/PDFShift/#reviews" target="_blank" rel="noreferer,noopener">Capterra</a>)</span>
                             </div>
                         </div>
                     </div>
@@ -540,7 +540,7 @@ func main() {
                         <div class="testimonials__list--quote">
                             <blockquote cite="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1353501">Perfect rendering, easy to setup and use.</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Billy B. (<a href="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1353501" target="_blank">G2</a>)</span>
+                                <span class="testimonials__list--author">Billy B. (<a href="https://www.g2.com/products/pdfshift/reviews/pdfshift-review-1353501" target="_blank" rel="noreferer,noopener">G2</a>)</span>
                             </div>
                         </div>
                     </div>
@@ -549,7 +549,7 @@ func main() {
                         <div class="testimonials__list--quote">
                             <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-71289">Very easy to use, highly customizable, and works just as intended. The biggest feature missing from other PDF APIs was the ability to decide where a page "breaks" and continues on to a new page. PDFShift made doing so easy with a simple CSS class.</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Skystover (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-71289" target="_blank">AlternativeTo</a>)</span>
+                                <span class="testimonials__list--author">Skystover (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-71289" target="_blank" rel="noreferer,noopener">AlternativeTo</a>)</span>
                             </div>
                         </div>
                     </div>
@@ -558,7 +558,7 @@ func main() {
                         <div class="testimonials__list--quote">
                             <blockquote cite="https://alternativeto.net/software/pdfshift/about/#app-comment-66794">PDFShift is awesome! Before I was creating PHP PDF files through fPDF and it was very time consuming and difficult. Now with PDFShift, I can just mock them up in HTML and CSS and then through a very simple and easy to use API I can create a PDF in a matter of seconds. I highly recommend PDFShift.</blockquote>
                             <div class="testimonials__list--details">
-                                <span class="testimonials__list--author">Greg R. (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-66794" target="_blank">AlternativeTo</a>)</span>
+                                <span class="testimonials__list--author">Greg R. (<a href="https://alternativeto.net/software/pdfshift/about/#app-comment-66794" target="_blank" rel="noreferer,noopener">AlternativeTo</a>)</span>
                             </div>
                         </div>
                     </div>
@@ -566,21 +566,21 @@ func main() {
 
                 <div class="row review__sites">
                     <div>
-                        <a class="review__sites--item" href="https://www.capterra.com/reviews/184246/PDFShift?utm_source=vendor&utm_medium=badge&utm_campaign=capterra_reviews_badge" title="See our reviews on Capterra" target="_blank">
+                        <a class="review__sites--item" href="https://www.capterra.com/reviews/184246/PDFShift?utm_source=vendor&utm_medium=badge&utm_campaign=capterra_reviews_badge" title="See our reviews on Capterra" target="_blank" rel="noreferer,noopener">
                             <span class="review__sites--logo"><SvgCapterra /></span>
                             <span class="review__sites--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgHalfStars /></span>
                             <p class="review__sites--text">Read all reviews on Capterra &gt;</p>
                         </a>
                     </div>
                     <div>
-                        <a class="review__sites--item" href="https://www.g2.com/products/pdfshift/reviews#reviews" title="See our reviews on G2Crowd" target="_blank">
+                        <a class="review__sites--item" href="https://www.g2.com/products/pdfshift/reviews#reviews" title="See our reviews on G2Crowd" target="_blank" rel="noreferer,noopener">
                             <span class="review__sites--logo"><SvgGTwo /></span>
                             <span class="review__sites--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgHalfStars /></span>
                             <p class="review__sites--text">Read all reviews on G2Crowd &gt;</p>
                         </a>
                     </div>
                     <div>
-                        <a class="review__sites--item" href="https://alternativeto.net/software/pdfshift/reviews/" title="See our reviews on AlternativeTo" target="_blank">
+                        <a class="review__sites--item" href="https://alternativeto.net/software/pdfshift/reviews/" title="See our reviews on AlternativeTo" target="_blank" rel="noreferer,noopener">
                             <span class="review__sites--logo"><SvgAlternativeTo /></span>
                             <span class="review__sites--stars"><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /><SvgFiveStars /></span>
                             <p class="review__sites--text">Read all reviews on AlternativeTo &gt;</p>
