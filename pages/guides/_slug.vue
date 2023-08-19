@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <p class="small guide-page__docs">(Read our <a href="https://docs.pdfshift.io" target="_blank" title="PDFShift's API Reference." rel="noreferer,noopener">API documentation</a> for more, in depth, details.)</p>
+            <p class="small guide-page__docs">(Read our <a href="https://docs.pdfshift.io" target="_blank" title="PDFShift's API Reference." rel="noreferrer,noopener">API documentation</a> for more, in depth, details.)</p>
         </div>
     </div>
 </template>
