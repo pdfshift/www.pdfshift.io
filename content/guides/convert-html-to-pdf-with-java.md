@@ -55,6 +55,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -65,12 +66,13 @@ public class Application {
         var jsonObject = new JSONObject();
         jsonObject.put("source", "https://example.com");
         jsonObject.put("sandbox", true);
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
 
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -106,6 +108,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -115,11 +118,13 @@ public class Application {
     public static void main(String... args) throws Exception {
         var jsonObject = new JSONObject();
         jsonObject.put("source", "https://example.com");
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -156,6 +161,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Base64;
 import java.time.Duration;
 
 public class Application {
@@ -165,6 +171,7 @@ public class Application {
     public static void main(String... args) throws Exception {
         byte[] encoded = Files.readAllBytes(Paths.get("src/main/resources/example.html"));
         String documentContent = new String(encoded, Charset.defaultCharset());
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("source", documentContent);
@@ -172,7 +179,7 @@ public class Application {
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -209,6 +216,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -219,12 +227,14 @@ public class Application {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("source", "https://example.com");
         jsonObject.put("filename", "result.pdf");
+
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
         
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofFile(Paths.get("src/main/resources/body.json")))
                 .build();
 
@@ -261,6 +271,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Base64;
 import java.time.Duration;
 
 public class Application {
@@ -270,6 +281,8 @@ public class Application {
     public static void main(String... args) throws Exception {
         var jsonObject = new JSONObject();
         jsonObject.put("source", "https://example.com");
+
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
 
         var headers = new JSONObject();
         headers.put("X-Original-Header", "Awesome value");
@@ -281,7 +294,7 @@ public class Application {
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -313,6 +326,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -329,11 +343,13 @@ public class Application {
         
         jsonObject.put("auth", auth);
 
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -379,6 +395,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import org.json.JSONObject;
+import java.util.Base64;
 import org.json.JSONArray;
 
 public class Application {
@@ -398,11 +415,13 @@ public class Application {
 
         jsonObject.put("cookies", cookies);
 
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -442,6 +461,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -453,11 +473,13 @@ public class Application {
         jsonObject.put("source", "https://www.example.com");
         jsonObject.put("css", "https://www.example.com/public/css/print.css");
 
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -494,6 +516,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -505,11 +528,13 @@ public class Application {
         jsonObject.put("source", "https://www.example.com");
         jsonObject.put("css", "a {text-decoration: underline; color: blue}");
 
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -545,6 +570,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -563,11 +589,13 @@ public class Application {
 
         jsonObject.put("watermark", watermark);
 
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -606,6 +634,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -622,11 +651,13 @@ public class Application {
 
         jsonObject.put("footer", footer);
 
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -668,6 +699,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import org.json.JSONObject;
 
 public class Application {
@@ -685,11 +717,13 @@ public class Application {
 
         jsonObject.put("protection", protection);
 
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
+
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
@@ -754,6 +788,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
+import java.util.Base64;
 import java.util.Properties;
 
 public class Application {
@@ -766,12 +801,14 @@ public class Application {
     
         var jsonObject = new JSONObject();
         jsonObject.put("source", documentContent);
+
+        String encoded = Base64.getEncoder().encodeToString(("api:" + API_KEY).getBytes());
         
         var httpRequest = HttpRequest.newBuilder()
                 .uri(URI.create("https://api.pdfshift.io/v3/convert/pdf"))
                 .timeout(Duration.ofSeconds(10))
                 .header("Content-Type", "application/json")
-                .header("Authentication", "Basic " + API_KEY)
+                .header("Authentication", "Basic " + encoded)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
 
