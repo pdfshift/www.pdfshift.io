@@ -10,7 +10,7 @@
                         View all our articles
                     </span>
                 </NuxtLink>
-                <article class="mt-8 blog-content" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <article class="mt-8 articles" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                     <ContentRenderer :value="data" v-if="data">
                         <h1 class="h1 my-6" itemprop="name headline">{{ data.title }} in {{ data.language }} with {{ data.library }}</h1>
                         <ContentRendererMarkdown :value="data" />
@@ -87,61 +87,3 @@ if (data.value.related?.length > 0) {
     relatedGuides.value = lookup.value.filter((item) => data.value.related.includes(item._path.split('/').pop().replace('_', '')))
 }
 </script>
-
-<style>
-.blog-content p {
-    @apply mt-4;
-}
-
-.blog-content blockquote {
-    @apply mt-12 md:mt-20 bg-purple-500 px-8 md:px-16 py-6 md:py-12 rounded-lg md:rounded-xl;
-}
-
-.blog-content blockquote p {
-    @apply text-white font-light md:text-xl leading-tight m-0;
-}
-
-.blog-content blockquote footer {
-    @apply mt-4 md:mt-8 text-sm md:text-base flex items-center gap-4 text-white font-light;
-}
-
-.blog-content blockquote footer img {
-    @apply object-cover size-12 rounded-full overflow-hidden m-0;
-}
-
-.blog-content ul {
-    @apply ml-4 mt-4 mb-8 list-decimal
-}
-
-.blog-content ol {
-    @apply ml-4 mt-4 mb-8  list-decimal
-}
-
-.blog-content li {
-    @apply my-2;
-}
-
-.blog-content h2 {
-    @apply mt-12 mb-6 font-medium text-2xl lg:text-4xl !leading-tight text-purple;
-}
-
-.blog-content h3 {
-    @apply mt-8 mb-6 font-medium text-xl lg:text-2xl !leading-tight text-purple;
-}
-
-.blog-content h4 {
-    @apply my-4 pt-4 p-4 rounded-md bg-gray-100;
-}
-
-.blog-content a {
-    @apply text-purple underline;
-}
-
-.blog-content p>code, .blog-content li>code {
-    @apply bg-gray-100 rounded-md px-2 py-1 border-2 border-gray-200 text-red-600;
-}
-
-.blog-content h2 a, .blog-content h3 a, .blog-content h4 a {
-    @apply no-underline;
-}
-</style>

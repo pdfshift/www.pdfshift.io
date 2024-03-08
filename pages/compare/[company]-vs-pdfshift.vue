@@ -1,10 +1,9 @@
 <template>
     <div>
         <NuxtLayout>
-            <Header />
-            <main class="px-4 sm:px-8 lg:px-0 pt-32 pb-12 lg:pt-48">
+            <main class="px-4 sm:px-8 lg:px-0 pb-12">
                 <PageHeader :title="'How PDFShift compares to '+company">
-                    This is some text introducing how PDF Shift is far better than this other tool. Like, by a 100 miles at least!
+                    Discover how {{ company }} differs from PDFShift and see for yourself which service is most suited to your needs.
                 </PageHeader>
 
                 <div class="max-w-3xl mx-auto mt-16 md:mt-24">
@@ -17,7 +16,7 @@
                     </section>
                     <section class="flex gap-4 md:gap-10 mt-16 md:mt-20">
                         <div class="flex flex-col justify-center">
-                            <h3 class="h3 font-normal">About {{ company }}</h3>
+                            <h3 class="h3 font-normal">About PDFShift</h3>
                             <p class="p mt-4 font-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                         </div>
                         <div class="rounded-xl bg-purple-400 size-24 md:size-60 shrink-0"></div>
@@ -169,9 +168,11 @@
                     </div>
                     <div class="relative z-30 flex flex-col justify-center items-center gap-6 ">
                             <span class="h2 text-white font-normal text-center max-w-xl">
-                                PDF Shift is the best way to do X, Y and Z with results that are much better than {{ company }} but also far quicker to get.
+                                Convinced by PDFShift ?
                             </span>
-                        <p class="p text-white text-center max-w-md">Some text to delve deeper into the reasons mentioned in the heading above. Make it clear enough so that potential customers JUST get it!</p>
+                        <p class="p text-white text-center max-w-md">
+                            If this page helped you make a decision and you want to give PDFShift a try, we offer a free trial to get you started.
+                        </p>
                         <Button to="/register" :light="true" :arrow="true">Give PDFShift a try</Button>
                     </div>
                 </section>

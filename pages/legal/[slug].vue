@@ -15,7 +15,7 @@
                             </li>
                         </ol>
                     </nav>
-                    <div id="sections" class="lg:w-2/3 page-content pt-8" :class="{'lg:max-w-4xl mx-auto': sections.length === 0}">
+                    <div class="lg:w-2/3 page-content pt-8 articles" :class="{'lg:max-w-4xl mx-auto': sections.length === 0}">
                         <ContentRenderer :value="data" />
                     </div>
                 </div>
@@ -57,47 +57,3 @@ const copySectionLink = (slug) => {
 }
 </script>
 
-<style>
-#sections h2 {
-    @apply pt-16 font-medium text-2xl lg:text-4xl !leading-tight text-purple;
-}
-
-#sections h3 {
-    @apply pt-10 font-medium text-xl lg:text-2xl !leading-tight text-purple;
-}
-
-#sections pre {
-    @apply my-4 pt-4 p-4 rounded-md bg-gray-100 text-gray-600;
-}
-
-#sections a {
-    @apply underline;
-}
-
-#sections h1 a, #sections h2 a, #sections h3 a, #sections h4 a, #sections h5 a {
-    @apply no-underline hover:underline;
-}
-
-#sections p>code, #sections li>code {
-    @apply bg-gray-100 rounded-md px-2 py-1 border-2 border-gray-200 text-red-600;
-}
-
-#sections ul {
-    @apply ml-4 mt-4 mb-8 list-decimal
-}
-
-#sections ol {
-    @apply ml-4 mt-4 mb-8  list-decimal
-}
-
-#sections li {
-    @apply my-2;
-}
-
-@media screen and (min-width: 1024px){
-    #sections h2 {
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-    }
-}
-</style>

@@ -10,7 +10,7 @@
                         View all our code samples
                     </span>
                 </NuxtLink>
-                <article id="code-sample" class="mt-8" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <article class="mt-8 articles" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
                     <ContentRenderer :value="data" v-if="data">
                         <h1 class="h1 my-6" itemprop="name headline">Using {{ data.library }} in {{ data.language }}</h1>
                         <div class="my-8">
@@ -39,25 +39,26 @@
                         <p>
                             But if you were to encounter any bugs or issues while running it (or if you want to suggest changes to improve the code), please <NuxtLink to="/contact" class="text-purple-600 hover:underline">contact us</NuxtLink> and we'll be happy to help you out.
                         </p>
-
-                        <div class="mb-8 mt-16">
-                            <h3 class="h3">We also have guides!</h3>
-                            <p>
-                                We also wrote a ton of articles to help you convert HTML documents in {{ data.language }} and {{ data.library }}.<br />
-                                <NuxtLink :to="`/guides/${language}/${library}`" class="text-purple-600 hover:underline">Check them out</NuxtLink> and let us know if you have any questions!
-                            </p>
-                        </div>
                     </ContentRenderer>
                 </article>
                 <aside class="mt-8 lg:mt-16 pb-16 lg:pb-32" v-if="related.length > 0">
-                    <h3 class="h3 text-navy-700">Related libraries</h3>
-                    <ul class="mt-4 list-disc list-inside">
-                        <li v-for="article in related" :key="article._id" class="my-4">
-                            <NuxtLink :to="`/samples/${language.toLowerCase()}/${clearUrl(article.library)}`" class="mt-4 text-xl hover:underline hover:text-purple" itemprop="name headline">
-                                With the {{ article.library }} library
-                            </NuxtLink>
-                        </li>
-                    </ul>
+                    <div class="my-16">
+                        <h3 class="h3 text-navy-700">We also have guides!</h3>
+                        <p class="mt-4">
+                            We also wrote a ton of articles to help you convert HTML documents in {{ data.language }} and {{ data.library }}.<br />
+                            <NuxtLink :to="`/guides/${language}/${library}`" class="text-purple-600 hover:underline">Check them out</NuxtLink> and let us know if you have any questions!
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="h3 text-navy-700">Related libraries</h3>
+                        <ul class="mt-4 list-disc list-inside marker:text-purple">
+                            <li v-for="article in related" :key="article._id" class="my-4">
+                                <NuxtLink :to="`/samples/${language.toLowerCase()}/${clearUrl(article.library)}`" class="mt-4 text-xl text-purple hover:underline" itemprop="name headline">
+                                    With the {{ article.library }} library
+                                </NuxtLink>
+                            </li>
+                        </ul>
+                    </div>
                 </aside>
             </main>
         </NuxtLayout>
@@ -102,7 +103,3 @@ useSeoMeta({
 })
 </script>
 
-<style>
-#code-sample p { @apply mt-4 }
-#code-sample a { @apply text-purple hover:underline }
-</style>

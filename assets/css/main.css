@@ -8,6 +8,7 @@ body {
 .container {
     @apply px-4 max-w-full xl:max-w-7xl xl:px-0 mx-auto;
 }
+
 .h1 {
     @apply text-4xl lg:text-6xl !leading-tight;
 }
@@ -32,11 +33,9 @@ body {
     @apply text-base lg:text-lg !leading-relaxed;
 }
 
-
 .p.-lead {
     @apply font-light text-lg lg:text-xl !leading-relaxed;
 }
-
 
 .p.-small {
     @apply font-light text-sm lg:text-base !leading-normal tracking-tight;
@@ -120,6 +119,62 @@ body {
 
 article pre.hljs {
     @apply mt-6 mb-12 p-4 rounded-lg bg-gradient-radial bg-navy-700 border-purple border shadow-lg max-w-xl mx-auto lg:max-w-none overflow-x-auto
+}
+
+.articles p {
+    @apply mt-4;
+}
+
+.articles blockquote {
+    @apply mt-12 md:mt-20 bg-purple-500 px-8 md:px-16 py-6 md:py-12 rounded-lg md:rounded-xl;
+}
+
+.articles blockquote p {
+    @apply text-white font-light md:text-xl leading-tight m-0;
+}
+
+.articles blockquote footer {
+    @apply mt-4 md:mt-8 text-sm md:text-base flex items-center gap-4 text-white font-light;
+}
+
+.articles blockquote footer img {
+    @apply object-cover size-12 rounded-full overflow-hidden m-0;
+}
+
+.articles ul {
+    @apply ml-4 mt-4 mb-8 list-decimal
+}
+
+.articles ol {
+    @apply ml-4 mt-4 mb-8 list-decimal
+}
+
+.articles li {
+    @apply my-2;
+}
+
+.articles h2 {
+    @apply mt-16 mb-6 font-medium text-2xl lg:text-4xl !leading-tight text-purple;
+}
+
+.articles h3 {
+    @apply mt-8 mb-6 font-medium text-xl lg:text-2xl !leading-tight text-purple;
+}
+
+.articles h4 {
+    @apply my-4 pt-4 p-4 rounded-md bg-gray-100;
+}
+
+.articles a {
+    @apply text-purple hover:underline;
+}
+
+.articles p>code, .articles li>code {
+    @apply bg-gray-100 rounded-md px-2 py-1 border-2 border-gray-200 text-red-600;
+}
+
+.articles h1 a, .articles h2 a, .articles h3 a, .articles h4 a, .articles h5 a {
+    @apply no-underline hover:underline;
 }
 
 @tailwind utilities;
