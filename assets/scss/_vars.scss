@@ -1,0 +1,27 @@
+:root {
+  //colors
+  --color-primary: #E0E0E0; //main light color
+  --color-secondary: #A2A1B7; //secondary color
+  --color-dark: #030014; //main background
+  //buttons
+  //main
+  --bg-btn-primary: #221C43;
+  --stroke-btn-primary: #3C2F85;
+  --color-btn-primary: #A99BF9;
+  //glossy button
+  --bg-btn-glossy: #0D0731;
+  --stroke-btn-glossy: #362D68;
+  //code editor
+  --code-primary: #AC9739;
+  --code-secondary: #FFCA00;
+  --code-text: #18A0FB;
+  --code-muted: #5E6687;
+  --code-const: #8F8DFD;
+  //scroll
+  --scroll-bg: #362D68;
+  --scroll-thumb: #8F8DFD;
+  //content width
+  --width-main: 80rem;
+  //title font family
+  --font-title: 'Familjen Grotesk', sans-serif;
+}

@@ -1,0 +1,32 @@
+.hljs {
+  background: var(--color-dark);
+  color: var(--code-muted);
+}
+
+.hljs-keyword {
+  color: var(--code-primary);
+}
+
+.hljs-built_in {
+  color: var(--code-muted);
+}
+
+.hljs-string {
+  color: var(--code-text);
+}
+
+.hljs-attr {
+  color: var(--code-const);
+}
+
+.hljs-title {
+  color: var(--code-muted) !important;
+}
+
+.hljs-function {
+  color: var(--code-secondary);
+}
+
+.hljs-literal {
+  color: var(--code-secondary);
+}
