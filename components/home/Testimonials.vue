@@ -23,9 +23,9 @@
             </ClientOnly>
         </div>
         <div class="mt-20 flex justify-center" v-if="seeMore < 3">
-            <Button bg="dark" :arrow-down="true" @click="addMoreTestimonials" v-if="seeMore === 0">Load More</Button>
-            <Button bg="dark" :arrow-down="true" @click="addMoreTestimonials" v-else-if="seeMore === 1">More !!</Button>
-            <Button bg="dark" :arrow-down="true" @click="addMoreTestimonials" v-else-if="seeMore === 2">I SAID MORE !!!!</Button>
+            <Button :arrow-down="true" @click="addMoreTestimonials" v-if="seeMore === 0">Load More</Button>
+            <Button :arrow-down="true" @click="addMoreTestimonials" v-else-if="seeMore === 1">More !!</Button>
+            <Button :arrow-down="true" @click="addMoreTestimonials" v-else-if="seeMore === 2">I SAID MORE !!!!</Button>
         </div>
     </section>
 </template>

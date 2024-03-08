@@ -20,15 +20,11 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
-    colorClass: {
-        type: String,
-        default: 'bg-purple border-purple text-white '
-    },
     light: {
         type: Boolean,
         default: false,
     },
-    bg: {
+    hover: {
         type: String,
         default: 'light'
     }
@@ -38,11 +34,12 @@ const cssClass = ref('')
 if (props.light) {
     cssClass.value = 'bg-white text-purple'
 } else {
-    cssClass.value = props.colorClass
-    if (props.bg === 'light') {
-        cssClass.value += 'hover:bg-navy-700 hover:text-white hover:border-navy-700'
-    } else {
-        cssClass.value += 'hover:bg-white hover:border-white hover:text-navy-700'
-    }
+    cssClass.value = 'bg-purple border-purple text-white'
+}
+
+if (props.hover === 'light') {
+    cssClass.value += ' hover:bg-white hover:border-white hover:text-navy-700'
+} else {
+    cssClass.value += ' hover:bg-navy-700 hover:text-white hover:border-navy-700'
 }
 </script>

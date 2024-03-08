@@ -15,7 +15,7 @@
                                 Our always-up-to-date API for developers automates your document conversion tasks - effortlessly.
                             </p>
                             <div class="flex mt-4 lg:mt-8 justify-center lg:justify-start">
-                                <Button to="/register" bg="dark" :arrow="true">Register for free</Button>
+                                <Button to="/register" :arrow="true">Register for free</Button>
                             </div>
 
                             <NuxtLink to="https://www.capterra.com/p/184246/PDFShift/reviews/" class="mt-12 flex flex-col gap-6 md:flex-row items-center md:gap-8 mx-auto lg:mx-0 hover:underline" target="_blank">
@@ -35,7 +35,7 @@
                                 <template v-slot:icon>
                                     <IconsClipboardTick />
                                 </template>
-                                <template v-slot:title>30+ Million</template>
+                                <template v-slot:title>36+ Million</template>
                                 <template v-slot:description>Conversions made</template>
                             </HomeHeroFeature>
                         </li>
@@ -44,7 +44,7 @@
                                 <template v-slot:icon>
                                     <IconsPeople />
                                 </template>
-                                <template v-slot:title>17,000+</template>
+                                <template v-slot:title>19,000+</template>
                                 <template v-slot:description>Loyal users</template>
                             </HomeHeroFeature>
                         </li>
@@ -188,12 +188,11 @@
                         <div class="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mt-12">
                             <HomeReview v-for="(review,index) in reviews" :rating="review.rating" :small="true" :reviews="review.reviews" :to="review.url" :key="index" :name="review.name" :logo="review.logo" />
                         </div>
-                        <section class="mt-16 lg:mt-20 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-8 lg:p-16 lg:pb-20 max-w-5xl mx-auto -mb-8 lg:-mb-20 relative flex items-center gap-24">
+                        <section class="mt-16 lg:mt-20 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-8 lg:p-16 max-w-5xl mx-auto -mb-8 lg:-mb-20 relative flex items-center gap-24">
                             <div>
-                                <div class="h2 text-white">Improving automated conversion for 5 years and counting.<br />We're here to stay!</div>
-                                <div class="mt-8">
-                                    <Button to="/register" :arrow="true" :light="true">Register For Free</Button>
-                                </div>
+                                <div class="font-medium text-xl lg:text-3xl leading-relaxed text-white">Improving automated conversion<br />since 2018.</div>
+                                <div class="font-medium text-xl lg:text-3xl leading-relaxed mt-8 mb-12 text-white">We're here for the long haul!</div>
+                                <Button to="/register" :arrow="true" :light="true" hover="dark">Register For Free</Button>
                             </div>
                             <div class="hidden lg:block shrink-0 text-purple-500 w-48 mt-10 pr-12">
                                 <IconsLogoBird />

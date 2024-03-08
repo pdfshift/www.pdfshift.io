@@ -73,8 +73,8 @@
                             <p class="p text-white mt-4">
                                 Generate impactful Open Graph images to share your content on social networks easily. Use custom templates and provide variable parameters to automatically integrate banners into your CMS.
                             </p>
-                            <!--<Button to="/case-studies" bg="dark" class="mt-10" :arrow="true">See Our Case Studies</Button>-->
-                            <Button to="/guides" bg="dark" class="mt-10" :arrow="true">See Our Guides</Button>
+                            <!--<Button to="/case-studies" hover="dark" class="mt-10" :arrow="true">See Our Case Studies</Button>-->
+                            <Button to="/guides" class="mt-10" :arrow="true">See Our Guides</Button>
                         </div>
                     </div>
                 </div>

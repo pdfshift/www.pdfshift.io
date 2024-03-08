@@ -2,7 +2,7 @@
     <section class="py-8 lg:pt-14 lg:pb-0 bg-white">
         <div class="container">
             <div class="flex flex-col items-center justify-center gap-12">
-                <span class="h3 text-center">Trusted By <span class="text-purple">18,000+</span> users with <span class="text-purple">millions</span> of generated documents *</span>
+                <span class="h3 text-center">Trusted By <span class="text-purple">19,000+</span> users with <span class="text-purple">millions</span> of generated documents *</span>
                 <ul class="flex w-full items-center justify-center gap-8 flex-wrap">
                     <li v-for="company in companies" :key="company.name" class="w-24 lg:w-40 text-gray-600">
                         <component :is="company.logo" />
