@@ -24,6 +24,7 @@ api_key = 'sk_xxxxxxxxxxxx'
 
 params = {
     'source': 'https://www.example.com',
+    'css': "https://www.example.com/public/style/print.css"
 }
 
 http = httplib2.Http()

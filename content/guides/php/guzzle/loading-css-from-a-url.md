@@ -25,6 +25,7 @@ $api_key = 'sk_xxxxxxxxxxxx'
 
 $params = array (
     'source' => 'https://www.example.com',
+    'css' => 'https://www.example.com/public/style/print.css'
 )
 
 // Create a Guzzle client

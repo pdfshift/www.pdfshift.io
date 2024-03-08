@@ -25,6 +25,7 @@ api_key = 'sk_xxxxxxxxxxxx'
 
 params = {
     source: 'https://www.example.com',
+    css: "https://www.example.com/public/style/print.css"
 }
 
 const response = await got.post('https://api.pdfshift.io/v3/convert/pdf', {

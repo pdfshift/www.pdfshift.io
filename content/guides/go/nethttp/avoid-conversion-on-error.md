@@ -1,0 +1,94 @@
+---
+title: "Avoid the conversion on error when loading the document"
+description: "Learn how to avoid the conversion on error when loading the document using Go and the Net/HTTP library and relies on the PDFShift's API."
+language: 'Go'
+library: 'Net/HTTP'
+property: 'raise_for_status'
+output: 'pdf'
+related: ['convert-html-to-pdf-from-raw-html']
+default: true
+---
+
+In this guide, we'll show you how to abort the conversion when loading the distant source does not return a 2XX response.
+
+When you're converting a document, you might want to avoid the conversion on error when loading the document. This can be done by setting the `raise_for_status` parameter to `True` in the request.
+
+
+```go
+package main
+
+import (
+	"bytes"
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func main() {
+	// You can get an API key at https://pdfshift.io
+	apiKey := "sk_xxxxxxxxxxxx"
+
+	params := map[string]interface{}{
+		"source":            "https://www.httpstat.us/404",
+		"raise_for_status":  true,
+	}
+
+	// Marshal the parameters into JSON
+	jsonParams, err := json.Marshal(params)
+	if err != nil {
+		fmt.Println("Error marshaling JSON:", err)
+		return
+	}
+
+	// Create a new HTTP client
+	client := &http.Client{}
+
+	// Create a new request
+	req, err := http.NewRequest("POST", "https://api.pdfshift.io/v3/convert/pdf", bytes.NewBuffer(jsonParams))
+	if err != nil {
+		fmt.Println("Error creating request:", err)
+		return
+	}
+
+	// Set request headers
+	req.Header.Set("Content-Type", "application/json")
+
+	// Set basic authentication header
+	auth := "api:" + apiKey
+	req.Header.Set("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte(auth)))
+
+	// Perform the request
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Println("Error performing request:", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	// Read response body
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading response body:", err)
+		return
+	}
+
+	// Check response status code
+	if resp.StatusCode >= 400 {
+		fmt.Printf("Request failed with status code %d: %s\n", resp.StatusCode, string(body))
+		return
+	}
+
+	// Save the PDF document
+	err = ioutil.WriteFile("result.pdf", body, 0644)
+	if err != nil {
+		fmt.Println("Error saving PDF document:", err)
+		return
+	}
+
+	fmt.Println("The PDF document was generated and saved to result.pdf")
+}
+```
+
+Passing `raise_for_status` to `true` will ensure that if PDFShift can not load your document, the conversion will fail with an error.

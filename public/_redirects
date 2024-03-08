@@ -22,6 +22,6 @@ https://www.pdfshift.com/*                  https://pdfshift.io/:splat          
 /guides/convert-html-to-pdf-with-php/       /guides/php/curl/convert-html-to-pdf-from-raw-html         200
 /guides/convert-html-to-pdf-with-python/    /guides/python/requests/convert-html-to-pdf-from-raw-html  200
 /guides/convert-html-to-pdf-with-ruby/      /guides/ruby/nethttp/convert-html-to-pdf-from-raw-html     200
-/guides/convert-html-to-pdf-with-go/        /guides/go/convert-html-to-pdf-from-raw-html        200
-/guides/convert-html-to-pdf-with-java/      /guides/java/convert-html-to-pdf-from-raw-html      200
+/guides/convert-html-to-pdf-with-go/        /guides/go/nethttp/convert-html-to-pdf-from-raw-html       200
 /guides/convert-html-to-pdf-with-csharp/    /guides/csharp/convert-html-to-pdf-from-raw-html    200
+/guides/convert-html-to-pdf-with-java/      /guides/java/convert-html-to-pdf-from-raw-html      200

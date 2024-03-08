@@ -25,6 +25,7 @@ api_key = 'sk_xxxxxxxxxxxx'
 
 params = {
     source: 'https://www.example.com',
+    css: "https://www.example.com/public/style/print.css"
 }
 
 const post = bent('https://api.pdfshift.io/v3/convert/pdf', 'POST', 'json', 200);
