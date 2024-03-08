@@ -1,0 +1,137 @@
+<template>
+    <div>
+        <NuxtLayout>
+            <Header />
+            <main class="max-w-3xl mx-auto px-4 pt-32 pb-12 lg:pt-48">
+                <NuxtLink to="/blog" class="h5 uppercase text-navy-700 inline-flex items-center gap-2">
+                    <span class="rotate-180 w-4 relative ml-1.5">
+                        <IconsArrowRight />
+                    </span>
+                    <span class="hover:underline">
+                        Go Back
+                    </span>
+                </NuxtLink>
+                <article class="mt-8" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                    <BlogCategoryPill>{{post.category }}</BlogCategoryPill>
+                    <h1 class="h1 my-6" itemprop="name headline">
+                        {{ post.title }}
+                    </h1>
+                    <p class="p -lead mt-2 lg:pr-20" itemprop="description">
+                        {{post.summary}}
+                    </p>
+
+                    <div class="flex flex-col gap-2 lg:flex-row lg:justify-between lg:items-end mt-10">
+                        <div class="flex gap-4 justify-start items-center">
+                            <img class="size-10 rounded-full" src="/images/demo/reviewer.png" alt="Nomad WebDesign" itemprop="image" />
+                            <div class="text-navy-700" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <div class="font-medium" itemprop="name">Nomad WebDesign</div>
+                                <div class="h5 uppercase">AlternativeTo</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <time :datetime="$dayjs(post.date).toISOString()" class="h5 uppercase" itemprop="dateCreated">
+                                {{ $dayjs(post.date).format('MMM D, YYYY') }}
+                            </time>
+                            <span class="px-2">•</span>
+                            <span class="h5 uppercase">Est. Reading Time: 5Mins</span>
+                        </div>
+                    </div>
+
+                    <div class="text-content blog-content pb-10 lg:pb-20 border-b border-navy-700" itemprop="articleBody">
+                        <img itemprop="image" src="/images/demo/blog/1a.jpg" alt="Blog image 1"/>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                        <h2>How QuakNote malware campaign works</h2>
+                        <img src="/images/demo/blog/1b.jpg" alt="Blog image 2"/>
+
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                        <blockquote>
+                            <p>"PDFShift works great with external libraries such as Tailwind, Bootstrap, Bulma, Skeleton, …. You can also generate beautiful charts with javascript libraries or maps using Google Map or OpenStreetMap."</p>
+                            <footer>
+                                <img src="/images/demo/quote-author.jpg" alt="quote author">
+                                <span>Lisa from Company Z</span>
+                            </footer>
+                        </blockquote>
+                    </div>
+
+                </article>
+                <aside class="mt-8 lg:mt-16 pb-16 lg:pb-32">
+                    <h2 class="h2 text-navy-700">Related articles</h2>
+                    <ul class="grid md:grid-cols-2 gap-8 mt-8">
+                        <li v-for="related in relatedPosts" class="rounded-lg bg-white p-4 shadow-lg transition-all duration-300 translate-y-0 hover:-translate-y-2">
+                            <BlogArticleListing :article="related" :key="related.id" />
+                        </li>
+                    </ul>
+                </aside>
+            </main>
+        </NuxtLayout>
+    </div>
+</template>
+
+<script setup>
+const route = useRoute()
+
+const id = ref(route.params.id)
+
+const post = {
+    title: "Dimension raises $1.4M",
+    summary: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    category: "Announcements",
+    date: "2023-10-23 10:43",
+    codeSnippet: `import requests
+response = requests.post(
+   'https://api.pdfshift.io/v3/convert/pdf',
+     auth=('api', 'your_api_key'),
+     json={"source": "https://en.wikipedia.org/wiki/PDF", "landscape": False, "use_print":False}
+   )
+
+response.raise_for_status()
+
+with open('wikipedia.pdf', 'wb') as f:
+     f.write(response.content)`
+}
+
+const relatedPosts = [
+    {
+        title: "Aviato raises $3.9M",
+        category: "Announcements",
+        image: "/images/demo/blog/1c.jpg",
+        date: "2024-01-07 09:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/2',
+        id: 1,
+    },
+    {
+        title: "ACME raises $2.9M",
+        category: "Announcements",
+        image: "/images/demo/blog/1c.jpg",
+        date: "2023-12-21 18:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/2',
+        id: 2,
+    },
+]
+</script>
+
+<style>
+.blog-content blockquote{
+    @apply mt-12 md:mt-20 bg-purple-500 px-8 md:px-16 py-6 md:py-12 rounded-lg md:rounded-xl;
+}
+.blog-content blockquote p{
+    @apply text-white font-light md:text-xl leading-tight m-0;
+}
+
+.blog-content blockquote footer{
+    @apply mt-4 md:mt-8 text-sm md:text-base flex items-center gap-4 text-white font-light;
+}
+
+.blog-content blockquote footer img{
+    @apply object-cover size-12 rounded-full overflow-hidden m-0;
+}
+</style>

@@ -1,0 +1,123 @@
+---
+title: "Waiting for a custom element to be ready"
+description: "Learn how to set up a custom javascript function that will waits for a specific condition to become true before allowing the conversion to happen. This is very interesting for waiting on charts to be generated, or custom fonts to be loaded. With PDFShift's API, this can easily be done using PHP and the cURL library."
+language: 'PHP'
+library: 'cURL'
+property: 'wait_for'
+output: 'pdf'
+related: ['define-a-time-limit', 'loading-javascript-from-a-string']
+default: true
+---
+
+The `wait_for` parameter is one of the most powerful feature of PDFShift. It allows you to control when the document is ready to be converted to PDF.
+
+For instance, you might need the `wait_for` parameter to wait on your charts to be visible.
+
+It makes sense because from our engine point of view, all the resources are loaded so the conversion to PDF can be executed. But from your page stand point, even though everything is loaded, _not everything is rendered_!
+
+So by using the `wait_for` parameter, you can tell PDFShift to wait for a specific condition to be true before allowing the conversion to happen.
+
+That property **expects a string which points to a global function**.
+
+For instance, if in your HTML page, you have the following script:
+
+```javascript
+<script>
+function isPageReady() {
+    return document.getElementById('chart').clientHeight > 0;
+}
+</script>
+```
+
+You can set the `wait_for` parameter to `isPageReady` and PDFShift will wait for the `isPageReady` function to return `true` before converting the page to PDF.
+
+
+```php
+# You can get an API key at https://pdfshift.io
+$api_key = 'sk_xxxxxxxxxxxx'
+
+$params = array (
+    'source' => 'https://www.example.com',
+    'wait_for' => 'isPageReady'
+)
+
+$curl = curl_init('https://api.pdfshift.io/v3/convert/pdf');
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($params));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Basic ' . base64_encode('api:' . $api_key)
+));
+
+$response = curl_exec($curl);
+if ($response === false) {
+    $error_message = curl_error($curl);
+    curl_close($curl);
+    throw new Exception("cURL error: $error_message");
+}
+
+// Get the HTTP status code
+$http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+// Close cURL resource
+curl_close($curl);
+
+// Check if the request was successful
+if ($http_status !== 200) {
+    throw new Exception("Request failed with HTTP status code: $http_status");
+}
+
+// Save the file to result.pdf
+file_put_contents('result.pdf', $response);
+
+echo 'The PDF document was generated and saved to result.pdf';
+```
+
+In case your page doesn't have the javascript function available, but you still need to wait on some elements to be rendered before continuing the conversion, you can add javascript code directly in the request and use it at the same time:
+
+```php
+# You can get an API key at https://pdfshift.io
+$api_key = 'sk_xxxxxxxxxxxx'
+
+$params = array (
+    'source' => 'https://www.example.com',
+    'javascript' => 'let isFontReady = false; document.fonts.ready.then(() => isFontReady = true); function isPageReady() { return isFontReady; }',
+    'wait_for' => 'isPageReady'
+)
+
+$curl = curl_init('https://api.pdfshift.io/v3/convert/pdf');
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($params));
+curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Basic ' . base64_encode('api:' . $api_key)
+));
+
+$response = curl_exec($curl);
+if ($response === false) {
+    $error_message = curl_error($curl);
+    curl_close($curl);
+    throw new Exception("cURL error: $error_message");
+}
+
+// Get the HTTP status code
+$http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+// Close cURL resource
+curl_close($curl);
+
+// Check if the request was successful
+if ($http_status !== 200) {
+    throw new Exception("Request failed with HTTP status code: $http_status");
+}
+
+// Save the file to result.pdf
+file_put_contents('result.pdf', $response);
+
+echo 'The PDF document was generated and saved to result.pdf';
+```
+
+The above script will wait for all fonts to be ready before returning `true` for the `isPageReady` function.
+PDFShift will then wait for the fonts to be ready, via the `isPageReady`, before converting the page to PDF.

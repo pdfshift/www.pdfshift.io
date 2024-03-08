@@ -1,0 +1,32 @@
+{
+    "name": "DocRaptor",
+    "url": "https://docraptor.com",
+    "pricing_url": "https://app.docraptor.com/signup",
+    "type": "PDF",
+    "intro": [
+        "**DocRaptor** is a dynamic document conversion service that empowers users to effortlessly transform HTML, CSS, and JavaScript into PDF files. Designed to simplify the often complex process of document generation, DocRaptor ensures a seamless and reliable solution for businesses and developers alike.",
+        "test **is** rad"
+    ],
+    "comparison": {
+        "pricing": {
+            "price": "$15/Mo",
+            "limit": "125Mo",
+            "notes": "Price is based on the total size of the PDF generated."
+        },
+        "features": {
+            "watermark": true,
+            "encryption": true,
+            "headers": true,
+            "wait_for": false
+        },
+        "advanced": {
+            "async": true,
+            "parallel": true,
+            "hosted": true,
+            "s3": false,
+            "webhook": true
+        },
+        "backend": "Prince PDF",
+        "hipaa": true
+    }
+}

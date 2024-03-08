@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+
+body {
+    @apply font-dm text-navy-700;
+}
+
+.container {
+    @apply px-4 max-w-full xl:max-w-7xl xl:px-0 mx-auto;
+}
+.h1 {
+    @apply text-4xl lg:text-6xl !leading-tight;
+}
+
+.h2 {
+    @apply font-medium text-2xl lg:text-4xl !leading-tight;
+}
+
+.h3 {
+    @apply font-medium text-xl lg:text-2xl leading-relaxed;
+}
+
+.h4 {
+    @apply font-light text-sm lg:text-base leading-tight;
+}
+
+.h5 {
+     @apply font-light text-sm;
+}
+
+.p {
+    @apply text-base lg:text-lg !leading-relaxed;
+}
+
+
+.p.-lead {
+    @apply font-light text-lg lg:text-xl !leading-relaxed;
+}
+
+
+.p.-small {
+    @apply font-light text-sm lg:text-base !leading-normal tracking-tight;
+}
+
+.bg-net {
+    background-image: url('/images/textures/net.svg');
+}
+.bg-diamond-net {
+    background-image: url('/images/textures/diamond-net-transparent.png');
+}
+.bg-diamond-net-hero {
+    background-image: url('/images/textures/diamond-net-hero.svg');
+}
+
+.input {
+    @apply border border-purple rounded-md bg-white font-light p-2 focus:border focus:outline-0;
+}
+
+.page-content p {
+    @apply mt-8 font-light text-sm lg:text-base !leading-normal tracking-tight;
+}
+.page-content section + section {
+    @apply mt-16;
+}
+
+.page-content ol {
+    @apply mt-8 list-decimal list-inside;
+}
+
+.page-content ul {
+    @apply mt-8 list-disc list-inside space-y-3;
+}
+
+.field {
+    @apply border px-3 py-3.5 border-purple-500 rounded-md hover:text-purple hover:border-purple font-light text-gray-400 focus:text-gray-400 disabled:bg-purple-100 disabled:text-purple-400 disabled:border-purple-400 placeholder:text-navy-700/50 focus:outline-2 focus:outline-purple;
+}
+.field.-error {
+    @apply border-red-500;
+}
+
+.text-content img {
+    @apply w-full rounded-xl my-8;
+}
+
+.text-content p:not(first-child) {
+    @apply mt-4 md:mt-8 text-base lg:text-lg !leading-relaxed font-light;
+}
+
+.text-content h2 {
+    @apply font-medium text-2xl lg:text-4xl !leading-tight;
+}
+
+.text-content h3 {
+    @apply font-medium text-lg lg:text-2xl !leading-tight;
+}
+
+.text-content h3:not(first-child),.text-content h2:not(first-child) {
+    @apply mt-16;
+}
+
+.text-content h2 + p, .text-content h3 + p {
+    @apply mt-4;
+}
+
+.text-content pre{
+    @apply mt-12 md:mt-20;
+}
+
+.text-content .hljs {
+    @apply bg-purple-100 border border-purple-500 text-purple p-4 md:text-lg;
+}
+.text-content .hljs .hljs-keyword,
+.text-content .hljs .hljs-literal {
+    @apply text-black;
+}
+.text-content .hljs .hljs-string,
+.text-content .hljs .hljs-built_in {
+    @apply text-purple;
+}
+
+article pre.hljs {
+    @apply mt-6 mb-12 p-4 rounded-lg bg-gradient-radial bg-navy-700 border-purple border shadow-lg max-w-xl mx-auto lg:max-w-none overflow-x-auto
+}
+
+@tailwind utilities;

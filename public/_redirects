@@ -1,0 +1,27 @@
+# Redirect domain aliases to primary domain
+http://pdfshift.com/*                       https://pdfshift.io/:splat                                 301!
+http://www.pdfshift.com/*                   https://pdfshift.io/:splat                                 301!
+https://www.pdfshift.com/*                  https://pdfshift.io/:splat                                 301!
+
+# Internal redirects
+# @see https://www.netlify.com/docs/redirects/
+
+/plausible/js/script.js                     https://plausible.io/js/script.js                          200
+/plausible/api/event                        https://plausible.io/api/event                             200
+
+/upgrade/payment                            https://app.pdfshift.io/upgrade/plans                      200
+/pricing/                                   /#pricing                                                  200
+
+/dpa                                        /legal/dpa                                                 200
+/gdpr                                       /legal/gdpr                                                200
+/privacy                                    /legal/privacy                                             200
+/terms                                      /legal/terms                                               200
+/subprocessors                              /legal/subprocessors                                       200
+
+/guides/convert-html-to-pdf-with-node/      /guides/node/axios/convert-html-to-pdf-from-raw-html       200
+/guides/convert-html-to-pdf-with-php/       /guides/php/curl/convert-html-to-pdf-from-raw-html         200
+/guides/convert-html-to-pdf-with-python/    /guides/python/requests/convert-html-to-pdf-from-raw-html  200
+/guides/convert-html-to-pdf-with-ruby/      /guides/ruby/nethttp/convert-html-to-pdf-from-raw-html     200
+/guides/convert-html-to-pdf-with-go/        /guides/go/convert-html-to-pdf-from-raw-html        200
+/guides/convert-html-to-pdf-with-java/      /guides/java/convert-html-to-pdf-from-raw-html      200
+/guides/convert-html-to-pdf-with-csharp/    /guides/csharp/convert-html-to-pdf-from-raw-html    200

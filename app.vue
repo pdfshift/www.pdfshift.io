@@ -1,8 +1,10 @@
 <template>
-  <Header />
-  <div class="frame">
-    <div class="page">
-      <NuxtPage />
-    </div>
-  </div>
+    <NuxtPage />
 </template>
+
+<script setup>
+useSeoMeta({
+    ogImage: '/images/banner/slogan.jpg',
+    twitterImage: '/images/banner/slogan.jpg'
+})
+</script>

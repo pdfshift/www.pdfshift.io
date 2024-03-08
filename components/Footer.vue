@@ -1,140 +1,121 @@
 <template>
-  <footer class="footer">
-    <div class="footer__col">
-      <h3 class="footer__title">Company details</h3>
-      <ul class="footer__list">
-        <li>
-          <NuxtLink to="/">Contact us</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Twitter</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Terms of Service</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Privacy of Policy</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">GDPR</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">HIPAA - BAA</NuxtLink>
-        </li>
-      </ul><!-- / list -->
-    </div><!-- / col -->
-    <div class="footer__col">
-      <h3 class="footer__title">Product</h3>
-      <ul class="footer__list">
-        <li>
-          <NuxtLink to="/">Features</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Pricing</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Blog</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Documentation</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Playground</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Status page</NuxtLink>
-        </li>
-      </ul><!-- / list -->
-    </div><!-- / col -->
-    <div class="footer__col">
-      <h3 class="footer__title">Guides</h3>
-      <ul class="footer__list">
-        <li>
-          <NuxtLink to="/">Node.js Guide</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">PHP Guide</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Python Guide</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">Ruby Guide</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/">All our Guide</NuxtLink>
-        </li>
-      </ul><!-- / list -->
-    </div><!-- / col -->
-    <div class="footer__bottom">
-      <NuxtLink to="/" class="footer__link">SASU PDFShift</NuxtLink>
-      <span class="footer__text">128 rue la Boetie - 75008 Paris, France</span>
-    </div><!-- / bottom -->
-  </footer>
+    <footer class="text-center md:text-left px-4 py-12 lg:pb-16 bg-navy-900" :class="{'md:pt-24 lg:pt-40': push }">
+        <div class="max-w-full xl:max-w-7xl mx-auto grid md:grid-cols-4 gap-12 md:gap-0">
+            <div class="col-span-full md:col-span-1 text-white relative md:mr-16">
+                <div class="w-36 m-auto md:m-0">
+                    <NuxtLink to="/" title="Go to the home page">
+                        <IconsLogo class="text-white" />
+                    </NuxtLink>
+                </div>
+                <ul class="text-white flex items-center gap-8 mt-8 flex-col md:flex-row">
+                    <li class="size-8 p-1.5">
+                        <NuxtLink to="https://twitter.com/pdfshift" title="View our X (ex Twitter) profile">
+                            <LogosX />
+                        </NuxtLink>
+                    </li>
+                    <li class="size-8">
+                        <NuxtLink to="https://linkedin.com/company/pdfshift" title="View our LinkedIn profile">
+                            <LogosLinkedin />
+                        </NuxtLink>
+                    </li>
+                </ul>
+                <div class="mt-8 text-sm">&copy; {{ new Date().getFullYear() }} PDFShift.</div>
+                <div class="hidden md:block absolute h-full right-0 top-0 footer-separator w-px"></div>
+            </div>
+            <div class="col-span-full md:col-span-1">
+                <span class="text-white uppercase text-sm">Company Details</span>
+                <ul class="mt-6 space-y-4 text-purple-400 text-sm">
+                    <li class="hover:underline">
+                        <NuxtLink to="/contact" title="Feel free to contact us if you have any request">Contact Us</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/legal/terms" title="read our Terms of Service">Terms of service</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/legal/privacy" title="read our Privacy Policy">Privacy Policy</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/legal/gdpr" title="Read our GDPR guidelines">GDPR</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/legal/hipaa" title="Read more about our HIPAA">HIPAA - BAA</NuxtLink>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-full md:col-span-1">
+                <span class="text-white uppercase text-sm">Product</span>
+                <ul class="mt-6 space-y-4 text-purple-400 text-sm">
+                    <li class="hover:underline">
+                        <NuxtLink to="/#features">Features</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/#pricing">Pricing</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="https://docs.pdfshift.io" class="inline-flex items-center" target="_blank">
+                            Documentation
+                            <span class="inline-block size-3.5 ml-1 -top-px relative">
+                                <IconsExternalLink />
+                            </span>
+                        </NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="https://playground.pdfshift.io" target="_blank" class="inline-flex items-center">
+                            Playground
+                            <span class="inline-block size-3.5 ml-1 -top-px relative">
+                                <IconsExternalLink />
+                            </span>
+                        </NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="https://status.pdfshift.io" target="_blank" class="inline-flex items-center">
+                            Status Page
+                            <span class="inline-block size-3.5 ml-1 -top-px relative">
+                                <IconsExternalLink />
+                            </span>
+                        </NuxtLink>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-span-full md:col-span-1">
+                <span class="text-white uppercase text-sm">Guides</span>
+                <ul class="mt-6 space-y-4 text-purple-400 text-sm">
+                    <li class="hover:underline">
+                        <NuxtLink to="/guides/node/">NodeJS Guide</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/guides/go/">GoLang Guide</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/guides/php/">PHP Guide</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/guides/python/">Python Guide</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/guides/ruby/">Ruby Guide</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/guides/">All our Guide</NuxtLink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </template>
 
-<style lang="scss" scoped>
-.footer {
-  max-width: var(--width-main);
-  margin: 0 auto;
-  padding: 0 0 5rem;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0.875rem;
-  line-height: 1rem;
-  font-weight: 500;
 
-  &__col {
-    width: 24.2%;
-  }
-
-  &__title {
-    font-family: var(--font-title);
-    font-size: 0.875rem;
-    line-height: 1rem;
-    font-weight: 500;
-    margin: 0 0 1rem;
-    color: #9695AD;
-  }
-
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    color: #C9C8CB;
-
-    li {
-      margin-bottom: 0.9rem;
-
-      a {
-        color: inherit;
-
-        &:hover {
-          color: var(--color-secondary);
-        }
-      }
+<script setup>
+const props = defineProps({
+    push: {
+        type: Boolean,
+        default: false,
     }
-  }
+})
+</script>
 
-  &__bottom {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 2.5rem 0 0;
-    padding: 1rem 0 0;
-    position: relative;
-    z-index: 1;
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: radial-gradient(ellipse at center,  rgba(184,171,255,1) 0%,rgba(184,171,255,0) 49%,rgba(184,171,255,0) 100%);
-
-    }
-  }
+<style scoped>
+.footer-separator {
+    background: linear-gradient(180deg, rgba(68, 72, 112, 0.00) 0%, #444870 52.95%, rgba(68, 72, 112, 0.00) 95.83%);
 }
 </style>

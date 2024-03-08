@@ -1,0 +1,119 @@
+<template>
+    <div>
+        <NuxtLayout name="default">
+            <PageHeader title="Blogs">
+                Welcome to our blog, where we explore a world of knowledge, ideas, and inspiration.
+            </PageHeader>
+
+            <div class="max-w-4xl mx-auto px-4 mt-12 md:mt-24 pb-12 md:pb-24">
+                <nav class="border-b border-purple-400 hidden sm:block">
+                    <ul class="flex gap-6 md:gap-10">
+                        <li @click="selectCategory(null)" class="h5 uppercase pb-4 cursor-pointer" :class="{'text-purple font-medium border-b-2 border-purple':isCategorySelected(null)}">
+                            <NuxtLink to="javascript:void(0)">All Posts</NuxtLink>
+                        </li>
+                        <li @click="selectCategory(category)" class="h5 uppercase pb-4 cursor-pointer" v-for="category in categories" :class="{'text-purple font-medium border-b-2 border-purple':isCategorySelected(category)}">
+                            <NuxtLink to="javascript:void(0)">{{ category }}</NuxtLink>
+                        </li>
+                    </ul>
+                </nav>
+
+                <h2 class="h2 text-navy-700 mt-12">All posts</h2>
+                <ul class="grid md:grid-cols-2 gap-8 mt-4">
+                    <li v-for="article in filteredArticles" :key="article._id" class="rounded-lg bg-white p-4 shadow-lg transition-all duration-300 translate-y-0 hover:-translate-y-2">
+                        <BlogArticleListing :article="article" :key="article._id" />
+                    </li>
+                </ul>
+
+                <div class="flex justify-center mt-12 md:mt-16">
+                    <Button :arrow-down="true">Load More</Button>
+                </div>
+            </div>
+        </NuxtLayout>
+    </div>
+</template>
+
+<script setup>
+const articles = [
+    {
+        title: "Aviato raises $3.9M",
+        category: "Announcements",
+        image: "/images/demo/blog/1c.jpg",
+        date: "2024-01-07 09:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/2',
+        id: 1,
+    },
+    {
+        title: "ACME raises $2.9M",
+        category: "Announcements",
+        image: "/images/demo/blog/1a.jpg",
+        date: "2023-12-21 18:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/2',
+        id: 2,
+    },
+
+    {
+        title: "Lorem Ipsum Title",
+        category: "Changelog",
+        image: "/images/demo/blog/1b.jpg",
+        date: "2023-12-21 18:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/3',
+        id: 3,
+    },
+
+    {
+        title: "Lorem Ipsum Title",
+        category: "PHP",
+        image: "/images/demo/blog/1c.jpg",
+        date: "2023-12-21 18:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/4',
+        id: 4,
+    },
+
+    {
+        title: "Lorem Ipsum Title",
+        category: "PHP",
+        date: "2023-12-21 18:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/5',
+        id: 5,
+    },
+
+    {
+        title: "Lorem Ipsum Title",
+        category: "PHP",
+        date: "2023-12-21 18:52",
+        author: "Tejas Ravishankar",
+        authorCompany: "AlternativeTo",
+        url: '/blog/6',
+        id: 6,
+    },
+]
+
+const filteredArticles = ref(articles)
+const selectedCategory = ref(null)
+
+const categories = articles.map(article => article.category).filter((value, index, self) => self.indexOf(value) === index)
+
+const selectCategory = (category) => {
+    selectedCategory.value = category
+    if(!category) {
+        filteredArticles.value = [...articles]
+        return
+    }
+    const filtered = articles.filter(article => article.category === category)
+    filteredArticles.value = [...filtered]
+}
+
+const isCategorySelected = (category) => {
+    return selectedCategory.value === category
+}
+</script>

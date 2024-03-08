@@ -1,203 +1,286 @@
 <template>
-  <div>
-    <Hero />
-    <APIExample />
-    <div class="stars-bg">
-      <Trusted :images="logos"/>
-      <Rely />
+    <div>
+        <NuxtLayout name="home">
+            <div class="bg-navy-900">
+                <Header :dark="true" />
+
+                <section class="px-4 pt-32 pb-12 lg:pt-48">
+                    <div class="lg:grid lg:gap-16 lg:grid-cols-12 max-w-full lg:max-w-7xl mx-auto relative">
+                        <div class="absolute bg-diamond-net-hero opacity-50 left-0 top-0 w-full h-full bg-top z-0"></div>
+                        <div class="lg:col-span-6 flex flex-col justify-start max-w-xl mx-auto lg:max-w-none relative">
+                            <h1 class="h1 text-white text-center lg:text-left lg:pr-16 text-4xl">
+                                From HTML to pixel-perfect<br /><span class="text-purple-500">{{ highlightedWord }}</span> in seconds
+                            </h1>
+                            <p class="p -lead text-white text-center mt-4 lg:text-left">
+                                Our always-up-to-date API for developers automates your document conversion tasks - effortlessly.
+                            </p>
+                            <div class="flex mt-4 lg:mt-8 justify-center lg:justify-start">
+                                <Button to="/register" bg="dark" :arrow="true">Register for free</Button>
+                            </div>
+
+                            <NuxtLink to="https://www.capterra.com/p/184246/PDFShift/reviews/" class="mt-12 flex flex-col gap-6 md:flex-row items-center md:gap-8 mx-auto lg:mx-0 hover:underline" target="_blank">
+                                <img class="w-32" src="/images/comparators/capterra-white.svg" alt="Capterra logo" />
+                                <StarRating class="text-white hover:underline" :rating="4.8" :reviews="44" />
+                            </NuxtLink>
+                        </div>
+                        <div class="lg:col-span-6 mt-12 lg:mt-0 text-sm lg:text-base max-w-full relative">
+                            <div class="relative">
+                                <HomeCodeSnippets />
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="mt-20 w-full lg:max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 justify-center gap-12 lg:gap-24 xl:gap-32">
+                        <li>
+                            <HomeHeroFeature>
+                                <template v-slot:icon>
+                                    <IconsClipboardTick />
+                                </template>
+                                <template v-slot:title>30+ Million</template>
+                                <template v-slot:description>Conversions made</template>
+                            </HomeHeroFeature>
+                        </li>
+                        <li>
+                            <HomeHeroFeature>
+                                <template v-slot:icon>
+                                    <IconsPeople />
+                                </template>
+                                <template v-slot:title>17,000+</template>
+                                <template v-slot:description>Loyal users</template>
+                            </HomeHeroFeature>
+                        </li>
+                        <li>
+                            <HomeHeroFeature>
+                                <template v-slot:icon>
+                                    <IconsTimerPaused />
+                                </template>
+                                <template v-slot:title>1.5s</template>
+                                <template v-slot:description>Average conversion time</template>
+                            </HomeHeroFeature>
+                        </li>
+                        <li>
+                            <HomeHeroFeature>
+                                <template v-slot:icon>
+                                    <IconsBarGraphUp />
+                                </template>
+                                <template v-slot:title>99.99%</template>
+                                <template v-slot:description>Uptime</template>
+                            </HomeHeroFeature>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <HomeCompanies />
+
+            <main>
+                <HomeIllustratedFeatures />
+                <div class="bg-gradient-to-br from-purple-900 to-navy-700 via-20% via-navy-700 pb-24 lg:pb-36">
+                    <div class="container">
+                        <section class="py-16 lg:py-32">
+                            <div class="lg:max-w-md mx-auto text-center">
+                                <h2 class="h2 text-white"><span class="text-purple-500">Powerful features</span> for high-fidelity documents</h2>
+                            </div>
+
+                            <ul class="grid grid-cols-6 gap-8 mt-12 lg:mt-16">
+                                <li class="col-span-full md:col-span-3 lg:col-span-2">
+                                    <CardDark>
+                                        <div class="p-4 flex justify-center">
+                                            <img src="/images/illustrations/render-css3.svg" alt="Render pages with CSS3 - Illustration" />
+                                        </div>
+                                        <h3 class="h3 mt-6 text-white">Render pages beautifully with full
+                                            <span class="text-purple-500">CSS Support</span></h3>
+                                        <p class="p -small text-white mt-4">
+                                            Our powerful engine supports all the latest CSS features, including custom web fonts, flexbox, grid layouts, and responsive design.
+                                        </p>
+                                    </CardDark>
+                                </li>
+
+                                <li class="col-span-full md:col-span-3 lg:col-span-2">
+                                    <CardDark>
+                                        <div class="p-4 flex justify-center">
+                                            <img src="/images/illustrations/render-html5.svg" alt="Render pages with HTML5 - Illustration" />
+                                        </div>
+                                        <h3 class="h3 mt-4 text-white">
+                                            <span class="text-purple-500">Tailor documents</span> to suit your needs</h3>
+                                        <p class="p -small text-white mt-4">
+                                            Customize headers and footers, inject custom CSS and Javascript, and wait for custom elements on the page so they turn out perfect every time.
+                                        </p>
+                                    </CardDark>
+                                </li>
+
+                                <li class="col-span-full md:col-span-3 lg:col-span-2">
+                                    <CardDark>
+                                        <div class="p-4 flex justify-center">
+                                            <img src="/images/illustrations/render-secure.svg" alt="Converts pages securely - Illustration" />
+                                        </div>
+                                        <h3 class="h3 mt-4 text-white">Convert documents <span class="text-purple-500">securely</span>
+                                        </h3>
+                                        <p class="p -small text-white mt-4">
+                                            Beam your raw HTML directly to PDFShift for completely secure conversions &dash; perfect for handling sensitive data.
+                                        </p>
+                                    </CardDark>
+                                </li>
+
+                                <li class="col-span-full md:col-span-3">
+                                    <CardDark>
+                                        <div class="flex flex-col-reverse lg:flex-row lg:items-center gap-8 lg:gap-12">
+                                            <div class="lg:w-2/3">
+                                                <h3 class="text-white text-2xl">Play nice with
+                                                    <span class="text-purple-500">third-party libraries</span></h3>
+                                                <p class="p -small text-white mt-4">
+                                                    PDFShift works great with external libraries such
+                                                    as Tailwind, Bootstrap, Bulma, Skeleton, …. You can also generate beautiful charts with javascript libraries or maps using Google Map or OpenStreetMap.
+                                                </p>
+                                            </div>
+                                            <div class="h-28 lg:h-auto lg:w-1/3 flex justify-center">
+                                                <img src="/images/illustrations/css-frameworks.svg" alt="CSS Frameworks - Illustration" />
+                                            </div>
+                                        </div>
+                                    </CardDark>
+                                </li>
+
+                                <li class="col-span-full md:col-span-3">
+                                    <CardDark>
+                                        <div class="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12">
+                                            <div class="lg:w-2/3">
+                                                <h3 class="text-white text-2xl"><span class="text-purple-500">Generate documents</span> in the blink of an eye</h3>
+                                                <p class="p -small text-white mt-4">
+                                                    Use PDFShift's powerful webhook system to quickly generate thousands of documents with minimal wait times. Need more? Invoke our parallel conversion system to convert many documents with a single request for results in milliseconds.
+                                                </p>
+                                            </div>
+                                            <div class="h-28 lg:h-auto lg:w-1/3">
+                                                <img class="h-full w-auto" src="/images/illustrations/document.svg" alt="Document - Illustration" />
+                                            </div>
+                                        </div>
+                                    </CardDark>
+                                </li>
+                            </ul>
+                        </section>
+                        <div class="bg-gradient-to-br from-purple-100 to-purple-100 via-white rounded-3xl p-8 lg:p-16 overflow-hidden">
+                            <div class="flex flex-col-reverse md:flex-row items-center gap-8">
+                                <div class="w-full">
+                                    <div class="hidden lg:block w-24">
+                                        <IconsRoundedLock />
+                                    </div>
+
+                                    <h2 class="-mt-8 lg:mt-0 h2 text-navy-700">Guaranteed privacy with HIPAA compliance</h2>
+                                    <p class="p text-navy-700 mt-4">
+                                        PDFShift's conversion technology is fully HIPAA compliant,
+                                        making it a great choice for the healthcare industry. We don't store your documents (unless specifically requested in the API), so we can ensure the privacy of your data.
+                                    </p>
+                                    <div class="mt-12">
+                                        <Button to="/legal/hipaa" :arrow="true">Review our Business Associate Agreement (BAA)</Button>
+                                    </div>
+                                </div>
+                                <div class="w-full relative">
+                                    <div class="absolute w-full h-full bg-net bg-cover"></div>
+                                    <NuxtImg width="560" height="560" class="lg:scale-150 object-cover" src="/images/illustrations/shield.png" alt="Illustration of shield" format="webp" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-bl from-purple-100 to-purple-100 via-white">
+                    <div class="container">
+                        <HomePricing />
+                        <HomeFAQ />
+                        <HomeTestimonials />
+                        <div class="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mt-12">
+                            <HomeReview v-for="(review,index) in reviews" :rating="review.rating" :small="true" :reviews="review.reviews" :to="review.url" :key="index" :name="review.name" :logo="review.logo" />
+                        </div>
+                        <section class="mt-16 lg:mt-20 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-8 lg:p-16 lg:pb-20 max-w-5xl mx-auto -mb-8 lg:-mb-20 relative flex items-center gap-24">
+                            <div>
+                                <div class="h2 text-white">Improving automated conversion for 5 years and counting.<br />We're here to stay!</div>
+                                <div class="mt-8">
+                                    <Button to="/register" :arrow="true" :light="true">Register For Free</Button>
+                                </div>
+                            </div>
+                            <div class="hidden lg:block shrink-0 text-purple-500 w-48 mt-10 pr-12">
+                                <IconsLogoBird />
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </NuxtLayout>
     </div>
-    <h2 class="title">Use PDFShift's API to generate <br>PDF/Screenshot/Banner</h2>
-    <TextBlock
-      icon="images/icons/ico-clock.svg"
-      title="Go from HTML to PDF in under 2 seconds"
-      text="Our API makes it easy to export high-quality PDF versions of HTML documents from raw code or URLs. There's no need to worry about CSS properties, outdated libraries or conversion errors."
-      hasContent
-      to="/"
-    >
-      <ConvertingArt />
-    </TextBlock>
-    <TextBlock
-      orientation="right"
-      icon="images/icons/ico-screen.svg"
-      title="Generate beautiful previews of any website"
-      text="Equip your product with the ability to turn visual content into downloadable images. Grab up-to-date screenshots from any website to generate beautiful previews and customize image output to suit your needs. All it takes is one simple API call."
-      hasContent
-      to="/"
-    >
-      <GenerateScreenshot />
-    </TextBlock>
-    <TextBlock
-      icon="images/icons/ico-img.svg"
-      title="Automate blog banners for social networks"
-      text="Generate impactful Open Graph images to share your content on social networks easily. Use custom templates and provide variable parameters to automatically integrate banners into your CMS."
-      imageUrl="images/text-block/img-info-03.png"
-      to="/"
-    />
-    <TextBlock
-      orientation="right"
-      icon="images/icons/ico-time.svg"
-      title="Store your template at PDFShift and increase conversion speed."
-      text="Store your template and take advantage of our powerful template engine to convert your documents even faster. Storing your templates at PDFShift will allow you to generate documents on the fly with your customer in a secure way. It will allow you to automatically build banner images for your blog posts securely within your blog engine (Wordpress, Next, Nuxt)."
-      imageUrl="images/text-block/img-info-04.png"
-      hasContent
-      to="/"
-    >
-      <SaveTemplate />
-    </TextBlock>
-    <TextBlock
-      orientation="left"
-      icon="images/icons/ico-time.svg"
-      title="Securely store your content in your S3 buckets"
-      text="Beam every generated content from PDFShift directly into your AWS S3 cloud storage. This will allow you to keep your content secure and private and to use it in your applications."
-      imageUrl="images/text-block/img-info-04.png"
-      to="/"
-    />
-    <Features />
-    <Compliance />
-    <Pricing />
-    <Testimonials :cards="testimonials"/>
-    <div class="footer-mask">
-      <Conversion />
-      <Footer></Footer>
-    </div>
-  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import Hero from '~/components/Hero.vue';
-import APIExample from '~/components/APIExample.vue';
-import Trusted from '~/components/Trusted.vue';
-import Rely from '~/components/Rely.vue';
-import TextBlock from '~/components/TextBlock.vue';
-import GenerateScreenshot from '~/components/GenerateScreenshot.vue';
-import Features from '~/components/Features.vue';
-import Compliance from '~/components/Compliance.vue';
-import Pricing from '~/components/Pricing.vue';
-import Testimonials from '~/components/Testimonials.vue';
-import Conversion from '~/components/Conversion.vue';
-import Footer from '~/components/Footer.vue';
-import SaveTemplate from '~/components/SaveTemplate.vue';
+const title = 'Fast, Easy Website and HTML to PDF Converter via API | PDFShift';
+const description = 'An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.';
 
-const logos = ref([
-  {
-    id: 1,
-    url: 'images/logos/logo-01.svg',
-    altText: 'logo 1'
-  },
-  {
-    id: 2,
-    url: 'images/logos/logo-01.svg',
-    altText: 'logo 2'
-  },
-  {
-    id: 3,
-    url: 'images/logos/logo-01.svg',
-    altText: 'logo 3'
-  },
-  {
-    id: 4,
-    url: 'images/logos/logo-01.svg',
-    altText: 'logo 4'
-  },
-  {
-    id: 5,
-    url: 'images/logos/logo-01.svg',
-    altText: 'logo 5'
-  },
-])
+useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    twitterTitle: title,
+    twitterDescription: description
+})
 
-const testimonials = ref([
-  {
-    avatarImg: 'images/avatars/ava-01.png',
-    altText: 'image',
-    name: 'Nomad WebDesign',
-    linkUrl: 'https://www.google.com',
-    linkText: 'AlternativeTo',
-    quote: 'So far this is one of the best HTML to PDF converters I have come across. I like that it\'s simple and does a good job. Also, their support and pricing is great!'
-  },
-  {
-    avatarAbbr: 'NW',
-    altText: 'image',
-    name: 'Skystover',
-    linkUrl: 'https://www.google.com',
-    linkText: 'AlternativeTo',
-    quote: 'Very easy to use, highly customizable, and works just as intended. The biggest feature missing from other PDF APIs was the ability to decide where a page "breaks" and continues on to a new page. PDFShift made doing so easy with a simple CSS class.'
-  },
-  {
-    avatarImg: 'images/avatars/ava-02.png',
-    altText: 'image',
-    name: 'Greg R.',
-    linkUrl: 'https://www.google.com',
-    linkText: 'AlternativeTo',
-    quote: 'PDFShift is awesome! Before I was creating PHP PDF files through fPDF and it was very time consuming and difficult. Now with PDFShift, I can just mock them up in HTML and CSS and then through a very simple and easy to use API I can create a PDF in a matter of seconds. I highly recommend PDFShift.'
-  },
-  {
-    avatarImg: 'images/avatars/ava-03.png',
-    altText: 'image',
-    name: 'Billy B.',
-    linkUrl: 'https://www.google.com',
-    linkText: 'G2',
-    quote: 'Perfect rendering, easy to setup and use.'
-  },
-  {
-    avatarImg: 'images/avatars/ava-04.png',
-    altText: 'image',
-    name: 'Greg R.',
-    linkUrl: 'https://www.google.com',
-    linkText: 'Capterra',
-    quote: 'Stop rolling your own PDF generator - PDFShift has done it better.'
-  },
-  {
-    avatarImg: 'images/avatars/ava-04.png',
-    altText: 'image',
-    name: 'Greg R.',
-    linkUrl: 'https://www.google.com',
-    linkText: 'Capterra',
-    quote: 'Stop rolling your own PDF generator - PDFShift has done it better.'
-  },
-  {
-    avatarImg: 'images/avatars/ava-01.png',
-    altText: 'image',
-    name: 'Nomad WebDesign',
-    linkUrl: 'https://www.google.com',
-    linkText: 'AlternativeTo',
-    quote: 'So far this is one of the best HTML to PDF converters I have come across. I like that it\'s simple and does a good job. Also, their support and pricing is great!'
-  },
-  {
-    avatarImg: 'images/avatars/ava-01.png',
-    altText: 'image',
-    name: 'Nomad WebDesign',
-    linkUrl: 'https://www.google.com',
-    linkText: 'AlternativeTo',
-    quote: 'So far this is one of the best HTML to PDF converters I have come across. I like that it\'s simple and does a good job. Also, their support and pricing is great!'
-  },
-  {
-    avatarImg: 'images/avatars/ava-01.png',
-    altText: 'image',
-    name: 'Nomad WebDesign',
-    linkUrl: 'https://www.google.com',
-    linkText: 'AlternativeTo',
-    quote: 'So far this is one of the best HTML to PDF converters I have come across. I like that it\'s simple and does a good job. Also, their support and pricing is great!'
-  },
-])
-</script>
+const highlightedWord = ref('PDF');
+const wordsToType = ['Banner', 'Screenshot', 'PDF'];
+const typingSpeed = 200; // milliseconds per character
+const wordPause = 1000; // pause for 1 second before starting to type the next word
 
-<style lang="scss" scoped>
-.stars-bg {
-  background: url('~/assets/images/stars.png') no-repeat 50% 0;
-  background-size: cover;
-  position: relative;
-  z-index: 0;
-  padding-bottom: 10rem;
+// Trigger the word swap
+if (process.client) {
+    const isLooping = ref(true);
+
+    //wait untill hydration is done
+    setTimeout(async () => {
+        while (isLooping.value) { // Endless loop
+            for (const wordToType of wordsToType) {
+                // Delete the current word
+                while (highlightedWord.value.length > 0) {
+                    highlightedWord.value = highlightedWord.value.slice(0, -1);
+                    await new Promise((resolve) => setTimeout(resolve, typingSpeed));
+                }
+
+                // Pause after deleting the current word
+                await new Promise((resolve) => setTimeout(resolve, wordPause));
+
+                // Type the new word
+                for (let i = 0; i < wordToType.length; i++) {
+                    highlightedWord.value += wordToType[i];
+                    await new Promise((resolve) => setTimeout(resolve, typingSpeed));
+                }
+
+                // Pause after typing the new word
+                await new Promise((resolve) => setTimeout(resolve, wordPause));
+            }
+        }
+    }, 1000);
 }
 
-.title {
-  font-size: 3rem;
-  line-height: 3.9rem;
-  font-weight: 500;
-  color: var(--color-primary);
-  max-width: var(--width-main);
-  margin: 0 auto 4rem;
+const reviews = [
+    {
+        name: "Capterra",
+        rating: 4.8,
+        reviews: 44,
+        logo: "/images/comparators/capterra.svg",
+        url: "https://www.capterra.com/p/184246/PDFShift/reviews",
+    },
+    {
+        name: "G2",
+        rating: 4.5,
+        reviews: 22,
+        logo: "/images/comparators/g2.svg",
+        url: "https://www.g2.com/products/pdfshift/reviews",
+    },
+    {
+        name: "AlternativeTo",
+        rating: 4.9,
+        reviews: 30,
+        logo: "/images/comparators/alternativeto.svg",
+        url: "https://alternativeto.net/software/pdfshift/about/",
+    },
+]
+</script>
+
+<style>
+.code-snippet-shadow {
+    box-shadow: 15px -15px 30px 40px rgb(199 146 234 / 20%);
 }
 </style>
