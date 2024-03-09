@@ -45,7 +45,7 @@
                                     <IconsPeople />
                                 </template>
                                 <template v-slot:title>19,000+</template>
-                                <template v-slot:description>Loyal users</template>
+                                <template v-slot:description>Users</template>
                             </HomeHeroFeature>
                         </li>
                         <li>

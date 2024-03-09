@@ -6,22 +6,24 @@ Guides:
     * Java
 
 Case studies
-Comparisons => https://www.api2pdf.com/alternatives/
+
+Comparisons
     * Docraptor - https://docraptor.com/
     * ApiLayer - https://pdflayer.com/
-    * PDFCrowd - https://pdfcrowd.com/
     * Restpack - https://restpack.io/html2pdf
-    * Html2PDFRocket - https://html2pdfrocket.com/
+    * Doppio.sh - https://doppio.sh/
     * Soda - https://www.sodapdf.com/html-to-pdf/
+    * Api2PDF - https://www.api2pdf.com/
+    * PaperPlane - https://www.paperplane.app/
+
+    * PDFCrowd - https://pdfcrowd.com/
+    * Html2PDFRocket - https://html2pdfrocket.com/
     * PDFMyUrl - https://pdfmyurl.com/
     * HTMLPDFAPI - https://www.htmlpdfapi.com/
     * HTML2PDF.app - https://html2pdf.app/
-    * Api2PDF - https://www.api2pdf.com/
-    * PaperPlane - https://www.paperplane.app/
     * PDFBlade - https://pdfblade.com/
     * PDFSwitch - https://pdfswitch.io/
     * CloudLayer - https://cloudlayer.io/
-    * Doppio.sh - https://doppio.sh/
     * YakPDF - https://yakpdf.com/
     * PrintFriendly - https://www.printfriendly.com/
     * SelectPDF - https://selectpdf.com/
