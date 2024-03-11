@@ -2,7 +2,7 @@
     <div>
         <NuxtLayout page="default">
             <main class="max-w-3xl mx-auto px-4 pb-12">
-                <NuxtLink :to="`/samples/${language}`" class="text-navy-700 inline-flex items-center gap-2">
+                <NuxtLink :to="`/samples/${route.params.language}`" class="text-navy-700 inline-flex items-center gap-2">
                     <span class="rotate-180 w-4 relative ml-1.5">
                         <IconsArrowRight />
                     </span>
@@ -22,7 +22,7 @@
                                 <p><NuxtLink :to="data.link">{{ data.library }}</NuxtLink> is a popular HTTP client/server library for {{ data.language }}.</p>
                             </div>
 
-                            <p class="mt-8">We've implemented a code sample that you can re-use to convert your HTML documents to PDF, JPG, PNG or WEBP using PDFShift and {{ language }}:</p>
+                            <p class="mt-8">We've implemented a code sample that you can re-use to convert your HTML documents to PDF, JPG, PNG or WEBP using PDFShift and {{ data.language }}:</p>
                         </div>
 
                         <div class="mb-16 mt-4">
@@ -47,14 +47,14 @@
                         <h3 class="h3 text-navy-700">We also have guides!</h3>
                         <p class="mt-4">
                             We also wrote a ton of articles to help you convert HTML documents in {{ data.language }} and {{ data.library }}.<br />
-                            <NuxtLink :to="`/guides/${language}/${library}`" class="text-purple-600 hover:underline">Check them out</NuxtLink> and let us know if you have any questions!
+                            <NuxtLink :to="`/guides/${route.params.language}/${route.params.library}`" class="text-purple-600 hover:underline">Check them out</NuxtLink> and let us know if you have any questions!
                         </p>
                     </div>
                     <div>
                         <h3 class="h3 text-navy-700">Related libraries</h3>
                         <ul class="mt-4 list-disc list-inside marker:text-purple">
                             <li v-for="article in related" :key="article._id" class="my-4">
-                                <NuxtLink :to="`/samples/${language.toLowerCase()}/${clearUrl(article.library)}`" class="mt-4 text-xl text-purple hover:underline">
+                                <NuxtLink :to="`/samples/${route.params.language}/${clearUrl(article.library)}`" class="mt-4 text-xl text-purple hover:underline">
                                     With the {{ article.library }} library
                                 </NuxtLink>
                             </li>
@@ -68,17 +68,11 @@
 
 <script setup>
 const route = useRoute()
-const language = ref(null)
-const library = ref(null)
 const excerpt = ref(null)
 const related = ref([])
+const exampleCode = ref(null)
 
 const { data } = await useAsyncData(route.fullPath, () => queryContent('samples', route.params.language, route.params.library).findOne())
-
-if (data) {
-    language.value = data.value.language
-    library.value = data.value.library
-}
 
 let index = 0
 if (data.value.body.children.length > 2) {
@@ -91,13 +85,12 @@ const compiledCode = ref({ type: 'root', children: [data.value.body.children[ind
 const { data: relatedEntries } = await useAsyncData(`${route.fullPath}-related`, () => queryContent('samples', route.params.language).only(['_id', '_path', 'language', 'library']).find())
 related.value = relatedEntries.value.filter(x => x.library.toLowerCase() !== data.value.library.toLowerCase())
 
-let exampleCode = ref(null)
 if (data.value.body.children.length > 1) {
     exampleCode.value = { type: 'root', children: [data.value.body.children[index + 1]] }
 }
 
-const title = `Convert any HTML documents to PDF using ${language.value} and ${library.value}`
-const description = `Use the following code sample to quickly convert any HTML documents to PDF using ${language.value} and ${library.value}.`
+const title = `Convert any HTML documents to PDF using ${data.value.language} and ${data.value.library}`
+const description = `Use the following code sample to quickly convert any HTML documents to PDF using ${data.value.language} and ${data.value.library}.`
 
 useSeoMeta({
     title,
