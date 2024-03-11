@@ -69,9 +69,10 @@ const secondaryReviews = reviews.filter(x => allReviews.value.indexOf(x) === -1)
 const getReviewSchema = (review) => JSON.stringify({
     "@context": "http://schema.org",
     "@type": "Review",
+    "name": "PDFShift",
     "itemReviewed": {
-        "@type": "Organization",
-        "legalName": "PDFShift"
+        "@type": "Product",
+        "name": "PDFShift"
     },
     "author": {
         "@type": "Person",
