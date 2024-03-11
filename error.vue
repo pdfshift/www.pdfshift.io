@@ -38,7 +38,7 @@ useSeoMeta({
 .error-code{
     font-size: 140px;
 }
-@media screen and (min-width:768px){
+@media screen and (min-width:1024px){
     .error-code{
         font-size: 280px;
     }
