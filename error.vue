@@ -44,9 +44,12 @@ useSeoMeta({
     }
 }
 
-@media screen and (min-width:768px) and (max-height:680px){
+@media screen and (min-width:768px) and (max-height:740px){
     .error-code{
         font-size: 160px;
+    }
+    h1.h1{
+        font-size: 2rem;
     }
 }
 </style>
