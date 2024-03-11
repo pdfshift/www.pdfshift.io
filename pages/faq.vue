@@ -25,17 +25,6 @@
 </template>
 
 <script setup>
-const title = "Our Frequently Asked Questions | PDFShift"
-const description = "Find the answers to the most common questions about PDFShift, our service, and our API."
-
-useSeoMeta({
-    title,
-    description,
-    ogTitle: title,
-    ogDescription: description,
-    twitterTitle: title,
-    twitterDescription: description
-})
 const faqs = questions()
 
 const getQuestionSchema = (faq) => JSON.stringify({
@@ -46,5 +35,17 @@ const getQuestionSchema = (faq) => JSON.stringify({
         "@type": "Answer",
         "text": faq.answer
     }
+})
+
+const title = "Our Frequently Asked Questions | PDFShift"
+const description = "Find the answers to the most common questions about PDFShift, our service, and our API."
+
+useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    twitterTitle: title,
+    twitterDescription: description
 })
 </script>

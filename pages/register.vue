@@ -34,12 +34,6 @@
                             </div>
 
                             <div>
-                                <label for="register-password" :class="{'text-red-500': errors.password}">Password</label>
-                                <input v-model="form.password" id="register-password" name="password" type="password" class="field mt-2 w-full" :class="{'-error': errors.password}" placeholder="Enter your password" />
-                                <span class="block mt-2 text-red-500 font-light" v-if="errors.password">{{ errors.password }}</span>
-                            </div>
-
-                            <div>
                                 <label for="register-language">Programming Language</label>
                                 <FormsSelect class="w-full mt-2" v-model="form.language" id="register-language" name="language" :options="languageOptions" />
                                 <div class="mt-3 font-light flex items-center gap-2">
@@ -103,7 +97,6 @@ const languageOptions = [
 const form = ref({
     name: null,
     email: null,
-    password: null,
     language: null,
     agree: false,
     newsletter: false,
@@ -112,7 +105,6 @@ const form = ref({
 const errors = ref({
     name: null,
     email: null,
-    password: null,
     agree: null,
     general: null
 })
@@ -144,7 +136,6 @@ const submit = async ($event) => {
     errors.value = {
         name: null,
         email: null,
-        password: null,
         agree: null,
         general: null
     }

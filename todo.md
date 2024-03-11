@@ -1,3 +1,10 @@
+# Tester avec Google:
+https://search.google.com/test/rich-results/result
+
+# Tester avec Schema.org:
+https://validator.schema.org/
+
+
 TODO
 ----
 
@@ -33,21 +40,9 @@ Comparisons
 
 
 La documentation sur le truc de tailwind
-Les factures TVA correctes
-Mettre à jour un appel sur Chrome
-    => https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-continueInterceptedRequest
-    => https://chromedevtools.github.io/devtools-protocol/tot/Fetch/#method-continueRequest
-Modifie le pricing dans l'app
+
 Voir pour les cases studies
 Campagne de review Capterra
-
-Il faut 1990ms pour convertir ca:
-    <html><body><h1>This will be a PDF document</h1><p>This will generate a basic PDF to show how you can add raw HTML</body></html>
-
-    => PAS POSSIBLE !!
-
-    On devrait être en dessous des 1s !
-
 
 ---
 
