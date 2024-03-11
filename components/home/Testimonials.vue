@@ -9,15 +9,20 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-6 gap-8 mt-16">
+        <div class="grid grid-cols-6 gap-8 mt-16 ">
             <ClientOnly>
-                <article v-for="review in allReviews" :key="review.link" class="col-span-full md:col-span-3 lg:col-span-2 border border-purple rounded-lg p-4">
-                    <component :is="'script'" type="application/ld+json">{{ getReviewSchema(review) }}</component>
-                    <p class="p -small text-purple-400">{{ review.text }}</p>
-                    <div class="mt-auto text-white flex flex-row justify-between pt-6">
-                        <div class="font-medium">{{ review.name}}</div>
-                        <div class="p -small">
-                            <NuxtLink :to="review.link" :title="`View ${review.name}'s review at ${review.company}`" class="hover:underline">{{ review.company}}</NuxtLink>
+                <article v-for="review in allReviews" :key="review.link"
+                         class="col-span-full md:col-span-3 lg:col-span-2">
+                    <div class="border border-purple rounded-lg p-4">
+                        <component :is="'script'" type="application/ld+json">{{ getReviewSchema(review) }}</component>
+                        <p class="p -small text-purple-400">{{ review.text }}</p>
+                        <div class="mt-auto text-white flex flex-row justify-between pt-6">
+                            <div class="font-medium">{{ review.name }}</div>
+                            <div class="p -small">
+                                <NuxtLink :to="review.link" :title="`View ${review.name}'s review at ${review.company}`"
+                                          class="hover:underline">{{ review.company }}
+                                </NuxtLink>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -50,7 +55,7 @@ function shuffle(array) {
     return array;
 }
 
-function addMoreTestimonials () {
+function addMoreTestimonials() {
     seeMore.value++
     let limit = 6;
     if (seeMore.value === 3) limit = 9

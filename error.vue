@@ -38,9 +38,18 @@ useSeoMeta({
 .error-code{
     font-size: 140px;
 }
-@media screen and (min-width:768px){
+@media screen and (min-width:1024px){
     .error-code{
         font-size: 280px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-height:740px){
+    .error-code{
+        font-size: 160px;
+    }
+    h1.h1{
+        font-size: 2rem;
     }
 }
 </style>
