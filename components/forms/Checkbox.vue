@@ -1,9 +1,9 @@
 <template>
     <div class="flex items-start gap-3">
         <div @click="toggle" >
-            <input class="hidden peer" type="checkbox" :name="name" :id="name" :checked="checked" />
+            <input class="hidden peer" type="checkbox" :name="name" :id="name" :checked="model" />
             <button class="border size-5 rounded-sm border-gray-300 mt-0.5 cursor-pointer bg-white peer-checked:bg-purple peer-checked:border-purple hover:border-purple hover:shadow">
-                <IconsTick class="cursor-pointer scale-150 text-white" v-if="checked" />
+                <IconsTick class="cursor-pointer scale-150 text-white" v-if="model" />
             </button>
         </div>
         <div>
@@ -14,13 +14,9 @@
 </template>
 
 <script setup>
-const checked = ref(false)
+const model = defineModel()
 
 defineProps({
-    label: {
-        type: String,
-        default: '',
-    },
     name: {
         type: String,
         default: '',
@@ -32,6 +28,6 @@ defineProps({
 })
 
 const toggle = () => {
-    checked.value = !checked.value
+    model.value = !model.value
 }
 </script>
