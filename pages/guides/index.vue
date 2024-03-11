@@ -9,11 +9,11 @@
             <div class="max-w-4xl mx-auto px-4 mt-12 md:mt-24 pb-12 md:pb-24">
                 <ul class="grid md:grid-cols-2 gap-8 mt-4">
                     <li v-for="article in languages" :key="article.language" class="rounded-lg bg-white p-4 shadow-lg transition-all duration-300 translate-y-0 hover:-translate-y-2">
-                        <NuxtLink :to="article.url" class="text-center" itemprop="mainEntityOfPage url">
+                        <NuxtLink :to="article.url" class="text-center">
                             <div>
-                                <img class="rounded-md h-32 m-auto" :src="article.image" alt="`${article.language}'s logo`" itemprop="image" />
+                                <img class="rounded-md h-32 m-auto" :src="article.image" alt="`${article.language}'s logo`" />
                             </div>
-                            <h3 class="h3 mt-4" itemprop="name headline">
+                            <h3 class="h3 mt-4">
                                 All our guides in {{ article.language }}
                             </h3>
                         </NuxtLink>

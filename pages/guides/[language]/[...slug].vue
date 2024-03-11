@@ -10,9 +10,10 @@
                         View all our articles
                     </span>
                 </NuxtLink>
-                <article class="mt-8 articles" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <article class="mt-8 articles">
+                    <component :is="'script'" type="application/ld+json">{{ articleSchema }}</component>
                     <ContentRenderer :value="data" v-if="data">
-                        <h1 class="h1 my-6" itemprop="name headline">{{ data.title }} in {{ data.language }} with {{ data.library }}</h1>
+                        <h1 class="h1 my-6">{{ data.title }} in {{ data.language }} with {{ data.library }}</h1>
                         <ContentRendererMarkdown :value="data" />
                         <p>
                             For further details on the <code>{{ data.property }}</code> property and its usage, please refer to <NuxtLink :to="`https://docs.pdfshift.io/#convert-body-${data.property}`">our dedicated documentation</NuxtLink>.
@@ -32,7 +33,7 @@
                         <h3 class="h3 text-navy-700">Related guides</h3>
                         <ul class="mt-8 list-disc list-inside">
                             <li v-for="guide in relatedGuides" :key="guide._id" class="my-2">
-                                <NuxtLink :to="`${guide._path}`" class="text-lg hover:underline hover:text-purple" itemprop="name headline">
+                                <NuxtLink :to="`${guide._path}`" class="text-lg hover:underline hover:text-purple">
                                     {{ guide.title }}
                                 </NuxtLink>
                             </li>
@@ -86,4 +87,15 @@ if (data.value.related?.length > 0) {
     }).only(['title', 'language', 'library', '_id', '_path']).find())
     relatedGuides.value = lookup.value.filter((item) => data.value.related.includes(item._path.split('/').pop().replace('_', '')))
 }
+
+const articleSchema = ref(JSON.stringify({
+    "@type": "BlogPosting",
+    "name": `${data.title} in ${data.language} with ${data.library}`,
+    "headline": data.value.description,
+    "inLanguage": "English",
+    "author": {
+        "@type": "Person",
+        "name": "PDFShift"
+    }
+}))
 </script>

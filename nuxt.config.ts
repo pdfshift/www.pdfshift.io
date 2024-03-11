@@ -51,8 +51,24 @@ export default defineNuxtConfig({
             ],
             script: [
                 { src: '/plausible/js/script.js', 'data-domain': 'pdfshift.io', 'data-api': '/plausible/api/event' },
-                { src: '/js/signups.js', 'data-domain': 'pdfshift.io' }
-            ]
+                { src: '/js/signups.js', 'data-domain': 'pdfshift.io' },
+                {
+                    type: 'application/ld+json',
+                    innerHTML: JSON.stringify({
+                        "@type": "Organization",
+                        "founder": {
+                            "@type": "Person",
+                            "name": "Cyril Nicodeme"
+                        },
+                        "foundingDate": "2018",
+                        "keywords": "API, HTML, PDF, Convert, Image, document, web, conversion, text, pdfshift, raw, link, WEBP, JPG, JPEG, PNG, Chrome, Chromium",
+                        "legalName": "PDFShift",
+                        "name": "PDFShift",
+                        "logo": "https://pdfshift.io/images/logo/logo.png",
+                        "slogan": "From HTML to pixel-perfect PDF in seconds"
+                    })
+                }
+            ],
         }
     },
     modules: [

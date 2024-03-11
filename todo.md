@@ -68,21 +68,6 @@ Verifier _redirects
 Case studies :
     * Jordan K
 
-
-Alberto work:
-    /legal/terms
-        Title behind the menu
-
-    /
-        Pricing toggle with animation
-        Testimonials with free height (based on content)
-        FAQ numbers in mobile are not round
-
-    /404 page
-        404 page with white padding at the end to remove
-
-
-
 PAGES :
 
     [] - index
