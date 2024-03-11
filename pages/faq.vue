@@ -5,7 +5,7 @@
 
             <div class="mt-8 md:mt-16" itemscope>
                 <div v-for="(question, index) in faqs" :key="index" class="py-6">
-                    <component :is="'script'" type="application/ld+json">{{ getQuestionSchema(faq) }}</component>
+                    <component :is="'script'" type="application/ld+json">{{ getQuestionSchema(question) }}</component>
                     <h3 class="h3 text-navy-700">{{ question.question }}</h3>
                     <div class="p text-navy-700 pt-2">
                         <div v-html="question.answer"></div>

@@ -9,7 +9,7 @@
 
         <div class="pt-16 py-32 max-w-5xl mx-auto">
             <ol>
-                <li v-for="(faq,key) in faqsLeft" :key="key" class="border-b border-navy-700 py-4 text-navy-700">
+                <li v-for="(faq, key) in faqsLeft" :key="key" class="border-b border-navy-700 py-4 text-navy-700">
                     <component :is="'script'" type="application/ld+json">{{ getQuestionSchema(faq) }}</component>
                     <div class="p cursor-pointer flex items-center text-lg" @click="toggle(faq)">
                         <span class="bg-purple rounded-full text-white size-8 inline-flex justify-center items-center mr-4">{{ key + 1 }}</span>
