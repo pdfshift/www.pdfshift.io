@@ -71,8 +71,8 @@ const getReviewSchema = (review) => JSON.stringify({
     "@type": "Review",
     "name": "PDFShift",
     "itemReviewed": {
-        "@type": "Product",
-        "name": "PDFShift"
+        "@type": "Organization",
+        "legalName": "PDFShift"
     },
     "author": {
         "@type": "Person",
