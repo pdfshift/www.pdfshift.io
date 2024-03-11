@@ -15,7 +15,7 @@
                 <div class="max-w-2xl mx-auto px-4 mt-12">
                     <ul class="mt-4 list-disc list-inside">
                         <li v-for="article in articles" :key="article._id" class="my-4">
-                            <NuxtLink :to="`${article._path}`" class="mt-4 text-xl hover:underline hover:text-purple" itemprop="name headline">
+                            <NuxtLink :to="`${article._path}`" class="mt-4 text-xl hover:underline hover:text-purple">
                                 {{ article.title }}
                             </NuxtLink>
                         </li>

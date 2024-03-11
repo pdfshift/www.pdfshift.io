@@ -9,7 +9,7 @@
             <div class="max-w-2xl mx-auto px-4 mt-12 pb-12 md:pb-24">
                 <ul class="mt-4 list-disc list-inside">
                     <li v-for="article in articles" :key="article._id" class="my-4">
-                        <NuxtLink :to="`/samples/${article.language.toLowerCase()}/${clearUrl(article.library)}`" class="mt-4 text-xl hover:underline hover:text-purple" itemprop="name headline">
+                        <NuxtLink :to="`/samples/${article.language.toLowerCase()}/${clearUrl(article.library)}`" class="mt-4 text-xl hover:underline hover:text-purple">
                             With the {{ article.library }} library
                         </NuxtLink>
                     </li>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <NuxtLayout name="default">
-            <article class="" itemscope itemtype="http://schema.org/Article">
+            <article class="" itemscope itemtype="http://schema.org/TechArticle">
                 <div class="grid gap-8 md:grid-cols-2 ">
                     <div>
                         <header>

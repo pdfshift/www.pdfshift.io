@@ -10,9 +10,10 @@
                         View all our code samples
                     </span>
                 </NuxtLink>
-                <article class="mt-8 articles" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+                <article class="mt-8 articles">
                     <ContentRenderer :value="data" v-if="data">
-                        <h1 class="h1 my-6" itemprop="name headline">Using {{ data.library }} in {{ data.language }}</h1>
+                        <component :is="'script'" type="application/ld+json">{{ articleSchema }}</component>
+                        <h1 class="h1 my-6">Using {{ data.library }} in {{ data.language }}</h1>
                         <div class="my-8">
                             <ContentRenderer v-if="excerpt" :document="data">
                                 <ContentRendererMarkdown :value="excerpt" />
@@ -53,7 +54,7 @@
                         <h3 class="h3 text-navy-700">Related libraries</h3>
                         <ul class="mt-4 list-disc list-inside marker:text-purple">
                             <li v-for="article in related" :key="article._id" class="my-4">
-                                <NuxtLink :to="`/samples/${language.toLowerCase()}/${clearUrl(article.library)}`" class="mt-4 text-xl text-purple hover:underline" itemprop="name headline">
+                                <NuxtLink :to="`/samples/${language.toLowerCase()}/${clearUrl(article.library)}`" class="mt-4 text-xl text-purple hover:underline">
                                     With the {{ article.library }} library
                                 </NuxtLink>
                             </li>
@@ -67,12 +68,17 @@
 
 <script setup>
 const route = useRoute()
-const language = ref(route.params.language)
-const library = ref(route.params.library)
+const language = ref(null)
+const library = ref(null)
 const excerpt = ref(null)
 const related = ref([])
 
-const { data } = await useAsyncData(route.fullPath, () => queryContent('samples', language.value, library.value).findOne())
+const { data } = await useAsyncData(route.fullPath, () => queryContent('samples', route.params.language, route.params.library).findOne())
+
+if (data) {
+    language.value = data.value.language
+    library.value = data.value.library
+}
 
 let index = 0
 if (data.value.body.children.length > 2) {
@@ -82,7 +88,7 @@ if (data.value.body.children.length > 2) {
 
 const compiledCode = ref({ type: 'root', children: [data.value.body.children[index]] })
 
-const { data: relatedEntries } = await useAsyncData(`${route.fullPath}-related`, () => queryContent('samples', language.value).only(['_id', '_path', 'language', 'library']).find())
+const { data: relatedEntries } = await useAsyncData(`${route.fullPath}-related`, () => queryContent('samples', route.params.language).only(['_id', '_path', 'language', 'library']).find())
 related.value = relatedEntries.value.filter(x => x.library.toLowerCase() !== data.value.library.toLowerCase())
 
 let exampleCode = ref(null)
@@ -101,5 +107,16 @@ useSeoMeta({
     twitterTitle: title,
     twitterDescription: description
 })
+
+const articleSchema = ref(JSON.stringify({
+    "@type": "BlogPosting",
+    "name": title,
+    "headline": description,
+    "inLanguage": "English",
+    "author": {
+        "@type": "Person",
+        "name": "PDFShift"
+    }
+}))
 </script>
 
