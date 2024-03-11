@@ -16,7 +16,7 @@
                         Monthly
                     </button>
                     <div class="cursor-pointer w-12 h-6 bg-white border border-purple rounded-full relative" @click="isYearly = !isYearly">
-                        <div class="bg-purple size-4 absolute rounded-full top-[3px]" :class="{'right-1': isYearly,'left-1': !isYearly}"></div>
+                        <div class="bg-purple size-4 absolute rounded-full top-[3px] transition-all duration-100 left-1" :class="{'translate-x-[1.33rem]': isYearly,'translate-x-0': !isYearly}"></div>
                     </div>
                     <button type="button" :class="{'text-purple hover:text-purple': isYearly, 'hover:text-navy-700': !isYearly}" @click="isYearly = true">
                         Yearly
