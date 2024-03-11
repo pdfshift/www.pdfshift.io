@@ -47,6 +47,13 @@ const toggle = () => {
 }
 
 const selectedLabel = computed(() => {
-    return props.options.find(option => option.value === model.value).label
+    if (model.value !== null) {
+        const index = props.options.findIndex(option => option.value === model.value)
+        if (index > -1) {
+            return props.options[index].label
+        }
+    }
+
+    return null
 })
 </script>

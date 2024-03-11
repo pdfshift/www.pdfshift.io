@@ -56,7 +56,7 @@
                             </div>
 
                             <div class="block text-red-500 font-light" v-if="errors.general">{{ errors.general }}</div>
-                            <input type="submit" name="register" value="Create your free account" class="w-full inline-flex border items-center justify-center px-10 py-3 rounded-lg gap-1 group transition-bg duration-300 bg-purple border-purple text-white hover:bg-navy-700 hover:text-white hover:border-navy-700 cursor-pointerdisabled:pointer-events-none disabled:opacity-75" :disabled="sending" @click="submit" />
+                            <input type="submit" name="register" value="Create your free account" class="w-full inline-flex border items-center justify-center px-10 py-3 rounded-lg gap-1 group transition-bg duration-300 bg-purple border-purple text-white hover:bg-navy-700 hover:text-white hover:border-navy-700 cursor-pointer disabled:pointer-events-none disabled:opacity-75 " :disabled="sending" @click="submit" />
 
                             <div class="text-center">
                                 <span class="h4">Already a member?</span>
@@ -119,10 +119,10 @@ onMounted(() => {
     }
 
     const language = useStorage().get('language')
-    if (language) {
+    if (language && languageOptions.find(option => option.value === language)) {
         form.value.language = language
     } else {
-        form.value.language = 'PHP'
+        form.value.language = 'php'
     }
 })
 
