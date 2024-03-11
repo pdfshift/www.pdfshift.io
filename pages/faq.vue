@@ -7,13 +7,13 @@
                 <div v-for="(question, index) in faqs" :key="index" class="py-6">
                     <h3 class="h3 text-navy-700" itemprop="name">{{ question.question }}</h3>
                     <div class="p text-navy-700 pt-2" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div v-html="question.answer"></div>
+                        <div itemprop="text" v-html="question.answer"></div>
                     </div>
                 </div>
-                <div class="py-6">
+                <div class="py-6" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <h3 class="h3 text-navy-700" itemprop="name">What if I have other questions?</h3>
                     <div class="p text-navy-700 pt-2" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div>
+                        <div itemprop="text">
                             <p>Feel free to <NuxtLink to="/contact" title="Contact us" class="font-medium text-purple hover:underline">reach out to us via email</NuxtLink>, and we'll be happy to answer to all your questions.</p>
                         </div>
                     </div>

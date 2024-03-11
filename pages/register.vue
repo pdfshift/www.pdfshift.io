@@ -29,7 +29,7 @@
 
                             <div>
                                 <label for="register-email" :class="{'text-red-500': errors.email}">Email Address</label>
-                                <input v-model="form.name" ref="emailField" id="register-email" name="email" type="email" class="field mt-2 w-full" :class="{'-error': errors.email}" placeholder="Enter your full name" />
+                                <input v-model="form.email" ref="emailField" id="register-email" name="email" type="email" class="field mt-2 w-full" :class="{'-error': errors.email}" placeholder="Enter your email" />
                                 <span class="block mt-2 text-red-500 font-light" v-if="errors.email">{{ errors.email }}</span>
                             </div>
 

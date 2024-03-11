@@ -10,9 +10,9 @@
         <div class="pt-16 py-32 max-w-5xl mx-auto">
             <ol>
                 <li v-for="(faq,key) in faqsLeft" :key="key" class="border-b border-navy-700 py-4 text-navy-700" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <div class="p cursor-pointer flex items-center text-lg" @click="toggle(faq)" itemprop="name">
+                    <div class="p cursor-pointer flex items-center text-lg" @click="toggle(faq)">
                         <span class="bg-purple rounded-full text-white size-8 inline-flex justify-center items-center mr-4">{{ key + 1 }}</span>
-                        <span>{{ faq.question }}</span>
+                        <span itemprop="name">{{ faq.question }}</span>
                         <span class="ml-auto" :class="{'text-purple':faq.visible}">
                             <IconsMinus v-if="faq.visible" />
                             <IconsPlus v-else />
@@ -23,9 +23,9 @@
                     </div>
                 </li>
             </ol>
-            <div class="pt-16">
-                <div class="h3" itemprop="name">
-                    <span>What if I have other questions?</span>
+            <div class="pt-16" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <div class="h3">
+                    <span itemprop="name">What if I have other questions?</span>
                 </div>
                 <div class="p py-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                     <div itemprop="text">

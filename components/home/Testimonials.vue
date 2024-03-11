@@ -11,10 +11,11 @@
 
         <div class="grid grid-cols-6 gap-8 mt-16">
             <ClientOnly>
-                <article v-for="review in allReviews" :key="review.link" class="col-span-full md:col-span-3 lg:col-span-2 border border-purple rounded-lg p-4" itemscope itemtype="http://schema.org/Review">
-                    <p class="p -small text-purple-400" itemprop="reviewBody">{{ review.text }}</p>
-                    <div class="mt-auto text-white flex flex-row justify-between pt-6" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                        <div class="font-medium" itemprop="name">{{ review.name}}</div>
+                <article v-for="review in allReviews" :key="review.link" class="col-span-full md:col-span-3 lg:col-span-2 border border-purple rounded-lg p-4">
+                    <component :is="'script'" type="application/ld+json">{{ getReviewSchema(review) }}</component>
+                    <p class="p -small text-purple-400">{{ review.text }}</p>
+                    <div class="mt-auto text-white flex flex-row justify-between pt-6">
+                        <div class="font-medium">{{ review.name}}</div>
                         <div class="p -small">
                             <NuxtLink :to="review.link" :title="`View ${review.name}'s review at ${review.company}`" class="hover:underline">{{ review.company}}</NuxtLink>
                         </div>
@@ -64,4 +65,18 @@ const reviews = shuffle(testimonials());
 
 const allReviews = ref(reviews.filter(x => x.company === 'Capterra').splice(0, 6))
 const secondaryReviews = reviews.filter(x => allReviews.value.indexOf(x) === -1)
+
+const getReviewSchema = (review) => JSON.stringify({
+    "@context": "http://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+        "@type": "Thing",
+        "name": "PDFShift"
+    },
+    "author": {
+        "@type": "Person",
+        "name": review.name
+    },
+    "reviewBody": review.text
+})
 </script>
