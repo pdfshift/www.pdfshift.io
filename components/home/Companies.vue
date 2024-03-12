@@ -15,11 +15,12 @@
 </template>
 
 <script setup>
-import Vercel from '~/components/logos/Vercel.vue'
+
 import Salesforce from '~/components/logos/Salesforce.vue'
-import Zoho from '~/components/logos/Zoho.vue'
 import Vivino from '~/components/logos/Vivino.vue'
 import Wix from '~/components/logos/Wix.vue'
+import Bosch from "~/components/logos/Bosch.vue"
+import DuckDuckGo from "~/components/logos/DuckDuckGo.vue"
 
 const companies = [
     {
@@ -27,16 +28,18 @@ const companies = [
         logo: Salesforce
     },
     {
-        name: 'Zoho',
-        logo: Zoho
+        name: 'Bosch',
+        logo: Bosch
     },
-    {
-        name: 'Vercel',
-        logo: Vercel
-    },
+
     {
         name: 'Wix',
         logo: Wix
+    },
+
+    {
+        name: 'DuckDuckGo',
+        logo: DuckDuckGo
     },
     {
         name: 'Vivino',
