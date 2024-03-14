@@ -51,9 +51,5 @@ const companies = [
         name: 'Slack',
         logo: Slack
     },
-    {
-        name: 'Hubspot',
-        logo: Hubspot
-    },
 ]
 </script>
