@@ -21,6 +21,8 @@ import Vivino from '~/components/logos/Vivino.vue'
 import Wix from '~/components/logos/Wix.vue'
 import Bosch from "~/components/logos/Bosch.vue"
 import DuckDuckGo from "~/components/logos/DuckDuckGo.vue"
+import Slack from "~/components/logos/Slack.vue"
+import Hubspot from "~/components/logos/Hubspot.vue"
 
 const companies = [
     {
@@ -44,6 +46,14 @@ const companies = [
     {
         name: 'Vivino',
         logo: Vivino
-    }
+    },
+    {
+        name: 'Slack',
+        logo: Slack
+    },
+    {
+        name: 'Hubspot',
+        logo: Hubspot
+    },
 ]
 </script>
