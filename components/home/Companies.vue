@@ -17,10 +17,10 @@
 <script setup>
 
 import Salesforce from '~/components/logos/Salesforce.vue'
-import Vivino from '~/components/logos/Vivino.vue'
+import Bosch from '~/components/logos/Bosch.vue'
 import Wix from '~/components/logos/Wix.vue'
-import Bosch from "~/components/logos/Bosch.vue"
-import DuckDuckGo from "~/components/logos/DuckDuckGo.vue"
+import DuckDuckGo from '~/components/logos/DuckDuckGo.vue'
+import Vivino from '~/components/logos/Vivino.vue'
 import Slack from "~/components/logos/Slack.vue"
 import Hubspot from "~/components/logos/Hubspot.vue"
 
@@ -33,12 +33,10 @@ const companies = [
         name: 'Bosch',
         logo: Bosch
     },
-
     {
         name: 'Wix',
         logo: Wix
     },
-
     {
         name: 'DuckDuckGo',
         logo: DuckDuckGo
