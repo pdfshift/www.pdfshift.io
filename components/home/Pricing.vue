@@ -162,31 +162,31 @@ const plans = [
         name: 'Shift 50k',
         price: 149,
         credits: 50000,
-        overage: '0.01'
+        overage: '0.015'
     },
     {
         name: 'Shift 100k',
         price: 249,
         credits: 100000,
-        overage: '0.005'
+        overage: '0.01'
     },
     {
         name: 'Shift 250k',
         price: 499,
         credits: 250000,
-        overage: '0.003'
+        overage: '0.005'
     },
     {
         name: 'Shift 500k',
         price: 799,
         credits: 500000,
-        overage: '0.002'
+        overage: '0.003'
     },
     {
         name: 'Shift 1M',
         price: 999,
         credits: 1000000,
-        overage: '0.0005'
+        overage: '0.001'
     },
     {
         name: '1M+',
