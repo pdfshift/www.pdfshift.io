@@ -20,11 +20,11 @@ export default defineNuxtConfig({
                 { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
                 { hid: 'twitter:site', name: 'twitter:site', content: '@pdfshift' },
                 { hid: 'twitter:creator', name: 'twitter:creator', content: '@cx42net' },
-                { hid: 'twitter:image', name: 'twitter:image', content: '/images/banner/slogan.jpg' },
+                { hid: 'twitter:image', name: 'twitter:image', content: '/images/banner/slogan.png' },
 
                 // Facebook
                 { hid: 'og:site_name', name: 'og:site_name', content: 'PDFShift' },
-                { hid: 'og:image', name: 'og:image', content: '/images/banner/slogan.jpg' },
+                { hid: 'og:image', name: 'og:image', content: '/images/banner/slogan.png' },
                 // { hid: 'og:image', name: 'og:image', content: '/images/favicons/android-chrome-512x512.png' },
                 { hid: 'og:type', name: 'og:type', content: 'website' },
                 { hid: 'og:locale', name: 'og:locale', content: 'en_US' },
