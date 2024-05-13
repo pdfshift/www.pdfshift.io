@@ -1,0 +1,11 @@
+# IPv4
+141.94.142.82 # proc1.sbg.pdfshift.io
+141.94.142.83 # proc2.sbg.pdfshift.io
+141.94.254.203 # proc1.gra.pdfshift.io
+141.94.254.204 # proc2.gra.pdfshift.io
+
+# IPv6
+2001:41d0:403:4d52::1 # proc1.sbg.pdfshift.io
+2001:41d0:403:4d53::1 # proc2.sbg.pdfshift.io
+2001:41d0:306:dcb::1 # proc1.gra.pdfshift.io
+2001:41d0:306:dcc::1 # proc2.gra.pdfshift.io
