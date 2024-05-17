@@ -15,9 +15,7 @@ using RestSharp.Authenticators;
 
 public class Conversion
 {
-    private string EndPoint;
     private RestClient Client;
-    private RestRequest Request;
     
     string api_key = "sk_XXXXXXXXXXXXXX";
     public Conversion(string api_key, string endpoint = "pdf") 
@@ -27,16 +25,13 @@ public class Conversion
             throw new ArgumentException("Invalid endpoint");
         }
 
-        EndPoint = $"https://api.pdfshift.io/v3/convert/{endpoint}";
-        Client = new RestClient(EndPoint) 
-        {
-            Authenticator = new HttpBasicAuthenticator("api", api_key)
-        };
-        Request = new RestRequest(Method.POST);
+        Client = new RestClient("https://api.pdfshift.io/v3/convert/" + endpoint)
+        Client.Authenticator = new HttpBasicAuthenticator("api", api_key);
     }
 
-    public byte[] Convert(Dictionary<string, object> parameters) 
+    public byte[] Convert(dynamic parameters) 
     {
+        RestRequest Request = new RestRequest(Method.POST);
         Request.AddJsonBody(parameters);
         var response = Client.Execute(Request);
 
@@ -46,7 +41,7 @@ public class Conversion
             {
                 return System.Text.Encoding.Default.GetBytes(response.Content);
             }
-            return response.RawBytes; 
+            return response.RawBytes;
         }
         else
         {
@@ -58,10 +53,9 @@ public class Conversion
 
 ```csharp
 Conversion conversion = new Conversion("sk_XXXXXXXXXXXXXX");
-Dictionary<string, object> parameters = new Dictionary<string, object>() 
-{
-    { "source", "https://en.wikipedia.org/wiki/REST" }
-};
+var json = new {
+    source = "https://en.wikipedia.org/wiki/REST"
+}
 
 byte[] response = conversion.Convert(parameters);
 File.WriteAllBytes("result.pdf", response);
