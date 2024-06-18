@@ -9,20 +9,6 @@
                 Start for free with up to 50 credits per month<br />
                 Upgrade based on your needs
             </p>
-            <div class="mt-8">
-                <input type="checkbox" class="hidden" value="1" v-model="isYearly" />
-                <div class="flex items-center gap-4 font-light">
-                    <button type="button" :class="{'text-purple hover:text-purple': !isYearly, 'hover:text-navy-700': isYearly}" @click="isYearly = false">
-                        Monthly
-                    </button>
-                    <div class="cursor-pointer w-12 h-6 bg-white border border-purple rounded-full relative" @click="isYearly = !isYearly">
-                        <div class="bg-purple size-4 absolute rounded-full top-[3px] transition-all duration-100 left-1" :class="{'translate-x-[1.33rem]': isYearly,'translate-x-0': !isYearly}"></div>
-                    </div>
-                    <button type="button" :class="{'text-purple hover:text-purple': isYearly, 'hover:text-navy-700': !isYearly}" @click="isYearly = true">
-                        Yearly
-                    </button>
-                </div>
-            </div>
         </div>
         <div class="flex items-center flex-col">
             <div class="border border-purple bg-white rounded-lg mt-4 px-4 py-8 flex flex-col justify-center items-center gap-8 w-full">
@@ -42,9 +28,9 @@
                     <span class="p -small mt-2 md:mt-0">documents* per month</span>
                 </div>
             </div>
-            <div class="border border-purple bg-white rounded-lg p-4 pb-8 mt-8 flex flex-col md:flex-row items-center gap-12 w-full">
-                <div class="border border-purple rounded-md overflow-hidden">
-                    <div class="text-lg lg:text-xl text-white bg-purple py-2 text-center px-4">You selected the<br />{{ currentPlan.name }} plan</div>
+            <div class="mt-4 flex flex-col md:flex-row gap-4 w-full">
+                <div class="border border-purple rounded-md overflow-hidden bg-white">
+                    <div class="text-lg lg:text-xl text-white bg-purple py-2 text-center px-4">We recommend the<br />{{ currentPlan.name }} plan</div>
                     <div class="p-6 space-y-6 max-w-80 w-80" v-if="inputValue < 1000000">
                         <div>
                             <span class="font-light"> <strong class="text-purple font-bold">{{ currentPlan.credits }}</strong> Credits</span>
@@ -54,8 +40,14 @@
                                 <span class="h2">Free</span>
                             </template>
                             <template v-else>
-                                <span class="h2">${{ isYearly ? currentPlan.price * 10 : currentPlan.price }}</span>
-                                <span class="font-light">&nbsp;/{{ isYearly ? 'year' : 'month' }}</span>
+                                <div class="h2">
+                                    <span>${{ currentPlan.price }}</span>
+                                    <span class="font-light">/month</span>
+                                </div>
+                                <div class="text-lg">
+                                    <span class="h4">or only ${{ currentPlan.price * 10 }}</span>
+                                    <span class="font-light">/year</span>
+                                </div>
                             </template>
                         </div>
                         <ol class="font-light list-disc marker:text-purple list-inside">
@@ -72,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="border border-purple rounded-md overflow-hidden bg-white p-4 grow">
                     <div class="h3">{{ currentPlan.name === 'Free' ? 'Basic features' : 'All features included' }}:</div>
                     <div class="mt-4 md:mt-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
                         <ol class="space-y-4 lg:border-purple lg:border-r pr-8">
@@ -115,7 +107,7 @@
                     </div>
                     <div>
                         <p class="mt-24 font-light">
-                            * We count 1 credit per 5Mb. For example, a 14Mb file will consume 3 credits.
+                            * We count 1 credit per 5Mb. For example, a 14Mb PDF will consume 3 credits.
                         </p>
                     </div>
                 </div>
@@ -203,7 +195,6 @@ const selectedPlan = ref(null);
 const totalRange = 1000000; // max value of slider
 const sectionWidth = plans.length - 1; // removing last plan that we need to show 1m+ message
 const inputValue = ref(50);
-const isYearly = ref(false);
 
 const planRanges = computed(() => {
     return plans.map(plan => {
