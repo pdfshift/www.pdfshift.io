@@ -19,11 +19,11 @@ We are committed to maintaining the highest standards of privacy and security to
 
 While we take every precaution to secure your data, HIPAA compliance is a shared responsibility. We urge you to familiarize yourself with your obligations under HIPAA and ensure that you adhere to all applicable laws and regulations when using our services.
 
-Mainly, in order to be fully HIPAA compliant, **you must add** the `hipaa` parameter to your request. This will ensure that your data is handled in accordance with HIPAA regulations.
+Mainly, in order to be fully HIPAA compliant, **you must add** the `is_hipaa` parameter to your request. This will ensure that your data is handled in accordance with HIPAA regulations.
 
-By adding the `hipaa` parameter, you ensure that we won't store the generated document in any way.
+By adding the `is_hipaa` parameter, you ensure that we won't store the generated document in any way.
 
-## Why the "hipaa" parameter is important:
+## Why the "is_hipaa" parameter is important:
 
 **By default, PDFShift does not store any generated document**, but you can request PDFShift to store your generated document by adding the following parameters:
 
@@ -34,9 +34,9 @@ In these case, PDFShift will store the generated document in our S3 storage for 
 
 This behavior is not compliant with HIPAA.
 
-By setting the `hipaa` parameter to `true`, we will ensure that any document generated are **NOT** stored on our servers.
+By setting the `is_hipaa` parameter to `true`, we will ensure that any document generated are **NOT** stored on our servers.
 
-`filename` and `webhook` parameter can still be made under the `hippa: true` parameter if you also provide a `s3_destination`. In that case, the document will be stored on **your S3 storage** and not on ours, making full compliance of our HIPAA policy.
+`filename` and `webhook` parameter can still be made under the `is_hippa: true` parameter if you also provide a `s3_destination`. In that case, the document will be stored on **your S3 storage** and not on ours, making full compliance of our HIPAA policy.
 
 ## Contact Us:
 
