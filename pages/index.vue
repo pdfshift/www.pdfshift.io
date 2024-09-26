@@ -35,7 +35,7 @@
                                 <template v-slot:icon>
                                     <IconsClipboardTick />
                                 </template>
-                                <template v-slot:title>36+ Million</template>
+                                <template v-slot:title>40+ Million</template>
                                 <template v-slot:description>Conversions made</template>
                             </HomeHeroFeature>
                         </li>
@@ -44,7 +44,7 @@
                                 <template v-slot:icon>
                                     <IconsPeople />
                                 </template>
-                                <template v-slot:title>19,000+</template>
+                                <template v-slot:title>21,000+</template>
                                 <template v-slot:description>Users</template>
                             </HomeHeroFeature>
                         </li>
