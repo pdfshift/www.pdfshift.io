@@ -169,6 +169,10 @@ article pre.hljs {
     @apply text-purple hover:underline;
 }
 
+.articles a.button {
+    @apply inline-flex border items-center justify-center px-10 py-3 rounded-lg gap-1 duration-300 bg-purple border-purple text-white hover:bg-navy-700 hover:text-white hover:border-navy-700 cursor-pointer;
+}
+
 .articles p>code, .articles li>code {
     @apply bg-gray-100 rounded-md px-2 py-1 border-2 border-gray-200 text-red-600;
 }

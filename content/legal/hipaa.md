@@ -13,7 +13,7 @@ We are committed to maintaining the highest standards of privacy and security to
 
  * **Business Associate Agreement (BAA)**: As part of our commitment to HIPAA compliance, we offer a Business Associate Agreement (BAA) to our customers. The BAA outlines the responsibilities of both parties concerning the handling and protection of PHI. You can find a link to our BAA below:
 
-<div class="mt-12 text-center"><a href="/documents/baa.pdf" title="Download our Business Associate Agreement" class="inline-flex border items-center justify-center px-10 py-3 rounded-lg gap-1 group transition-bg duration-300 bg-purple border-purple text-white hover:bg-navy-700 hover:text-white hover:border-navy-700 cursor-pointer" style="text-decoration: none">Link to Business Associate Agreement (BAA)</a></div>
+<div class="mt-12 text-center"><a href="/documents/baa.pdf" title="Download our Business Associate Agreement" class="button group transition-bg" style="text-decoration: none">Link to Business Associate Agreement (BAA)</a></div>
 
 ## Your Responsibilities:
 
