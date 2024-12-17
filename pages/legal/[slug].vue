@@ -30,23 +30,29 @@ let contentPath = route.path
 if (contentPath.endsWith('/')) {
     contentPath = contentPath.slice(0, -1)
 }
-const { data } = await useAsyncData(route.fullPath, () => queryContent(route.path).findOne())
+const { data, status } = await useAsyncData(route.fullPath, () => queryContent(route.path).findOne())
+const sections = ref([])
 
-useSeoMeta({
-    title: data.value.title,
-    description: data.value.description,
-    ogTitle: data.value.title,
-    ogDescription: data.value.description,
-    twitterTitle: data.value.title,
-    twitterDescription: data.value.description
+watch(status, (to) => {
+    if (to === 'success') {
+        useSeoMeta({
+            title: data.value.title,
+            description: data.value.description,
+            ogTitle: data.value.title,
+            ogDescription: data.value.description,
+            twitterTitle: data.value.title,
+            twitterDescription: data.value.description
+        })
+
+        sections.value = data.value.body.toc.links.map(x => {
+            return {
+                title: x.text,
+                slug: x.id
+            }
+        })
+    }
 })
 
-const sections = ref(data.value.body.toc.links.map(x => {
-    return {
-        title: x.text,
-        slug: x.id
-    }
-}))
 
 const copySectionLink = (slug) => {
     // remove current #hash value from url
