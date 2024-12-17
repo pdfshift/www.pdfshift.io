@@ -1,7 +1,7 @@
 <template>
     <div>
         <NuxtLayout name="default">
-            <article>
+            <article v-if="data">
                 <PageHeader :title="data.title">
                     {{ data.description }}
                 </PageHeader>
@@ -27,19 +27,10 @@
 <script setup>
 const route = useRoute()
 let contentPath = route.path
-console.log('route path', route.path)
 if (contentPath.endsWith('/')) {
     contentPath = contentPath.slice(0, -1)
 }
-console.log('contentPath', contentPath)
-const x = await useAsyncData(route.fullPath, () => queryContent(route.path).findOne())
-console.log('pending', x.pending.value)
-console.log('error', x.error.value)
-console.log('status', x.status.value)
-console.log(x)
-const data = x.data
-console.log('data', data)
-console.log('data.value', data.value)
+const { data } = await useAsyncData(route.fullPath, () => queryContent(route.path).findOne())
 
 useSeoMeta({
     title: data.value.title,
@@ -50,7 +41,7 @@ useSeoMeta({
     twitterDescription: data.value.description
 })
 
-let sections = ref(data.value.body.toc.links.map(x => {
+const sections = ref(data.value.body.toc.links.map(x => {
     return {
         title: x.text,
         slug: x.id
