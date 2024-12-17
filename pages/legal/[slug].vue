@@ -27,10 +27,14 @@
 <script setup>
 const route = useRoute()
 let contentPath = route.path
+console.log('route path')
 if (contentPath.endsWith('/')) {
     contentPath = contentPath.slice(0, -1)
 }
+console.log('contentPath', contentPath)
 const { data } = await useAsyncData(route.fullPath, () => queryContent(route.path).findOne())
+console.log('data', data)
+console.log('data.value', data.value)
 
 useSeoMeta({
     title: data.value.title,
