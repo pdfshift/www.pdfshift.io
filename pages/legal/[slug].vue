@@ -27,12 +27,17 @@
 <script setup>
 const route = useRoute()
 let contentPath = route.path
-console.log('route path')
+console.log('route path', route.path)
 if (contentPath.endsWith('/')) {
     contentPath = contentPath.slice(0, -1)
 }
 console.log('contentPath', contentPath)
-const { data } = await useAsyncData(route.fullPath, () => queryContent(route.path).findOne())
+const x = await useAsyncData(route.fullPath, () => queryContent(route.path).findOne())
+console.log('pending', x.pending.value)
+console.log('error', x.error.value)
+console.log('status', x.status.value)
+console.log(x)
+const data = x.data
 console.log('data', data)
 console.log('data.value', data.value)
 
