@@ -20,6 +20,7 @@ import type { NuxtError } from '#app'
 const props = defineProps({
     error: Object as () => NuxtError
 })
+console.log(props)
 
 const title = "404 - Page not found | PDFShift"
 const description = "The page you were looking for was not found."
