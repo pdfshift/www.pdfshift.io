@@ -12,11 +12,11 @@ https://www.pdfshift.com/*                  https://pdfshift.io/:splat          
 /upgrade/payment                            https://app.pdfshift.io/upgrade/plans                      200
 /pricing/                                   /#pricing                                                  200
 
-/dpa                                        /legal/dpa                                                 200
-/gdpr                                       /legal/gdpr                                                200
-/privacy                                    /legal/privacy                                             200
-/terms                                      /legal/terms                                               200
-/subprocessors                              /legal/subprocessors                                       200
+/dpa                                        /legal/dpa                                                 301
+/gdpr                                       /legal/gdpr                                                301
+/privacy                                    /legal/privacy                                             301
+/terms                                      /legal/terms                                               301
+/subprocessors                              /legal/subprocessors                                       301
 
 /guides/convert-html-to-pdf-with-node/      /guides/node/axios/convert-html-to-pdf-from-raw-html       200
 /guides/convert-html-to-pdf-with-php/       /guides/php/curl/convert-html-to-pdf-from-raw-html         200
