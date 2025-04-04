@@ -55,7 +55,9 @@
                             <li>Max file size: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '2Mb' : 'Unlimited' }}</strong></li>
                             <li>Timeout: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '30s' : 'Up to 15 minutes' }}</strong></li>
                         </ol>
-                        <Button to="/register" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Get Started</Button>
+                        <div class="text-center">
+                            <Button to="/register" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Get Started</Button>
+                        </div>
                     </div>
                     <div class="p-6 space-y-6 max-w-80 w-80" v-else>
                         <div>
