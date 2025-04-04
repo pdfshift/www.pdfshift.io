@@ -35,7 +35,7 @@
                                 <template v-slot:icon>
                                     <IconsClipboardTick />
                                 </template>
-                                <template v-slot:title>40+ Million</template>
+                                <template v-slot:title>{{ statistics.conversions }}+ Million</template>
                                 <template v-slot:description>Conversions made</template>
                             </HomeHeroFeature>
                         </li>
@@ -44,7 +44,7 @@
                                 <template v-slot:icon>
                                     <IconsPeople />
                                 </template>
-                                <template v-slot:title>21,000+</template>
+                                <template v-slot:title>{{ statistics.users }}</template>
                                 <template v-slot:description>Users</template>
                             </HomeHeroFeature>
                         </li>
@@ -76,7 +76,7 @@
                 <HomeIllustratedFeatures />
                 <div class="bg-gradient-to-br from-purple-900 to-navy-700 via-20% via-navy-700 pb-24 lg:pb-36">
                     <div class="container">
-                        <section class="py-16 lg:py-32">
+                        <section class="py-16">
                             <div class="lg:max-w-md mx-auto text-center">
                                 <h2 class="h2 text-white"><span class="text-purple-500">Powerful features</span> for high-fidelity documents</h2>
                             </div>
@@ -156,7 +156,7 @@
                                 </li>
                             </ul>
                         </section>
-                        <div class="bg-gradient-to-br from-purple-100 to-purple-100 via-white rounded-3xl p-8 lg:p-16 overflow-hidden">
+                        <div class="bg-gradient-to-br from-purple-100 to-purple-100 via-white rounded-3xl px-8 lg:px-16 py-0 overflow-hidden">
                             <div class="flex flex-col-reverse md:flex-row items-center gap-8">
                                 <div class="w-full">
                                     <div class="hidden lg:block w-24">
@@ -206,6 +206,10 @@
 </template>
 
 <script setup>
+import getStatistics from '~/utils/statistics'
+
+const statistics = getStatistics()
+
 const title = 'Fast, Easy Website and HTML to PDF Converter via API | PDFShift';
 const description = 'An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.';
 
@@ -264,14 +268,14 @@ const reviews = [
     {
         name: "G2",
         rating: 4.5,
-        reviews: 22,
+        reviews: 19,
         logo: "/images/comparators/g2.svg",
         url: "https://www.g2.com/products/pdfshift/reviews",
     },
     {
         name: "AlternativeTo",
         rating: 4.9,
-        reviews: 30,
+        reviews: 27,
         logo: "/images/comparators/alternativeto.svg",
         url: "https://alternativeto.net/software/pdfshift/about/",
     },
