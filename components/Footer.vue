@@ -53,6 +53,9 @@
                         <NuxtLink to="/#pricing">Pricing</NuxtLink>
                     </li>
                     <li class="hover:underline">
+                        <NuxtLink to="/samples">Code Sample</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
                         <NuxtLink to="https://docs.pdfshift.io" class="inline-flex items-center" target="_blank">
                             Documentation
                             <span class="inline-block size-3.5 ml-1 -top-px relative">
