@@ -7,7 +7,7 @@
                         <IconsLogo class="text-white" />
                     </NuxtLink>
                 </div>
-                <ul class="text-white flex items-center gap-8 mt-8 flex-col md:flex-row">
+                <ul class="text-white flex items-center gap-8 mt-2 flex-col md:flex-row">
                     <li class="size-8 p-1.5">
                         <NuxtLink to="https://twitter.com/pdfshift" title="View our X (ex Twitter) profile">
                             <LogosX />
@@ -20,6 +20,7 @@
                     </li>
                 </ul>
                 <div class="mt-8 text-sm">&copy; {{ new Date().getFullYear() }} PDFShift.</div>
+                <div class="mt-2 text-sm">PDFShift is a 🇫🇷 French company</div>
                 <div class="hidden md:block absolute h-full right-0 top-0 footer-separator w-px"></div>
             </div>
             <div class="col-span-full md:col-span-1">
