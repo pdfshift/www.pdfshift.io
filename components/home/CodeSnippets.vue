@@ -37,9 +37,7 @@ const tabs = ref([
 
 response = requests.post(
     'https://api.pdfshift.io/v3/convert/pdf',
-    headers={
-        'X-API-Key': 'sk_XXXXXXXXXX'
-    },
+    headers={'X-API-Key': 'sk_XXXXXXXXXX'},
     json={"source": "https://en.wikipedia.org/wiki/PDF"}
 )
 
