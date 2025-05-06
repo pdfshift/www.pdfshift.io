@@ -29,7 +29,6 @@ Here's an example:
 package main
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -57,7 +56,7 @@ func main() {
 	// Perform the request
 	resp, err := client.R().
 		SetHeader("Content-Type", "application/json").
-		SetBasicAuth("api", apiKey).
+		SetHeader("X-API-Key", apiKey).
 		SetBody(jsonParams).
 		Post("https://api.pdfshift.io/v3/convert/pdf")
 

@@ -20,8 +20,9 @@ import (
 func convert(apiKey string, params map[string]string, endpoint string) ([]byte, error) {
 	client := resty.New()
 
+	// Perform the request
 	resp, err := client.R().
-		SetBasicAuth("api", apiKey).
+		SetHeader("X-API-Key", apiKey).
 		SetHeader("Content-Type", "application/json").
 		SetBody(params).
 		Post(fmt.Sprintf("https://api.pdfshift.io/v3/convert/%s", endpoint))

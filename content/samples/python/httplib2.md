@@ -9,7 +9,6 @@ link: 'https://httplib2.readthedocs.io/en/latest/'
 ```python
 import httplib2
 import json
-import base64
 
 def convert(api_key, params, endpoint='pdf'):
     """
@@ -37,11 +36,11 @@ def convert(api_key, params, endpoint='pdf'):
     
     # Create an httplib2.Http instance
     http = httplib2.Http()
-    
-    # Set authorization header
+
+    # Set headers
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + base64.b64encode(f'api:{api_key}'.encode('utf-8')).decode('utf-8')
+        'X-API-Key': api_key
     }
     
     # Convert params to JSON

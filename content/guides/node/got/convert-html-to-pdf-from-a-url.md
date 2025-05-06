@@ -16,14 +16,14 @@ const got = require('got');
 const fs = require('fs');
 
 // You can get an API key at https://pdfshift.io
-api_key = 'sk_xxxxxxxxxxxx'
+apiKey = 'sk_xxxxxxxxxxxx'
 
 params = {
     source: 'https://www.example.com',
 }
 
 const response = await got.post('https://api.pdfshift.io/v3/convert/pdf', {
-    auth: 'api:' + apiKey,
+    headers: { 'X-API-Key': apiKey },
     json: params,
     responseType: 'buffer'
 });

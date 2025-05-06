@@ -19,7 +19,6 @@ package main
 
 import (
 	"bytes"
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -60,8 +59,7 @@ func main() {
 	req.Header.Set("Content-Type", "application/json")
 
 	// Set basic authentication header
-	auth := "api:" + apiKey
-	req.Header.Set("Authorization", "Basic "+base64.StdEncoding.EncodeToString([]byte(auth)))
+	req.Header.Set("X-API-Key", apiKey)
 
 	// Perform the request
 	resp, err := client.Do(req)

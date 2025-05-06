@@ -31,7 +31,7 @@ response, content = http.request(
     body=json.dumps(params),
     headers={
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + base64.b64encode(f'api:{api_key}'.encode('utf-8')).decode('utf-8')
+        'X-API-Key': api_key
     }
 )
 

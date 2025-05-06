@@ -48,8 +48,7 @@ needle.post(
     'https://api.pdfshift.io/v3/convert/pdf',
     params,
     {
-        username: 'api',
-        password: apiKey,
+        headers: { 'X-API-Key': apiKey },
         json: params,
     },
     function(err, resp) {
@@ -82,8 +81,7 @@ needle.post(
     'https://api.pdfshift.io/v3/convert/pdf',
     params,
     {
-        username: 'api',
-        password: apiKey,
+        headers: { 'X-API-Key': apiKey },
         json: params,
     },
     function(err, resp) {

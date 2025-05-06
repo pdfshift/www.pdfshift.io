@@ -16,7 +16,7 @@ async function convert(api_key, params, endpoint='pdf') {
 
     let response = await superagent
         .post(`https://api.pdfshift.io/v3/convert/${endpoint}`)
-        .auth('api', api_key)
+        .set('X-API-Key', api_key)
         .send(params);
         
     if ('filename' in params || 'webhook' in params) {

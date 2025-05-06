@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class Convert {
-    private static final String API_KEY = "api:sk_XXXXXXXXXXXXXX";
+    private static final String API_KEY = "sk_XXXXXXXXXXXXXX";
     private static final String HOST = "https://api.pdfshift.io/v3/convert/";
     
     private static byte[] convert(String apiKey, Map<String, String> params, String endpoint) throws Exception {
@@ -34,7 +34,8 @@ public class Convert {
                 Unpooled.copiedBuffer(paramsJson, CharsetUtil.UTF_8));
 
         request.headers().set(HttpHeaderNames.CONTENT_TYPE, "application/json");
-        request.headers().set(HttpHeaderNames.AUTHORIZATION, apiKey);
+        request.headers().set("X-API-Key", apiKey);
+        
 
         HttpClient client = new HttpClient();
         FullHttpResponse response = client.sendRequest(request);

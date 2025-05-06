@@ -23,7 +23,7 @@ All you have to do is provide an HTML document.
 Here's an example:
 
 ```python
-import aiohttp, asyncio, json, base64
+import aiohttp, asyncio, json
 
 # You can get an API key at https://pdfshift.io
 api_key = 'sk_xxxxxxxxxxxx'
@@ -34,14 +34,10 @@ params = {
 
 response = None
 try:
-    auth = base64.b64encode(
-        'api:{}'.format(api_key).encode('utf-8')
-    ).decode('utf-8')
-
     async with aiohttp.ClientSession() as session:
         async with session.post(
             'https://api.pdfshift.io/v3/convert/pdf',
-            headers={'Authorization': f'Basic {auth}'},
+            headers={'X-API-Key': api_key},
             json=params
         ) as response:
             if response.status >= 400:

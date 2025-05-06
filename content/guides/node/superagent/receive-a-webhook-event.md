@@ -28,7 +28,7 @@ params = {
 
 let response = await superagent
     .post('https://api.pdfshift.io/v3/convert/pdf')
-    .auth('api', api_key)
+    .set('X-API-Key', api_key)
     .send(params);
 
 console.log('The PDF document was generated and you will receive an event on your webhook once it is done.');

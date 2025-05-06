@@ -17,7 +17,6 @@ When you're converting a document, you might want to access a secured page (prot
 package main
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -27,6 +26,7 @@ import (
 func main() {
 	// You can get an API key at https://pdfshift.io
 	apiKey := "sk_xxxxxxxxxxxx"
+
 
 	// You can set a basic authentication by passing the "auth" property which contains a username and password
 	params := map[string]interface{}{
@@ -49,7 +49,7 @@ func main() {
 	// Perform the request
 	resp, err := client.R().
 		SetHeader("Content-Type", "application/json").
-		SetBasicAuth("api", apiKey).
+		SetHeader("X-API-Key", apiKey).
 		SetBody(jsonParams).
 		Post("https://api.pdfshift.io/v3/convert/pdf")
 

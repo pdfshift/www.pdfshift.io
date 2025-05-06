@@ -36,7 +36,7 @@ params = {
 const response = await fetch('https://api.pdfshift.io/v3/convert/pdf', {
     method: 'post',
     headers: {
-        'Authorization': 'Basic ' + Buffer.from('api:' + api_key).toString('base64'),
+        'X-API-Key': api_key,
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(params)

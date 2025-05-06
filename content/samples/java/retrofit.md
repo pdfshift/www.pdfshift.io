@@ -38,7 +38,7 @@ public class PDFConverter {
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
-                .addHeader("Authorization", "Basic " + java.util.Base64.getEncoder().encodeToString(("api:" + apiKey).getBytes()))
+                .addHeader("X-API-Key", apiKey)
                 .build();
         Response response = client.newCall(request).execute();
 

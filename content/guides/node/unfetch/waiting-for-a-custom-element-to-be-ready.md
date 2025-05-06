@@ -48,7 +48,7 @@ const response = await fetch('https://api.pdfshift.io/v3/convert/pdf', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${Buffer.from(`api:${api_key}`).toString('base64')}`
+        'X-API-Key': api_key
     },
     body: JSON.stringify(params)
 })
@@ -82,7 +82,7 @@ const response = await fetch('https://api.pdfshift.io/v3/convert/pdf', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Basic ${Buffer.from(`api:${api_key}`).toString('base64')}`
+        'X-API-Key': api_key
     },
     body: JSON.stringify(params)
 })

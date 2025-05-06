@@ -45,7 +45,7 @@ func convert(apiKey string, params map[string]interface{}, endpoint string) ([]b
 		return nil, err
 	}
 	req.Header.Set("Content-Type", "application/json")
-	req.SetBasicAuth("api", apiKey)
+	req.Header.Set("X-API-Key", apiKey)
 
 	client := &http.Client{}
 	resp, err := client.Do(req)

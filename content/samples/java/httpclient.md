@@ -28,7 +28,7 @@ public class PDFConvert {
 
         HttpPost request = new HttpPost("https://api.pdfshift.io/v3/convert/" + endpoint);
         request.setHeader("Content-Type", "application/json");
-        request.setHeader("Authorization", "Basic " + java.util.Base64.getEncoder().encodeToString(("api:" + apiKey).getBytes()));
+        request.setHeader("X-API-Key", apiKey);
 
         StringEntity entity = new StringEntity(params);
         request.setEntity(entity);

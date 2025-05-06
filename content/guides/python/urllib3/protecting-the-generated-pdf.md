@@ -39,9 +39,7 @@ response = http.request(
     'https://api.pdfshift.io/v3/convert/pdf',
     headers={
         'Content-Type': 'application/json',
-        'Authorization': 'Basic {}'.format(
-            base64.b64encode('api:{}'.format(api_key).encode('utf-8')).decode('utf-8')
-        )
+        'X-API-Key': api_key
     },
     body=json.dumps(params).encode('utf-8')
 )

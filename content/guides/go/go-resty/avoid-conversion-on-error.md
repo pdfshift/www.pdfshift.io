@@ -18,7 +18,6 @@ When you're converting a document, you might want to avoid the conversion on err
 package main
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -46,7 +45,7 @@ func main() {
 	// Perform the request
 	resp, err := client.R().
 		SetHeader("Content-Type", "application/json").
-		SetBasicAuth("api", apiKey).
+		SetHeader("X-API-Key", apiKey).
 		SetBody(jsonParams).
 		Post("https://api.pdfshift.io/v3/convert/pdf")
 

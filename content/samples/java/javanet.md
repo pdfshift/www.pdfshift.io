@@ -13,7 +13,6 @@ import com.google.gson.JsonObject;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Base64;
 
 public class Convert {
     public static byte[] convert(String apiKey, JsonObject params, String endpoint) throws Exception {
@@ -22,13 +21,11 @@ public class Convert {
         }
 
         URL url = new URL("https://api.pdfshift.io/v3/convert/" + endpoint);
-        String auth = "api:" + apiKey;
-        String encoding = Base64.getEncoder().encodeToString(auth.getBytes()); 
         
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST");
-        conn.setRequestProperty("Authorization", "Basic " + encoding);
+        conn.setRequestProperty("X-API-Key", apiKey);
         conn.setRequestProperty("Content-Type", "application/json");
         conn.getOutputStream().write(params.toString().getBytes());
         

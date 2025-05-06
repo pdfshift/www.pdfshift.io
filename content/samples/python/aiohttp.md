@@ -9,7 +9,6 @@ link: 'https://docs.aiohttp.org/en/stable/'
 ```python
 import aiohttp
 import asyncio
-import base64
 import json
 
 async def convert(api_key, params, endpoint='pdf'):
@@ -32,16 +31,12 @@ async def convert(api_key, params, endpoint='pdf'):
     """
     
     assert endpoint in ('pdf', 'png', 'jpg', 'webp')
-    
-    auth = base64.b64encode(
-        'api:{}'.format(api_key).encode('utf-8')
-    ).decode('utf-8')
-    
+
     try:
         async with aiohttp.ClientSession() as session:
             async with session.post(
                 'https://api.pdfshift.io/v3/convert/{}'.format(endpoint),
-                headers={'Authorization': f'Basic {auth}'},
+                headers={'X-API-Key': api_key},
                 json=params
             ) as response:
                 if response.status >= 400:

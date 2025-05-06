@@ -35,11 +35,9 @@ def convert(api_key, params, endpoint='pdf'):
     
     url = f'https://api.pdfshift.io/v3/convert/{endpoint}'
     body = json.dumps(params).encode('utf-8')
-    headers = urllib3.util.make_headers(
-        basic_auth=f'api:{api_key}'
-    )
+    headers = urllib3.util.make_headers()
+    headers['X-API-Key'] = api_key
     headers['Content-Type'] = 'application/json'
-    
     response = http.request('POST', url, headers=headers, body=body)
     
     if response.status >= 400:

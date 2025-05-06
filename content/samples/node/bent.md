@@ -16,7 +16,7 @@ const convert = async (apiKey, params, endpoint='pdf') => {
 
     const post = bent(`https://api.pdfshift.io/v3/convert/${endpoint}`, 'POST', 'json', 200)
 
-    const response = await post('', params, {'Authorization': 'Basic ' + Buffer.from('api:' + apiKey).toString('base64')});
+    const response = await post('', params, {'X-API-Key': apiKey});
     
     if ('filename' in params || 'webhook' in params) {
         return response;

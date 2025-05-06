@@ -37,7 +37,7 @@ curl_setopt($curl, CURLOPT_POST, true);
 curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($params));
 curl_setopt($curl, CURLOPT_HTTPHEADER, array(
     'Content-Type: application/json',
-    'Authorization: Basic ' . base64_encode('api:' . $api_key)
+    'X-API-Key: '.$api_key
 ));
 
 $response = curl_exec($curl);

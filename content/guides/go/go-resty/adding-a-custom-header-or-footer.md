@@ -29,7 +29,6 @@ Here's an example:
 package main
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -37,7 +36,7 @@ import (
 )
 
 func main() {
-	// Define the API key
+	// You can get an API key at https://pdfshift.io
 	apiKey := "sk_xxxxxxxxxxxx"
 
 	// Define the request parameters
@@ -62,7 +61,7 @@ func main() {
 	// Perform the request
 	resp, err := client.R().
 		SetHeader("Content-Type", "application/json").
-		SetBasicAuth("api", apiKey).
+		SetHeader("X-API-Key", apiKey).
 		SetBody(jsonParams).
 		Post("https://api.pdfshift.io/v3/convert/pdf")
 

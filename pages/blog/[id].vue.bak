@@ -85,7 +85,7 @@ const post = {
     codeSnippet: `import requests
 response = requests.post(
    'https://api.pdfshift.io/v3/convert/pdf',
-     auth=('api', 'your_api_key'),
+     headers={'X-API-Key': 'sk_XXXXXXXXXX'},
      json={"source": "https://en.wikipedia.org/wiki/PDF", "landscape": False, "use_print":False}
    )
 

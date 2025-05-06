@@ -27,7 +27,7 @@ function convert($api_key, $params, $endpoint = 'pdf') {
         $response = $client->post($url, [
             'headers' => [
                 'Content-Type' => 'application/json',
-                'Authorization' => 'Basic ' . base64_encode('api:' . $api_key)
+                'X-API-Key' => $api_key
             ],
             'json' => $params
         ]);

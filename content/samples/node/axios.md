@@ -16,10 +16,7 @@ async function convert(api_key, params, endpoint = 'pdf') {
 
     try {
         const response = await axios.post(`https://api.pdfshift.io/v3/convert/${endpoint}`, params, {
-            auth: {
-                username: 'api',
-                password: api_key
-            }
+            headers: { 'X-API-Key': api_key }
         });
 
         if (params.filename || params.webhook) {

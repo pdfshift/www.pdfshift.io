@@ -33,7 +33,7 @@ public class PDFShiftConverter
         {
             Content = new StringContent(JsonSerializer.Serialize(parameters), System.Text.Encoding.UTF8, "application/json")
         };
-        request.Headers.Add("Authorization", $"Basic {Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes($"api:{_apiKey}"))}");
+        request.Headers.Add("X-API-Key", _apiKey);
 
         var response = await _client.SendAsync(request);
         response.EnsureSuccessStatusCode();

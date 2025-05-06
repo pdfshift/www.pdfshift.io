@@ -35,7 +35,7 @@ params = {
 }
 
 const post = bent('https://api.pdfshift.io/v3/convert/pdf', 'POST', 'json', 200);
-const response = await post('', params, {Authorization: 'Basic ' + Buffer.from('api:' + apiKey).toString('base64')});
+const response = await post('', params, {'X-API-Key': apiKey});
 
 if (response.status >= 400) {
     throw new Error(`Request failed with status code ${response.status}: ${response.data}`);

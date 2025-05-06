@@ -38,7 +38,7 @@ response = HTTParty.post(
     body: params.to_json,
     headers: {
         'Content-Type' => 'application/json',
-        'Authorization' => "Basic #{Base64.strict_encode64("api:#{api_key}")}"
+        'X-API-Key' => api_key
     }
 )
 

@@ -37,7 +37,9 @@ const tabs = ref([
 
 response = requests.post(
     'https://api.pdfshift.io/v3/convert/pdf',
-    auth=('api', 'sk_XXXXXXXXXX'),
+    headers={
+        'X-API-Key': 'sk_XXXXXXXXXX'
+    },
     json={"source": "https://en.wikipedia.org/wiki/PDF"}
 )
 
@@ -57,7 +59,7 @@ const response = await fetch(
     {
         method: 'POST',
         headers: {
-            'Authorization': 'Basic ' + Buffer.from('api:sk_XXXXXXXXXX').toString('base64'),
+            'X-API-Key': 'sk_XXXXXXXXXX',
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
@@ -83,8 +85,10 @@ curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_POST => true,
     CURLOPT_POSTFIELDS => json_encode(array("source" => "https://en.wikipedia.org/wiki/PDF")),
-    CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
-    CURLOPT_USERPWD => 'api:sk_XXXXXXXXXX'
+    CURLOPT_HTTPHEADER => array(
+        'Content-Type:application/json',
+        'X-API-Key:sk_XXXXXXXXXX'
+    )
 ));
 
 $response = curl_exec($curl);
@@ -107,7 +111,7 @@ Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |http|
     request = Net::HTTP::Post.new(uri.request_uri)
     request.body = data.to_json
     request["Content-Type"] = "application/json"
-    request.basic_auth 'api', 'sk_XXXXXXXXXX'
+    request["X-API-Key"] = "sk_XXXXXXXXXX"
 
     response = http.request(request)
 
@@ -127,7 +131,6 @@ end`
 using RestSharp;
 using Newtonsoft.Json;
 using System.IO;
-using RestSharp.Authenticators;
 using RestSharp.Serialization;
 using System.Net.Mail;
 using System.Net;
@@ -141,7 +144,7 @@ namespace PDFShiftExample
         static void Main(string[] args)
         {
             IRestClient client = new RestClient("https://api.pdfshift.io/v3/convert/pdf");
-            client.Authenticator = new HttpBasicAuthenticator("api", "sk_XXXXXXXXXX");
+            client.AddDefaultHeader("X-API-Key", "sk_XXXXXXXXXX");
 
             IRestRequest request = new RestRequest(Method.POST);
 
@@ -168,8 +171,8 @@ namespace PDFShiftExample
         label: 'cURL',
         language: 'bash',
         content: `curl 
-    -u 'api:sk_XXXXXXXXXX' 
     -H 'Content-Type: application/json' 
+    -H 'X-API-Key: sk_XXXXXXXXXX'
     -d '{"source":"https://en.wikipedia.org/wiki/PDF"}' 
     "https://api.pdfshift.io/v3/convert/pdf" 
     -o wikipedia.pdf

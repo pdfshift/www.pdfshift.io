@@ -25,7 +25,7 @@ params = {
 # Make the POST request
 response = Typhoeus.post("https://api.pdfshift.io/v3/convert/pdf", body: params.to_json, headers: {
     'Content-Type' => 'application/json',
-    'Authorization' => "Basic #{Base64.strict_encode64("api:#{api_key}")}"
+    'X-API-Key' => api_key
 })
 
 # Check for successful response

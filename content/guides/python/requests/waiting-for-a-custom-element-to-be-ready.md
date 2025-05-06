@@ -45,7 +45,7 @@ params = {
 
 response = requests.post(
     'https://api.pdfshift.io/v3/convert/pdf',
-    auth=('api', api_key),
+    headers={'X-API-Key': api_key},
     json=params
 )
 response.raise_for_status()
@@ -72,7 +72,7 @@ params = {
 
 response = requests.post(
     'https://api.pdfshift.io/v3/convert/pdf',
-    auth=('api', api_key),
+    headers={'X-API-Key': api_key},
     json=params
 )
 response.raise_for_status()

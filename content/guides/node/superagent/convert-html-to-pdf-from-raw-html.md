@@ -35,7 +35,7 @@ params = {
 
 let response = await superagent
     .post('https://api.pdfshift.io/v3/convert/pdf')
-    .auth('api', api_key)
+    .set('X-API-Key', api_key)
     .send(params);
 
 fs.writeFileSync('result.pdf', response.body);

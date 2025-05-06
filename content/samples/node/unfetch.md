@@ -19,7 +19,7 @@ async function convert(api_key, params, endpoint = 'pdf') {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + Buffer.from(`api:${api_key}`).toString('base64')
+            'X-API-Key': api_key
         },
         body: JSON.stringify(params)
     });

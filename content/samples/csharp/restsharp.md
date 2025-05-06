@@ -16,8 +16,8 @@ using RestSharp.Authenticators;
 public class Conversion
 {
     private RestClient Client;
-    
     string api_key = "sk_XXXXXXXXXXXXXX";
+
     public Conversion(string api_key, string endpoint = "pdf") 
     {
         if (! (new[] {"pdf", "png", "jpg", "webp"}.Contains(endpoint))) 
@@ -26,12 +26,13 @@ public class Conversion
         }
 
         Client = new RestClient("https://api.pdfshift.io/v3/convert/" + endpoint)
-        Client.Authenticator = new HttpBasicAuthenticator("api", api_key);
+        this.api_key = api_key;
     }
 
     public byte[] Convert(dynamic parameters) 
     {
         RestRequest Request = new RestRequest(Method.POST);
+        Request.AddHeader("X-API-Key", this.api_key);
         Request.AddJsonBody(parameters);
         var response = Client.Execute(Request);
 

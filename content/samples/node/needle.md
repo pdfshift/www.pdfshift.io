@@ -16,8 +16,7 @@ function convert(apiKey, params, endpoint='pdf') {
     } 
     
     let options = {
-        username: 'api',
-        password: apiKey,
+        headers: { 'X-API-Key': apiKey },
         json: params,
     }
 

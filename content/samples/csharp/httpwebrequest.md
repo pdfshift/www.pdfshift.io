@@ -22,10 +22,9 @@ public class ConversionAPIWrapper
         }
 
         string apiUrl = $"https://api.pdfshift.io/v3/convert/{endpoint}";
-        string credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes("api:" + apiKey));
         HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(apiUrl));
         request.Method = "POST";
-        request.Headers["Authorization"] = "Basic " + credentials;
+        request.Headers["X-API-Key"] = apiKey;
         request.ContentType = "application/json";
         byte[] bytes = Encoding.ASCII.GetBytes(parameters);
         using (Stream requestStream = request.GetRequestStream())

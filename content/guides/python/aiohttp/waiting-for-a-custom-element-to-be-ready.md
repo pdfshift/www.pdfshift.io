@@ -33,7 +33,7 @@ You can set the `wait_for` parameter to `isPageReady` and PDFShift will wait for
 
 
 ```python
-import aiohttp, asyncio, json, base64
+import aiohttp, asyncio, json
 
 # You can get an API key at https://pdfshift.io
 api_key = 'sk_xxxxxxxxxxxx'
@@ -45,14 +45,10 @@ params = {
 
 response = None
 try:
-    auth = base64.b64encode(
-        'api:{}'.format(api_key).encode('utf-8')
-    ).decode('utf-8')
-
     async with aiohttp.ClientSession() as session:
         async with session.post(
             'https://api.pdfshift.io/v3/convert/pdf',
-            headers={'Authorization': f'Basic {auth}'},
+            headers={'X-API-Key': api_key},
             json=params
         ) as response:
             if response.status >= 400:
@@ -75,7 +71,7 @@ except Exception as e:
 In case your page doesn't have the javascript function available, but you still need to wait on some elements to be rendered before continuing the conversion, you can add javascript code directly in the request and use it at the same time:
 
 ```python
-import aiohttp, asyncio, json, base64
+import aiohttp, asyncio, json
 
 # You can get an API key at https://pdfshift.io
 api_key = 'sk_xxxxxxxxxxxx'
@@ -88,14 +84,10 @@ params = {
 
 response = None
 try:
-    auth = base64.b64encode(
-        'api:{}'.format(api_key).encode('utf-8')
-    ).decode('utf-8')
-
     async with aiohttp.ClientSession() as session:
         async with session.post(
             'https://api.pdfshift.io/v3/convert/pdf',
-            headers={'Authorization': f'Basic {auth}'},
+            headers={'X-API-Key': api_key},
             json=params
         ) as response:
             if response.status >= 400:

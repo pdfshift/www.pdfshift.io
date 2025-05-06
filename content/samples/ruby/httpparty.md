@@ -22,7 +22,7 @@ def convert(api_key, params, endpoint = 'pdf')
   # Set headers
   headers = {
     'Content-Type' => 'application/json',
-    'Authorization' => "Basic #{Base64.strict_encode64("api:#{api_key}")}"
+    'X-API-Key' => api_key
   }
 
   # Make the POST request

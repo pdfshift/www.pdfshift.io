@@ -25,7 +25,7 @@ function convert($api_key, $params, $endpoint = 'pdf') {
     curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($params));
     curl_setopt($curl, CURLOPT_HTTPHEADER, array(
         'Content-Type: application/json',
-        'Authorization: Basic ' . base64_encode('api:' . $api_key)
+        'X-API-Key: '.$api_key
     ));
 
     // Execute the cURL request

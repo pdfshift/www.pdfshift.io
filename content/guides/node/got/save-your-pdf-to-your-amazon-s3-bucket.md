@@ -38,7 +38,7 @@ Once the conversion will be done, PDFShift will
 const got = require('got');
 
 // You can get an API key at https://pdfshift.io
-api_key = 'sk_xxxxxxxxxxxx'
+apiKey = 'sk_xxxxxxxxxxxx'
 
 params = {
     source: 'https://www.example.com',
@@ -46,7 +46,7 @@ params = {
 }
 
 const response = await got.post('https://api.pdfshift.io/v3/convert/pdf', {
-    auth: 'api:' + apiKey,
+    headers: { 'X-API-Key': apiKey },
     json: params,
     responseType: 'json'
 });

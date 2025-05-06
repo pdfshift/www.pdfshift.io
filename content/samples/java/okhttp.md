@@ -30,7 +30,7 @@ public class PDFShift {
         Request request = new Request.Builder()
             .url(url)
             .method("POST", body)
-            .addHeader("Authorization", Credentials.basic("api", apiKey))
+            .addHeader("X-API-Key", apiKey)
             .addHeader("Content-Type", "application/json")
             .build();
 

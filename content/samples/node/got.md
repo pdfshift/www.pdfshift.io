@@ -16,7 +16,7 @@ async function convert(apiKey, params, endpoint='pdf') {
     }
 
     const response = await got.post(`https://api.pdfshift.io/v3/convert/${endpoint}`, {
-        auth: 'api:' + apiKey,
+        headers: { 'X-API-Key': apiKey },
         json: params,
         responseType: 'json'
     });

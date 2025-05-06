@@ -28,10 +28,11 @@ params = {
     css: "https://www.example.com/public/style/print.css"
 }
 
-const response = await axios.post('https://api.pdfshift.io/v3/convert/pdf', params, {
-    auth: {
-        username: 'api',
-        password: api_key
+const response = await axios.post(
+    `https://api.pdfshift.io/v3/convert/pdf`,
+    params,
+    {
+        headers: { 'X-API-Key': api_key }
     }
 });
 

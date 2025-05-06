@@ -34,7 +34,7 @@ try {
     $response = $client->post('https://api.pdfshift.io/v3/convert/pdf', [
         'headers' => [
             'Content-Type' => 'application/json',
-            'Authorization' => 'Basic ' . base64_encode('api:' . $api_key)
+            'X-API-Key' => $api_key
         ],
         'json' => $params
     ]);

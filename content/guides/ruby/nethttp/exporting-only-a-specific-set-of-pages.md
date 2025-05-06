@@ -44,7 +44,7 @@ http.use_ssl = true
 
 request = Net::HTTP::Post.new(url)
 request['Content-Type'] = 'application/json'
-request.basic_auth('api', api_key)
+request['X-API-Key'] = api_key
 request.body = params.to_json
 
 # Send the request and handle the response

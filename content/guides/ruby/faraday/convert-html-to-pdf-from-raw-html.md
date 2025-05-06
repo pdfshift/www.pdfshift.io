@@ -42,7 +42,7 @@ end
 # Make the POST request
 response = conn.post do |req|
     req.headers['Content-Type'] = 'application/json'
-    req.headers['Authorization'] = "Basic #{Base64.strict_encode64("api:#{api_key}")}"
+    req.headers['X-API-Key'] = api_key
     req.body = params.to_json
 end
 

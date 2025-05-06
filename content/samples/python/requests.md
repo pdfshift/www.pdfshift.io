@@ -32,7 +32,7 @@ def convert(api_key, params, endpoint='pdf'):
     
     response = requests.post(
         f'https://api.pdfshift.io/v3/convert/{endpoint}',
-        auth=('api', api_key),
+        headers={'X-API-Key': api_key},
         json=params
     )
     response.raise_for_status()

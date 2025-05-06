@@ -33,10 +33,11 @@ params = {
     source: '<html><body><h1>This will be a PDF document</h1><p>This will generate a basic PDF to show how you can add raw HTML</body></html>',
 }
 
-const response = await axios.post('https://api.pdfshift.io/v3/convert/pdf', params, {
-    auth: {
-        username: 'api',
-        password: api_key
+const response = await axios.post(
+    `https://api.pdfshift.io/v3/convert/pdf`,
+    params,
+    {
+        headers: { 'X-API-Key': api_key }
     }
 });
 

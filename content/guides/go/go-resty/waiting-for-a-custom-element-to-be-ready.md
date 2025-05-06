@@ -36,7 +36,6 @@ You can set the `wait_for` parameter to `isPageReady` and PDFShift will wait for
 package main
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -64,7 +63,7 @@ func main() {
 	// Perform the request
 	resp, err := client.R().
 		SetHeader("Content-Type", "application/json").
-		SetBasicAuth("api", apiKey).
+		SetHeader("X-API-Key", apiKey).
 		SetBody(jsonParams).
 		Post("https://api.pdfshift.io/v3/convert/pdf")
 
@@ -96,7 +95,6 @@ In case your page doesn't have the javascript function available, but you still 
 package main
 
 import (
-	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -127,7 +125,7 @@ func main() {
 	// Perform the request
 	resp, err := client.R().
 		SetHeader("Content-Type", "application/json").
-		SetBasicAuth("api", apiKey).
+		SetHeader("X-API-Key", apiKey).
 		SetBody(jsonParams).
 		Post("https://api.pdfshift.io/v3/convert/pdf")
 
