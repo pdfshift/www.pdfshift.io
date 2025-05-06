@@ -81,7 +81,7 @@ useSeoMeta({
 })
 
 if (data.value.related?.length > 0) {
-    const { data: lookup } = await useAsyncData(`${route.fullPath}-relateds`, () => queryContent('guides', language.value).where({
+    const { data: lookup } = await useAsyncData(`${route.fullPath}-related`, () => queryContent('guides', language.value).where({
         draft: { $ne: true },
         library: data.value.library
     }).only(['title', 'language', 'library', '_id', '_path']).find())
