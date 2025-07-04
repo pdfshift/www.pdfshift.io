@@ -45,7 +45,7 @@
                                     <IconsPeople />
                                 </template>
                                 <template v-slot:title>{{ statistics.users }}</template>
-                                <template v-slot:description>Users</template>
+                                <template v-slot:description>Developers</template>
                             </HomeHeroFeature>
                         </li>
                         <li>
