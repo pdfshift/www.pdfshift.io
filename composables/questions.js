@@ -100,6 +100,7 @@ export const questions = () => [
     {
         question: 'How does your overage system work?',
         answer: `<p>Every plan has an overage cost associated with it. When you go over the plan’s limit (say, 1,000 credits in a single month), all the credits you use above that limit will be multiplied by the overage cost, and you’ll be billed for that usage specifically in a separate invoice when your subscription comes up for renewal.</p>
+                <p><strong>(The overage system is disabled by default but can be enabled from your account settings.)</strong></p>
                 <p>For example, let’s say you’re on the $24/month Boost plan which includes 2,500 monthly credits. If you use 2,700 credits in a given month, you’ll pay:</p>
                 <ul class="px-4 py-2 list-disc list-inside">
                     <li>$24 for the 2,500 credits</li>
