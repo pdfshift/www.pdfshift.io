@@ -1,11 +1,30 @@
 # IPv4
-141.94.142.82 # proc1.sbg.pdfshift.io
-141.94.142.83 # proc2.sbg.pdfshift.io
-141.94.254.203 # proc1.gra.pdfshift.io
-141.94.254.204 # proc2.gra.pdfshift.io
+141.94.142.82   # proc1.sbg.pdfshift.io
+141.94.142.83   # proc2.sbg.pdfshift.io
+141.94.254.203  # proc1.gra.pdfshift.io
+141.94.254.204  # proc2.gra.pdfshift.io
+
+
+## Added on 2025-12-01
+51.77.165.138   # proc3.gra.pdfshift.io
+51.68.54.154    # proc4.gra.pdfshift.io
+51.68.31.197    # proc5.gra.pdfshift.io
+51.178.199.75   # proc3.sbg.pdfshift.io
+51.178.199.109  # proc4.sbg.pdfshift.io
+51.178.199.107  # proc5.sbg.pdfshift.io
+
 
 # IPv6
-2001:41d0:403:4d52::1 # proc1.sbg.pdfshift.io
-2001:41d0:403:4d53::1 # proc2.sbg.pdfshift.io
-2001:41d0:306:dcb::1 # proc1.gra.pdfshift.io
-2001:41d0:306:dcc::1 # proc2.gra.pdfshift.io
+2001:41d0:403:4d52::1  # proc1.sbg.pdfshift.io
+2001:41d0:403:4d53::1  # proc2.sbg.pdfshift.io
+2001:41d0:306:dcb::1   # proc1.gra.pdfshift.io
+2001:41d0:306:dcc::1   # proc2.gra.pdfshift.io
+
+
+## Added on 2025-12-01
+2001:41d0:357:8a00::1  # proc3.gra.pdfshift.io
+2001:41d0:353:9a00::1  # proc4.gra.pdfshift.io
+2001:41d0:352:c500::1  # proc5.gra.pdfshift.io
+2001:41d0:425:4b00::1  # proc3.sbg.pdfshift.io
+2001:41d0:425:6d00::1  # proc4.sbg.pdfshift.io
+2001:41d0:425:6b00::1  # proc5.sbg.pdfshift.io
