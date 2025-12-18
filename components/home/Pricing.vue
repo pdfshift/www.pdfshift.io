@@ -27,6 +27,9 @@
                     <input id="input-number-credits" class="input" type="number" min="1" v-model="inputValue" @input="onInputValueChange" />
                     <span class="p -small mt-2 md:mt-0">documents* per month</span>
                 </div>
+                <div style="font-size: .8em; margin-top: 10px; text-align: center;">
+                    <p>(* We count one document per 5Mb of generated data. A 14Mb document will count for 3 credits)</p>
+                </div>
             </div>
             <div class="mt-4 flex flex-col md:flex-row gap-4 w-full">
                 <div class="border border-purple rounded-md overflow-hidden bg-white">
