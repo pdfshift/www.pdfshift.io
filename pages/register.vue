@@ -17,7 +17,7 @@
                         <div class="text-navy-700 text-center">
                             <p class="mt-4">We've sent you an email to activate your account.<br />(If you don't see it, check your spam folder)</p>
                             <p class="mt-4">
-                                You can already get started by <NuxtLink :to="`/guides/${form.language}/`" class="font-bold text-purple hover:underline">reading our guides in {{ languageLabel }}</NuxtLink>
+                                You can already get started by <NuxtLink :to="`/guides/${form.language}/`" class="font-bold text-purple hover:underline">reading our guides</NuxtLink>
                             </p>
                         </div>
                     </div>
@@ -91,6 +91,7 @@ const languageOptions = [
     { value: 'python', label: 'Python' },
     { value: 'csharp', label: 'C#' },
     { value: 'ruby', label: 'Ruby' },
+    { value: 'n8n', label: 'N8n' },
     { value: 'curl', label: 'Other' }
 ]
 
