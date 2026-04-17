@@ -26,7 +26,7 @@
 
 <script setup>
 const title = "All our guides to convert HTML documents"
-const description = "Select your favorite language and get started. We have guides for Go, Node, PHP, Python, Java, CSharp, Ruby, N8n and cURL."
+const description = "Select your favorite language and get started. We have guides for Go, Node, PHP, Python, Java, CSharp, Ruby, cURL and N8n."
 
 useSeoMeta({
     title,
@@ -77,6 +77,11 @@ const languages = ref([
         language: 'cURL',
         url: '/guides/curl',
         image: '/images/languages/curl.svg'
+    },
+    {
+        language: 'N8n',
+        url: '/guides/n8n',
+        image: '/images/languages/n8n.svg'
     }
 ])
 </script>

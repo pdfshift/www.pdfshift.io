@@ -178,6 +178,55 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- AI Agents & Automation Section -->
+                        <section class="mt-16 lg:mt-24">
+                            <div class="text-center max-w-3xl mx-auto">
+                                <h2 class="h2 text-navy-700">
+                                    Built for <span class="text-purple-500">AI Agents & Automation</span>
+                                </h2>
+                                <p class="p text-navy-700 mt-4">
+                                    Seamlessly integrate PDFShift with your favorite automation tools and AI agents.
+                                    Generate professional PDFs in your workflows with just a few clicks.
+                                </p>
+                            </div>
+
+                            <!-- Tool logos grid -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 mt-12 max-w-6xl mx-auto">
+                                <NuxtLink to="/agents/n8n" class="flex flex-col items-center gap-3 p-4 bg-white border border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300">
+                                    <img src="/images/integrations/n8n.svg" alt="N8N logo" class="w-16 h-16 rounded" />
+                                    <span class="text-sm font-medium text-navy-700">N8N</span>
+                                </NuxtLink>
+                                <NuxtLink to="/agents/zapier" class="flex flex-col items-center gap-3 p-4 bg-white border border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300">
+                                    <img src="/images/integrations/zapier.svg" alt="Zapier logo" class="w-16 h-16 rounded" />
+                                    <span class="text-sm font-medium text-navy-700">Zapier</span>
+                                </NuxtLink>
+                                <NuxtLink to="/agents/make" class="flex flex-col items-center gap-3 p-4 bg-white border border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300">
+                                    <img src="/images/integrations/make.svg" alt="Make logo" class="w-16 h-16 rounded" />
+                                    <span class="text-sm font-medium text-navy-700">Make</span>
+                                </NuxtLink>
+                                <NuxtLink to="/agents/mcp" class="flex flex-col items-center gap-3 p-4 bg-white border border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300">
+                                    <img src="/images/integrations/mcp.svg" alt="MCP logo" class="w-16 h-16 rounded" />
+                                    <span class="text-sm font-medium text-navy-700">MCP</span>
+                                </NuxtLink>
+                                <NuxtLink to="/agents/clay" class="flex flex-col items-center gap-3 p-4 bg-white border border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300">
+                                    <img src="/images/integrations/clay.svg" alt="Clay logo" class="w-16 h-16 rounded" />
+                                    <span class="text-sm font-medium text-navy-700">Clay</span>
+                                </NuxtLink>
+                                <NuxtLink to="/agents/bubble" class="flex flex-col items-center gap-3 p-4 bg-white border border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300">
+                                    <img src="/images/integrations/bubble.svg" alt="Bubble logo" class="w-16 h-16 rounded" />
+                                    <span class="text-sm font-medium text-navy-700">Bubble</span>
+                                </NuxtLink>
+                                <NuxtLink to="/agents/flowmatic" class="flex flex-col items-center gap-3 p-4 bg-white border border-purple-200 rounded-xl hover:border-purple-400 hover:shadow-lg transition-all duration-300">
+                                    <img src="/images/integrations/flowmatic.svg" alt="FlowMattic logo" class="w-16 h-16 rounded" />
+                                    <span class="text-sm font-medium text-navy-700">FlowMattic</span>
+                                </NuxtLink>
+                            </div>
+
+                            <div class="mt-12 text-center">
+                                <Button to="/agents" :arrow="true">Explore All Integrations</Button>
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <div class="bg-gradient-to-bl from-purple-100 to-purple-100 via-white">
