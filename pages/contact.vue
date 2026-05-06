@@ -128,17 +128,23 @@ const submit = async () => {
         message: null
     }
 
+    delete xxx.email
     try {
-        await $fetch(useApiEndpoint('/website/contact'), {
+        await $fetch('https://api.getfernand.com/messenger/contact', {
             method: 'POST',
-            body: form.value
+            body: {
+                ...form.value,
+                subject: 'Sales request',
+                slug: 'pdfshift',
+                channel: '543261567d9fe03bee8a415b9815e0b2e3a79de6df9d9588ed6924c6e3fb9237'
+            }
         })
         success.value = true
     } catch (error) {
         try {
             if ('errors' in error.data) {
                 Object.entries(error.data.errors).forEach(([key, value]) => {
-                    errors.value[key] = value[0]
+                    errors.value[key] = value
                 })
                 return
             } else if ('error' in error.data) {
