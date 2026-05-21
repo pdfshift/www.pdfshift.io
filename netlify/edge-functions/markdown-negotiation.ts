@@ -10,6 +10,7 @@ import type { Context } from "https://edge.netlify.com";
 import TurndownService from "https://esm.sh/turndown@7.2.0";
 import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.38/deno-dom-wasm.ts";
 import { parseAcceptHeader, shouldServeMarkdown } from "../../utils/content-negotiation.ts";
+import { SKIP_PATHS, SKIP_EXTENSIONS } from "../../utils/skip-paths.ts";
 
 // Cache for converted markdown (persists across requests in the same edge function instance)
 const markdownCache = new Map<string, string>();
@@ -33,18 +34,9 @@ export default async (request: Request, context: Context) => {
     const url = new URL(request.url);
     let pathname = url.pathname.replace(/\/$/, '') || "/";
 
-    // Skip processing for static assets and special paths
-    const skipPaths = [
-        '/_nuxt/',
-        '/images/',
-        '/js/',
-        '/documents/',
-        '/.well-known/',
-        '/.netlify/',
-        '/content/', // Don't process /content/ paths themselves
-    ];
-
-    const skipExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.webp', '.gif', '.pdf', '.zip', '.json', '.xml', '.txt'];
+  // Skip processing for static assets and special paths
+  const skipPaths = SKIP_PATHS;
+  const skipExtensions = SKIP_EXTENSIONS;
 
     // Early exit for static assets
     if (skipPaths.some(prefix => pathname.startsWith(prefix)) || skipExtensions.some(ext => pathname.endsWith(ext))) {

@@ -5,6 +5,11 @@
   publish = "dist"
   command = "nuxt generate"
 
+# Link headers edge function
+[[edge_functions]]
+function = "link-headers"
+path = "/*"
+
 # Markdown negotiation edge function
 # Use markdown-negotiation-simple for pre-generated markdown only (more reliable)
 # Use markdown-negotiation for full HTML conversion (requires external deps)

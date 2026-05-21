@@ -11,6 +11,7 @@ import { existsSync } from 'fs'
 import TurndownService from 'turndown'
 import * as cheerio from 'cheerio'
 import { parseAcceptHeader, shouldServeMarkdown } from '../../utils/content-negotiation'
+import { SKIP_PATHS, SKIP_EXTENSIONS } from '../../utils/skip-paths'
 
 // Cache for converted markdown (cleared on server restart)
 const markdownCache = new Map<string, string>()
@@ -26,12 +27,8 @@ export default defineEventHandler(async (event) => {
     const url = getRequestURL(event)
     const pathname = url.pathname
 
-    // Skip processing for static assets and special paths
-    const skipPaths = ['/_nuxt/', '/images/', '/js/', '/documents/', '/.well-known/', '/.netlify/', '/content/']
-    const skipExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.webp', '.gif', '.pdf', '.zip', '.json', '.xml', '.txt']
-
     // Early exit for static assets
-    if (skipPaths.some(prefix => pathname.startsWith(prefix)) || skipExtensions.some(ext => pathname.endsWith(ext))) {
+    if (SKIP_PATHS.some(prefix => pathname.startsWith(prefix)) || SKIP_EXTENSIONS.some(ext => pathname.endsWith(ext))) {
         return // Skip middleware for static assets
     }
 
