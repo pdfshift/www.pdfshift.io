@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
     const pathname = url.pathname
 
     // Skip processing for static assets and special paths
-    const skipPaths = ['/_nuxt/', '/images/', '/js/', '/documents/', '/.well-known/', '/content/']
+    const skipPaths = ['/_nuxt/', '/images/', '/js/', '/documents/', '/.well-known/', '/.netlify/', '/content/']
     const skipExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.webp', '.gif', '.pdf', '.zip', '.json', '.xml', '.txt']
 
     // Early exit for static assets

@@ -40,6 +40,7 @@ export default async (request: Request, context: Context) => {
         '/js/',
         '/documents/',
         '/.well-known/',
+        '/.netlify/',
         '/content/', // Don't process /content/ paths themselves
     ];
 

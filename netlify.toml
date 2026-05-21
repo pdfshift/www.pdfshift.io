@@ -17,6 +17,7 @@ excludedPath = [
     "/js/*",
     "/documents/*",
     "/.well-known/*",
+    "/.netlify/*",
     "/content/*",
     "/*.js",
     "/*.css",
