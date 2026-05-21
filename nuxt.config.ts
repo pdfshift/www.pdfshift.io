@@ -104,29 +104,49 @@ export default defineNuxtConfig({
             })
         },
         async 'nitro:build:public-assets' (nitro) {
-            // Copy markdown files to dist for Netlify Edge Functions
-            const { copyFile, mkdir } = await import('fs/promises')
-            const { join } = await import('path')
+            // Copy all markdown files to dist for Netlify Edge Functions
+            const { copyFile, mkdir, readdir, stat } = await import('fs/promises')
+            const { join, relative } = await import('path')
             const { existsSync } = await import('fs')
 
             const contentDir = join(process.cwd(), 'content')
             const targetDir = join(nitro.options.output.publicDir, 'content')
+
+            // Recursive function to copy all .md files
+            async function copyMarkdownFiles(sourceDir: string, targetBaseDir: string) {
+                const entries = await readdir(sourceDir, { withFileTypes: true })
+
+                for (const entry of entries) {
+                    const sourcePath = join(sourceDir, entry.name)
+                    const relativePath = relative(contentDir, sourcePath)
+                    const targetPath = join(targetBaseDir, relativePath)
+
+                    if (entry.isDirectory()) {
+                        // Create directory and recurse
+                        if (!existsSync(targetPath)) {
+                            await mkdir(targetPath, { recursive: true })
+                        }
+                        await copyMarkdownFiles(sourcePath, targetBaseDir)
+                    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+                        // Copy markdown file
+                        const targetDirPath = join(targetPath, '..')
+                        if (!existsSync(targetDirPath)) {
+                            await mkdir(targetDirPath, { recursive: true })
+                        }
+                        await copyFile(sourcePath, targetPath)
+                        console.log(`✓ Copied ${relativePath} to dist/content/`)
+                    }
+                }
+            }
 
             // Create target directory
             if (!existsSync(targetDir)) {
                 await mkdir(targetDir, { recursive: true })
             }
 
-            // Copy specific markdown files
-            const filesToCopy = ['index.md', 'faq.md']
-            for (const file of filesToCopy) {
-                const source = join(contentDir, file)
-                const target = join(targetDir, file)
-                if (existsSync(source)) {
-                    await copyFile(source, target)
-                    console.log(`✓ Copied ${file} to dist/content/`)
-                }
-            }
+            // Copy all markdown files recursively
+            await copyMarkdownFiles(contentDir, targetDir)
+            console.log('✓ All markdown files copied to dist/content/')
         }
     },
     site: {
