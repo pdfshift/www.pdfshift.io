@@ -1,0 +1,6 @@
+# Netlify Headers Configuration
+# These headers are applied to all routes in the static site
+
+# Homepage and all pages - Link headers for agent discovery (RFC 8288, RFC 9727)
+/*
+  Link: <https://docs.pdfshift.io>; rel="service-doc", <https://api.pdfshift.io/v3>; rel="service-desc", <https://status.pdfshift.io>; rel="status", <https://pdfshift.io/.well-known/security.txt>; rel="security-policy"
