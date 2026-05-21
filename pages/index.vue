@@ -20,7 +20,7 @@
 
                             <NuxtLink to="https://www.capterra.com/p/184246/PDFShift/reviews/" class="mt-12 flex flex-col gap-6 md:flex-row items-center md:gap-8 mx-auto lg:mx-0 hover:underline" target="_blank">
                                 <img class="w-32" src="/images/comparators/capterra-white.svg" alt="Capterra logo" />
-                                <StarRating class="text-white hover:underline" :rating="4.8" :reviews="44" />
+                                <StarRating class="text-white hover:underline" :rating="reviews[0].rating" :reviews="reviews[0].reviews" />
                             </NuxtLink>
                         </div>
                         <div class="lg:col-span-6 mt-12 lg:mt-0 text-sm lg:text-base max-w-full relative">
@@ -261,21 +261,21 @@ const reviews = [
     {
         name: "Capterra",
         rating: 4.8,
-        reviews: 44,
+        reviews: 57,
         logo: "/images/comparators/capterra.svg",
         url: "https://www.capterra.com/p/184246/PDFShift/reviews",
     },
     {
         name: "G2",
-        rating: 4.5,
-        reviews: 19,
+        rating: 4.6,
+        reviews: 29,
         logo: "/images/comparators/g2.svg",
         url: "https://www.g2.com/products/pdfshift/reviews",
     },
     {
         name: "AlternativeTo",
         rating: 4.9,
-        reviews: 27,
+        reviews: 39,
         logo: "/images/comparators/alternativeto.svg",
         url: "https://alternativeto.net/software/pdfshift/about/",
     },
