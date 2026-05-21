@@ -1,0 +1,28 @@
+{
+  "serverInfo": {
+    "name": "PDFShift API",
+    "version": "3.0",
+    "description": "PDFShift API for converting HTML to PDF and PNG formats"
+  },
+  "transport": {
+    "type": "http",
+    "endpoint": "https://api.pdfshift.io/v3"
+  },
+  "capabilities": {
+    "methods": [
+      "convert/pdf",
+      "convert/png",
+      "account",
+      "credits/usage",
+      "invoices"
+    ],
+    "authentication": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-API-Key"
+    },
+    "schemas": [
+      "https://api.pdfshift.io/openapi.json"
+    ]
+  }
+}
