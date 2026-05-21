@@ -102,6 +102,31 @@ export default defineNuxtConfig({
                 path: '/guides/:language(csharp|curl|go|java|node|php|python|ruby)/:library/',
                 file: '~/pages/guides/[language]/index.vue'
             })
+        },
+        async 'nitro:build:public-assets' (nitro) {
+            // Copy markdown files to dist for Netlify Edge Functions
+            const { copyFile, mkdir } = await import('fs/promises')
+            const { join } = await import('path')
+            const { existsSync } = await import('fs')
+
+            const contentDir = join(process.cwd(), 'content')
+            const targetDir = join(nitro.options.output.publicDir, 'content')
+
+            // Create target directory
+            if (!existsSync(targetDir)) {
+                await mkdir(targetDir, { recursive: true })
+            }
+
+            // Copy specific markdown files
+            const filesToCopy = ['index.md', 'faq.md']
+            for (const file of filesToCopy) {
+                const source = join(contentDir, file)
+                const target = join(targetDir, file)
+                if (existsSync(source)) {
+                    await copyFile(source, target)
+                    console.log(`✓ Copied ${file} to dist/content/`)
+                }
+            }
         }
     },
     site: {

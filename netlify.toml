@@ -1,0 +1,12 @@
+# Netlify Configuration
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  publish = "dist"
+  command = "nuxt generate"
+
+# Edge Functions Configuration
+# Markdown negotiation edge function runs on all routes
+[[edge_functions]]
+  function = "markdown-negotiation"
+  path = "/*"
