@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://pdfshift.io",
+      "link": [
+        {
+          "rel": "service-desc",
+          "href": "https://api.pdfshift.io/openapi.json"
+        },
+        {
+          "rel": "service-doc",
+          "href": "https://docs.pdfshift.io"
+        },
+        {
+          "rel": "status",
+          "href": "https://status.pdfshift.io"
+        },
+        {
+          "rel": "security-policy",
+          "href": "https://pdfshift.io/.well-known/security.txt"
+        }
+      ]
+    }
+  ]
+}
