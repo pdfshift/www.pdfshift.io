@@ -24,6 +24,9 @@
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
     "@nuxt/content": "^2.12.0",
+    "@types/turndown": "^5.0.6",
+    "cheerio": "^1.2.0",
+    "turndown": "^7.2.4",
     "vue3-carousel-nuxt": "^1.1.0"
   }
 }
