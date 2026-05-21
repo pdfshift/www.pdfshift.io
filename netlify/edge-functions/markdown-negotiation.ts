@@ -9,6 +9,7 @@
 import type { Context } from "https://edge.netlify.com";
 import TurndownService from "https://esm.sh/turndown@7.2.0";
 import { DOMParser } from "https://deno.land/x/deno_dom@v0.1.38/deno-dom-wasm.ts";
+import { parseAcceptHeader, shouldServeMarkdown } from "../../utils/content-negotiation.ts";
 
 // Cache for converted markdown (persists across requests in the same edge function instance)
 const markdownCache = new Map<string, string>();
@@ -22,18 +23,35 @@ const turndownService = new TurndownService({
 
 console.log('[Markdown Negotiation] Edge function initialized with TurndownService and DOMParser');
 
+async function returnResponseVary(context) {
+    const response = await context.next();
+    response.headers.set("Vary", "Accept");
+    return response;
+}
+
 export default async (request: Request, context: Context) => {
     const acceptHeader = request.headers.get("accept") || "";
 
-    // Only intercept if client accepts markdown
-    if (!acceptHeader.includes("text/markdown")) {
-        return; // Continue to normal response
-    }
-
+    // Get the base response to access headers
     const url = new URL(request.url);
     let pathname = url.pathname.replace(/\/$/, '') || "/";
 
     console.log(`[Markdown Negotiation] Processing request for: ${pathname}`);
+
+    // Check if client accepts markdown
+    if (!acceptHeader) {
+        console.log(`[Markdown Negotiation] No Accept header, serving default HTML`);
+        return; // No Accept header, continue with normal HTML response
+    }
+
+    // Parse accept header and check if markdown should be served
+    if (!shouldServeMarkdown(acceptHeader)) {
+        console.log(`[Markdown Negotiation] HTML preferred over markdown based on q-values`);
+        // Get the original response to add Vary header
+        return await returnResponseVary(context)
+    }
+
+    console.log(`[Markdown Negotiation] Markdown requested and preferred`);
 
     // Map URL path to markdown file path
     if (pathname === "/" || pathname === "") {
@@ -83,7 +101,8 @@ export default async (request: Request, context: Context) => {
 
                 if (!htmlResponse.ok) {
                     console.error(`[Markdown Negotiation] HTML page not found (status: ${htmlResponse.status})`);
-                    return; // HTML page not found, continue to normal response
+                    // Return the original response with Vary header
+                    return await returnResponseVary(context);
                 }
 
                 console.log(`[Markdown Negotiation] HTML fetched successfully (status: ${htmlResponse.status})`);
@@ -97,7 +116,8 @@ export default async (request: Request, context: Context) => {
 
                 if (!doc) {
                     console.error(`[Markdown Negotiation] Failed to parse HTML document`);
-                    return;
+                    // Return the original response with Vary header
+                    return await returnResponseVary(context);
                 }
 
                 console.log(`[Markdown Negotiation] HTML parsed successfully`);
@@ -109,7 +129,8 @@ export default async (request: Request, context: Context) => {
                     // Log available IDs to help debug
                     const availableIds = Array.from(doc.querySelectorAll('[id]')).map(el => el.id);
                     console.log(`[Markdown Negotiation] Available IDs in document:`, availableIds.join(', '));
-                    return;
+                    // Return the original response with Vary header
+                    return await returnResponseVary(context);
                 }
 
                 console.log(`[Markdown Negotiation] Found #main-content element`);
@@ -132,14 +153,16 @@ export default async (request: Request, context: Context) => {
                 if (error instanceof Error) {
                     console.error(`[Markdown Negotiation] Error stack:`, error.stack);
                 }
-                return; // On error, continue to normal HTML response
+                // Return the original response with Vary header
+                return await returnResponseVary(context);
             }
         }
     }
 
     if (!markdownContent) {
         console.error(`[Markdown Negotiation] No markdown content available after all attempts`);
-        return; // No content available, continue to normal response
+        // Return the original response with Vary header
+        return await returnResponseVary(context);
     }
 
     // Estimate token count (rough approximation: ~4 chars per token)
@@ -155,6 +178,7 @@ export default async (request: Request, context: Context) => {
             "x-markdown-tokens": estimatedTokens.toString(),
             "Content-Signal": "ai-train=yes, search=yes, ai-input=yes",
             "Cache-Control": "public, max-age=86400", // Cache for 24 hours (until next deployment)
+            "Vary": "Accept", // Indicate that response varies based on Accept header
         },
     });
 };

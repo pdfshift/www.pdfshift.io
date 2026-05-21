@@ -10,6 +10,7 @@ import { join } from 'path'
 import { existsSync } from 'fs'
 import TurndownService from 'turndown'
 import * as cheerio from 'cheerio'
+import { parseAcceptHeader, shouldServeMarkdown } from '../../utils/content-negotiation'
 
 // Cache for converted markdown (cleared on server restart)
 const markdownCache = new Map<string, string>()
@@ -24,9 +25,17 @@ const turndownService = new TurndownService({
 export default defineEventHandler(async (event) => {
     const acceptHeader = getRequestHeader(event, 'accept') || ''
 
+    // Always set Vary header to indicate response varies based on Accept header
+    setResponseHeader(event, 'Vary', 'Accept')
+
     // Check if client accepts markdown
-    if (!acceptHeader.includes('text/markdown')) {
-        return // Continue with normal HTML response
+    if (!acceptHeader) {
+        return // No Accept header, continue with normal HTML response
+    }
+
+    // Parse accept header and check if markdown should be served
+    if (!shouldServeMarkdown(acceptHeader)) {
+        return // HTML preferred or markdown not accepted, continue with normal response
     }
 
     const url = getRequestURL(event)
