@@ -109,12 +109,17 @@ if (articles.value?.length > 0) {
             twitterDescription: description
         })
     } else {
-        // Multiple libraries - show library cards and filter to only show default library's guides
+        // Check if a specific library is requested via query parameter
+        const requestedLibrary = route.params.library
+        console.log('requested lib', route)
+
+        // Multiple libraries - show library cards and filter guides
         availableLibraries.value = allLibraries.sort((a, b) => a.name.localeCompare(b.name))
 
-        const defaultLibrary = articles.value.find(article => article.default)?.library || library.value
-        articles.value = articles.value.filter(article => article.library === defaultLibrary)
-        library.value = defaultLibrary
+        // Use requested library from query param, or default to the default library
+        const selectedLibrary = requestedLibrary || articles.value.find(article => article.default)?.library || library.value
+        articles.value = articles.value.filter(article => article.library === selectedLibrary)
+        library.value = selectedLibrary
 
         title.value = `All our guides for ${language.value}`
         let seoTitle = `All our guides for ${language.value}`
