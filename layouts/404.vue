@@ -8,7 +8,7 @@
             <header class="flex justify-center py-12 relative ">
                 <NuxtLink to="/"><IconsLogo class="text-white w-36" /></NuxtLink>
             </header>
-            <main class="relative max-w-2xl mx-auto text-white text-center mt-12 pb-12">
+            <main id="main-content" class="relative max-w-2xl mx-auto text-white text-center mt-12 pb-12">
                 <slot />
             </main>
         </div>

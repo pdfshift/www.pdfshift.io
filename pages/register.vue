@@ -5,7 +5,7 @@
                 Get started under a minute.<br />
                 Fill out the form and we'll send you an email to activate your account.
             </PageHeader>
-            <div class="max-w-xl mx-auto my-12">
+            <div id="content" class="max-w-xl mx-auto my-12">
                 <CardLight>
                     <div v-if="success" class="py-4">
                         <div class="flex justify-center">
