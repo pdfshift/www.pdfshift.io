@@ -10,15 +10,15 @@
  */
 
 export default defineEventHandler((event) => {
-  // Build Link header value with multiple relations
-  // Format: <uri>; rel="relation", <uri2>; rel="relation2"
-  const linkHeaders = [
-    '<https://docs.pdfshift.io>; rel="service-doc"',
-    '<https://api.pdfshift.io/v3>; rel="service-desc"',
-    '<https://status.pdfshift.io>; rel="status"',
-    '</.well-known/security.txt>; rel="security-policy"'
-  ].join(', ')
+    // Build Link header value with multiple relations
+    // Format: <uri>; rel="relation", <uri2>; rel="relation2"
+    const linkHeaders = [
+        '<https://docs.pdfshift.io>; rel="service-doc"',
+        '<https://api.pdfshift.io/v3>; rel="service-desc"',
+        '<https://status.pdfshift.io>; rel="status"',
+        '</.well-known/security.txt>; rel="security-policy"'
+    ].join(', ')
 
-  // Set the Link header
-  setResponseHeader(event, 'Link', linkHeaders)
+    // Set the Link header
+    setResponseHeader(event, 'Link', linkHeaders)
 })
