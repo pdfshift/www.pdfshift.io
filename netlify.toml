@@ -5,15 +5,9 @@
   publish = "dist"
   command = "nuxt generate"
 
-# Edge Functions Configuration
-# Test edge function
-[[edge_functions]]
-function = "test-edge"
-path = "/.netlify/edge-test"
-
 # Markdown negotiation edge function
 # Use markdown-negotiation-simple for pre-generated markdown only (more reliable)
 # Use markdown-negotiation for full HTML conversion (requires external deps)
 [[edge_functions]]
-function = "markdown-negotiation-simple"
+function = "markdown-negotiation"
 path = "/*"
