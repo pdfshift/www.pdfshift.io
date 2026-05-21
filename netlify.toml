@@ -11,3 +11,28 @@
 [[edge_functions]]
 function = "markdown-negotiation"
 path = "/*"
+excludedPath = [
+    "/_nuxt/*",
+    "/images/*",
+    "/js/*",
+    "/documents/*",
+    "/.well-known/*",
+    "/content/*",
+    "/*.js",
+    "/*.css",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg",
+    "/*.svg",
+    "/*.ico",
+    "/*.woff",
+    "/*.woff2",
+    "/*.ttf",
+    "/*.eot",
+    "/*.webp",
+    "/*.gif",
+    "/*.pdf",
+    "/*.zip",
+    "/*.json",
+    "/*.xml"
+]

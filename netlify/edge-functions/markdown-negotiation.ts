@@ -30,11 +30,27 @@ async function returnResponseVary(context) {
 }
 
 export default async (request: Request, context: Context) => {
-    const acceptHeader = request.headers.get("accept") || "";
-
-    // Get the base response to access headers
     const url = new URL(request.url);
     let pathname = url.pathname.replace(/\/$/, '') || "/";
+
+    // Skip processing for static assets and special paths
+    const skipPaths = [
+        '/_nuxt/',
+        '/images/',
+        '/js/',
+        '/documents/',
+        '/.well-known/',
+        '/content/', // Don't process /content/ paths themselves
+    ];
+
+    const skipExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.webp', '.gif', '.pdf', '.zip', '.json', '.xml', '.txt'];
+
+    // Early exit for static assets
+    if (skipPaths.some(prefix => pathname.startsWith(prefix)) || skipExtensions.some(ext => pathname.endsWith(ext))) {
+        return; // Skip edge function for static assets
+    }
+
+    const acceptHeader = request.headers.get("accept") || "";
 
     console.log(`[Markdown Negotiation] Processing request for: ${pathname}`);
 

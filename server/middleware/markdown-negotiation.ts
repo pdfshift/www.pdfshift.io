@@ -23,6 +23,18 @@ const turndownService = new TurndownService({
 })
 
 export default defineEventHandler(async (event) => {
+    const url = getRequestURL(event)
+    const pathname = url.pathname
+
+    // Skip processing for static assets and special paths
+    const skipPaths = ['/_nuxt/', '/images/', '/js/', '/documents/', '/.well-known/', '/content/']
+    const skipExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.eot', '.webp', '.gif', '.pdf', '.zip', '.json', '.xml', '.txt']
+
+    // Early exit for static assets
+    if (skipPaths.some(prefix => pathname.startsWith(prefix)) || skipExtensions.some(ext => pathname.endsWith(ext))) {
+        return // Skip middleware for static assets
+    }
+
     const acceptHeader = getRequestHeader(event, 'accept') || ''
 
     // Always set Vary header to indicate response varies based on Accept header
@@ -37,9 +49,6 @@ export default defineEventHandler(async (event) => {
     if (!shouldServeMarkdown(acceptHeader)) {
         return // HTML preferred or markdown not accepted, continue with normal response
     }
-
-    const url = getRequestURL(event)
-    const pathname = url.pathname
 
     // Map URL path to content file
     let contentPath: string
