@@ -11,6 +11,8 @@ export const SKIP_PATHS = [
   '/.well-known/',
   '/.netlify/',
   '/content/',
+  '/__sitemap__/',
+  '/plausible/',
 ];
 
 export const SKIP_EXTENSIONS = [
