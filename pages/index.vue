@@ -222,6 +222,51 @@ useSeoMeta({
     twitterDescription: description
 })
 
+useHead({
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "PDFShift",
+                "description": "An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.",
+                "url": "https://pdfshift.io",
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Web-based",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "description": "Free plan available with paid tiers for higher usage"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.7",
+                    "reviewCount": "100",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "creator": {
+                    "@type": "Organization",
+                    "name": "PDFShift",
+                    "url": "https://pdfshift.io"
+                }
+            })
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "PDFShift",
+                "url": "https://pdfshift.io",
+                "description": "From HTML to pixel-perfect PDF in seconds"
+            })
+        }
+    ]
+})
+
 const highlightedWord = ref('PDF');
 const wordsToType = ['Banner', 'Screenshot', 'PDF'];
 const typingSpeed = 200; // milliseconds per character
