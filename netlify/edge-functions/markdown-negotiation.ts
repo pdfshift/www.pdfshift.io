@@ -54,8 +54,6 @@ export default async (request: Request, context: Context) => {
         return await returnResponseVary(context)
     }
 
-    console.log(`[Markdown Negotiation] Markdown requested and preferred`);
-
     // Map URL path to markdown file path
     if (pathname === "/" || pathname === "") {
         pathname = '/index'
