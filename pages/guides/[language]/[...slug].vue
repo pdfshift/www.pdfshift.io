@@ -84,14 +84,100 @@ useHead({
         {
             type: 'application/ld+json',
             innerHTML: JSON.stringify({
-                "@type": "BlogPosting",
+                "@context": "https://schema.org",
+                "@type": "TechArticle",
+                "headline": `${data.value.title} in ${data.value.language} with ${data.value.library}`,
                 "name": `${data.value.title} in ${data.value.language} with ${data.value.library}`,
-                "headline": data.value.description,
-                "inLanguage": "English",
+                "description": data.value.description,
                 "author": {
-                    "@type": "Person",
-                    "name": "PDFShift"
-                }
+                    "@type": "Organization",
+                    "name": "PDFShift",
+                    "url": "https://pdfshift.io"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PDFShift",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://pdfshift.io/images/logo/logo.png"
+                    }
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": `https://pdfshift.io${route.fullPath}`
+                },
+                "inLanguage": "en-US",
+                "proficiencyLevel": "Beginner"
+            })
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "HowTo",
+                "name": `How to ${data.value.title.toLowerCase()} in ${data.value.language} with ${data.value.library}`,
+                "description": data.value.description,
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "name": "Install the library",
+                        "text": `Install ${data.value.library} library for ${data.value.language}`
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Set up API credentials",
+                        "text": "Get your API key from PDFShift and configure it in your project"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Make the API request",
+                        "text": `Use ${data.value.library} to make a conversion request to PDFShift API`
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Handle the response",
+                        "text": "Process and save the converted document"
+                    }
+                ]
+            })
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pdfshift.io"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Guides",
+                        "item": "https://pdfshift.io/guides"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": data.value.language,
+                        "item": `https://pdfshift.io/guides/${language.value}`
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": data.value.library,
+                        "item": `https://pdfshift.io/guides/${language.value}/${library.value || data.value.library.toLowerCase()}`
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 5,
+                        "name": data.value.title,
+                        "item": `https://pdfshift.io${route.fullPath}`
+                    }
+                ]
             })
         }
     ]
