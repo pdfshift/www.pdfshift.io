@@ -36,4 +36,60 @@ useSeoMeta({
     twitterTitle: title,
     twitterDescription: description
 })
+
+// Helper function to strip HTML tags from answer text
+const stripHtml = (html) => {
+    return html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+}
+
+useHead({
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    ...faqs.map(faq => ({
+                        "@type": "Question",
+                        "name": faq.question,
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": stripHtml(faq.answer)
+                        }
+                    })),
+                    {
+                        "@type": "Question",
+                        "name": "What if I have other questions?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Feel free to reach out to us via email, and we'll be happy to answer to all your questions."
+                        }
+                    }
+                ]
+            })
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pdfshift.io"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "FAQ",
+                        "item": "https://pdfshift.io/faq"
+                    }
+                ]
+            })
+        }
+    ]
+})
 </script>
