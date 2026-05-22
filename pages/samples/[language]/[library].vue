@@ -12,7 +12,6 @@
                 </NuxtLink>
                 <article class="mt-8 articles">
                     <ContentRenderer :value="data" v-if="data">
-                        <component :is="'script'" type="application/ld+json">{{ articleSchema }}</component>
                         <h1 class="h1 my-6">Using {{ data.library }} in {{ data.language }}</h1>
                         <div class="my-8">
                             <ContentRenderer v-if="excerpt" :document="data">
@@ -101,15 +100,71 @@ useSeoMeta({
     twitterDescription: description
 })
 
-const articleSchema = ref(JSON.stringify({
-    "@type": "BlogPosting",
-    "name": title,
-    "headline": description,
-    "inLanguage": "English",
-    "author": {
-        "@type": "Person",
-        "name": "PDFShift"
-    }
-}))
+useHead({
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "TechArticle",
+                "headline": title,
+                "name": title,
+                "description": description,
+                "author": {
+                    "@type": "Organization",
+                    "name": "PDFShift",
+                    "url": "https://pdfshift.io"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PDFShift",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://pdfshift.io/images/logo/logo.png"
+                    }
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": `https://pdfshift.io${route.fullPath}`
+                },
+                "inLanguage": "en-US",
+                "proficiencyLevel": "Beginner"
+            })
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://pdfshift.io"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Samples",
+                        "item": "https://pdfshift.io/samples"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": data.value.language,
+                        "item": `https://pdfshift.io/samples/${route.params.language}`
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "name": data.value.library,
+                        "item": `https://pdfshift.io${route.fullPath}`
+                    }
+                ]
+            })
+        }
+    ]
+})
 </script>
 
