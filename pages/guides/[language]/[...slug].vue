@@ -11,7 +11,6 @@
                     </span>
                 </NuxtLink>
                 <article class="mt-8 articles">
-                    <component :is="'script'" type="application/ld+json">{{ articleSchema }}</component>
                     <ContentRenderer :value="data" v-if="data">
                         <h1 class="h1 my-6">{{ data.title }} in {{ data.language }} with {{ data.library }}</h1>
                         <ContentRendererMarkdown :value="data" />
@@ -80,6 +79,24 @@ useSeoMeta({
     twitterDescription: data.value.description
 })
 
+useHead({
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                "@type": "BlogPosting",
+                "name": `${data.value.title} in ${data.value.language} with ${data.value.library}`,
+                "headline": data.value.description,
+                "inLanguage": "English",
+                "author": {
+                    "@type": "Person",
+                    "name": "PDFShift"
+                }
+            })
+        }
+    ]
+})
+
 if (data.value.related?.length > 0) {
     const { data: lookup } = await useAsyncData(`${route.fullPath}-related`, () => queryContent('guides', language.value).where({
         draft: { $ne: true },
@@ -87,15 +104,4 @@ if (data.value.related?.length > 0) {
     }).only(['title', 'language', 'library', '_id', '_path']).find())
     relatedGuides.value = lookup.value.filter((item) => data.value.related.includes(item._path.split('/').pop().replace('_', '')))
 }
-
-const articleSchema = ref(JSON.stringify({
-    "@type": "BlogPosting",
-    "name": `${data.title} in ${data.language} with ${data.library}`,
-    "headline": data.value.description,
-    "inLanguage": "English",
-    "author": {
-        "@type": "Person",
-        "name": "PDFShift"
-    }
-}))
 </script>
