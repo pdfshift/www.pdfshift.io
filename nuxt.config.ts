@@ -55,17 +55,29 @@ export default defineNuxtConfig({
                 {
                     type: 'application/ld+json',
                     innerHTML: JSON.stringify({
+                        "@context": "https://schema.org",
                         "@type": "Organization",
+                        "name": "PDFShift",
+                        "legalName": "PDFShift",
+                        "url": "https://pdfshift.io",
+                        "logo": "https://pdfshift.io/images/logo/logo.png",
+                        "foundingDate": "2018",
+                        "description": "From HTML to pixel-perfect PDF in seconds",
+                        "slogan": "From HTML to pixel-perfect PDF in seconds",
+                        "keywords": "API, HTML, PDF, Convert, Image, document, web, conversion, text, pdfshift, raw, link, WEBP, JPG, JPEG, PNG, Chrome, Chromium",
                         "founder": {
                             "@type": "Person",
                             "name": "Cyril Nicodeme"
                         },
-                        "foundingDate": "2018",
-                        "keywords": "API, HTML, PDF, Convert, Image, document, web, conversion, text, pdfshift, raw, link, WEBP, JPG, JPEG, PNG, Chrome, Chromium",
-                        "legalName": "PDFShift",
-                        "name": "PDFShift",
-                        "logo": "https://pdfshift.io/images/logo/logo.png",
-                        "slogan": "From HTML to pixel-perfect PDF in seconds"
+                        "sameAs": [
+                            "https://twitter.com/pdfshift",
+                            "https://github.com/pdfshift"
+                        ],
+                        "contactPoint": {
+                            "@type": "ContactPoint",
+                            "contactType": "customer support",
+                            "email": "support@pdfshift.io"
+                        }
                     })
                 }
             ],
