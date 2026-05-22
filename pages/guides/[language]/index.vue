@@ -110,14 +110,23 @@ if (articles.value?.length > 0) {
         })
     } else {
         // Check if a specific library is requested via query parameter
-        const requestedLibrary = route.params.library
-        console.log('requested lib', route)
+        let requestedLibrary = route.params.library
+        if (requestedLibrary) {
+            requestedLibrary = requestedLibrary.toLowerCase()
+        }
 
         // Multiple libraries - show library cards and filter guides
         availableLibraries.value = allLibraries.sort((a, b) => a.name.localeCompare(b.name))
 
         // Use requested library from query param, or default to the default library
-        const selectedLibrary = requestedLibrary || articles.value.find(article => article.default)?.library || library.value
+        let selectedLibrary = null
+        if (requestedLibrary) {
+            selectedLibrary = articles.value.find(article => article.library.toLowerCase() === requestedLibrary)?.library
+        }
+
+        if (!selectedLibrary) {
+            selectedLibrary = articles.value.find(article => article.default)?.library || library.value
+        }
         articles.value = articles.value.filter(article => article.library === selectedLibrary)
         library.value = selectedLibrary
 
