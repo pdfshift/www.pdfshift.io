@@ -51,6 +51,9 @@ const language = ref(route.params.language)
 const library = ref(null)
 const relatedGuides = ref([])
 
+console.log('route is', route)
+console.log('language is', language)
+
 let data = ref(null)
 if (route.params.slug.length === 1) {
     const { data: guide } = await useAsyncData(route.fullPath, () => queryContent('guides', language.value).where({
