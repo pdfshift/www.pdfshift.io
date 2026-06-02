@@ -71,7 +71,7 @@ body {
 }
 
 .field {
-    @apply border px-3 py-3.5 border-purple-500 rounded-md hover:text-purple hover:border-purple font-light text-gray-400 focus:text-gray-400 disabled:bg-purple-100 disabled:text-purple-400 disabled:border-purple-400 placeholder:text-navy-700/50 focus:outline-2 focus:outline-purple;
+    @apply border bg-white pr-10 px-3 py-3.5 border-purple-500 rounded-md hover:text-purple hover:border-purple font-light text-gray-400 focus:text-gray-400 disabled:bg-purple-100 disabled:text-purple-400 disabled:border-purple-400 placeholder:text-navy-700/50 focus:outline-2 focus:outline-purple;
 }
 .field.-error {
     @apply border-red-500;
