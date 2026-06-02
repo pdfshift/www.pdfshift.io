@@ -213,8 +213,11 @@ const submitAccount = async ($event) => {
         } else {
             step.value = 3
         }
-        try { window.plausible('Signup') } catch (e) {}
-        try { window.signups(form.value.email) } catch (e) { }
+
+        if (response && response.signup) {
+            try { window.plausible('Signup') } catch (e) { }
+            try { window.signups(form.value.email) } catch (e) { }
+        }
     } catch (error) {
         try {
             if ('errors' in error.data) {
