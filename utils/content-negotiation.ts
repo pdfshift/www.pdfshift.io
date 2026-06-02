@@ -39,11 +39,7 @@ export function parseAcceptHeader(acceptHeader: string): Array<{ type: string; q
 export function shouldServeMarkdown(acceptHeader: string): boolean {
     const types = parseAcceptHeader(acceptHeader)
 
-    const markdown = types.find(t =>
-        t.type === 'text/markdown' ||
-        t.type === 'text/*' ||
-        t.type === '*/*'
-    )
+    const markdown = types.find(t => t.type === 'text/markdown')
 
     const html = types.find(t =>
         t.type === 'text/html' ||
