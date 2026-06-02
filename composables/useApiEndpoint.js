@@ -11,7 +11,7 @@ export default function (path) {
         hostname = 'localhost'
     }
 
-    if (hostname === 'loscalhost' || hostname === '127.0.0.1') {
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
         return `http://127.0.0.1:5000/v3${path}`
     }
 
