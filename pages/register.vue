@@ -207,10 +207,14 @@ const submitAccount = async ($event) => {
             method: 'POST',
             body
         })
-        step.value = 2
+        if (response && response.token) {
+            sessionToken = response.token
+            step.value = 2
+        } else {
+            step.value = 3
+        }
         try { window.plausible('Signup') } catch (e) {}
         try { window.signups(form.value.email) } catch (e) { }
-        sessionToken = response.token
     } catch (error) {
         try {
             if ('errors' in error.data) {
