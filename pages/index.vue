@@ -228,7 +228,7 @@ useHead({
             type: 'application/ld+json',
             innerHTML: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
+                "@type": "Organization",
                 "name": "PDFShift",
                 "description": "An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.",
                 "url": "https://pdfshift.io",
