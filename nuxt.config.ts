@@ -39,6 +39,10 @@ export default defineNuxtConfig({
                 { name: 'google-site-verification', content: 'Fz9BzvQci5_milN-1hUvE_H8oSYWTCiPzK-nbhjj7VE' }
             ],
             link: [
+                // Performance - Google Fonts preconnect for faster font loading
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+
                 // Theme related
                 { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicon.ico' },
                 { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/favicons/apple-touch-icon.png' },
@@ -92,7 +96,11 @@ export default defineNuxtConfig({
                         wght: [300,400,500,700],
                         ital: [400,500],
                     }
-                }
+                },
+                display: 'swap',
+                preconnect: true,
+                prefetch: true,
+                preload: true
             }
         ],
         '@nuxt/image',

@@ -11,7 +11,7 @@
                     </div>
                     <div class="flex flex-col mt-8 lg:mt-0 lg:flex-row items-center gap-4 lg:gap-28">
                         <div class="w-full lg:w-3/5 ">
-                            <NuxtImg class="w-full" src="/images/illustrations/converting.svg" alt="Illustration of Converting PDF" />
+                            <NuxtImg loading="lazy" class="w-full" src="/images/illustrations/converting.svg" alt="Illustration of Converting PDF" />
                         </div>
                         <div class="w-full lg:w-2/5 flex flex-col items-center lg:block">
                             <div class="mt-8 md:mt-16 lg:mt-24 text-center lg:text-left lg:pr-8">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="w-full lg:w-2/3 ">
-                            <NuxtImg class="w-full" src="/images/illustrations/generating-preview.svg" alt="Illustration of PDF Generation" />
+                            <NuxtImg loading="lazy" class="w-full" src="/images/illustrations/generating-preview.svg" alt="Illustration of PDF Generation" />
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                     <div class="absolute bg-diamond-net left-0 top-0 w-full h-full bg-center z-0"></div>
                     <div class="flex flex-col lg:flex-row items-center lg:gap-18 relative">
                         <div class="w-full">
-                            <NuxtImg class="w-full lg:scale-110 relative lg:top-8" src="/images/illustrations/social-automations.svg" alt="Illustration of social automations" />
+                            <NuxtImg loading="lazy" class="w-full lg:scale-110 relative lg:top-8" src="/images/illustrations/social-automations.svg" alt="Illustration of social automations" />
                         </div>
                         <div class="w-full lg:pr-36">
                             <div class="hidden lg:inline-block bg-purple rounded-full p-4">
@@ -105,7 +105,7 @@
                             </div>
                         </div>
                         <div class="w-full lg:w-3/5 flex justify-center">
-                            <NuxtImg class="w-full" src="/images/illustrations/secure-storage.svg" alt="Illustration of PDFShift Storing Secure Template" />
+                            <NuxtImg loading="lazy" class="w-full" src="/images/illustrations/secure-storage.svg" alt="Illustration of PDFShift Storing Secure Template" />
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-28 mt-16">
                         <div class="w-full px-8 lg:px-0 lg:w-3/5 flex justify-center">
-                            <NuxtImg class="w-full" src="/images/illustrations/s3-bucket.svg" alt="Illustration of PDFShift API Storing on Amazon S3" />
+                            <NuxtImg loading="lazy" class="w-full" src="/images/illustrations/s3-bucket.svg" alt="Illustration of PDFShift API Storing on Amazon S3" />
                         </div>
                         <div class="w-full lg:w-2/5 flex flex-col items-center lg:block">
                             <div class="space-y-8 mt-8 text-center lg:text-left lg:pr-16">

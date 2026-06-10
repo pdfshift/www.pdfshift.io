@@ -19,7 +19,7 @@
                             </div>
 
                             <NuxtLink to="https://www.capterra.com/p/184246/PDFShift/reviews/" class="mt-12 flex flex-col gap-6 md:flex-row items-center md:gap-8 mx-auto lg:mx-0 hover:underline" target="_blank">
-                                <img class="w-32" src="/images/comparators/capterra-white.svg" alt="Capterra logo" />
+                                <img class="w-32" src="/images/comparators/capterra-white.svg" alt="Capterra logo" width="128" height="32" />
                                 <StarRating class="text-white hover:underline" :rating="reviews[0].rating" :reviews="reviews[0].reviews" />
                             </NuxtLink>
                         </div>
@@ -70,8 +70,11 @@
                 </section>
             </div>
 
-            <HomeCompanies />
+            <ClientOnly>
+                <HomeCompanies />
+            </ClientOnly>
 
+            <ClientOnly>
             <main>
                 <HomeIllustratedFeatures />
                 <div class="bg-gradient-to-br from-purple-900 to-navy-700 via-20% via-navy-700 pb-24 lg:pb-36">
@@ -174,7 +177,7 @@
                                 </div>
                                 <div class="w-full relative">
                                     <div class="absolute w-full h-full bg-net bg-cover"></div>
-                                    <NuxtImg width="560" height="560" class="lg:scale-150 object-cover" src="/images/illustrations/shield.png" alt="Illustration of shield" format="webp" />
+                                    <NuxtImg width="560" height="560" loading="lazy" class="lg:scale-150 object-cover" src="/images/illustrations/shield.png" alt="Illustration of shield" format="webp" quality="80" />
                                 </div>
                             </div>
                         </div>
@@ -201,6 +204,7 @@
                     </div>
                 </div>
             </main>
+            </ClientOnly>
         </NuxtLayout>
     </div>
 </template>
