@@ -57,8 +57,8 @@
 
         <div class="-mt-16 lg:-mt-32">
             <div class="container">
-                <div class="rounded-3xl bg-navy-900 p-8 lg:px-12 lg:py-24 relative">
-                    <div class="absolute bg-diamond-net left-0 top-0 w-full h-full bg-center z-0"></div>
+                <div class="rounded-3xl bg-navy-900 p-8 lg:px-12 lg:py-24 relative overflow-hidden">
+                    <HeroGrid class="absolute top-0 w-full h-full bg-center z-0" style="left: 0%; transform: scale(1.25) rotate(180deg); top: -20%; opacity: .5" />
                     <div class="flex flex-col lg:flex-row items-center lg:gap-18 relative">
                         <div class="w-full">
                             <NuxtImg loading="lazy" class="w-full lg:scale-110 relative lg:top-8" src="/images/illustrations/social-automations.svg" alt="Illustration of social automations" />

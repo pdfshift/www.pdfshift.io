@@ -1,8 +1,8 @@
 <template>
     <div class="bg-navy-700 relative min-h-screen">
         <div class="fixed left-0 top-40 w-full h-full flex z-0 opacity-50">
-            <div class="w-1/2 bg-diamond-net-hero bg-no-repeat"></div>
-            <div class="w-1/2 bg-diamond-net-hero bg-no-repeat -scale-x-100"></div>
+            <HeroGrid class="w-1/2 bg-no-repeat" />
+            <HeroGrid class="w-1/2 bg-no-repeat -scale-x-100" />
         </div>
         <div>
             <header class="flex justify-center py-12 relative ">

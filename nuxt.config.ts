@@ -55,7 +55,7 @@ export default defineNuxtConfig({
             ],
             script: [
                 { src: '/plausible/js/script.js', 'data-domain': 'pdfshift.io', 'data-api': '/plausible/api/event' },
-                { src: '/js/signups.js', 'data-domain': 'pdfshift.io' },
+                { src: '/js/signups.js', 'data-domain': 'pdfshift.io', defer: true },
                 {
                     type: 'application/ld+json',
                     innerHTML: JSON.stringify({

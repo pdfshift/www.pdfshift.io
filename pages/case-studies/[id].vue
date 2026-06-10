@@ -83,7 +83,7 @@
             <div class="max-w-3xl mx-auto mt-24 md:mt-32 mb-24">
                 <section class="px-12 md:px-28 py-12 md:py-16 md:pb-20 rounded-3xl bg-purple relative overflow-hidden">
                     <div class="absolute left-0 top-0 w-full h-full">
-                        <div class="bg-diamond-net-hero bg-center absolute z-10 left-0 top-0 w-3/4 h-full" ></div>
+                        <HeroGrid class="bg-center absolute z-10 left-0 top-0 w-3/4 h-full" />
                         <div class="bg-gradient-to-r z-20 from-transparent to-purple-400 absolute left-0 top-0 w-full h-full"></div>
                     </div>
                     <div class="relative z-30 flex flex-col justify-center items-center gap-6 ">

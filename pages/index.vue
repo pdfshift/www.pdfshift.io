@@ -5,8 +5,8 @@
                 <Header :dark="true" />
 
                 <section class="px-4 pt-32 pb-12 lg:pt-48">
+                    <HeroGrid class="absolute opacity-50 left-0 top-24 bg-top z-0 overflow-hidden" />
                     <div class="lg:grid lg:gap-16 lg:grid-cols-12 max-w-full lg:max-w-7xl mx-auto relative">
-                        <div class="absolute bg-diamond-net-hero opacity-50 left-0 top-0 w-full h-full bg-top z-0"></div>
                         <div class="lg:col-span-6 flex flex-col justify-start max-w-xl mx-auto lg:max-w-none relative">
                             <h1 class="h1 text-white text-center lg:text-left lg:pr-16 text-4xl">
                                 From HTML to pixel-perfect<br /><span class="text-purple-500">{{ highlightedWord }}</span> in seconds
