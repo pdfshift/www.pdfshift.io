@@ -55,7 +55,7 @@
                         </div>
                         <ol class="font-light list-disc marker:text-purple list-inside">
                             <li>Total Overage: <strong class="text-purple font-bold">{{ currentPlan.overage }}</strong>/credits</li>
-                            <li>Max file size: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '2Mb' : 'Unlimited' }}</strong></li>
+                            <li>Max file size: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '15Mb' : 'Unlimited' }}</strong></li>
                             <li>Timeout: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '30s' : 'Up to 15 minutes' }}</strong></li>
                         </ol>
                         <div class="text-center">
