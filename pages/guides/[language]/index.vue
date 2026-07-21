@@ -118,10 +118,16 @@ if (articles.value?.length > 0) {
         // Multiple libraries - show library cards and filter guides
         availableLibraries.value = allLibraries.sort((a, b) => a.name.localeCompare(b.name))
 
-        // Use requested library from query param, or default to the default library
+        // Use requested library from query param, or default to the default library.
+        // Match against the folder segment of _path (the actual URL slug, e.g. "node-fetch")
+        // rather than the frontmatter `library` value ("NodeFetch"), so hyphenated/camelCase
+        // names still resolve. Otherwise those library pages fall back to the default library
+        // and never link to their own guides, so `nuxt generate` never prerenders them (404).
         let selectedLibrary = null
         if (requestedLibrary) {
-            selectedLibrary = articles.value.find(article => article.library.toLowerCase() === requestedLibrary)?.library
+            selectedLibrary = articles.value.find(
+                article => article._path.split('/').slice(-2)[0] === requestedLibrary
+            )?.library
         }
 
         if (!selectedLibrary) {
