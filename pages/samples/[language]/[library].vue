@@ -66,6 +66,8 @@
 </template>
 
 <script setup>
+import { hash } from 'ohash'
+
 const route = useRoute()
 const excerpt = ref(null)
 const related = ref([])
@@ -81,7 +83,7 @@ if (data.value.body.children.length > 2) {
 
 const compiledCode = ref({ type: 'root', children: [data.value.body.children[index]] })
 
-const { data: relatedEntries } = await useAsyncData(`${route.fullPath}-related`, () => queryContent('samples', route.params.language).only(['_id', '_path', 'language', 'library']).find())
+const { data: relatedEntries } = await useAsyncData(`related:${hash(route.fullPath)}`, () => queryContent('samples', route.params.language).only(['_id', '_path', 'language', 'library']).find())
 related.value = relatedEntries.value.filter(x => x.library.toLowerCase() !== data.value.library.toLowerCase())
 
 if (data.value.body.children.length > 1) {
@@ -167,4 +169,3 @@ useHead({
     ]
 })
 </script>
-

@@ -45,6 +45,8 @@
 </template>
 
 <script setup>
+import { hash } from 'ohash'
+
 const route = useRoute()
 const language = ref(route.params.language)
 const library = ref(null)
@@ -184,7 +186,7 @@ useHead({
 })
 
 if (data.value.related?.length > 0) {
-    const { data: lookup } = await useAsyncData(`${route.fullPath}-related`, () => queryContent('guides', language.value).where({
+    const { data: lookup } = await useAsyncData(`related:${hash(route.fullPath)}`, () => queryContent('guides', language.value).where({
         draft: { $ne: true },
         library: data.value.library
     }).only(['title', 'language', 'library', '_id', '_path']).find())
