@@ -32,6 +32,25 @@ export default defineEventHandler(async (event) => {
         return // Skip middleware for static assets
     }
 
+    // Direct ".md" URLs (e.g. /pricing.md) always serve the pre-generated markdown
+    // file, regardless of the Accept header. Mirrors the Netlify edge function.
+    if (pathname.endsWith('.md')) {
+        const mdPath = join(process.cwd(), 'content', pathname.replace(/^\//, ''))
+        if (existsSync(mdPath)) {
+            try {
+                const md = await readFile(mdPath, 'utf-8')
+                setResponseHeader(event, 'Vary', 'Accept')
+                setResponseHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
+                setResponseHeader(event, 'x-markdown-tokens', Math.ceil(md.length / 4).toString())
+                setResponseHeader(event, 'Content-Signal', 'ai-train=yes, search=yes, ai-input=yes')
+                return md
+            } catch (error) {
+                console.error('Error reading markdown file:', error)
+            }
+        }
+        return // No matching content file — continue with normal response
+    }
+
     const acceptHeader = getRequestHeader(event, 'accept') || ''
 
     // Always set Vary header to indicate response varies based on Accept header

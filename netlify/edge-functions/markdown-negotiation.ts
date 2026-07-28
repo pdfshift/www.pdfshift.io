@@ -41,6 +41,29 @@ export default async (request: Request, context: Context) => {
         return; // Skip edge function for static assets
     }
 
+    // Direct ".md" URLs (e.g. /pricing.md) always serve the pre-generated markdown,
+    // regardless of the Accept header. The source file lives at /content/<path>.md.
+    if (pathname.endsWith(".md")) {
+        try {
+            const mdUrl = new URL(`/content${pathname}`, url.origin);
+            const mdResponse = await fetch(mdUrl.toString());
+            if (mdResponse.ok) {
+                const md = await mdResponse.text();
+                return new Response(md, {
+                    status: 200,
+                    headers: {
+                        "Content-Type": "text/markdown; charset=utf-8",
+                        "x-markdown-tokens": Math.ceil(md.length / 4).toString(),
+                        "Content-Signal": "ai-train=yes, search=yes, ai-input=yes",
+                        "Cache-Control": "public, max-age=86400",
+                        "Vary": "Accept",
+                    },
+                });
+            }
+        } catch (error) {}
+        return; // No matching content file — fall through to normal (404) handling
+    }
+
     const acceptHeader = request.headers.get("accept") || "";
 
     // Check if client accepts markdown
