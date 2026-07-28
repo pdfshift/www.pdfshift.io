@@ -7,6 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "gen:llms": "node scripts/gen-llms.mjs",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {

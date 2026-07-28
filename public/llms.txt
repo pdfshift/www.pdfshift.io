@@ -1,0 +1,83 @@
+# PDFShift
+
+> PDFShift is a developer-first REST API that converts HTML, URLs, and raw markup into pixel-perfect PDFs, screenshots, and Open Graph images. Simple credit-based pricing with 50 free credits every month and no credit card required to start.
+
+Every page on pdfshift.io is available as clean Markdown: append `.md` to any URL (e.g. `/pricing.md`) or send an `Accept: text/markdown` request header. The companion file [llms-full.txt](https://pdfshift.io/llms-full.txt) contains the full text of every page in a single document.
+
+For full, up-to-date pricing details (plans, credits, and per-conversion overage rates), see [https://pdfshift.io/pricing.md](https://pdfshift.io/pricing.md).
+
+## Core pages
+- [HTML to PDF API — Overview](https://pdfshift.io/index.md): What PDFShift does, key stats, and headline features.
+- [Pricing](https://pdfshift.io/pricing.md): Credit-based plans from Free (50 credits/mo) up to 100k+ conversions per month.
+- [FAQ](https://pdfshift.io/faq.md): Common questions about trials, billing, security, and usage.
+- [API Documentation](https://docs.pdfshift.io): Full REST API reference for the /v3 conversion endpoint.
+
+## Guides
+> 597+ how-to guides covering 8 languages (C#, Go, Java, Node, PHP, Python, Ruby, cUrl) and their most popular HTTP libraries. Each task below exists for every language/library combination — full text is in llms-full.txt.
+- [All guides](https://pdfshift.io/guides): Browse guides by language and HTTP library.
+- [Accessing secured pages](https://pdfshift.io/guides/python/requests/accessing-secured-pages.md): Learn how to access secured pages using Python and the requests library. This guide offers detailed steps with code samples in Python and the requests library, highlighting how you can acces page protected by basic authentication to convert them to PDF using PDFShift's API.
+- [Adding a custom header or footer](https://pdfshift.io/guides/python/requests/adding-a-custom-header-or-footer.md): Discover how to add custom headers or footers to a PDF using Python and the requests library. This in-depth guide includes Python codes that you can easily follow and quickly generate documents with PDFShift's API.
+- [Adding a text watermark](https://pdfshift.io/guides/python/requests/adding-a-text-watermark.md): Learn how to add text watermarks to your generated PDF document using Python and the requests library. With this guide, you'll be able to add watermarks on top of your generated PDFs easily with a quick request to PDFShift's API.
+- [Adding an image watermark](https://pdfshift.io/guides/python/requests/adding-an-image-watermark.md): Discover how to effortlessly add image watermarks to PDFs using Python and the requests library. Our guide shows you how to add images on top of your PDF to protect your document easily. This is easily done with a simple request to PDFShift's API.
+- [Avoid the conversion on error when loading the document](https://pdfshift.io/guides/python/requests/avoid-conversion-on-error.md): Learn how to avoid the conversion on error when loading the document using Python and the requests library and relies on the PDFShift's API.
+- [Convert an HTML document to PDF from a URL](https://pdfshift.io/guides/python/requests/convert-html-to-pdf-from-a-url.md): Learn how to easily convert HTML documents to PDF from a URL using Python and the requests library. This how-to guide offers clear Python code examples that show developers how to implement this using the PDFShift API.
+- [Convert an HTML document to PDF from raw HTML](https://pdfshift.io/guides/python/requests/convert-html-to-pdf-from-raw-html.md): Learn how to to convert raw HTML document to PDF using Python and the requests library. Our guide will explain you how to quickly convert documents with PDFShift's API.
+- [Define a time limit](https://pdfshift.io/guides/python/requests/define-a-time-limit.md): Learn how to set a conversion time limit at PDFShift. This will allow you to define a maximum time for the conversion process to complete, and if the process takes longer than the defined time, the conversion will be aborted. This guides explains you how to achieve it using Python and the requests library.
+- [Exporting only a specific set of pages](https://pdfshift.io/guides/python/requests/exporting-only-a-specific-set-of-pages.md): Learn how to export only a specific set of pages from a document using Python and the requests library. This guide offers detailed steps with code samples in Python and the requests library, highlighting how you can export only a specific set of pages from a document using PDFShift's API.
+- [Generate a document with full height](https://pdfshift.io/guides/python/requests/generate-a-document-with-full-height.md): Learn to generate full-height documents dynamically with our step-by-step guide. This will allow you to create documents with a dynamic height, based on the content of the document. This guide provides Python code samples using the requests library to help you generate full-height documents with PDFShift's API.
+- [Loading CSS from a string](https://pdfshift.io/guides/python/requests/loading-css-from-a-string.md): Follow this guide to load custom CSS as a given string when converting an HTML document to PDF with PDFShift's API. This guide provides Python code samples with the requests library.
+- [Loading CSS from a URL](https://pdfshift.io/guides/python/requests/loading-css-from-a-url.md): This guides shows you how to add a custom CSS from an URL onto your document to customize the output of your generated PDF. Follow this guides to learn how to do it using Python and the requests library and see how it can quickly be implemented using the PDFShift's API.
+- [Loading Javascript from a string](https://pdfshift.io/guides/python/requests/loading-javascript-from-a-string.md): Follow this guide to learn how to add custom javascript to your page to customize the output of your generated PDF. This allows you to modify elements on the page, add or remove content, etc. This guide uses Python and the requests library and relies on the PDFShift's API.
+- [Loading Javascript from a URL](https://pdfshift.io/guides/python/requests/loading-javascript-from-a-url.md): Follow this guide to add custom javascript to your page before converting it to PDF. Using a URL allows you to later be able to change the content of the javascript without having to update the query made to PDFShift. Learn how you can implement this using Python and the requests library to call the PDFShift's API.
+- [Protecting the generated PDF](https://pdfshift.io/guides/python/requests/protecting-the-generated-pdf.md): Learn how to protect your generated PDF with encryption for owner and user, and for choosing who can modify, print and/or copy the generated PDF. This guides explains you to do it using Python and the requests library and relies on the PDFShift's API.
+- [Receive a webhook event](https://pdfshift.io/guides/python/requests/receive-a-webhook-event.md): Receive a notification via a POST request on your server once the conversion was done. This allows you to trigger a massive amount of conversion without having to wait on their results, and get notified once they are done. This guides will show you how to receive webhook events in Python and the requests library to call the PDFShift's API.
+- [Save your PDF online and get back a URL](https://pdfshift.io/guides/python/requests/save-your-pdf-online-and-get-back-a-url.md): This guides shows you how can generate a PDF document from HTML and get back an URL instead of the raw PDF. This allows you to share the link directly to your users or redirect them to that page. Learn how you can achieve it using Python and the requests library to call PDFShift's API.
+- [Save your PDF to your Amazon S3 Bucket](https://pdfshift.io/guides/python/requests/save-your-pdf-to-your-amazon-s3-bucket.md): This guides shows you how can generate a PDF document from HTML with PDFShift's API and save it to your own Amazon S3 bucket. This allows you to generate document and automate actions once the document has been created on your bucket. This guides explains you how to do it using Python and the requests library.
+- [Send custom HTTP headers](https://pdfshift.io/guides/python/requests/send-custom-http-headers.md): Learn how to add custom HTTP headers when requesting an URL to be converted in PDF with PDFShift's API. It allows you to add specific headers that your backend can check against to authenticate a query before converting it to PDF. This guide explains you how using Python and the requests library.
+- [Using cookies to convert HTML documents to PDF](https://pdfshift.io/guides/python/requests/using-cookies.md): Learn how to add custom Cookies when requesting an URL to be converted in PDF with PDFShift's API. It allows you to pursue an active session for instance, that will authenticate the request as a specific user before converting the page to PDF. This guide explains you how using Python and the requests library.
+- [Waiting for a custom element to be ready](https://pdfshift.io/guides/python/requests/waiting-for-a-custom-element-to-be-ready.md): Learn how to set up a custom javascript function that will waits for a specific condition to become true before allowing the conversion to happen. This is very interesting for waiting on charts to be generated, or custom fonts to be loaded. With PDFShift's API, this can easily be done using Python and the requests library.
+
+## Code samples
+> Ready-to-use HTML-to-PDF conversion code for each supported HTTP client library.
+- [CSharp — HttpClient](https://pdfshift.io/samples/csharp/httpclient.md)
+- [CSharp — HttpWebRequest](https://pdfshift.io/samples/csharp/httpwebrequest.md)
+- [CSharp — RestSharp](https://pdfshift.io/samples/csharp/restsharp.md)
+- [cUrl — cUrl](https://pdfshift.io/samples/curl/curl.md)
+- [Go — go-resty](https://pdfshift.io/samples/go/go-resty.md)
+- [Go — Net/HTTP](https://pdfshift.io/samples/go/nethttp.md)
+- [Java — HttpClient](https://pdfshift.io/samples/java/httpclient.md)
+- [Java — java.net](https://pdfshift.io/samples/java/javanet.md)
+- [Java — Netty](https://pdfshift.io/samples/java/netty.md)
+- [Java — OkHttp](https://pdfshift.io/samples/java/okhttp.md)
+- [Java — Retrofit](https://pdfshift.io/samples/java/retrofit.md)
+- [Node — Axios](https://pdfshift.io/samples/node/axios.md)
+- [Node — Bent](https://pdfshift.io/samples/node/bent.md)
+- [Node — Got](https://pdfshift.io/samples/node/got.md)
+- [Node — Needle](https://pdfshift.io/samples/node/needle.md)
+- [Node — Node Fetch](https://pdfshift.io/samples/node/node-fetch.md)
+- [Node — SuperAgent](https://pdfshift.io/samples/node/superagent.md)
+- [Node — Unfetch](https://pdfshift.io/samples/node/unfetch.md)
+- [PHP — curl](https://pdfshift.io/samples/php/curl.md)
+- [PHP — guzzle](https://pdfshift.io/samples/php/guzzle.md)
+- [Python — Aiohttp](https://pdfshift.io/samples/python/aiohttp.md)
+- [Python — Httplib2](https://pdfshift.io/samples/python/httplib2.md)
+- [Python — Requests](https://pdfshift.io/samples/python/requests.md)
+- [Python — Urllib3](https://pdfshift.io/samples/python/urllib3.md)
+- [Ruby — Faraday](https://pdfshift.io/samples/ruby/faraday.md)
+- [Ruby — HttpParty](https://pdfshift.io/samples/ruby/httpparty.md)
+- [Ruby — Net::HTTP](https://pdfshift.io/samples/ruby/nethttp.md)
+- [Ruby — RestClient](https://pdfshift.io/samples/ruby/restclient.md)
+- [Ruby — Typhoeus](https://pdfshift.io/samples/ruby/typhoeus.md)
+
+## Legal
+- [Data Processing Agreement](https://pdfshift.io/legal/dpa.md): PDFShift is GDPR compliant. Here is our Data Processing Agreement.
+- [General Data Protection Regulation(GDPR) compliance](https://pdfshift.io/legal/gdpr.md): Everything you need to know about PDFShift's GDPR compliance.
+- [HIPAA compliance](https://pdfshift.io/legal/hipaa.md): PDFShift is fully HIPAA compliant
+- [Privacy Policy](https://pdfshift.io/legal/privacy.md): Our Privacy Policy is designed to help you understand what information we collect and how we use and share that information.
+- [PDFShift's subprocessors](https://pdfshift.io/legal/subprocessors.md): PDFShift is relying on other third party services to provide a full experience. These are the list of subprocessors we work with.
+- [Terms of Service](https://pdfshift.io/legal/terms.md): We've crafted our Terms of Service to ensure a secure and mutually beneficial experience for all users.
+
+## Optional
+- [Register](https://pdfshift.io/register): Create a free account (50 credits/mo, no credit card).
+- [Contact](https://pdfshift.io/contact): Get in touch with the PDFShift team.
+- [Status](https://status.pdfshift.io): Live service status and uptime.

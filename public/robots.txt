@@ -3,3 +3,7 @@ Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 
 Sitemap: https://pdfshift.io/sitemap.xml
+
+# LLM-friendly index (https://llmstxt.org/)
+# Curated index:  https://pdfshift.io/llms.txt
+# Full content:   https://pdfshift.io/llms-full.txt
