@@ -41,6 +41,9 @@
                     <li class="hover:underline">
                         <NuxtLink to="/legal/hipaa" title="Read more about our HIPAA">HIPAA - BAA</NuxtLink>
                     </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/legal/imprint" title="Read our legal notice">Imprint</NuxtLink>
+                    </li>
                 </ul>
             </div>
             <div class="col-span-full md:col-span-1">
