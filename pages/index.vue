@@ -159,7 +159,7 @@
                                 </li>
                             </ul>
                         </section>
-                        <div class="bg-gradient-to-br from-purple-100 to-purple-100 via-white rounded-3xl px-8 lg:px-16 py-0 overflow-hidden">
+                        <div class="bg-gradient-to-br from-purple-100 to-purple-100 via-white rounded-3xl px-8 pb-8 md:pb-0 lg:px-16 overflow-hidden">
                             <div class="flex flex-col-reverse md:flex-row items-center gap-8">
                                 <div class="w-full">
                                     <div class="hidden lg:block w-24">
