@@ -320,8 +320,14 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     background-repeat: no-repeat;
     background-size: auto 125%;
     content: '';
-    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 35%, rgba(0, 0, 0, 0.55) 65%, transparent 100%);
-    mask-image: linear-gradient(to right, #000 0%, #000 35%, rgba(0, 0, 0, 0.55) 65%, transparent 100%);
+    -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, #000 18%, #000 80%, transparent 100%),
+        linear-gradient(to right, #000 0%, #000 35%, rgba(0, 0, 0, 0.55) 65%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to bottom, transparent 0%, #000 18%, #000 80%, transparent 100%),
+        linear-gradient(to right, #000 0%, #000 35%, rgba(0, 0, 0, 0.55) 65%, transparent 100%);
+    mask-composite: intersect;
     opacity: 0.34;
 }
 

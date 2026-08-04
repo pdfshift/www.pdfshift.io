@@ -4,8 +4,8 @@
             <div class="bg-navy-900">
                 <Header :dark="true" />
 
-                <section class="px-4 pt-32 pb-12 lg:pt-48">
-                    <HeroGrid class="absolute opacity-50 left-0 top-24 bg-top z-0 overflow-hidden" />
+                <section class="relative px-4 pt-32 pb-12 lg:pt-48">
+                    <HeroGrid class="homepage-hero-grid absolute left-1/2 top-[118px] z-0 w-[1600px] -translate-x-1/2 overflow-hidden" :fade-offset-y="120" aria-hidden="true" />
                     <div class="lg:grid lg:gap-16 lg:grid-cols-12 max-w-full lg:max-w-7xl mx-auto relative">
                         <div class="lg:col-span-6 flex flex-col justify-start max-w-xl mx-auto lg:max-w-none relative">
                             <h1 class="h1 text-white text-center lg:text-left lg:pr-16 text-4xl">
@@ -24,7 +24,7 @@
                             </NuxtLink>
                         </div>
                         <div class="lg:col-span-6 mt-12 lg:mt-0 text-sm lg:text-base max-w-full relative">
-                            <div class="relative">
+                            <div class="relative code-snippet-shadow">
                                 <HomeCodeSnippets />
                             </div>
                         </div>
@@ -333,7 +333,22 @@ const reviews = [
 </script>
 
 <style>
+.homepage-hero-grid {
+    height: 540px;
+    pointer-events: none;
+}
+
+.homepage-hero-grid > svg {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1600px;
+    max-width: none;
+    height: 692px;
+}
+
 .code-snippet-shadow {
-    box-shadow: 15px -15px 30px 40px rgb(199 146 234 / 20%);
+    box-shadow: 72px -12px 160px rgb(146 119 255 / 12%);
 }
 </style>
