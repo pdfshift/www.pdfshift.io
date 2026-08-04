@@ -184,6 +184,7 @@
                     </div>
                 </div>
                 <div class="bg-gradient-to-bl from-purple-100 to-purple-100 via-white">
+                    <HomeAgents />
                     <div class="container">
                         <HomePricing />
                         <HomeFAQ />
