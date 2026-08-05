@@ -123,22 +123,14 @@
                 </div>
             </section>
 
-            <div class="relative z-[1] mx-auto h-10 w-[min(820px,64vw)] bg-[linear-gradient(183deg,#dacfff_0%,#fbfaff_100%)]" aria-hidden="true"></div>
-
-            <section class="bottom-cta-artwork relative z-[3] mx-auto flex h-auto min-h-[390px] w-[min(1029px,calc(100%-32px))] items-start justify-center overflow-hidden rounded-[20px] px-6 py-16 text-center text-white md:h-[358px] md:min-h-0 md:rounded-[30px] md:px-0 md:pb-0 md:pt-[82px]" aria-labelledby="bottom-cta-title">
-                <div class="relative z-[1]">
-                    <h2 id="bottom-cta-title" class="text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:text-[36px]">Start <span class="text-purple-400">Automating</span> today</h2>
-                    <p class="mt-[9px] text-[21px] font-light leading-[1.42]">Get your free API key and start converting<br />HTML to PDF in your workflows</p>
-                    <div class="mt-9 flex flex-col items-center justify-center gap-3 md:flex-row">
-                        <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px [&_svg]:size-6" to="/register">
-                            Get your Free API key <IconsArrowRight />
-                        </NuxtLink>
-                        <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 py-1 text-base font-medium leading-10 text-purple transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px [&_svg]:size-6" to="https://docs.pdfshift.io">
-                            Read the Documentation <IconsArrowRight />
-                        </NuxtLink>
-                    </div>
-                </div>
-            </section>
+            <AgentsBottomCta
+                bridge
+                compact
+                title="Start"
+                highlight="Automating"
+                suffix="today"
+                description="Get your free API key and start converting HTML to PDF in your workflows"
+            />
         </main>
 
         <footer class="relative z-[2] -mt-14 min-h-[524px] bg-[#011552] px-6 pb-16 pt-28 text-center text-white md:-mt-[94px] md:pt-[140px] md:text-left">
@@ -338,31 +330,6 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 
 .steps-grid-artwork::before {
     display: none;
-}
-
-.bottom-cta-artwork {
-    background-color: #4b2b9c;
-    background-image:
-        linear-gradient(110deg, rgba(108, 71, 255, 0.78) 0%, rgba(92, 57, 209, 0.78) 58%, rgba(60, 38, 142, 0.9) 100%),
-        url('/images/agents/hero-grid.svg');
-    background-position: center;
-    background-size: cover, 111.76% 168.34%;
-}
-
-.bottom-cta-artwork::before {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(110deg, #6541e9 0%, #5836c5 58%, #3e278f 100%);
-    content: '';
-    pointer-events: none;
-    -webkit-mask-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 4%, transparent 16%),
-        linear-gradient(to right, transparent 56%, rgba(0, 0, 0, 0.2) 68%, rgba(0, 0, 0, 0.72) 88%, #000 100%),
-        radial-gradient(ellipse 34% 42% at 0% 100%, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 46%, transparent 100%);
-    mask-image:
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 4%, transparent 16%),
-        linear-gradient(to right, transparent 56%, rgba(0, 0, 0, 0.2) 68%, rgba(0, 0, 0, 0.72) 88%, #000 100%),
-        radial-gradient(ellipse 34% 42% at 0% 100%, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 46%, transparent 100%);
 }
 
 .footer-brand-divider::after {
