@@ -118,47 +118,16 @@
                 </div>
             </section>
 
-            <div class="cta-bridge" aria-hidden="true"></div>
-
-            <section class="bottom-cta" aria-labelledby="bottom-cta-title">
-                <div>
-                    <h2 id="bottom-cta-title">Start <span>Automating</span> today</h2>
-                    <p>Get your free API key and start converting<br />HTML to PDF in your workflows</p>
-                    <div class="bottom-cta-actions">
-                        <NuxtLink class="agents-button agents-button-primary" to="/register">
-                            Get your Free API key <IconsArrowRight />
-                        </NuxtLink>
-                        <NuxtLink class="agents-button agents-button-light" to="https://docs.pdfshift.io">
-                            Read the Documentation <IconsArrowRight />
-                        </NuxtLink>
-                    </div>
-                </div>
-            </section>
+            <AgentsBottomCta
+                bridge
+                title="Start"
+                highlight="Automating"
+                suffix="today"
+                description="Get your free API key and start converting HTML to PDF in your workflows"
+            />
         </main>
 
-        <footer class="agents-footer">
-            <div class="agents-footer-grid">
-                <div class="footer-brand">
-                    <NuxtLink to="/" class="footer-logo" title="Go to the home page">
-                        <IconsLogo />
-                    </NuxtLink>
-                    <div class="footer-socials">
-                        <NuxtLink to="https://twitter.com/pdfshift" title="View our X profile"><LogosX /></NuxtLink>
-                        <NuxtLink to="https://linkedin.com/company/pdfshift" title="View our LinkedIn profile"><LogosLinkedin /></NuxtLink>
-                    </div>
-                    <p>© 2023 PDFShift.</p>
-                </div>
-
-                <div v-for="column in footerColumns" :key="column.title" class="footer-column">
-                    <h2>{{ column.title }}</h2>
-                    <ul>
-                        <li v-for="link in column.links" :key="link.label">
-                            <NuxtLink :to="link.href">{{ link.label }}</NuxtLink>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+        <AgentsPageFooter />
     </div>
 </template>
 
@@ -194,7 +163,7 @@ const features = [
 ]
 
 const integrations = [
-    { name: 'N8N', icon: '/images/agents/n8n.svg', iconClass: 'n8n-icon', href: '/guides/' },
+    { name: 'N8N', icon: '/images/agents/n8n.svg', iconClass: 'n8n-icon', href: '/agents/n8n' },
     { name: 'Zapier', icon: '/images/agents/zapier.png', iconClass: 'zapier-icon', href: '/guides/' },
     { name: 'Make', icon: '/images/agents/make.svg', iconClass: 'make-icon', href: '/guides/' },
     { name: 'MCP', short: 'MCP', iconClass: 'mcp-icon', href: 'https://docs.pdfshift.io' },
@@ -234,39 +203,6 @@ const resources = [
         imageAlt: 'PDFShift language guides preview',
         cta: 'Browse Guides',
         href: '/guides/',
-    },
-]
-
-const footerColumns = [
-    {
-        title: 'Company Details',
-        links: [
-            { label: 'Contact Us', href: '/contact' },
-            { label: 'Term of services', href: '/legal/terms' },
-            { label: 'GRPR', href: '/legal/gdpr' },
-            { label: 'HIPAA - BAA', href: '/legal/hipaa' },
-        ],
-    },
-    {
-        title: 'Product',
-        links: [
-            { label: 'Features', href: '/#features' },
-            { label: 'Pricing', href: '/pricing' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Documentation', href: 'https://docs.pdfshift.io' },
-            { label: 'Playground', href: 'https://playground.pdfshift.io' },
-            { label: 'Status Page', href: 'https://status.pdfshift.io' },
-        ],
-    },
-    {
-        title: 'Guides',
-        links: [
-            { label: 'Node.js Guide', href: '/guides/node/' },
-            { label: 'Node.js Guide', href: '/guides/node/' },
-            { label: 'Python Guide', href: '/guides/python/' },
-            { label: 'Ruby Guide', href: '/guides/ruby/' },
-            { label: 'All our Guide', href: '/guides/' },
-        ],
     },
 ]
 
@@ -343,8 +279,7 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 }
 
 .agents-hero h1 span,
-.section-title span,
-.bottom-cta h2 span {
+.section-title span {
     color: var(--purple-secondary);
 }
 
@@ -795,60 +730,6 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     left: 32px;
 }
 
-.cta-bridge {
-    position: relative;
-    z-index: 1;
-    width: min(820px, 52vw);
-    height: 40px;
-    margin: 0 auto;
-    background: linear-gradient(90deg, rgba(243, 239, 255, 0.2), #ded5ff 50%, rgba(243, 239, 255, 0.2));
-}
-
-.bottom-cta {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    width: min(1029px, calc(100% - 32px));
-    height: 358px;
-    margin: 0 auto;
-    align-items: flex-start;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 30px;
-    padding-top: 82px;
-    background-color: #4b2b9c;
-    background-image: linear-gradient(110deg, rgba(108, 71, 255, 0.84), rgba(60, 38, 142, 0.88)), url('/images/agents/hero-grid.svg');
-    background-position: center;
-    background-size: cover;
-    color: white;
-    text-align: center;
-}
-
-.bottom-cta h2 {
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 1.12;
-    letter-spacing: -0.36px;
-}
-
-.bottom-cta h2 span {
-    color: var(--purple-mid);
-}
-
-.bottom-cta p {
-    margin-top: 9px;
-    font-size: 21px;
-    font-weight: 300;
-    line-height: 1.42;
-}
-
-.bottom-cta-actions {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 36px;
-}
-
 .agents-footer {
     position: relative;
     z-index: 2;
@@ -1068,26 +949,6 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
         width: 302px;
         max-width: 100%;
         margin: 0 auto;
-    }
-
-    .cta-bridge {
-        width: 55%;
-    }
-
-    .bottom-cta {
-        height: auto;
-        min-height: 390px;
-        border-radius: 20px;
-        padding: 64px 24px;
-    }
-
-    .bottom-cta h2 {
-        font-size: 30px;
-    }
-
-    .bottom-cta-actions {
-        flex-direction: column;
-        align-items: center;
     }
 
     .agents-footer {
