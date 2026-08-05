@@ -47,7 +47,7 @@
                         <li>
                             <h3 class="text-lg font-normal leading-[30.6px] tracking-[-0.18px]">1. PDFShift API Key</h3>
                             <p class="text-lg font-normal leading-[30.6px] tracking-[-0.18px]">You’ll need an API key from PDFShift. If you don’t have one yet:</p>
-                            <NuxtLink class="mt-[13px] inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition duration-200 hover:-translate-y-px hover:bg-[#011552] [&_svg]:h-6 [&_svg]:w-6" to="/register">Register for Free <IconsArrowRight /></NuxtLink>
+                            <Button class="mt-[13px]" to="/register" :arrow="true">Register for Free</Button>
                         </li>
                         <li class="mt-10">
                             <h3 class="text-lg font-normal leading-[30.6px] tracking-[-0.18px]">2. N8N Account or Installation</h3>
@@ -125,9 +125,7 @@
                     <article v-for="resource in resources" :key="resource.title" class="flex min-h-[260px] flex-col items-start rounded-xl border border-purple-400 bg-white px-10 py-8 shadow-[0_8px_24px_4px_rgba(108,71,255,0.1)] md:min-h-[249px] md:py-[31px]">
                         <h3 class="text-2xl font-medium leading-[26.88px] tracking-[-0.24px]">{{ resource.title }}</h3>
                         <p class="mt-8 text-base font-light leading-[22.72px]">{{ resource.description }}</p>
-                        <NuxtLink class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition duration-200 hover:-translate-y-px hover:bg-[#011552] [&_svg]:h-6 [&_svg]:w-6" :to="resource.href">
-                            {{ resource.cta }} <IconsArrowRight />
-                        </NuxtLink>
+                        <Button class="mt-8" :to="resource.href" :arrow="true">{{ resource.cta }}</Button>
                     </article>
                 </div>
             </section>

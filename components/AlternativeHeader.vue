@@ -14,7 +14,7 @@
 
         <div class="absolute right-0 top-[3px] hidden h-12 items-center gap-[34px] lg:flex">
             <NuxtLink class="hover:underline" to="https://app.pdfshift.io">Login</NuxtLink>
-            <NuxtLink class="flex h-12 w-[145px] items-center justify-center rounded-lg bg-purple text-base font-medium text-white transition-transform duration-200 hover:-translate-y-px" to="/register">Register</NuxtLink>
+            <Button class="h-12 w-[145px]" to="/register">Register</Button>
         </div>
 
         <button class="absolute right-0 top-[15px] size-6 cursor-pointer text-[#011552] lg:hidden" type="button" aria-label="Menu" @click="toggleMenu">

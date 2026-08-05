@@ -11,10 +11,7 @@
                     <p class="mx-auto mt-7 max-w-[779px] text-lg font-light leading-[1.42] tracking-[-0.21px] md:text-[21px]">
                         Both are HTML-to-PDF APIs powered by Chromium, but PDFShift.dev is a complete platform with template editing, variable injection, and generation logs. PDFShift is a lightweight conversion pipe.
                     </p>
-                    <NuxtLink class="mt-8 inline-flex h-12 w-[241px] items-center justify-center gap-2 rounded-lg bg-purple text-base font-medium leading-10 text-white transition-transform duration-200 hover:-translate-y-px [&_svg]:size-6" to="#comparison">
-                        Explore Integrations
-                        <IconsArrowRight class="rotate-90" />
-                    </NuxtLink>
+                    <Button class="mt-8 h-12" to="#comparison" :arrow-down="true">Explore Integrations</Button>
                 </div>
             </section>
 
@@ -47,14 +44,40 @@
                     </p>
                 </div>
 
-                <div class="mt-[56px] overflow-x-auto px-4 pb-1">
-                    <div class="mx-auto min-w-[820px] max-w-[820px]">
+                <div class="mt-[56px] px-4 lg:hidden">
+                    <article v-for="(row, index) in comparisonRows" :key="`${row.feature}-${index}`" class="border-b border-gray-200 py-5 first:border-t first:border-[#011552]">
+                        <h3 class="text-base font-medium leading-[1.42]">{{ row.feature }}</h3>
+
+                        <div class="mt-3 grid grid-cols-2 gap-3">
+                            <div class="min-w-0 rounded-lg bg-purple-100/50 p-3">
+                                <p class="text-xs font-medium uppercase tracking-[-0.12px]">PDFShift</p>
+                                <div class="mt-2 flex items-start gap-2 text-sm font-light leading-[1.42]">
+                                    <span v-if="row.pdfshift.available" class="block size-5 shrink-0 text-purple"><IconsTickFull /></span>
+                                    <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-white text-purple"><IconsCross class="size-[14px]" /></span>
+                                    <span class="min-w-0 break-words">{{ row.pdfshift.label }}</span>
+                                </div>
+                            </div>
+
+                            <div class="min-w-0 rounded-lg border border-gray-200 p-3">
+                                <p class="text-xs font-medium uppercase tracking-[-0.12px]">PDF4.dev</p>
+                                <div class="mt-2 flex items-start gap-2 text-sm font-light leading-[1.42]">
+                                    <span v-if="row.pdf4.available" class="block size-5 shrink-0 text-purple"><IconsTickFull /></span>
+                                    <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple"><IconsCross class="size-[14px]" /></span>
+                                    <span class="min-w-0 break-words">{{ row.pdf4.label }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mt-[56px] hidden px-4 lg:block">
+                    <div class="mx-auto max-w-[820px]">
                         <div class="grid h-7 grid-cols-[395px_229px_196px] items-center border-b border-[#011552] text-sm font-medium uppercase tracking-[-0.14px]">
                             <div>Feature</div>
                             <div>PDFShift</div>
                             <div>PDF4.dev</div>
                         </div>
-                        <div v-for="row in comparisonRows" :key="row.feature" class="grid h-[45px] grid-cols-[395px_229px_196px] items-center border-b border-gray-200 font-light leading-[1.42]">
+                        <div v-for="(row, index) in comparisonRows" :key="`${row.feature}-${index}`" class="grid h-[45px] grid-cols-[395px_229px_196px] items-center border-b border-gray-200 font-light leading-[1.42]">
                             <div class="text-base">{{ row.feature }}</div>
                             <div class="flex items-center gap-3 text-sm">
                                 <span v-if="row.pdfshift.available" class="block size-5 shrink-0 text-purple"><IconsTickFull /></span>
@@ -78,7 +101,6 @@
 
             <AgentsBottomCta
                 class="mt-[61px]"
-                compact
                 title="Ready to switch?"
                 description="Create your free PDFShift account and start automating PDF generation in no time"
                 title-id="switch-title"

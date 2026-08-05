@@ -11,10 +11,7 @@
                     <p class="mx-auto mb-8 mt-7 w-[475px] max-w-full text-lg font-light leading-[1.42] tracking-[-0.21px] md:mt-[25px] md:text-[21px]">
                         Powerful PDF generation for your automated workflows. Convert HTML to PDF seamlessly in your favorite automation tools and AI agents.
                     </p>
-                    <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px [&_svg]:size-6" to="#integrations">
-                        Explore Integrations
-                        <IconsArrowRight class="rotate-90" />
-                    </NuxtLink>
+                    <Button to="#integrations" :arrow-down="true">Explore Integrations</Button>
                 </div>
             </section>
 
@@ -114,9 +111,7 @@
                                 <div class="static mt-6 aspect-[236/162] h-auto w-[236px] rounded-lg border border-purple-400 bg-purple-100 md:absolute md:left-8 md:top-[161px] md:mt-0 md:h-[162px]">
                                     <img class="block h-auto w-full" :src="resource.image" :alt="resource.imageAlt" />
                                 </div>
-                                <NuxtLink class="static mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px md:absolute md:bottom-[33px] md:left-8 md:mt-0 [&_svg]:size-6" :to="resource.href">
-                                    {{ resource.cta }} <IconsArrowRight />
-                                </NuxtLink>
+                                <Button class="static mt-6 md:absolute md:bottom-[33px] md:left-8 md:mt-0" :to="resource.href" :arrow="true">{{ resource.cta }}</Button>
                             </article>
                         </div>
                     </div>
@@ -125,7 +120,6 @@
 
             <AgentsBottomCta
                 bridge
-                compact
                 title="Start"
                 highlight="Automating"
                 suffix="today"
