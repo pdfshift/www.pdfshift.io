@@ -21,7 +21,7 @@
                     <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition duration-200 hover:-translate-y-px [&_svg]:h-6 [&_svg]:w-6" :to="primaryHref">
                         {{ primaryLabel }} <IconsArrowRight />
                     </NuxtLink>
-                    <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 py-1 text-base font-medium leading-10 text-purple transition duration-200 hover:-translate-y-px [&_svg]:h-6 [&_svg]:w-6" :to="secondaryHref">
+                    <NuxtLink v-if="showSecondary" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 py-1 text-base font-medium leading-10 text-purple transition duration-200 hover:-translate-y-px [&_svg]:h-6 [&_svg]:w-6" :to="secondaryHref">
                         {{ secondaryLabel }} <IconsArrowRight />
                     </NuxtLink>
                 </div>
@@ -67,6 +67,10 @@ defineProps({
     primaryHref: {
         type: String,
         default: '/register',
+    },
+    showSecondary: {
+        type: Boolean,
+        default: true,
     },
     secondaryLabel: {
         type: String,
