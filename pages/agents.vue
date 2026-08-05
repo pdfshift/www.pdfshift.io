@@ -1,120 +1,120 @@
 <template>
-    <div class="agents-page">
+    <div class="min-w-[320px] overflow-hidden bg-white text-[#011552]">
         <Header :fixed="true" />
 
-        <main class="agents-main">
-            <section class="agents-hero" aria-labelledby="agents-title">
-                <div class="agents-hero-copy">
-                    <h1 id="agents-title">
-                        PDFSHIFT for <span>AI Agents<br />&amp; Automation Tools</span>
+        <main class="pt-[104px] md:pt-[132px] xl:pt-[183px]">
+            <section class="agents-hero-artwork relative mx-auto h-[560px] w-[min(1281px,calc(100%-32px))] overflow-hidden rounded-[20px] bg-[#011552] text-white md:h-[547px] md:rounded-[30px]" aria-labelledby="agents-title">
+                <div class="absolute left-1/2 top-[92px] z-[1] w-[552px] max-w-[calc(100%-32px)] -translate-x-1/2 text-center md:top-[122px]">
+                    <h1 id="agents-title" class="text-4xl font-normal !leading-[1.12] md:text-[48px]">
+                        PDFSHIFT for <span class="block text-purple-500 md:inline">AI Agents<br />&amp; Automation Tools</span>
                     </h1>
-                    <p>
+                    <p class="mx-auto mb-8 mt-7 w-[475px] max-w-full text-lg font-light leading-[1.42] tracking-[-0.21px] md:mt-[25px] md:text-[21px]">
                         Powerful PDF generation for your automated workflows. Convert HTML to PDF seamlessly in your favorite automation tools and AI agents.
                     </p>
-                    <NuxtLink class="agents-button agents-button-primary" to="#integrations">
+                    <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px [&_svg]:size-6" to="#integrations">
                         Explore Integrations
                         <IconsArrowRight class="rotate-90" />
                     </NuxtLink>
                 </div>
             </section>
 
-            <section class="why-section" aria-labelledby="why-title">
-                <h2 id="why-title" class="section-title">
-                    Why Choose <span>PDFShift</span> for Automation
+            <section class="py-16 md:pb-20 md:pt-[73px]" aria-labelledby="why-title">
+                <h2 id="why-title" class="px-4 text-center text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:px-0 md:text-[36px]">
+                    Why Choose <span class="text-purple-500">PDFShift</span> for Automation
                 </h2>
-                <div class="feature-grid">
-                    <article v-for="feature in features" :key="feature.title" class="feature-card">
-                        <div class="feature-card-inner">
-                            <span class="feature-icon" aria-hidden="true">
+                <div class="mx-auto mt-12 grid w-[min(1192px,calc(100%-32px))] grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+                    <article v-for="feature in features" :key="feature.title" class="h-auto rounded-2xl border border-purple-500 bg-[radial-gradient(circle_at_0_0,rgba(214,199,255,0.1),rgba(132,99,255,0.15)_50%,rgba(51,0,255,0.2))] p-[11px] md:h-[280px] xl:h-80">
+                        <div class="flex h-full flex-col rounded-lg border border-purple-500 bg-white px-[23px] pb-5 pt-[22px]">
+                            <span class="block size-[41px] text-purple-500 [&_svg]:size-[41px]" aria-hidden="true">
                                 <component :is="feature.icon" />
                             </span>
-                            <div class="feature-copy">
-                                <h3>{{ feature.title }}</h3>
-                                <p>{{ feature.description }}</p>
+                            <div class="mt-8 md:mt-[42px] xl:mt-[84px]">
+                                <h3 class="text-[21px] font-medium leading-none tracking-[-0.21px]">{{ feature.title }}</h3>
+                                <p class="mt-[13px] text-base font-light leading-[1.42]">{{ feature.description }}</p>
                             </div>
                         </div>
                     </article>
                 </div>
             </section>
 
-            <section id="integrations" class="integrations-section" aria-labelledby="integrations-title">
-                <div class="integrations-inner">
-                    <h2 id="integrations-title" class="section-title section-title-light">
-                        Popular <span>Integrations</span> for PDFShift
+            <section id="integrations" class="integrations-artwork relative h-auto overflow-hidden pb-20 text-white xl:h-[1026px] xl:pb-0" aria-labelledby="integrations-title">
+                <div class="relative z-[1] pt-16 md:pt-[79px]">
+                    <h2 id="integrations-title" class="px-4 text-center text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:px-0 md:text-[36px]">
+                        Popular <span class="text-purple-500">Integrations</span> for PDFShift
                     </h2>
-                    <p class="section-intro section-intro-light">
+                    <p class="mt-6 px-6 text-center text-base !font-normal !leading-[1.7] tracking-[-0.18px] md:px-0 md:text-lg">
                         Connect PDFShift with your favorite tools and start automating PDF generation today
                     </p>
 
-                    <div class="integration-grid">
-                        <article v-for="integration in integrations" :key="integration.name" class="integration-card">
-                            <div class="integration-heading">
-                                <div class="integration-icon" :class="integration.iconClass">
-                                    <img v-if="integration.icon" :src="integration.icon" alt="" />
+                    <div class="mx-auto mt-12 grid w-[min(1004px,calc(100%-32px))] grid-cols-1 gap-4 md:mt-[49px] md:grid-cols-2 xl:grid-cols-3">
+                        <article v-for="integration in integrations" :key="integration.name" class="relative h-auto rounded-xl border border-purple bg-[radial-gradient(circle_at_0_0,rgba(214,199,255,0.1),rgba(132,99,255,0.15)_50%,rgba(51,0,255,0.2))] px-6 py-[23px] md:h-[221px]">
+                            <div class="flex items-center gap-4">
+                                <div class="flex size-[50px] flex-none items-center justify-center overflow-hidden rounded" :class="integration.iconClass">
+                                    <img v-if="integration.icon" class="size-full object-cover" :src="integration.icon" alt="" />
                                     <span v-else>{{ integration.short }}</span>
                                 </div>
-                                <h3>{{ integration.name }}</h3>
+                                <h3 class="text-2xl font-medium !leading-[1.12] tracking-[-0.24px]">{{ integration.name }}</h3>
                             </div>
-                            <p>Create Zaps that automatically generate PDFs from your triggers and data</p>
-                            <NuxtLink class="learn-link" :to="integration.href">
+                            <p class="mt-[18px] text-base font-light leading-[1.42]">Create Zaps that automatically generate PDFs from your triggers and data</p>
+                            <NuxtLink class="static mt-5 flex w-fit items-center gap-1 text-base font-light leading-[1.42] text-purple-400 md:absolute md:bottom-5 md:left-6 md:mt-0 md:inline-flex [&_svg]:size-6" :to="integration.href">
                                 Learn more <IconsArrowRight />
                             </NuxtLink>
                         </article>
 
-                        <NuxtLink class="integration-card suggestion-card" to="/contact">
-                            <svg class="suggestion-card-border" aria-hidden="true">
-                                <rect />
+                        <NuxtLink class="relative flex h-auto flex-col items-center justify-center rounded-xl border-purple px-6 py-[23px] text-center text-purple-400 md:h-[221px]" to="/contact">
+                            <svg class="pointer-events-none absolute inset-0 size-full overflow-visible" aria-hidden="true">
+                                <rect width="calc(100% - 1px)" height="calc(100% - 1px)" x="0.5" y="0.5" rx="12" fill="none" stroke="currentColor" stroke-dasharray="8 8" stroke-width="1" vector-effect="non-scaling-stroke" />
                             </svg>
-                            <h3>Suggest an integration</h3>
-                            <p>Got any interesting integration in mind and can’t find it in the list above? Suggest yours here</p>
+                            <h3 class="text-[21px] font-medium">Suggest an integration</h3>
+                            <p class="mt-[14px] w-[275px] max-w-full text-base font-light leading-[1.42]">Got any interesting integration in mind and can’t find it in the list above? Suggest yours here</p>
                         </NuxtLink>
                     </div>
                 </div>
             </section>
 
-            <section class="build-section" aria-labelledby="build-title">
-                <div class="build-shell">
-                    <div class="title-block build-title-block">
-                        <h2 id="build-title" class="section-title">What you can <span>Build</span></h2>
-                        <p class="section-intro">Real-world use cases for automated PDF generation</p>
+            <section class="bg-white pb-[70px]" aria-labelledby="build-title">
+                <div class="build-shell-artwork relative mx-auto h-auto w-[min(1280px,100%)] bg-purple-100 pb-[180px] xl:h-[2052px] xl:pb-0">
+                    <div class="mx-auto w-[491px] max-w-[calc(100%-32px)] pt-20 text-center md:pt-[95px]">
+                        <h2 id="build-title" class="px-4 text-center text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:px-0 md:text-[36px]">What you can <span class="text-purple-500">Build</span></h2>
+                        <p class="mt-6 px-6 text-center text-base font-normal !leading-[1.7] tracking-[-0.18px] md:px-0 md:text-lg">Real-world use cases for automated PDF generation</p>
                     </div>
 
-                    <div class="use-case-grid">
-                        <article v-for="useCase in useCases" :key="useCase.title" class="small-card">
-                            <div>
-                                <h3>{{ useCase.title }}</h3>
-                                <p>{{ useCase.description }}</p>
+                    <div class="mx-auto mt-[54px] grid w-[min(900px,calc(100%-32px))] grid-cols-1 gap-6 md:grid-cols-3">
+                        <article v-for="useCase in useCases" :key="useCase.title" class="h-auto rounded-2xl border border-purple-500 bg-[radial-gradient(circle_at_0_0,rgba(214,199,255,0.1),rgba(132,99,255,0.15)_50%,rgba(51,0,255,0.2))] p-[9px] md:h-[190px]">
+                            <div class="h-full rounded-xl border border-purple-500 bg-white px-[25px] py-[26px]">
+                                <h3 class="text-[21px] font-medium leading-none tracking-[-0.21px]">{{ useCase.title }}</h3>
+                                <p class="mt-3 text-base font-light leading-[1.42]">{{ useCase.description }}</p>
                             </div>
                         </article>
                     </div>
 
-                    <div class="how-card">
-                        <h2 class="section-title">How it works</h2>
-                        <div class="steps-grid">
-                            <article v-for="(step, index) in steps" :key="step.title" class="step-card">
-                                <span class="step-number">{{ index + 1 }}</span>
-                                <h3>{{ step.title }}</h3>
-                                <p>{{ step.description }}</p>
+                    <div class="mx-auto mt-20 h-auto w-[min(927px,calc(100%-32px))] rounded-2xl border border-purple-500 bg-[linear-gradient(159deg,#e8e4ff_0%,#fff_39%,#e8e4ff_98%)] py-10 md:mt-[113px] md:h-[367px] md:pb-0 md:pt-[41px]">
+                        <h2 class="px-4 text-center text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:px-0 md:text-[36px]">How it works</h2>
+                        <div class="steps-grid-artwork relative mx-auto mt-10 grid w-[819px] max-w-[calc(100%-32px)] grid-cols-1 gap-6 md:mt-[33px] md:grid-cols-3 md:gap-[63px]">
+                            <article v-for="(step, index) in steps" :key="step.title" class="relative z-[1] h-auto rounded-[5px] border border-purple-400 bg-white px-4 pb-[18px] pt-20 md:h-[221px]">
+                                <span class="absolute left-3 top-3 flex size-8 items-center justify-center rounded-full bg-purple-500 text-[21px] font-normal text-white">{{ index + 1 }}</span>
+                                <h3 class="text-[21px] font-medium leading-none tracking-[-0.21px]">{{ step.title }}</h3>
+                                <p class="mt-[13px] text-base font-light leading-[1.42]">{{ step.description }}</p>
                             </article>
                         </div>
                     </div>
 
-                    <div class="resources-block">
-                        <div class="title-block resources-title-block">
-                            <h2 class="section-title">Developer <span>Resources</span></h2>
-                            <p class="section-intro">
+                    <div class="mt-20 md:mt-24 xl:mt-28">
+                        <div class="mx-auto w-[491px] max-w-[calc(100%-32px)] text-center">
+                            <h2 class="px-4 text-center text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:px-0 md:text-[36px]">Developer <span class="text-purple-500">Resources</span></h2>
+                            <p class="mt-6 px-6 text-center text-base font-normal !leading-[1.7] tracking-[-0.18px] md:px-0 md:text-lg">
                                 Read through our existing documentation and guides to speed-up your installation process with your agents and our integrations with your favorite tools
                             </p>
                         </div>
 
-                        <div class="resource-grid">
-                            <article v-for="resource in resources" :key="resource.title" class="resource-card">
-                                <h3>{{ resource.title }}</h3>
-                                <p>{{ resource.description }}</p>
-                                <div class="resource-illustration">
-                                    <img :src="resource.image" :alt="resource.imageAlt" />
+                        <div class="mx-auto mt-[58px] grid w-[636px] max-w-[calc(100%-32px)] grid-cols-1 gap-8 md:grid-cols-2">
+                            <article v-for="resource in resources" :key="resource.title" class="relative mx-auto h-auto w-[302px] max-w-full overflow-hidden rounded-2xl bg-purple-100 bg-[radial-gradient(circle_at_0_0,rgba(214,199,255,0.1),rgba(132,99,255,0.18)_50%,rgba(51,0,255,0.16))] px-8 pb-8 pt-[26px] shadow-[2px_-2px_8px_rgba(146,119,255,0.15)] md:mx-0 md:h-[436px] md:w-auto md:pb-[26px]">
+                                <h3 class="text-2xl font-medium !leading-[1.12] tracking-[-0.24px]">{{ resource.title }}</h3>
+                                <p class="mt-[11px] text-base font-light leading-[1.42]">{{ resource.description }}</p>
+                                <div class="static mt-6 aspect-[236/162] h-auto w-[236px] rounded-lg border border-purple-400 bg-purple-100 md:absolute md:left-8 md:top-[161px] md:mt-0 md:h-[162px]">
+                                    <img class="block h-auto w-full" :src="resource.image" :alt="resource.imageAlt" />
                                 </div>
-                                <NuxtLink class="agents-button agents-button-primary" :to="resource.href">
+                                <NuxtLink class="static mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px md:absolute md:bottom-[33px] md:left-8 md:mt-0 [&_svg]:size-6" :to="resource.href">
                                     {{ resource.cta }} <IconsArrowRight />
                                 </NuxtLink>
                             </article>
@@ -123,17 +123,17 @@
                 </div>
             </section>
 
-            <div class="cta-bridge" aria-hidden="true"></div>
+            <div class="relative z-[1] mx-auto h-10 w-[min(820px,64vw)] bg-[linear-gradient(183deg,#dacfff_0%,#fbfaff_100%)]" aria-hidden="true"></div>
 
-            <section class="bottom-cta" aria-labelledby="bottom-cta-title">
-                <div>
-                    <h2 id="bottom-cta-title">Start <span>Automating</span> today</h2>
-                    <p>Get your free API key and start converting<br />HTML to PDF in your workflows</p>
-                    <div class="bottom-cta-actions">
-                        <NuxtLink class="agents-button agents-button-primary" to="/register">
+            <section class="bottom-cta-artwork relative z-[3] mx-auto flex h-auto min-h-[390px] w-[min(1029px,calc(100%-32px))] items-start justify-center overflow-hidden rounded-[20px] px-6 py-16 text-center text-white md:h-[358px] md:min-h-0 md:rounded-[30px] md:px-0 md:pb-0 md:pt-[82px]" aria-labelledby="bottom-cta-title">
+                <div class="relative z-[1]">
+                    <h2 id="bottom-cta-title" class="text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:text-[36px]">Start <span class="text-purple-400">Automating</span> today</h2>
+                    <p class="mt-[9px] text-[21px] font-light leading-[1.42]">Get your free API key and start converting<br />HTML to PDF in your workflows</p>
+                    <div class="mt-9 flex flex-col items-center justify-center gap-3 md:flex-row">
+                        <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-purple px-6 py-1 text-base font-medium leading-10 text-white transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px [&_svg]:size-6" to="/register">
                             Get your Free API key <IconsArrowRight />
                         </NuxtLink>
-                        <NuxtLink class="agents-button agents-button-light" to="https://docs.pdfshift.io">
+                        <NuxtLink class="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-6 py-1 text-base font-medium leading-10 text-purple transition-[color,background-color,transform] duration-[180ms] ease-[ease] hover:-translate-y-px [&_svg]:size-6" to="https://docs.pdfshift.io">
                             Read the Documentation <IconsArrowRight />
                         </NuxtLink>
                     </div>
@@ -141,24 +141,24 @@
             </section>
         </main>
 
-        <footer class="agents-footer">
-            <div class="agents-footer-grid">
-                <div class="footer-brand">
-                    <NuxtLink to="/" class="footer-logo" title="Go to the home page">
+        <footer class="relative z-[2] -mt-14 min-h-[524px] bg-[#011552] px-6 pb-16 pt-28 text-center text-white md:-mt-[94px] md:pt-[140px] md:text-left">
+            <div class="mx-auto grid w-[min(1080px,100%)] grid-cols-1 md:grid-cols-[1.25fr_repeat(3,1fr)]">
+                <div class="footer-brand-divider relative min-h-0 pr-0 md:min-h-[280px] md:pr-[76px]">
+                    <NuxtLink to="/" class="mx-auto block w-[141px] md:mx-0" title="Go to the home page">
                         <IconsLogo />
                     </NuxtLink>
-                    <div class="footer-socials">
-                        <NuxtLink to="https://twitter.com/pdfshift" title="View our X profile"><LogosX /></NuxtLink>
-                        <NuxtLink to="https://linkedin.com/company/pdfshift" title="View our LinkedIn profile"><LogosLinkedin /></NuxtLink>
+                    <div class="mx-auto mt-[22px] flex justify-center gap-6 text-purple-400 md:mx-0 md:justify-start">
+                        <NuxtLink class="size-6 p-1" to="https://twitter.com/pdfshift" title="View our X profile"><LogosX /></NuxtLink>
+                        <NuxtLink class="size-6" to="https://linkedin.com/company/pdfshift" title="View our LinkedIn profile"><LogosLinkedin /></NuxtLink>
                     </div>
-                    <p>© 2023 PDFShift.</p>
+                    <p class="mt-[22px] text-[14px] font-light text-purple-400">© 2023 PDFShift.</p>
                 </div>
 
-                <div v-for="column in footerColumns" :key="column.title" class="footer-column">
-                    <h2>{{ column.title }}</h2>
-                    <ul>
-                        <li v-for="link in column.links" :key="link.label">
-                            <NuxtLink :to="link.href">{{ link.label }}</NuxtLink>
+                <div v-for="column in footerColumns" :key="column.title" class="mt-12 md:mt-0">
+                    <h2 class="text-[14px] font-normal uppercase">{{ column.title }}</h2>
+                    <ul class="mt-7">
+                        <li v-for="link in column.links" :key="link.label" class="text-[14px] font-light text-purple-400 [&+li]:mt-[17px]">
+                            <NuxtLink class="hover:underline" :to="link.href">{{ link.label }}</NuxtLink>
                         </li>
                     </ul>
                 </div>
@@ -199,13 +199,13 @@ const features = [
 ]
 
 const integrations = [
-    { name: 'N8N', icon: '/images/agents/n8n.svg', iconClass: 'n8n-icon', href: '/guides/' },
-    { name: 'Zapier', icon: '/images/agents/zapier.png', iconClass: 'zapier-icon', href: '/guides/' },
-    { name: 'Make', icon: '/images/agents/make.svg', iconClass: 'make-icon', href: '/guides/' },
-    { name: 'MCP', short: 'MCP', iconClass: 'mcp-icon', href: 'https://docs.pdfshift.io' },
-    { name: 'Clay', icon: '/images/agents/clay.png', iconClass: 'clay-icon', href: '/guides/' },
-    { name: 'Bubble', icon: '/images/agents/bubble.svg', iconClass: 'bubble-icon', href: '/guides/' },
-    { name: 'FlowMattic', icon: '/images/agents/flowmattic.png', iconClass: 'flowmattic-icon', href: '/guides/' },
+    { name: 'N8N', icon: '/images/agents/n8n.svg', href: '/guides/' },
+    { name: 'Zapier', icon: '/images/agents/zapier.png', href: '/guides/' },
+    { name: 'Make', icon: '/images/agents/make.svg', href: '/guides/' },
+    { name: 'MCP', short: 'MCP', iconClass: 'bg-[#0f172a] text-[13px] tracking-[-0.13px] text-purple-100', href: 'https://docs.pdfshift.io' },
+    { name: 'Clay', icon: '/images/agents/clay.png', iconClass: 'bg-[#191a1a] [&>img]:!h-[23px] [&>img]:!w-[30px]', href: '/guides/' },
+    { name: 'Bubble', icon: '/images/agents/bubble.svg', href: '/guides/' },
+    { name: 'FlowMattic', icon: '/images/agents/flowmattic.png', href: '/guides/' },
 ]
 
 const useCases = [
@@ -290,36 +290,7 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     overflow-x: hidden;
 }
 
-.agents-page {
-    --dark: #011552;
-    --purple: #6c47ff;
-    --purple-secondary: #9277ff;
-    --purple-mid: #c6b2ff;
-    --purple-light: #f3efff;
-    --cta-shelf-wedge: linear-gradient(183deg, #d5ccfd 0%, #f4f2ff 100%);
-    --cta-shelf-bridge: linear-gradient(183deg, #dacfff 0%, #fbfaff 100%);
-    min-width: 320px;
-    overflow: hidden;
-    background: #fff;
-    color: var(--dark);
-}
-
-.agents-main {
-    padding-top: 183px;
-}
-
-.agents-hero {
-    position: relative;
-    width: min(1281px, calc(100% - 32px));
-    height: 547px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 30px;
-    background-color: var(--dark);
-    color: white;
-}
-
-.agents-hero::before {
+.agents-hero-artwork::before {
     position: absolute;
     inset: 0;
     background-image: url('/images/agents/hero-grid.svg');
@@ -338,165 +309,13 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     opacity: 0.34;
 }
 
-.agents-hero-copy {
-    position: absolute;
-    top: 122px;
-    left: 50%;
-    width: 552px;
-    max-width: calc(100% - 32px);
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 1;
-}
-
-.agents-hero h1 {
-    font-size: 48px;
-    font-weight: 400;
-    line-height: 1.12;
-}
-
-.agents-hero h1 span,
-.section-title span,
-.bottom-cta h2 span {
-    color: var(--purple-secondary);
-}
-
-.agents-hero-copy > p {
-    width: 475px;
-    max-width: 100%;
-    margin: 25px auto 32px;
-    font-size: 21px;
-    font-weight: 300;
-    line-height: 1.42;
-    letter-spacing: -0.21px;
-}
-
-.agents-button {
-    display: inline-flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 8px;
-    padding: 4px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 40px;
-    transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
-}
-
-.agents-button:hover {
-    transform: translateY(-1px);
-}
-
-.agents-button :deep(svg),
-.learn-link :deep(svg) {
-    width: 24px;
-    height: 24px;
-}
-
-.agents-button-primary {
-    background: var(--purple);
-    color: white;
-}
-
-.agents-button-light {
-    background: white;
-    color: var(--purple);
-}
-
-.section-title {
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 1.12;
-    letter-spacing: -0.36px;
-    text-align: center;
-}
-
-.why-section {
-    padding-top: 73px;
-    padding-bottom: 80px;
-}
-
-.feature-grid {
-    display: grid;
-    width: min(1192px, calc(100% - 32px));
-    margin: 48px auto 0;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.feature-card,
-.small-card {
-    padding: 11px;
-    border: 1px solid var(--purple-secondary);
-    border-radius: 16px;
-    background: radial-gradient(circle at 0 0, rgba(214, 199, 255, 0.1), rgba(132, 99, 255, 0.15) 50%, rgba(51, 0, 255, 0.2));
-}
-
-.feature-card {
-    height: 320px;
-}
-
-.feature-card-inner,
-.small-card > div {
-    height: 100%;
-    border: 1px solid var(--purple-secondary);
-    border-radius: 8px;
-    background: white;
-}
-
-.feature-card-inner {
-    display: flex;
-    flex-direction: column;
-    padding: 22px 23px 20px;
-}
-
-.feature-icon {
-    display: block;
-    width: 41px;
-    height: 41px;
-    color: var(--purple-secondary);
-}
-
-.feature-icon :deep(svg) {
-    width: 41px;
-    height: 41px;
-}
-
-.feature-copy {
-    margin-top: 84px;
-}
-
-.feature-copy h3,
-.small-card h3,
-.step-card h3 {
-    font-size: 21px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -0.21px;
-}
-
-.feature-copy p,
-.small-card p,
-.step-card p {
-    margin-top: 13px;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.42;
-}
-
-.integrations-section {
-    position: relative;
-    height: 1026px;
-    overflow: hidden;
+.integrations-artwork {
     background:
         radial-gradient(ellipse 65% 80% at 0 0, rgba(108, 71, 255, 0.32) 0%, rgba(108, 71, 255, 0.16) 52%, transparent 100%),
         linear-gradient(110deg, #1a0e49 18%, #0c0129 97%);
-    color: white;
 }
 
-.integrations-section::before {
+.integrations-artwork::before {
     position: absolute;
     inset: 0;
     background-image: url('/images/agents/integrations-grid.svg');
@@ -506,373 +325,31 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     pointer-events: none;
 }
 
-.integrations-inner {
-    position: relative;
-    z-index: 1;
-    padding-top: 79px;
-}
-
-.section-title-light,
-.section-intro-light {
-    color: white;
-}
-
-.section-intro {
-    margin-top: 24px;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.7;
-    letter-spacing: -0.18px;
-    text-align: center;
-}
-
-.integrations-section .section-intro {
-    margin-top: 24px;
-}
-
-.integration-grid {
-    display: grid;
-    width: min(1004px, calc(100% - 32px));
-    margin: 49px auto 0;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.integration-card {
-    position: relative;
-    height: 221px;
-    border: 1px solid var(--purple);
-    border-radius: 12px;
-    padding: 23px 24px;
-    background: radial-gradient(circle at 0 0, rgba(214, 199, 255, 0.1), rgba(132, 99, 255, 0.15) 50%, rgba(51, 0, 255, 0.2));
-}
-
-.integration-heading {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.integration-heading h3 {
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 1.12;
-    letter-spacing: -0.24px;
-}
-
-.integration-icon {
-    display: flex;
-    width: 50px;
-    height: 50px;
-    flex: none;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-.integration-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.clay-icon {
-    background: #191a1a;
-}
-
-.clay-icon img {
-    width: 30px;
-    height: 23px;
-}
-
-.mcp-icon {
-    background: #0f172a;
-    color: var(--purple-light);
-    font-size: 13px;
-    letter-spacing: -0.13px;
-}
-
-.integration-card > p {
-    margin-top: 18px;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.42;
-}
-
-.learn-link {
+.build-shell-artwork::after {
     position: absolute;
-    bottom: 20px;
-    left: 24px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--purple-mid);
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.42;
-}
-
-.suggestion-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    background: transparent;
-    color: var(--purple-mid);
-    text-align: center;
-}
-
-.suggestion-card-border {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    pointer-events: none;
-}
-
-.suggestion-card-border rect {
-    width: calc(100% - 1px);
-    height: calc(100% - 1px);
-    x: 0.5px;
-    y: 0.5px;
-    rx: 12px;
-    fill: none;
-    stroke: currentColor;
-    stroke-dasharray: 8 8;
-    stroke-width: 1;
-    vector-effect: non-scaling-stroke;
-}
-
-.suggestion-card h3 {
-    font-size: 21px;
-    font-weight: 500;
-}
-
-.suggestion-card > p {
-    width: 275px;
-    max-width: 100%;
-    margin-top: 14px;
-}
-
-.build-section {
-    --cta-shelf-height: 70px;
-
-    padding-bottom: var(--cta-shelf-height);
-    background: white;
-}
-
-.build-shell {
-    position: relative;
-    width: min(1280px, 100%);
-    height: 2052px;
-    margin: 0 auto;
-    background: var(--purple-light);
-}
-
-.build-shell::after {
-    position: absolute;
-    bottom: calc(0px - var(--cta-shelf-height));
+    bottom: -70px;
     left: 0;
     width: 100%;
-    height: var(--cta-shelf-height);
-    background: var(--cta-shelf-wedge);
+    height: 70px;
+    background: linear-gradient(183deg, #d5ccfd 0%, #f4f2ff 100%);
     clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
     content: '';
 }
 
-.title-block {
-    width: 491px;
-    max-width: calc(100% - 32px);
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
+.steps-grid-artwork::before {
+    display: none;
 }
 
-.build-title-block {
-    padding-top: 95px;
-}
-
-.use-case-grid {
-    display: grid;
-    width: min(900px, calc(100% - 32px));
-    margin: 54px auto 0;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.small-card {
-    height: 190px;
-    padding: 9px;
-}
-
-.small-card > div {
-    border-radius: 12px;
-    padding: 26px 25px;
-}
-
-.small-card p {
-    margin-top: 12px;
-}
-
-.how-card {
-    width: min(927px, calc(100% - 32px));
-    height: 367px;
-    margin: 113px auto 0;
-    border: 1px solid var(--purple-secondary);
-    border-radius: 16px;
-    padding-top: 41px;
-    background: linear-gradient(159deg, #e8e4ff 0%, #fff 39%, #e8e4ff 98%);
-}
-
-.steps-grid {
-    position: relative;
-    display: grid;
-    width: 819px;
-    max-width: calc(100% - 32px);
-    margin: 33px auto 0;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 63px;
-}
-
-.steps-grid::before {
-    position: absolute;
-    top: 109px;
-    right: 0;
-    left: 0;
-    height: 2px;
-    background: repeating-linear-gradient(90deg, var(--purple-mid) 0 5px, transparent 5px 10px);
-    content: '';
-}
-
-.step-card {
-    position: relative;
-    z-index: 1;
-    height: 221px;
-    border: 1px solid var(--purple-mid);
-    border-radius: 5px;
-    padding: 80px 16px 18px;
-    background: white;
-}
-
-.step-number {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    display: flex;
-    width: 32px;
-    height: 32px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: var(--purple-secondary);
-    color: white;
-    font-size: 21px;
-    font-weight: 400;
-}
-
-.step-card p {
-    margin-top: 13px;
-}
-
-.resources-block {
-    margin-top: 112px;
-}
-
-.resources-title-block .section-intro {
-    margin-top: 24px;
-}
-
-.resource-grid {
-    display: grid;
-    width: 636px;
-    max-width: calc(100% - 32px);
-    margin: 58px auto 0;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
-}
-
-.resource-card {
-    position: relative;
-    height: 436px;
-    overflow: hidden;
-    border-radius: 16px;
-    padding: 26px 32px;
-    background: radial-gradient(circle at 0 0, rgba(214, 199, 255, 0.1), rgba(132, 99, 255, 0.18) 50%, rgba(51, 0, 255, 0.16)), var(--purple-light);
-    box-shadow: 2px -2px 8px rgba(146, 119, 255, 0.15);
-}
-
-.resource-card h3 {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.12;
-    letter-spacing: -0.24px;
-}
-
-.resource-card > p {
-    margin-top: 11px;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.42;
-}
-
-.resource-illustration {
-    position: absolute;
-    top: 161px;
-    left: 32px;
-    width: 236px;
-    height: 162px;
-    border: 1px solid var(--purple-mid);
-    border-radius: 8px;
-    background: var(--purple-light);
-}
-
-.resource-illustration > img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.resource-card .agents-button {
-    position: absolute;
-    bottom: 33px;
-    left: 32px;
-}
-
-.cta-bridge {
-    position: relative;
-    z-index: 1;
-    width: min(820px, 64vw);
-    height: 40px;
-    margin: 0 auto;
-    background: var(--cta-shelf-bridge);
-}
-
-.bottom-cta {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    width: min(1029px, calc(100% - 32px));
-    height: 358px;
-    margin: 0 auto;
-    align-items: flex-start;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 30px;
-    padding-top: 82px;
+.bottom-cta-artwork {
     background-color: #4b2b9c;
     background-image:
         linear-gradient(110deg, rgba(108, 71, 255, 0.78) 0%, rgba(92, 57, 209, 0.78) 58%, rgba(60, 38, 142, 0.9) 100%),
         url('/images/agents/hero-grid.svg');
     background-position: center;
     background-size: cover, 111.76% 168.34%;
-    color: white;
-    text-align: center;
 }
 
-.bottom-cta::before {
+.bottom-cta-artwork::before {
     position: absolute;
     inset: 0;
     background: linear-gradient(110deg, #6541e9 0%, #5836c5 58%, #3e278f 100%);
@@ -888,321 +365,31 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
         radial-gradient(ellipse 34% 42% at 0% 100%, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 46%, transparent 100%);
 }
 
-.bottom-cta > div {
-    position: relative;
-    z-index: 1;
+.footer-brand-divider::after {
+    display: none;
 }
 
-.bottom-cta h2 {
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 1.12;
-    letter-spacing: -0.36px;
-}
-
-.bottom-cta h2 span {
-    color: var(--purple-mid);
-}
-
-.bottom-cta p {
-    margin-top: 9px;
-    font-size: 21px;
-    font-weight: 300;
-    line-height: 1.42;
-}
-
-.bottom-cta-actions {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 36px;
-}
-
-.agents-footer {
-    position: relative;
-    z-index: 2;
-    min-height: 524px;
-    margin-top: -94px;
-    padding: 140px 24px 64px;
-    background: var(--dark);
-    color: white;
-}
-
-.agents-footer-grid {
-    display: grid;
-    width: min(1080px, 100%);
-    margin: 0 auto;
-    grid-template-columns: 1.25fr repeat(3, 1fr);
-}
-
-.footer-brand {
-    position: relative;
-    min-height: 280px;
-    padding-right: 76px;
-}
-
-.footer-brand::after {
-    position: absolute;
-    top: 0;
-    right: 34px;
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #444870 53%, transparent 96%);
-    content: '';
-}
-
-.footer-logo {
-    display: block;
-    width: 141px;
-}
-
-.footer-socials {
-    display: flex;
-    gap: 24px;
-    margin-top: 22px;
-    color: var(--purple-mid);
-}
-
-.footer-socials a:first-child {
-    width: 24px;
-    height: 24px;
-    padding: 4px;
-}
-
-.footer-socials a:last-child {
-    width: 24px;
-    height: 24px;
-}
-
-.footer-brand p,
-.footer-column li {
-    color: var(--purple-mid);
-    font-size: 14px;
-    font-weight: 300;
-}
-
-.footer-brand p {
-    margin-top: 22px;
-}
-
-.footer-column h2 {
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.footer-column ul {
-    margin-top: 28px;
-}
-
-.footer-column li + li {
-    margin-top: 17px;
-}
-
-.footer-column a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 1279px) {
-    .agents-main {
-        padding-top: 132px;
-    }
-
-    .feature-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .feature-card {
-        height: 280px;
-    }
-
-    .feature-copy {
-        margin-top: 42px;
-    }
-
-    .integrations-section,
-    .build-shell {
-        height: auto;
-    }
-
-    .integrations-section {
-        padding-bottom: 80px;
-    }
-
-    .integration-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .build-shell {
-        padding-bottom: 180px;
-    }
-
-    .resources-block {
-        margin-top: 96px;
-    }
-}
-
-@media (max-width: 767px) {
-    .agents-main {
-        padding-top: 104px;
-    }
-
-    .agents-hero {
-        height: 560px;
-        border-radius: 20px;
-    }
-
-    .agents-hero-copy {
-        top: 92px;
-    }
-
-    .agents-hero h1 {
-        font-size: 36px;
-    }
-
-    .agents-hero h1 span {
+@media (min-width: 768px) {
+    .steps-grid-artwork::before {
+        position: absolute;
+        top: 109px;
+        right: 0;
+        left: 0;
         display: block;
+        height: 2px;
+        background: repeating-linear-gradient(90deg, #c6b2ff 0 5px, transparent 5px 10px);
+        content: '';
     }
 
-    .agents-hero-copy > p {
-        margin-top: 28px;
-        font-size: 18px;
-    }
-
-    .section-title {
-        padding: 0 16px;
-        font-size: 30px;
-    }
-
-    .why-section {
-        padding-top: 64px;
-        padding-bottom: 64px;
-    }
-
-    .feature-grid,
-    .integration-grid,
-    .use-case-grid,
-    .resource-grid,
-    .agents-footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-card,
-    .integration-card,
-    .small-card,
-    .step-card,
-    .resource-card {
-        height: auto;
-    }
-
-    .feature-copy {
-        margin-top: 32px;
-    }
-
-    .integrations-inner {
-        padding-top: 64px;
-    }
-
-    .integrations-section .section-intro,
-    .section-intro {
-        padding: 0 24px;
-        font-size: 16px;
-    }
-
-    .integration-grid {
-        margin-top: 48px;
-    }
-
-    .integration-card .learn-link {
-        position: static;
-        display: flex;
-        width: fit-content;
-        margin-top: 20px;
-    }
-
-    .build-title-block {
-        padding-top: 80px;
-    }
-
-    .how-card {
-        height: auto;
-        margin-top: 80px;
-        padding: 40px 0;
-    }
-
-    .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 40px;
-    }
-
-    .steps-grid::before {
-        display: none;
-    }
-
-    .resources-block {
-        margin-top: 80px;
-    }
-
-    .resource-card {
-        width: 302px;
-        max-width: 100%;
-        margin: 0 auto;
-        padding-bottom: 32px;
-    }
-
-    .resource-illustration {
-        position: static;
-        height: auto;
-        margin-top: 24px;
-        aspect-ratio: 236 / 162;
-    }
-
-    .resource-card .agents-button {
-        position: static;
-        margin-top: 24px;
-    }
-
-    .bottom-cta {
-        height: auto;
-        min-height: 390px;
-        border-radius: 20px;
-        padding: 64px 24px;
-    }
-
-    .bottom-cta h2 {
-        font-size: 30px;
-    }
-
-    .bottom-cta-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .agents-footer {
-        margin-top: -56px;
-        padding-top: 112px;
-        text-align: center;
-    }
-
-    .footer-brand {
-        min-height: auto;
-        padding-right: 0;
-    }
-
-    .footer-brand::after {
-        display: none;
-    }
-
-    .footer-logo,
-    .footer-socials {
-        justify-content: center;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .footer-column {
-        margin-top: 48px;
+    .footer-brand-divider::after {
+        position: absolute;
+        top: 0;
+        right: 34px;
+        display: block;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #444870 53%, transparent 96%);
+        content: '';
     }
 }
 </style>
