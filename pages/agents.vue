@@ -111,7 +111,9 @@
                             <article v-for="resource in resources" :key="resource.title" class="resource-card">
                                 <h3>{{ resource.title }}</h3>
                                 <p>{{ resource.description }}</p>
-                                <img :src="resource.image" :alt="resource.imageAlt" />
+                                <div class="resource-illustration">
+                                    <img :src="resource.image" :alt="resource.imageAlt" />
+                                </div>
                                 <NuxtLink class="agents-button agents-button-primary" :to="resource.href">
                                     {{ resource.cta }} <IconsArrowRight />
                                 </NuxtLink>
@@ -294,6 +296,8 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     --purple-secondary: #9277ff;
     --purple-mid: #c6b2ff;
     --purple-light: #f3efff;
+    --cta-shelf-wedge: linear-gradient(183deg, #d5ccfd 0%, #f4f2ff 100%);
+    --cta-shelf-bridge: linear-gradient(183deg, #dacfff 0%, #fbfaff 100%);
     min-width: 320px;
     overflow: hidden;
     background: #fff;
@@ -486,7 +490,9 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     position: relative;
     height: 1026px;
     overflow: hidden;
-    background: linear-gradient(110deg, #1a0e49 18%, #0c0129 97%);
+    background:
+        radial-gradient(ellipse 65% 80% at 0 0, rgba(108, 71, 255, 0.32) 0%, rgba(108, 71, 255, 0.16) 52%, transparent 100%),
+        linear-gradient(110deg, #1a0e49 18%, #0c0129 97%);
     color: white;
 }
 
@@ -652,6 +658,9 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 }
 
 .build-section {
+    --cta-shelf-height: 70px;
+
+    padding-bottom: var(--cta-shelf-height);
     background: white;
 }
 
@@ -665,11 +674,11 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 
 .build-shell::after {
     position: absolute;
-    bottom: -70px;
+    bottom: calc(0px - var(--cta-shelf-height));
     left: 0;
     width: 100%;
-    height: 70px;
-    background: linear-gradient(90deg, #fff 0%, #ded5ff 50%, #fff 100%);
+    height: var(--cta-shelf-height);
+    background: var(--cta-shelf-wedge);
     clip-path: polygon(0 0, 100% 0, 82% 100%, 18% 100%);
     content: '';
 }
@@ -809,14 +818,21 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     line-height: 1.42;
 }
 
-.resource-card > img {
+.resource-illustration {
     position: absolute;
     top: 161px;
     left: 32px;
     width: 236px;
     height: 162px;
+    border: 1px solid var(--purple-mid);
+    border-radius: 8px;
+    background: var(--purple-light);
+}
+
+.resource-illustration > img {
+    width: 100%;
+    height: auto;
     display: block;
-    object-fit: contain;
 }
 
 .resource-card .agents-button {
@@ -828,10 +844,10 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 .cta-bridge {
     position: relative;
     z-index: 1;
-    width: min(820px, 52vw);
+    width: min(820px, 64vw);
     height: 40px;
     margin: 0 auto;
-    background: linear-gradient(90deg, rgba(243, 239, 255, 0.2), #ded5ff 50%, rgba(243, 239, 255, 0.2));
+    background: var(--cta-shelf-bridge);
 }
 
 .bottom-cta {
@@ -847,11 +863,34 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     border-radius: 30px;
     padding-top: 82px;
     background-color: #4b2b9c;
-    background-image: linear-gradient(110deg, rgba(108, 71, 255, 0.84), rgba(60, 38, 142, 0.88)), url('/images/agents/hero-grid.svg');
+    background-image:
+        linear-gradient(110deg, rgba(108, 71, 255, 0.78) 0%, rgba(92, 57, 209, 0.78) 58%, rgba(60, 38, 142, 0.9) 100%),
+        url('/images/agents/hero-grid.svg');
     background-position: center;
-    background-size: cover;
+    background-size: cover, 111.76% 168.34%;
     color: white;
     text-align: center;
+}
+
+.bottom-cta::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, #6541e9 0%, #5836c5 58%, #3e278f 100%);
+    content: '';
+    pointer-events: none;
+    -webkit-mask-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 4%, transparent 16%),
+        linear-gradient(to right, transparent 56%, rgba(0, 0, 0, 0.2) 68%, rgba(0, 0, 0, 0.72) 88%, #000 100%),
+        radial-gradient(ellipse 34% 42% at 0% 100%, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 46%, transparent 100%);
+    mask-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 4%, transparent 16%),
+        linear-gradient(to right, transparent 56%, rgba(0, 0, 0, 0.2) 68%, rgba(0, 0, 0, 0.72) 88%, #000 100%),
+        radial-gradient(ellipse 34% 42% at 0% 100%, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 46%, transparent 100%);
+}
+
+.bottom-cta > div {
+    position: relative;
+    z-index: 1;
 }
 
 .bottom-cta h2 {
@@ -1048,12 +1087,16 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
         grid-template-columns: 1fr;
     }
 
-    .feature-card {
-        height: 300px;
+    .feature-card,
+    .integration-card,
+    .small-card,
+    .step-card,
+    .resource-card {
+        height: auto;
     }
 
     .feature-copy {
-        margin-top: 60px;
+        margin-top: 32px;
     }
 
     .integrations-inner {
@@ -1068,6 +1111,13 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 
     .integration-grid {
         margin-top: 48px;
+    }
+
+    .integration-card .learn-link {
+        position: static;
+        display: flex;
+        width: fit-content;
+        margin-top: 20px;
     }
 
     .build-title-block {
@@ -1098,10 +1148,19 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
         width: 302px;
         max-width: 100%;
         margin: 0 auto;
+        padding-bottom: 32px;
     }
 
-    .cta-bridge {
-        width: 55%;
+    .resource-illustration {
+        position: static;
+        height: auto;
+        margin-top: 24px;
+        aspect-ratio: 236 / 162;
+    }
+
+    .resource-card .agents-button {
+        position: static;
+        margin-top: 24px;
     }
 
     .bottom-cta {
