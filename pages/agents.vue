@@ -62,6 +62,9 @@
                         </article>
 
                         <NuxtLink class="integration-card suggestion-card" to="/contact">
+                            <svg class="suggestion-card-border" aria-hidden="true">
+                                <rect />
+                            </svg>
                             <h3>Suggest an integration</h3>
                             <p>Got any interesting integration in mind and can’t find it in the list above? Suggest yours here</p>
                         </NuxtLink>
@@ -609,11 +612,32 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-color: var(--purple-mid);
-    border-style: dashed;
+    border: 0;
     background: transparent;
     color: var(--purple-mid);
     text-align: center;
+}
+
+.suggestion-card-border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.suggestion-card-border rect {
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    x: 0.5px;
+    y: 0.5px;
+    rx: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-dasharray: 8 8;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
 }
 
 .suggestion-card h3 {
