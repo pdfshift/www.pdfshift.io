@@ -5,6 +5,7 @@ They buy *not having to run Chromium*.
 
 Stratégie de croissance PDFShift
 
+[ ] - Reddit campaign
 [ ] - Mettre en avant le pricing dans l'API en accessible publique, et l'ajouter dans le llms.txt et llms-full.txt
 [ ] - An endpoint for agents that gets a new account with API Key that can be used. Watermarked until the email has been validated, limited to 5 per day
 [ ] - Ajouter le OpenAPI URL dans le llms.txt et llms-full.txt
@@ -31,6 +32,14 @@ NOTE: Comment ca se passe pour les one-time login link si un bot va sur l'url ?
 => Tester et faire en sorte que ca ne supprime pas le token automatiquement
 
 ---
+
+## Reddit campaign
+
+https://x.com/arthuryuzbashew
+https://redreach.ai/
+
+---
+
 
 ## Write articles for No-Code platforms, along with videos
 
