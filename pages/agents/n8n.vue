@@ -31,12 +31,16 @@
                     </ul>
                 </section>
 
-                <nav class="agent-page-nav absolute top-0 hidden w-48 flex-col gap-5 rounded-xl border border-purple-400 bg-white px-5 py-7 text-base font-light leading-snug xl:flex" aria-label="On this page">
-                    <a class="font-medium text-purple" href="#prerequisites">→ Prerequisites</a>
-                    <a href="#setup-guide">Step-by-step Setup Guide</a>
-                    <a href="#use-cases">Common Use Cases</a>
-                    <a href="#advanced-features">Advanced Features</a>
-                    <a href="#related-resources">Related Resources</a>
+                <nav :class="isNavFixed ? 'fixed top-28' : 'absolute top-0'" class="agent-page-nav z-10 hidden w-48 flex-col gap-5 rounded-xl border border-purple-400 bg-white px-5 py-7 text-base font-light leading-snug xl:flex" aria-label="On this page">
+                    <a
+                        v-for="item in pageSections"
+                        :key="item.id"
+                        :class="item.id === activeSection ? 'font-medium text-purple' : 'text-navy-800'"
+                        :href="`#${item.id}`"
+                        @click="setActiveSection(item.id)"
+                    >
+                        <span v-if="item.id === activeSection" aria-hidden="true">→ </span>{{ item.label }}
+                    </a>
                 </nav>
             </div>
 
@@ -95,8 +99,8 @@
                 <section id="use-cases" class="mt-24 scroll-mt-30 md:mt-36" aria-labelledby="use-cases-title">
                     <h2 id="use-cases-title" class="text-3xl font-medium leading-display text-trim md:text-4xl">Common <span class="text-purple-500">Use Cases</span></h2>
                     <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <article v-for="useCase in useCases" :key="useCase.title" class="h-60 rounded-2xl border border-purple-500 bg-agent-card p-3">
-                            <div class="relative h-full rounded-lg border border-purple-500 bg-white px-6 pb-4 pt-24">
+                        <article v-for="useCase in useCases" :key="useCase.title" class="min-h-60 rounded-2xl border border-purple-500 bg-agent-card p-3">
+                            <div class="relative h-full rounded-lg border border-purple-500 bg-white px-6 pb-8 pt-24">
                                 <span class="absolute left-6 top-5 block h-10 w-10 text-purple-500" aria-hidden="true">
                                     <component :is="useCase.icon" class="size-10" />
                                 </span>
@@ -153,6 +157,65 @@ import ReliableIcon from '~/components/icons/TimerPaused.vue'
 import AsyncIcon from '~/components/icons/People.vue'
 
 definePageMeta({ layout: false })
+
+const pageSections = [
+    { id: 'prerequisites', label: 'Prerequisites' },
+    { id: 'setup-guide', label: 'Step-by-step Setup Guide' },
+    { id: 'use-cases', label: 'Common Use Cases' },
+    { id: 'advanced-features', label: 'Advanced Features' },
+    { id: 'related-resources', label: 'Related Resources' },
+]
+
+const activeSection = ref(pageSections[0].id)
+const isNavFixed = ref(false)
+
+const navOffset = 112
+
+const updateActiveSection = () => {
+    const activationLine = window.innerHeight * 0.35
+
+    activeSection.value = pageSections.reduce((currentSection, section) => {
+        const element = document.getElementById(section.id)
+
+        return element && element.getBoundingClientRect().top <= activationLine ? section.id : currentSection
+    }, pageSections[0].id)
+}
+
+const updateNavPosition = () => {
+    const overview = document.getElementById('overview')
+
+    isNavFixed.value = Boolean(overview && overview.getBoundingClientRect().top <= navOffset)
+}
+
+const setActiveSection = (sectionId) => {
+    activeSection.value = sectionId
+}
+
+let sectionObserver
+
+onMounted(() => {
+    sectionObserver = new IntersectionObserver(updateActiveSection, {
+        rootMargin: '-35% 0px -55% 0px',
+    })
+
+    pageSections.forEach(({ id }) => {
+        const element = document.getElementById(id)
+
+        if (element) sectionObserver.observe(element)
+    })
+
+    updateActiveSection()
+    updateNavPosition()
+
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    window.addEventListener('scroll', updateNavPosition, { passive: true })
+})
+
+onBeforeUnmount(() => {
+    sectionObserver?.disconnect()
+    window.removeEventListener('scroll', updateActiveSection)
+    window.removeEventListener('scroll', updateNavPosition)
+})
 
 const apiKeyCode = `// Your API key format:
 api:your_api_key_here`
@@ -224,7 +287,7 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 }
 
 .agent-page-nav {
-    left: calc(100% + 2rem);
+    left: calc(50% + 27.625rem);
     min-height: 275px;
     box-shadow: 0 8px 12px rgba(108, 71, 255, 0.1);
 }
