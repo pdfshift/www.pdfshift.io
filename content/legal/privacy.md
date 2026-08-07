@@ -161,13 +161,14 @@ The following third parties serve cookies through PDFShift for analytics and oth
 
 NAME | PURPOSE
 --- | ---
-[Stripe](https://stripe.com) | Our payment gateway. This allows us to accept credit card payments securely.
-[Plausible](https://plausible.io) | Our visitor’s statistics. We track visits from our server so the Google javascript is not installed and you are never tracked. (Your IP is anonymized, no cookies or tracking device are installed on your computer).
-[Mailgun](https://mailgun.com) | Mailgun is used on PDFShift’s application to send Email.
+[Amazon Web Services](https://aws.amazon.com) | We use Amazon S3 to store the generated PDF when the "filename" parameter is provided (automatically deleted after 2 days). We also use Cloudwatch to monitor the health of our servers (with no sensitive data provided)
+[OVH](https://ovhcloud.com) | Our servers are managed by OVH in France in various regions.
+[Stripe](https://stripe.com) | Our payment gateway. This allows us to accept credit card payments securely. The sole purpose is to increase security regarding the handle of sensible payments informations such as your credit cards details.
+[Plausible](https://plausible.io) | We use this service to understand general usage, traffic sources and to measure campaign success. We choose Plausible for its focus on privacy (no cookies or trackers are installed on our visitor’s computer)
 [Customer.io](https://customer.io) | We use Customer.io to send you emails related to your account and general messages like newsletters.
 [Amplitude](https://amplitude.com) | We track a few key metrics on our service and Amplitude help us visualize them. All the data are anonymized.
-[Sentry](https://sentry.io) | We use sentry to retrieve, review and handle issues that might occurs within PDFShift.
-
+[Sentry](https://sentry.io) | We use sentry to track any issues that occurs in order to better debug them and improve the service faster.
+[Profitwell](https://profitwell.com) | We use Profitwell to have an overview of our revenues
 
 Here is a list of the cookies we use in PDFShift:
 
