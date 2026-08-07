@@ -1,68 +1,68 @@
 <template>
-    <div class="min-w-[320px] overflow-hidden bg-white text-[#011552]">
-        <AlternativeHeader />
+    <div class="min-w-80 overflow-hidden bg-white text-navy-800">
+        <Header :fixed="true" />
 
-        <main id="main-content" class="pt-[128px] md:pt-[150px] xl:pt-[183px]" aria-label="PDFShift and PDF4.dev comparison">
-            <section class="alternative-hero relative mx-auto flex h-[520px] w-[min(1281px,calc(100%-32px))] items-start justify-center overflow-hidden rounded-[20px] bg-[#011552] px-5 text-center text-white md:h-[547px] md:rounded-[30px]" aria-labelledby="alternative-title">
-                <div class="relative z-[1] mt-[118px] w-[779px] max-w-full md:mt-[147px]">
-                    <h1 id="alternative-title" class="text-[38px] font-normal !leading-[1.12] md:text-[48px]">
+        <main id="main-content" class="pt-32 md:pt-36 xl:pt-44" aria-label="PDFShift and PDF4.dev comparison">
+            <section class="alternative-hero marketing-hero-artwork relative mx-auto flex w-with-gutters max-w-screen-xl items-start justify-center overflow-hidden rounded-2xl bg-navy-800 px-5 text-center text-white md:h-agent-hero md:rounded-4xl" aria-labelledby="alternative-title">
+                <div class="relative z-1 mt-30 w-full max-w-3xl md:mt-36">
+                    <h1 id="alternative-title" class="text-4xl font-normal !leading-display md:text-6xl">
                         <span class="text-purple-500">PDFShift</span> vs PDF4.dev
                     </h1>
-                    <p class="mx-auto mt-7 max-w-[779px] text-lg font-light leading-[1.42] tracking-[-0.21px] md:text-[21px]">
-                        Both are HTML-to-PDF APIs powered by Chromium, but PDFShift.dev is a complete platform with template editing, variable injection, and generation logs. PDFShift is a lightweight conversion pipe.
+                    <p class="mx-auto mt-7 text-lg font-light leading-snug md:text-xl">
+                        Both are HTML-to-PDF APIs powered by Chromium, but PDF4.dev is a complete platform with template editing, variable injection, and generation logs. PDFShift is a lightweight conversion pipe.
                     </p>
-                    <Button class="mt-8 h-12" to="#comparison" :arrow-down="true">Explore Integrations</Button>
+                    <Button class="mt-8 h-12" to="#comparison" :arrow-down="true">Explore Comparison</Button>
                 </div>
             </section>
 
-            <section class="mx-auto mt-[106px] w-[min(1280px,calc(100%-32px))] md:mt-[134px]" aria-labelledby="nutshell-title">
-                <h2 id="nutshell-title" class="text-center text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:text-[36px]">
+            <section class="mx-auto mt-26 w-with-gutters max-w-screen-xl md:mt-32" aria-labelledby="nutshell-title">
+                <h2 id="nutshell-title" class="text-center text-3xl font-medium !leading-display md:text-4xl">
                     In a nutshell
                 </h2>
 
-                <div class="relative mt-[53px] grid grid-cols-1 gap-6 xl:grid-cols-2 xl:gap-20">
-                    <article v-for="option in nutshellOptions" :key="option.title" class="relative min-h-[430px] rounded-xl border border-purple-400 bg-white px-8 pb-10 pt-[29px] shadow-[0_8px_24px_4px_rgba(108,71,255,0.1)] md:px-[60px] xl:px-[89px]">
-                        <IconsLogo v-if="option.pdfshift" class="mt-[37px] h-[54px] w-[141px]" />
-                        <div v-else class="h-[54px] w-[141px] bg-purple-100" aria-label="PDF4.dev logo placeholder"></div>
-                        <h3 class="text-2xl font-medium !leading-[1.12] tracking-[-0.24px]" :class="option.pdfshift ? 'mt-px' : 'mt-[38px]'">{{ option.title }}</h3>
-                        <ul class="mt-[11px] text-lg font-normal leading-[1.7] tracking-[-0.18px]">
+                <div class="relative mt-14 grid grid-cols-1 gap-6 xl:grid-cols-2 xl:gap-20">
+                    <article v-for="option in nutshellOptions" :key="option.title" class="comparison-option relative z-1 rounded-xl border border-purple-400 bg-white px-8 pb-10 pt-7 shadow-agent-card md:px-14 xl:px-24">
+                        <IconsLogo v-if="option.pdfshift" class="mt-9 h-14 w-36" />
+                        <div v-else class="h-14 w-36 bg-purple-100" aria-label="PDF4.dev logo placeholder"></div>
+                        <h3 class="text-2xl font-medium !leading-display" :class="option.pdfshift ? 'mt-px' : 'mt-9'">{{ option.title }}</h3>
+                        <ul class="mt-3 text-lg font-normal leading-relaxed">
                             <li v-for="point in option.points" :key="point">{{ point }}</li>
                         </ul>
                     </article>
 
-                    <img class="pointer-events-none absolute left-1/2 top-1/2 z-[2] hidden size-[121px] -translate-x-1/2 -translate-y-1/2 xl:block" src="/images/illustrations/vs.png" alt="versus" />
+                    <img class="pointer-events-none absolute left-1/2 top-1/2 z-0 hidden size-30 -translate-x-1/2 -translate-y-1/2 xl:block" src="/images/illustrations/vs.png" alt="versus" />
                 </div>
             </section>
 
-            <section id="comparison" class="mx-auto mt-[112px] w-full xl:mt-36" aria-labelledby="comparison-title">
-                <div class="mx-auto w-[420px] max-w-[calc(100%-32px)]">
-                    <h2 id="comparison-title" class="text-center text-[30px] font-medium !leading-[1.12] tracking-[-0.36px] md:text-[36px]">
+            <section id="comparison" class="mx-auto mt-28 w-full xl:mt-36" aria-labelledby="comparison-title">
+                <div class="mx-auto w-with-gutters max-w-md">
+                    <h2 id="comparison-title" class="text-center text-3xl font-medium !leading-display md:text-4xl">
                         How both compare
                     </h2>
-                    <p class="mx-auto mt-2 w-[320px] max-w-full text-lg font-normal leading-[1.7] tracking-[-0.18px]">
+                    <p class="mx-auto mt-2 w-80 max-w-full text-lg font-normal leading-relaxed">
                         Some text about the competition point goes here but do not make it too long.
                     </p>
                 </div>
 
-                <div class="mt-[56px] px-4 lg:hidden">
-                    <article v-for="(row, index) in comparisonRows" :key="`${row.feature}-${index}`" class="border-b border-gray-200 py-5 first:border-t first:border-[#011552]">
-                        <h3 class="text-base font-medium leading-[1.42]">{{ row.feature }}</h3>
+                <div class="mt-14 px-4 lg:hidden">
+                    <article v-for="(row, index) in comparisonRows" :key="`${row.feature}-${index}`" class="border-b border-gray-200 py-5 first:border-t first:border-navy-800">
+                        <h3 class="text-base font-medium leading-snug">{{ row.feature }}</h3>
 
                         <div class="mt-3 grid grid-cols-2 gap-3">
                             <div class="min-w-0 rounded-lg bg-purple-100/50 p-3">
-                                <p class="text-xs font-medium uppercase tracking-[-0.12px]">PDFShift</p>
-                                <div class="mt-2 flex items-start gap-2 text-sm font-light leading-[1.42]">
+                                <p class="text-xs font-medium uppercase">PDFShift</p>
+                                <div class="mt-2 flex items-start gap-2 text-sm font-light leading-snug">
                                     <span v-if="row.pdfshift.available" class="block size-5 shrink-0 text-purple"><IconsTickFull /></span>
-                                    <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-white text-purple"><IconsCross class="size-[14px]" /></span>
+                                    <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-white text-purple"><IconsCross class="size-3.5" /></span>
                                     <span class="min-w-0 break-words">{{ row.pdfshift.label }}</span>
                                 </div>
                             </div>
 
                             <div class="min-w-0 rounded-lg border border-gray-200 p-3">
-                                <p class="text-xs font-medium uppercase tracking-[-0.12px]">PDF4.dev</p>
-                                <div class="mt-2 flex items-start gap-2 text-sm font-light leading-[1.42]">
+                                <p class="text-xs font-medium uppercase">PDF4.dev</p>
+                                <div class="mt-2 flex items-start gap-2 text-sm font-light leading-snug">
                                     <span v-if="row.pdf4.available" class="block size-5 shrink-0 text-purple"><IconsTickFull /></span>
-                                    <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple"><IconsCross class="size-[14px]" /></span>
+                                    <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple"><IconsCross class="size-3.5" /></span>
                                     <span class="min-w-0 break-words">{{ row.pdf4.label }}</span>
                                 </div>
                             </div>
@@ -70,37 +70,37 @@
                     </article>
                 </div>
 
-                <div class="mt-[56px] hidden px-4 lg:block">
-                    <div class="mx-auto max-w-[820px]">
-                        <div class="grid h-7 grid-cols-[395px_229px_196px] items-center border-b border-[#011552] text-sm font-medium uppercase tracking-[-0.14px]">
+                <div class="mt-14 hidden px-4 lg:block">
+                    <div class="mx-auto max-w-agent-content">
+                        <div class="grid h-7 grid-cols-comparison items-center border-b border-navy-800 text-sm font-medium uppercase">
                             <div>Feature</div>
                             <div>PDFShift</div>
                             <div>PDF4.dev</div>
                         </div>
-                        <div v-for="(row, index) in comparisonRows" :key="`${row.feature}-${index}`" class="grid h-[45px] grid-cols-[395px_229px_196px] items-center border-b border-gray-200 font-light leading-[1.42]">
+                        <div v-for="(row, index) in comparisonRows" :key="`${row.feature}-${index}`" class="grid h-11 grid-cols-comparison items-center border-b border-gray-200 font-light leading-snug">
                             <div class="text-base">{{ row.feature }}</div>
                             <div class="flex items-center gap-3 text-sm">
                                 <span v-if="row.pdfshift.available" class="block size-5 shrink-0 text-purple"><IconsTickFull /></span>
-                                <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple"><IconsCross class="size-[14px]" /></span>
+                                <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple"><IconsCross class="size-3.5" /></span>
                                 <span>{{ row.pdfshift.label }}</span>
                             </div>
                             <div class="flex items-center gap-3 text-sm">
                                 <span v-if="row.pdf4.available" class="block size-5 shrink-0 text-purple"><IconsTickFull /></span>
-                                <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple"><IconsCross class="size-[14px]" /></span>
+                                <span v-else class="flex size-5 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple"><IconsCross class="size-3.5" /></span>
                                 <span>{{ row.pdf4.label }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <p class="mt-[52px] px-4 text-center text-base font-light leading-[1.42] text-black">
+                <p class="mt-12 px-4 text-center text-base font-light leading-snug text-black">
                     If you are the owner of PDF4.dev and find some mistakes on this comparison page, please
                     <NuxtLink class="underline underline-offset-2" to="/contact">contact us</NuxtLink>
                 </p>
             </section>
 
             <AgentsBottomCta
-                class="mt-[61px]"
+                class="mt-16"
                 title="Ready to switch?"
                 description="Create your free PDFShift account and start automating PDF generation in no time"
                 title-id="switch-title"
@@ -110,36 +110,11 @@
             />
         </main>
 
-        <footer class="relative z-[2] -mt-16 min-h-[524px] bg-[#011552] px-6 pb-16 pt-[135px] text-center text-white md:text-left">
-            <div class="mx-auto grid w-[min(1072px,100%)] grid-cols-1 md:grid-cols-[1.25fr_repeat(3,1fr)] xl:grid-cols-[328px_328px_328px_88px]">
-                <div class="footer-brand-divider relative min-h-0 pr-0 md:min-h-[280px] md:pr-[76px]">
-                    <NuxtLink to="/" class="mx-auto block w-[141px] md:mx-0" title="Go to the home page">
-                        <IconsLogo />
-                    </NuxtLink>
-                    <div class="mx-auto mt-[22px] flex w-fit justify-center gap-8 text-purple-400 md:mx-0 md:justify-start">
-                        <NuxtLink class="size-[30px] p-1" to="https://twitter.com/pdfshift" title="View our X profile"><LogosX /></NuxtLink>
-                        <NuxtLink class="size-[30px]" to="https://linkedin.com/company/pdfshift" title="View our LinkedIn profile"><LogosLinkedin /></NuxtLink>
-                    </div>
-                    <p class="mt-[22px] text-sm font-light text-purple-400">© 2023 PDFShift.</p>
-                </div>
-
-                <div v-for="column in footerColumns" :key="column.title" class="mt-12 md:mt-0">
-                    <h2 class="text-sm font-normal uppercase">{{ column.title }}</h2>
-                    <ul class="mt-7">
-                        <li v-for="link in column.links" :key="link.label" class="text-sm font-light text-purple-400 [&+li]:mt-[17px]">
-                            <NuxtLink class="hover:underline" :to="link.href">{{ link.label }}</NuxtLink>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+        <Footer />
     </div>
 </template>
 
 <script setup>
-import AlternativeHeader from '~/components/AlternativeHeader.vue'
-import AgentsBottomCta from '~/components/agents/BottomCta.vue'
-
 definePageMeta({ layout: false })
 
 const nutshellOptions = [
@@ -181,39 +156,6 @@ const comparisonRows = [
     { feature: 'Feature name', pdfshift: { available: false, label: 'Explanation' }, pdf4: { available: true, label: 'Explanation' } },
 ]
 
-const footerColumns = [
-    {
-        title: 'Company Details',
-        links: [
-            { label: 'Contact Us', href: '/contact' },
-            { label: 'Term of services', href: '/legal/terms' },
-            { label: 'GRPR', href: '/legal/gdpr' },
-            { label: 'HIPAA - BAA', href: '/legal/hipaa' },
-        ],
-    },
-    {
-        title: 'Product',
-        links: [
-            { label: 'Features', href: '/#features' },
-            { label: 'Pricing', href: '/pricing' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Documentation', href: 'https://docs.pdfshift.io' },
-            { label: 'Playground', href: 'https://playground.pdfshift.io' },
-            { label: 'Status Page', href: 'https://status.pdfshift.io' },
-        ],
-    },
-    {
-        title: 'Guides',
-        links: [
-            { label: 'Node.js Guide', href: '/guides/node/' },
-            { label: 'Node.js Guide', href: '/guides/node/' },
-            { label: 'Python Guide', href: '/guides/python/' },
-            { label: 'Ruby Guide', href: '/guides/ruby/' },
-            { label: 'All our Guide', href: '/guides/' },
-        ],
-    },
-]
-
 const title = 'PDFShift vs PDF4.dev'
 const description = 'Compare PDFShift and PDF4.dev for HTML-to-PDF conversion, template editing, URL support, generation logs, and workflow automation.'
 
@@ -221,47 +163,11 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 </script>
 
 <style scoped>
-:global(html) {
-    scroll-behavior: smooth;
+.alternative-hero {
+    height: 520px;
 }
 
-:global(body) {
-    overflow-x: hidden;
-}
-
-.alternative-hero::before {
-    position: absolute;
-    inset: 0;
-    background-image: url('/images/agents/hero-grid.svg');
-    background-position: -7px 35px;
-    background-repeat: no-repeat;
-    background-size: auto 125%;
-    content: '';
-    -webkit-mask-image:
-        linear-gradient(to bottom, transparent 0%, #000 18%, #000 80%, transparent 100%),
-        linear-gradient(to right, #000 0%, #000 35%, rgba(0, 0, 0, 0.55) 65%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-image:
-        linear-gradient(to bottom, transparent 0%, #000 18%, #000 80%, transparent 100%),
-        linear-gradient(to right, #000 0%, #000 35%, rgba(0, 0, 0, 0.55) 65%, transparent 100%);
-    mask-composite: intersect;
-    opacity: 0.34;
-}
-
-.footer-brand-divider::after {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .footer-brand-divider::after {
-        position: absolute;
-        top: 0;
-        right: 96px;
-        display: block;
-        width: 1px;
-        height: 100%;
-        background: linear-gradient(180deg, transparent, #444870 53%, transparent 96%);
-        content: '';
-    }
+.comparison-option {
+    min-height: 430px;
 }
 </style>

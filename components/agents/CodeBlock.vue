@@ -1,10 +1,10 @@
 <template>
     <div
-        class="relative min-h-[123px] w-full border px-5 py-[22px] pr-12 md:px-8 md:py-7 md:pr-16"
-        :class="dark ? 'rounded border-0 bg-[#011552] text-[#c6b2ff]' : 'border-purple bg-purple-100 text-[#011552]'"
+        class="relative min-h-30 w-full border px-5 py-5 pr-12 md:px-8 md:py-7 md:pr-16"
+        :class="dark ? 'rounded border-0 bg-navy-800 text-purple-400' : 'border-purple bg-purple-100 text-navy-800'"
     >
-        <pre class="overflow-x-auto whitespace-pre-wrap"><code class="font-['Source_Code_Pro'] text-sm font-medium italic leading-[20px] md:text-[18.432px] md:leading-[26.332px]"><template v-for="(line, index) in codeLines" :key="index"><template v-if="dark"><span v-for="(segment, segmentIndex) in line.segments" :key="segmentIndex" :class="{ 'text-white': segment.type === 'punctuation', 'text-[#b2ffc3]': segment.type === 'string' }">{{ segment.text }}</span></template><span v-else :class="{ 'text-purple': line.raw.trimStart().startsWith('//') }">{{ line.raw }}</span><br v-if="index < codeLines.length - 1" /></template></code></pre>
-        <button class="absolute right-[18px] top-6 h-6 w-6 md:right-8 md:top-[34px] [&_svg]:h-[19px] [&_svg]:w-[18px]" type="button" :aria-label="copied ? 'Copied to clipboard' : 'Copy code to clipboard'" @click="copyCode">
+        <pre class="overflow-x-auto whitespace-pre-wrap"><code class="font-code text-sm font-medium italic leading-5 md:text-lg md:leading-7"><template v-for="(line, index) in codeLines" :key="index"><template v-if="dark"><span v-for="(segment, segmentIndex) in line.segments" :key="segmentIndex" :class="{ 'text-white': segment.type === 'punctuation', 'text-code-string': segment.type === 'string' }">{{ segment.text }}</span></template><span v-else :class="{ 'text-purple': line.raw.trimStart().startsWith('//') }">{{ line.raw }}</span><br v-if="index < codeLines.length - 1" /></template></code></pre>
+        <button class="code-copy-button absolute right-4 top-6 h-6 w-6 md:right-8 md:top-8" type="button" :aria-label="copied ? 'Copied to clipboard' : 'Copy code to clipboard'" @click="copyCode">
             <IconsClipboard />
             <span class="sr-only">{{ copied ? 'Copied' : 'Copy code' }}</span>
         </button>
@@ -85,3 +85,10 @@ const copyCode = async () => {
 
 onUnmounted(() => clearTimeout(copiedTimeout))
 </script>
+
+<style scoped>
+.code-copy-button :deep(svg) {
+    width: 1rem;
+    height: 1.25rem;
+}
+</style>
