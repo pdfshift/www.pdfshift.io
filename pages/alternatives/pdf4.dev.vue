@@ -110,7 +110,7 @@
             />
         </main>
 
-        <Footer />
+        <AgentsPageFooter />
     </div>
 </template>
 

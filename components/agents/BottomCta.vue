@@ -16,7 +16,7 @@
                 <p class="mx-auto mt-6 w-full max-w-md text-lg font-light leading-snug text-trim md:text-xl">{{ description }}</p>
                 <div class="mt-12 flex flex-col items-center justify-center gap-3 md:flex-row">
                     <Button :to="primaryHref" :arrow="true">{{ primaryLabel }}</Button>
-                    <Button v-if="showSecondary" :to="secondaryHref" :light="true" :arrow="true">{{ secondaryLabel }}</Button>
+                    <Button v-if="showSecondary" :to="secondaryHref" :light="true" hover="dark" :arrow="true">{{ secondaryLabel }}</Button>
                 </div>
             </div>
         </section>
@@ -102,10 +102,6 @@ defineProps({
     color: #c6b2ff;
 }
 
-:global(main:has(.agents-bottom-cta) + footer) {
-    margin-top: -1.5rem;
-}
-
 @media (min-width: 768px) {
     .agents-bottom-cta-bridge {
         width: 64vw;
@@ -115,15 +111,5 @@ defineProps({
         height: 358px;
     }
 
-    :global(main:has(.agents-bottom-cta) + footer) {
-        padding-top: 6rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    :global(main:has(.agents-bottom-cta) + footer) {
-        margin-top: -6rem;
-        padding-top: 10rem;
-    }
 }
 </style>
