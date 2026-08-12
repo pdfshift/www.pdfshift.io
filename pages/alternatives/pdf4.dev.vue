@@ -1,6 +1,6 @@
 <template>
     <div class="min-w-80 overflow-hidden bg-white text-navy-800">
-        <Header :fixed="true" />
+        <Header />
 
         <main id="main-content" class="pt-32 md:pt-36 xl:pt-44" aria-label="PDFShift and PDF4.dev comparison">
             <section class="alternative-hero marketing-hero-artwork relative mx-auto flex w-with-gutters max-w-screen-xl items-start justify-center overflow-hidden rounded-2xl bg-navy-800 px-5 text-center text-white md:h-agent-hero md:rounded-4xl" aria-labelledby="alternative-title">

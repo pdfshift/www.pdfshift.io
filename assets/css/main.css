@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    @apply overflow-x-hidden font-dm text-navy-700;
+    @apply font-dm text-navy-700;
 }
 
 .container {

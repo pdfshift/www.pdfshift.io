@@ -5,7 +5,9 @@
                 <Header :dark="true" />
 
                 <section class="relative px-4 pt-32 pb-12 lg:pt-48">
-                    <HeroGrid class="homepage-hero-grid absolute left-1/2 top-30 z-0 -translate-x-1/2 overflow-hidden" :fade-offset-y="120" aria-hidden="true" />
+                    <div class="homepage-hero-grid-clip absolute inset-x-0 top-30 z-0 overflow-hidden" aria-hidden="true">
+                        <HeroGrid class="homepage-hero-grid absolute left-1/2 bottom-0 -translate-x-1/2" :fade-offset-y="120" />
+                    </div>
                     <div class="lg:grid lg:gap-16 lg:grid-cols-12 max-w-full lg:max-w-7xl mx-auto relative">
                         <div class="lg:col-span-6 flex flex-col justify-start max-w-xl mx-auto lg:max-w-none relative">
                             <h1 class="h1 text-white text-center lg:text-left lg:pr-16 text-4xl">
@@ -333,10 +335,14 @@ const reviews = [
 </script>
 
 <style>
+.homepage-hero-grid-clip {
+    height: 540px;
+    pointer-events: none;
+}
+
 .homepage-hero-grid {
     width: 1600px;
     height: 540px;
-    pointer-events: none;
 }
 
 .homepage-hero-grid > svg {

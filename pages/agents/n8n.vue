@@ -1,6 +1,6 @@
 <template>
     <div class="min-w-80 overflow-hidden bg-white text-navy-800">
-        <Header :fixed="true" />
+        <Header />
 
         <main id="main-content" class="pt-28 md:pt-44">
             <div class="mx-auto w-with-gutters max-w-5xl">
