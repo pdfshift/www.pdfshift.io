@@ -44,7 +44,7 @@
                     </p>
 
                     <div class="mx-auto mt-12 grid w-with-gutters max-w-5xl grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 xl:grid-cols-3">
-                        <article v-for="integration in integrations" :key="integration.name" class="relative h-auto rounded-xl border border-purple bg-agent-card px-6 py-6 md:h-56">
+                        <NuxtLink v-for="integration in integrations" :key="integration.name" class="relative h-auto rounded-xl border border-purple bg-agent-card px-6 py-6 md:h-56" :to="integration.href">
                             <div class="flex items-center gap-4">
                                 <div class="flex size-12 flex-none items-center justify-center overflow-hidden rounded" :class="integration.iconClass">
                                     <img v-if="integration.icon" class="size-full object-cover" :class="integration.imageClass" :src="integration.icon" alt="" />
@@ -53,10 +53,10 @@
                                 <h3 class="text-2xl font-medium !leading-display">{{ integration.name }}</h3>
                             </div>
                             <p class="mt-4 text-base font-light leading-snug">{{ integration.description }}</p>
-                            <NuxtLink class="static mt-5 flex w-fit items-center gap-1 text-base font-light leading-snug text-purple-400 md:absolute md:bottom-5 md:left-6 md:mt-0 md:inline-flex" :to="integration.href">
+                            <span class="static mt-5 flex w-fit items-center gap-1 text-base font-light leading-snug text-purple-400 md:absolute md:bottom-5 md:left-6 md:mt-0 md:inline-flex">
                                 Learn more <IconsArrowRight class="size-6" />
-                            </NuxtLink>
-                        </article>
+                            </span>
+                        </NuxtLink>
 
                         <NuxtLink class="relative flex h-auto flex-col items-center justify-center rounded-xl border-purple px-6 py-6 text-center text-purple-400 md:h-56" to="/contact">
                             <svg class="pointer-events-none absolute inset-0 size-full overflow-visible" aria-hidden="true">
@@ -223,15 +223,6 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
         linear-gradient(110deg, #1a0e49 18%, #0c0129 97%);
 }
 
-.integrations-artwork::before {
-    position: absolute;
-    inset: 0;
-    background-image: url('/images/agents/integrations-grid.svg');
-    background-position: center;
-    background-size: cover;
-    content: '';
-    pointer-events: none;
-}
 
 .build-shell-artwork::after {
     position: absolute;

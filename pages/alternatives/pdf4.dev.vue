@@ -25,8 +25,11 @@
                         <IconsLogo v-if="option.pdfshift" class="mt-9 h-14 w-36" />
                         <div v-else class="h-14 w-36 bg-purple-100" aria-label="PDF4.dev logo placeholder"></div>
                         <h3 class="text-2xl font-medium !leading-display" :class="option.pdfshift ? 'mt-px' : 'mt-9'">{{ option.title }}</h3>
-                        <ul class="mt-3 text-lg font-normal leading-relaxed">
-                            <li v-for="point in option.points" :key="point">{{ point }}</li>
+                        <ul class="mt-3 space-y-1 text-lg font-normal leading-relaxed">
+                            <li v-for="point in option.points" :key="point" class="flex items-start gap-3">
+                                <span v-if="option.pdfshift" class="mt-1.5 block size-5 shrink-0 text-purple" aria-hidden="true"><IconsTickFull /></span>
+                                <span>{{ point }}</span>
+                            </li>
                         </ul>
                     </article>
 
@@ -39,7 +42,7 @@
                     <h2 id="comparison-title" class="text-center text-3xl font-medium !leading-display md:text-4xl">
                         How both compare
                     </h2>
-                    <p class="mx-auto mt-2 w-80 max-w-full text-lg font-normal leading-relaxed">
+                    <p class="mx-auto mt-2 max-w-full text-lg font-light leading-relaxed text-gray-500 text-center">
                         Some text about the competition point goes here but do not make it too long.
                     </p>
                 </div>
@@ -93,7 +96,7 @@
                     </div>
                 </div>
 
-                <p class="mt-12 px-4 text-center text-base font-light leading-snug text-black">
+                <p class="mt-12 px-4 text-center text-base font-light leading-snug text-gray-500">
                     If you are the owner of PDF4.dev and find some mistakes on this comparison page, please
                     <NuxtLink class="underline underline-offset-2" to="/contact">contact us</NuxtLink>
                 </p>
