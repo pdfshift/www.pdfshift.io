@@ -99,7 +99,7 @@
                 <section id="use-cases" class="mt-24 scroll-mt-30 md:mt-36" aria-labelledby="use-cases-title">
                     <h2 id="use-cases-title" class="text-3xl font-medium leading-display text-trim md:text-4xl">Common <span class="text-purple-500">Use Cases</span></h2>
                     <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-                        <article v-for="useCase in useCases" :key="useCase.title" class="min-h-60 rounded-2xl border border-purple-500 bg-agent-card p-3">
+                        <NuxtLink v-for="useCase in useCases" :key="useCase.title" to="#" class="min-h-60 rounded-2xl border border-purple-500 bg-agent-card p-3 transition-transform duration-300 hover:-translate-y-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-purple-500 motion-reduce:transform-none motion-reduce:transition-none">
                             <div class="relative h-full rounded-lg border border-purple-500 bg-white px-6 pb-8 pt-24">
                                 <span class="absolute left-6 top-5 block h-10 w-10 text-purple-500" aria-hidden="true">
                                     <component :is="useCase.icon" class="size-10" />
@@ -107,7 +107,7 @@
                                 <h3 class="text-xl font-medium leading-normal text-trim">{{ useCase.title }}</h3>
                                 <p class="mt-4 text-base font-light leading-6">{{ useCase.description }}</p>
                             </div>
-                        </article>
+                        </NuxtLink>
                     </div>
                 </section>
             </div>
