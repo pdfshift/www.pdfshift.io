@@ -4,7 +4,7 @@
 
 Every page on pdfshift.io is available as clean Markdown: append `.md` to any URL (e.g. `/pricing.md`) or send an `Accept: text/markdown` request header. The companion file [llms-full.txt](https://pdfshift.io/llms-full.txt) contains the full text of every page in a single document.
 
-For full, up-to-date pricing details (plans, credits, and per-conversion overage rates), see [https://pdfshift.io/pricing.md](https://pdfshift.io/pricing.md).
+For full, up-to-date pricing details (plans, credits, and per-conversion overage rates), see [https://pdfshift.io/pricing.md](https://pdfshift.io/pricing.md). Pricing is also available as JSON from the public API endpoint `GET https://api.pdfshift.io/v3/credits/pricing` (no authentication required; pass your `X-API-Key` header to also receive any custom plan specific to your account).
 
 ## Core pages
 - [HTML to PDF API — Overview](https://pdfshift.io/index.md): What PDFShift does, key stats, and headline features.
