@@ -5,16 +5,17 @@ They buy *not having to run Chromium*.
 
 Stratégie de croissance PDFShift
 
-[ ] - Reddit campaign
-[ ] - Mettre en avant le pricing dans l'API en accessible publique, et l'ajouter dans le llms.txt et llms-full.txt
-[ ] - An endpoint for agents that gets a new account with API Key that can be used. Watermarked until the email has been validated, limited to 5 per day
-[ ] - Ajouter le OpenAPI URL dans le llms.txt et llms-full.txt
+[x] - Automatiser une campagne email pour demander quel usage les clients qui ont plus de 3 mois font de PDFShift
 [x] - Centraliser les churn.csv et en faire un graph
+[x] - Implement MCP agent
+[x] - Mettre en avant le pricing dans l'API en accessible publique, et l'ajouter dans le llms.txt et llms-full.txt
+[x] - Ajouter le OpenAPI URL dans le llms.txt et llms-full.txt
+
+[ ] - Reddit campaign
+[ ] - An endpoint for agents that gets a new account with API Key that can be used. Watermarked until the email has been validated, limited to 5 per day
 [ ] - Mettre à jour le site pour y inclure la page /agents et les pages dédiés
 [ ] - Ajouter les différents outils no-code (Lovable, Base44, Make, Clay, N8n, Zapier)
 [ ] - Faire des vidéos Youtube de bonne qualité pour chaque intégrations (no-code, librairies, etc)
-[x] - Automatiser une campagne email pour demander quel usage les clients qui ont plus de 3 mois font de PDFShift
-[ ] - Implement MCP agent
 [ ] - Demander des questions lors du signup
 [ ] - Créer des pages crawlable sur des mots clés spécifiques
 [ ] - Implémenter des pages de comparaisons avec les compétiteurs
