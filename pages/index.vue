@@ -4,8 +4,10 @@
             <div class="bg-navy-900">
                 <Header :dark="true" />
 
-                <section class="px-4 pt-32 pb-12 lg:pt-48">
-                    <HeroGrid class="absolute opacity-50 left-0 top-24 bg-top z-0 overflow-hidden" />
+                <section class="relative px-4 pt-32 pb-12 lg:pt-48">
+                    <div class="homepage-hero-grid-clip absolute inset-x-0 top-30 z-0 overflow-hidden" aria-hidden="true">
+                        <HeroGrid class="homepage-hero-grid absolute left-1/2 bottom-0 -translate-x-1/2" :fade-offset-y="120" />
+                    </div>
                     <div class="lg:grid lg:gap-16 lg:grid-cols-12 max-w-full lg:max-w-7xl mx-auto relative">
                         <div class="lg:col-span-6 flex flex-col justify-start max-w-xl mx-auto lg:max-w-none relative">
                             <h1 class="h1 text-white text-center lg:text-left lg:pr-16 text-4xl">
@@ -24,7 +26,7 @@
                             </NuxtLink>
                         </div>
                         <div class="lg:col-span-6 mt-12 lg:mt-0 text-sm lg:text-base max-w-full relative">
-                            <div class="relative">
+                            <div class="relative code-snippet-shadow">
                                 <HomeCodeSnippets />
                             </div>
                         </div>
@@ -159,7 +161,7 @@
                                 </li>
                             </ul>
                         </section>
-                        <div class="bg-gradient-to-br from-purple-100 to-purple-100 via-white rounded-3xl px-8 lg:px-16 py-0 overflow-hidden">
+                        <div class="bg-gradient-to-br from-purple-100 to-purple-100 via-white rounded-3xl px-8 pb-8 md:pb-0 lg:px-16 overflow-hidden">
                             <div class="flex flex-col-reverse md:flex-row items-center gap-8">
                                 <div class="w-full">
                                     <div class="hidden lg:block w-24">
@@ -184,6 +186,7 @@
                     </div>
                 </div>
                 <div class="bg-gradient-to-bl from-purple-100 to-purple-100 via-white">
+                    <HomeAgents />
                     <div class="container">
                         <HomePricing />
                         <HomeFAQ />
@@ -332,7 +335,27 @@ const reviews = [
 </script>
 
 <style>
+.homepage-hero-grid-clip {
+    height: 540px;
+    pointer-events: none;
+}
+
+.homepage-hero-grid {
+    width: 1600px;
+    height: 540px;
+}
+
+.homepage-hero-grid > svg {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1600px;
+    max-width: none;
+    height: 692px;
+}
+
 .code-snippet-shadow {
-    box-shadow: 15px -15px 30px 40px rgb(199 146 234 / 20%);
+    box-shadow: 72px -12px 160px rgb(146 119 255 / 12%);
 }
 </style>

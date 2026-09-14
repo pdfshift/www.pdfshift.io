@@ -95,6 +95,10 @@ export default defineNuxtConfig({
                     'DM Sans': {
                         wght: [300,400,500,700],
                         ital: [400,500],
+                    },
+                    'Source Code Pro': {
+                        wght: [500],
+                        ital: [500],
                     }
                 },
                 display: 'swap',
