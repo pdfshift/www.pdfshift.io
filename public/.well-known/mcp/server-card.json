@@ -1,28 +1,95 @@
 {
   "serverInfo": {
-    "name": "PDFShift API",
-    "version": "3.0",
-    "description": "PDFShift API for converting HTML to PDF and PNG formats"
+    "name": "pdfshift-mcp",
+    "version": "1.0.0",
+    "description": "PDFShift converts an HTML document or a URL into a PDF, PNG, JPEG or WEBP file, manages reusable HTML templates, and reports credit usage and recent conversion logs. Conversions return a temporary download URL (valid ~2 days) or place the file to your own S3 destination folder."
   },
   "transport": {
-    "type": "http",
-    "endpoint": "https://api.pdfshift.io/v3"
+    "type": "streamable-http",
+    "endpoint": "https://api.pdfshift.io/mcp",
+    "methods": [
+      "initialize",
+      "ping",
+      "tools/list",
+      "tools/call"
+    ]
+  },
+  "protocol": {
+    "default": "2025-06-18",
+    "supported": [
+      "2025-06-18",
+      "2025-03-26",
+      "2024-11-05"
+    ]
   },
   "capabilities": {
-    "methods": [
-      "convert/pdf",
-      "convert/png",
-      "account",
-      "credits/usage",
-      "invoices"
-    ],
-    "authentication": {
-      "type": "apiKey",
-      "in": "header",
-      "name": "X-API-Key"
-    },
-    "schemas": [
-      "https://api.pdfshift.io/openapi.json"
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "authentication": {
+    "type": "apiKey",
+    "description": "Send your PDFShift secret key on each tool call. 'initialize' and 'tools/list' work without a key so clients can connect and discover tools; 'tools/call' requires it.",
+    "schemes": [
+      {
+        "in": "header",
+        "name": "Authorization",
+        "format": "Bearer sk_..."
+      },
+      {
+        "in": "header",
+        "name": "X-API-Key",
+        "format": "sk_..."
+      }
     ]
-  }
+  },
+  "tools": [
+    {
+      "name": "convert",
+      "description": "Convert an HTML document or a URL to a PDF, PNG, JPEG or WEBP file. Returns a temporary download URL (valid ~2 days)."
+    },
+    {
+      "name": "list_templates",
+      "description": "List all saved HTML templates for the account."
+    },
+    {
+      "name": "get_template",
+      "description": "Get the raw HTML content of a template by its slug."
+    },
+    {
+      "name": "create_template",
+      "description": "Create a new reusable HTML template."
+    },
+    {
+      "name": "update_template",
+      "description": "Update the name and/or HTML content of an existing template."
+    },
+    {
+      "name": "delete_template",
+      "description": "Delete a template by its slug."
+    },
+    {
+      "name": "generate_from_template",
+      "description": "Render a saved template to HTML, PDF, PNG, JPEG or WEBP. Document formats return a temporary download URL; html returns the rendered markup. Pass template variables and any conversion option as extra properties."
+    },
+    {
+      "name": "credits_usage",
+      "description": "Get the current credit usage for the account (remaining, total, used)."
+    },
+    {
+      "name": "pricing",
+      "description": "List the available PDFShift plans and their pricing (credits, price, overage, monthly/yearly). Custom plans specific to the account are included when authenticated."
+    },
+    {
+      "name": "list_logs",
+      "description": "List recent conversion logs for the account."
+    },
+    {
+      "name": "get_log",
+      "description": "Get a single conversion log by its request id."
+    }
+  ],
+  "schemas": [
+    "https://api.pdfshift.io/openapi.json"
+  ]
 }
