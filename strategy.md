@@ -27,6 +27,7 @@ Stratégie de croissance PDFShift
 [ ] - Optimize documentation (docs.pdfshift.io) for AI/MCP systems
 [ ] - Implement various SDK for each major programming languages
 [ ] - Write about architecture and experience running thousands of conversions per day
+[ ] - Create a file sample and measure the performance time to convert to PDF using PDFShift and other competitors to compare them
 
 NOTE: Comment ca se passe pour les one-time login link si un bot va sur l'url ?
 => Tester et faire en sorte que ca ne supprime pas le token automatiquement
