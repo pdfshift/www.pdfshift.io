@@ -4,6 +4,7 @@
 
 Source: https://pdfshift.io — see also https://pdfshift.io/llms.txt for a curated index.
 Pricing details: https://pdfshift.io/pricing.md
+OpenAPI Specification: https://api.pdfshift.io/openapi.json
 Documents: 635. Each is delimited by a rule and prefixed with its canonical URL.
 
 ---

@@ -6,11 +6,14 @@ Every page on pdfshift.io is available as clean Markdown: append `.md` to any UR
 
 For full, up-to-date pricing details (plans, credits, and per-conversion overage rates), see [https://pdfshift.io/pricing.md](https://pdfshift.io/pricing.md). Pricing is also available as JSON from the public API endpoint `GET https://api.pdfshift.io/v3/credits/pricing` (no authentication required; pass your `X-API-Key` header to also receive any custom plan specific to your account).
 
+The complete OpenAPI Specification for the PDFShift API is available at [https://api.pdfshift.io/openapi.json](https://api.pdfshift.io/openapi.json).
+
 ## Core pages
 - [HTML to PDF API — Overview](https://pdfshift.io/index.md): What PDFShift does, key stats, and headline features.
 - [Pricing](https://pdfshift.io/pricing.md): Credit-based plans from Free (50 credits/mo) up to 100k+ conversions per month.
 - [FAQ](https://pdfshift.io/faq.md): Common questions about trials, billing, security, and usage.
 - [API Documentation](https://docs.pdfshift.io): Full REST API reference for the /v3 conversion endpoint.
+- [OpenAPI Specification](https://api.pdfshift.io/openapi.json): Machine-readable OpenAPI (JSON) description of the PDFShift API.
 
 ## Guides
 > 597+ how-to guides covering 8 languages (C#, Go, Java, Node, PHP, Python, Ruby, cUrl) and their most popular HTTP libraries. Each task below exists for every language/library combination — full text is in llms-full.txt.
