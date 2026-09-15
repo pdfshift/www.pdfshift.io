@@ -20,6 +20,28 @@ Start for free and scale from a handful of documents to millions of conversions 
 
 Annual billing is 10 months for the price of 12 (two months free). The overage rate applies only to credits used beyond your included monthly volume.
 
+## Pricing API
+
+The full list of plans is also available programmatically through a public JSON endpoint, so you can always display up-to-date pricing without hardcoding it:
+
+`GET https://api.pdfshift.io/v3/credits/pricing`
+
+This endpoint requires no authentication. If you send your secret key in the `X-API-Key` header, the response additionally includes any custom plan specific to your account, alongside the standard public plans.
+
+Each entry returns the plan's `display` name, its internal `name` (used when subscribing or estimating), the included `credits`, the maximum `filesize` (in MB) and `timeout` (in seconds), the `price` (in USD for the billing period), whether it is billed `yearly`, the `overage` cost (in cents per extra credit), and its `position` in the ordered list.
+
+Example response:
+
+```json
+{
+  "success": true,
+  "prices": [
+    { "display": "Startup", "name": "shift05", "credits": 500, "filesize": 250, "timeout": 100, "price": 9, "yearly": false, "overage": 40, "position": 1 },
+    { "display": "Growth", "name": "shift5k", "credits": 5000, "filesize": 250, "timeout": 100, "price": 39, "yearly": false, "overage": 25, "position": 3 }
+  ]
+}
+```
+
 ## What is a credit?
 
 One credit is consumed per document, counted per 5 MB of generated data. A conversion that produces a 14 MB PDF counts as 3 credits. Unused credits do not roll over from month to month.
