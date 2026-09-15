@@ -15,7 +15,7 @@ export const questions = () => [
     },
     {
         question: 'Can I try PDFShift without creating an account?',
-        answer: `<p>Yes. Head to our <a href="https://playground.pdfshift.io" class="font-medium text-purple hover:underline" rel="noopener noreferrer">Playground</a> to see how you can customize your document conversion output with code samples — whether it’s an image or a PDF.</p>`,
+        answer: `<p>Yes. Head to our <a href="https://playground.pdfshift.io" class="font-medium text-purple hover:underline" rel="noopener noreferrer">Playground</a> to see how you can customize your document conversion output with code samples, whether it’s an image or a PDF.</p>`,
         visible: false,
         home: true
     },
@@ -41,7 +41,7 @@ export const questions = () => [
     },
     {
         question: 'What about the privacy of my data?',
-        answer: `<p>We take privacy seriously. We do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift — so you can rest assured that your documents are entirely private.</p>`,
+        answer: `<p>We take privacy seriously. We do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift - so you can rest assured that your documents are entirely private.</p>`,
         visible: false,
         home: false
     },
@@ -58,7 +58,7 @@ export const questions = () => [
         home: false
     },
     {
-        question: 'I use Amazon S3 storage for my converted documents — how is my data privacy maintained?',
+        question: 'I use Amazon S3 storage for my converted documents, how is my data privacy maintained?',
         answer: `<p>When you pass the "filename" parameter while processing HTML content, we store your resulting documents at our Amazon's S3 storage. In this case, the PDF's content is subject to Amazon's privacy policy.</p>
                 <p>For increased privacy, PDFShift supports sending your documents straight to your own S3 storage. Find <a href="https://status.pdfshift.io/" title="Visit our Status page" class="font-medium text-purple hover:underline" rel="noopener noreferrer">our documentation here</a>.</p>`,
         visible: false,
@@ -130,7 +130,7 @@ export const questions = () => [
     },
     {
         question: 'How many parallel conversions can I run? Is it different for each plan?',
-        answer: `<p>You can make up to 50 parallel conversions at the same time. This limit applies to all plans by default — but if you need more parallel conversions, <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> for a custom solution.</p>`,
+        answer: `<p>You can make up to 50 parallel conversions at the same time. This limit applies to all plans by default, but if you need more parallel conversions, <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> for a custom solution.</p>`,
         visible: false,
         home: false
     },
