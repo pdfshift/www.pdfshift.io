@@ -70,14 +70,14 @@
             </section>
 
             <section class="agents-build-section bg-white" aria-labelledby="build-title">
-                <div class="build-shell-artwork relative mx-auto h-auto w-full max-w-screen-xl bg-purple-100 pb-44 xl:pb-0">
+                <div class="build-shell-artwork relative mx-auto h-auto w-full max-w-screen-xl bg-purple-100 pb-24">
                     <div class="mx-auto w-with-gutters max-w-agent-copy pt-20 text-center md:pt-24">
                         <h2 id="build-title" class="px-4 text-center text-3xl font-medium !leading-display md:px-0 md:text-4xl">What you can <span class="text-purple-500">Build</span></h2>
                         <p class="mt-6 px-6 text-center text-base font-normal !leading-relaxed md:px-0 md:text-lg">Real-world use cases for automated PDF generation</p>
                     </div>
 
                     <div class="mx-auto mt-14 grid w-with-gutters max-w-4xl grid-cols-1 gap-6 md:grid-cols-3">
-                        <article v-for="useCase in useCases" :key="useCase.title" class="h-auto rounded-2xl border border-purple-500 bg-agent-card p-2 md:h-48">
+                        <article v-for="useCase in useCases" :key="useCase.title" class="h-auto rounded-2xl border border-purple-500 bg-agent-card p-2">
                             <div class="h-full rounded-xl border border-purple-500 bg-white px-6 py-6">
                                 <h3 class="text-xl font-medium leading-none">{{ useCase.title }}</h3>
                                 <p class="mt-3 text-base font-light leading-snug">{{ useCase.description }}</p>
@@ -126,6 +126,7 @@
                 highlight="Automating"
                 suffix="today"
                 description="Get your free API key and start converting HTML to PDF in your workflows"
+                :showSecondary="false"
             />
         </main>
 
@@ -283,9 +284,4 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
     }
 }
 
-@media (min-width: 1280px) {
-    .build-shell-artwork {
-        height: 2052px;
-    }
-}
 </style>
