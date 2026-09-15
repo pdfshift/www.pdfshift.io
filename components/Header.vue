@@ -25,7 +25,7 @@
             </nav>
             <div class="hidden lg:flex gap-8 items-center" >
                 <NuxtLink to="https://app.pdfshift.io" class="hover:underline" :class="{ 'text-white': dark, 'text-navy-700': !dark }">Login</NuxtLink>
-                <Button to="/register">Register</Button>
+                <Button to="/register" :hover="light ? 'light' : 'dark'">Register</Button>
             </div>
             <button aria-label="Menu" class="lg:hidden cursor-pointer" @click="toggleMenu" :class="{ 'text-white': dark, 'text-navy-700': !dark }">
                 <IconsHamburger />
@@ -55,6 +55,10 @@ const props = defineProps({
     fixed: {
         type: Boolean,
         default: false
+    },
+    light: {
+        type: Boolean,
+        default: true
     }
 })
 
