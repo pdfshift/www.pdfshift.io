@@ -48,7 +48,7 @@ export default defineEventHandler(async (event) => {
                 console.error('Error reading markdown file:', error)
             }
         }
-        return // No matching content file — continue with normal response
+        return // No matching content file. Continue with normal response
     }
 
     const acceptHeader = getRequestHeader(event, 'accept') || ''

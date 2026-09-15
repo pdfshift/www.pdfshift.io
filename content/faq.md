@@ -12,7 +12,7 @@ This covers a broad range of tasks involving converting documents to PDF, grabbi
 
 **Can I try PDFShift without creating an account?**
 
-Yes. Head to our Playground to see how you can customize your document conversion output with code samples — whether it’s an image or a PDF.
+Yes. Head to our Playground to see how you can customize your document conversion output with code samples, whether it’s an image or a PDF.
 
 ## Using PDFShift
 
@@ -38,7 +38,7 @@ Contact us via our form or email us, and we’ll do our best to accommodate your
 
 **What about the privacy of my data?**
 
-We take privacy seriously. We do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift — so you can rest assured that your documents are entirely private.
+We take privacy seriously. We do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift, so you can rest assured that your documents are entirely private.
 
 **Is PDFShift GDPR compliant?**
 
@@ -103,13 +103,13 @@ When a conversion takes too long, PDFShift returns a JSON response along with a 
 
 **How many parallel conversions can I run? Is it different for each plan?**
 
-You can make up to 50 parallel conversions at the same time. This limit applies to all plans by default — but if you need more parallel conversions, contact us for a custom solution.
+You can make up to 50 parallel conversions at the same time. This limit applies to all plans by default but if you need more parallel conversions, contact us for a custom solution.
 
 **Do I have to pass a "webhook" parameter when using parallel conversion?**
 
 Yes. When you carry out parallel conversions, PDFShift queues up each request to be processed independently. For this reason, your POST request is treated almost instantly with a 202 status code (’Accepted’). You will then receive a POST response at your Webhook URL for **each** source that is converted.
 
-**I use Amazon S3 storage for my converted documents — how is my data privacy maintained?**
+**I use Amazon S3 storage for my converted documents; how is my data privacy maintained?**
 
 When you pass the "filename" parameter while processing HTML content, we store your resulting documents at our Amazon's S3 storage. In this case, the PDF's content is subject to Amazon's privacy policy.
 

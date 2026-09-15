@@ -1,8 +1,8 @@
 <template>
     <div class="min-w-80 overflow-hidden bg-white text-navy-800">
-        <Header />
+        <Header :light="false" />
 
-        <main id="main-content" class="pt-26 md:pt-32 xl:pt-44">
+        <main id="main-content" class="pt-26 md:pt-28 xl:pt-32">
             <section class="agents-hero-artwork marketing-hero-artwork relative mx-auto w-with-gutters max-w-screen-xl overflow-hidden rounded-2xl bg-navy-800 text-white md:h-agent-hero md:rounded-4xl" aria-labelledby="agents-title">
                 <div class="absolute left-1/2 top-24 z-1 w-with-gutters max-w-xl -translate-x-1/2 text-center md:top-30">
                     <h1 id="agents-title" class="text-4xl font-normal !leading-display md:text-6xl">
@@ -20,12 +20,12 @@
                     Why Choose <span class="text-purple-500">PDFShift</span> for Automation
                 </h2>
                 <div class="mx-auto mt-12 grid w-with-gutters max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-                    <article v-for="feature in features" :key="feature.title" class="h-auto rounded-2xl border border-purple-500 bg-agent-card p-3 md:h-72 xl:h-80">
+                    <article v-for="feature in features" :key="feature.title" class="h-auto rounded-2xl border border-purple-500 bg-agent-card p-3">
                         <div class="flex h-full flex-col rounded-lg border border-purple-500 bg-white px-6 pb-5 pt-5">
                             <span class="feature-icon block size-10 text-purple-500" aria-hidden="true">
                                 <component :is="feature.icon" />
                             </span>
-                            <div class="mt-8 md:mt-10 xl:mt-20">
+                            <div class="mt-4 md:mt-6 xl:mt-8">
                                 <h3 class="text-xl font-medium leading-none">{{ feature.title }}</h3>
                                 <p class="mt-3 text-base font-light leading-snug">{{ feature.description }}</p>
                             </div>
@@ -34,7 +34,7 @@
                 </div>
             </section>
 
-            <section id="integrations" class="integrations-artwork relative h-auto overflow-hidden pb-20 text-white xl:pb-0" aria-labelledby="integrations-title">
+            <section id="integrations" class="integrations-artwork relative h-auto overflow-hidden pb-20 text-white" aria-labelledby="integrations-title">
                 <div class="relative z-1 pt-16 md:pt-20">
                     <h2 id="integrations-title" class="px-4 text-center text-3xl font-medium !leading-display md:px-0 md:text-4xl">
                         Popular <span class="text-purple-500">Integrations</span> for PDFShift
@@ -85,6 +85,7 @@
                         </article>
                     </div>
 
+                    <!--
                     <div class="mx-auto mt-20 h-auto w-with-gutters max-w-4xl rounded-2xl border border-purple-500 bg-agent-panel py-10 md:mt-28 md:h-agent-panel md:pb-0 md:pt-10">
                         <h2 class="px-4 text-center text-3xl font-medium !leading-display md:px-0 md:text-4xl">How it works</h2>
                         <div class="steps-grid-artwork relative mx-auto mt-10 grid w-with-gutters max-w-agent-content grid-cols-1 gap-6 md:mt-8 md:grid-cols-3 md:gap-16">
@@ -95,6 +96,7 @@
                             </article>
                         </div>
                     </div>
+                    -->
 
                     <div class="mt-20 md:mt-24 xl:mt-28">
                         <div class="mx-auto w-with-gutters max-w-agent-copy text-center">
@@ -142,7 +144,7 @@ definePageMeta({ layout: false })
 const features = [
     {
         title: 'No Code Required',
-        description: 'Use visual builders and drag-and-drop interfaces. No programming knowledge needed.',
+        description: 'Use your favorite interface: N8n, Lovable, Base44, ... or via our MCP. No programming knowledge needed.',
         icon: NoCodeIcon,
     },
     {
@@ -164,21 +166,25 @@ const features = [
 
 const integrations = [
     { name: 'N8N', description: 'Generate PDFs automatically from your N8N workflows.', icon: '/images/agents/n8n.svg', href: '/agents/n8n' },
+    { name: 'Lovable', description: 'Add secure, server-side PDF export to your Lovable app in one prompt.', icon: '/images/agents/lovable.svg', href: '/agents/lovable' },
+    { name: 'Base44', description: 'Connect PDFShift from its OpenAPI spec or a backend function in Base44.', icon: '/images/agents/base44.svg', href: '/agents/base44' },
+    { name: 'Clay', description: 'Generate personalized PDFs from your Clay workflow data.', icon: '/images/agents/clay.png', iconClass: 'clay-icon', imageClass: '!h-6 !w-7', href: '/guides/' },
+    { name: 'MCP', description: 'Give AI agents access to PDFShift through the Model Context Protocol.', icon: '/images/agents/mcp.svg', href: '/agents/mcp' },
+    /*
     { name: 'Zapier', description: 'Create Zaps that generate PDFs from your triggers and data.', icon: '/images/agents/zapier.png', href: '/guides/' },
     { name: 'Make', description: 'Generate PDFs automatically from your Make scenarios.', icon: '/images/agents/make.svg', href: '/guides/' },
-    { name: 'MCP', description: 'Give AI agents access to PDFShift through the Model Context Protocol.', short: 'MCP', iconClass: 'bg-slate-900 text-xs text-purple-100', href: 'https://docs.pdfshift.io' },
-    { name: 'Clay', description: 'Generate personalized PDFs from your Clay workflow data.', icon: '/images/agents/clay.png', iconClass: 'clay-icon', imageClass: '!h-6 !w-7', href: '/guides/' },
     { name: 'Bubble', description: 'Add automated PDF generation to your Bubble applications.', icon: '/images/agents/bubble.svg', href: '/guides/' },
     { name: 'FlowMattic', description: 'Generate PDFs automatically from your WordPress workflows.', icon: '/images/agents/flowmattic.png', href: '/guides/' },
+    */
 ]
 
 const useCases = [
-    { title: 'Invoice Generation', description: 'Automatically generate invoices from payment webhooks and send them to customers.' },
-    { title: 'Report Creation', description: 'Create beautiful reports from spreadsheet data, databases, or APIs automatically.' },
-    { title: 'Contract Automation', description: 'Generate personalized contracts and agreements from templates with data from your CRM.' },
-    { title: 'E-Commerce Receipts', description: 'Generate and email receipts automatically when orders are placed in your store.' },
-    { title: 'Document Archiving', description: 'Archive web pages, emails, or documents as PDFs to cloud storage automatically.' },
-    { title: 'Multi-Language Docs', description: 'Generate documents in multiple languages automatically based on user preferences.' },
+    { title: 'Invoice & Receipt Generation', description: 'Turn payment or order webhooks into branded invoices and receipts, emailed to customers instantly.' },
+    { title: 'Report Creation', description: 'Convert spreadsheet, database, or API data into polished PDF reports on a schedule.' },
+    { title: 'Contract Automation', description: 'Merge CRM data into contract templates and generate signature-ready agreements.' },
+    { title: 'On-Demand Agent Exports', description: 'Let an AI agent produce a PDF from a chat or MCP call: summaries, briefs, or generated content.' },
+    { title: 'Web & Email Archiving', description: 'Snapshot web pages, emails, or dashboards as PDFs into your cloud storage automatically.' },
+    { title: 'Certificates & Documents at Scale', description: 'Generate personalized certificates, tickets, or letters in bulk from a single template.' }
 ]
 
 const steps = [
@@ -207,7 +213,7 @@ const resources = [
 ]
 
 const title = 'PDFShift for AI Agents & Automation Tools'
-const description = 'Generate PDFs from N8N, Zapier, Make, MCP, Clay, Bubble, FlowMattic, and your own AI agents with PDFShift.'
+const description = 'Generate PDFs from N8N, Lovable, Base44, Zapier, Make, MCP, Clay, Bubble, FlowMattic, and your own AI agents with PDFShift.'
 
 useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 </script>
@@ -278,10 +284,6 @@ useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
 }
 
 @media (min-width: 1280px) {
-    .integrations-artwork {
-        height: 1026px;
-    }
-
     .build-shell-artwork {
         height: 2052px;
     }

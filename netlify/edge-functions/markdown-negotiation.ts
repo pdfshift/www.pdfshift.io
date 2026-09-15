@@ -61,7 +61,7 @@ export default async (request: Request, context: Context) => {
                 });
             }
         } catch (error) {}
-        return; // No matching content file — fall through to normal (404) handling
+        return; // No matching content file; fall through to normal (404) handling
     }
 
     const acceptHeader = request.headers.get("accept") || "";

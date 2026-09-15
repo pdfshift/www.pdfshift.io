@@ -6,7 +6,7 @@ Start for free and scale from a handful of documents to millions of conversions 
 
 | Plan       | Price     | Per year   | Credits / mo | Overage (per credit) |
 | ---------- | --------- | ---------- | ------------ | -------------------- |
-| Free       | $0/mo     | —          | 50           | —                    |
+| Free       | $0/mo     | -          | 50           | -                    |
 | Starter    | $9/mo     | $90/yr     | 500          | $0.04                |
 | Boost      | $24/mo    | $240/yr    | 2,500        | $0.03                |
 | Growth     | $39/mo    | $390/yr    | 5,000        | $0.025               |
@@ -50,12 +50,12 @@ One credit is consumed per document, counted per 5 MB of generated data. A conve
 
 To illustrate costs at common volumes, here are the recommended plans and their effective per-document rate:
 
-- **500 documents/mo**: Starter at $9/mo — effective rate of $0.018 per document.
-- **5,000 documents/mo**: Growth at $39/mo — effective rate of $0.0078 per document.
-- **25,000 documents/mo**: Business at $99/mo — effective rate of $0.00396 per document.
-- **50,000 documents/mo**: Shift 50k at $149/mo — effective rate of $0.00298 per document.
-- **500,000 documents/mo**: Shift 500k at $799/mo — effective rate of $0.0016 per document.
-- **1,000,000 documents/mo**: Shift 1M at $999/mo — effective rate of $0.001 per document.
+- **500 documents/mo**: Starter at $9/mo - effective rate of $0.018 per document.
+- **5,000 documents/mo**: Growth at $39/mo - effective rate of $0.0078 per document.
+- **25,000 documents/mo**: Business at $99/mo - effective rate of $0.00396 per document.
+- **50,000 documents/mo**: Shift 50k at $149/mo - effective rate of $0.00298 per document.
+- **500,000 documents/mo**: Shift 500k at $799/mo - effective rate of $0.0016 per document.
+- **1,000,000 documents/mo**: Shift 1M at $999/mo - effective rate of $0.001 per document.
 
 ## Feature Highlights
 
@@ -72,6 +72,6 @@ We easily support more than 1 million conversions per month. For teams with high
 
 ## Get Started
 
-Start converting HTML to PDF for free — 50 credits every month, no credit card required.
+Start converting HTML to PDF for free; 50 credits every month, no credit card required.
 
 [Register for free](/register)
