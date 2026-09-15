@@ -5,15 +5,25 @@ They buy *not having to run Chromium*.
 
 Stratégie de croissance PDFShift
 
+Implemented:
+
 [x] - Automatiser une campagne email pour demander quel usage les clients qui ont plus de 3 mois font de PDFShift
 [x] - Centraliser les churn.csv et en faire un graph
 [x] - Implement MCP agent
 [x] - Mettre en avant le pricing dans l'API en accessible publique, et l'ajouter dans le llms.txt et llms-full.txt
 [x] - Ajouter le OpenAPI URL dans le llms.txt et llms-full.txt
 
-[ ] - Reddit campaign
-[ ] - An endpoint for agents that gets a new account with API Key that can be used. Watermarked until the email has been validated, limited to 5 per day
+
+Going on:
+
+[ ] - Reddit campaign (Running)
 [ ] - Mettre à jour le site pour y inclure la page /agents et les pages dédiés
+[ ] - Changer le questionnaire du Churn en : What made you cancel ? et What could we do to make you reconsider? 
+
+
+Todo:
+
+[ ] - An endpoint for agents that gets a new account with API Key that can be used. Watermarked until the email has been validated, limited to 5 per day
 [ ] - Ajouter les différents outils no-code (Lovable, Base44, Make, Clay, N8n, Zapier)
 [ ] - Faire des vidéos Youtube de bonne qualité pour chaque intégrations (no-code, librairies, etc)
 [ ] - Demander des questions lors du signup
@@ -29,16 +39,10 @@ Stratégie de croissance PDFShift
 [ ] - Implement various SDK for each major programming languages
 [ ] - Write about architecture and experience running thousands of conversions per day
 [ ] - Create a file sample and measure the performance time to convert to PDF using PDFShift and other competitors to compare them
+[ ] - Do a Uneed landing page study once everything important has been implemented
 
 NOTE: Comment ca se passe pour les one-time login link si un bot va sur l'url ?
 => Tester et faire en sorte que ca ne supprime pas le token automatiquement
-
----
-
-## Reddit campaign
-
-https://x.com/arthuryuzbashew
-https://redreach.ai/
 
 ---
 
@@ -46,6 +50,7 @@ https://redreach.ai/
 ## Write articles for No-Code platforms, along with videos
 
  * Lovable
+ * Webflow
  * Base44
  * Make
  * N8n
