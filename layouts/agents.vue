@@ -18,7 +18,7 @@
                 <h2 id="security-title" class="mx-auto w-with-gutters max-w-agent-content text-3xl font-medium leading-display text-trim md:text-4xl">Important security note</h2>
                 <div class="mx-auto mt-6 w-with-gutters max-w-agent-content rounded-2xl border border-purple-500 bg-agent-panel p-8">
                     <p>Never call PDFShift directly from frontend JavaScript with your secret API key. Frontend code can be inspected by anyone using the application, which would expose the key.</p>
-                    <p class="mt-4">Always store the key in a Lovable Cloud (or Supabase) secret and make PDFShift requests through a server-side Edge Function &mdash; exactly what the one-shot prompt sets up.</p>
+                    <p class="font-bold mt-4">Always store the key in a secret storage/environment.</p>
                 </div>
             </section>
 
