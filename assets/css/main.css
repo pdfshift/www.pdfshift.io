@@ -116,7 +116,7 @@ background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmN
 }
 
 article pre.hljs {
-    @apply mt-6 mb-12 p-4 rounded-lg bg-gradient-radial bg-navy-700 border-purple border shadow-lg max-w-xl mx-auto lg:max-w-none overflow-x-auto
+    @apply my-6 p-4 rounded-lg bg-gradient-radial bg-navy-700 border-purple border shadow-lg max-w-xl mx-auto lg:max-w-none overflow-x-auto
 }
 
 .articles p {
