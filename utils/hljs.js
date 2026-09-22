@@ -10,6 +10,7 @@ import csharp from 'highlight.js/lib/languages/csharp';
 import go from 'highlight.js/lib/languages/go';
 import java from 'highlight.js/lib/languages/java';
 import json from 'highlight.js/lib/languages/json';
+import xml from 'highlight.js/lib/languages/xml';
 
 import 'highlight.js/styles/night-owl.min.css'
 
@@ -23,6 +24,7 @@ hljs.registerLanguage('csharp', csharp);
 hljs.registerLanguage('go', go);
 hljs.registerLanguage('java', java);
 hljs.registerLanguage('json', json);
+hljs.registerLanguage('html', xml);
 
 
 export default function (str, language) {
