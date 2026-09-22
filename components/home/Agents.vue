@@ -54,21 +54,15 @@
 
 <script setup>
 const integrations = [
-    { name: 'N8N', logo: '/images/agents/n8n.svg', href: '/agents/n8n', left: '28.2067%', top: '81.8131%', imageClass: 'size-full scale-105' },
-    { name: 'Zapier', logo: '/images/agents/zapier.png', href: '/agents/zapier', left: '11.6675%', top: '49.4052%' },
-    { name: 'Make', logo: '/images/agents/make.svg', href: '/agents/make', left: '25.9716%', top: '21.4675%', imageClass: 'size-full scale-105' },
-    {
-        name: 'Clay',
-        logo: '/images/agents/clay.png',
-        href: '/agents/clay',
-        left: '86.3172%',
-        top: '60.8039%',
-        linkClass: 'bg-neutral-900',
-        imageClass: 'absolute left-1/2 top-1/2 h-auto w-7/12 -translate-x-1/2 -translate-y-1/2',
-    },
-    { name: 'Bubble', logo: '/images/agents/bubble.svg', href: '/agents/bubble', left: '66.8726%', top: '83.1541%', imageClass: 'size-full scale-105' },
-    { name: 'FlowMattic', logo: '/images/agents/flowmattic.png', href: '/agents/flowmattic', left: '86.3172%', top: '26.8315%' },
     { name: 'MCP', logo: '/images/agents/mcp.svg', href: '/agents/mcp', left: '57.0384%', top: '13.4215%' },
+    { name: 'N8N', logo: '/images/agents/n8n.svg', href: '/agents/n8n', left: '86.3172%', top: '26.8315%', imageClass: 'scale-105' },
+    { name: 'Lovable', logo: '/images/agents/lovable.svg', href: '/agents/lovable', left: '86.3172%', top: '60.8039%', imageClass: 'absolute left-1/2 top-1/2 h-auto w-7/12 -translate-x-1/2 -translate-y-1/2' },
+    { name: 'Base44', logo: '/images/agents/base44.svg', href: '/agents/base44', left: '66.8726%', top: '83.1541%', imageClass: 'scale-105 absolute left-1/2 top-1/2 h-auto w-7/12 -translate-x-1/2 -translate-y-1/2' },
+    { name: 'Clay', logo: '/images/agents/clay.png', href: '/agents/clay', left: '28.2067%', top: '81.8131%' },
+    { name: 'Bubble', logo: '/images/agents/bubble.svg', href: '/agents/bubble', left: '28.2067%', top: '81.8131%', imageClass: 'size-full scale-105' },
+    { name: 'FlowMattic', logo: '/images/agents/flowmattic.png', href: '/agents/flowmattic', left: '11.6675%', top: '49.4052%' },
+    { name: 'Make', logo: '/images/agents/make.svg', href: '/agents/make', left: '25.9716%', top: '21.4675%', imageClass: 'size-full scale-105' },
+    // { name: 'Zapier', logo: '/images/agents/zapier.png', href: '/agents/zapier', left: '25.9716%', top: '21.4675%' },
 ]
 </script>
 
