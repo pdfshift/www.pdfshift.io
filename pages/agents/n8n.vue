@@ -3,7 +3,7 @@
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
             <img class="h-10 w-10 md:-translate-y-11" src="/images/agents/n8n.svg" alt="n8n" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift + n8n</h1>
-            <p class="mt-8 w-full max-w-3xl text-lg font-light leading-snug text-trim md:text-xl">
+            <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
                 Generate PDFs and screenshots inside your n8n workflows with the official
                 <a class="underline" href="https://www.npmjs.com/package/n8n-nodes-pdfshift" target="_blank" rel="noopener">n8n-nodes-pdfshift</a>
                 community node &mdash; no HTTP wiring required.

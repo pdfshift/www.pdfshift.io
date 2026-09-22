@@ -69,7 +69,7 @@
                 <div class="mt-8 md:mt-10">
                     <h3>1. Get your PDFShift API key</h3>
                     <p>
-                        Create a PDFShift account and get your API key.
+                        Create a PDFShift account and copy your API key.
                         Do not paste it into your Lovable prompt.
                     </p>
                     <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
