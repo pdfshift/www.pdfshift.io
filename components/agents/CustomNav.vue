@@ -1,6 +1,6 @@
 <template>
     <nav :class="isNavFixed ? 'fixed top-28' : 'absolute top-0'" class="agent-page-nav z-10 hidden w-48 flex-col gap-5 rounded-xl border border-purple-400 bg-white px-5 py-7 text-base font-light leading-snug xl:flex" aria-label="On this page">
-        <a v-for="item in props.items" :key="item.id" :class="item.id === activeSection ? 'font-medium text-purple' : 'text-navy-800'" :href="`#${item.id}`" @click="setActiveSection(item.id)">
+        <a v-for="item in props.items" :key="item.id" :class="item.id === activeSection ? 'font-medium text-purple' : 'text-navy-800'" :href="`#${item.id}`" :aria-current="item.id === activeSection ? 'true' : undefined" @click="setActiveSection(item.id)">
             <span v-if="item.id === activeSection" aria-hidden="true">&rarr; </span>{{ item.label }}
         </a>
     </nav>
@@ -10,6 +10,10 @@
 const props = defineProps({
     items: {
         type: Array
+    },
+    anchorId: {
+        type: String,
+        default: 'overview'
     }
 })
 
@@ -29,9 +33,9 @@ const updateActiveSection = () => {
 }
 
 const updateNavPosition = () => {
-    const overview = document.getElementById('overview')
+    const anchor = document.getElementById(props.anchorId)
 
-    isNavFixed.value = Boolean(overview && overview.getBoundingClientRect().top <= navOffset)
+    isNavFixed.value = Boolean(anchor && anchor.getBoundingClientRect().top <= navOffset)
 }
 
 const setActiveSection = (sectionId) => {

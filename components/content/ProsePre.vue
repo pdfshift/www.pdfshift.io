@@ -94,8 +94,10 @@ const classes = computed(() => {
 })
 
 const encoded = computed(() => {
-    if (props.language) return hljs(props.code, props.language)
-    return props.code
+    let converted = props.code
+    if (props.language !== 'html') converted = converted.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    if (props.language) return hljs(converted, props.language)
+    return converted
 })
 </script>
 

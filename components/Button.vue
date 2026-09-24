@@ -38,7 +38,7 @@ if (props.light) {
 }
 
 if (props.hover === 'light') {
-    cssClass.value += ' hover:bg-white hover:border-white hover:text-navy-700'
+    cssClass.value += ' hover:bg-white hover:border-purple hover:text-navy-700'
 } else {
     cssClass.value += ' hover:bg-navy-700 hover:text-white hover:border-navy-700'
 }
