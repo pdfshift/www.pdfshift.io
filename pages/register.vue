@@ -69,9 +69,11 @@
 
                                 <div class="block text-red-500 font-light" v-if="errors.general">{{ errors.general }}</div>
 
-                                <button type="submit" :disabled="sending || !canSubmitAccount" @click="submitAccount" class="w-full inline-flex border items-center justify-center px-10 py-3 rounded-lg gap-1 group transition-all duration-300 bg-purple border-purple text-white hover:bg-navy-700 hover:text-white hover:border-navy-700 cursor-pointer disabled:pointer-events-none disabled:opacity-75">
-                                    Create your free account
-                                </button>
+                                <div @click="onSubmitAreaClick">
+                                    <button type="submit" :disabled="sending || !canSubmitAccount" @click="submitAccount" class="w-full inline-flex border items-center justify-center px-10 py-3 rounded-lg gap-1 group transition-all duration-300 bg-purple border-purple text-white hover:bg-navy-700 hover:text-white hover:border-navy-700 cursor-pointer disabled:pointer-events-none disabled:opacity-75">
+                                        Create your free account
+                                    </button>
+                                </div>
 
                                 <div class="text-center">
                                     <span class="h4">Already a member?</span>
@@ -148,6 +150,13 @@ const errors = ref({
 const sending = ref(false)
 const step = ref(1)
 
+// Clear the agreement error as soon as the user ticks the box.
+watch(() => form.value.agree, (agreed) => {
+    if (agreed) {
+        errors.value.agree = null
+    }
+})
+
 const nameField = ref(null)
 
 let sessionToken = null
@@ -155,6 +164,18 @@ let sessionToken = null
 const canSubmitAccount = computed(() => {
     return form.value.name && form.value.email && form.value.agree
 })
+
+// Called when the user clicks the submit area while the button is disabled.
+// If the only thing missing is the agreement checkbox, surface the error.
+const onSubmitAreaClick = () => {
+    if (sending.value) {
+        return
+    }
+
+    if (form.value.name && form.value.email && !form.value.agree) {
+        errors.value.agree = 'Please accept the Terms of Service and Privacy Policy to continue.'
+    }
+}
 
 const canSubmitReferral = computed(() => {
     if (referral.value) {
@@ -184,13 +205,19 @@ const submitAccount = async ($event) => {
         return false
     }
 
-    sending.value = true
     errors.value = {
         name: null,
         email: null,
         agree: null,
         general: null
     }
+
+    if (!form.value.agree) {
+        errors.value.agree = 'Please accept the Terms of Service and Privacy Policy to continue.'
+        return false
+    }
+
+    sending.value = true
 
     const storage = useStorage()
     const body = Object.assign(

@@ -3,7 +3,7 @@
         <!-- Step 1: Main Categories -->
         <div v-if="!selectedCategory" class="space-y-4">
             <div v-for="category in categories" :key="category.value">
-                <FormsRadioButton @change="selectCategory(category)" :name="name" :id="`${name}-${category.value}`" :value="category.value">
+                <FormsRadioButton @click="selectCategory(category)" :name="name" :id="`${name}-${category.value}`" :value="category.value">
                     <div>
                         <div class="font-semibold">{{ category.title }}</div>
                         <div v-if="category.examples" class="text-sm text-gray-500 font-normal mt-1">{{ category.examples }}</div>
@@ -218,6 +218,10 @@ const otherText = ref('')
 const subOtherInput = ref(null)
 const rootOtherInput = ref(null)
 
+// Tracks whether we've pushed a history entry for the current selection, so the
+// browser back button reverts the category instead of leaving the page.
+let hasPushedState = false
+
 const isRootOther = computed(() => {
     return selectedCategory.value && (selectedCategory.value.value === 'competitor' || selectedCategory.value.value === 'other')
 })
@@ -227,6 +231,13 @@ const showSubOtherInput = computed(() => {
 })
 
 const selectCategory = (category) => {
+    // Push a history entry the first time a category is picked so a browser
+    // "back" press reverts the selection instead of navigating away.
+    if (process.client && !hasPushedState) {
+        window.history.pushState({ referralCategorySelected: true }, '')
+        hasPushedState = true
+    }
+
     selectedCategory.value = category
     tempSubOption.value = null
     otherText.value = ''
@@ -247,6 +258,10 @@ const selectCategory = (category) => {
 }
 
 const selectSubOption = (option) => {
+    // Reset any leftover free-text so the input and the model can't desync when
+    // switching between sub-options.
+    otherText.value = ''
+
     if (option.value === 'other') {
         nextTick(() => {
             if (subOtherInput.value) {
@@ -275,17 +290,55 @@ const updateModelValue = (category, subOption, otherValue) => {
     }
 }
 
-const goBack = () => {
+// Pure reset of the internal state (no history manipulation).
+const resetSelection = () => {
     selectedCategory.value = null
     tempSubOption.value = null
     otherText.value = ''
     model.value = null
+    // Keep the flag in sync with the state it tracks: once the selection is
+    // gone, any history entry we pushed is no longer "ours" to step back through.
+    hasPushedState = false
 }
+
+// Fired when the user presses the browser back button. If a category is
+// currently selected, consume the event and revert to the category list.
+const onPopState = () => {
+    if (selectedCategory.value) {
+        // resetSelection() clears hasPushedState; the browser already popped
+        // our pushed entry, so we just sync the component state.
+        resetSelection()
+    }
+}
+
+const goBack = () => {
+    // If we pushed a history entry for the selection, step back through it so
+    // the browser history stays clean; the popstate handler does the reset.
+    // Clear the flag first to guard against rapid double-clicks navigating away.
+    if (process.client && hasPushedState) {
+        hasPushedState = false
+        window.history.back()
+    } else {
+        resetSelection()
+    }
+}
+
+onMounted(() => {
+    if (process.client) {
+        window.addEventListener('popstate', onPopState)
+    }
+})
+
+onBeforeUnmount(() => {
+    if (process.client) {
+        window.removeEventListener('popstate', onPopState)
+    }
+})
 
 // Watch for external model changes
 watch(() => model.value, (newValue) => {
     if (!newValue) {
-        goBack()
+        resetSelection()
     }
 }, { deep: true })
 </script>
