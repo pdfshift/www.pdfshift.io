@@ -13,33 +13,10 @@
             </div>
         </section>
 
-        <div class="relative mx-auto mt-12 w-with-gutters max-w-agent-content">
-            <section id="overview" class="agent-overview-card min-h-0 rounded-xl border border-purple-400 bg-white px-6 py-7 md:px-11 md:pb-11 md:pt-12" aria-labelledby="overview-title">
-                <h2 id="overview-title">Overview</h2>
-                <p class="mt-4 leading-7 md:mt-6">
-                    The <a class="underline" href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol</a> (MCP)
-                    is an open standard that lets AI agents call external tools.
-                    PDFShift ships a hosted MCP server so your agent can turn HTML or a URL into a PDF, PNG, JPEG, or WEBP, manage reusable HTML templates,
-                    and check credits and conversion logs &mdash; all through natural language.
-                </p>
-                <p class="mt-4">
-                    It&rsquo;s a remote server (Streamable HTTP), so there&rsquo;s nothing to install or run locally: point your client at the endpoint,
-                    add your API key, and the tools appear.
-                </p>
-                <h3 class="mt-8 text-xl font-medium leading-6 md:text-2xl md:leading-7">What you get</h3>
-                <ul class="mt-2 list-disc pl-5 text-base leading-7 md:text-lg md:leading-8">
-                    <li>Convert HTML or a URL to PDF, PNG, JPEG, or WEBP</li>
-                    <li>Create, read, update, and render reusable HTML templates</li>
-                    <li>Check credit usage, plans, and recent conversion logs</li>
-                    <li>Works with any MCP client &mdash; Claude, Cursor, and more</li>
-                </ul>
-            </section>
+        <div id="agent-nav-anchor" class="relative mx-auto mt-24 w-with-gutters max-w-agent-content">
+            <AgentsCustomNav :items="pageSections" anchor-id="agent-nav-anchor" />
 
-            <AgentsCustomNav :items="pageSections" />
-        </div>
-
-        <div class="mx-auto w-with-gutters max-w-agent-content">
-            <section id="connect" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="connect-title">
+            <section id="connect" class="scroll-mt-30" aria-labelledby="connect-title">
                 <h2 id="connect-title">Connecting your <span class="text-purple-500">client</span></h2>
                 <p class="mt-7">All clients need the same three things: the endpoint URL, the HTTP transport, and your API key sent as a header.</p>
                 <ContentProsePre class="my-6" :code="connectionDetails" />
@@ -70,9 +47,9 @@
 
             <section id="tools" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="tools-title">
                 <h2 id="tools-title">Available <span class="text-purple-500">tools</span></h2>
-                <p class="mt-7">The server exposes {{ tools.length }} tools. Your agent picks the right one automatically &mdash; you just describe what you want.</p>
-                <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <div v-for="tool in tools" :key="tool.name" class="rounded-xl border border-purple-400 bg-white px-6 py-5 shadow-agent-card">
+                <p class="mt-7">The server exposes {{ tools.length }} tools. Your agent picks the right one automatically; you just describe what you want.</p>
+                <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2" role="list">
+                    <div v-for="tool in tools" :key="tool.name" role="listitem" class="rounded-xl border border-purple-400 bg-white px-6 py-5 shadow-agent-card">
                         <h3 class="font-code text-base font-medium text-purple-600">{{ tool.name }}</h3>
                         <p class="mt-2 text-base font-light leading-6">{{ tool.description }}</p>
                     </div>
@@ -177,24 +154,74 @@ const resources = [
 
 const title = 'PDFShift MCP Server - PDFs for AI Agents'
 const description = 'Connect any Model Context Protocol client to the hosted PDFShift MCP server at https://api.pdfshift.io/mcp. Convert HTML or URLs to PDF, manage templates, and check credits from Claude, Cursor, and more.'
+const canonicalUrl = 'https://pdfshift.io/agents/mcp'
 
-useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
+useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    ogUrl: canonicalUrl,
+    ogType: 'article',
+    twitterTitle: title,
+    twitterDescription: description,
+})
+
+useHead({
+    link: [{ rel: 'canonical', href: canonicalUrl }],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'SoftwareApplication',
+                name: 'PDFShift MCP Server',
+                applicationCategory: 'DeveloperApplication',
+                operatingSystem: 'Any (remote Streamable HTTP endpoint)',
+                description,
+                url: canonicalUrl,
+                featureList: tools.map(tool => tool.name),
+                offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+                publisher: { '@type': 'Organization', name: 'PDFShift', url: 'https://pdfshift.io' },
+            }),
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                name: 'How to connect a client to the PDFShift MCP server',
+                description,
+                inLanguage: 'en-US',
+                mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+                step: [
+                    { '@type': 'HowToStep', name: 'Get the connection details', text: 'Point your client at the endpoint https://api.pdfshift.io/mcp using the Streamable HTTP transport.', url: `${canonicalUrl}#connect` },
+                    { '@type': 'HowToStep', name: 'Add the server to your client', text: 'Add PDFShift to your MCP configuration in Claude Code, Cursor, Claude Desktop, or any MCP client.', url: `${canonicalUrl}#connect` },
+                    { '@type': 'HowToStep', name: 'Authenticate with your API key', text: 'Send your PDFShift API key as an X-API-Key header or as Authorization: Bearer.', url: `${canonicalUrl}#connect` },
+                    { '@type': 'HowToStep', name: 'Ask your agent', text: 'Describe what you want in plain language and the agent picks the right tool automatically.', url: `${canonicalUrl}#usage` },
+                ],
+            }),
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 3, name: 'MCP Server', item: canonicalUrl },
+                ],
+            }),
+        },
+    ],
+})
 </script>
 
 <style scoped>
-.agent-overview-card {
-    box-shadow: 0 8px 18px rgba(108, 71, 255, 0.1);
-}
-
 .agent-page-nav {
     left: calc(50% + 27.625rem);
     min-height: 275px;
     box-shadow: 0 8px 12px rgba(108, 71, 255, 0.1);
-}
-
-@media (min-width: 768px) {
-    .agent-overview-card {
-        min-height: 500px;
-    }
 }
 </style>

@@ -21,29 +21,10 @@
             </p>
         </section>
 
-        <div class="relative mx-auto mt-12 w-with-gutters max-w-agent-content">
-            <section id="overview" class="agent-overview-card min-h-0 rounded-xl border border-purple-400 bg-white px-6 py-7 md:px-11 md:pb-11 md:pt-12" aria-labelledby="overview-title">
-                <h2 id="overview-title">Overview</h2>
-                <p class="mt-4 leading-7 md:mt-6">
-                    Lovable lets you build full applications from natural-language prompts.
-                    PDFShift turns the HTML your app generates into pixel-perfect PDFs.
-                    Because PDFShift is authenticated with an API key, the conversion call must happen on server-side, and Lovable Cloud makes that effortless with a secret and an Edge Function, so your key never reaches the browser.
-                </p>
-                <h3 class="mt-8 text-xl font-medium leading-6 md:text-2xl md:leading-7">Why use PDFShift with Lovable?</h3>
-                <ul class="mt-2 list-disc pl-10 text-base leading-7">
-                    <li>Generate invoices, reports, receipts, and certificates from your app</li>
-                    <li>Convert raw HTML or a public URL to PDF</li>
-                    <li>Keep your API key secret with Lovable Cloud and an Edge Function</li>
-                    <li>Full control over page size, margins, headers, footers, and CSS</li>
-                    <li>One prompt sets up the whole integration end-to-end</li>
-                </ul>
-            </section>
+        <div id="agent-nav-anchor" class="relative mx-auto mt-24 w-with-gutters max-w-agent-content">
+            <AgentsCustomNav :items="pageSections" anchor-id="agent-nav-anchor" />
 
-            <AgentsCustomNav :items="pageSections" />
-        </div>
-
-        <div class="mx-auto w-with-gutters max-w-agent-content">
-            <section id="quick-start" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="quick-start-title">
+            <section id="quick-start" class="scroll-mt-30" aria-labelledby="quick-start-title">
                 <h2 id="quick-start-title">Quick Start: the <span class="text-purple-500">one-shot prompt</span></h2>
                 <p class="mt-7 font-normal">
                     The fastest way to integrate PDFShift into your Lovable app is to paste the prompt below into your Lovable project,
@@ -126,7 +107,7 @@
                 <p class="mt-6">Once the basic integration works, ask Lovable to expose more PDFShift options. For example:</p>
                 <ContentProsePre class="mt-6" :code="customizePrompt" />
                 <p class="mt-6">PDFShift supports a wide range of options you can wire into your app:</p>
-                <ul class="mt-2 grid list-disc grid-cols-1 gap-x-10 pl-5 text-base leading-7 md:grid-cols-2 md:leading-8">
+                <ul class="mt-2">
                     <li>Headers and footers</li>
                     <li>Custom CSS</li>
                     <li>Page margins and formats</li>
@@ -256,6 +237,56 @@ const resources = [
 
 const title = 'PDFShift + Lovable Integration'
 const description = 'Add PDF generation to your Lovable app with PDFShift. Copy the one-shot prompt or click Build with Lovable to set up a secure server-side PDF export in minutes.'
+const canonicalUrl = 'https://pdfshift.io/agents/lovable'
 
-useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
+useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    ogUrl: canonicalUrl,
+    ogType: 'article',
+    twitterTitle: title,
+    twitterDescription: description,
+})
+
+useHead({
+    link: [{ rel: 'canonical', href: canonicalUrl }],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                name: 'How to add PDF generation to a Lovable app with PDFShift',
+                description,
+                inLanguage: 'en-US',
+                mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+                tool: [
+                    { '@type': 'HowToTool', name: 'Lovable' },
+                    { '@type': 'HowToTool', name: 'PDFShift API' },
+                ],
+                step: [
+                    { '@type': 'HowToStep', name: 'Get your PDFShift API key', text: 'Create a PDFShift account and copy your API key. Do not paste it into your Lovable prompt.', url: `${canonicalUrl}#setup-guide` },
+                    { '@type': 'HowToStep', name: 'Ask Lovable to integrate PDFShift', text: 'Open your Lovable project and enter the one-shot prompt so Lovable sets up a secret and a server-side Edge Function.', url: `${canonicalUrl}#setup-guide` },
+                    { '@type': 'HowToStep', name: 'Add your PDFShift API key as a secret', text: 'In Lovable Cloud, open Secrets and create a secret named PDFSHIFT_API_KEY set to your PDFShift API key.', url: `${canonicalUrl}#setup-guide` },
+                    { '@type': 'HowToStep', name: 'Generate the HTML', text: 'Have your app build a complete, self-contained HTML string with inlined CSS to pass as the PDFShift source.', url: `${canonicalUrl}#setup-guide` },
+                    { '@type': 'HowToStep', name: 'Download the PDF', text: 'Call the generate-pdf Edge Function from the frontend so the browser never receives your PDFShift API key.', url: `${canonicalUrl}#setup-guide` },
+                ],
+            }),
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 3, name: 'Lovable', item: canonicalUrl },
+                ],
+            }),
+        },
+    ],
+})
 </script>

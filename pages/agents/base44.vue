@@ -14,30 +14,10 @@
             </div>
         </section>
 
-        <div class="relative mx-auto mt-12 w-with-gutters max-w-agent-content">
-            <section id="overview" class="agent-overview-card min-h-0 rounded-xl border border-purple-400 bg-white px-6 py-7 md:px-11 md:pb-11 md:pt-12" aria-labelledby="overview-title">
-                <h2 id="overview-title">Overview</h2>
-                <p class="mt-4 leading-7 md:mt-6">
-                    Base44 lets you build full applications with AI, and it supports custom API integrations.
-                    That means you can connect PDFShift directly from its OpenAPI specification and call the conversion endpoint from your app
-                    with your API key stored securely as a sensitive header.
-                    For documents that must never be stored, even temporarily, you can instead route requests through a Base44 backend function
-                    that returns the PDF as raw binary.
-                </p>
-                <h3 class="mt-12 text-xl font-medium leading-6 md:text-2xl md:leading-7">Two ways to integrate</h3>
-                <ul class="mt-2 list-disc pl-10 text-base leading-7">
-                    <li><strong>Custom integration</strong>: Add PDFShift from its OpenAPI URL, the fastest path.</li>
-                    <li><strong>Backend function</strong>: Keep the key in a secret and return the PDF as binary, ideal for sensitive data.</li>
-                    <li>Convert raw HTML or a public URL to PDF (and PNG, JPEG, or WebP).</li>
-                    <li>Full control over page size, margins, headers, footers, and CSS.</li>
-                </ul>
-            </section>
+        <div id="agent-nav-anchor" class="relative mx-auto mt-24 w-with-gutters max-w-agent-content">
+            <AgentsCustomNav :items="pageSections" anchor-id="agent-nav-anchor" />
 
-            <AgentsCustomNav :items="pageSections" />
-        </div>
-
-        <div class="mx-auto w-with-gutters max-w-agent-content">
-            <section id="integration-setup" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="integration-title">
+            <section id="integration-setup" class="scroll-mt-30" aria-labelledby="integration-title">
                 <h2 id="integration-title">Option 1: Add PDFShift as a <span class="text-purple-500">Base44 integration</span></h2>
                 <p class="mt-7">This is the easiest way to make PDFShift available to your Base44 applications.</p>
 
@@ -103,9 +83,9 @@
                 <p>The <code>url</code> points to the generated PDF. PDFShift keeps this temporary file for 2 days and then automatically deletes it.</p>
             </section>
 
-            <section id="sensitive-data" class="mt-18 scroll-mt-30" aria-labelledby="sensitive-title">
-                <h2 id="sensitive-title">Generating PDFs with <span class="text-purple-500">sensitive data</span></h2>
-                <p>If you don&rsquo;t want PDFShift to temporarily store the generated document, use a Base44 backend function instead. This lets PDFShift return the PDF directly as binary data. Ask Base44:</p>
+            <section id="backend-function" class="mt-18 scroll-mt-30" aria-labelledby="backend-title">
+                <h2 id="backend-title">Option 2: Route through a <span class="text-purple-500">backend function</span></h2>
+                <p>If you don&rsquo;t want PDFShift to temporarily store the generated document - for example when it contains sensitive data - use a Base44 backend function instead. This lets PDFShift return the PDF directly as binary data. Ask Base44:</p>
                 <ContentProsePre class="my-6" :code="backendPrompt" />
                 <p>Base44&rsquo;s <code>functions.fetch()</code> method provides access to the native HTTP response, including binary bodies, making it suitable for PDF downloads. The resulting architecture is:</p>
                 <ContentProsePre class="my-6" :code="flowDiagram" />
@@ -123,7 +103,7 @@ const pageSections = [
     { id: 'integration-setup', label: 'Add the Integration' },
     { id: 'generate', label: 'Generate PDFs' },
     { id: 'filename', label: 'The filename option' },
-    { id: 'sensitive-data', label: 'Sensitive Data' },
+    { id: 'backend-function', label: 'Backend Function' },
     { id: 'related-resources', label: 'Related Resources' },
 ]
 
@@ -217,7 +197,7 @@ const resources = [
         title: 'Base44 Documentation',
         description: 'Learn about Base44 custom integrations, backend functions, and secrets.',
         cta: 'View Base44 Docs',
-        href: 'https://docs.base44.com',
+        href: 'https://docs.base44.com'
     },
     {
         title: 'PDFShift API Doc',

@@ -4,9 +4,9 @@
             <img class="h-10 w-10 md:-translate-y-11" src="/images/agents/n8n.svg" alt="n8n" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift + n8n</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
-                Generate PDFs and screenshots inside your n8n workflows with the official
-                <a class="underline" href="https://www.npmjs.com/package/n8n-nodes-pdfshift" target="_blank" rel="noopener">n8n-nodes-pdfshift</a>
-                community node &mdash; no HTTP wiring required.
+                Generate PDFs and screenshots inside your n8n workflows with the official, n8n-verified
+                <a class="underline" href="https://n8n.io/integrations/pdfshift/" target="_blank" rel="noopener">PDFShift</a>
+                community node, no HTTP wiring required.
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
@@ -15,29 +15,10 @@
             </div>
         </section>
 
-        <div class="relative mx-auto mt-12 w-with-gutters max-w-agent-content">
-            <section id="overview" class="agent-overview-card min-h-0 rounded-xl border border-purple-400 bg-white px-6 py-7 md:px-11 md:pb-11 md:pt-12" aria-labelledby="overview-title">
-                <h2 id="overview-title">Overview</h2>
-                <p class="mt-4 leading-7 md:mt-6">
-                    <a class="underline" href="https://n8n.io/" target="_blank" rel="noopener">n8n</a> is a powerful, fair-code workflow automation platform that lets you connect different services and automate tasks.
-                    The official <code>n8n-nodes-pdfshift</code> community node brings PDFShift straight into your workflows, so you can turn any HTML or URL into a
-                    PDF or screenshot with a dedicated node instead of hand-crafting HTTP requests.
-                </p>
-                <h3 class="mt-12 text-xl font-medium leading-6 md:text-2xl md:leading-7">Why use PDFShift with n8n?</h3>
-                <ul class="mt-2 list-disc pl-5 text-base leading-7 md:text-lg md:leading-8">
-                    <li>Install once from the n8n community nodes registry &mdash; no code</li>
-                    <li>Convert HTML, URLs, or dynamic content to PDF</li>
-                    <li>Generate screenshots for OG:images, thumbnails, and previews</li>
-                    <li>Trigger PDF creation from any event in your workflow</li>
-                    <li>Save generated files to cloud storage or send them via email</li>
-                </ul>
-            </section>
+        <article id="agent-nav-anchor" class="relative mx-auto mt-24 w-with-gutters max-w-agent-content">
+            <AgentsCustomNav :items="pageSections" anchor-id="agent-nav-anchor" />
 
-            <AgentsCustomNav :items="pageSections" />
-        </div>
-
-        <article class="mx-auto w-with-gutters max-w-agent-content">
-            <section id="setup-guide" class="mt-18 scroll-mt-30 md:mt-12" aria-labelledby="setup-title">
+            <section id="setup-guide" class="scroll-mt-30" aria-labelledby="setup-title">
                 <h2 id="setup-title">Step-by-Step Setup Guide</h2>
 
                 <div class="mt-12 md:mt-12">
@@ -45,26 +26,29 @@
                     <p>
                         Create a PDFShift account and grab your API key from the
                         <a class="underline" href="https://app.pdfshift.io/" target="_blank" rel="noopener">dashboard</a>
-                        under &ldquo;API Keys&rdquo;. Keep it private &mdash; you&rsquo;ll paste it into n8n&rsquo;s credential store, which encrypts it for you.
+                        under &ldquo;API Keys&rdquo;. Keep it private! You&rsquo;ll paste it into n8n&rsquo;s credential store, which encrypts it for you.
                     </p>
                     <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">
-                    <h3>2. Install the community node</h3>
+                    <h3>2. Install the verified node</h3>
                     <p>
-                        Follow the
-                        <a class="underline" href="https://docs.n8n.io/integrations/community-nodes/installation/" target="_blank" rel="noopener">community nodes installation guide</a>
-                        from within your n8n instance:
+                        PDFShift is a
+                        <a class="underline" href="https://docs.n8n.io/integrations/community-nodes/installation-and-management/install-verified-community-nodes/" target="_blank" rel="noopener">verified community node</a>,
+                        so you can install it straight from the canvas without having to install any external npm package.
+                        An instance owner or admin needs to install it once, then it&rsquo;s available to everyone on the instance:
                     </p>
                     <ol class="mt-4 pl-10 list-decimal text-base leading-7 md:text-lg md:leading-8">
-                        <li>Go to <strong>Settings</strong> &rsaquo; <strong>Community Nodes</strong>.</li>
-                        <li>Select <strong>Install</strong>.</li>
-                        <li>Enter <code>n8n-nodes-pdfshift</code> as the npm package name.</li>
-                        <li>Agree to the risks of using community nodes.</li>
-                        <li>Select <strong>Install</strong>.</li>
+                        <li>Open a workflow and select <strong>+</strong> (or press <kbd>n</kbd>) to open the nodes panel.</li>
+                        <li>Search for <strong>PDFShift</strong>. It appears under <strong>More from the community</strong>.</li>
+                        <li>Select it to review its details and supported actions.</li>
+                        <li>Select <strong>Install</strong> to enable it across your instance.</li>
                     </ol>
-                    <img class="my-6 w-full rounded-xl border border-purple-200 shadow-sm" src="/images/agents/n8n/install.png" alt="Installing the n8n-nodes-pdfshift community node from n8n settings" loading="lazy" />
+                    <p class="mt-4">
+                        On n8n Cloud, instance owners enable verified community nodes from the Cloud admin panel; on self-hosted
+                        instances they&rsquo;re controlled with environment variables.
+                    </p>
                 </div>
 
                 <div class="mt-12 md:mt-16">
@@ -82,7 +66,7 @@
                     <h3>4. Choose an operation</h3>
                     <p>
                         Drop the PDFShift node after any trigger, pick an operation, and provide your source (a URL or raw HTML).
-                        The node handles authentication and the API call for you &mdash; see the operations available below.
+                        The node handles authentication and the API call for you. See the operations available below.
                     </p>
                 </div>
             </section>
@@ -90,8 +74,8 @@
             <section id="operations" class="mt-24 scroll-mt-30 md:mt-36" aria-labelledby="operations-title">
                 <h2 id="operations-title">Available <span class="text-purple-500">Operations</span></h2>
                 <p class="mt-7">The PDFShift node exposes {{ operations.length }} operations to cover the most common document tasks:</p>
-                <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-                    <div v-for="operation in operations" :key="operation.title" class="rounded-xl border border-purple-400 bg-white px-6 py-6 shadow-agent-card">
+                <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3" role="list">
+                    <div v-for="operation in operations" :key="operation.title" role="listitem" class="rounded-xl border border-purple-400 bg-white px-6 py-6 shadow-agent-card">
                         <span class="block h-9 w-9 text-purple-500" aria-hidden="true">
                             <component :is="operation.icon" class="size-9" />
                         </span>
@@ -166,6 +150,12 @@ const operations = [
 
 const resources = [
     {
+        title: 'PDFShift on n8n.io',
+        description: 'The verified PDFShift node on the n8n integrations directory.',
+        cta: 'View on n8n.io',
+        href: 'https://n8n.io/integrations/pdfshift/',
+    },
+    {
         title: 'n8n-nodes-pdfshift',
         description: 'The official community node on npm, with installation and usage details.',
         cta: 'View on npm',
@@ -181,6 +171,66 @@ const resources = [
 
 const title = 'PDFShift + n8n Integration'
 const description = 'Generate PDFs and screenshots in your n8n workflows with the official n8n-nodes-pdfshift community node.'
+const canonicalUrl = 'https://pdfshift.io/agents/n8n'
 
-useSeoMeta({ title, description, ogTitle: title, ogDescription: description })
+useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    ogUrl: canonicalUrl,
+    ogType: 'article',
+    twitterTitle: title,
+    twitterDescription: description,
+})
+
+useHead({
+    link: [{ rel: 'canonical', href: canonicalUrl }],
+    script: [
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                name: 'How to generate PDFs in n8n with PDFShift',
+                description,
+                inLanguage: 'en-US',
+                mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+                tool: [{ '@type': 'HowToTool', name: 'PDFShift verified community node for n8n' }],
+                step: [
+                    { '@type': 'HowToStep', name: 'Get your PDFShift API key', text: 'Create a PDFShift account and copy your API key from the dashboard under API Keys.', url: `${canonicalUrl}#setup-guide` },
+                    { '@type': 'HowToStep', name: 'Install the verified node', text: 'In an n8n workflow, open the nodes panel, search for PDFShift under More from the community, and select Install to enable the verified node across your instance.', url: `${canonicalUrl}#setup-guide` },
+                    { '@type': 'HowToStep', name: 'Add your PDFShift credentials', text: 'Add the PDFShift node, create a new credential, and paste your API key, then test and save.', url: `${canonicalUrl}#setup-guide` },
+                    { '@type': 'HowToStep', name: 'Choose an operation', text: 'Drop the PDFShift node after any trigger, pick an operation, and provide your source (a URL or raw HTML).', url: `${canonicalUrl}#operations` },
+                ],
+            }),
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'SoftwareApplication',
+                name: 'n8n-nodes-pdfshift',
+                applicationCategory: 'DeveloperApplication',
+                operatingSystem: 'n8n',
+                description: 'Official, n8n-verified PDFShift community node to convert HTML or URLs to PDF, generate screenshots, and check credits usage.',
+                url: 'https://n8n.io/integrations/pdfshift/',
+                offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+                publisher: { '@type': 'Organization', name: 'PDFShift', url: 'https://pdfshift.io' },
+            }),
+        },
+        {
+            type: 'application/ld+json',
+            innerHTML: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 3, name: 'n8n', item: canonicalUrl },
+                ],
+            }),
+        },
+    ],
+})
 </script>

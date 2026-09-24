@@ -28,7 +28,10 @@
                     <div v-for="resource in props.resources" :key="resource.title" class="flex min-h-64 flex-col items-start rounded-xl border border-purple-400 bg-white px-10 py-8 shadow-agent-card md:py-8">
                         <h3 class="text-2xl font-medium leading-7">{{ resource.title }}</h3>
                         <p class="mt-8 text-base font-light leading-6">{{ resource.description }}</p>
-                        <Button class="mt-8" :to="resource.href" :arrow="true">{{ resource.cta }}</Button>
+                        <a :href="resource.href" :title="resource.title" target="_blank" class="mt-8 inline-flex border items-center justify-center px-10 py-3 rounded-lg gap-1 group transition-bg duration-300 bg-purple border-purple text-white hover:bg-white hover:border-purple hover:text-navy-700">
+                            {{ resource.cta }}
+                            <IconsArrowRight class="shrink-0 group-hover:inherit-color" />
+                        </a>
                     </div>
                 </div>
 
@@ -86,5 +89,9 @@ const props = defineProps({
 
 #agent-main-content article p>code {
     @apply rounded bg-purple-100 px-1.5 py-0.5 font-code text-base
+}
+
+#agent-main-content article ul {
+    @apply grid list-disc grid-cols-1 gap-x-10 pl-10 text-base leading-7 md:grid-cols-2 md:leading-8;
 }
 </style>
