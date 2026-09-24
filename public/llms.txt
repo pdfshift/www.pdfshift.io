@@ -4,19 +4,18 @@
 
 Every page on pdfshift.io is available as clean Markdown: append `.md` to any URL (e.g. `/pricing.md`) or send an `Accept: text/markdown` request header. The companion file [llms-full.txt](https://pdfshift.io/llms-full.txt) contains the full text of every page in a single document.
 
-For full, up-to-date pricing details (plans, credits, and per-conversion overage rates), see [https://pdfshift.io/pricing.md](https://pdfshift.io/pricing.md). Pricing is also available as JSON from the public API endpoint `GET https://api.pdfshift.io/v3/credits/pricing` (no authentication required; pass your `X-API-Key` header to also receive any custom plan specific to your account).
+For full, up-to-date pricing details (plans, credits, and per-conversion overage rates), see [https://pdfshift.io/pricing.md](https://pdfshift.io/pricing.md).
 
 The complete OpenAPI Specification for the PDFShift API is available at [https://api.pdfshift.io/openapi.json](https://api.pdfshift.io/openapi.json).
-
 ## Core pages
-- [HTML to PDF API — Overview](https://pdfshift.io/index.md): What PDFShift does, key stats, and headline features.
+- [HTML to PDF API - Overview](https://pdfshift.io/index.md): What PDFShift does, key stats, and headline features.
 - [Pricing](https://pdfshift.io/pricing.md): Credit-based plans from Free (50 credits/mo) up to 100k+ conversions per month.
 - [FAQ](https://pdfshift.io/faq.md): Common questions about trials, billing, security, and usage.
 - [API Documentation](https://docs.pdfshift.io): Full REST API reference for the /v3 conversion endpoint.
 - [OpenAPI Specification](https://api.pdfshift.io/openapi.json): Machine-readable OpenAPI (JSON) description of the PDFShift API.
 
 ## Guides
-> 597+ how-to guides covering 8 languages (C#, Go, Java, Node, PHP, Python, Ruby, cUrl) and their most popular HTTP libraries. Each task below exists for every language/library combination — full text is in llms-full.txt.
+> 597+ how-to guides covering 8 languages (C#, Go, Java, Node, PHP, Python, Ruby, cUrl) and their most popular HTTP libraries. Each task below exists for every language/library combination. Full text is in llms-full.txt.
 - [All guides](https://pdfshift.io/guides): Browse guides by language and HTTP library.
 - [Accessing secured pages](https://pdfshift.io/guides/python/requests/accessing-secured-pages.md): Learn how to access secured pages using Python and the requests library. This guide offers detailed steps with code samples in Python and the requests library, highlighting how you can acces page protected by basic authentication to convert them to PDF using PDFShift's API.
 - [Adding a custom header or footer](https://pdfshift.io/guides/python/requests/adding-a-custom-header-or-footer.md): Discover how to add custom headers or footers to a PDF using Python and the requests library. This in-depth guide includes Python codes that you can easily follow and quickly generate documents with PDFShift's API.
@@ -72,10 +71,24 @@ The complete OpenAPI Specification for the PDFShift API is available at [https:/
 - [Ruby — RestClient](https://pdfshift.io/samples/ruby/restclient.md)
 - [Ruby — Typhoeus](https://pdfshift.io/samples/ruby/typhoeus.md)
 
+## Integrations & AI agents
+> Guides for using PDFShift inside automation tools and AI-app builders. Full text is in llms-full.txt.
+- [PDFShift + Base44 Integration](https://pdfshift.io/agents/base44.md): Add PDF generation to your Base44 app with PDFShift. Connect it from the OpenAPI spec or a backend function, and keep your API key secure on the server.
+- [PDFShift + Bubble Integration](https://pdfshift.io/agents/bubble.md): Generate PDFs directly from your Bubble app with PDFShift. Turn dynamic Bubble data or an existing page into invoices, reports, and more through the API Connector.
+- [PDFShift + Clay Integration](https://pdfshift.io/agents/clay.md): Generate a PDF for every row in your Clay tables with the PDFShift HTTP API enrichment — reports, proposals, invoices, and more.
+- [PDFShift + FlowMattic Integration](https://pdfshift.io/agents/flowmattic.md): Generate PDFs from HTML or webpages inside your FlowMattic workflows with PDFShift — use the API Module or build a reusable Custom App.
+- [PDFShift for AI Agents & Automation Tools](https://pdfshift.io/agents/index.md): Generate PDFs from N8N, Lovable, Base44, Zapier, Make, MCP, Clay, Bubble, FlowMattic, and your own AI agents with PDFShift.
+- [PDFShift + Lovable Integration](https://pdfshift.io/agents/lovable.md): Add PDF generation to your Lovable app with PDFShift. Copy the one-shot prompt or click Build with Lovable to set up a secure server-side PDF export in minutes.
+- [PDFShift + Make Integration](https://pdfshift.io/agents/make.md): Generate PDFs automatically from your Make scenarios with PDFShift — convert raw HTML or a URL to PDF and route it anywhere Make connects.
+- [PDFShift MCP Server - PDFs for AI Agents](https://pdfshift.io/agents/mcp.md): Connect any Model Context Protocol client to the hosted PDFShift MCP server at https://api.pdfshift.io/mcp. Convert HTML or URLs to PDF, manage templates, and check credits from Claude, Cursor, and more.
+- [PDFShift + n8n Integration](https://pdfshift.io/agents/n8n.md): Generate PDFs and screenshots in your n8n workflows with the official n8n-nodes-pdfshift community node.
+- [PDFShift + Zapier Integration](https://pdfshift.io/agents/zapier.md): Generate PDFs automatically inside your Zapier workflows with PDFShift — convert HTML, dynamic Zap data, or webpages to PDF and route them anywhere.
+
 ## Legal
 - [Data Processing Agreement](https://pdfshift.io/legal/dpa.md): PDFShift is GDPR compliant. Here is our Data Processing Agreement.
 - [General Data Protection Regulation(GDPR) compliance](https://pdfshift.io/legal/gdpr.md): Everything you need to know about PDFShift's GDPR compliance.
 - [HIPAA compliance](https://pdfshift.io/legal/hipaa.md): PDFShift is fully HIPAA compliant
+- [Imprint](https://pdfshift.io/legal/imprint.md): Legal information about the company operating PDFShift
 - [Privacy Policy](https://pdfshift.io/legal/privacy.md): Our Privacy Policy is designed to help you understand what information we collect and how we use and share that information.
 - [PDFShift's subprocessors](https://pdfshift.io/legal/subprocessors.md): PDFShift is relying on other third party services to provide a full experience. These are the list of subprocessors we work with.
 - [Terms of Service](https://pdfshift.io/legal/terms.md): We've crafted our Terms of Service to ensure a secure and mutually beneficial experience for all users.

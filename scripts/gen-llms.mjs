@@ -57,6 +57,7 @@ for (const file of files) {
     if (rel.startsWith('guides/')) section = 'guides'
     else if (rel.startsWith('samples/')) section = 'samples'
     else if (rel.startsWith('legal/')) section = 'legal'
+    else if (rel.startsWith('agents/')) section = 'integrations'
     docs.push({
         rel, path, section, fm, body,
         url: siteUrl + path,
@@ -65,9 +66,9 @@ for (const file of files) {
 }
 
 const bySection = s => docs.filter(d => d.section === s).sort((a, b) => a.rel.localeCompare(b.rel))
-const core = bySection('core'), guides = bySection('guides'), samples = bySection('samples'), legal = bySection('legal')
+const core = bySection('core'), guides = bySection('guides'), samples = bySection('samples'), legal = bySection('legal'), integrations = bySection('integrations')
 
-/* Integrations & AI agents: these live as Vue pages (not content Markdown), so they're listed explicitly. */
+/* Integrations & AI agents: these live as Vue pages (not content Markdown), so they're listed explicitly.
 const integrations = [
     {
         path: '/agents',
@@ -149,6 +150,7 @@ const integrations = [
     body: i.body,
     fm: { title: i.title, description: i.description },
 }))
+*/
 
 const line = (label, url, desc) => `- [${label}](${url})${desc ? `: ${desc}` : ''}`
 const pick = n => core.find(d => d.rel === n)
@@ -188,7 +190,7 @@ llms.push('')
 
 llms.push('## Integrations & AI agents')
 llms.push('> Guides for using PDFShift inside automation tools and AI-app builders. Full text is in llms-full.txt.')
-for (const i of integrations) llms.push(line(i.fm.title, i.url, i.fm.description))
+for (const l of integrations) llms.push(line(l.fm.title || humanize(basename(l.rel)), l.mdUrl, l.fm.description))
 llms.push('')
 
 llms.push('## Legal')
