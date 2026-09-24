@@ -126,6 +126,20 @@ export default defineNuxtConfig({
                 path: '/guides/:language(csharp|curl|go|java|node|php|python|ruby)/:library/',
                 file: '~/pages/guides/[language]/index.vue'
             })
+
+            // Temporarily hide the /alternatives/* comparison pages (docraptor, pdf4dev, …):
+            // the files stay in the repo but no public route is generated, so they return a
+            // 404 and are excluded from the auto-generated sitemap. Remove this to re-enable.
+            const hideAlternatives = (list: typeof pages) => {
+                for (let i = list.length - 1; i >= 0; i--) {
+                    if (list[i].path?.startsWith('/alternatives')) {
+                        list.splice(i, 1)
+                    } else if (list[i].children?.length) {
+                        hideAlternatives(list[i].children)
+                    }
+                }
+            }
+            hideAlternatives(pages)
         },
         async 'nitro:build:public-assets' (nitro) {
             // Copy all markdown files to dist for Netlify Edge Functions
