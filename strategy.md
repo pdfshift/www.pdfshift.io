@@ -24,7 +24,12 @@ Going on:
 Todo:
 
 [ ] - An endpoint for agents that gets a new account with API Key that can be used. Watermarked until the email has been validated, limited to 5 per day
-[ ] - Ajouter les différents outils no-code (Lovable, Base44, Make, Clay, N8n, Zapier)
+[x] - Ajouter les différents outils no-code (Lovable, Base44, Make, Clay, N8n, Zapier)
+[x] - Faire le node public N8n
+[ ] - Faire le node public Zapier
+[ ] - Faire le node public Make
+[ ] - Faire le node public Power Automate
+[ ] - Faire le node public Bubble
 [ ] - Faire des vidéos Youtube de bonne qualité pour chaque intégrations (no-code, librairies, etc)
 [ ] - Demander des questions lors du signup
 [ ] - Créer des pages crawlable sur des mots clés spécifiques
