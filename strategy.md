@@ -12,20 +12,20 @@ Implemented:
 [x] - Implement MCP agent
 [x] - Mettre en avant le pricing dans l'API en accessible publique, et l'ajouter dans le llms.txt et llms-full.txt
 [x] - Ajouter le OpenAPI URL dans le llms.txt et llms-full.txt
+[x] - Mettre à jour le site pour y inclure la page /agents et les pages dédiés
+[x] - Ajouter les différents outils no-code (Lovable, Base44, Make, Clay, N8n, Zapier)
+[x] - Faire le node public N8n
 
 
 Going on:
 
 [ ] - Reddit campaign (Running)
-[ ] - Mettre à jour le site pour y inclure la page /agents et les pages dédiés
 [ ] - Changer le questionnaire du Churn en : What made you cancel ? et What could we do to make you reconsider? 
 
 
 Todo:
 
 [ ] - An endpoint for agents that gets a new account with API Key that can be used. Watermarked until the email has been validated, limited to 5 per day
-[x] - Ajouter les différents outils no-code (Lovable, Base44, Make, Clay, N8n, Zapier)
-[x] - Faire le node public N8n
 [ ] - Faire le node public Zapier
 [ ] - Faire le node public Make
 [ ] - Faire le node public Power Automate
@@ -45,6 +45,7 @@ Todo:
 [ ] - Write about architecture and experience running thousands of conversions per day
 [ ] - Create a file sample and measure the performance time to convert to PDF using PDFShift and other competitors to compare them
 [ ] - Do a Uneed landing page study once everything important has been implemented
+
 
 NOTE: Comment ca se passe pour les one-time login link si un bot va sur l'url ?
 => Tester et faire en sorte que ca ne supprime pas le token automatiquement
