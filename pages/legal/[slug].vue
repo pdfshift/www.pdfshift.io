@@ -53,7 +53,6 @@ watch(status, (to) => {
     }
 })
 
-
 const copySectionLink = (slug) => {
     // remove current #hash value from url
     const currentUrl = window.location.href.replace(window.location.hash, '');
@@ -67,3 +66,14 @@ const copySectionLink = (slug) => {
 }
 </script>
 
+<style>
+h1, h2, h3 { @apply mt-8 mb-4 }
+.articles h4 { @apply mt-8 mb-4 bg-transparent p-0 rounded-none }
+strong { @apply font-bold }
+em { @apply italic }
+
+ul>li { @apply pl-5 list-none }
+
+hr { @apply my-4 p-0 mx-0 }
+td, th { @apply align-top }
+</style>
