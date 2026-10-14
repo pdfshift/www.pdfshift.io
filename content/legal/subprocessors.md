@@ -6,21 +6,11 @@ description: 'PDFShift is relying on other third party services to provide a ful
 <p class="excerpt">We use the following 3rd party services to improve, understand troubleshoot, report bugs and provide support for you:</p>
 
 * **Amazon Web Services**
-  We use Amazon S3 to store the generated PDF when the "filename" parameter is provided (automatically deleted after 2 days). We also use Cloudwatch to monitor the health of our servers (with no sensitive data provided)
+  Where Controller provides the filename parameter, PDFShift uses AWS S3 infrastructure located in Paris, France to store the generated output file for up to two (2) days, after which it is automatically deleted. Submitted HTML source, header and footer content are not stored in S3 as part of this functionality.
 * **OVH**
-  Our servers are managed by OVH in France in various regions.
-* **Stripe**
-  Our payment gateway. This allows us to accept credit card payments securely. The sole purpose is to increase security regarding the handle of sensible payments informations such as your credit cards details.
-* **Plausible**
-  We use this service to understand general usage, traffic sources and to measure campaign success. We choose Plausible for its focus on privacy (no cookies or trackers are installed on our visitor’s computer)
-* **Customer.io**
-  We use Customer.io to send you emails related to your account and general messages like newsletters.
-* **Amplitude**
-  We track a few key metrics on our service and Amplitude help us visualize them. All the data are anonymized.
+  Our servers are managed by OVH in France in two regions: Gravelines and Strasbourg.
 * **Sentry**
-  We use sentry to track any issues that occurs in order to better debug them and improve the service faster.
-* **Profitwell**
-  We use Profitwell to have an overview of our revenues
+  PDFShift uses Sentry for application error monitoring and incident diagnostics. HTML source, header/footer content and generated documents are not intentionally transmitted to Sentry. Incidental Company Personal Data, such as IP addresses, request metadata or technical identifiers, may be processed where included in technical error information. Sentry is contractually prohibited from using such Company Personal Data for purposes other than providing its services to PDFShift. Where applicable, transfers are subject to an appropriate mechanism under Chapter V GDPR, including the EU Standard Contractual Clauses.
 
 
 **REMEMBER**: We use these services only to provide you with a fantastic product that gives you easy access to things you like and to improve our general look and feel. If you choose to block, global opt out from some of the services that we use to deliver our product, you may run into errors, product bugs and other failures that influence your general experience and quality of our service. We are ok with that and respect your choice.
