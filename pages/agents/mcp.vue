@@ -182,7 +182,7 @@ useHead({
                 url: canonicalUrl,
                 featureList: tools.map(tool => tool.name),
                 offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-                publisher: { '@type': 'Organization', name: 'PDFShift', url: 'https://pdfshift.io' },
+                publisher: { '@type': 'Organization', '@id': 'https://pdfshift.io/#organization', name: 'PDFShift', url: 'https://pdfshift.io' },
             }),
         },
         {

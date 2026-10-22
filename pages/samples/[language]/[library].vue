@@ -114,11 +114,13 @@ useHead({
                 "description": description,
                 "author": {
                     "@type": "Organization",
+                    "@id": "https://pdfshift.io/#organization",
                     "name": "PDFShift",
                     "url": "https://pdfshift.io"
                 },
                 "publisher": {
                     "@type": "Organization",
+                    "@id": "https://pdfshift.io/#organization",
                     "name": "PDFShift",
                     "logo": {
                         "@type": "ImageObject",

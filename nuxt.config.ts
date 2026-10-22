@@ -128,19 +128,21 @@ export default defineNuxtConfig({
                 file: '~/pages/guides/[language]/index.vue'
             })
 
-            // Temporarily hide the /alternatives/* comparison pages (docraptor, pdf4dev, …):
+            // Temporarily hide the /alternatives/* comparison pages (docraptor, pdf4dev, …)
+            // and the /case-studies/* pages (placeholder content for now):
             // the files stay in the repo but no public route is generated, so they return a
-            // 404 and are excluded from the auto-generated sitemap. Remove this to re-enable.
-            const hideAlternatives = (list: typeof pages) => {
+            // 404 and are excluded from the auto-generated sitemap. Remove a prefix to re-enable.
+            const hiddenPrefixes = ['/alternatives', '/case-studies']
+            const hidePages = (list: typeof pages) => {
                 for (let i = list.length - 1; i >= 0; i--) {
-                    if (list[i].path?.startsWith('/alternatives')) {
+                    if (hiddenPrefixes.some(prefix => list[i].path?.startsWith(prefix))) {
                         list.splice(i, 1)
                     } else if (list[i].children?.length) {
-                        hideAlternatives(list[i].children)
+                        hidePages(list[i].children)
                     }
                 }
             }
-            hideAlternatives(pages)
+            hidePages(pages)
         },
         async 'nitro:build:public-assets' (nitro) {
             // Copy all markdown files to dist for Netlify Edge Functions

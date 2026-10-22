@@ -216,7 +216,7 @@ useHead({
                 description: 'Official, n8n-verified PDFShift community node to convert HTML or URLs to PDF, generate screenshots, and check credits usage.',
                 url: 'https://n8n.io/integrations/pdfshift/',
                 offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-                publisher: { '@type': 'Organization', name: 'PDFShift', url: 'https://pdfshift.io' },
+                publisher: { '@type': 'Organization', '@id': 'https://pdfshift.io/#organization', name: 'PDFShift', url: 'https://pdfshift.io' },
             }),
         },
         {

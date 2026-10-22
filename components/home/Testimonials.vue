@@ -14,7 +14,6 @@
                 <article v-for="review in allReviews" :key="review.link"
                          class="col-span-full md:col-span-3 lg:col-span-2">
                     <div class="border border-purple rounded-lg p-4">
-                        <component :is="'script'" type="application/ld+json" v-html="getReviewSchema(review)"></component>
                         <p class="p -small text-purple-400">{{ review.text }}</p>
                         <div class="mt-auto text-white flex flex-row justify-between pt-6">
                             <div class="font-medium">{{ review.name }}</div>
@@ -70,31 +69,4 @@ const reviews = shuffle(testimonials());
 
 const allReviews = ref(reviews.filter(x => x.company === 'Capterra').splice(0, 6))
 const secondaryReviews = reviews.filter(x => allReviews.value.indexOf(x) === -1)
-
-const getReviewSchema = (review) => JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "itemReviewed": {
-        "@type": "SoftwareApplication",
-        "@id": "https://pdfshift.io/#software",
-        "name": "PDFShift",
-        "url": "https://pdfshift.io",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Web-based"
-    },
-    "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": review.rating || "5",
-        "bestRating": "5"
-    },
-    "author": {
-        "@type": "Person",
-        "name": review.name
-    },
-    "reviewBody": review.text,
-    "publisher": {
-        "@type": "Organization",
-        "name": review.company
-    }
-})
 </script>

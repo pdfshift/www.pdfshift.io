@@ -21,25 +21,13 @@
                         <h2 class="h2 text-navy-700 text-center mb-8">See what developers say about us</h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <HomeReview
-                                logo="/images/comparators/capterra.svg"
-                                name="Capterra"
-                                :rating="4.8"
-                                :reviews="57"
-                                to="https://www.capterra.com/p/193253/PDFShift/reviews/"
-                            />
-                            <HomeReview
-                                logo="/images/comparators/g2.svg"
-                                name="G2"
-                                :rating="4.6"
-                                :reviews="29"
-                                to="https://www.g2.com/products/pdfshift/reviews"
-                            />
-                            <HomeReview
-                                logo="/images/comparators/alternativeto.svg"
-                                name="AlternativeTo"
-                                :rating="4.9"
-                                :reviews="39"
-                                to="https://alternativeto.net/software/pdfshift/about/"
+                                v-for="(review, index) in reviews"
+                                :key="index"
+                                :logo="review.logo"
+                                :name="review.name"
+                                :rating="review.rating"
+                                :reviews="review.reviews"
+                                :to="review.url"
                             />
                         </div>
                     </div>
@@ -72,6 +60,8 @@ useSeoMeta({
     twitterDescription: description
 })
 
+const reviews = useReviewPlatforms()
+
 // Schema.org structured data
 const pricedPlans = usePlans().filter(plan => plan.price !== undefined)
 
@@ -94,13 +84,6 @@ useHead({
                     "highPrice": String(Math.max(...pricedPlans.map(plan => plan.price))),
                     "priceCurrency": "USD",
                     "offerCount": String(pricedPlans.length)
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.7",
-                    "reviewCount": "125",
-                    "bestRating": "5",
-                    "worstRating": "1"
                 }
             })
         },
