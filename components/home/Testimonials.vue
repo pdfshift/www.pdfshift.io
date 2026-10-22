@@ -75,10 +75,12 @@ const getReviewSchema = (review) => JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Review",
     "itemReviewed": {
-        "@type": "Organization",
+        "@type": "SoftwareApplication",
+        "@id": "https://pdfshift.io/#software",
         "name": "PDFShift",
         "url": "https://pdfshift.io",
-        "applicationCategory": "DeveloperApplication"
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web-based"
     },
     "reviewRating": {
         "@type": "Rating",

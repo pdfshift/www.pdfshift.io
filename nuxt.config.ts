@@ -61,6 +61,7 @@ export default defineNuxtConfig({
                     innerHTML: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Organization",
+                        "@id": "https://pdfshift.io/#organization",
                         "name": "PDFShift",
                         "legalName": "PDFShift",
                         "url": "https://pdfshift.io",

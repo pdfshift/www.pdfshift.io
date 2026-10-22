@@ -235,18 +235,28 @@ useHead({
             type: 'application/ld+json',
             innerHTML: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "Organization",
+                "@type": "SoftwareApplication",
+                "@id": "https://pdfshift.io/#software",
                 "name": "PDFShift",
                 "description": "An API to convert HTML/CSS documents to PDF. PDFShift is the reliable, Up-to-date and high-fidelity conversion API with no maintenance costs.",
                 "url": "https://pdfshift.io",
                 "applicationCategory": "DeveloperApplication",
                 "operatingSystem": "Web-based",
-                "offers": {
+                "offers": usePlans().filter(plan => plan.price !== undefined).map(plan => ({
                     "@type": "Offer",
-                    "price": "0",
+                    "name": `${plan.name} plan`,
+                    "description": `${plan.credits.toLocaleString('en-US')} credits per month`,
+                    "url": "https://pdfshift.io/pricing",
+                    "price": String(plan.price),
                     "priceCurrency": "USD",
-                    "description": "Free plan available with paid tiers for higher usage"
-                },
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": String(plan.price),
+                        "priceCurrency": "USD",
+                        "billingDuration": "P1M",
+                        "unitCode": "MON"
+                    }
+                })),
                 "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": "4.7",
@@ -254,10 +264,8 @@ useHead({
                     "bestRating": "5",
                     "worstRating": "1"
                 },
-                "creator": {
-                    "@type": "Organization",
-                    "name": "PDFShift",
-                    "url": "https://pdfshift.io"
+                "publisher": {
+                    "@id": "https://pdfshift.io/#organization"
                 }
             })
         },

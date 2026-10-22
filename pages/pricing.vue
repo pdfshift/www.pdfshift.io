@@ -73,23 +73,27 @@ useSeoMeta({
 })
 
 // Schema.org structured data
+const pricedPlans = usePlans().filter(plan => plan.price !== undefined)
+
 useHead({
     script: [
         {
             type: 'application/ld+json',
             children: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "Product",
+                "@type": "SoftwareApplication",
+                "@id": "https://pdfshift.io/#software",
                 "name": "PDFShift",
                 "description": "HTML to PDF API for developers",
                 "url": "https://pdfshift.io",
                 "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "Web-based",
                 "offers": {
                     "@type": "AggregateOffer",
-                    "lowPrice": "0",
-                    "highPrice": "999",
+                    "lowPrice": String(Math.min(...pricedPlans.map(plan => plan.price))),
+                    "highPrice": String(Math.max(...pricedPlans.map(plan => plan.price))),
                     "priceCurrency": "USD",
-                    "offerCount": "10"
+                    "offerCount": String(pricedPlans.length)
                 },
                 "aggregateRating": {
                     "@type": "AggregateRating",
