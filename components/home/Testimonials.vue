@@ -62,9 +62,17 @@ function addMoreTestimonials() {
     }
 }
 
-const seeMore = ref(0)
-const reviews = shuffle(testimonials());
+function pickReviews(reviews) {
+    allReviews.value = reviews.filter(x => x.company === 'Capterra').slice(0, 6)
+    secondaryReviews = reviews.filter(x => allReviews.value.indexOf(x) === -1)
+}
 
-const allReviews = ref(reviews.filter(x => x.company === 'Capterra').splice(0, 6))
-const secondaryReviews = reviews.filter(x => allReviews.value.indexOf(x) === -1)
+const seeMore = ref(0)
+const allReviews = ref([])
+let secondaryReviews = []
+
+// Render a stable order on the server so the reviews are part of the prerendered HTML,
+// then shuffle once mounted (shuffling during render would cause a hydration mismatch).
+pickReviews(testimonials())
+onMounted(() => pickReviews(shuffle(testimonials())))
 </script>
