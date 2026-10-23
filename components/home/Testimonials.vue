@@ -10,22 +10,20 @@
         </div>
 
         <div class="grid grid-cols-6 gap-8 mt-16 ">
-            <ClientOnly>
-                <article v-for="review in allReviews" :key="review.link"
-                         class="col-span-full md:col-span-3 lg:col-span-2">
-                    <div class="border border-purple rounded-lg p-4">
-                        <p class="p -small text-purple-400">{{ review.text }}</p>
-                        <div class="mt-auto text-white flex flex-row justify-between pt-6">
-                            <div class="font-medium">{{ review.name }}</div>
-                            <div class="p -small">
-                                <NuxtLink :to="review.link" :title="`View ${review.name}'s review at ${review.company}`"
-                                          class="hover:underline">{{ review.company }}
-                                </NuxtLink>
-                            </div>
+            <article v-for="review in allReviews" :key="review.link"
+                     class="col-span-full md:col-span-3 lg:col-span-2">
+                <div class="border border-purple rounded-lg p-4">
+                    <p class="p -small text-purple-400">{{ review.text }}</p>
+                    <div class="mt-auto text-white flex flex-row justify-between pt-6">
+                        <div class="font-medium">{{ review.name }}</div>
+                        <div class="p -small">
+                            <NuxtLink :to="review.link" :title="`View ${review.name}'s review at ${review.company}`"
+                                      class="hover:underline">{{ review.company }}
+                            </NuxtLink>
                         </div>
                     </div>
-                </article>
-            </ClientOnly>
+                </div>
+            </article>
         </div>
         <div class="mt-20 flex justify-center" v-if="seeMore < 3">
             <Button :arrow-down="true" @click="addMoreTestimonials" v-if="seeMore === 0">Load More</Button>
