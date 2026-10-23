@@ -72,6 +72,11 @@ const languages = ref([
         language: 'Ruby',
         url: '/samples/ruby',
         image: '/images/languages/ruby.svg'
+    },
+    {
+        language: 'cURL',
+        url: '/samples/curl/',
+        image: '/images/languages/curl.svg'
     }
 ])
 </script>
