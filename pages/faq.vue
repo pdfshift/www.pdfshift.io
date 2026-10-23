@@ -85,7 +85,7 @@ useHead({
                         "@type": "ListItem",
                         "position": 2,
                         "name": "FAQ",
-                        "item": "https://pdfshift.io/faq"
+                        "item": "https://pdfshift.io/faq/"
                     }
                 ]
             })

@@ -307,7 +307,7 @@ const resources = [
 
 const title = 'PDFShift + Bubble Integration'
 const description = 'Generate PDFs directly from your Bubble app with PDFShift. Turn dynamic Bubble data or an existing page into invoices, reports, and more through the API Connector.'
-const canonicalUrl = 'https://pdfshift.io/agents/bubble'
+const canonicalUrl = 'https://pdfshift.io/agents/bubble/'
 
 useSeoMeta({
     title,
@@ -351,7 +351,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Bubble', item: canonicalUrl },
                 ],
             }),

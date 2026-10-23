@@ -130,11 +130,20 @@ if (articles.value?.length > 0) {
             )?.library
         }
 
+        const defaultLibrary = articles.value.find(article => article.default)?.library || library.value
         if (!selectedLibrary) {
-            selectedLibrary = articles.value.find(article => article.default)?.library || library.value
+            selectedLibrary = defaultLibrary
         }
         articles.value = articles.value.filter(article => article.library === selectedLibrary)
         library.value = selectedLibrary
+
+        // /guides/<language>/ already lists the default library's guides, so its
+        // /guides/<language>/<default-library>/ twin points to it instead of competing with it.
+        if (requestedLibrary && selectedLibrary === defaultLibrary) {
+            useHead({
+                link: [{ rel: 'canonical', href: siteUrl(`/guides/${route.params.language}`) }]
+            })
+        }
 
         title.value = `All our guides for ${language.value}`
         let seoTitle = `All our guides for ${language.value}`

@@ -242,7 +242,7 @@ useHead({
                     "@type": "Offer",
                     "name": `${plan.name} plan`,
                     "description": `${plan.credits.toLocaleString('en-US')} credits per month`,
-                    "url": "https://pdfshift.io/pricing",
+                    "url": "https://pdfshift.io/pricing/",
                     "price": String(plan.price),
                     "priceCurrency": "USD",
                     "priceSpecification": {

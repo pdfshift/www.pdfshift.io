@@ -347,7 +347,7 @@ const resources = [
 
 const title = 'PDFShift + Zapier Integration'
 const description = 'Generate PDFs automatically inside your Zapier workflows with PDFShift — convert HTML, dynamic Zap data, or webpages to PDF and route them anywhere.'
-const canonicalUrl = 'https://pdfshift.io/agents/zapier'
+const canonicalUrl = 'https://pdfshift.io/agents/zapier/'
 
 useSeoMeta({
     title,
@@ -392,7 +392,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Zapier', item: canonicalUrl },
                 ],
             }),

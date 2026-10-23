@@ -129,7 +129,7 @@ useHead({
                 },
                 "mainEntityOfPage": {
                     "@type": "WebPage",
-                    "@id": `https://pdfshift.io${route.fullPath}`
+                    "@id": siteUrl(route.path)
                 },
                 "inLanguage": "en-US",
                 "proficiencyLevel": "Beginner"
@@ -151,19 +151,19 @@ useHead({
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Samples",
-                        "item": "https://pdfshift.io/samples"
+                        "item": siteUrl('/samples')
                     },
                     {
                         "@type": "ListItem",
                         "position": 3,
                         "name": data.value.language,
-                        "item": `https://pdfshift.io/samples/${route.params.language}`
+                        "item": siteUrl(`/samples/${route.params.language}`)
                     },
                     {
                         "@type": "ListItem",
                         "position": 4,
                         "name": data.value.library,
-                        "item": `https://pdfshift.io${route.fullPath}`
+                        "item": siteUrl(route.path)
                     }
                 ]
             })

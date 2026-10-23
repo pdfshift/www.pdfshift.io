@@ -237,7 +237,7 @@ const resources = [
 
 const title = 'PDFShift + Lovable Integration'
 const description = 'Add PDF generation to your Lovable app with PDFShift. Copy the one-shot prompt or click Build with Lovable to set up a secure server-side PDF export in minutes.'
-const canonicalUrl = 'https://pdfshift.io/agents/lovable'
+const canonicalUrl = 'https://pdfshift.io/agents/lovable/'
 
 useSeoMeta({
     title,
@@ -282,7 +282,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Lovable', item: canonicalUrl },
                 ],
             }),

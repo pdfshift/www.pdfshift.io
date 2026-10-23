@@ -154,7 +154,7 @@ const resources = [
 
 const title = 'PDFShift MCP Server - PDFs for AI Agents'
 const description = 'Connect any Model Context Protocol client to the hosted PDFShift MCP server at https://api.pdfshift.io/mcp. Convert HTML or URLs to PDF, manage templates, and check credits from Claude, Cursor, and more.'
-const canonicalUrl = 'https://pdfshift.io/agents/mcp'
+const canonicalUrl = 'https://pdfshift.io/agents/mcp/'
 
 useSeoMeta({
     title,
@@ -209,7 +209,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'MCP Server', item: canonicalUrl },
                 ],
             }),

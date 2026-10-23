@@ -312,7 +312,7 @@ const resources = [
 
 const title = 'PDFShift + Make Integration'
 const description = 'Generate PDFs automatically from your Make scenarios with PDFShift — convert raw HTML or a URL to PDF and route it anywhere Make connects.'
-const canonicalUrl = 'https://pdfshift.io/agents/make'
+const canonicalUrl = 'https://pdfshift.io/agents/make/'
 
 useSeoMeta({
     title,
@@ -356,7 +356,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Make', item: canonicalUrl },
                 ],
             }),

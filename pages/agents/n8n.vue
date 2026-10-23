@@ -171,7 +171,7 @@ const resources = [
 
 const title = 'PDFShift + n8n Integration'
 const description = 'Generate PDFs and screenshots in your n8n workflows with the official n8n-nodes-pdfshift community node.'
-const canonicalUrl = 'https://pdfshift.io/agents/n8n'
+const canonicalUrl = 'https://pdfshift.io/agents/n8n/'
 
 useSeoMeta({
     title,
@@ -226,7 +226,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'n8n', item: canonicalUrl },
                 ],
             }),

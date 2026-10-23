@@ -298,7 +298,7 @@ const resources = [
 
 const title = 'PDFShift + FlowMattic Integration'
 const description = 'Generate PDFs from HTML or webpages inside your FlowMattic workflows with PDFShift — use the API Module or build a reusable Custom App.'
-const canonicalUrl = 'https://pdfshift.io/agents/flowmattic'
+const canonicalUrl = 'https://pdfshift.io/agents/flowmattic/'
 
 useSeoMeta({
     title,
@@ -341,7 +341,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'FlowMattic', item: canonicalUrl },
                 ],
             }),
