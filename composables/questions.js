@@ -1,7 +1,7 @@
 export const questions = () => [
     {
         question: 'Can I try PDFShift for free?',
-        answer: `<p>Yes. <a href="/register" class="font-medium text-purple hover:underline">Follow this link</a> to create an account and get 50 credits per month for free.</p>
+        answer: `<p>Yes. <a href="/register/" class="font-medium text-purple hover:underline">Follow this link</a> to create an account and get 50 credits per month for free.</p>
                 <p>You won’t be charged, and you don’t need to enter credit card details to get started.</p>
                 <p>Once you’ve created your account and logged in, access our API to convert up to 50 documents for free.</p>`,
         visible: false,
@@ -33,7 +33,7 @@ export const questions = () => [
     },
     {
         question: 'What sort of support can I expect as a PDFShift customer?',
-        answer: `<p>If you face any problems running PDFShift, you can consult our extensive and simple documentation, flip through our guides for working with various programming languages, or <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">contact us directly via this form</a>.</p>
+        answer: `<p>If you face any problems running PDFShift, you can consult our extensive and simple documentation, flip through our guides for working with various programming languages, or <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">contact us directly via this form</a>.</p>
                 <p>We respond to Business plan users’ requests within hours of receiving a support ticket; for all our other paid plans, we respond within 12 hours. We respond to Free plan users’ tickets within 2 days.</p>
                 <p>You can track our uptime on <a href="https://status.pdfshift.io/" title="Visit our Status page" class="font-medium text-purple hover:underline" rel="noopener noreferrer">our Status page</a>.</p>`,
         visible: false,
@@ -47,7 +47,7 @@ export const questions = () => [
     },
     {
         question: 'Is PDFShift GDPR compliant?',
-        answer: `<p>Yes. You can read our <a href="/legal/dpa" title="Data Processing Agreement" class="font-medium text-purple hover:underline">Data Processing Agreement</a> along with our <a href="/legal/privacy" title="Privacy Policy" class="font-medium text-purple hover:underline">Privacy Policy</a> for more details.</p>`,
+        answer: `<p>Yes. You can read our <a href="/legal/dpa/" title="Data Processing Agreement" class="font-medium text-purple hover:underline">Data Processing Agreement</a> along with our <a href="/legal/privacy/" title="Privacy Policy" class="font-medium text-purple hover:underline">Privacy Policy</a> for more details.</p>`,
         visible: false,
         home: false
     },
@@ -74,7 +74,7 @@ export const questions = () => [
     {
         question: 'How much does PDFShift typically cost?',
         answer: `<p>The average PDFShift customer uses 1,250 credits a month. The plan that matches this usage pattern is the Boost plan at $24 a month. This plan includes 2,500 monthly credits, as well as a low overage cost of just $0.03 per conversion.</p>
-                <p>PDFShift can meet your needs with higher volume plans. <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">Contact us to</a> ask for a dedicated plan.</p>`,
+                <p>PDFShift can meet your needs with higher volume plans. <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">Contact us to</a> ask for a dedicated plan.</p>`,
         visible: false,
         home: false
     },
@@ -112,13 +112,13 @@ export const questions = () => [
     },
     {
         question: 'I forgot to set the sandbox parameter while testing and used up all my credits. What now?',
-        answer: `<p>No problem! <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">Contact us</a> and we’ll top up your account with more credits during your first month for free.</p>`,
+        answer: `<p>No problem! <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">Contact us</a> and we’ll top up your account with more credits during your first month for free.</p>`,
         visible: false,
         home: false
     },
     {
         question: 'What is the timeout for conversions?',
-        answer: `<p>We wait up to 30 seconds by default for free plans, and 100 seconds for paid plans. If your document needs longer timeouts and you’re on one of PDFShift’s premium plans, <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> and we'll adjust it accordingly for your account.</p>`,
+        answer: `<p>We wait up to 30 seconds by default for free plans, and 100 seconds for paid plans. If your document needs longer timeouts and you’re on one of PDFShift’s premium plans, <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> and we'll adjust it accordingly for your account.</p>`,
         visible: false,
         home: false
     },
@@ -130,7 +130,7 @@ export const questions = () => [
     },
     {
         question: 'How many parallel conversions can I run? Is it different for each plan?',
-        answer: `<p>You can make up to 50 parallel conversions at the same time. This limit applies to all plans by default, but if you need more parallel conversions, <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> for a custom solution.</p>`,
+        answer: `<p>You can make up to 50 parallel conversions at the same time. This limit applies to all plans by default, but if you need more parallel conversions, <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> for a custom solution.</p>`,
         visible: false,
         home: false
     },
@@ -142,7 +142,7 @@ export const questions = () => [
     },
     {
         question: 'What if I have custom requirements?',
-        answer: `<p><a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">Contact us</a> via our form or email us, and we’ll do our best to accommodate your needs with the most suitable implementation.</p>`,
+        answer: `<p><a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">Contact us</a> via our form or email us, and we’ll do our best to accommodate your needs with the most suitable implementation.</p>`,
         visible: false,
         home: true
     }

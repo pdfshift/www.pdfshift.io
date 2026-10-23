@@ -27,8 +27,8 @@
                 <div class="h3" itemprop="name">What if I have other questions?</div>
                 <div class="p py-4" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
                     <div itemprop="text">
-                        <p>Our dedicated <NuxtLink to="faq" title="Head over our complete FAQ page" class="font-medium text-purple hover:underline">FAQ page</NuxtLink> contains answers to many more questions.</p>
-                        <p>If you can't find what you're looking for, feel free to <a href="/contact" title="Contact us" class="font-medium text-purple hover:underline">reach out to us via email</a>, and we'll be happy to answer to all your questions.</p>
+                        <p>Our dedicated <NuxtLink to="/faq/" title="Head over our complete FAQ page" class="font-medium text-purple hover:underline">FAQ page</NuxtLink> contains answers to many more questions.</p>
+                        <p>If you can't find what you're looking for, feel free to <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">reach out to us via email</a>, and we'll be happy to answer to all your questions.</p>
                     </div>
                 </div>
             </div>

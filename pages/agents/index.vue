@@ -58,7 +58,7 @@
                             </span>
                         </NuxtLink>
 
-                        <NuxtLink class="relative flex h-auto flex-col items-center justify-center rounded-xl border-purple px-6 py-6 text-center text-purple-400 md:h-56" to="/contact">
+                        <NuxtLink class="relative flex h-auto flex-col items-center justify-center rounded-xl border-purple px-6 py-6 text-center text-purple-400 md:h-56" to="/contact/">
                             <svg class="pointer-events-none absolute inset-0 size-full overflow-visible" aria-hidden="true">
                                 <rect width="calc(100% - 1px)" height="calc(100% - 1px)" x="0.5" y="0.5" rx="12" fill="none" stroke="currentColor" stroke-dasharray="8 8" stroke-width="1" vector-effect="non-scaling-stroke" />
                             </svg>
@@ -166,15 +166,15 @@ const features = [
 ]
 
 const integrations = [
-    { name: 'MCP', description: 'Give AI agents access to PDFShift through the Model Context Protocol.', icon: '/images/agents/mcp.svg', href: '/agents/mcp' },
-    { name: 'N8N', description: 'Generate PDFs automatically from your N8N workflows.', icon: '/images/agents/n8n.svg', href: '/agents/n8n' },
-    { name: 'Lovable', description: 'Add secure, server-side PDF export to your Lovable app in one prompt.', icon: '/images/agents/lovable.svg', href: '/agents/lovable' },
-    { name: 'Base44', description: 'Connect PDFShift from its OpenAPI spec or a backend function in Base44.', icon: '/images/agents/base44.svg', href: '/agents/base44' },
-    { name: 'Clay', description: 'Generate personalized PDFs from your Clay workflow data.', icon: '/images/agents/clay.png', iconClass: 'clay-icon', imageClass: '!h-6 !w-7', href: '/agents/clay' },
-    { name: 'Make', description: 'Generate PDFs automatically from your Make scenarios.', icon: '/images/agents/make.svg', href: '/agents/make' },
-    { name: 'Bubble', description: 'Add automated PDF generation to your Bubble applications.', icon: '/images/agents/bubble.svg', href: '/agents/bubble' },
-    { name: 'FlowMattic', description: 'Generate PDFs automatically from your WordPress workflows.', icon: '/images/agents/flowmattic.png', href: '/agents/flowmattic' },
-    { name: 'Zapier', description: 'Create Zaps that generate PDFs from your triggers and data.', icon: '/images/agents/zapier.png', href: '/agents/zapier' },
+    { name: 'MCP', description: 'Give AI agents access to PDFShift through the Model Context Protocol.', icon: '/images/agents/mcp.svg', href: '/agents/mcp/' },
+    { name: 'N8N', description: 'Generate PDFs automatically from your N8N workflows.', icon: '/images/agents/n8n.svg', href: '/agents/n8n/' },
+    { name: 'Lovable', description: 'Add secure, server-side PDF export to your Lovable app in one prompt.', icon: '/images/agents/lovable.svg', href: '/agents/lovable/' },
+    { name: 'Base44', description: 'Connect PDFShift from its OpenAPI spec or a backend function in Base44.', icon: '/images/agents/base44.svg', href: '/agents/base44/' },
+    { name: 'Clay', description: 'Generate personalized PDFs from your Clay workflow data.', icon: '/images/agents/clay.png', iconClass: 'clay-icon', imageClass: '!h-6 !w-7', href: '/agents/clay/' },
+    { name: 'Make', description: 'Generate PDFs automatically from your Make scenarios.', icon: '/images/agents/make.svg', href: '/agents/make/' },
+    { name: 'Bubble', description: 'Add automated PDF generation to your Bubble applications.', icon: '/images/agents/bubble.svg', href: '/agents/bubble/' },
+    { name: 'FlowMattic', description: 'Generate PDFs automatically from your WordPress workflows.', icon: '/images/agents/flowmattic.png', href: '/agents/flowmattic/' },
+    { name: 'Zapier', description: 'Create Zaps that generate PDFs from your triggers and data.', icon: '/images/agents/zapier.png', href: '/agents/zapier/' },
 ]
 
 const useCases = [

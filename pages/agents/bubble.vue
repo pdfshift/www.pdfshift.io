@@ -9,7 +9,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#setup-guide" :light="true" hover="dark" :arrow-down="true">Set up the API Connector</Button>
             </div>
         </section>
@@ -32,7 +32,7 @@
                         Your key should remain private and never be exposed in a page, workflow parameter, Option Set, or client-side JavaScript.
                         Bubble&rsquo;s API Connector supports private API keys stored on Bubble&rsquo;s servers.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">
@@ -307,7 +307,7 @@ const resources = [
 
 const title = 'PDFShift + Bubble Integration'
 const description = 'Generate PDFs directly from your Bubble app with PDFShift. Turn dynamic Bubble data or an existing page into invoices, reports, and more through the API Connector.'
-const canonicalUrl = 'https://pdfshift.io/agents/bubble'
+const canonicalUrl = 'https://pdfshift.io/agents/bubble/'
 
 useSeoMeta({
     title,
@@ -351,7 +351,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Bubble', item: canonicalUrl },
                 ],
             }),

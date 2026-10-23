@@ -9,39 +9,35 @@
                 <HomePricing />
             </div>
 
-            <ClientOnly>
-                <div class="mt-16 lg:mt-24">
-                    <HomeCompanies />
-                </div>
-            </ClientOnly>
+            <div class="mt-16 lg:mt-24">
+                <HomeCompanies />
+            </div>
 
-            <ClientOnly>
-                <div class="mt-16 lg:mt-24">
-                    <div class="max-w-5xl mx-auto">
-                        <h2 class="h2 text-navy-700 text-center mb-8">See what developers say about us</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <HomeReview
-                                v-for="(review, index) in reviews"
-                                :key="index"
-                                :logo="review.logo"
-                                :name="review.name"
-                                :rating="review.rating"
-                                :reviews="review.reviews"
-                                :to="review.url"
-                            />
-                        </div>
+            <div class="mt-16 lg:mt-24">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="h2 text-navy-700 text-center mb-8">See what developers say about us</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <HomeReview
+                            v-for="(review, index) in reviews"
+                            :key="index"
+                            :logo="review.logo"
+                            :name="review.name"
+                            :rating="review.rating"
+                            :reviews="review.reviews"
+                            :to="review.url"
+                        />
                     </div>
                 </div>
+            </div>
 
-                <div class="mt-16 lg:mt-24">
-                    <HomeTestimonials />
-                </div>
-            </ClientOnly>
+            <div class="mt-16 lg:mt-24">
+                <HomeTestimonials />
+            </div>
 
             <div class="mt-16 lg:mt-24 text-center pb-12 md:pb-20">
                 <h2 class="h2 text-navy-700 mb-4">Ready to get started?</h2>
                 <p class="p text-navy-700 mb-8">Join thousands of developers using PDFShift to convert HTML to PDF</p>
-                <Button to="/register" :arrow="true">Start Converting for Free</Button>
+                <Button to="/register/" :arrow="true">Start Converting for Free</Button>
             </div>
         </NuxtLayout>
     </div>
@@ -103,7 +99,7 @@ useHead({
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Pricing",
-                        "item": "https://pdfshift.io/pricing"
+                        "item": "https://pdfshift.io/pricing/"
                     }
                 ]
             })

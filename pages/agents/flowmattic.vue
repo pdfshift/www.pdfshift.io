@@ -9,7 +9,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#api-module" :light="true" hover="dark" :arrow-down="true">Build the workflow</Button>
             </div>
         </section>
@@ -32,7 +32,7 @@
                         PDFShift authenticates requests using the HTTP header:
                     </p>
                     <ContentProsePre class="my-6" code="X-API-Key: YOUR_API_KEY" />
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">
@@ -298,7 +298,7 @@ const resources = [
 
 const title = 'PDFShift + FlowMattic Integration'
 const description = 'Generate PDFs from HTML or webpages inside your FlowMattic workflows with PDFShift — use the API Module or build a reusable Custom App.'
-const canonicalUrl = 'https://pdfshift.io/agents/flowmattic'
+const canonicalUrl = 'https://pdfshift.io/agents/flowmattic/'
 
 useSeoMeta({
     title,
@@ -341,7 +341,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'FlowMattic', item: canonicalUrl },
                 ],
             }),

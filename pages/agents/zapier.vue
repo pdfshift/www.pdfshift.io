@@ -9,7 +9,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#setup-guide" :light="true" hover="dark" :arrow-down="true">Build the Zap</Button>
             </div>
         </section>
@@ -33,7 +33,7 @@
                     </p>
                     <ContentProsePre class="my-6" code="X-API-Key: YOUR_PDFSHIFT_API_KEY" />
                     <p>Your API key should be kept private and never stored directly inside normal Zap fields.</p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">
@@ -347,7 +347,7 @@ const resources = [
 
 const title = 'PDFShift + Zapier Integration'
 const description = 'Generate PDFs automatically inside your Zapier workflows with PDFShift — convert HTML, dynamic Zap data, or webpages to PDF and route them anywhere.'
-const canonicalUrl = 'https://pdfshift.io/agents/zapier'
+const canonicalUrl = 'https://pdfshift.io/agents/zapier/'
 
 useSeoMeta({
     title,
@@ -392,7 +392,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Zapier', item: canonicalUrl },
                 ],
             }),

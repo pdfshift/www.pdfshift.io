@@ -9,7 +9,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#setup-guide" :light="true" hover="dark" :arrow-down="true">Set up the enrichment</Button>
             </div>
         </section>
@@ -31,7 +31,7 @@
                         <a class="underline" href="https://app.pdfshift.io/" target="_blank" rel="noopener">dashboard</a>.
                         You&rsquo;ll add this key securely to Clay rather than putting it directly inside your HTTP request.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">
@@ -260,7 +260,7 @@ const resources = [
 
 const title = 'PDFShift + Clay Integration'
 const description = 'Generate a PDF for every row in your Clay tables with the PDFShift HTTP API enrichment — reports, proposals, invoices, and more.'
-const canonicalUrl = 'https://pdfshift.io/agents/clay'
+const canonicalUrl = 'https://pdfshift.io/agents/clay/'
 
 useSeoMeta({
     title,
@@ -302,7 +302,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Clay', item: canonicalUrl },
                 ],
             }),

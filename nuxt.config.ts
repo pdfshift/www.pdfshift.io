@@ -124,7 +124,8 @@ export default defineNuxtConfig({
         'pages:extend' (pages) {
             pages.push({
                 name: 'guides-library-list',
-                path: '/guides/:language(csharp|curl|go|java|node|php|python|ruby)/:library/',
+                // cURL has no library folder: /guides/curl/<slug>/ is a guide, not a library listing
+                path: '/guides/:language(csharp|go|java|node|php|python|ruby)/:library/',
                 file: '~/pages/guides/[language]/index.vue'
             })
 
@@ -192,6 +193,9 @@ export default defineNuxtConfig({
     },
     site: {
         url: 'https://pdfshift.io',
+        // Netlify serves pages at their trailing-slash URL (and 301s the other form),
+        // so the sitemap must list that version.
+        trailingSlash: true,
     },
     sitemap: {
         sources: [

@@ -51,7 +51,7 @@ watch(status, (to) => {
             }
         })
     }
-})
+}, { immediate: true }) // the data is already loaded on the server, so `status` never changes there
 
 const copySectionLink = (slug) => {
     // remove current #hash value from url

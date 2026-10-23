@@ -55,7 +55,7 @@ defineProps({
     },
     primaryHref: {
         type: String,
-        default: '/register',
+        default: '/register/',
     },
     showSecondary: {
         type: Boolean,

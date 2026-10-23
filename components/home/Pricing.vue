@@ -59,13 +59,13 @@
                             <li>Timeout: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '30s' : 'Up to 15 minutes' }}</strong></li>
                         </ol>
                         <div class="text-center">
-                            <Button to="/register" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Get Started</Button>
+                            <Button to="/register/" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Get Started</Button>
                         </div>
                     </div>
                     <div class="p-6 space-y-6 max-w-80 w-80" v-else>
                         <div>
                             <p class="my-10">We easily support more than 1 Million conversions per month. Please reach out to us with your needs and we'll find the perfect pricing for you.</p>
-                            <Button to="/contact" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Contact us to get a custom quote</Button>
+                            <Button to="/contact/" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Contact us to get a custom quote</Button>
                         </div>
                     </div>
                 </div>

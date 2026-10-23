@@ -17,7 +17,7 @@
                                 Our always-up-to-date API for developers automates your document conversion tasks - effortlessly.
                             </p>
                             <div class="flex mt-4 lg:mt-8 justify-center lg:justify-start">
-                                <Button to="/register" :arrow="true">Register for free</Button>
+                                <Button to="/register/" :arrow="true">Register for free</Button>
                             </div>
 
                             <NuxtLink to="https://www.capterra.com/p/184246/PDFShift/reviews/" class="mt-12 flex flex-col gap-6 md:flex-row items-center md:gap-8 mx-auto lg:mx-0 hover:underline" target="_blank">
@@ -72,11 +72,8 @@
                 </section>
             </div>
 
-            <ClientOnly>
-                <HomeCompanies />
-            </ClientOnly>
+            <HomeCompanies />
 
-            <ClientOnly>
             <main>
                 <HomeIllustratedFeatures />
                 <div class="bg-gradient-to-br from-purple-900 to-navy-700 via-20% via-navy-700 pb-24 lg:pb-36">
@@ -174,7 +171,7 @@
                                         making it a great choice for the healthcare industry. We don't store your documents (unless specifically requested in the API), so we can ensure the privacy of your data.
                                     </p>
                                     <div class="mt-12">
-                                        <Button to="/legal/hipaa" :arrow="true">Review our Business Associate Agreement (BAA)</Button>
+                                        <Button to="/legal/hipaa/" :arrow="true">Review our Business Associate Agreement (BAA)</Button>
                                     </div>
                                 </div>
                                 <div class="w-full relative">
@@ -198,7 +195,7 @@
                             <div>
                                 <div class="font-medium text-xl lg:text-3xl leading-relaxed text-white">Improving automated conversion<br />since 2018.</div>
                                 <div class="font-medium text-xl lg:text-3xl leading-relaxed mt-8 mb-12 text-white">We're here for the long haul!</div>
-                                <Button to="/register" :arrow="true" :light="true" hover="dark">Register For Free</Button>
+                                <Button to="/register/" :arrow="true" :light="true" hover="dark">Register For Free</Button>
                             </div>
                             <div class="hidden lg:block shrink-0 text-purple-500 w-48 mt-10 pr-12">
                                 <IconsLogoBird />
@@ -207,7 +204,6 @@
                     </div>
                 </div>
             </main>
-            </ClientOnly>
         </NuxtLayout>
     </div>
 </template>
@@ -246,7 +242,7 @@ useHead({
                     "@type": "Offer",
                     "name": `${plan.name} plan`,
                     "description": `${plan.credits.toLocaleString('en-US')} credits per month`,
-                    "url": "https://pdfshift.io/pricing",
+                    "url": "https://pdfshift.io/pricing/",
                     "price": String(plan.price),
                     "priceCurrency": "USD",
                     "priceSpecification": {

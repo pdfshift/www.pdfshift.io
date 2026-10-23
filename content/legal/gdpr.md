@@ -51,7 +51,7 @@ Some of the preventive measures we take include:
 
 ## Data subject rights
 
-All individual rights regarding GDPR will be enforced by our PDFShift team. If you want to exercise yur GDPR rights, you can reach out to us with your request at [support@pdfshift.io](/contact).
+All individual rights regarding GDPR will be enforced by our PDFShift team. If you want to exercise yur GDPR rights, you can reach out to us with your request at [support@pdfshift.io](/contact/).
 
 Those rights include:
 
@@ -99,7 +99,7 @@ _When a customer requests deletion of their data, we proceed with the deletion i
 _We sign Data Processing Agreements with each of our sub-processors or subcontractors._
 
 * **What third party organizations (sub-processors) do you work with that may also have access to the data we share with you?**<br />
-_See list of [PDFShift sub-processors and subcontractors](/legal/subprocessors)._
+_See list of [PDFShift sub-processors and subcontractors](/legal/subprocessors/)._
 
 * **What processing operations are done by the Data Processor (PDFShift)?**<br />
 _All actions necessary to provide adequate customer support and reliable service._
@@ -120,11 +120,11 @@ _PDFShift REST API is restricted to accredited users based API tokens._
 ## Additional resources
 
 
-* [PDFShift Privacy Policy](/legal/privacy)
-* [PDFShift Terms & Conditions](/legal/terms)
-* [List of Sub-processors & Subcontractors](/legal/subprocessors)
+* [PDFShift Privacy Policy](/legal/privacy/)
+* [PDFShift Terms & Conditions](/legal/terms/)
+* [List of Sub-processors & Subcontractors](/legal/subprocessors/)
 
 
 ## Do you have questions?
 
-Contact us at [support@pdfshift.io](/contact)
+Contact us at [support@pdfshift.io](/contact/)

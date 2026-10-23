@@ -57,6 +57,9 @@ export default async (request: Request, context: Context) => {
                         "Content-Signal": "ai-train=yes, search=yes, ai-input=yes",
                         "Cache-Control": "public, max-age=86400",
                         "Vary": "Accept",
+                        // Duplicate of the HTML page: keep it out of search indexes.
+                        // Only on the ".md" URLs: negotiated responses share the HTML URL.
+                        "X-Robots-Tag": "noindex",
                     },
                 });
             }

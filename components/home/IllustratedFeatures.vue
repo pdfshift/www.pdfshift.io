@@ -22,7 +22,7 @@
                                     Our API makes it easy to export high-quality PDF versions of HTML documents from raw code or URLs. There's no need to worry about CSS properties, outdated libraries or conversion errors.
                                 </p>
                                 <!--<Button to="/case-studies" class="mt-10" :arrow="true">See Our Case Studies</Button>-->
-                                <Button to="/guides" class="mt-10" :arrow="true">See Our Guides</Button>
+                                <Button to="/guides/" class="mt-10" :arrow="true">See Our Guides</Button>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                     Equip your product with the ability to turn visual content into downloadable images. Grab up-to-date screenshots from any website to generate beautiful previews and customize image output to suit your needs. All it takes is one simple API call.
                                 </p>
                                 <!--<Button to="/case-studies" class="mt-10" :arrow="true">See Our Case Studies</Button>-->
-                                <Button to="/guides" class="mt-10" :arrow="true">See Our Guides</Button>
+                                <Button to="/guides/" class="mt-10" :arrow="true">See Our Guides</Button>
                             </div>
                         </div>
                         <div class="w-full lg:w-2/3 ">
@@ -74,7 +74,7 @@
                                 Generate impactful Open Graph images to share your content on social networks easily. Use custom templates and provide variable parameters to automatically integrate banners into your CMS.
                             </p>
                             <!--<Button to="/case-studies" hover="dark" class="mt-10" :arrow="true">See Our Case Studies</Button>-->
-                            <Button to="/guides" class="mt-10" :arrow="true">See Our Guides</Button>
+                            <Button to="/guides/" class="mt-10" :arrow="true">See Our Guides</Button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                                     Store your template and take advantage of our powerful template engine to convert your documents even faster. Storing your templates at PDFShift will allow you to generate documents on the fly with your customer in a secure way. It will allow you to automatically build banner images for your blog posts securely within your blog engine (Wordpress, Next, Nuxt).
                                 </p>
                                 <!--<Button to="/case-studies" :arrow="true">See Our Case Studies</Button>-->
-                                <Button to="/guides" class="mt-10" :arrow="true">See Our Guides</Button>
+                                <Button to="/guides/" class="mt-10" :arrow="true">See Our Guides</Button>
                             </div>
                         </div>
                         <div class="w-full lg:w-3/5 flex justify-center">
@@ -131,7 +131,7 @@
                                     Our API makes it easy to export high-quality PDF versions of HTML documents from raw code or URLs. There's no need to worry about CSS properties, outdated libraries or conversion errors.
                                 </p>
                                 <!--<Button to="/case-studies" :arrow="true">See Our Case Studies</Button>-->
-                                <Button to="/guides" :arrow="true">See Our Guides</Button>
+                                <Button to="/guides/" :arrow="true">See Our Guides</Button>
                             </div>
                         </div>
                     </div>

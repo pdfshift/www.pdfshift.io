@@ -2,7 +2,7 @@
     <div>
         <NuxtLayout page="default">
             <main class="max-w-3xl mx-auto px-4 pb-12">
-                <NuxtLink :to="`/guides/${language}/${library}`" class="text-navy-700 inline-flex items-center gap-2">
+                <NuxtLink :to="`${data._path.substring(0, data._path.lastIndexOf('/'))}/`" class="text-navy-700 inline-flex items-center gap-2">
                     <span class="rotate-180 w-4 relative ml-1.5">
                         <IconsArrowRight />
                     </span>
@@ -22,7 +22,7 @@
                         <p>
                             We hope this guide was helpful.
                             If you have any questions or noticed any issues on the code above,<br />
-                            feel free to <NuxtLink to="/contact" class="text-purple underline">drop us a line</NuxtLink>.
+                            feel free to <NuxtLink to="/contact/" class="text-purple underline">drop us a line</NuxtLink>.
                         </p>
                     </div>
                 </article>
@@ -32,7 +32,7 @@
                         <h3 class="h3 text-navy-700">Related guides</h3>
                         <ul class="mt-8 list-disc list-inside">
                             <li v-for="guide in relatedGuides" :key="guide._id" class="my-2">
-                                <NuxtLink :to="`${guide._path}`" class="text-lg hover:underline hover:text-purple">
+                                <NuxtLink :to="`${guide._path}/`" class="text-lg hover:underline hover:text-purple">
                                     {{ guide.title }}
                                 </NuxtLink>
                             </li>
@@ -52,20 +52,28 @@ const language = ref(route.params.language)
 const library = ref(null)
 const relatedGuides = ref([])
 
+// Trailing-slash URLs end with an empty segment: /guides/node/axios/foo/ gives ['axios', 'foo', '']
+const segments = route.params.slug.filter(Boolean)
+
 let data = ref(null)
-if (route.params.slug.length === 1) {
+if (segments.length === 1) {
+    // Single-library languages (cURL) store their guides directly in /guides/<language>/;
+    // otherwise use the guide from the language's default library.
+    const slug = segments[0]
     const { data: guide } = await useAsyncData(route.fullPath, () => queryContent('guides', language.value).where({
         draft: { $ne: true },
-        default: true,
-        _path: { $regex: route.params.slug[route.params.slug.length - 1] + '$' }
+        $or: [
+            { _path: `/guides/${language.value}/${slug}` },
+            { default: true, _path: { $regex: slug + '$' } }
+        ]
     }).findOne())
 
     data.value = guide.value
 } else {
-    library.value = route.params.slug[0]
+    library.value = segments[0]
     const { data: guide } = await useAsyncData(route.fullPath, () => queryContent('guides', language.value, library.value).where({
         draft: { $ne: true },
-        _path: { $regex: route.params.slug[route.params.slug.length - 1] + '$' }
+        _path: { $regex: segments[segments.length - 1] + '$' }
     }).findOne())
 
     data.value = guide.value
@@ -108,7 +116,7 @@ useHead({
                 },
                 "mainEntityOfPage": {
                     "@type": "WebPage",
-                    "@id": `https://pdfshift.io${route.fullPath}`
+                    "@id": siteUrl(data.value._path)
                 },
                 "inLanguage": "en-US",
                 "proficiencyLevel": "Beginner"
@@ -161,25 +169,25 @@ useHead({
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Guides",
-                        "item": "https://pdfshift.io/guides"
+                        "item": siteUrl('/guides')
                     },
                     {
                         "@type": "ListItem",
                         "position": 3,
                         "name": data.value.language,
-                        "item": `https://pdfshift.io/guides/${language.value}`
+                        "item": siteUrl(`/guides/${language.value}`)
                     },
                     {
                         "@type": "ListItem",
                         "position": 4,
                         "name": data.value.library,
-                        "item": `https://pdfshift.io/guides/${language.value}/${library.value || data.value.library.toLowerCase()}`
+                        "item": siteUrl(data.value._path.substring(0, data.value._path.lastIndexOf('/')))
                     },
                     {
                         "@type": "ListItem",
                         "position": 5,
                         "name": data.value.title,
-                        "item": `https://pdfshift.io${route.fullPath}`
+                        "item": siteUrl(data.value._path)
                     }
                 ]
             })
