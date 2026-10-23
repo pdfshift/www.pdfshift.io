@@ -18,7 +18,8 @@ import { readFile } from 'fs/promises'
 import { relative, resolve } from 'path'
 
 const ROOT = process.cwd()
-const sitemapFile = resolve(ROOT, process.argv[2] || '.output/public/sitemap.xml')
+// `dist` is what Netlify publishes: the build output on Netlify, a symlink to .output/public locally
+const sitemapFile = resolve(ROOT, process.argv[2] || 'dist/sitemap.xml')
 const liveSitemapUrl = 'https://pdfshift.io/sitemap.xml'
 const maxDrop = Number(process.env.SITEMAP_MAX_DROP ?? 0.15)
 

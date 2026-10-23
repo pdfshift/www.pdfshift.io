@@ -15,7 +15,8 @@ import { readdir, readFile } from 'fs/promises'
 import { join, relative, resolve } from 'path'
 
 const ROOT = process.cwd()
-const outputDir = resolve(ROOT, process.argv[2] || '.output/public')
+// `dist` is what Netlify publishes: the build output on Netlify, a symlink to .output/public locally
+const outputDir = resolve(ROOT, process.argv[2] || 'dist')
 const siteUrl = 'https://pdfshift.io'
 
 if (!existsSync(join(outputDir, 'index.html'))) {
