@@ -43,6 +43,8 @@ export default defineEventHandler(async (event) => {
                 setResponseHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
                 setResponseHeader(event, 'x-markdown-tokens', Math.ceil(md.length / 4).toString())
                 setResponseHeader(event, 'Content-Signal', 'ai-train=yes, search=yes, ai-input=yes')
+                // Duplicate of the HTML page: keep it out of search indexes
+                setResponseHeader(event, 'X-Robots-Tag', 'noindex')
                 return md
             } catch (error) {
                 console.error('Error reading markdown file:', error)
