@@ -16,7 +16,7 @@ The complete OpenAPI Specification for the PDFShift API is available at [https:/
 
 ## Guides
 > 597+ how-to guides covering 8 languages (C#, Go, Java, Node, PHP, Python, Ruby, cUrl) and their most popular HTTP libraries. Each task below exists for every language/library combination. Full text is in llms-full.txt.
-- [All guides](https://pdfshift.io/guides): Browse guides by language and HTTP library.
+- [All guides](https://pdfshift.io/guides/): Browse guides by language and HTTP library.
 - [Accessing secured pages](https://pdfshift.io/guides/python/requests/accessing-secured-pages.md): Learn how to access secured pages using Python and the requests library. This guide offers detailed steps with code samples in Python and the requests library, highlighting how you can acces page protected by basic authentication to convert them to PDF using PDFShift's API.
 - [Adding a custom header or footer](https://pdfshift.io/guides/python/requests/adding-a-custom-header-or-footer.md): Discover how to add custom headers or footers to a PDF using Python and the requests library. This in-depth guide includes Python codes that you can easily follow and quickly generate documents with PDFShift's API.
 - [Adding a text watermark](https://pdfshift.io/guides/python/requests/adding-a-text-watermark.md): Learn how to add text watermarks to your generated PDF document using Python and the requests library. With this guide, you'll be able to add watermarks on top of your generated PDFs easily with a quick request to PDFShift's API.
@@ -94,6 +94,6 @@ The complete OpenAPI Specification for the PDFShift API is available at [https:/
 - [Terms of Service](https://pdfshift.io/legal/terms.md): We've crafted our Terms of Service to ensure a secure and mutually beneficial experience for all users.
 
 ## Optional
-- [Register](https://pdfshift.io/register): Create a free account (50 credits/mo, no credit card).
-- [Contact](https://pdfshift.io/contact): Get in touch with the PDFShift team.
+- [Register](https://pdfshift.io/register/): Create a free account (50 credits/mo, no credit card).
+- [Contact](https://pdfshift.io/contact/): Get in touch with the PDFShift team.
 - [Status](https://status.pdfshift.io): Live service status and uptime.

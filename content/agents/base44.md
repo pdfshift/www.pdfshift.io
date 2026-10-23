@@ -15,7 +15,7 @@ This is the easiest way to make PDFShift available to your Base44 applications.
 
 Create a PDFShift account and get your API key. Keep it private and never add it directly to your frontend code.
 
-[Register for Free](/register)
+[Register for Free](/register/)
 
 ### 2. Add PDFShift to Base44
 

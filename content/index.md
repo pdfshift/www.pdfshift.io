@@ -9,7 +9,7 @@ description: "An API to convert HTML/CSS documents to PDF. Fast, reliable, and p
 
 Our always-up-to-date API for developers automates your document conversion tasks - effortlessly.
 
-[Register for free](/register)
+[Register for free](/register/)
 
 ## Key Statistics
 
@@ -94,20 +94,20 @@ Flexible plans to suit your needs:
 - **Business**: For growing companies
 - **Enterprise**: Custom solutions with SLA
 
-[View detailed pricing](/pricing)
+[View detailed pricing](/pricing/)
 
 ## Resources
 
 - [API Documentation](https://docs.pdfshift.io)
 - [API Status](https://status.pdfshift.io)
-- [Guides & Tutorials](/guides)
-- [FAQ](/faq)
+- [Guides & Tutorials](/guides/)
+- [FAQ](/faq/)
 
 ## Start Converting Today
 
 Get started in minutes with our comprehensive documentation and code examples. No credit card required for the free tier.
 
-[Create your free account](/register)
+[Create your free account](/register/)
 
 ---
 

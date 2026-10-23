@@ -60,7 +60,7 @@ for (const file of files) {
     else if (rel.startsWith('agents/')) section = 'integrations'
     docs.push({
         rel, path, section, fm, body,
-        url: siteUrl + path,
+        url: siteUrl + (path === '/' ? '/' : `${path}/`),
         mdUrl: siteUrl + (path === '/' ? '/index.md' : `${path}.md`),
     })
 }
@@ -176,7 +176,7 @@ const canonical = guides.filter(d => /^guides\/python\/requests\//.test(d.rel))
 const languages = Array.from(new Set(guides.map(d => d.fm.language).filter(Boolean))).sort()
 llms.push('## Guides')
 llms.push(`> ${guides.length}+ how-to guides covering ${languages.length} languages (${languages.join(', ')}) and their most popular HTTP libraries. Each task below exists for every language/library combination. Full text is in llms-full.txt.`)
-llms.push(line('All guides', siteUrl + '/guides', 'Browse guides by language and HTTP library.'))
+llms.push(line('All guides', siteUrl + '/guides/', 'Browse guides by language and HTTP library.'))
 for (const g of canonical) llms.push(line(g.fm.title || humanize(basename(g.rel)), g.mdUrl, g.fm.description))
 llms.push('')
 
@@ -198,8 +198,8 @@ for (const l of legal) llms.push(line(l.fm.title || humanize(basename(l.rel)), l
 llms.push('')
 
 llms.push('## Optional')
-llms.push(line('Register', siteUrl + '/register', 'Create a free account (50 credits/mo, no credit card).'))
-llms.push(line('Contact', siteUrl + '/contact', 'Get in touch with the PDFShift team.'))
+llms.push(line('Register', siteUrl + '/register/', 'Create a free account (50 credits/mo, no credit card).'))
+llms.push(line('Contact', siteUrl + '/contact/', 'Get in touch with the PDFShift team.'))
 llms.push(line('Status', 'https://status.pdfshift.io', 'Live service status and uptime.'))
 llms.push('')
 

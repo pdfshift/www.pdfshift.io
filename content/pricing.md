@@ -68,10 +68,10 @@ All plans include: RESTful API, CSS & JavaScript injection, advanced headers & f
 
 We easily support more than 1 million conversions per month. For teams with high-volume or custom needs, reach out and we'll put together a tailored quote.
 
-[Contact us for a custom quote](/contact).
+[Contact us for a custom quote](/contact/).
 
 ## Get Started
 
 Start converting HTML to PDF for free; 50 credits every month, no credit card required.
 
-[Register for free](/register)
+[Register for free](/register/)

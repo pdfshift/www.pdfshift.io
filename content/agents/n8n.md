@@ -13,7 +13,7 @@ Generate PDFs and screenshots inside your n8n workflows with the official, n8n-v
 
 Create a PDFShift account and grab your API key from the [dashboard](https://app.pdfshift.io/) under "API Keys". Keep it private! You'll paste it into n8n's credential store, which encrypts it for you.
 
-[Register for Free](/register)
+[Register for Free](/register/)
 
 ### 2. Install the verified node
 

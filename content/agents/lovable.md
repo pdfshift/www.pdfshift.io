@@ -52,7 +52,7 @@ Lovable pre-fills the prompt but never sends it automatically. You review it and
 
 Create a PDFShift account and copy your API key. Do not paste it into your Lovable prompt.
 
-[Register for Free](/register)
+[Register for Free](/register/)
 
 ### 2. Ask Lovable to integrate PDFShift
 

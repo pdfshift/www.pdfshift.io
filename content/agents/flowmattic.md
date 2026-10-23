@@ -19,7 +19,7 @@ Create a PDFShift account and copy your API key from the [dashboard](https://app
 X-API-Key: YOUR_API_KEY
 ```
 
-[Register for Free](/register)
+[Register for Free](/register/)
 
 ### 2. Add an API action to FlowMattic
 

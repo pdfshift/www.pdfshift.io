@@ -42,7 +42,7 @@ We take privacy seriously. We do not store requests or generated documents. As s
 
 **Is PDFShift GDPR compliant?**
 
-Yes. You can read our [Data Processing Agreement](https://pdfshift.io/legal/dpa) along with our [Privacy Policy](https://pdfshift.io/legal/privacy) for more details.
+Yes. You can read our [Data Processing Agreement](https://pdfshift.io/legal/dpa/) along with our [Privacy Policy](https://pdfshift.io/legal/privacy/) for more details.
 
 ## Pricing and payments
 
@@ -91,7 +91,7 @@ No, you don't need to put the page you want to convert publicly on the web. You 
 
 ## I forgot to set the `sandbox` parameter while testing and used up all my credits. What now?
 
-No problem! [Contact us](/contact) and we’ll top up your account with more credits during your first month for free.
+No problem! [Contact us](/contact/) and we’ll top up your account with more credits during your first month for free.
 
 **What is the timeout for conversions?**
 
@@ -117,4 +117,4 @@ For increased privacy, PDFShift supports sending your documents straight to your
 
 **What if I have other questions?**
 
-Feel free to [reach out to us via email](/contact), and we'll be happy to answer to all your questions.
+Feel free to [reach out to us via email](/contact/), and we'll be happy to answer to all your questions.

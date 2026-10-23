@@ -18,17 +18,17 @@ Powerful PDF generation for your automated workflows. Convert HTML to PDF seamle
 
 Connect PDFShift with your favorite tools and start automating PDF generation today.
 
-- [MCP](/agents/mcp): Give AI agents access to PDFShift through the Model Context Protocol.
-- [N8N](/agents/n8n): Generate PDFs automatically from your N8N workflows.
-- [Lovable](/agents/lovable): Add secure, server-side PDF export to your Lovable app in one prompt.
-- [Base44](/agents/base44): Connect PDFShift from its OpenAPI spec or a backend function in Base44.
-- [Clay](/agents/clay): Generate personalized PDFs from your Clay workflow data.
-- [Make](/agents/make): Generate PDFs automatically from your Make scenarios.
-- [Bubble](/agents/bubble): Add automated PDF generation to your Bubble applications.
-- [FlowMattic](/agents/flowmattic): Generate PDFs automatically from your WordPress workflows.
-- [Zapier](/agents/zapier): Create Zaps that generate PDFs from your triggers and data.
+- [MCP](/agents/mcp/): Give AI agents access to PDFShift through the Model Context Protocol.
+- [N8N](/agents/n8n/): Generate PDFs automatically from your N8N workflows.
+- [Lovable](/agents/lovable/): Add secure, server-side PDF export to your Lovable app in one prompt.
+- [Base44](/agents/base44/): Connect PDFShift from its OpenAPI spec or a backend function in Base44.
+- [Clay](/agents/clay/): Generate personalized PDFs from your Clay workflow data.
+- [Make](/agents/make/): Generate PDFs automatically from your Make scenarios.
+- [Bubble](/agents/bubble/): Add automated PDF generation to your Bubble applications.
+- [FlowMattic](/agents/flowmattic/): Generate PDFs automatically from your WordPress workflows.
+- [Zapier](/agents/zapier/): Create Zaps that generate PDFs from your triggers and data.
 
-Can't find your tool? [Suggest an integration](/contact).
+Can't find your tool? [Suggest an integration](/contact/).
 
 ## What You Can Build
 
