@@ -4,3 +4,13 @@
 # Homepage and all pages - Link headers for agent discovery (RFC 8288, RFC 9727)
 /*
   Link: <https://docs.pdfshift.io>; rel="service-doc", <https://api.pdfshift.io/v3>; rel="service-desc", <https://status.pdfshift.io>; rel="status", </.well-known/security.txt>; rel="security-policy"
+
+# Markdown/plain-text copies of the HTML pages, for LLMs and agents:
+# keep them out of search indexes so they don't compete with the HTML pages.
+# (Direct "/<page>.md" URLs get the same header from the markdown-negotiation edge function.)
+/llms.txt
+  X-Robots-Tag: noindex
+/llms-full.txt
+  X-Robots-Tag: noindex
+/content/*
+  X-Robots-Tag: noindex
