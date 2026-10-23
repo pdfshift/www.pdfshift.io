@@ -3,7 +3,8 @@
 
 [build]
   publish = "dist"
-  command = "nuxt generate"
+  # Fails the build (and so the deploy) if pages disappear from the sitemap, see scripts/check-sitemap.mjs
+  command = "nuxt generate && node scripts/check-sitemap.mjs"
 
 # Link headers edge function
 [[edge_functions]]

@@ -8,6 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "gen:llms": "node scripts/gen-llms.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:sitemap": "node scripts/check-sitemap.mjs",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
