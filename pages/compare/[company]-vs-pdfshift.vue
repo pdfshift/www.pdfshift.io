@@ -173,7 +173,7 @@
                         <p class="p text-white text-center max-w-md">
                             If this page helped you make a decision and you want to give PDFShift a try, we offer a free trial to get you started.
                         </p>
-                        <Button to="/register" :light="true" :arrow="true">Give PDFShift a try</Button>
+                        <Button to="/register/" :light="true" :arrow="true">Give PDFShift a try</Button>
                     </div>
                 </section>
             </section>

@@ -22,7 +22,7 @@
                         <p>
                             We hope this guide was helpful.
                             If you have any questions or noticed any issues on the code above,<br />
-                            feel free to <NuxtLink to="/contact" class="text-purple underline">drop us a line</NuxtLink>.
+                            feel free to <NuxtLink to="/contact/" class="text-purple underline">drop us a line</NuxtLink>.
                         </p>
                     </div>
                 </article>
@@ -32,7 +32,7 @@
                         <h3 class="h3 text-navy-700">Related guides</h3>
                         <ul class="mt-8 list-disc list-inside">
                             <li v-for="guide in relatedGuides" :key="guide._id" class="my-2">
-                                <NuxtLink :to="`${guide._path}`" class="text-lg hover:underline hover:text-purple">
+                                <NuxtLink :to="`${guide._path}/`" class="text-lg hover:underline hover:text-purple">
                                     {{ guide.title }}
                                 </NuxtLink>
                             </li>
@@ -52,11 +52,14 @@ const language = ref(route.params.language)
 const library = ref(null)
 const relatedGuides = ref([])
 
+// Trailing-slash URLs end with an empty segment: /guides/node/axios/foo/ gives ['axios', 'foo', '']
+const segments = route.params.slug.filter(Boolean)
+
 let data = ref(null)
-if (route.params.slug.length === 1) {
+if (segments.length === 1) {
     // Single-library languages (cURL) store their guides directly in /guides/<language>/;
     // otherwise use the guide from the language's default library.
-    const slug = route.params.slug[0]
+    const slug = segments[0]
     const { data: guide } = await useAsyncData(route.fullPath, () => queryContent('guides', language.value).where({
         draft: { $ne: true },
         $or: [
@@ -67,10 +70,10 @@ if (route.params.slug.length === 1) {
 
     data.value = guide.value
 } else {
-    library.value = route.params.slug[0]
+    library.value = segments[0]
     const { data: guide } = await useAsyncData(route.fullPath, () => queryContent('guides', language.value, library.value).where({
         draft: { $ne: true },
-        _path: { $regex: route.params.slug[route.params.slug.length - 1] + '$' }
+        _path: { $regex: segments[segments.length - 1] + '$' }
     }).findOne())
 
     data.value = guide.value

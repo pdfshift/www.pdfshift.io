@@ -37,7 +37,7 @@
             <div class="mt-16 lg:mt-24 text-center pb-12 md:pb-20">
                 <h2 class="h2 text-navy-700 mb-4">Ready to get started?</h2>
                 <p class="p text-navy-700 mb-8">Join thousands of developers using PDFShift to convert HTML to PDF</p>
-                <Button to="/register" :arrow="true">Start Converting for Free</Button>
+                <Button to="/register/" :arrow="true">Start Converting for Free</Button>
             </div>
         </NuxtLayout>
     </div>

@@ -8,7 +8,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#connect" :light="true" hover="dark" :arrow-down="true">Connect your client</Button>
             </div>
         </section>

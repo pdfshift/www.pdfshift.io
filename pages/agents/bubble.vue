@@ -9,7 +9,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#setup-guide" :light="true" hover="dark" :arrow-down="true">Set up the API Connector</Button>
             </div>
         </section>
@@ -32,7 +32,7 @@
                         Your key should remain private and never be exposed in a page, workflow parameter, Option Set, or client-side JavaScript.
                         Bubble&rsquo;s API Connector supports private API keys stored on Bubble&rsquo;s servers.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">

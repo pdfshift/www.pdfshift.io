@@ -10,7 +10,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#setup-guide" :light="true" hover="dark" :arrow-down="true">Install the node</Button>
             </div>
         </section>
@@ -28,7 +28,7 @@
                         <a class="underline" href="https://app.pdfshift.io/" target="_blank" rel="noopener">dashboard</a>
                         under &ldquo;API Keys&rdquo;. Keep it private! You&rsquo;ll paste it into n8n&rsquo;s credential store, which encrypts it for you.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">

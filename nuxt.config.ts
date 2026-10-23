@@ -193,6 +193,9 @@ export default defineNuxtConfig({
     },
     site: {
         url: 'https://pdfshift.io',
+        // Netlify serves pages at their trailing-slash URL (and 301s the other form),
+        // so the sitemap must list that version.
+        trailingSlash: true,
     },
     sitemap: {
         sources: [

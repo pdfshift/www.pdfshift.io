@@ -9,7 +9,7 @@
 
                 <p class="italic mt-12 text-gray-600">
                     You can't find the guide you are looking for?
-                    <NuxtLink to="/contact" class="text-purple underline">Contact us</NuxtLink> and tell us what you are looking for and we'll write the guide you need.
+                    <NuxtLink to="/contact/" class="text-purple underline">Contact us</NuxtLink> and tell us what you are looking for and we'll write the guide you need.
                 </p>
 
                 <!-- Library selector cards when multiple libraries exist -->
@@ -35,7 +35,7 @@
                     <h2 v-if="availableLibraries.length > 1" class="text-2xl font-bold mb-6">All our guides:</h2>
                     <ul class="mt-4 list-disc list-inside marker:text-purple">
                         <li v-for="article in articles" :key="article._id" class="my-4">
-                            <NuxtLink :to="`${article._path}`" class="mt-4 text-xl text-purple hover:underline">
+                            <NuxtLink :to="`${article._path}/`" class="mt-4 text-xl text-purple hover:underline">
                                 {{ article.title }}
                             </NuxtLink>
                         </li>
@@ -73,7 +73,7 @@ if (articles.value?.length > 0) {
         if (!librariesMap.has(libName)) {
             librariesMap.set(libName, {
                 name: libName,
-                path: article._path.substring(0, article._path.lastIndexOf('/')),
+                path: article._path.substring(0, article._path.lastIndexOf('/')) + '/',
                 count: 0
             })
         }

@@ -13,7 +13,7 @@
                     <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" />
                     Add PDFShift to my Lovable app
                 </a>
-                <Button to="/register" :light="true" hover="dark" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :light="true" hover="dark" :arrow="true">Get your Free API key</Button>
             </div>
             <p class="mt-4 max-w-md text-sm font-light leading-snug text-navy-500 italic">
                 Opens Lovable with the full integration prompt pre-filled.<br />
@@ -53,7 +53,7 @@
                         Create a PDFShift account and copy your API key.
                         Do not paste it into your Lovable prompt.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-8 md:mt-10">

@@ -4,7 +4,7 @@
 
         <main id="agent-main-content" class="pt-24 md:pt-32">
             <div class="mx-auto w-with-gutters max-w-5xl">
-                <NuxtLink class="inline-flex items-center gap-2.5 text-sm font-normal leading-6 text-purple-500 uppercase" to="/agents#integrations">
+                <NuxtLink class="inline-flex items-center gap-2.5 text-sm font-normal leading-6 text-purple-500 uppercase" to="/agents/#integrations">
                     <IconsArrowRight class="size-6 rotate-180" />
                     Back to integrations
                 </NuxtLink>
@@ -44,7 +44,7 @@
                 description="Create your free PDFShift account and add PDF generation to your Lovable app today"
                 title-id="details-bottom-cta-title"
                 primary-label="Get your Free API key"
-                primary-href="/register"
+                primary-href="/register/"
                 secondary-label="Read the Documentation"
                 secondary-href="https://docs.pdfshift.io"
             />
