@@ -9,6 +9,12 @@
                 <HomePricing />
             </div>
 
+            <!-- Static list of every plan: the slider above only renders the selected plan,
+                 so this is what makes all the prices visible to crawlers (and to the structured data below). -->
+            <div class="mt-12 md:mt-16">
+                <PricingPlansTable />
+            </div>
+
             <div class="mt-16 lg:mt-24">
                 <HomeCompanies />
             </div>
