@@ -72,11 +72,8 @@
                 </section>
             </div>
 
-            <ClientOnly>
-                <HomeCompanies />
-            </ClientOnly>
+            <HomeCompanies />
 
-            <ClientOnly>
             <main>
                 <HomeIllustratedFeatures />
                 <div class="bg-gradient-to-br from-purple-900 to-navy-700 via-20% via-navy-700 pb-24 lg:pb-36">
@@ -207,7 +204,6 @@
                     </div>
                 </div>
             </main>
-            </ClientOnly>
         </NuxtLayout>
     </div>
 </template>
