@@ -2,7 +2,7 @@
     <div>
         <NuxtLayout page="default">
             <main class="max-w-3xl mx-auto px-4 pb-12">
-                <NuxtLink :to="`/guides/${language}/${library}`" class="text-navy-700 inline-flex items-center gap-2">
+                <NuxtLink :to="`${data._path.substring(0, data._path.lastIndexOf('/'))}/`" class="text-navy-700 inline-flex items-center gap-2">
                     <span class="rotate-180 w-4 relative ml-1.5">
                         <IconsArrowRight />
                     </span>
@@ -54,10 +54,15 @@ const relatedGuides = ref([])
 
 let data = ref(null)
 if (route.params.slug.length === 1) {
+    // Single-library languages (cURL) store their guides directly in /guides/<language>/;
+    // otherwise use the guide from the language's default library.
+    const slug = route.params.slug[0]
     const { data: guide } = await useAsyncData(route.fullPath, () => queryContent('guides', language.value).where({
         draft: { $ne: true },
-        default: true,
-        _path: { $regex: route.params.slug[route.params.slug.length - 1] + '$' }
+        $or: [
+            { _path: `/guides/${language.value}/${slug}` },
+            { default: true, _path: { $regex: slug + '$' } }
+        ]
     }).findOne())
 
     data.value = guide.value
