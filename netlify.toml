@@ -3,8 +3,10 @@
 
 [build]
   publish = "dist"
-  # Fails the build (and so the deploy) if pages disappear from the sitemap, see scripts/check-sitemap.mjs
-  command = "nuxt generate && node scripts/check-sitemap.mjs"
+  # 1. Regenerates public/llms.txt and public/llms-full.txt from content/ (before nuxt generate copies public/)
+  # 2. Builds the site
+  # 3. Fails the build (and so the deploy) if pages disappear from the sitemap, see scripts/check-sitemap.mjs
+  command = "node scripts/gen-llms.mjs && nuxt generate && node scripts/check-sitemap.mjs"
 
 # Link headers edge function
 [[edge_functions]]
