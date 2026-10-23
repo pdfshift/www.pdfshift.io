@@ -57,8 +57,8 @@
                                 <div>
                                     <FormsCheckbox name="agree" v-model="form.agree">
                                         I agree with the
-                                        <a href="/legal/terms" title="Read our Terms of Service" class="font-bold hover:underline" target="_blank">Terms of service</a> and
-                                        <a href="/legal/privacy" title="Read our Privacy Policy" class="font-bold hover:underline" target="_blank">Privacy Policy</a>
+                                        <a href="/legal/terms/" title="Read our Terms of Service" class="font-bold hover:underline" target="_blank">Terms of service</a> and
+                                        <a href="/legal/privacy/" title="Read our Privacy Policy" class="font-bold hover:underline" target="_blank">Privacy Policy</a>
                                     </FormsCheckbox>
                                     <span class="block mt-2 text-red-500 font-light" v-if="errors.agree">{{ errors.agree }}</span>
 

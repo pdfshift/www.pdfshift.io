@@ -9,7 +9,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="https://api.pdfshift.io/openapi.json" :light="true" hover="dark">View the OpenAPI spec</Button>
             </div>
         </section>
@@ -27,7 +27,7 @@
                         Create a PDFShift account and get your API key.
                         Keep it private and do not paste it into your Lovable prompt or be added directly to your frontend code.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-8 md:mt-10">

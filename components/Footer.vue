@@ -27,22 +27,22 @@
                 <span class="text-white uppercase text-sm">Company Details</span>
                 <ul class="mt-6 space-y-4 text-purple-400 text-sm">
                     <li class="hover:underline">
-                        <NuxtLink to="/contact" title="Feel free to contact us if you have any request">Contact Us</NuxtLink>
+                        <NuxtLink to="/contact/" title="Feel free to contact us if you have any request">Contact Us</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/legal/terms" title="read our Terms of Service">Terms of service</NuxtLink>
+                        <NuxtLink to="/legal/terms/" title="read our Terms of Service">Terms of service</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/legal/privacy" title="read our Privacy Policy">Privacy Policy</NuxtLink>
+                        <NuxtLink to="/legal/privacy/" title="read our Privacy Policy">Privacy Policy</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/legal/gdpr" title="Read our GDPR guidelines">GDPR</NuxtLink>
+                        <NuxtLink to="/legal/gdpr/" title="Read our GDPR guidelines">GDPR</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/legal/hipaa" title="Read more about our HIPAA">HIPAA - BAA</NuxtLink>
+                        <NuxtLink to="/legal/hipaa/" title="Read more about our HIPAA">HIPAA - BAA</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/legal/imprint" title="Read our legal notice">Imprint</NuxtLink>
+                        <NuxtLink to="/legal/imprint/" title="Read our legal notice">Imprint</NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -56,7 +56,7 @@
                         <NuxtLink to="/#pricing">Pricing</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/samples">Code Sample</NuxtLink>
+                        <NuxtLink to="/samples/">Code Sample</NuxtLink>
                     </li>
                     <li class="hover:underline">
                         <NuxtLink to="https://docs.pdfshift.io" class="inline-flex items-center" target="_blank">

@@ -9,7 +9,7 @@
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                <Button to="/register" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :arrow="true">Get your Free API key</Button>
                 <Button to="#setup-guide" :light="true" hover="dark" :arrow-down="true">Build the scenario</Button>
             </div>
         </section>
@@ -31,7 +31,7 @@
                         <a class="underline" href="https://app.pdfshift.io/" target="_blank" rel="noopener">dashboard</a>.
                         You&rsquo;ll store the key securely in Make rather than adding it directly to your scenario.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-12 md:mt-16">
@@ -312,7 +312,7 @@ const resources = [
 
 const title = 'PDFShift + Make Integration'
 const description = 'Generate PDFs automatically from your Make scenarios with PDFShift — convert raw HTML or a URL to PDF and route it anywhere Make connects.'
-const canonicalUrl = 'https://pdfshift.io/agents/make'
+const canonicalUrl = 'https://pdfshift.io/agents/make/'
 
 useSeoMeta({
     title,
@@ -356,7 +356,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Make', item: canonicalUrl },
                 ],
             }),

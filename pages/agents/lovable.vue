@@ -13,7 +13,7 @@
                     <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" />
                     Add PDFShift to my Lovable app
                 </a>
-                <Button to="/register" :light="true" hover="dark" :arrow="true">Get your Free API key</Button>
+                <Button to="/register/" :light="true" hover="dark" :arrow="true">Get your Free API key</Button>
             </div>
             <p class="mt-4 max-w-md text-sm font-light leading-snug text-navy-500 italic">
                 Opens Lovable with the full integration prompt pre-filled.<br />
@@ -53,7 +53,7 @@
                         Create a PDFShift account and copy your API key.
                         Do not paste it into your Lovable prompt.
                     </p>
-                    <Button class="mt-3" to="/register" :arrow="true">Register for Free</Button>
+                    <Button class="mt-3" to="/register/" :arrow="true">Register for Free</Button>
                 </div>
 
                 <div class="mt-8 md:mt-10">
@@ -237,7 +237,7 @@ const resources = [
 
 const title = 'PDFShift + Lovable Integration'
 const description = 'Add PDF generation to your Lovable app with PDFShift. Copy the one-shot prompt or click Build with Lovable to set up a secure server-side PDF export in minutes.'
-const canonicalUrl = 'https://pdfshift.io/agents/lovable'
+const canonicalUrl = 'https://pdfshift.io/agents/lovable/'
 
 useSeoMeta({
     title,
@@ -282,7 +282,7 @@ useHead({
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://pdfshift.io' },
-                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents' },
+                    { '@type': 'ListItem', position: 2, name: 'Integrations', item: 'https://pdfshift.io/agents/' },
                     { '@type': 'ListItem', position: 3, name: 'Lovable', item: canonicalUrl },
                 ],
             }),

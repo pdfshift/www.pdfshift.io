@@ -2,7 +2,7 @@
     <div>
         <NuxtLayout page="default">
             <main class="max-w-3xl mx-auto px-4 pb-12">
-                <NuxtLink :to="`/samples/${route.params.language}`" class="text-navy-700 inline-flex items-center gap-2">
+                <NuxtLink :to="`/samples/${route.params.language}/`" class="text-navy-700 inline-flex items-center gap-2">
                     <span class="rotate-180 w-4 relative ml-1.5">
                         <IconsArrowRight />
                     </span>
@@ -37,7 +37,7 @@
 
                         <p>We've tested this code with the latest version of {{ data.library }} and it's ready to be used in your project.</p>
                         <p>
-                            But if you were to encounter any bugs or issues while running it (or if you want to suggest changes to improve the code), please <NuxtLink to="/contact" class="text-purple-600 hover:underline">contact us</NuxtLink> and we'll be happy to help you out.
+                            But if you were to encounter any bugs or issues while running it (or if you want to suggest changes to improve the code), please <NuxtLink to="/contact/" class="text-purple-600 hover:underline">contact us</NuxtLink> and we'll be happy to help you out.
                         </p>
                     </ContentRenderer>
                 </article>
@@ -46,14 +46,14 @@
                         <h3 class="h3 text-navy-700">We also have guides!</h3>
                         <p class="mt-4">
                             We also wrote a ton of articles to help you convert HTML documents in {{ data.language }} and {{ data.library }}.<br />
-                            <NuxtLink :to="`/guides/${route.params.language}/${route.params.library}`" class="text-purple-600 hover:underline">Check them out</NuxtLink> and let us know if you have any questions!
+                            <NuxtLink :to="`/guides/${route.params.language}/${route.params.library}/`" class="text-purple-600 hover:underline">Check them out</NuxtLink> and let us know if you have any questions!
                         </p>
                     </div>
                     <div>
                         <h3 class="h3 text-navy-700">Related libraries</h3>
                         <ul class="mt-4 list-disc list-inside marker:text-purple">
                             <li v-for="article in related" :key="article._id" class="my-4">
-                                <NuxtLink :to="`/samples/${route.params.language}/${clearUrl(article.library)}`" class="mt-4 text-xl text-purple hover:underline">
+                                <NuxtLink :to="`/samples/${route.params.language}/${clearUrl(article.library)}/`" class="mt-4 text-xl text-purple hover:underline">
                                     With the {{ article.library }} library
                                 </NuxtLink>
                             </li>
@@ -129,7 +129,7 @@ useHead({
                 },
                 "mainEntityOfPage": {
                     "@type": "WebPage",
-                    "@id": `https://pdfshift.io${route.fullPath}`
+                    "@id": siteUrl(route.path)
                 },
                 "inLanguage": "en-US",
                 "proficiencyLevel": "Beginner"
@@ -151,19 +151,19 @@ useHead({
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Samples",
-                        "item": "https://pdfshift.io/samples"
+                        "item": siteUrl('/samples')
                     },
                     {
                         "@type": "ListItem",
                         "position": 3,
                         "name": data.value.language,
-                        "item": `https://pdfshift.io/samples/${route.params.language}`
+                        "item": siteUrl(`/samples/${route.params.language}`)
                     },
                     {
                         "@type": "ListItem",
                         "position": 4,
                         "name": data.value.library,
-                        "item": `https://pdfshift.io${route.fullPath}`
+                        "item": siteUrl(route.path)
                     }
                 ]
             })

@@ -23,7 +23,7 @@
         <div class="mt-auto ">
             <div class="w-56 mx-auto flex flex-col gap-6 items-center justify-center ">
                 <NuxtLink to="https://app.pdfshift.io" class="text-white">Login</NuxtLink>
-                <Button to="/register" class="w-full">Register</Button>
+                <Button to="/register/" class="w-full">Register</Button>
             </div>
         </div>
     </div>

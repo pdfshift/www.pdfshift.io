@@ -40,42 +40,42 @@ useSeoMeta({
 const languages = ref([
     {
         language: 'GO',
-        url: '/guides/go',
+        url: '/guides/go/',
         image: '/images/languages/go.svg'
     },
     {
         language: 'Node',
-        url: '/guides/node',
+        url: '/guides/node/',
         image: '/images/languages/node.svg'
     },
     {
         language: 'PHP',
-        url: '/guides/php',
+        url: '/guides/php/',
         image: '/images/languages/php.svg'
     },
     {
         language: 'Python',
-        url: '/guides/python',
+        url: '/guides/python/',
         image: '/images/languages/python.svg'
     },
     {
         language: 'Java',
-        url: '/guides/java',
+        url: '/guides/java/',
         image: '/images/languages/java.svg'
     },
     {
         language: 'CSharp',
-        url: '/guides/csharp',
+        url: '/guides/csharp/',
         image: '/images/languages/csharp.svg'
     },
     {
         language: 'Ruby',
-        url: '/guides/ruby',
+        url: '/guides/ruby/',
         image: '/images/languages/ruby.svg'
     },
     {
         language: 'cURL',
-        url: '/guides/curl',
+        url: '/guides/curl/',
         image: '/images/languages/curl.svg'
     }
 ])
