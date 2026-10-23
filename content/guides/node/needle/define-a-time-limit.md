@@ -6,7 +6,7 @@ library: 'Needle'
 property: 'timeout'
 output: 'pdf'
 related: ['waiting-for-a-custom-element-to-be-ready']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how you can set a conversion time limit at PDFShift. This will allow you to define a maximum time for the conversion process to complete, and if the process takes longer than the defined time, the conversion will be aborted.

@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to wait for a custom element to be ready before converting HTML to PDF using PDFShift's API.

@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url', 'convert-html-to-pdf-from-raw-html']
+default: true
 ---
 
 In this guide, we'll show you how to avoid conversion on error using PDFShift's API. This allows you to prevent PDF generation when there are issues with the source content.

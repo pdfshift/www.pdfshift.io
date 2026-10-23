@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'pages'
 output: 'pdf'
 related: ['generate-a-document-with-full-height', 'save-your-pdf-online-and-get-back-a-url']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to export only specific pages from a document when converting to PDF using Java and the HttpClient library.

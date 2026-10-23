@@ -6,7 +6,7 @@ library: 'Needle'
 property: protection
 output: 'pdf'
 related: ['adding-an-image-watermark', 'adding-a-text-watermark']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how you can protect your generated PDF with encryption for owner and user, and for choosing who can modify, print and/or copy the generated PDF. This guides explains you to do it using Node and the Needle library and relies on the PDFShift's API.

@@ -5,7 +5,7 @@ language: 'Node'
 library: 'Needle'
 property: pages
 output: 'pdf'
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to export only a specific set of pages from a document using Node and the Needle library to convert them to PDF using PDFShift's API.

@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to generate PDF documents with full height using PDFShift's API. This ensures your content spans the entire page height.

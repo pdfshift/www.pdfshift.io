@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'watermark'
 output: 'pdf'
 related: ['adding-an-image-watermark', 'convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to add a text watermark to your PDF documents when converting HTML to PDF using PDFShift's API.

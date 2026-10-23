@@ -6,7 +6,7 @@ library: 'Needle'
 property: raise_for_status
 output: 'pdf'
 related: ['convert-html-to-pdf-from-raw-html']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to abort the conversion when loading the distant source does not return a 2XX response.

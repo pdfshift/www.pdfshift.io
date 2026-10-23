@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'full_height'
 output: 'pdf'
 related: ['exporting-only-a-specific-set-of-pages', 'save-your-pdf-online-and-get-back-a-url']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to generate a document with full height using Java and the HttpClient library.

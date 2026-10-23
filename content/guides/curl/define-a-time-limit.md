@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to define a time limit for PDF conversion using PDFShift's API. This helps prevent long-running conversions from impacting your application.

@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to access secured pages when converting HTML to PDF using PDFShift's API.

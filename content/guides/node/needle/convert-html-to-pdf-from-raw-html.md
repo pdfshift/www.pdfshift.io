@@ -5,7 +5,7 @@ language: 'Node'
 library: 'Needle'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to convert an HTML document to PDF using Node and the Needle library.

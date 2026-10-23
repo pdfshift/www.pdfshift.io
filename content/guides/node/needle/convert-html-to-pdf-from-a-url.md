@@ -6,7 +6,7 @@ library: 'Needle'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-raw-html', 'avoid-conversion-on-error']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to convert HTML documents to PDFs using PDFShift's API. This is a straightforward process that can be accomplished with just a few lines of Node code.

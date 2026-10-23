@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'javascript'
 output: 'pdf'
 related: ['loading-javascript-from-a-url', 'waiting-for-a-custom-element-to-be-ready']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to load JavaScript from a string when converting HTML to PDF using C# and the HttpClient library.

@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'cookies'
 output: 'pdf'
 related: ['accessing-secured-pages', 'send-custom-http-headers']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to use cookies when converting HTML to PDF using Java and the HttpClient library.

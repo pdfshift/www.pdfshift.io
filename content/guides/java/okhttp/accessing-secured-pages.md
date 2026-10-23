@@ -6,7 +6,7 @@ library: 'OkHTTP'
 property: 'auth'
 output: 'pdf'
 related: ['send-custom-http-headers', 'using-cookies']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to access secured page (protected by basic authentication) using Java and the OkHTTP library to convert them to PDF using PDFShift's API.

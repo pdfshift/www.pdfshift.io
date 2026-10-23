@@ -6,7 +6,7 @@ library: 'Needle'
 property: header
 output: 'pdf'
 related: ['loading-css-from-a-string', 'loading-css-from-a-url', 'loading-javascript-from-a-string', 'loading-javascript-from-a-url']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to add custom headers or footers to a PDF using Node and the Needle library.

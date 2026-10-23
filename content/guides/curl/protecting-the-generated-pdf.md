@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to protect the generated PDF with a password using PDFShift's API.

@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'watermark'
 output: 'pdf'
 related: ['adding-an-image-watermark', 'protecting-the-generated-pdf']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to add text watermarks to your PDFs using C# and the HttpClient library.

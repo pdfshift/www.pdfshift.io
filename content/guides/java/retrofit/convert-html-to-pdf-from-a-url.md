@@ -6,7 +6,7 @@ library: 'Retrofit'
 property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-raw-html', 'loading-css-from-a-url']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to convert HTML from a URL to PDF using Java and the Retrofit library.

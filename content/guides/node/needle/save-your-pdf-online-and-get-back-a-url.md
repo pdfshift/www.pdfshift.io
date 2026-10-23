@@ -6,7 +6,7 @@ library: 'Needle'
 property: 'filename'
 output: 'pdf'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'receive-a-webhook-event']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how you can generate a PDF document from HTML and get back an URL instead of the raw PDF. This allows you to share the link directly to your users or redirect them to that page.

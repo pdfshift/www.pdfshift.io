@@ -6,7 +6,7 @@ library: 'Needle'
 property: javascript
 output: 'pdf'
 related: ['adding-a-custom-header-or-footer', 'loading-css-from-a-string', 'loading-css-from-a-url', 'loading-javascript-from-a-url']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to load custom javascript code as a given string when converting an HTML document to PDF using PDFShift's API. This allows you to add custom JS to your page to customize the output of your generated PDF.

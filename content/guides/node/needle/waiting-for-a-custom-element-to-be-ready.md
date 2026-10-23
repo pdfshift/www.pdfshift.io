@@ -6,7 +6,7 @@ library: 'Needle'
 property: 'wait_for'
 output: 'pdf'
 related: ['define-a-time-limit', 'loading-javascript-from-a-string']
-default: true
+default: false
 ---
 
 The `wait_for` parameter is one of the most powerful feature of PDFShift. It allows you to control when the document is ready to be converted to PDF.

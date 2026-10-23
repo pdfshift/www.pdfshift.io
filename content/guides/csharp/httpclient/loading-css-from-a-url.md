@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'css'
 output: 'pdf'
 related: ['loading-css-from-a-string', 'convert-html-to-pdf-from-a-url']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to load CSS from a URL when converting HTML to PDF using C# and the HttpClient library.

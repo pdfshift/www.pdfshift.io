@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'javascript'
 output: 'pdf'
 related: ['loading-javascript-from-a-url', 'convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to provide JavaScript directly as a string when converting HTML to PDF using PDFShift's API.

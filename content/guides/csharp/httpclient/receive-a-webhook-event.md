@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'webhook'
 output: 'pdf'
 related: ['save-your-pdf-online-and-get-back-a-url', 'avoid-conversion-on-error']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to receive webhook events when PDF conversion is complete using C# and the HttpClient library.

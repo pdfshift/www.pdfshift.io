@@ -12,7 +12,7 @@
                 </NuxtLink>
                 <article class="mt-8 articles">
                     <ContentRenderer :value="data" v-if="data">
-                        <h1 class="h1 my-6">{{ data.title }} in {{ data.language }} with {{ data.library }}</h1>
+                        <h1 class="h1 my-6">{{ seoTitle }}</h1>
                         <ContentRendererMarkdown :value="data" />
                         <p>
                             For further details on the <code>{{ data.property }}</code> property and its usage, please refer to <NuxtLink :to="`https://docs.pdfshift.io/#convert-body-${data.property}`">our dedicated documentation</NuxtLink>.
@@ -79,7 +79,8 @@ if (segments.length === 1) {
     data.value = guide.value
 }
 
-const seoTitle = data.value.title + ' in ' + data.value.language + ' with ' + data.value.library
+// "Using cookies in Python with requests", but just "Using cookies in cUrl" when the language is its own library
+const seoTitle = `${data.value.title} in ${data.value.language}` + (data.value.library !== data.value.language ? ` with ${data.value.library}` : '')
 useSeoMeta({
     title: seoTitle,
     description: data.value.description,
@@ -96,8 +97,8 @@ useHead({
             innerHTML: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "TechArticle",
-                "headline": `${data.value.title} in ${data.value.language} with ${data.value.library}`,
-                "name": `${data.value.title} in ${data.value.language} with ${data.value.library}`,
+                "headline": seoTitle,
+                "name": seoTitle,
                 "description": data.value.description,
                 "author": {
                     "@type": "Organization",
@@ -126,70 +127,17 @@ useHead({
             type: 'application/ld+json',
             innerHTML: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "HowTo",
-                "name": `How to ${data.value.title.toLowerCase()} in ${data.value.language} with ${data.value.library}`,
-                "description": data.value.description,
-                "step": [
-                    {
-                        "@type": "HowToStep",
-                        "name": "Install the library",
-                        "text": `Install ${data.value.library} library for ${data.value.language}`
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "name": "Set up API credentials",
-                        "text": "Get your API key from PDFShift and configure it in your project"
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "name": "Make the API request",
-                        "text": `Use ${data.value.library} to make a conversion request to PDFShift API`
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "name": "Handle the response",
-                        "text": "Process and save the converted document"
-                    }
-                ]
-            })
-        },
-        {
-            type: 'application/ld+json',
-            innerHTML: JSON.stringify({
-                "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
                 "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://pdfshift.io"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Guides",
-                        "item": siteUrl('/guides')
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": data.value.language,
-                        "item": siteUrl(`/guides/${language.value}`)
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": data.value.library,
-                        "item": siteUrl(data.value._path.substring(0, data.value._path.lastIndexOf('/')))
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 5,
-                        "name": data.value.title,
-                        "item": siteUrl(data.value._path)
-                    }
-                ]
+                    { name: 'Home', item: 'https://pdfshift.io' },
+                    { name: 'Guides', item: siteUrl('/guides') },
+                    { name: data.value.language, item: siteUrl(`/guides/${language.value}`) },
+                    // No separate library level when the language is its own library (cURL)
+                    ...(data.value.library !== data.value.language
+                        ? [{ name: data.value.library, item: siteUrl(data.value._path.substring(0, data.value._path.lastIndexOf('/'))) }]
+                        : []),
+                    { name: data.value.title, item: siteUrl(data.value._path) }
+                ].map((crumb, index) => ({ "@type": "ListItem", "position": index + 1, ...crumb }))
             })
         }
     ]

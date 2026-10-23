@@ -6,7 +6,7 @@ library: 'Needle'
 property: 'cookies'
 output: 'pdf'
 related: ['send-custom-http-headers', 'accessing-secured-pages']
-default: true
+default: false
 ---
 
 In this comprehensive guide, we will demonstrate the step-by-step process of incorporating custom Cookies into your URL request for PDF conversion using PDFShift's API. By leveraging this functionality, you can maintain an active session, enabling authentication as a specific user before generating the PDF document.

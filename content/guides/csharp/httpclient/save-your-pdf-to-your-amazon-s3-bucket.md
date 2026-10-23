@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'output'
 output: 's3'
 related: ['save-your-pdf-online-and-get-back-a-url', 'receive-a-webhook-event']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to save your PDF to your Amazon S3 bucket using C# and the HttpClient library.

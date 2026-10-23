@@ -6,7 +6,7 @@ library: 'Needle'
 property: 's3_destination'
 output: 'pdf'
 related: ['save-your-pdf-online-and-get-back-a-url', 'receive-a-webhook-event']
-default: true
+default: false
 ---
 
 In this guide, we'll show you how you can generate a PDF document from HTML with PDFShift's API and save it to your own Amazon S3 bucket. This allows you to generate document and automate actions once the document has been created on your bucket.

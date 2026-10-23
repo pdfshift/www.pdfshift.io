@@ -6,7 +6,7 @@ library: 'Needle'
 property: 'http_headers'
 output: 'pdf'
 related: ['using-cookies', 'accessing-secured-pages']
-default: true
+default: false
 ---
 
 In this guide, we'll walk you through the process of sending custom HTTP headers when requesting an URL to be converted to PDF using PDFShift's API.

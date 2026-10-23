@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['save-your-pdf-online-and-get-back-a-url', 'convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to receive webhook events when converting HTML to PDF using PDFShift's API.

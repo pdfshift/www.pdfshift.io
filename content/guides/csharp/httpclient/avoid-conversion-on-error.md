@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'continue_on_error'
 output: 'pdf'
 related: ['define-a-time-limit', 'receive-a-webhook-event']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to avoid conversion on error using C# and the HttpClient library.

@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'headers'
 output: 'pdf'
 related: ['accessing-secured-pages', 'using-cookies']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to send custom HTTP headers when converting HTML to PDF using Java and the HttpClient library.

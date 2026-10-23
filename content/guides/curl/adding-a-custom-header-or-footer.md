@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'header'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to add custom headers and footers to your PDF documents when converting HTML to PDF using PDFShift's API.

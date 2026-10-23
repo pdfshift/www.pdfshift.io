@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'css'
 output: 'pdf'
 related: ['loading-css-from-a-url', 'adding-a-custom-header-or-footer']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to load CSS from a string when converting HTML to PDF using Java and the HttpClient library.

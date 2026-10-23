@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'protection'
 output: 'pdf'
 related: ['adding-an-image-watermark', 'adding-a-text-watermark']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to protect generated PDFs with passwords using C# and the HttpClient library.

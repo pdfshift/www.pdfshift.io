@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'header'
 output: 'pdf'
 related: ['loading-css-from-a-string', 'loading-css-from-a-url']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to add custom headers and footers to your PDFs using Java and the HttpClient library.

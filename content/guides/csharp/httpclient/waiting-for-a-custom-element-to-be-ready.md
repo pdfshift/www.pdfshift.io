@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'wait_for'
 output: 'pdf'
 related: ['loading-javascript-from-a-string', 'loading-javascript-from-a-url']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to wait for a custom element to be ready when converting HTML to PDF using C# and the HttpClient library.

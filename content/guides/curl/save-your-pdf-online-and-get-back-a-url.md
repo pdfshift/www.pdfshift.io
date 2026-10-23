@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'source'
 output: 'pdf'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to save your PDF online and get back a URL when converting HTML to PDF using PDFShift's API.

@@ -12,7 +12,7 @@
                 </NuxtLink>
                 <article class="mt-8 articles">
                     <ContentRenderer :value="data" v-if="data">
-                        <h1 class="h1 my-6">Using {{ data.library }} in {{ data.language }}</h1>
+                        <h1 class="h1 my-6">Using {{ data.library }}<template v-if="data.library !== data.language"> in {{ data.language }}</template></h1>
                         <div class="my-8">
                             <ContentRenderer v-if="excerpt" :document="data">
                                 <ContentRendererMarkdown :value="excerpt" />
@@ -90,8 +90,10 @@ if (data.value.body.children.length > 1) {
     exampleCode.value = { type: 'root', children: [data.value.body.children[index + 1]] }
 }
 
-const title = `Convert any HTML documents to PDF using ${data.value.language} and ${data.value.library}`
-const description = `Use the following code sample to quickly convert any HTML documents to PDF using ${data.value.language} and ${data.value.library}.`
+// "Python and Requests", but just "cUrl" when the language is its own library
+const stack = data.value.library !== data.value.language ? `${data.value.language} and ${data.value.library}` : data.value.language
+const title = `Convert any HTML documents to PDF using ${stack}`
+const description = `Use the following code sample to quickly convert any HTML documents to PDF using ${stack}.`
 
 useSeoMeta({
     title,

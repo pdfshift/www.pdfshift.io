@@ -6,7 +6,7 @@ library: 'Needle'
 property: watermark
 output: 'pdf'
 related: ['adding-an-image-watermark', 'protecting-the-generated-pdf']
-default: true
+default: false
 ---
 
 In this guide, we'll walk you through the process of adding text watermarks to your PDF files, using PDFShift's API.

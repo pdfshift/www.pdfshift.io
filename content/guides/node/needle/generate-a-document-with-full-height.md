@@ -5,7 +5,7 @@ language: 'Node'
 library: 'Needle'
 property: format
 output: 'pdf'
-default: true
+default: false
 ---
 
 In this guide, we'll show you how to generate a document with full height dynamically using Node and the Needle library to convert them to PDF using PDFShift's API.

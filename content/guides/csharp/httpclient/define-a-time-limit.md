@@ -6,7 +6,7 @@ library: 'HttpClient'
 property: 'timeout'
 output: 'pdf'
 related: ['avoid-conversion-on-error', 'define-a-time-limit']
-default: false
+default: true
 ---
 
 In this guide, we'll show you how to define a time limit for PDF conversions using C# and the HttpClient library.

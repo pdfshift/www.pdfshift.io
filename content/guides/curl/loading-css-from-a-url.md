@@ -6,6 +6,7 @@ library: 'cUrl'
 property: 'css'
 output: 'pdf'
 related: ['loading-css-from-a-string', 'convert-html-to-pdf-from-a-url']
+default: true
 ---
 
 In this guide, we'll show you how to load external CSS stylesheets when converting HTML to PDF using PDFShift's API.
