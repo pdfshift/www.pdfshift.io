@@ -8,11 +8,11 @@ author: "Cyril Nicodème"
 
 To run Puppeteer's `page.pdf()` in production, launch one browser per process and reuse it, open a new page for each document and close it in `finally`, wait for `load` and then `document.fonts.ready`, keep a timeout on loading and rendering, and install the fonts your documents use in the image.
 
-In a tutorial, `page.pdf()` is three lines. In production, it's a browser you now operate. We ran the same 30-line invoice through it hundreds of times to put numbers on what goes wrong.
+In a tutorial, `page.pdf()` is three lines. In production, it's a browser you now operate. We ran the same 30-row invoice through it hundreds of times to put numbers on what goes wrong.
 
 ## What does production-safe page.pdf() code look like?
 
-Here's the baseline, written for [Puppeteer 25.16.0, which ships with Chrome for Testing 156](https://pptr.dev/supported-browsers), and its [page.pdf() options](https://pptr.dev/api/puppeteer.pdfoptions).
+Here's the baseline, written for [Puppeteer 25.16.0, which ships with Chrome for Testing 156](https://pptr.dev/supported-browsers).
 
 ```javascript
 import puppeteer from 'puppeteer';
@@ -44,7 +44,7 @@ export async function htmlToPdf(html) {
 
 ## Why does Puppeteer's memory keep growing?
 
-Because pages you don't close stay open. In our test, every page added a Chromium process and its memory, and both stayed after the PDF was done.
+Because pages you don't close stay open, and each one keeps its own Chromium process and memory long after the PDF is done.
 
 We converted the same invoice 200 times on one browser, once without `page.close()` and once with it. Without it, the Chromium process tree grew from 323 MB to 2,715 MB after 100 jobs and 5,046 MB after 200, running 206 processes. With `page.close()` in `finally`, it went from 325 MB to 642 MB after 100 jobs and held at 659 MB after 200, with 17 processes. That's about 24 MB for every page you forget.
 
@@ -93,7 +93,7 @@ With `networkidle0` as the wait, launching a browser, converting and closing it 
 
 The wait cost more than the launch. With `load` followed by `document.fonts.ready`, the reused browser took 0.24 seconds per job (100 runs), for the same 121.5 KB PDF.
 
-::guide-figure{caption="Median time per PDF in seconds, same 30-line invoice. Our test, Puppeteer 25.16.0, November 4, 2026."}
+::guide-figure{caption="Median time per PDF in seconds, same 30-row invoice. Our test, Puppeteer 25.16.0, November 4, 2026."}
 <svg viewBox="0 0 560 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pptr-time-title pptr-time-desc" style="max-width:560px;min-width:460px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
 <title id="pptr-time-title">Reusing the browser and waiting for load cut each PDF from 1.47 s to 0.24 s</title>
 <desc id="pptr-time-desc">Bar chart of median seconds per PDF. New browser per job, networkidle0: 1.47 s (30 runs). Reused browser, networkidle0: 1.06 s (100 runs). Reused browser, load then fonts ready: 0.24 s (100 runs).</desc>
@@ -109,7 +109,7 @@ The wait cost more than the launch. With `load` followed by `document.fonts.read
 </svg>
 ::
 
-Running pages in parallel on one browser helps too. With 10 pages at a time and the same `networkidle0` wait, 100 jobs took 13.9 seconds, about 7 PDFs a second against about 1 a second one at a time, and memory peaked around 678 MB. Each job got slower (median 1.16 seconds), but throughput went up a lot. To find your limit, keep raising the number of parallel pages until memory or per-job time gets worse than you'll accept, then scale out with more processes.
+Then run pages in parallel on that one browser. With 10 pages at a time and the same `networkidle0` wait, 100 jobs took 13.9 seconds: about 7 PDFs a second, against about 1 a second one at a time. Each job got slower (median 1.16 seconds) and memory peaked around 678 MB. To find your limit, keep raising the number of parallel pages until memory or per-job time gets worse than you'll accept, then scale out with more processes.
 
 ## Which waitUntil should I use with page.pdf()?
 
@@ -118,11 +118,11 @@ Use `load`, then wait for `document.fonts.ready`. `load` fires once the page's s
 The two other common choices each cost you something:
 
 - **`domcontentloaded`** doesn't wait for stylesheets to load. In 10 runs out of 10, our invoice came out without its web font, and the PDF was 82.6 KB instead of 121.5 KB. `page.pdf()` waits for fonts by default (its `waitForFonts` option), and that didn't change the result.
-- **`networkidle0`** waits until the page has had [no network connections for 500 ms](https://pptr.dev/api/puppeteer.puppeteerlifecycleevent). The fonts arrive, but every job pays for that quiet period, about 0.8 seconds a job in our test. A page that keeps a connection open, an analytics socket for example, may never go quiet, and the job runs until it times out.
+- **`networkidle0`** waits until the page has had [no network connections for 500 ms](https://pptr.dev/api/puppeteer.puppeteerlifecycleevent). The fonts arrive, but every job pays for that quiet period. A page that keeps a connection open, an analytics socket for example, may never go quiet, and the job runs until it times out.
 
 Puppeteer's TypeScript types don't allow `networkidle0` or `networkidle2` with `setContent()`, though plain JavaScript passed it through in our runs. For a URL, `page.goto(url, { waitUntil: 'load' })` followed by the same fonts wait works the same way.
 
-Whichever you pick, keep the timeouts. Navigation and `setContent()` default to 30 seconds, and so does `page.pdf()`. Passing `0` turns a timeout off, which is how a single bad page holds a worker forever.
+Whichever you pick, keep the timeouts. Navigation and `setContent()` default to 30 seconds, and so does [`page.pdf()`](https://pptr.dev/api/puppeteer.pdfoptions). Passing `0` turns a timeout off, which is how a single bad page holds a worker forever.
 
 ## Why are backgrounds, page sizes or headers wrong in the PDF?
 
@@ -131,7 +131,7 @@ Most of the time it's a default.
 - **Missing colors or background images:** `printBackground` is off by default, so colored table headers and background images disappear. Turn it on. If colors still look washed out, that's `page.pdf()` adjusting them for print: add `-webkit-print-color-adjust: exact` to your CSS.
 - **Screen styles that don't show:** `page.pdf()` renders with the print media type, so your `@media print` rules apply and `@media screen` ones don't.
 - **The wrong page size:** Letter is the default, and `format` wins over `width` and `height`. If your CSS has an `@page { size: A4 }` rule you want to keep, set `preferCSSPageSize: true`. Otherwise Puppeteer scales your content to fit the paper size it was given.
-- **Page numbers in headers and footers:** turn on `displayHeaderFooter` and put elements with the classes `pageNumber` and `totalPages` in `headerTemplate` or `footerTemplate`. The classes `date`, `title` and `url` work the same way.
+- **Headers and footers:** turn on `displayHeaderFooter` and put elements with the classes `pageNumber` and `totalPages` in `headerTemplate` or `footerTemplate`. The classes `date`, `title` and `url` work the same way.
 
 ## What breaks when Puppeteer runs in Docker or serverless?
 
@@ -143,13 +143,13 @@ Your laptop has everything Chrome needs. A slim container image doesn't. Here's 
 - **Fonts.** Chinese, Japanese, Arabic, Hebrew or Thai text needs fonts a slim image doesn't have. Puppeteer's troubleshooting page installs `fonts-ipafont-gothic`, `fonts-wqy-zenhei`, `fonts-thai-tlwg`, `fonts-kacst` and `fonts-freefont-ttf` for those, plus the fonts your own templates use.
 - **Alpine.** Chrome doesn't support Alpine out of the box. Use a Debian-based image.
 - **The browser isn't in `node_modules`.** Puppeteer downloads Chrome into `~/.cache/puppeteer`, so a multi-stage build that copies only `node_modules` ships without a browser.
-- **Serverless size limits.** An AWS Lambda deployment package is [capped at 250 MB unzipped](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html), layers included, and the Chrome folder Puppeteer downloaded on our machine was 376 MB. Plan on a container image instead.
+- **Serverless size limits.** An AWS Lambda deployment package is [capped at 250 MB unzipped](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html), layers included, so check the size of the Chrome build you ship against it before you pick Lambda.
 
 Then pin your versions. Chrome moved to [a release every two weeks](https://developer.chrome.com/blog/chrome-two-week-release) with Chrome 153 in September 2026, and each Puppeteer release targets one Chrome version. Upgrade on purpose, and compare a few real PDFs before and after.
 
 ## When is running Chromium yourself not worth it?
 
-When the PDF is a feature of your product and not the product itself. Add up what this page asked of you: close every page, reuse and restart browsers, tune how many pages run at once, keep the timeouts on, keep the sandbox working, install fonts, and retest your PDFs each time you move to a new Chrome. That's a service you maintain, for a feature your users see as one button.
+When the PDF is a feature of your product and not the product itself. Every section above is something you now maintain, for a feature your users see as one button.
 
 People don't buy PDFs. They buy not having to run Chromium. That's the job we took on at PDFShift, and we've run Chromium conversions since 2018. You send one request with your HTML or a URL to a current Chromium we run and patch, and get the PDF back:
 
