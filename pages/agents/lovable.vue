@@ -2,10 +2,11 @@
     <NuxtLayout name="agents" :resources="resources">
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
             <img class="h-10 w-48 md:-translate-y-11" src="/images/agents/lovable.svg" alt="Lovable" />
-            <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift + Lovable</h1>
+            <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">Generate PDFs in your Lovable app</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
-                Add PDF generation to any application built with Lovable.<br />
-                Generate invoices, reports, receipts, or certificates directly from the HTML your app produces with your API key kept safely server-side.
+                To add PDF export to a Lovable app, paste one prompt into your project.
+                Lovable stores your PDFShift API key as a secret, writes a server-side Edge Function that sends the document's HTML to PDFShift, and adds an &ldquo;Export as PDF&rdquo; button.
+                Invoices, reports, receipts and certificates then download as real PDF files.
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
@@ -42,6 +43,26 @@
                         You review it and click send. Add your own project details first if you have any.
                     </p>
                 </div>
+            </section>
+
+            <section id="why-server-side" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="why-server-side-title">
+                <h2 id="why-server-side-title">Why not a print button or Puppeteer?</h2>
+                <p class="mt-7">
+                    A print button calls <code>window.print()</code>, which opens the browser's print dialog.
+                    Each visitor then has to pick &ldquo;Save as PDF&rdquo; themselves, and the file stays on their computer, so your app can't email it or store it.
+                </p>
+                <p class="mt-6">
+                    Puppeteer needs a full Chromium browser next to your code.
+                    Lovable's built-in backend runs on Supabase, and
+                    <a class="underline" href="https://supabase.com/docs/guides/functions/examples/screenshots" target="_blank" rel="noopener">Supabase's docs</a>
+                    say running Puppeteer inside an Edge Function is hard because of its size limits.
+                    A function gets 256 MB of memory and 2 seconds of CPU time per request
+                    (<a class="underline" href="https://supabase.com/docs/guides/functions/limits" target="_blank" rel="noopener">Supabase limits</a>).
+                </p>
+                <p class="mt-6">
+                    With PDFShift, the Edge Function only sends HTML and waits for the PDF.
+                    We run Chromium on our servers, so the function stays small, and waiting on the API doesn't count toward that CPU limit.
+                </p>
             </section>
 
             <section id="setup-guide" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="setup-title">
@@ -130,6 +151,25 @@
                     PDFShift can't reach a page that requires a login without additional configuration.
                 </p>
             </section>
+
+            <section id="function-access" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="function-access-title">
+                <h2 id="function-access-title">Who can call your PDF function?</h2>
+                <p class="mt-6">
+                    The prompt keeps your API key in Lovable Cloud as <code>PDFSHIFT_API_KEY</code>, and only the <code>generate-pdf</code> function reads it.
+                    The browser calls your function, never PDFShift, so the key never reaches a visitor's device.
+                </p>
+                <p class="mt-6">Once the export works, make sure only your own users can call the function, so strangers can't spend your credits. Ask Lovable:</p>
+                <ContentProsePre class="mt-6" :code="securePrompt" />
+            </section>
+
+            <section id="pricing" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="pricing-title">
+                <h2 id="pricing-title">Is PDF export free to try?</h2>
+                <p class="mt-6">
+                    Yes. Keep <code>"sandbox": true</code> while you build: sandbox PDFs use no credits and carry a watermark.
+                    After that, the free plan gives you 50 credits a month with no credit card, and one credit covers a PDF of up to 5 MB.
+                    Paid plans start at $9 a month for 500 credits (<a class="underline" href="/pricing/">pricing</a>).
+                </p>
+            </section>
         </div>
 
         <template #related-resource>
@@ -151,9 +191,12 @@ import ContentProsePre from '~/components/content/ProsePre.vue'
 
 const pageSections = [
     { id: 'quick-start', label: 'Quick Start' },
+    { id: 'why-server-side', label: 'Why server-side' },
     { id: 'setup-guide', label: 'Step-by-Step Guide' },
     { id: 'customizing', label: 'Customizing PDFs' },
     { id: 'from-url', label: 'Convert a URL' },
+    { id: 'function-access', label: 'Access' },
+    { id: 'pricing', label: 'Cost' },
     { id: 'security', label: 'Security' },
     { id: 'related-resources', label: 'Related Resources' },
 ]
@@ -220,6 +263,8 @@ const customizePrompt = `Update the PDFShift integration so generated PDFs\nuse 
 
 const fromUrlPrompt = `Change the PDF export feature so it sends the URL of the\ncurrent document page to PDFShift instead of building the HTML manually.`
 
+const securePrompt = `Only let signed-in users call the generate-pdf function.\nReturn a 401 error to anyone who isn't signed in.`
+
 const resources = [
     {
         title: 'Lovable Documentation',
@@ -235,8 +280,8 @@ const resources = [
     },
 ]
 
-const title = 'PDFShift + Lovable Integration'
-const description = 'Add PDF generation to your Lovable app with PDFShift. Copy the one-shot prompt or click Build with Lovable to set up a secure server-side PDF export in minutes.'
+const title = 'Lovable PDF Export: Generate PDFs in One Prompt | PDFShift'
+const description = 'Add PDF export to a Lovable app with one prompt: Lovable stores your PDFShift key as a secret, writes an Edge Function and adds an Export as PDF button.'
 const canonicalUrl = 'https://pdfshift.io/agents/lovable/'
 
 useSeoMeta({

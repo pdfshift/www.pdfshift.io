@@ -1,11 +1,11 @@
 ---
-title: "PDFShift + Lovable Integration"
-description: "Add PDF generation to your Lovable app with PDFShift. Copy the one-shot prompt or click Build with Lovable to set up a secure server-side PDF export in minutes."
+title: "Lovable PDF Export: Generate PDFs in One Prompt | PDFShift"
+description: "Add PDF export to a Lovable app with one prompt: Lovable stores your PDFShift key as a secret, writes an Edge Function and adds an Export as PDF button."
 ---
 
-# PDFShift + Lovable
+# Generate PDFs in your Lovable app
 
-Add PDF generation to any application built with Lovable. Generate invoices, reports, receipts, or certificates directly from the HTML your app produces, with your API key kept safely server-side.
+To add PDF export to a Lovable app, paste one prompt into your project. Lovable stores your PDFShift API key as a secret, writes a server-side Edge Function that sends the document's HTML to PDFShift, and adds an "Export as PDF" button. Invoices, reports, receipts and certificates then download as real PDF files.
 
 ## Quick Start: the one-shot prompt
 
@@ -45,6 +45,14 @@ PDFShift notes:
 ```
 
 Lovable pre-fills the prompt but never sends it automatically. You review it and click send. Add your own project details first if you have any.
+
+## Why not a print button or Puppeteer?
+
+A print button calls `window.print()`, which opens the browser's print dialog. Each visitor then has to pick "Save as PDF" themselves, and the file stays on their computer, so your app can't email it or store it.
+
+Puppeteer needs a full Chromium browser next to your code. Lovable's built-in backend runs on Supabase, and [Supabase's docs](https://supabase.com/docs/guides/functions/examples/screenshots) say running Puppeteer inside an Edge Function is hard because of its size limits. A function gets 256 MB of memory and 2 seconds of CPU time per request ([Supabase limits](https://supabase.com/docs/guides/functions/limits)).
+
+With PDFShift, the Edge Function only sends HTML and waits for the PDF. We run Chromium on our servers, so the function stays small, and waiting on the API doesn't count toward that CPU limit.
 
 ## Step-by-Step Guide
 
@@ -139,6 +147,21 @@ current document page to PDFShift instead of building the HTML manually.
 ```
 
 PDFShift will load the page and convert it. For authenticated or private pages, sending raw HTML is usually preferable as PDFShift can't reach a page that requires a login without additional configuration.
+
+## Who can call your PDF function?
+
+The prompt keeps your API key in Lovable Cloud as `PDFSHIFT_API_KEY`, and only the `generate-pdf` function reads it. The browser calls your function, never PDFShift, so the key never reaches a visitor's device.
+
+Once the export works, make sure only your own users can call the function, so strangers can't spend your credits. Ask Lovable:
+
+```text
+Only let signed-in users call the generate-pdf function.
+Return a 401 error to anyone who isn't signed in.
+```
+
+## Is PDF export free to try?
+
+Yes. Keep `"sandbox": true` while you build: sandbox PDFs use no credits and carry a watermark. After that, the free plan gives you 50 credits a month with no credit card, and one credit covers a PDF of up to 5 MB. Paid plans start at $9 a month for 500 credits ([pricing](/pricing/)).
 
 ## Related Resources
 
