@@ -19,6 +19,17 @@
                         </NuxtLink>
                     </li>
                 </ul>
+
+                <template v-if="articles?.length">
+                    <h2 class="h3 mt-16 text-navy-700">In-depth guides</h2>
+                    <ul class="mt-4 list-disc list-inside marker:text-purple">
+                        <li v-for="article in articles" :key="article._path" class="my-4">
+                            <NuxtLink :to="`${article._path}/`" class="text-xl text-purple hover:underline">
+                                {{ article.title }}
+                            </NuxtLink>
+                        </li>
+                    </ul>
+                </template>
             </div>
         </NuxtLayout>
     </div>
@@ -36,6 +47,12 @@ useSeoMeta({
     twitterTitle: title,
     twitterDescription: description
 })
+
+// Article-style guides live directly in content/guides/ (no language/library)
+const { data: articles } = await useAsyncData('guides-articles', () => queryContent('guides').where({
+    draft: { $ne: true },
+    language: { $exists: false }
+}).only(['title', '_path']).find())
 
 const languages = ref([
     {
