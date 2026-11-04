@@ -83,7 +83,7 @@ We converted the same invoice 200 times on one browser, once without `page.close
 
 A process manager won't save you here: the browser is healthy, it just has 200 tabs open. Close pages in `finally`, and restart the browser now and then if your jobs run for days.
 
-The test machine was an Apple M5 Pro with 64 GB of RAM on macOS, with Node 26 and Puppeteer 25.16.0. Memory is the sum over the browser's process tree. Our test environment blocked Chrome's sandbox, so these runs used `--no-sandbox`.
+We ran these tests on an Apple M5 Pro with 64 GB of RAM, on macOS, with Node 26 and Puppeteer 25.16.0. Memory is the sum over the browser's process tree. Our test environment blocked Chrome's sandbox, so these runs used `--no-sandbox`.
 
 ## Should I launch a new browser for every PDF?
 
@@ -109,7 +109,7 @@ The wait cost more than the launch. With `load` followed by `document.fonts.read
 </svg>
 ::
 
-Running pages in parallel on one browser helps too. With 10 pages at a time and the same `networkidle0` wait, 100 jobs took 13.9 seconds, about 7 PDFs a second against about 1 a second one at a time, and memory peaked around 678 MB. Each job got slower (median 1.16 seconds), but throughput went up a lot. Find your own limit by raising the number of parallel pages until memory or per-job time stops being acceptable, then scale out with more processes.
+Running pages in parallel on one browser helps too. With 10 pages at a time and the same `networkidle0` wait, 100 jobs took 13.9 seconds, about 7 PDFs a second against about 1 a second one at a time, and memory peaked around 678 MB. Each job got slower (median 1.16 seconds), but throughput went up a lot. To find your limit, keep raising the number of parallel pages until memory or per-job time gets worse than you'll accept, then scale out with more processes.
 
 ## Which waitUntil should I use with page.pdf()?
 
