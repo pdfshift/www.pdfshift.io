@@ -139,7 +139,7 @@ Your laptop has everything Chrome needs. A slim container image doesn't. Here's 
 
 - **Missing libraries.** Chrome won't start without them. Run `ldd chrome | grep not` on the browser binary to list the ones you're missing.
 - **No usable sandbox.** Chrome crashes with `No usable sandbox!` when the container can't give it one. Puppeteer's docs say running without one [is "strongly discouraged"](https://pptr.dev/troubleshooting) and accept `--no-sandbox` only when you trust all the content you render. If users can send you HTML, set up the sandbox instead. On Ubuntu 23.10 and later, AppArmor blocks the sandbox for the Chrome that Puppeteer downloads, which gives the same error.
-- **Zombie processes.** Start the container with `--init`, or a custom entrypoint, so finished Chrome processes get cleaned up instead of piling up. Puppeteer's own Docker image runs that way.
+- **Zombie processes.** Start the container with `--init`, or a custom entrypoint, so finished Chrome processes get cleaned up instead of piling up. Puppeteer's Docker guide runs it that way.
 - **Fonts.** Chinese, Japanese, Arabic, Hebrew or Thai text needs fonts a slim image doesn't have. Puppeteer's troubleshooting page installs `fonts-ipafont-gothic`, `fonts-wqy-zenhei`, `fonts-thai-tlwg`, `fonts-kacst` and `fonts-freefont-ttf` for those, plus the fonts your own templates use.
 - **Alpine.** Chrome doesn't support Alpine out of the box. Use a Debian-based image.
 - **The browser isn't in `node_modules`.** Puppeteer downloads Chrome into `~/.cache/puppeteer`, so a multi-stage build that copies only `node_modules` ships without a browser.
@@ -151,7 +151,7 @@ Then pin your versions. Chrome moved to [a release every two weeks](https://deve
 
 When the PDF is a feature of your product and not the product itself. Every section above is something you now maintain, for a feature your users see as one button.
 
-People don't buy PDFs. They buy not having to run Chromium. That's the job we took on at PDFShift, and we've run Chromium conversions since 2018. You send one request with your HTML or a URL to a current Chromium we run and patch, and get the PDF back:
+People don't buy PDFs. They buy not having to run Chromium. That's the job we took on at PDFShift, and we've run Chromium conversions since 2018. You send one request with your HTML or a URL to a Chromium we run, and get the PDF back:
 
 ```javascript
 const response = await fetch('https://api.pdfshift.io/v3/convert/pdf', {
