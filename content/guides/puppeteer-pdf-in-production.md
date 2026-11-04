@@ -120,7 +120,7 @@ The two other common choices each cost you something:
 - **`domcontentloaded`** doesn't wait for stylesheets to load. In 10 runs out of 10, our invoice came out without its web font, and the PDF was 82.6 KB instead of 121.5 KB. `page.pdf()` waits for fonts by default (its `waitForFonts` option), and that didn't change the result.
 - **`networkidle0`** waits until the page has had [no network connections for 500 ms](https://pptr.dev/api/puppeteer.puppeteerlifecycleevent). The fonts arrive, but every job pays for that quiet period. A page that keeps a connection open, an analytics socket for example, may never go quiet, and the job runs until it times out.
 
-Puppeteer's TypeScript types don't allow `networkidle0` or `networkidle2` with `setContent()`, though plain JavaScript passed it through in our runs. For a URL, `page.goto(url, { waitUntil: 'load' })` followed by the same fonts wait works the same way.
+Puppeteer's TypeScript types don't allow `networkidle0` or `networkidle2` with `setContent()`, though plain JavaScript accepted it in our runs. For a URL, `page.goto(url, { waitUntil: 'load' })` followed by the same fonts wait works the same way.
 
 Whichever you pick, keep the timeouts. Navigation and `setContent()` default to 30 seconds, and so does [`page.pdf()`](https://pptr.dev/api/puppeteer.pdfoptions). Passing `0` turns a timeout off, which is how a single bad page holds a worker forever.
 
@@ -139,7 +139,7 @@ Your laptop has everything Chrome needs. A slim container image doesn't. Here's 
 
 - **Missing libraries.** Chrome won't start without them. Run `ldd chrome | grep not` on the browser binary to list the ones you're missing.
 - **No usable sandbox.** Chrome crashes with `No usable sandbox!` when the container can't give it one. Puppeteer's docs say running without one [is "strongly discouraged"](https://pptr.dev/troubleshooting) and accept `--no-sandbox` only when you trust all the content you render. If users can send you HTML, set up the sandbox instead. On Ubuntu 23.10 and later, AppArmor blocks the sandbox for the Chrome that Puppeteer downloads, which gives the same error.
-- **Zombie processes.** Start the container with `--init`, or a custom entrypoint, so finished Chrome processes get cleaned up instead of piling up. Puppeteer's own image is run that way.
+- **Zombie processes.** Start the container with `--init`, or a custom entrypoint, so finished Chrome processes get cleaned up instead of piling up. Puppeteer's own Docker image runs that way.
 - **Fonts.** Chinese, Japanese, Arabic, Hebrew or Thai text needs fonts a slim image doesn't have. Puppeteer's troubleshooting page installs `fonts-ipafont-gothic`, `fonts-wqy-zenhei`, `fonts-thai-tlwg`, `fonts-kacst` and `fonts-freefont-ttf` for those, plus the fonts your own templates use.
 - **Alpine.** Chrome doesn't support Alpine out of the box. Use a Debian-based image.
 - **The browser isn't in `node_modules`.** Puppeteer downloads Chrome into `~/.cache/puppeteer`, so a multi-stage build that copies only `node_modules` ships without a browser.
