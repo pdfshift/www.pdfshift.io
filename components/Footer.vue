@@ -108,6 +108,9 @@
                     <li class="hover:underline">
                         <NuxtLink to="/guides/">All our Guide</NuxtLink>
                     </li>
+                    <li class="hover:underline">
+                        <NuxtLink to="/tools/html-viewer/">Free HTML viewer</NuxtLink>
+                    </li>
                 </ul>
             </div>
         </div>
