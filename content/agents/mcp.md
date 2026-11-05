@@ -1,13 +1,13 @@
 ---
-title: "PDFShift MCP Server - PDFs for AI Agents"
-description: "Connect any Model Context Protocol client to the hosted PDFShift MCP server at https://api.pdfshift.io/mcp. Convert HTML or URLs to PDF, manage templates, and check credits from Claude, Cursor, and more."
+title: "PDFShift MCP Server: Generate PDFs from HTML or a URL"
+description: "Claude, Cursor or any MCP client can turn HTML or a URL into a PDF with one tool call. PDFShift's MCP server is hosted and listed in the official MCP Registry."
 ---
 
 # PDFShift MCP Server
 
-The PDFShift MCP server exposes conversion, templates, credits, and logs to Claude, Cursor, and any Model Context Protocol client over a single hosted endpoint.
+PDFShift's MCP server lets Claude, Cursor or any Model Context Protocol client turn HTML or a URL into a PDF with one tool call. We host it at https://api.pdfshift.io/mcp, so there's no browser to install.
 
-## Connecting your client
+## Connect the PDF MCP server to Claude and other clients
 
 All clients need the same three things: the endpoint URL, the HTTP transport, and your API key sent as a header.
 
@@ -17,7 +17,11 @@ Transport: Streamable HTTP
 Auth header: X-API-Key: YOUR_PDFSHIFT_API_KEY
 ```
 
-You can send the key as `X-API-Key`. Discovery (listing tools) works without a key; running a tool requires one.
+Discovery (listing tools) works without a key; running a tool requires one.
+
+### Listed in the official MCP Registry
+
+Search the [registry](https://registry.modelcontextprotocol.io/?q=pdfshift) for pdfshift and you'll find us as `io.github.cnicodeme/pdfshift`, pointing to the same endpoint.
 
 ### Claude Code
 
@@ -68,7 +72,7 @@ For clients that only speak stdio, bridge to the remote server with `mcp-remote`
 
 Restart the client afterwards so it picks up the new server.
 
-## Available tools
+## Tools to convert HTML or a URL to PDF, manage templates and check credits
 
 The server exposes 11 tools. Your agent picks the right one automatically; you just describe what you want.
 
@@ -86,7 +90,7 @@ The server exposes 11 tools. Your agent picks the right one automatically; you j
 
 The `convert` and `generate_from_template` tools accept any documented PDFShift option (margins, headers & footers, watermarks, protection, cookies, and more) as extra parameters.
 
-## Example prompts
+## Example prompts for PDF generation
 
 Once connected, just ask your agent in plain language. For example:
 
@@ -104,6 +108,12 @@ Once connected, just ask your agent in plain language. For example:
 ```
 
 Conversions return a temporary download URL, valid for about 2 days. Add `sandbox` while experimenting to generate free, watermarked documents that don't consume credits.
+
+## A hosted PDF server vs Puppeteer or Playwright MCP
+
+An agent that needs a PDF doesn't need a browser. We run Chromium on our servers, and your agent hands `convert` the HTML or URL and gets a download link back.
+
+With a browser MCP server, the browser runs wherever that server runs. Playwright's MCP server saves a page as a PDF only when you start it with `--caps=pdf`, and its `browser_pdf_save` tool writes the file to the workspace or output folder on that machine. The reference Puppeteer MCP server is archived, and it has screenshot tools but no PDF tool.
 
 ## Related Resources
 

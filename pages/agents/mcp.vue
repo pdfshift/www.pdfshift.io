@@ -4,7 +4,7 @@
             <img class="h-10 w-48 md:-translate-y-11" src="/images/agents/mcp.svg" alt="Model Context Protocol" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift MCP Server</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
-                The PDFShift MCP server exposes conversion, templates, credits, and logs to Claude, Cursor, and any Model Context Protocol client over a single hosted endpoint.
+                PDFShift&rsquo;s MCP server lets Claude, Cursor or any Model Context Protocol client turn HTML or a URL into a PDF with one tool call. We host it at api.pdfshift.io/mcp, so there&rsquo;s no browser to install.
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
@@ -17,13 +17,19 @@
             <AgentsCustomNav :items="pageSections" anchor-id="agent-nav-anchor" />
 
             <section id="connect" class="scroll-mt-30" aria-labelledby="connect-title">
-                <h2 id="connect-title">Connecting your <span class="text-purple-500">client</span></h2>
+                <h2 id="connect-title">Connect the PDF MCP server to <span class="text-purple-500">Claude</span> and other clients</h2>
                 <p class="mt-7">All clients need the same three things: the endpoint URL, the HTTP transport, and your API key sent as a header.</p>
                 <ContentProsePre class="my-6" :code="connectionDetails" />
                 <p>
-                    You can send the key as either <code>X-API-Key</code>.
                     Discovery (listing tools) works without a key; running a tool requires one.
                 </p>
+
+                <div class="mt-12">
+                    <h3>Listed in the official MCP Registry</h3>
+                    <p>
+                        Search the <a class="underline" href="https://registry.modelcontextprotocol.io/?q=pdfshift" target="_blank" rel="noopener">registry</a> for pdfshift and you&rsquo;ll find us as <code>io.github.cnicodeme/pdfshift</code>, pointing to the same endpoint.
+                    </p>
+                </div>
 
                 <div class="mt-12">
                     <h3>Claude Code</h3>
@@ -46,7 +52,7 @@
             </section>
 
             <section id="tools" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="tools-title">
-                <h2 id="tools-title">Available <span class="text-purple-500">tools</span></h2>
+                <h2 id="tools-title">Tools to convert <span class="text-purple-500">HTML or a URL</span> to PDF, manage templates and check credits</h2>
                 <p class="mt-7">The server exposes {{ tools.length }} tools. Your agent picks the right one automatically; you just describe what you want.</p>
                 <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2" role="list">
                     <div v-for="tool in tools" :key="tool.name" role="listitem" class="rounded-xl border border-purple-400 bg-white px-6 py-5 shadow-agent-card">
@@ -58,10 +64,23 @@
             </section>
 
             <section id="usage" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="usage-title">
-                <h2 id="usage-title">Example prompts</h2>
+                <h2 id="usage-title">Example prompts for PDF generation</h2>
                 <p class="mt-10">Once connected, just ask your agent in plain language. For example:</p>
                 <ContentProsePre class="my-6" :code="examplePrompts" />
                 <p>Conversions return a temporary download URL, valid for about 2 days. Add <code>sandbox</code> while experimenting to generate free, watermarked documents that don&rsquo;t consume credits.</p>
+            </section>
+
+            <section id="browser-mcp" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="browser-mcp-title">
+                <h2 id="browser-mcp-title">A <span class="text-purple-500">hosted PDF server</span> vs Puppeteer or Playwright MCP</h2>
+                <p class="mt-7">
+                    An agent that needs a PDF doesn&rsquo;t need a browser.
+                    We run Chromium on our servers, and your agent hands <code>convert</code> the HTML or URL and gets a download link back.
+                </p>
+                <p class="mt-6">
+                    With a browser MCP server, the browser runs wherever that server runs.
+                    Playwright&rsquo;s MCP server saves a page as a PDF only when you start it with <code>--caps=pdf</code>, and its <code>browser_pdf_save</code> tool writes the file to the workspace or output folder on that machine.
+                    The reference Puppeteer MCP server is archived, and it has screenshot tools but no PDF tool.
+                </p>
             </section>
         </div>
     </NuxtLayout>
@@ -72,9 +91,10 @@ import AgentsCustomNav from '~/components/agents/CustomNav.vue'
 import ContentProsePre from '~/components/content/ProsePre.vue'
 
 const pageSections = [
-    { id: 'connect', label: 'Connecting your client' },
-    { id: 'tools', label: 'Available tools' },
+    { id: 'connect', label: 'Connect your client' },
+    { id: 'tools', label: 'Tools' },
     { id: 'usage', label: 'Example prompts' },
+    { id: 'browser-mcp', label: 'Hosted vs browser MCP' },
     { id: 'security', label: 'Security' },
     { id: 'related-resources', label: 'Related Resources' },
 ]
@@ -152,8 +172,8 @@ const resources = [
     },
 ]
 
-const title = 'PDFShift MCP Server - PDFs for AI Agents'
-const description = 'Connect any Model Context Protocol client to the hosted PDFShift MCP server at https://api.pdfshift.io/mcp. Convert HTML or URLs to PDF, manage templates, and check credits from Claude, Cursor, and more.'
+const title = 'PDFShift MCP Server: Generate PDFs from HTML or a URL'
+const description = 'Claude, Cursor or any MCP client can turn HTML or a URL into a PDF with one tool call. PDFShift\'s MCP server is hosted and listed in the official MCP Registry.'
 const canonicalUrl = 'https://pdfshift.io/agents/mcp/'
 
 useSeoMeta({
