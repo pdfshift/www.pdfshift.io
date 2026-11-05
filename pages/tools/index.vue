@@ -9,7 +9,7 @@
                 <ul class="grid md:grid-cols-2 gap-8">
                     <li v-for="tool in tools" :key="tool.to" class="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 translate-y-0 hover:-translate-y-2">
                         <NuxtLink :to="tool.to" class="block">
-                            <h2 class="h3 text-navy-700">{{ tool.name }}</h2>
+                            <h2 class="h3 mt-0 text-navy-700">{{ tool.name }}</h2>
                             <p class="mt-2 text-gray-600">{{ tool.line }}</p>
                         </NuxtLink>
                     </li>
