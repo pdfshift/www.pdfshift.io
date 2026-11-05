@@ -178,6 +178,8 @@ llms.push('## Guides')
 llms.push(`> ${guides.length}+ how-to guides covering ${languages.length} languages (${languages.join(', ')}) and their most popular HTTP libraries. Each task below exists for every language/library combination. Full text is in llms-full.txt.`)
 llms.push(line('All guides', siteUrl + '/guides/', 'Browse guides by language and HTTP library.'))
 for (const g of canonical) llms.push(line(g.fm.title || humanize(basename(g.rel)), g.mdUrl, g.fm.description))
+// Article-style guides (content/guides/<slug>.md, no language/library)
+for (const g of guides.filter(d => !d.fm.language)) llms.push(line(g.fm.title, g.mdUrl, g.fm.description))
 llms.push('')
 
 llms.push('## Code samples')

@@ -5,6 +5,8 @@ export default defineEventHandler(async (event) => {
     const docs = await serverQueryContent(event).find()
 
     return docs.filter(doc => doc?.draft !== true).map(doc => ({
-        loc: doc._path
+        loc: doc._path,
+        // Content date from frontmatter (article-style guides), not the build date
+        ...(doc.dateModified ? { lastmod: doc.dateModified } : {})
     }))
 })
