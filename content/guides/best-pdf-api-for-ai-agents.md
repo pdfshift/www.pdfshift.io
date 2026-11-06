@@ -15,12 +15,12 @@ Of the nine PDF APIs below, only two host an MCP server listed in the official r
 A person can sign up, read the docs and click around a dashboard. An agent can't, so a good PDF API for agents comes down to five things:
 
 1. **A hosted MCP server.** The Model Context Protocol is how Claude, ChatGPT and Cursor call outside tools. A server the vendor hosts means nothing to install and no browser to run next to the agent.
-2. **A listing in the official MCP Registry.** It's the public catalog MCP clients and directories read to find servers, and only the vendor can list a server under its own name.
+2. **A listing in the official MCP Registry.** It's the public catalog MCP clients and directories read to find servers. Third-party wrappers get listed there too, so what counts is an entry the vendor published itself.
 3. **A machine-readable spec.** An OpenAPI spec turns into tool definitions for agents that don't use MCP, and an `llms.txt` file tells a model where the docs are.
-4. **One API key.** A key in a header is something an agent can carry. A browser sign-in or a token you have to mint first needs a person once.
+4. **One API key.** A key in a header is something an agent can carry. A browser sign-in or a token you have to mint first needs a person to step in once.
 5. **Done in one call.** The agent sends the HTML and gets the PDF, or a link to it, in the same response. A job ID it has to poll is one more loop where an agent can stall or give up.
 
-Then the limits an agent runs into halfway through a task: how long one conversion may take, how big the file may be, and how long a download link lives.
+Also check the limits an agent hits halfway through a task: how long one conversion may take, how big the file may be, and how long a download link lives.
 
 ## Which PDF APIs can an AI agent call?
 
@@ -36,7 +36,7 @@ Then the limits an agent runs into halfway through a task: how long one conversi
 | Adobe PDF Services | No | No, upload then job | 500 transactions a month | Through Adobe's sales team |
 | Gotenberg | No, self-hosted | Yes | Open source | You run the servers |
 
-"Hosted MCP server" means one the vendor runs and documents. Third-party wrappers exist for some of these APIs, and we left them out. Prices are billed monthly unless noted, as of November 5 and 6, 2026.
+"Hosted MCP server" means one the vendor runs and documents, not a third-party wrapper. Prices are billed monthly unless noted, as of November 5 and 6, 2026.
 
 ::guide-figure{caption="What each tool gives an AI agent to call. Our check, November 6, 2026."}
 <svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="agents-matrix-title agents-matrix-desc" style="max-width:560px;min-width:460px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
@@ -82,7 +82,7 @@ Then the limits an agent runs into halfway through a task: how long one conversi
 </svg>
 ::
 
-Five of the nine publish an `llms.txt`: PDFShift, Nutrient, Api2Pdf, PDF Generator API and PDFMonkey. Three are in the official MCP Registry under their own name: PDFShift and Nutrient with a hosted server, PDFMonkey with its local one.
+Five of the nine publish an `llms.txt`: PDFShift, Nutrient, Api2Pdf, PDF Generator API and PDFMonkey.
 
 ## 1. PDFShift
 
@@ -100,7 +100,7 @@ We render with Chromium. On the free plan you get 50 credits a month with no cre
 
 **Best for:** PDF generation plus OCR, redaction, signatures or format conversion from one vendor.
 
-Nutrient hosts its MCP server at `https://mcp.nutrient.io/mcp`. You connect it with a Nutrient account sign-in rather than an API key, so a person does that once per client. The REST API takes an API key, and its HTML-to-PDF endpoint returns the PDF in the response.
+Nutrient hosts its MCP server at `https://mcp.nutrient.io/mcp`, and you connect it by signing in to a Nutrient account. The REST API takes an API key, and its HTML-to-PDF endpoint returns the PDF in the response.
 
 Free output carries a "For Evaluation Purposes Only" watermark. An HTML-to-PDF call costs half a credit, so the [$75 Starter plan's 1,000 credits](https://www.nutrient.io/api/pricing/processor-api/) cover 2,000 of them.
 
@@ -138,7 +138,7 @@ APITemplate.io takes JSON for a saved template, raw HTML or a URL, and returns a
 
 **Best for:** print layouts: books, paged reports and CSS for paged media.
 
-DocRaptor renders with Prince, not a browser. Anything past 60 seconds has to go async, up to 600 seconds, and is polled or sent to a callback URL.
+DocRaptor renders with Prince, not a browser. A conversion that takes longer than 60 seconds has to run as an async job, which can last up to 600 seconds. You then poll for the result, or DocRaptor calls a URL you give it.
 
 ## 8. Adobe PDF Services
 
@@ -201,9 +201,7 @@ You can also hand an agent a browser of its own. Playwright's MCP server saves P
 
 ## How did we pick these nine?
 
-We started from the tools AI assistants name most often when asked which PDF API to give an agent: Nutrient, DocRaptor, PDFMonkey, APITemplate.io, Adobe PDF Services and PDF Generator API. We added Api2Pdf and Gotenberg because they come up in the same answers. Prince is covered under DocRaptor, which runs it. We left out CraftMyPDF and Orshot, which are template editors first.
-
-On November 6, 2026, we looked for each vendor in the MCP Registry, sent each hosted MCP server an `initialize` request without a key, and requested each `llms.txt`. Everything else is from the vendor's own docs and pricing pages.
+We started from the tools AI assistants name most often when asked which PDF API to give an agent: Nutrient, DocRaptor, PDFMonkey, APITemplate.io, Adobe PDF Services and PDF Generator API. We added Api2Pdf, a hosted pay-per-use service, and Gotenberg, the self-hosted route. Prince is covered under DocRaptor, which runs it. We left out CraftMyPDF and Orshot, which are template editors first.
 
 ## Try it with your agent
 
@@ -214,4 +212,4 @@ claude mcp add --transport http pdfshift https://api.pdfshift.io/mcp \
   --header "X-API-Key: YOUR_PDFSHIFT_API_KEY"
 ```
 
-Then ask it for a PDF of a page you're working on. The config for Cursor, Claude Desktop and other clients is on the [MCP setup page](/agents/mcp/). [Get a free API key](/register/) and see how your agent gets on.
+Then ask it for a PDF of a page you're working on. The config for Cursor, Claude Desktop and other clients is on the [MCP setup page](/agents/mcp/). [Get a free API key](/register/) and try it with your agent.
