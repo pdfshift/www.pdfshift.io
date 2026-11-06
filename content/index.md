@@ -103,6 +103,7 @@ Flexible plans to suit your needs:
 - [Guides & Tutorials](/guides/)
 - [Playwright PDF in production](/guides/playwright-pdf-in-production/)
 - [Puppeteer PDF in production](/guides/puppeteer-pdf-in-production/)
+- [Best PDF generation APIs an AI agent can call](/guides/best-pdf-api-for-ai-agents/)
 - [FAQ](/faq/)
 
 ## Start Converting Today

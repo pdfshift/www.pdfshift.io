@@ -109,6 +109,9 @@
                         <NuxtLink to="/guides/puppeteer-pdf-in-production/">Puppeteer PDF in production</NuxtLink>
                     </li>
                     <li class="hover:underline">
+                        <NuxtLink to="/guides/best-pdf-api-for-ai-agents/">Best PDF APIs for AI agents</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
                         <NuxtLink to="/guides/">All our Guide</NuxtLink>
                     </li>
                     <li class="hover:underline">
