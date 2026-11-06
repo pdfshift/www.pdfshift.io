@@ -60,6 +60,10 @@
                         </ol>
                         <div class="text-center">
                             <Button to="/register/" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Get Started</Button>
+                            <p v-if="securityNote && currentPlan.price >= 99" class="mt-4 text-sm">
+                                Need SOC 2 or ISO 27001 for a security review?
+                                <NuxtLink to="/contact/" class="text-purple font-medium hover:underline">Talk to us</NuxtLink>
+                            </p>
                         </div>
                     </div>
                     <div class="p-6 space-y-6 max-w-80 w-80" v-else>
@@ -122,6 +126,8 @@
 </template>
 
 <script setup>
+// Shown only on /pricing/: SOC 2 / ISO 27001 demand test for Business and above (Cyril, Nov 2026).
+defineProps({ securityNote: Boolean })
 
 const plans = usePlans()
 

@@ -16,13 +16,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="plan in pricedPlans" :key="plan.name" class="border-t border-purple-100">
-                        <th scope="row" class="px-4 py-3 font-medium">{{ plan.name }}</th>
-                        <td class="px-4 py-3 text-right">{{ plan.credits.toLocaleString('en-US') }}</td>
-                        <td class="px-4 py-3 text-right">{{ formatPrice(plan.price) }}<span v-if="plan.price" class="font-light">/month</span></td>
-                        <td class="px-4 py-3 text-right">{{ formatPrice(plan.price * 10) }}<span v-if="plan.price" class="font-light">/year</span></td>
-                        <td class="px-4 py-3 text-right">{{ plan.overage === 'N/A' ? 'Not available' : `$${plan.overage}` }}</td>
-                    </tr>
+                    <template v-for="plan in pricedPlans" :key="plan.name">
+                        <tr v-if="plan.name === 'Business'" class="border-t border-purple-100 bg-purple-100">
+                            <td colspan="5" class="px-4 py-2 text-sm">
+                                <div class="sticky left-4 max-w-[calc(100vw-4rem)] whitespace-normal">
+                                    <span class="font-medium">Business and above:</span> Need SOC 2 or ISO 27001 for a security review?
+                                    <NuxtLink to="/contact/" class="text-purple font-medium hover:underline">Talk to us</NuxtLink>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="border-t border-purple-100">
+                            <th scope="row" class="px-4 py-3 font-medium">{{ plan.name }}</th>
+                            <td class="px-4 py-3 text-right">{{ plan.credits.toLocaleString('en-US') }}</td>
+                            <td class="px-4 py-3 text-right">{{ formatPrice(plan.price) }}<span v-if="plan.price" class="font-light">/month</span></td>
+                            <td class="px-4 py-3 text-right">{{ formatPrice(plan.price * 10) }}<span v-if="plan.price" class="font-light">/year</span></td>
+                            <td class="px-4 py-3 text-right">{{ plan.overage === 'N/A' ? 'Not available' : `$${plan.overage}` }}</td>
+                        </tr>
+                    </template>
                     <tr v-if="customPlan" class="border-t border-purple-100">
                         <th scope="row" class="px-4 py-3 font-medium">{{ customPlan.name }}</th>
                         <td class="px-4 py-3 text-right">Custom</td>
