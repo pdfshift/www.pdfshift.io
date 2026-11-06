@@ -94,10 +94,9 @@ const classes = computed(() => {
 })
 
 const encoded = computed(() => {
-    let converted = props.code
-    if (props.language !== 'html') converted = converted.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-    if (props.language) return hljs(converted, props.language)
-    return converted
+    // highlight.js escapes the code itself
+    if (props.language) return hljs(props.code, props.language)
+    return props.code.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
 })
 </script>
 
