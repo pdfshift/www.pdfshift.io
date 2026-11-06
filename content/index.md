@@ -101,6 +101,7 @@ Flexible plans to suit your needs:
 - [API Documentation](https://docs.pdfshift.io)
 - [API Status](https://status.pdfshift.io)
 - [Guides & Tutorials](/guides/)
+- [Playwright PDF in production](/guides/playwright-pdf-in-production/)
 - [Puppeteer PDF in production](/guides/puppeteer-pdf-in-production/)
 - [FAQ](/faq/)
 
