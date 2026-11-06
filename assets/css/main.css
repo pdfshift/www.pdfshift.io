@@ -159,6 +159,22 @@ article pre.hljs {
     @apply mt-8 mb-6 font-medium text-xl lg:text-2xl !leading-tight text-purple;
 }
 
+.articles table {
+    @apply block w-full overflow-x-auto mt-6 mb-8 text-left text-navy-700 text-sm border border-purple rounded-lg bg-white;
+}
+
+.articles th {
+    @apply px-4 py-3 font-medium bg-purple text-white whitespace-nowrap;
+}
+
+.articles td {
+    @apply px-4 py-3 align-top border-t border-purple-100;
+}
+
+.articles td:first-child {
+    @apply font-medium whitespace-nowrap;
+}
+
 .articles h4 {
     @apply my-4 pt-4 p-4 rounded-md bg-gray-100;
 }
