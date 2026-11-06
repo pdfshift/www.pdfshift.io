@@ -6,7 +6,7 @@
             </PageHeader>
 
             <div class="mt-12 md:mt-16">
-                <HomePricing />
+                <HomePricing security-note />
             </div>
 
             <!-- Static list of every plan: the slider above only renders the selected plan,
