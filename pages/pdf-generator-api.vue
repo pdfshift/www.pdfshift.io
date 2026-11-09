@@ -11,12 +11,6 @@
                     <ContentRenderer :value="data">
                         <ContentRendererMarkdown :value="data" />
                     </ContentRenderer>
-                    <div class="mt-8 italic text-sm text-gray-600">
-                        <p>
-                            Questions about the API, or a volume above 1,000,000 PDFs a month?
-                            <NuxtLink to="/contact/" class="text-purple underline">Drop us a line</NuxtLink>.
-                        </p>
-                    </div>
                 </article>
             </main>
         </NuxtLayout>
