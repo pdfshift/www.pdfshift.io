@@ -15,7 +15,7 @@ faq:
     answer: "Yes. Separate endpoints return PNG, JPEG or WebP from the same HTML or URL."
 ---
 
-Send PDFShift your HTML or a URL in one POST request, and you get the PDF back in the response. You keep your templates in your own code, and you can see what it costs before you sign up: [free for 50 credits a month](/register/), then from $9 for 500 to $799 for 500,000.
+Send PDFShift your HTML or a URL in one POST request, and the PDF comes back in the response. Your templates stay in your own code, the Chromium that renders them runs on our servers, and you can see what it costs before you sign up: [free for 50 credits a month](/register/), then from $9 for 500 to $799 for 500,000.
 
 ## Generate an invoice PDF from HTML with one API call
 
@@ -56,7 +56,7 @@ res = requests.post(
 pdf = res.content
 ```
 
-Read the body as bytes, not JSON. Want something else back? Add `"filename": "invoice-1042"` and you get JSON back instead, with a `url` to the PDF (kept for 2 days), plus `filesize`, `duration` and `pdf_pages`. Add `"encode": true` and the PDF comes back Base64-encoded. Every parameter is in the [convert reference](https://docs.pdfshift.io/api-reference/convert-to-pdf) (API v3).
+Read the body as bytes, not JSON. If you'd rather have a link, add `"filename": "invoice-1042"` and the response turns into JSON with a `url` to the PDF, plus `filesize`, `duration` and `pdf_pages`. Add `"encode": true` and the PDF comes back Base64-encoded. Every parameter is in the [convert reference](https://docs.pdfshift.io/api-reference/convert-to-pdf) (API v3).
 
 ::guide-figure{caption="What one POST to /v3/convert/pdf sends back, by the parameter you add. PDFShift API v3."}
 <svg viewBox="0 0 400 252" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pga-resp-title pga-resp-desc" style="max-width:400px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
@@ -88,7 +88,7 @@ Read the body as bytes, not JSON. Want something else back? Add `"filename": "in
 
 ### Templates in a visual editor, or your own HTML?
 
-We render the HTML and CSS you already have, with a current Chromium. Most other PDF generator APIs in the search results work the opposite way: you build a template in their visual editor, then fill it with JSON. That's handy when someone who doesn't code owns the layout. If your developers own it, a second copy of every template in another company's editor is one more thing to keep in sync. And if you'd rather keep templates with us, you can store HTML templates through the API and send only the data each time.
+We render the HTML and CSS you already have, with a current Chromium. Most of the other PDF generator APIs you'll find in a search work the opposite way: you rebuild the template in their visual editor, then fill it with JSON. If your developers own the layout, that's a second copy of every template, in another company's editor, to keep in sync. Rather keep templates with us? Store them as HTML through the API and send only the data each time.
 
 ## PDF generation API comparison: what 500 to 500,000 PDFs a month cost
 
@@ -142,13 +142,13 @@ The more PDFs you make, the fewer of these APIs will tell you the price:
 </svg>
 ::
 
-We think you shouldn't need a sales call to know what your next invoice run costs. Every PDFShift plan, up to 1,000,000 credits for $999 a month, is on the [pricing page](/pricing/).
+You shouldn't need a sales call to know what your next invoice run costs. Every PDFShift plan, up to 1,000,000 credits for $999 a month, is on the [pricing page](/pricing/).
 
 ## Webhooks, async and batch PDF generation
 
 By default, your request waits until the PDF is ready. For long documents or big runs, add a `webhook` URL: the API answers at once with `202` and a queued status, then POSTs the result to your webhook with a link to the file. To skip our storage, set `s3_destination` and the PDF goes straight to your own S3 bucket.
 
-A batch job is just more of the same calls: one request per document, in parallel, up to 250 a minute per account, with a webhook to collect the results. One conversion can run for up to 15 minutes on a paid plan.
+A batch job is just more of the same calls: one request per document, in parallel, up to 250 a minute, with a webhook to collect the results. One conversion can run for up to 15 minutes on a paid plan.
 
 ## HIPAA, BAA and GDPR: PDFs generated in the EU
 
