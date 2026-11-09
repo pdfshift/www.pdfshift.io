@@ -9,22 +9,22 @@ author: "Cyril Nicodème"
 People don't buy PDFs. They buy not having to run Chromium. So if Puppeteer only makes your PDFs, pick its replacement by how much of the browser you still want to run. Playwright and Gotenberg keep the browser on your servers, and Browserless runs it for you. A PDF API like PDFShift takes your HTML in one request and sends back the PDF, so there's no browser on your side at all.
 
 <figure>
-<svg viewBox="0 0 360 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="alt-kinds-title alt-kinds-desc" style="max-width:360px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
+<svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="alt-kinds-title alt-kinds-desc" style="max-width:360px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
 <title id="alt-kinds-title">What stays on your side with each kind of Puppeteer alternative</title>
 <desc id="alt-kinds-desc">Three boxes from top to bottom. A renderer you run (a browser or a layout engine): you keep engine updates, fonts, memory and restarts, and scaling. A browser someone else runs: you keep your browser code, waits and timeouts. No browser, a PDF API: you keep one HTTP request.</desc>
-<rect style="stroke-width:2" x="1.5" y="1.5" width="357" height="110" rx="8" fill="#FFFFFF" stroke="#DBE4F2"/>
+<rect style="stroke-width:2" x="1.5" y="1.5" width="357" height="120" rx="8" fill="#FFFFFF" stroke="#DBE4F2"/>
 <text x="20" y="32" style="font-size:16px;font-weight:600" fill="#0A0C3D">A renderer you run</text>
 <text x="20" y="58" style="font-size:14px" fill="#4C556D">Engine updates and fonts</text>
 <text x="20" y="80" style="font-size:14px" fill="#4C556D">Memory, crashes and restarts</text>
 <text x="20" y="102" style="font-size:14px" fill="#4C556D">Scaling and queueing</text>
-<rect style="stroke-width:2" x="1.5" y="125.5" width="357" height="88" rx="8" fill="#FFFFFF" stroke="#DBE4F2"/>
-<text x="20" y="156" style="font-size:16px;font-weight:600" fill="#0A0C3D">A browser someone else runs</text>
-<text x="20" y="182" style="font-size:14px" fill="#4C556D">Your browser code</text>
-<text x="20" y="204" style="font-size:14px" fill="#4C556D">Waits and timeouts</text>
-<rect style="stroke-width:2" x="1.5" y="227.5" width="357" height="66" rx="8" fill="#F3EFFF" stroke="#6C47FF"/>
-<text x="20" y="258" style="font-size:16px;font-weight:600" fill="#0A0C3D">No browser: a PDF API</text>
-<text x="20" y="284" style="font-size:14px" fill="#4C556D">One HTTP request</text>
-<text x="180" y="320" text-anchor="middle" style="font-size:13px" fill="#4C556D">What stays on your side</text>
+<rect style="stroke-width:2" x="1.5" y="135.5" width="357" height="98" rx="8" fill="#FFFFFF" stroke="#DBE4F2"/>
+<text x="20" y="166" style="font-size:16px;font-weight:600" fill="#0A0C3D">A browser someone else runs</text>
+<text x="20" y="192" style="font-size:14px" fill="#4C556D">Your browser code</text>
+<text x="20" y="214" style="font-size:14px" fill="#4C556D">Waits and timeouts</text>
+<rect style="stroke-width:2" x="1.5" y="247.5" width="357" height="76" rx="8" fill="#F3EFFF" stroke="#6C47FF"/>
+<text x="20" y="278" style="font-size:16px;font-weight:600" fill="#0A0C3D">No browser: a PDF API</text>
+<text x="20" y="304" style="font-size:14px" fill="#4C556D">One HTTP request</text>
+<text x="180" y="350" text-anchor="middle" style="font-size:13px" fill="#4C556D">What stays on your side</text>
 </svg>
 </figure>
 
