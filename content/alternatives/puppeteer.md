@@ -47,7 +47,7 @@ People don't buy PDFs. They buy not having to run Chromium. So if Puppeteer only
 
 Puppeteer costs nothing to install. The bill comes from the browser it drives, and it grows when PDFs pile up at once.
 
-We tested Puppeteer 25.16.0 on one invoice, on an Apple M5 Pro. Launching a browser for each PDF took 1.47 seconds a job. Reusing one browser and waiting for `load` plus `document.fonts.ready` got it to 0.24 seconds, but now you have to manage that browser. Leave pages open after each job, and Chromium goes from 323 MB to 5,046 MB over 200 jobs. Then there is the host. On Heroku, the system dependencies Chrome needs, such as fonts and graphics libraries, aren't in the default dynos, so you add them with a buildpack. We walk through those fixes in [Puppeteer PDF in production](/guides/puppeteer-pdf-in-production/).
+We tested Puppeteer 25.16.0 on one invoice, on an Apple M5 Pro. Launching a browser for each PDF took 1.47 seconds a job. Reusing one browser and waiting for `load` plus `document.fonts.ready` got it to 0.24 seconds, but now you have to manage that browser. Leave pages open after each job, and Chromium goes from 323 MB to 5,046 MB over 200 jobs. We walk through the fixes in [Puppeteer PDF in production](/guides/puppeteer-pdf-in-production/).
 
 ## Puppeteer vs Playwright vs Gotenberg vs WeasyPrint for PDFs
 
