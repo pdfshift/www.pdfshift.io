@@ -1,6 +1,6 @@
 ---
 title: 'HIPAA compliance'
-description: "PDFShift is fully HIPAA compliant"
+description: "PDFShift supports HIPAA-compliant conversions with the is_hipaa parameter and a Business Associate Agreement."
 ---
 
 We are committed to maintaining the highest standards of privacy and security to protect your sensitive information. Our platform complies with the Health Insurance Portability and Accountability Act (HIPAA), ensuring that your healthcare data is handled with the utmost care and confidentiality.

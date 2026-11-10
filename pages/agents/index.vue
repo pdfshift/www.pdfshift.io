@@ -155,7 +155,7 @@ const features = [
     },
     {
         title: 'Always Reliable',
-        description: '99.99% uptime guarantee. Your workflows run smoothly without interruptions.',
+        description: '99.9% uptime. Your workflows run smoothly without interruptions.',
         icon: ReliableIcon,
     },
     {

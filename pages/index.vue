@@ -64,7 +64,7 @@
                                 <template v-slot:icon>
                                     <IconsBarGraphUp />
                                 </template>
-                                <template v-slot:title>99.99%</template>
+                                <template v-slot:title>99.9%</template>
                                 <template v-slot:description>Uptime</template>
                             </HomeHeroFeature>
                         </li>
@@ -167,7 +167,7 @@
 
                                     <h2 class="-mt-8 lg:mt-0 h2 text-navy-700">Guaranteed privacy with HIPAA compliance</h2>
                                     <p class="p text-navy-700 mt-4">
-                                        PDFShift's conversion technology is fully HIPAA compliant,
+                                        With the <code>is_hipaa</code> parameter and our Business Associate Agreement, PDFShift's conversions are HIPAA compliant,
                                         making it a great choice for the healthcare industry. We don't store your documents (unless specifically requested in the API), so we can ensure the privacy of your data.
                                     </p>
                                     <div class="mt-12">

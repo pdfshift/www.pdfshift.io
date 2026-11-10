@@ -281,39 +281,6 @@ This works with any Zapier trigger that provides data you can include in HTML.
 
 When `filename` is provided, PDFShift temporarily stores the generated document and returns a downloadable URL that is automatically deleted after two days. For permanent storage, use another Zapier action to copy the PDF into Google Drive, Dropbox, S3, or another service. If you don't want PDFShift to store the document at all, omit `filename` and PDFShift returns the PDF directly.
 
-## Native PDFShift integration
-
-For an even simpler experience, PDFShift can be used as a native Zapier integration. Users would install **PDFShift**, connect their API key once, and then use actions such as:
-
-```
-PDFShift
-├── Generate PDF
-├── Generate PNG
-├── Generate JPEG
-└── List Recent Conversions
-```
-
-The main action could expose friendly fields such as:
-
-- HTML or URL
-- Filename
-- Page format
-- Landscape
-- Margins
-- Use print CSS
-- Header
-- Footer
-- Delay
-- Sandbox
-
-Instead of configuring an API request, users could simply select:
-
-```
-PDFShift → Generate PDF
-```
-
-and map data from previous Zap steps into the fields.
-
 ## Related Resources
 
 - [API by Zapier](https://help.zapier.com/hc/en-us/sections/44386003111693-API): Learn how the API by Zapier app calls external services from your Zaps.

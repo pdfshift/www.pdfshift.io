@@ -200,6 +200,13 @@ export default defineNuxtConfig({
     sitemap: {
         sources: [
           '/api/__sitemap__/urls',
+        ],
+        exclude: [
+          '/_**',
+          // /guides/<language>/<default library>/ canonicals to /guides/<language>/
+          // (pages/guides/[language]/index.vue), so only the canonical URL is listed.
+          // Update this list if a language's `default: true` library changes.
+          /^\/guides\/(csharp\/httpclient|go\/nethttp|java\/httpclient|node\/axios|php\/curl|python\/requests|ruby\/nethttp)\/?$/
         ]
     }
 })

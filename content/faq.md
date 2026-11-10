@@ -38,7 +38,7 @@ Contact us via our form or email us, and we’ll do our best to accommodate your
 
 **What about the privacy of my data?**
 
-We take privacy seriously. We do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift, so you can rest assured that your documents are entirely private.
+We take privacy seriously. By default, we do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift, so you can rest assured that your documents are entirely private.
 
 **Is PDFShift GDPR compliant?**
 
