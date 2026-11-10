@@ -63,6 +63,37 @@ The difference is where the PDF gets made: in a screenshot in the user's browser
 
 Because it's a picture. react-to-pdf draws your component onto a canvas with html2canvas, saves it as JPEG, and puts the image on PDF pages with jsPDF. [Its README](https://www.npmjs.com/package/react-to-pdf) says so: "Not vectorized - the pdf is created from a screenshot of the component." Our invoice came out at 1,744 KB, and a text extractor found 2 characters in it. Nobody can search it, copy an amount from it, or read it with a screen reader.
 
+::guide-figure{caption="Characters of text pdf.js could extract from each PDF of the same invoice. Our test, November 10, 2026."}
+<svg viewBox="0 0 360 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="r2p-text-title r2p-text-desc" style="max-width:360px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
+<title id="r2p-text-title">react-to-pdf's PDF has 2 characters of text, the others about 3,400</title>
+<desc id="r2p-text-desc">Horizontal bar chart of characters extracted from each PDF. PDFShift API 3,455. renderToStaticMarkup plus Puppeteer 3,451. @react-pdf/renderer 3,350. react-to-pdf 2.</desc>
+<g stroke="#DBE4F2">
+<line x1="10" y1="4" x2="10" y2="232"/>
+<line x1="170" y1="4" x2="170" y2="232"/>
+<line x1="330" y1="4" x2="330" y2="232"/>
+</g>
+<g style="font-size:13px" fill="#4C556D">
+<text x="10" y="254" text-anchor="start">0</text>
+<text x="170" y="254" text-anchor="middle">2,000</text>
+<text x="350" y="254" text-anchor="end">4,000 characters</text>
+<text x="18" y="18" fill="#0A0C3D" style="font-weight:600">PDFShift API</text>
+<text x="18" y="76">renderToStaticMarkup + Puppeteer</text>
+<text x="18" y="134">@react-pdf/renderer</text>
+<text x="18" y="192">react-to-pdf</text>
+</g>
+<rect x="10" y="26" width="276" height="22" rx="3" fill="#6C47FF"/>
+<rect x="10" y="84" width="276" height="22" rx="3" fill="#4C556D"/>
+<rect x="10" y="142" width="268" height="22" rx="3" fill="#4C556D"/>
+<rect x="10" y="200" width="2" height="22" rx="1" fill="#FF9D28"/>
+<g style="font-size:13px" fill="#FFFFFF">
+<text x="278" y="42" text-anchor="end" style="font-weight:600">3,455</text>
+<text x="278" y="100" text-anchor="end">3,451</text>
+<text x="270" y="158" text-anchor="end">3,350</text>
+</g>
+<text x="20" y="216" style="font-size:13px" fill="#0A0C3D">2</text>
+</svg>
+::
+
 ```jsx
 import { usePDF } from 'react-to-pdf';
 
