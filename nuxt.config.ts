@@ -129,11 +129,12 @@ export default defineNuxtConfig({
                 file: '~/pages/guides/[language]/index.vue'
             })
 
-            // Temporarily hide the /alternatives/* comparison pages (docraptor, pdf4dev, …)
-            // and the /case-studies/* pages (placeholder content for now):
-            // the files stay in the repo but no public route is generated, so they return a
-            // 404 and are excluded from the auto-generated sitemap. Remove a prefix to re-enable.
-            const hiddenPrefixes = ['/alternatives', '/case-studies']
+            // Temporarily hide the draft /alternatives/pdf4.dev comparison page and the
+            // /case-studies/* pages (placeholder content for now): the files stay in the repo but
+            // no public route is generated, so they return a 404 and are excluded from the
+            // auto-generated sitemap. Remove a prefix to re-enable. Finished alternatives pages
+            // (like /alternatives/puppeteer/) are public.
+            const hiddenPrefixes = ['/alternatives/pdf4', '/case-studies']
             const hidePages = (list: typeof pages) => {
                 for (let i = list.length - 1; i >= 0; i--) {
                     if (hiddenPrefixes.some(prefix => list[i].path?.startsWith(prefix))) {
