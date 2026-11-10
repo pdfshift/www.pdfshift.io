@@ -106,6 +106,9 @@
                         <NuxtLink to="/guides/ruby/">Ruby Guide</NuxtLink>
                     </li>
                     <li class="hover:underline">
+                        <NuxtLink to="/guides/react-to-pdf/">React to PDF, 4 ways</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
                         <NuxtLink to="/guides/playwright-pdf-in-production/">Playwright PDF in production</NuxtLink>
                     </li>
                     <li class="hover:underline">
