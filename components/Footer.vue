@@ -56,6 +56,9 @@
                         <NuxtLink to="/#pricing">Pricing</NuxtLink>
                     </li>
                     <li class="hover:underline">
+                        <NuxtLink to="/pdf-generator-api/">PDF generator API</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
                         <NuxtLink to="/samples/">Code Sample</NuxtLink>
                     </li>
                     <li class="hover:underline">

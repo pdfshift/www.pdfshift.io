@@ -99,6 +99,7 @@ Flexible plans to suit your needs:
 ## Resources
 
 - [API Documentation](https://docs.pdfshift.io)
+- [PDF generator API: request, limits and prices compared](/pdf-generator-api/)
 - [API Status](https://status.pdfshift.io)
 - [Guides & Tutorials](/guides/)
 - [Playwright PDF in production](/guides/playwright-pdf-in-production/)
