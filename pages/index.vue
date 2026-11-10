@@ -64,7 +64,7 @@
                                 <template v-slot:icon>
                                     <IconsBarGraphUp />
                                 </template>
-                                <template v-slot:title>99.9%</template>
+                                <template v-slot:title>99.99%</template>
                                 <template v-slot:description>Uptime</template>
                             </HomeHeroFeature>
                         </li>
