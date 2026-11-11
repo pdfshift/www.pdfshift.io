@@ -121,6 +121,9 @@
                         <NuxtLink to="/alternatives/puppeteer/">Puppeteer alternatives for PDFs</NuxtLink>
                     </li>
                     <li class="hover:underline">
+                        <NuxtLink to="/alternatives/docraptor/">DocRaptor alternative</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
                         <NuxtLink to="/guides/">All our Guide</NuxtLink>
                     </li>
                     <li class="hover:underline">

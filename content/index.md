@@ -107,6 +107,7 @@ Flexible plans to suit your needs:
 - [Puppeteer PDF on AWS Lambda and Vercel](/guides/puppeteer-pdf-aws-lambda/)
 - [Best PDF generation APIs an AI agent can call](/guides/best-pdf-api-for-ai-agents/)
 - [Puppeteer alternatives for PDF generation](/alternatives/puppeteer/)
+- [DocRaptor alternative: PDFShift tested on the same page](/alternatives/docraptor/)
 - [FAQ](/faq/)
 
 ## Start Converting Today
