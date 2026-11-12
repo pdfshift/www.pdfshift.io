@@ -56,7 +56,7 @@
                         <ol class="font-light list-disc marker:text-purple list-inside">
                             <li>Total Overage: <strong class="text-purple font-bold">{{ currentPlan.overage }}</strong>/credits</li>
                             <li>Max file size: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '15Mb' : 'Unlimited' }}</strong></li>
-                            <li>Timeout: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '30s' : '100s, 15 min on request' }}</strong></li>
+                            <li>Timeout: <strong class="text-purple font-bold">{{ currentPlan.name === 'Free' ? '30s' : 'Up to 15 minutes' }}</strong></li>
                         </ol>
                         <div class="text-center">
                             <Button to="/register/" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Get Started</Button>

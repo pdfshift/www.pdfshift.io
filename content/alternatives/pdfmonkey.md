@@ -149,7 +149,7 @@ A PDFMonkey template keeps its paper size, margins, header and footer as setting
 | Entry plan | Starter, $9 a month for 500 credits | Starter, €5 a month for 300 documents |
 | Next plans up | $24 for 2,500 credits, $39 for 5,000 | Pro, €15 for 3,000 documents; Pro+, €60 for 5,000 |
 | Past the quota | Overage per extra credit, from $0.04 on Starter down to $0.001 on the 1,000,000-credit plan | A "quota exceeded" error until the quota resets, unless you turn on pay-as-you-go (€0.008 to €0.005 a document, not on Free) or buy Boost Packs (1,000 documents for €5) |
-| Longest render | 30 s on the free plan; 100 s on paid plans, raisable to 15 minutes | 30 s on Free and Starter, 2 min on Pro, 3 min on Pro+, 5 min on Premium |
+| Longest render | 30 s on the free plan; up to 15 minutes upon request on paid plans | 30 s on Free and Starter, 2 min on Pro, 3 min on Pro+, 5 min on Premium |
 | Hosting | OVH in France (Gravelines and Strasbourg); stored PDFs on AWS S3 in Paris | Fly.io and AWS in Paris; database on Neon in Frankfurt |
 
 Prices are monthly, each in its own currency, and PDFMonkey's exclude VAT. One PDFShift credit covers a document up to 5 MB. Every plan we sell is on our [pricing page](/pricing/).

@@ -118,7 +118,7 @@ export const questions = () => [
     },
     {
         question: 'What is the timeout for conversions?',
-        answer: `<p>We wait up to 30 seconds on the free plan and 100 seconds on paid plans. If your document needs longer and you’re on a paid plan, <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> and we'll raise it for your account, up to 15 minutes.</p>`,
+        answer: `<p>We wait up to 30 seconds on the free plan and up to 15 minutes upon requeste on paid plans. If your document needs longer and you’re on a paid plan, <a href="/contact/" title="Contact us" class="font-medium text-purple hover:underline">contact us</a> and we'll raise it for your account, up to 15 minutes.</p>`,
         visible: false,
         home: false
     },

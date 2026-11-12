@@ -95,7 +95,7 @@ No problem! [Contact us](/contact/) and we’ll top up your account with more 
 
 **What is the timeout for conversions?**
 
-We wait up to 30 seconds on the free plan and 100 seconds on paid plans. If your document needs longer and you’re on a paid plan, contact us and we'll raise it for your account, up to 15 minutes.
+We wait up to 30 seconds on the free plan and up to 15 minutes upon request on paid plans. If your document needs longer and you’re on a paid plan, contact us and we'll raise it for your account, up to 15 minutes.
 
 **What happens when requests time out?**
 
