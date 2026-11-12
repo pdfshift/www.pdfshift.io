@@ -115,6 +115,9 @@
                         <NuxtLink to="/guides/puppeteer-pdf-aws-lambda/">Puppeteer PDF on AWS Lambda</NuxtLink>
                     </li>
                     <li class="hover:underline">
+                        <NuxtLink to="/alternatives/pdfmonkey/">PDFMonkey alternative</NuxtLink>
+                    </li>
+                    <li class="hover:underline">
                         <NuxtLink to="/guides/best-pdf-api-for-ai-agents/">Best PDF APIs for AI agents</NuxtLink>
                     </li>
                     <li class="hover:underline">
