@@ -108,6 +108,7 @@ Flexible plans to suit your needs:
 - [PDFMonkey alternative: move Liquid templates to one API call](/alternatives/pdfmonkey/)
 - [Best PDF generation APIs an AI agent can call](/guides/best-pdf-api-for-ai-agents/)
 - [Puppeteer alternatives for PDF generation](/alternatives/puppeteer/)
+- [DocRaptor alternative: PDFShift tested on the same page](/alternatives/docraptor/)
 - [FAQ](/faq/)
 
 ## Start Converting Today
