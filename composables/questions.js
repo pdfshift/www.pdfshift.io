@@ -27,7 +27,7 @@ export const questions = () => [
     },
     {
         question: 'How do you ensure high-quality conversions and service uptime?',
-        answer: `<p>PDFShift runs on Chromium, which enables perfect rendering every time. As for uptime, our server infrastructure is structured to perform at its best even under high stress, and has several redundancies built in. As a result, our customers experience 99.9% uptime. You can track our service availability on <a href="https://status.pdfshift.io/" title="Visit our Status page" class="font-medium text-purple hover:underline" rel="noopener noreferrer">our Status page</a>.</p>`,
+        answer: `<p>PDFShift runs on Chromium, which enables perfect rendering every time. As for uptime, our server infrastructure is structured to perform at its best even under high stress, and has several redundancies built in. As a result, our customers experience 99.99% uptime. You can track our service availability on <a href="https://status.pdfshift.io/" title="Visit our Status page" class="font-medium text-purple hover:underline" rel="noopener noreferrer">our Status page</a>.</p>`,
         visible: false,
         home: true
     },

@@ -11,7 +11,7 @@ Powerful PDF generation for your automated workflows. Convert HTML to PDF seamle
 
 - **No Code Required**: Use your favorite interface: N8n, Lovable, Base44, ... or via our MCP. No programming knowledge needed.
 - **API First**: RESTful API that works with any automation tool or AI agent framework.
-- **Always Reliable**: 99.99% uptime guarantee. Your workflows run smoothly without interruptions.
+- **Always Reliable**: 99.99% uptime. Your workflows run smoothly without interruptions.
 - **Async Processing**: Webhook support for large jobs. Process documents in the background efficiently.
 
 ## Popular Integrations for PDFShift

@@ -41,7 +41,7 @@
             <AgentsBottomCta
                 class="mt-20 md:mt-18"
                 title="Ready to Get Started?"
-                description="Create your free PDFShift account and add PDF generation to your Lovable app today"
+                description="Create your free PDFShift account and add PDF generation to your app today"
                 title-id="details-bottom-cta-title"
                 primary-label="Get your Free API key"
                 primary-href="/register/"

@@ -13,8 +13,8 @@ Our always-up-to-date API for developers automates your document conversion task
 
 ## Key Statistics
 
-- **300+ Million** Conversions made
-- **15,000+** Developers
+- **86+ Million** Conversions made
+- **56,000+** Developers
 - **1.5s** Average conversion time
 - **99.99%** Uptime
 
@@ -122,6 +122,6 @@ Get started in minutes with our comprehensive documentation and code examples. N
 
 **Support**: Available for all plans with response times based on your subscription level.
 
-**Privacy**: GDPR compliant. We don't store your documents or requests.
+**Privacy**: GDPR compliant. By default, we don't store your documents or requests.
 
-**Reliability**: 99.9% uptime with multiple redundancies.
+**Reliability**: 99.99% uptime with multiple redundancies.

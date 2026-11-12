@@ -130,7 +130,7 @@
                         <NuxtLink to="/alternatives/docraptor/">DocRaptor alternative</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/guides/">All our Guide</NuxtLink>
+                        <NuxtLink to="/guides/">All our guides</NuxtLink>
                     </li>
                     <li class="hover:underline">
                         <NuxtLink to="/tools/html-viewer/">Free HTML viewer</NuxtLink>

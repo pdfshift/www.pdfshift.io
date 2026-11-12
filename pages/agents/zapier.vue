@@ -160,30 +160,6 @@
                 </div>
             </section>
 
-            <section id="native" class="mt-24 scroll-mt-30 md:mt-36" aria-labelledby="native-title">
-                <h2 id="native-title">Native PDFShift <span class="text-purple-500">integration</span></h2>
-                <p class="mt-7">
-                    For an even simpler experience, PDFShift can be used as a native Zapier integration. Users would install <strong>PDFShift</strong>,
-                    connect their API key once, and then use actions such as:
-                </p>
-                <ContentProsePre class="my-6" :code="nativeActions" />
-                <p>The main action could expose friendly fields such as:</p>
-                <ul class="my-6">
-                    <li>HTML or URL</li>
-                    <li>Filename</li>
-                    <li>Page format</li>
-                    <li>Landscape</li>
-                    <li>Margins</li>
-                    <li>Use print CSS</li>
-                    <li>Header</li>
-                    <li>Footer</li>
-                    <li>Delay</li>
-                    <li>Sandbox</li>
-                </ul>
-                <p>Instead of configuring an API request, users could simply select:</p>
-                <ContentProsePre class="my-6" code="PDFShift → Generate PDF" />
-                <p>and map data from previous Zap steps into the fields.</p>
-            </section>
         </article>
     </NuxtLayout>
 </template>
@@ -197,7 +173,6 @@ const pageSections = [
     { id: 'from-webpage', label: 'Convert a Webpage' },
     { id: 'customize', label: 'Customize the PDF' },
     { id: 'examples', label: 'Example Workflows' },
-    { id: 'native', label: 'Native Integration' },
     { id: 'related-resources', label: 'Related Resources' },
 ]
 
@@ -321,14 +296,6 @@ Upload PDF
       ↓
 Slack
 Notify team`
-
-const nativeActions = `PDFShift
-├── Generate PDF
-├── Generate PNG
-├── Generate JPEG
-└── List Recent Conversions`
-
-const nativeFields = ``
 
 const resources = [
     {

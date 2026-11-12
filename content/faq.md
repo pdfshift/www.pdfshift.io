@@ -22,7 +22,7 @@ For starters, PDFShift supports HTML documents of any kind. That means web pages
 
 **How do you ensure high-quality conversions and service uptime?**
 
-PDFShift runs on Chromium, which enables perfect rendering every time. As for uptime, our server infrastructure is structured to perform at its best even under high stress, and has several redundancies built in. As a result, our customers experience 99.9% uptime. You can track our service availability on [our Status page](https://status.pdfshift.io/).
+PDFShift runs on Chromium, which enables perfect rendering every time. As for uptime, our server infrastructure is structured to perform at its best even under high stress, and has several redundancies built in. As a result, our customers experience 99.99% uptime. You can track our service availability on [our Status page](https://status.pdfshift.io/).
 
 **What sort of support can I expect as a PDFShift customer?**
 
@@ -38,7 +38,7 @@ Contact us via our form or email us, and we’ll do our best to accommodate your
 
 **What about the privacy of my data?**
 
-We take privacy seriously. We do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift, so you can rest assured that your documents are entirely private.
+We take privacy seriously. By default, we do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift, so you can rest assured that your documents are entirely private.
 
 **Is PDFShift GDPR compliant?**
 
