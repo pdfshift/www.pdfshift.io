@@ -99,12 +99,16 @@ Flexible plans to suit your needs:
 ## Resources
 
 - [API Documentation](https://docs.pdfshift.io)
+- [PDF generator API: request, limits and prices compared](/pdf-generator-api/)
 - [API Status](https://status.pdfshift.io)
 - [Guides & Tutorials](/guides/)
 - [Playwright PDF in production](/guides/playwright-pdf-in-production/)
 - [Puppeteer PDF in production](/guides/puppeteer-pdf-in-production/)
+- [Puppeteer PDF on AWS Lambda and Vercel](/guides/puppeteer-pdf-aws-lambda/)
+- [PDFMonkey alternative: move Liquid templates to one API call](/alternatives/pdfmonkey/)
 - [Best PDF generation APIs an AI agent can call](/guides/best-pdf-api-for-ai-agents/)
 - [Puppeteer alternatives for PDF generation](/alternatives/puppeteer/)
+- [DocRaptor alternative: PDFShift tested on the same page](/alternatives/docraptor/)
 - [FAQ](/faq/)
 
 ## Start Converting Today

@@ -30,7 +30,7 @@ The full list of plans is also available programmatically through a public JSON 
 
 This endpoint requires no authentication. If you send your secret key in the `X-API-Key` header, the response additionally includes any custom plan specific to your account, alongside the standard public plans.
 
-Each entry returns the plan's `display` name, its internal `name` (used when subscribing or estimating), the included `credits`, the maximum `filesize` (in MB) and `timeout` (in seconds), the `price` (in USD for the billing period), whether it is billed `yearly`, the `overage` cost (in cents per extra credit), and its `position` in the ordered list.
+Each entry returns the plan's `display` name, its internal `name` (used when subscribing or estimating), the included `credits`, the `price` (in USD for the billing period), whether it is billed `yearly`, the `overage` cost (in cents per extra credit), and its `position` in the ordered list.
 
 Example response:
 
@@ -38,8 +38,8 @@ Example response:
 {
   "success": true,
   "prices": [
-    { "display": "Startup", "name": "shift05", "credits": 500, "filesize": 250, "timeout": 100, "price": 9, "yearly": false, "overage": 40, "position": 1 },
-    { "display": "Growth", "name": "shift5k", "credits": 5000, "filesize": 250, "timeout": 100, "price": 39, "yearly": false, "overage": 25, "position": 3 }
+    { "display": "Startup", "name": "shift05", "credits": 500, "price": 9, "yearly": false, "overage": 40, "position": 1 },
+    { "display": "Growth", "name": "shift5k", "credits": 5000, "price": 39, "yearly": false, "overage": 25, "position": 3 }
   ]
 }
 ```
@@ -62,7 +62,7 @@ To illustrate costs at common volumes, here are the recommended plans and their 
 ## Feature Highlights
 
 - **Free**: 50 credits / mo, CSS & JavaScript injection, advanced header & footer, encryption & watermark, max file size 15 MB, 30 second timeout.
-- **Paid (Starter and above)**: Everything in Free, plus no file size limit, timeout up to 15 minutes, AWS S3 delivery, and parallel & asynchronous responses.
+- **Paid (Starter and above)**: Everything in Free, plus no file size limit, a 100 second timeout that we can raise to 15 minutes on request, AWS S3 delivery, and parallel & asynchronous responses.
 
 All plans include: RESTful API, CSS & JavaScript injection, advanced headers & footers, PDF encryption and watermarking, and access to our full guides and documentation.
 
