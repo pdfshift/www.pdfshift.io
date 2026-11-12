@@ -105,9 +105,11 @@ Flexible plans to suit your needs:
 - [Playwright PDF in production](/guides/playwright-pdf-in-production/)
 - [Puppeteer PDF in production](/guides/puppeteer-pdf-in-production/)
 - [Puppeteer PDF on AWS Lambda and Vercel](/guides/puppeteer-pdf-aws-lambda/)
+- [PDFMonkey alternative: move Liquid templates to one API call](/alternatives/pdfmonkey/)
 - [Best PDF generation APIs an AI agent can call](/guides/best-pdf-api-for-ai-agents/)
 - [Puppeteer alternatives for PDF generation](/alternatives/puppeteer/)
 - [React to PDF: 4 ways, one invoice, measured](/guides/react-to-pdf/)
+- [DocRaptor alternative: PDFShift, tested on the same page](/alternatives/docraptor/)
 - [FAQ](/faq/)
 
 ## Start Converting Today
