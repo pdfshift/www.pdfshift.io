@@ -127,7 +127,7 @@ There's no importer, and you don't need one: change the endpoint and these field
 
 **Hosted APIs on a browser engine**, like PDFShift: Doppio runs managed Chromium, CustomJS renders with Chromium and works with Make and n8n, Api2Pdf offers Headless Chrome or wkhtmltopdf, PDFgen adds AI-built templates, and AgentGen is built for AI agents. Browserless hosts browsers for your Puppeteer or Playwright code and also has a `/pdf` endpoint.
 
-**Template editors**: CraftMyPDF, APITemplate, PDFMonkey and PDF Generator API. You design the document in their editor and send it data, so moving there means building your templates again.
+**Template editors**: CraftMyPDF, APITemplate, [PDFMonkey](/alternatives/pdfmonkey/) and PDF Generator API. You design the document in their editor and send it data, so moving there means building your templates again.
 
 **An engine you run yourself**: a Prince site license (from around $2,000 a year for startups, with upgrades and support), Gotenberg (Chromium and LibreOffice in a Docker container) or WeasyPrint (a Python library with its own layout engine). For Puppeteer and Playwright, see our [Puppeteer alternatives for PDF generation](/alternatives/puppeteer/).
 
