@@ -20,7 +20,7 @@ Start for free and scale from a handful of documents to millions of conversions 
 
 Annual billing is 10 months for the price of 12 (two months free). The overage rate applies only to credits used beyond your included monthly volume.
 
-**Business and above:** Need SOC 2 or ISO 27001 for a security review? [Talk to us](/contact/)
+**Security reviews:** Does your security review require SOC 2 or ISO 27001 compliance? [Contact us](/contact/) to share your requirements.
 
 ## Pricing API
 

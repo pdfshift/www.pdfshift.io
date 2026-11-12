@@ -17,14 +17,6 @@
                 </thead>
                 <tbody>
                     <template v-for="plan in pricedPlans" :key="plan.name">
-                        <tr v-if="plan.name === 'Business'" class="border-t border-purple-100 bg-purple-100">
-                            <td colspan="5" class="px-4 py-2 text-sm">
-                                <div class="sticky left-4 max-w-[calc(100vw-4rem)] whitespace-normal">
-                                    <span class="font-medium">Business and above:</span> Need SOC 2 or ISO 27001 for a security review?
-                                    <NuxtLink to="/contact/" class="text-purple font-medium hover:underline">Talk to us</NuxtLink>
-                                </div>
-                            </td>
-                        </tr>
                         <tr class="border-t border-purple-100">
                             <th scope="row" class="px-4 py-3 font-medium">{{ plan.name }}</th>
                             <td class="px-4 py-3 text-right">{{ plan.credits.toLocaleString('en-US') }}</td>
@@ -46,6 +38,15 @@
         <p class="p -small text-gray-600 mt-4">
             * We count 1 credit per 5Mb of generated document. For example, a 14Mb PDF consumes 3 credits.
         </p>
+        <div class="mt-6 flex items-start gap-3 rounded-md border border-purple bg-purple-100 px-4 py-3">
+            <span class="text-purple-100 bg-purple rounded-full p-1.5 shrink-0">
+                <IconsLock />
+            </span>
+            <p class="text-navy-700">
+                <span class="font-medium">Does your security review require SOC 2 or ISO 27001 compliance?</span><br />
+                <NuxtLink to="/contact/" class="text-purple font-medium underline hover:no-underline">Contact us</NuxtLink> to share your requirements.
+            </p>
+        </div>
     </section>
 </template>
 

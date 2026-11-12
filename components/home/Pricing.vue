@@ -60,10 +60,6 @@
                         </ol>
                         <div class="text-center">
                             <Button to="/register/" color-class="w-64 border border-purple text-purple bg-white hover:bg-purple hover:text-white hover:border-purple">Get Started</Button>
-                            <p v-if="securityNote && currentPlan.price >= 99" class="mt-4 text-sm">
-                                Need SOC 2 or ISO 27001 for a security review?
-                                <NuxtLink to="/contact/" class="text-purple font-medium hover:underline">Talk to us</NuxtLink>
-                            </p>
                         </div>
                     </div>
                     <div class="p-6 space-y-6 max-w-80 w-80" v-else>
@@ -115,9 +111,18 @@
                         </ol>
                     </div>
                     <div>
-                        <p class="mt-24 font-light">
+                        <p class="mt-8 font-light">
                             * We count 1 credit per 5Mb. For example, a 14Mb PDF will consume 3 credits.
                         </p>
+                        <div class="mt-8 flex items-start gap-3 rounded-md border border-purple bg-purple-100 px-4 py-3">
+                            <span class="text-purple-100 bg-purple rounded-full p-1.5 shrink-0">
+                                <IconsLock />
+                            </span>
+                            <p class="text-navy-700">
+                                <span class="font-medium">Does your security review require SOC 2 or ISO 27001 compliance?</span><br />
+                                <NuxtLink to="/contact/" class="text-purple font-medium underline hover:no-underline">Contact us</NuxtLink> to share your requirements.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,9 +131,6 @@
 </template>
 
 <script setup>
-// Shown only on /pricing/: SOC 2 / ISO 27001 demand test for Business and above (Cyril, Nov 2026).
-defineProps({ securityNote: Boolean })
-
 const plans = usePlans()
 
 // custom slider start
