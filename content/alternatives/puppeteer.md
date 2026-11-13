@@ -36,7 +36,7 @@ People don't buy PDFs. They buy not having to run Chromium. So if Puppeteer only
 | Api2Pdf | Nothing: you get back a link to the file, deleted after 24 hours | $1 a month plus usage |
 | PDFBolt | Nothing | 50 free documents a month; $19 a month for 2,000 |
 | Doppio | Nothing | 400 free docs a month; $16 a month for 4,000 |
-| DocRaptor | Nothing (runs the Prince engine, not Chromium) | 5 free documents a month; $15 a month for 125 |
+| [DocRaptor](/alternatives/docraptor/) | Nothing (runs the Prince engine, not Chromium) | 5 free documents a month; $15 a month for 125 |
 | Browserless | Your Puppeteer or Playwright code, connected to their browsers, or a call to their /pdf endpoint | 1,000 free units a month (a unit is up to 30 seconds of browser time) |
 | Playwright | Chromium, on your servers | Free and open source, plus your servers |
 | Gotenberg | A Docker container with Chromium and LibreOffice | Free and open source, plus your servers |

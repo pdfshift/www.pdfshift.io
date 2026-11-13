@@ -35,4 +35,6 @@ with open('result.pdf', 'wb') as f:
 print('The PDF document was generated and saved to result.pdf')
 ```
 
+If you're still choosing how to make PDFs in Python, our [HTML to PDF in Python](/guides/html-to-pdf-python/) guide runs one invoice through WeasyPrint, xhtml2pdf, Playwright and PDFShift and shows what each one printed.
+
 With this Python script, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
