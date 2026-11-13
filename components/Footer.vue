@@ -106,37 +106,7 @@
                         <NuxtLink to="/guides/ruby/">Ruby Guide</NuxtLink>
                     </li>
                     <li class="hover:underline">
-                        <NuxtLink to="/guides/react-to-pdf/">React to PDF, 4 ways</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/html-to-pdf-python/">HTML to PDF in Python</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/playwright-pdf-in-production/">Playwright PDF in production</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/puppeteer-pdf-in-production/">Puppeteer PDF in production</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/puppeteer-pdf-aws-lambda/">Puppeteer PDF on AWS Lambda</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/alternatives/pdfmonkey/">PDFMonkey alternative</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/best-pdf-api-for-ai-agents/">Best PDF APIs for AI agents</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/alternatives/puppeteer/">Puppeteer alternatives for PDFs</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/alternatives/docraptor/">DocRaptor alternative</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
                         <NuxtLink to="/guides/">All our guides</NuxtLink>
-                    </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/tools/html-viewer/">Free HTML viewer</NuxtLink>
                     </li>
                 </ul>
             </div>
