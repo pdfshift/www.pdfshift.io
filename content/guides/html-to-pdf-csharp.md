@@ -15,49 +15,35 @@ faq:
 
 You add PuppeteerSharp to your project, a 17 MB package, and the build passes. Then a fresh container starts and downloads 564 MB of Chrome before it can print a page. In C#, the NuGet package is never the browser. Either put Chromium in your image when you build it, or skip it and send one `HttpClient` POST to PDFShift.
 
-::guide-figure{caption="What each C# route adds to your app, and when. Publish sizes are dotnet publish for linux-x64, browser sizes are the downloads on our Mac. Circle area is size. Our test on .NET 10, November 13, 2026."}
-<svg viewBox="0 0 360 544" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="h2cs-life-title h2cs-life-desc" style="max-width:360px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
-<title id="h2cs-life-title">When each C# route gets its PDF engine</title>
-<desc id="h2cs-life-desc">Four routes across three moments: publish, a separate install step, and app start. PDFShift through HttpClient adds nothing at publish, needs no install step, and sends one HTTPS POST when the app runs. PuppeteerSharp publishes 7.5 MB, has no install step, and downloads 564 MB of Chrome when the app starts. Playwright publishes 136 MB, of which 121 MB is Node.js, and needs an install step that downloads 572 MB of browsers. DinkToPdf publishes 0.2 MB, needs you to copy the libwkhtmltox native library yourself, and throws an exception without it.</desc>
-<g style="font-size:12px;font-weight:600" fill="#4C556D" text-anchor="middle">
-<text x="70" y="20">Publish</text>
-<text x="180" y="20">Install step</text>
-<text x="290" y="20">App start</text>
-</g>
-<rect x="4" y="32" width="352" height="112" rx="12" fill="#FFFFFF" stroke="#6C47FF"/>
-<g stroke="#DBE4F2">
-<line x1="4" y1="280" x2="356" y2="280"/>
-<line x1="4" y1="412" x2="356" y2="412"/>
-</g>
-<g style="font-size:13px;font-weight:600" fill="#0A0C3D">
-<text x="16" y="54">PDFShift with HttpClient</text>
-<text x="16" y="178">PuppeteerSharp</text>
-<text x="16" y="310">Playwright</text>
-<text x="16" y="442">DinkToPdf</text>
-</g>
-<g style="font-size:12px" fill="#0A0C3D" text-anchor="middle">
-<text x="70" y="96">nothing added</text>
-<text x="180" y="96">none</text>
-<text x="290" y="96">one HTTPS POST</text>
-<circle cx="70" cy="216" r="4.1" fill="#4C556D"/>
-<text x="70" y="270">7.5 MB</text>
-<text x="180" y="220">none</text>
-<circle cx="290" cy="216" r="35.7" fill="#4C556D"/>
-<text x="290" y="270">564 MB Chrome</text>
-<circle cx="70" cy="348" r="17.6" fill="#4C556D"/>
-<text x="70" y="402">136 MB</text>
-<circle cx="180" cy="348" r="36" fill="#4C556D"/>
-<text x="180" y="402">572 MB browsers</text>
-<text x="290" y="352">none</text>
-<circle cx="70" cy="480" r="1.5" fill="#4C556D"/>
-<text x="70" y="534">0.2 MB</text>
-<text x="180" y="476">you copy</text>
-<text x="180" y="492">libwkhtmltox</text>
-<text x="290" y="476">throws</text>
-<text x="290" y="492">without it</text>
-</g>
-</svg>
-::
+::::guide-figure{caption="App sizes are dotnet publish for linux-x64, browser sizes are the downloads on our Mac. Our test on .NET 10, November 13, 2026."}
+:::guide-bar-chart
+---
+title: Size each route adds to your deploy
+label: "Size each C# route adds to your deploy. PDFShift with HttpClient: 0 MB, HttpClient ships with .NET. DinkToPdf: 0.2 MB plus the libwkhtmltox native library you copy in yourself, and the first call throws without it. PuppeteerSharp: a 7.5 MB app, then 564 MB of Chrome downloaded when your app starts. Playwright for .NET: a 136 MB app, 121 MB of it Node.js, then 572 MB of browsers from a separate install step."
+max: 720
+unit: MB
+rows:
+  - name: PDFShift with HttpClient
+    ours: true
+    barLabel: 0 MB
+    note: HttpClient ships with .NET. Each PDF is one HTTPS POST.
+  - name: DinkToPdf
+    base: 0.2
+    barLabel: 0.2 MB + a native library
+    note: You copy libwkhtmltox in yourself. Without it, the first call throws.
+  - name: PuppeteerSharp
+    base: 7.5
+    extra: 564
+    extraLabel: 564 MB Chrome
+    note: 7.5 MB app, then Chrome downloads when your app starts.
+  - name: Playwright for .NET
+    base: 136
+    extra: 572
+    extraLabel: 572 MB browsers
+    note: 136 MB app (121 MB is Node.js), then a separate install step for the browsers.
+---
+:::
+::::
 
 ## When does PuppeteerSharp download Chrome?
 
@@ -150,198 +136,21 @@ await File.WriteAllBytesAsync("invoice.pdf", await response.Content.ReadAsByteAr
 
 `source` takes either HTML or a web address, and PDFShift works out which. `use_print = true` renders your page with its print CSS, the same media the browser routes use. We sent the full invoice and got back the same 2 pages, page numbers and repeated header row included, in 1.96 seconds with the network.
 
-::guide-figure{caption="Page 2 of the same invoice from Playwright and from one HttpClient call to PDFShift, drawn from the PDFs: the header row repeats and the footer reads Page 2 of 2 in both. The badge is the watermark on calls without a key. Our test on .NET 10, November 13, 2026."}
-<svg viewBox="0 0 360 264" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="h2cs-page-title h2cs-page-desc" style="max-width:360px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
-<title id="h2cs-page-title">Page 2 of the invoice from Playwright and from PDFShift</title>
-<desc id="h2cs-page-desc">Two A4 pages side by side. Both start with the table's header row, then rows 33 to 45, and both end with Page 2 of 2 in the bottom right corner. The PDFShift page has a small PDFShift badge in the top right, the watermark added to calls without an API key.</desc>
-<g style="font-size:12px;font-weight:600" fill="#0A0C3D" text-anchor="middle">
-<text x="92" y="18">Playwright</text>
-<text x="268" y="18">PDFShift with HttpClient</text>
-</g>
-<rect x="12" y="30" width="160" height="226" fill="#FFFFFF" stroke="#DBE4F2"/>
-<rect x="23.4" y="41.4" width="137.2" height="5.4" fill="#DBE4F2"/>
-<rect x="25.4" y="43.3" width="3" height="1.6" fill="#0A0C3D"/>
-<rect x="41.4" y="43.3" width="26" height="1.6" fill="#0A0C3D"/>
-<rect x="107.4" y="43.3" width="3" height="1.6" fill="#0A0C3D"/>
-<rect x="122.4" y="43.3" width="9" height="1.6" fill="#0A0C3D"/>
-<rect x="140.4" y="43.3" width="11" height="1.6" fill="#0A0C3D"/>
-<line x1="23.4" y1="52.2" x2="160.6" y2="52.2" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="48.7" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="48.7" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="48.7" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="48.7" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="48.7" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="57.6" x2="160.6" y2="57.6" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="54.1" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="54.1" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="54.1" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="54.1" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="54.1" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="63.0" x2="160.6" y2="63.0" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="59.5" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="59.5" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="59.5" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="59.5" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="59.5" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="68.4" x2="160.6" y2="68.4" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="64.9" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="64.9" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="64.9" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="64.9" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="64.9" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="73.8" x2="160.6" y2="73.8" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="70.3" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="70.3" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="70.3" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="70.3" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="70.3" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="79.2" x2="160.6" y2="79.2" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="75.7" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="75.7" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="75.7" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="75.7" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="75.7" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="84.6" x2="160.6" y2="84.6" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="81.1" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="81.1" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="81.1" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="81.1" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="81.1" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="90.0" x2="160.6" y2="90.0" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="86.5" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="86.5" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="86.5" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="86.5" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="86.5" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="95.4" x2="160.6" y2="95.4" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="91.9" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="91.9" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="91.9" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="91.9" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="91.9" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="100.8" x2="160.6" y2="100.8" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="97.3" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="97.3" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="97.3" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="97.3" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="97.3" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="106.2" x2="160.6" y2="106.2" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="102.7" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="102.7" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="102.7" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="102.7" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="102.7" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="111.6" x2="160.6" y2="111.6" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="108.1" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="108.1" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="108.1" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="108.1" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="108.1" width="11" height="1.4" fill="#4C556D"/>
-<line x1="23.4" y1="117.0" x2="160.6" y2="117.0" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="25.4" y="113.5" width="3" height="1.4" fill="#4C556D"/>
-<rect x="41.4" y="113.5" width="40" height="1.4" fill="#4C556D"/>
-<rect x="107.4" y="113.5" width="2" height="1.4" fill="#4C556D"/>
-<rect x="122.4" y="113.5" width="10" height="1.4" fill="#4C556D"/>
-<rect x="140.4" y="113.5" width="11" height="1.4" fill="#4C556D"/>
-<text x="160.6" y="250" style="font-size:9px" fill="#0A0C3D" text-anchor="end">Page 2 of 2</text>
-<rect x="188" y="30" width="160" height="226" fill="#FFFFFF" stroke="#DBE4F2"/>
-<rect x="199.4" y="41.4" width="137.2" height="5.4" fill="#DBE4F2"/>
-<rect x="201.4" y="43.3" width="3" height="1.6" fill="#0A0C3D"/>
-<rect x="217.4" y="43.3" width="26" height="1.6" fill="#0A0C3D"/>
-<rect x="283.4" y="43.3" width="3" height="1.6" fill="#0A0C3D"/>
-<rect x="298.4" y="43.3" width="9" height="1.6" fill="#0A0C3D"/>
-<rect x="316.4" y="43.3" width="11" height="1.6" fill="#0A0C3D"/>
-<line x1="199.4" y1="52.2" x2="336.6" y2="52.2" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="48.7" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="48.7" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="48.7" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="48.7" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="48.7" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="57.6" x2="336.6" y2="57.6" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="54.1" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="54.1" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="54.1" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="54.1" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="54.1" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="63.0" x2="336.6" y2="63.0" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="59.5" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="59.5" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="59.5" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="59.5" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="59.5" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="68.4" x2="336.6" y2="68.4" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="64.9" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="64.9" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="64.9" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="64.9" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="64.9" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="73.8" x2="336.6" y2="73.8" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="70.3" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="70.3" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="70.3" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="70.3" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="70.3" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="79.2" x2="336.6" y2="79.2" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="75.7" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="75.7" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="75.7" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="75.7" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="75.7" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="84.6" x2="336.6" y2="84.6" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="81.1" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="81.1" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="81.1" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="81.1" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="81.1" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="90.0" x2="336.6" y2="90.0" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="86.5" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="86.5" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="86.5" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="86.5" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="86.5" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="95.4" x2="336.6" y2="95.4" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="91.9" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="91.9" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="91.9" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="91.9" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="91.9" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="100.8" x2="336.6" y2="100.8" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="97.3" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="97.3" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="97.3" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="97.3" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="97.3" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="106.2" x2="336.6" y2="106.2" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="102.7" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="102.7" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="102.7" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="102.7" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="102.7" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="111.6" x2="336.6" y2="111.6" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="108.1" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="108.1" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="108.1" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="108.1" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="108.1" width="11" height="1.4" fill="#4C556D"/>
-<line x1="199.4" y1="117.0" x2="336.6" y2="117.0" stroke="#DBE4F2" style="stroke-width:0.5"/>
-<rect x="201.4" y="113.5" width="3" height="1.4" fill="#4C556D"/>
-<rect x="217.4" y="113.5" width="40" height="1.4" fill="#4C556D"/>
-<rect x="283.4" y="113.5" width="2" height="1.4" fill="#4C556D"/>
-<rect x="298.4" y="113.5" width="10" height="1.4" fill="#4C556D"/>
-<rect x="316.4" y="113.5" width="11" height="1.4" fill="#4C556D"/>
-<text x="336.6" y="250" style="font-size:9px" fill="#0A0C3D" text-anchor="end">Page 2 of 2</text>
-<rect x="290.6" y="45.4" width="46" height="16" rx="3" fill="#FFFFFF" stroke="#4C556D" style="stroke-width:0.5"/>
-<text x="313.6" y="56.4" style="font-size:8px;font-weight:600" fill="#6C47FF" text-anchor="middle">PDFShift</text>
-</svg>
-::
+::::guide-figure{caption="Page 2 of the invoice from PDFShift and from Playwright. The badge is the watermark on calls without a key. Our test on .NET 10, November 13, 2026."}
+:::guide-page-pair{:names='["PDFShift with HttpClient", "Playwright for .NET"]'}
+![Page 2 of the invoice from PDFShift: the table's header row repeats at the top, rows 22 to 45 and the total follow, Page 2 of 2 sits in the bottom right corner, and a Created via PDFShift badge covers the top right of the table.](/images/guides/html-to-pdf-csharp-pdfshift-page-2.webp)
+
+![Page 2 of the invoice from Playwright for .NET: the same header row, rows 22 to 45 and the total, with Page 2 of 2 in the bottom right corner.](/images/guides/html-to-pdf-csharp-playwright-page-2.webp)
+:::
+::::
 
 Requests without a key work too, watermarked and up to 10 a day. [Create a free account](/register/) for 50 credits a month, no card needed. Every parameter is in the [API docs](https://docs.pdfshift.io/), and [our HttpClient guides](/guides/csharp/httpclient/) show the same call with custom headers and footers, S3 uploads and webhooks.
 
 ## Should you skip HTML and build the PDF with QuestPDF?
 
-The top answer in [a busy r/dotnet thread](https://www.reddit.com/r/dotnet/comments/1g5tkrs/best_c_libraries_for_converting_html_to_pdf/) on this question is "Don't do it. It's not worth the hassle." Read the thread and the hassle people name is Chrome on a server: one commenter lists Chrome that won't launch in Docker, then fonts missing once it does. That's a deploy problem, not a reason to rewrite your Razor views or HTML templates in C#.
+The top answer in [a busy r/dotnet thread](https://www.reddit.com/r/dotnet/comments/1g5tkrs/best_c_libraries_for_converting_html_to_pdf/) on this question is "Don't do it. It's not worth the hassle." That commenter says the hassle of HTML to PDF outweighs the benefits unless your content is completely open ended, and points to QuestPDF. Another commenter lists Chrome that won't launch in Docker, then fonts missing once it does. Those are deploy problems, not a reason to rewrite your Razor views or HTML templates in C#.
 
-QuestPDF fits documents you don't have as HTML yet. It builds the PDF from C# code with no HTML or CSS engine involved, and its Community License is free for companies under USD 1 million in annual revenue. Two more names you'll run into. iText's pdfHTML add-on is licensed under the AGPL. IronPDF is commercial, and its Lite license costs $999 for one developer.
+QuestPDF fits documents you don't have as HTML yet. It builds the PDF from C# code with no HTML or CSS engine involved, and its Community License is free for organizations under USD 1 million in annual gross revenue, except publicly traded companies and government bodies. Two more names you'll run into. iText's pdfHTML add-on is licensed under the AGPL. IronPDF is commercial, and its Lite license costs $999 for one developer.
 
 ## Frequently asked questions
 
