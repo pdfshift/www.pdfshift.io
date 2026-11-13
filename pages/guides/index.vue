@@ -41,6 +41,15 @@
                         </li>
                     </ul>
                 </template>
+
+                <h2 class="h3 mt-16 text-navy-700">Free tools</h2>
+                <ul class="mt-4 list-disc list-inside marker:text-purple">
+                    <li class="my-4">
+                        <NuxtLink to="/tools/html-viewer/" class="text-xl text-purple hover:underline">
+                            Free HTML viewer
+                        </NuxtLink>
+                    </li>
+                </ul>
             </div>
         </NuxtLayout>
     </div>
