@@ -1,7 +1,7 @@
 <template>
     <NuxtLayout name="agents" :resources="resources">
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
-            <img class="h-10 w-48 md:-translate-y-11" src="/images/agents/mcp.svg" alt="Model Context Protocol" />
+            <img class="h-10 w-48 md:-translate-y-11" src="/images/agents/mcp.svg" alt="Model Context Protocol" width="72" height="72" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift MCP Server</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
                 PDFShift&rsquo;s MCP server lets Claude, Cursor or any Model Context Protocol client turn HTML or a URL into a PDF with one tool call. We host it at api.pdfshift.io/mcp, so there&rsquo;s no browser to install.

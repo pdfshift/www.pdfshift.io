@@ -1,7 +1,7 @@
 <template>
     <NuxtLayout name="agents" :resources="resources">
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
-            <img class="h-10 w-10 md:-translate-y-11" src="/images/agents/base44.svg" alt="Base44" />
+            <img class="h-10 w-10 md:-translate-y-11" src="/images/agents/base44.svg" alt="Base44" width="26" height="26" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift + Base44</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
                 Generate invoices, reports, certificates, and receipts from your Base44 app.

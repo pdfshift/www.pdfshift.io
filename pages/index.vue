@@ -87,7 +87,7 @@
                                 <li class="col-span-full md:col-span-3 lg:col-span-2">
                                     <CardDark>
                                         <div class="p-4 flex justify-center">
-                                            <img src="/images/illustrations/render-css3.svg" alt="Render pages with CSS3 - Illustration" />
+                                            <img src="/images/illustrations/render-css3.svg" alt="Render pages with CSS3 - Illustration" width="266" height="58" />
                                         </div>
                                         <h3 class="h3 mt-6 text-white">Render pages beautifully with full
                                             <span class="text-purple-500">CSS Support</span></h3>
@@ -100,7 +100,7 @@
                                 <li class="col-span-full md:col-span-3 lg:col-span-2">
                                     <CardDark>
                                         <div class="p-4 flex justify-center">
-                                            <img src="/images/illustrations/render-html5.svg" alt="Render pages with HTML5 - Illustration" />
+                                            <img src="/images/illustrations/render-html5.svg" alt="Render pages with HTML5 - Illustration" width="266" height="57" />
                                         </div>
                                         <h3 class="h3 mt-4 text-white">
                                             <span class="text-purple-500">Tailor documents</span> to suit your needs</h3>
@@ -113,7 +113,7 @@
                                 <li class="col-span-full md:col-span-3 lg:col-span-2">
                                     <CardDark>
                                         <div class="p-4 flex justify-center">
-                                            <img src="/images/illustrations/render-secure.svg" alt="Converts pages securely - Illustration" />
+                                            <img src="/images/illustrations/render-secure.svg" alt="Converts pages securely - Illustration" width="266" height="57" />
                                         </div>
                                         <h3 class="h3 mt-4 text-white">Convert documents <span class="text-purple-500">securely</span>
                                         </h3>
@@ -135,7 +135,7 @@
                                                 </p>
                                             </div>
                                             <div class="h-28 lg:h-auto lg:w-1/3 flex justify-center">
-                                                <img src="/images/illustrations/css-frameworks.svg" alt="CSS Frameworks - Illustration" />
+                                                <img class="h-full w-auto" src="/images/illustrations/css-frameworks.svg" alt="CSS Frameworks - Illustration" width="148" height="123" />
                                             </div>
                                         </div>
                                     </CardDark>
@@ -151,7 +151,7 @@
                                                 </p>
                                             </div>
                                             <div class="h-28 lg:h-auto lg:w-1/3">
-                                                <img class="h-full w-auto" src="/images/illustrations/document.svg" alt="Document - Illustration" />
+                                                <img class="h-full w-auto" src="/images/illustrations/document.svg" alt="Document - Illustration" width="145" height="190" />
                                             </div>
                                         </div>
                                     </CardDark>

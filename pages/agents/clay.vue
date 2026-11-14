@@ -1,7 +1,7 @@
 <template>
     <NuxtLayout name="agents" :resources="resources">
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
-            <img class="h-10 w-auto md:-translate-y-11" src="/images/agents/clay.png" alt="Clay" />
+            <img class="h-10 w-auto md:-translate-y-11" src="/images/agents/clay.png" alt="Clay" width="256" height="192" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift + Clay</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
                 Generate a PDF for every row in your Clay tables with PDFShift&rsquo;s HTTP API enrichment.

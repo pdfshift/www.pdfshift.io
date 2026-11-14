@@ -47,7 +47,7 @@
                         <NuxtLink v-for="integration in integrations" :key="integration.name" class="relative h-auto rounded-xl border border-purple bg-agent-card px-6 py-6 md:h-56" :to="integration.href">
                             <div class="flex items-center gap-4">
                                 <div class="flex size-12 flex-none items-center justify-center overflow-hidden rounded" :class="integration.iconClass">
-                                    <img v-if="integration.icon" class="size-full object-cover" :class="integration.imageClass" :src="integration.icon" alt="" />
+                                    <img v-if="integration.icon" class="size-full object-cover" :class="integration.imageClass" :src="integration.icon" alt="" width="72" height="72" />
                                     <span v-else>{{ integration.short }}</span>
                                 </div>
                                 <h3 class="text-2xl font-medium !leading-display">{{ integration.name }}</h3>
@@ -111,7 +111,7 @@
                                 <h3 class="text-2xl font-medium !leading-display">{{ resource.title }}</h3>
                                 <p class="mt-3 text-base font-light leading-snug">{{ resource.description }}</p>
                                 <div class="agent-resource-preview static mt-6 h-auto w-60 rounded-lg border border-purple-400 bg-purple-100 md:absolute md:left-8 md:top-40 md:mt-0 md:h-40">
-                                    <img class="block h-auto w-full" :src="resource.image" :alt="resource.imageAlt" />
+                                    <img class="block h-auto w-full" :src="resource.image" :alt="resource.imageAlt" :width="resource.imageWidth" :height="resource.imageHeight" />
                                 </div>
                                 <Button class="static mt-6 md:absolute md:bottom-8 md:left-8 md:mt-0" :to="resource.href" :arrow="true">{{ resource.cta }}</Button>
                             </article>
@@ -197,6 +197,8 @@ const resources = [
         title: 'API Documentation',
         description: 'Comprehensive API reference with all parameters, options, and examples.',
         image: '/images/agents/api-documentation.svg',
+        imageWidth: 239,
+        imageHeight: 164,
         imageAlt: 'API documentation code preview',
         cta: 'View Docs',
         href: 'https://docs.pdfshift.io',
@@ -205,6 +207,8 @@ const resources = [
         title: 'Language Guides',
         description: 'Step-by-step guides for Go, Node, PHP, Python, Java, Ruby, and more.',
         image: '/images/agents/language-guides.svg',
+        imageWidth: 239,
+        imageHeight: 179,
         imageAlt: 'PDFShift language guides preview',
         cta: 'Browse Guides',
         href: '/guides/',
