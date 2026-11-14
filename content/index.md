@@ -112,6 +112,7 @@ Flexible plans to suit your needs:
 - [HTML to PDF in Python: does your HTML need a browser?](/guides/html-to-pdf-python/)
 - [HTML to PDF in Node.js: replace html-pdf-node](/guides/html-to-pdf-node/)
 - [DocRaptor alternative: PDFShift, tested on the same page](/alternatives/docraptor/)
+- [Gotenberg alternative: HTML to PDF without the container](/alternatives/gotenberg/)
 - [FAQ](/faq/)
 
 ## Start Converting Today

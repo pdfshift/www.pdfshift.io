@@ -39,7 +39,7 @@ People don't buy PDFs. They buy not having to run Chromium. So if Puppeteer only
 | [DocRaptor](/alternatives/docraptor/) | Nothing (runs the Prince engine, not Chromium) | 5 free documents a month; $15 a month for 125 |
 | Browserless | Your Puppeteer or Playwright code, connected to their browsers, or a call to their /pdf endpoint | 1,000 free units a month (a unit is up to 30 seconds of browser time) |
 | Playwright | Chromium, on your servers | Free and open source, plus your servers |
-| Gotenberg | A Docker container with Chromium and LibreOffice | Free and open source, plus your servers |
+| [Gotenberg](/alternatives/gotenberg/) | A Docker container with Chromium and LibreOffice | Free and open source, plus your servers |
 | WeasyPrint | A Python library with its own layout engine | Free and open source, plus your servers |
 | wkhtmltopdf | An old Qt WebKit binary, archived since January 2023 | Free and open source, plus your servers |
 
