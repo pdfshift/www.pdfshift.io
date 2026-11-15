@@ -36,7 +36,7 @@ Also check the limits an agent hits halfway through a task: how long one convers
 | Adobe PDF Services | No | No, upload then job | 500 transactions a month | Through Adobe's sales team |
 | Gotenberg | No, self-hosted | Yes | Open source | You run the servers |
 
-"Hosted MCP server" means one the vendor runs and documents, not a third-party wrapper. Prices are billed monthly unless noted, as of November 5 and 6, 2026.
+"Hosted MCP server" means one the vendor runs and documents, not a third-party wrapper. Prices are billed monthly unless noted, as of November 5 and 6, 2026. For what 500 to 500,000 PDFs a month cost across nine APIs, see our [PDF generation API comparison](/pdf-generator-api/).
 
 ::guide-figure{caption="What each tool gives an AI agent to call. Our check, November 6, 2026."}
 <svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="agents-matrix-title agents-matrix-desc" style="max-width:560px;min-width:460px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
