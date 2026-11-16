@@ -114,6 +114,7 @@ Flexible plans to suit your needs:
 - [HTML to PDF in C#: getting Chromium into your .NET deploy](/guides/html-to-pdf-csharp/)
 - [DocRaptor alternative: PDFShift, tested on the same page](/alternatives/docraptor/)
 - [Gotenberg alternative: HTML to PDF without the container](/alternatives/gotenberg/)
+- [Cloudflare Browser Rendering alternative for PDFs](/alternatives/cloudflare/)
 - [FAQ](/faq/)
 
 ## Start Converting Today
