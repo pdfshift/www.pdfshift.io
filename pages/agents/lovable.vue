@@ -1,7 +1,7 @@
 <template>
     <NuxtLayout name="agents" :resources="resources">
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
-            <img class="h-10 w-48 md:-translate-y-11" src="/images/agents/lovable.svg" alt="Lovable" />
+            <img class="h-10 w-48 md:-translate-y-11" src="/images/agents/lovable.svg" alt="Lovable" width="37" height="38" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">Generate PDFs in your Lovable app</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
                 To add PDF export to a Lovable app, paste one prompt into your project.
@@ -11,7 +11,7 @@
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
                 <a :href="buildWithLovableUrl" target="_blank" rel="noopener" class="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-navy-800 bg-navy-800 px-8 py-3 text-white transition-colors duration-300 hover:bg-white hover:text-navy-800">
-                    <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" />
+                    <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" width="37" height="38" />
                     Add PDFShift to my Lovable app
                 </a>
                 <Button to="/register/" :light="true" hover="dark" :arrow="true">Get your Free API key</Button>
@@ -35,7 +35,7 @@
                 <ContentProsePre class="mt-7" :code="lovablePrompt" />
                 <div class="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                     <a :href="buildWithLovableUrl" target="_blank" rel="noopener" class="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-navy-800 bg-navy-800 px-8 py-3 text-white transition-colors duration-300 hover:bg-white hover:text-navy-800">
-                        <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" />
+                        <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" width="37" height="38" />
                         Add PDFShift to my Lovable app
                     </a>
                     <p class="max-w-md text-sm font-light leading-snug text-navy-500">
@@ -177,7 +177,7 @@
                 <h3 class="text-2xl font-medium leading-7">Ready to build?</h3>
                 <p class="max-w-md text-base font-light leading-6">Open Lovable with the complete PDFShift integration prompt pre-filled and ship your PDF export in minutes.</p>
                 <a :href="buildWithLovableUrl" target="_blank" rel="noopener" class="group mt-2 inline-flex items-center justify-center gap-2.5 rounded-lg border border-navy-800 bg-navy-800 px-8 py-3 text-white transition-colors duration-300 hover:bg-white hover:text-navy-800">
-                    <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" />
+                    <img class="size-5" src="/images/agents/lovable.svg" alt="" aria-hidden="true" width="37" height="38" />
                     Add PDFShift to my Lovable app
                 </a>
             </div>

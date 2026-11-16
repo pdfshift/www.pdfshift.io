@@ -1,7 +1,7 @@
 <template>
     <NuxtLayout name="agents" :resources="resources">
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
-            <img class="h-10 w-10 md:-translate-y-11" src="/images/agents/n8n.svg" alt="n8n" />
+            <img class="h-10 w-10 md:-translate-y-11" src="/images/agents/n8n.svg" alt="n8n" width="50" height="50" />
             <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift + n8n</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
                 Generate PDFs and screenshots inside your n8n workflows with the official, n8n-verified
@@ -59,7 +59,7 @@
                         <li>Under &ldquo;Credential to connect with&rdquo;, click <strong>Create New Credential</strong>.</li>
                         <li>Paste the API key you copied from your dashboard, then test and save.</li>
                     </ol>
-                    <img class="my-6 w-full rounded-xl border border-purple-200 shadow-sm" src="/images/agents/n8n/credentials.png" alt="Creating and testing PDFShift credentials in n8n" loading="lazy" />
+                    <img class="my-6 w-full rounded-xl border border-purple-200 shadow-sm" src="/images/agents/n8n/credentials.png" alt="Creating and testing PDFShift credentials in n8n" loading="lazy" width="1229" height="769" />
                 </div>
 
                 <div class="mt-12 md:mt-16">

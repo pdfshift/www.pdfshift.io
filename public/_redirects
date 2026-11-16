@@ -33,3 +33,37 @@ https://www.pdfshift.com/*                  https://pdfshift.io/:splat          
 /guides/convert-html-to-pdf-with-go/        /guides/go/nethttp/convert-html-to-pdf-from-raw-html       200
 /guides/convert-html-to-pdf-with-csharp/    /guides/csharp/httpclient/convert-html-to-pdf-from-raw-html 200
 /guides/convert-html-to-pdf-with-java/      /guides/java/httpclient/convert-html-to-pdf-from-raw-html   200
+
+# Addresses other sites link to that have no page here (backlink check, 2026-11-10)
+/docs                                                           https://docs.pdfshift.io                                                                  301
+/help                                                           https://help.pdfshift.io                                                                  301
+/support                                                        https://help.pdfshift.io                                                                  301
+/help/article/how-to-reduce-conversion-time                     https://help.pdfshift.io/how-to-improve-the-converting-time                               301
+/guides/improve-converting-time                                 https://help.pdfshift.io/how-to-improve-the-converting-time                               301
+/documentation/article/api-key-header                           https://docs.pdfshift.io/docs/authentication                                              301
+/documentation/api/rate-limits                                  https://docs.pdfshift.io/docs/rate-limit                                                  301
+/documentation/guides/php                                       /guides/php/                                                                              301
+/documentation/parameters/wait                                  https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/guides/wait-for                                                https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/guides/wait-for-async-content                                  https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/guides/advanced/wait-for                                       https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/guides/advanced/wait-for-content                               https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/guides/advanced/wait-for-content-to-load                       https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/blog/how-to-wait-for-async-content                             https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/guides/pdf-with-custom-fonts                                   https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/guides/advanced/working-with-fonts                             https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/guides/advanced/embedding-custom-fonts                         https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/blog/custom-fonts-pdf                                          https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/blog/how-to-use-custom-fonts-with-pdfshift                     https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/blog/how-to-use-custom-fonts-in-pdfshift                       https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/blog/how-to-change-the-font-family-in-a-pdf-with-pdfshift      https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/faq/why-is-the-watermark-present-when-sandbox-is-set-to-false  https://help.pdfshift.io/why-the-watermark-is-present-when-sandbox-is-set-to-false        301
+/guides/convert-a-webpage-to-pdf                                /guides/                                                                                  301
+/guides/convert/html-to-pdf                                     /guides/                                                                                  301
+/guides/python/convert-website-to-pdf                           /guides/python/requests/convert-html-to-pdf-from-a-url/                                   301
+/guides/python/website-to-pdf                                   /guides/python/requests/convert-html-to-pdf-from-a-url/                                   301
+/guides/python/website-screenshot                               https://docs.pdfshift.io/api-reference/convert-to-png                                     301
+/guides/nodejs                                                  /guides/node/                                                                             301
+/guides/nodejs/url                                              /guides/node/axios/convert-html-to-pdf-from-a-url/                                        301
+/guides/nodejs/raw-html                                         /guides/node/axios/convert-html-to-pdf-from-raw-html/                                     301
+/automation                                                     /agents/                                                                                  301

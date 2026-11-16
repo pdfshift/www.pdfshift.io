@@ -11,7 +11,7 @@
                     <li v-for="article in languages" :key="article.language" class="rounded-lg bg-white p-4 shadow-lg transition-all duration-300 translate-y-0 hover:-translate-y-2">
                         <NuxtLink :to="article.url" class="text-center">
                             <div>
-                                <img class="rounded-md h-32 m-auto" :src="article.image" alt="`${article.language}'s logo`" />
+                                <img class="rounded-md h-32 m-auto" :src="article.image" :alt="`${article.language} logo`" :width="article.imageWidth || 128" height="128" />
                             </div>
                             <h3 class="h3 mt-4">
                                 All our guides in {{ article.language }}
@@ -108,7 +108,8 @@ const languages = ref([
     {
         language: 'CSharp',
         url: '/guides/csharp/',
-        image: '/images/languages/csharp.svg'
+        image: '/images/languages/csharp.svg',
+        imageWidth: 114
     },
     {
         language: 'Ruby',
