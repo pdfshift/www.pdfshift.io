@@ -67,3 +67,5 @@ catch (WebException ex)
 ```
 
 This allows you to easily convert any webpage to a PDF document.
+
+On a current .NET version, `HttpClient` replaces `HttpWebRequest`. Our [HTML to PDF in C#](/guides/html-to-pdf-csharp/) guide has the `HttpClient` version of this call, tested on .NET 10.

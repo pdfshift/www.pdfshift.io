@@ -49,3 +49,5 @@ Console.WriteLine("The PDF document was generated and saved to result.pdf");
 ```
 
 This allows you to easily convert any webpage to a PDF document.
+
+Our [HTML to PDF in C#](/guides/html-to-pdf-csharp/) guide shows what PuppeteerSharp, Playwright and DinkToPdf add to a .NET deploy, with the code we ran on .NET 10.

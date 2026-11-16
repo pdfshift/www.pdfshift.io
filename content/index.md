@@ -111,6 +111,7 @@ Flexible plans to suit your needs:
 - [React to PDF: 4 ways, one invoice, measured](/guides/react-to-pdf/)
 - [HTML to PDF in Python: does your HTML need a browser?](/guides/html-to-pdf-python/)
 - [HTML to PDF in Node.js: replace html-pdf-node](/guides/html-to-pdf-node/)
+- [HTML to PDF in C#: getting Chromium into your .NET deploy](/guides/html-to-pdf-csharp/)
 - [DocRaptor alternative: PDFShift, tested on the same page](/alternatives/docraptor/)
 - [FAQ](/faq/)
 
