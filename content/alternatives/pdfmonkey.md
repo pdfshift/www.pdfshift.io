@@ -160,7 +160,7 @@ The other PDFMonkey alternatives sort by why you're leaving:
 
 - You want to send your own HTML, as this page does: PDFShift, [DocRaptor](/alternatives/docraptor/) (on the Prince engine), Doppio, Api2Pdf, PDFBolt and CustomJS.
 - You want another template editor: APITemplate, CraftMyPDF, PDF Generator API, PDFNoodle, DocSpring, Documint, Anvil and PDFgen. For Word, Google Docs or spreadsheet templates, Carbone, Docmosis and ActiveMerge.
-- You want to run the renderer yourself: Gotenberg, [Puppeteer or Playwright](/alternatives/puppeteer/), WeasyPrint, or wkhtmltopdf, whose repo has been archived and read-only since January 2023. Or use a browser someone else hosts: Browserless.
+- You want to run the renderer yourself: [Gotenberg](/alternatives/gotenberg/), [Puppeteer or Playwright](/alternatives/puppeteer/), WeasyPrint, or wkhtmltopdf, whose repo has been archived and read-only since January 2023. Or use a browser someone else hosts: Browserless.
 
 If you need to edit PDFs or pull data out of them rather than make them, that's a PDF toolkit: Nutrient, PDF.co, Foxit or Adobe.
 
