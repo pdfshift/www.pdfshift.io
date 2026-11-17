@@ -163,7 +163,7 @@ The PDF kept the grid and the flex header, broke between rows, and repeated the 
 
 Two gotchas. The HTML string has no styles unless your component brings them, so put your CSS in the document's `<head>` or in a `<style>` tag. And `renderToStaticMarkup` doesn't wait for data: if a component suspends, React [sends its fallback](https://react.dev/reference/react-dom/server/renderToStaticMarkup) instead. Load the data first and pass it in as props, or use React 19's `prerenderToNodeStream`, which waits for it.
 
-Puppeteer took 67 ms with the browser already open, and launching the browser took 404 ms more. And now you run Chromium on your servers, with its memory, its crashes and its updates. Our [Puppeteer production guide](/guides/puppeteer-pdf-in-production/) covers what that takes.
+Puppeteer took 67 ms with the browser already open, and launching the browser took 404 ms more. And now you run Chromium on your servers, with its memory, its crashes and its updates. Our [Puppeteer production guide](/guides/puppeteer-pdf-in-production/) covers what that takes. If your server runs Node.js without React, [our Node.js guide](/guides/html-to-pdf-node/) has the same Puppeteer route as an Express handler.
 
 ## Can you send that HTML string to an API instead of running Chromium?
 
