@@ -191,12 +191,14 @@
                         <div class="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mt-12">
                             <HomeReview v-for="(review,index) in reviews" :rating="review.rating" :small="true" :reviews="review.reviews" :to="review.url" :key="index" :name="review.name" :logo="review.logo" />
                         </div>
-                        <p class="p -small text-navy-700 text-center max-w-5xl mx-auto mt-12">
+                        <p class="p -small text-navy-700 text-center text-balance max-w-5xl mx-auto mt-12">
                             New on PDFShift:
-                            <NuxtLink to="/tools/html-viewer/" class="font-medium text-purple hover:underline">HTML viewer</NuxtLink>,
                             <NuxtLink to="/pdf-generator-api/" class="font-medium text-purple hover:underline">PDF generator API prices</NuxtLink>,
-                            <NuxtLink to="/guides/puppeteer-pdf-in-production/" class="font-medium text-purple hover:underline">Puppeteer in production</NuxtLink>,
-                            <NuxtLink to="/guides/puppeteer-pdf-aws-lambda/" class="font-medium text-purple hover:underline">Puppeteer on Lambda</NuxtLink>
+                            HTML to PDF in <NuxtLink to="/guides/html-to-pdf-node/" class="font-medium text-purple hover:underline">Node.js</NuxtLink>
+                            and <NuxtLink to="/guides/html-to-pdf-csharp/" class="font-medium text-purple hover:underline">C#</NuxtLink>,
+                            alternatives to <NuxtLink to="/alternatives/gotenberg/" class="font-medium text-purple hover:underline">Gotenberg</NuxtLink>,
+                            <NuxtLink to="/alternatives/cloudflare/" class="font-medium text-purple hover:underline">Cloudflare Browser Rendering</NuxtLink>
+                            and <NuxtLink to="/alternatives/puppeteer/" class="font-medium text-purple hover:underline">Puppeteer</NuxtLink>
                         </p>
                         <section class="mt-16 lg:mt-20 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-8 lg:p-16 max-w-5xl mx-auto -mb-8 lg:-mb-20 relative flex items-center gap-24">
                             <div>
