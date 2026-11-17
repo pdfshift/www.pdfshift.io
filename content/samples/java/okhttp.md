@@ -1,10 +1,10 @@
 ---
 language: 'Java'
 library: 'OkHttp'
-link: 'https://square.github.io/okhttp/'
+link: 'https://lysine.dev/okhttp/'
 ---
 
-[OkHttp](https://square.github.io/okhttp/) is a popular HTTP client library for Java and Android. It provides a simple and intuitive API for making HTTP requests and processing responses. OkHttp supports features like connection pooling, caching, interceptors, and asynchronous requests.
+[OkHttp](https://lysine.dev/okhttp/) is a popular HTTP client library for Java and Android. It provides a simple and intuitive API for making HTTP requests and processing responses. OkHttp supports features like connection pooling, caching, interceptors, and asynchronous requests.
 
 ```java
 import okhttp3.*;

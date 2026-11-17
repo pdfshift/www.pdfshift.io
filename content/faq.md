@@ -44,6 +44,12 @@ We take privacy seriously. By default, we do not store requests or generated doc
 
 Yes. You can read our [Data Processing Agreement](https://pdfshift.io/legal/dpa/) along with our [Privacy Policy](https://pdfshift.io/legal/privacy/) for more details.
 
+**Where are PDFShift's servers located?**
+
+In France. PDFShift runs on servers managed by OVH in two regions: Gravelines and Strasbourg. When you pass the "filename" or "webhook" parameter, the generated file is stored on Amazon S3 in Paris, France, for up to two days, then deleted automatically.
+
+The full list of services we rely on is on our [subprocessors page](https://pdfshift.io/legal/subprocessors/).
+
 ## Pricing and payments
 
 **How do credits work, and how are conversions counted?**

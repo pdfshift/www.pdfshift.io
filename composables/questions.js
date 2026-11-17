@@ -41,13 +41,20 @@ export const questions = () => [
     },
     {
         question: 'What about the privacy of my data?',
-        answer: `<p>We take privacy seriously. We do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift - so you can rest assured that your documents are entirely private.</p>`,
+        answer: `<p>We take privacy seriously. By default, we do not store requests or generated documents. As such, it's impossible for us to view the content you convert using PDFShift - so you can rest assured that your documents are entirely private.</p>`,
         visible: false,
         home: false
     },
     {
         question: 'Is PDFShift GDPR compliant?',
         answer: `<p>Yes. You can read our <a href="/legal/dpa/" title="Data Processing Agreement" class="font-medium text-purple hover:underline">Data Processing Agreement</a> along with our <a href="/legal/privacy/" title="Privacy Policy" class="font-medium text-purple hover:underline">Privacy Policy</a> for more details.</p>`,
+        visible: false,
+        home: false
+    },
+    {
+        question: "Where are PDFShift's servers located?",
+        answer: `<p>In France. PDFShift runs on servers managed by OVH in two regions: Gravelines and Strasbourg. When you pass the "filename" or "webhook" parameter, the generated file is stored on Amazon S3 in Paris, France, for up to two days, then deleted automatically.</p>
+                <p>The full list of services we rely on is on our <a href="/legal/subprocessors/" title="PDFShift's subprocessors" class="font-medium text-purple hover:underline">subprocessors page</a>.</p>`,
         visible: false,
         home: false
     },
