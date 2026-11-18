@@ -67,13 +67,13 @@ const copySectionLink = (slug) => {
 </script>
 
 <style>
-h1, h2, h3 { @apply mt-8 mb-4 }
+.articles h1, .articles h2, .articles h3 { @apply mt-8 mb-4 }
 .articles h4 { @apply mt-8 mb-4 bg-transparent p-0 rounded-none }
-strong { @apply font-bold }
-em { @apply italic }
+.articles strong { @apply font-bold }
+.articles em { @apply italic }
 
-ul>li { @apply pl-5 list-none }
+.articles ul>li { @apply pl-5 list-none }
 
-hr { @apply my-4 p-0 mx-0 }
-td, th { @apply align-top }
+.articles hr { @apply my-4 p-0 mx-0 }
+.articles td, .articles th { @apply align-top }
 </style>

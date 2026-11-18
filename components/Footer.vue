@@ -8,13 +8,13 @@
                     </NuxtLink>
                 </div>
                 <ul class="text-white flex items-center gap-8 mt-2 flex-col md:flex-row">
-                    <li class="size-8 p-1.5">
-                        <NuxtLink to="https://twitter.com/pdfshift" title="View our X (ex Twitter) profile">
+                    <li class="size-6">
+                        <NuxtLink to="https://twitter.com/pdfshift" class="block" title="View our X (ex Twitter) profile">
                             <LogosX />
                         </NuxtLink>
                     </li>
-                    <li class="size-8">
-                        <NuxtLink to="https://linkedin.com/company/pdfshift" title="View our LinkedIn profile">
+                    <li class="size-6">
+                        <NuxtLink to="https://linkedin.com/company/pdfshift" class="block" title="View our LinkedIn profile">
                             <LogosLinkedin />
                         </NuxtLink>
                     </li>
@@ -26,59 +26,59 @@
             <div class="col-span-full md:col-span-1">
                 <span class="text-white uppercase text-sm">Company Details</span>
                 <ul class="mt-6 space-y-4 text-purple-400 text-sm">
-                    <li class="hover:underline">
-                        <NuxtLink to="/contact/" title="Feel free to contact us if you have any request">Contact Us</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/contact/" title="Feel free to contact us if you have any request">Contact Us</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/legal/terms/" title="read our Terms of Service">Terms of service</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/legal/terms/" title="read our Terms of Service">Terms of service</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/legal/privacy/" title="read our Privacy Policy">Privacy Policy</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/legal/privacy/" title="read our Privacy Policy">Privacy Policy</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/legal/gdpr/" title="Read our GDPR guidelines">GDPR</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/legal/gdpr/" title="Read our GDPR guidelines">GDPR</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/legal/hipaa/" title="Read more about our HIPAA">HIPAA - BAA</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/legal/hipaa/" title="Read more about our HIPAA">HIPAA - BAA</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/legal/imprint/" title="Read our legal notice">Imprint</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/legal/imprint/" title="Read our legal notice">Imprint</NuxtLink>
                     </li>
                 </ul>
             </div>
             <div class="col-span-full md:col-span-1">
                 <span class="text-white uppercase text-sm">Product</span>
                 <ul class="mt-6 space-y-4 text-purple-400 text-sm">
-                    <li class="hover:underline">
-                        <NuxtLink to="/#features">Features</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/#features">Features</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/#pricing">Pricing</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/#pricing">Pricing</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/pdf-generator-api/">PDF generator API</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/pdf-generator-api/">PDF generator API</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/samples/">Code Sample</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/samples/">Code Sample</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="https://docs.pdfshift.io" class="inline-flex items-center" target="_blank">
+                    <li>
+                        <NuxtLink to="https://docs.pdfshift.io" class="inline-flex items-center hover:underline" target="_blank">
                             Documentation
                             <span class="inline-block size-3.5 ml-1 -top-px relative">
                                 <IconsExternalLink />
                             </span>
                         </NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="https://playground.pdfshift.io" target="_blank" class="inline-flex items-center">
+                    <li>
+                        <NuxtLink to="https://playground.pdfshift.io" target="_blank" class="inline-flex items-center hover:underline">
                             Playground
                             <span class="inline-block size-3.5 ml-1 -top-px relative">
                                 <IconsExternalLink />
                             </span>
                         </NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="https://status.pdfshift.io" target="_blank" class="inline-flex items-center">
+                    <li>
+                        <NuxtLink to="https://status.pdfshift.io" target="_blank" class="inline-flex items-center hover:underline">
                             Status Page
                             <span class="inline-block size-3.5 ml-1 -top-px relative">
                                 <IconsExternalLink />
@@ -90,23 +90,23 @@
             <div class="col-span-full md:col-span-1">
                 <span class="text-white uppercase text-sm">Guides</span>
                 <ul class="mt-6 space-y-4 text-purple-400 text-sm">
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/node/">NodeJS Guide</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/guides/node/">NodeJS Guide</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/go/">GoLang Guide</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/guides/go/">GoLang Guide</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/php/">PHP Guide</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/guides/php/">PHP Guide</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/python/">Python Guide</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/guides/python/">Python Guide</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/ruby/">Ruby Guide</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/guides/ruby/">Ruby Guide</NuxtLink>
                     </li>
-                    <li class="hover:underline">
-                        <NuxtLink to="/guides/">All our guides</NuxtLink>
+                    <li>
+                        <NuxtLink class="hover:underline" to="/guides/">All our guides</NuxtLink>
                     </li>
                 </ul>
             </div>
