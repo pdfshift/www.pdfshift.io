@@ -1,10 +1,10 @@
 ---
 language: 'Java'
 library: 'Retrofit'
-link: 'https://square.github.io/retrofit/'
+link: 'https://lysine.dev/retrofit/'
 ---
 
-[Retrofit](https://square.github.io/retrofit/) is a type-safe HTTP client library for Java and Android. It simplifies the process of consuming RESTful web services by generating Java interface definitions based on RESTful API endpoints. Retrofit handles the boilerplate code for making HTTP requests and parsing responses, making it easy to work with web APIs in Java applications.
+[Retrofit](https://lysine.dev/retrofit/) is a type-safe HTTP client library for Java and Android. It simplifies the process of consuming RESTful web services by generating Java interface definitions based on RESTful API endpoints. Retrofit handles the boilerplate code for making HTTP requests and parsing responses, making it easy to work with web APIs in Java applications.
 
 ```java
 import okhttp3.MediaType;
