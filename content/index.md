@@ -115,6 +115,7 @@ Flexible plans to suit your needs:
 - [DocRaptor alternative: PDFShift, tested on the same page](/alternatives/docraptor/)
 - [Gotenberg alternative: HTML to PDF without the container](/alternatives/gotenberg/)
 - [Cloudflare Browser Rendering alternative for PDFs](/alternatives/cloudflare/)
+- [PrinceXML alternative: print HTML in a real browser](/alternatives/prince/)
 - [FAQ](/faq/)
 
 ## Start Converting Today

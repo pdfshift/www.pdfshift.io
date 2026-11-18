@@ -129,7 +129,7 @@ There's no importer, and you don't need one: change the endpoint and these field
 
 **Template editors**: CraftMyPDF, APITemplate, [PDFMonkey](/alternatives/pdfmonkey/) and PDF Generator API. You design the document in their editor and send it data, so moving there means building your templates again.
 
-**An engine you run yourself**: a Prince site license (from around $2,000 a year for startups, with upgrades and support), [Gotenberg](/alternatives/gotenberg/) (Chromium and LibreOffice in a Docker container) or WeasyPrint (a Python library with its own layout engine). For Puppeteer and Playwright, see our [Puppeteer alternatives for PDF generation](/alternatives/puppeteer/).
+**An engine you run yourself**: a [Prince](/alternatives/prince/) site license (from around $2,000 a year for startups, with upgrades and support), [Gotenberg](/alternatives/gotenberg/) (Chromium and LibreOffice in a Docker container) or WeasyPrint (a Python library with its own layout engine). For Puppeteer and Playwright, see our [Puppeteer alternatives for PDF generation](/alternatives/puppeteer/).
 
 ## Frequently asked questions
 
