@@ -27,6 +27,8 @@
                             v-for="(review, index) in reviews"
                             :key="index"
                             :logo="review.logo"
+                            :logo-width="review.logoWidth"
+                            :logo-height="review.logoHeight"
                             :name="review.name"
                             :rating="review.rating"
                             :reviews="review.reviews"

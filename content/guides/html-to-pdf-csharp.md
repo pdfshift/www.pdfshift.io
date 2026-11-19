@@ -138,9 +138,9 @@ await File.WriteAllBytesAsync("invoice.pdf", await response.Content.ReadAsByteAr
 
 ::::guide-figure{caption="Page 2 of the invoice from PDFShift and from Playwright. The badge is the watermark on calls without a key. Our test on .NET 10, November 13, 2026."}
 :::guide-page-pair{:names='["PDFShift with HttpClient", "Playwright for .NET"]'}
-![Page 2 of the invoice from PDFShift: the table's header row repeats at the top, rows 22 to 45 and the total follow, Page 2 of 2 sits in the bottom right corner, and a Created via PDFShift badge covers the top right of the table.](/images/guides/html-to-pdf-csharp-pdfshift-page-2.webp)
+![Page 2 of the invoice from PDFShift: the table's header row repeats at the top, rows 22 to 45 and the total follow, Page 2 of 2 sits in the bottom right corner, and a Created via PDFShift badge covers the top right of the table.](/images/guides/html-to-pdf-csharp-pdfshift-page-2.webp){width="720" height="1019"}
 
-![Page 2 of the invoice from Playwright for .NET: the same header row, rows 22 to 45 and the total, with Page 2 of 2 in the bottom right corner.](/images/guides/html-to-pdf-csharp-playwright-page-2.webp)
+![Page 2 of the invoice from Playwright for .NET: the same header row, rows 22 to 45 and the total, with Page 2 of 2 in the bottom right corner.](/images/guides/html-to-pdf-csharp-playwright-page-2.webp){width="720" height="1019"}
 :::
 ::::
 

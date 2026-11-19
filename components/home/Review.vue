@@ -1,7 +1,7 @@
 <template>
     <NuxtLink :to="to" class="rounded-lg border border-purple flex flex-col items-center justify-center px-3 py-8">
         <div class="h-14 flex justify-center px-16">
-            <img :src="logo" :alt="name + ' logo'" />
+            <img class="w-auto" :src="logo" :alt="name + ' logo'" :width="logoWidth" :height="logoHeight" />
         </div>
         <StarRating text-size="text-lg" size="w-7" :small="true" class="mt-4 text-navy-700" :rating="rating" :reviews="reviews" />
         <div class="text-navy-700 text-center mt-3 lg:text-lg">Read {{ (reviews>1) ? 'all' : '' }} {{ reviews }} {{ (reviews===1) ? 'review' : 'reviews'}} on {{ name}} </div>
@@ -13,6 +13,14 @@ defineProps({
     logo: {
         type: String,
         default: ''
+    },
+    logoWidth: {
+        type: Number,
+        default: undefined
+    },
+    logoHeight: {
+        type: Number,
+        default: undefined
     },
     name: {
         type: String,

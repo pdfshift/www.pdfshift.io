@@ -189,7 +189,7 @@
                         <HomeFAQ />
                         <HomeTestimonials />
                         <div class="grid md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mt-12">
-                            <HomeReview v-for="(review,index) in reviews" :rating="review.rating" :small="true" :reviews="review.reviews" :to="review.url" :key="index" :name="review.name" :logo="review.logo" />
+                            <HomeReview v-for="(review,index) in reviews" :rating="review.rating" :small="true" :reviews="review.reviews" :to="review.url" :key="index" :name="review.name" :logo="review.logo" :logo-width="review.logoWidth" :logo-height="review.logoHeight" />
                         </div>
                         <p class="p -small text-navy-700 text-center text-balance max-w-5xl mx-auto mt-12">
                             New on PDFShift:
