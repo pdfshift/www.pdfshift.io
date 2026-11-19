@@ -143,7 +143,7 @@ Your laptop has everything Chrome needs. A slim container image doesn't. Here's 
 - **Fonts.** Chinese, Japanese, Arabic, Hebrew or Thai text needs fonts a slim image doesn't have. Puppeteer's troubleshooting page installs `fonts-ipafont-gothic`, `fonts-wqy-zenhei`, `fonts-thai-tlwg`, `fonts-kacst` and `fonts-freefont-ttf` for those, plus the fonts your own templates use.
 - **Alpine.** Chrome doesn't support Alpine out of the box. Use a Debian-based image.
 - **The browser isn't in `node_modules`.** Puppeteer downloads Chrome into `~/.cache/puppeteer`, so a multi-stage build that copies only `node_modules` ships without a browser.
-- **Serverless size limits.** An AWS Lambda deployment package is [capped at 250 MB unzipped](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html), layers included, so check the size of the Chrome build you ship against it before you pick Lambda.
+- **Serverless size limits.** An AWS Lambda deployment package is [capped at 250 MB unzipped](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html), layers included, so check the size of the Chrome build you ship against it before you pick Lambda. Our [Lambda and Vercel guide](/guides/puppeteer-pdf-aws-lambda/) measures the deploy size of five Chromium setups against Lambda's limits.
 
 Then pin your versions. Chrome moved to [a release every two weeks](https://developer.chrome.com/blog/chrome-two-week-release) with Chrome 153 in September 2026, and each Puppeteer release targets one Chrome version. Upgrade on purpose, and compare a few real PDFs before and after.
 
