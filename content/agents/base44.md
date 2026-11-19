@@ -1,6 +1,6 @@
 ---
-title: "PDFShift + Base44 Integration"
-description: "Add PDF generation to your Base44 app with PDFShift. Connect it from the OpenAPI spec or a backend function, and keep your API key secure on the server."
+title: "Base44 PDF Export: Generate PDFs From Your App | PDFShift"
+description: "Add a PDF export to your Base44 app: invoices, reports and certificates from your own HTML, through PDFShift's OpenAPI integration or a backend function."
 ---
 
 # PDFShift + Base44
