@@ -6,7 +6,7 @@ dateModified: "2026-11-08"
 author: "Cyril Nicodème"
 ---
 
-People don't buy PDFs. They buy not having to run Chromium. So if Puppeteer only makes your PDFs, pick its replacement by how much of the browser you still want to run. Playwright and Gotenberg keep the browser on your servers, and Browserless runs it for you. A PDF API like PDFShift takes your HTML in one request and sends back the PDF, so there's no browser on your side at all.
+People don't buy PDFs. They buy not having to run Chromium. So if Puppeteer only makes your PDFs, pick its replacement by how much of the browser you still want to run. Playwright and Gotenberg keep the browser on your servers, and Browserless runs it for you. A [PDF API](/pdf-generator-api/) like PDFShift takes your HTML in one request and sends back the PDF, so there's no browser on your side at all.
 
 <figure>
 <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="alt-kinds-title alt-kinds-desc" style="max-width:360px;display:block;margin:0 auto" font-family="DM Sans, sans-serif">
