@@ -194,11 +194,10 @@
                         <p class="p -small text-navy-700 text-center text-balance max-w-5xl mx-auto mt-12">
                             New on PDFShift:
                             <NuxtLink to="/pdf-generator-api/" class="font-medium text-purple hover:underline">PDF generator API prices</NuxtLink>,
-                            HTML to PDF in <NuxtLink to="/guides/html-to-pdf-node/" class="font-medium text-purple hover:underline">Node.js</NuxtLink>
-                            and <NuxtLink to="/guides/html-to-pdf-csharp/" class="font-medium text-purple hover:underline">C#</NuxtLink>,
-                            alternatives to <NuxtLink to="/alternatives/gotenberg/" class="font-medium text-purple hover:underline">Gotenberg</NuxtLink>,
+                            the <NuxtLink to="/guides/best-pdf-api-for-ai-agents/" class="font-medium text-purple hover:underline">best PDF APIs for AI agents</NuxtLink>,
+                            alternatives to <NuxtLink to="/alternatives/prince/" class="font-medium text-purple hover:underline">PrinceXML</NuxtLink>,
                             <NuxtLink to="/alternatives/cloudflare/" class="font-medium text-purple hover:underline">Cloudflare Browser Rendering</NuxtLink>
-                            and <NuxtLink to="/alternatives/puppeteer/" class="font-medium text-purple hover:underline">Puppeteer</NuxtLink>
+                            and <NuxtLink to="/alternatives/gotenberg/" class="font-medium text-purple hover:underline">Gotenberg</NuxtLink>
                         </p>
                         <section class="mt-16 lg:mt-20 bg-gradient-to-r from-purple-700 to-purple-900 rounded-2xl p-8 lg:p-16 max-w-5xl mx-auto -mb-8 lg:-mb-20 relative flex items-center gap-24">
                             <div>
