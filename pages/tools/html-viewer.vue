@@ -95,7 +95,7 @@
                     </div>
                 </section>
 
-                <article class="mt-12 max-w-3xl mx-auto articles">
+                <article class="mt-12 max-w-3xl mx-auto articles overflow-x-clip">
                     <ContentRenderer :value="data">
                         <ContentRendererMarkdown :value="data" />
                     </ContentRenderer>

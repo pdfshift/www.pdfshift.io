@@ -49,6 +49,11 @@
                             Free HTML viewer
                         </NuxtLink>
                     </li>
+                    <li class="my-4">
+                        <NuxtLink to="/tools/url-to-pdf/" class="text-xl text-purple hover:underline">
+                            Convert a webpage to PDF
+                        </NuxtLink>
+                    </li>
                 </ul>
             </div>
         </NuxtLayout>
