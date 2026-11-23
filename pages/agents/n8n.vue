@@ -2,11 +2,12 @@
     <NuxtLayout name="agents" :resources="resources">
         <section class="mx-auto mt-18 flex w-with-gutters max-w-agent-content flex-col items-center text-center" aria-labelledby="agent-title">
             <img class="h-10 w-10 md:-translate-y-11" src="/images/agents/n8n.svg" alt="n8n" width="50" height="50" />
-            <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">PDFShift + n8n</h1>
+            <h1 id="agent-title" class="mt-3 text-4xl font-normal leading-display text-trim md:-mt-1.5 md:text-6xl">n8n PDF Generator by PDFShift</h1>
             <p class="mt-14 w-full max-w-3xl font-light leading-snug text-trim md:text-xl">
-                Generate PDFs and screenshots inside your n8n workflows with the official, n8n-verified
+                Create PDFs in n8n from a URL or from HTML your workflow builds, with the official, n8n-verified
                 <a class="underline" href="https://n8n.io/integrations/pdfshift/" target="_blank" rel="noopener">PDFShift</a>
-                community node, no HTTP wiring required.
+                community node. The node returns the PDF as binary data, ready for the next
+                node to email, upload or store. It takes screenshots too.
             </p>
 
             <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
@@ -95,6 +96,21 @@
                 <p>Otherwise, the raw file is returned as binary data you can pass straight to the next node:</p>
                 <ContentProsePre class="my-6" :code="binaryResponseCode" dark />
             </section>
+
+            <section id="http-request" class="mt-24 scroll-mt-30 md:mt-36" aria-labelledby="http-request-title">
+                <h2 id="http-request-title">Without the node: the <span class="text-purple-500">HTTP Request node</span></h2>
+                <p>
+                    If your instance can&rsquo;t install community nodes, n8n&rsquo;s built-in
+                    <a class="underline" href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/" target="_blank" rel="noopener">HTTP Request node</a>
+                    makes the same call:
+                </p>
+                <ol class="mt-4 list-decimal pl-10 text-base leading-7 md:text-lg md:leading-8">
+                    <li>Set <strong>Method</strong> to POST and <strong>URL</strong> to <code class="break-all">https://api.pdfshift.io/v3/convert/pdf</code>.</li>
+                    <li>Set <strong>Authentication</strong> to Generic Credential Type, then Header Auth, with <code>X-API-Key</code> as the name and your API key as the value.</li>
+                    <li>Turn on <strong>Send Body</strong>, choose JSON, and send <code>{"source": "https://example.com"}</code>. Put your HTML in <code>source</code> instead to convert it.</li>
+                    <li>Under <strong>Options</strong>, add <strong>Response</strong> and set <strong>Response Format</strong> to File. The PDF lands in the field named in <strong>Put Output in Field</strong>.</li>
+                </ol>
+            </section>
         </article>
     </NuxtLayout>
 </template>
@@ -110,6 +126,7 @@ const pageSections = [
     { id: 'setup-guide', label: 'Step-by-step Setup Guide' },
     { id: 'operations', label: 'Available Operations' },
     { id: 'advanced-features', label: 'Response Types' },
+    { id: 'http-request', label: 'HTTP Request Node' },
     { id: 'related-resources', label: 'Related Resources' },
 ]
 
@@ -169,8 +186,8 @@ const resources = [
     },
 ]
 
-const title = 'PDFShift + n8n Integration'
-const description = 'Generate PDFs and screenshots in your n8n workflows with the official n8n-nodes-pdfshift community node.'
+const title = 'n8n PDF Generator: Create PDFs From HTML | PDFShift'
+const description = 'Create PDFs from HTML or a URL in n8n with the verified PDFShift node, or with the built-in HTTP Request node. Setup, operations and settings.'
 const canonicalUrl = 'https://pdfshift.io/agents/n8n/'
 
 useSeoMeta({
