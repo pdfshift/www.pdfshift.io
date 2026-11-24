@@ -67,3 +67,11 @@ https://www.pdfshift.com/*                  https://pdfshift.io/:splat          
 /guides/nodejs/url                                              /guides/node/axios/convert-html-to-pdf-from-a-url/                                        301
 /guides/nodejs/raw-html                                         /guides/node/axios/convert-html-to-pdf-from-raw-html/                                     301
 /automation                                                     /agents/                                                                                  301
+
+# C# guide triplets merged into the HttpClient version (same request, same searches; HttpWebRequest is obsolete since .NET 6), 2026-11-20
+/guides/csharp/httpwebrequest/convert-html-to-pdf-from-a-url    /guides/csharp/httpclient/convert-html-to-pdf-from-a-url/                                 301
+/guides/csharp/httpwebrequest/adding-a-text-watermark           /guides/csharp/httpclient/adding-a-text-watermark/                                        301
+/guides/csharp/httpwebrequest/adding-an-image-watermark         /guides/csharp/httpclient/adding-an-image-watermark/                                      301
+/guides/csharp/restsharp/convert-html-to-pdf-from-a-url         /guides/csharp/httpclient/convert-html-to-pdf-from-a-url/                                 301
+/guides/csharp/restsharp/adding-a-text-watermark                /guides/csharp/httpclient/adding-a-text-watermark/                                        301
+/guides/csharp/restsharp/adding-an-image-watermark              /guides/csharp/httpclient/adding-an-image-watermark/                                      301
