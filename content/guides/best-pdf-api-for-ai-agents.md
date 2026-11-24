@@ -92,7 +92,7 @@ People don't buy PDFs. They buy not having to run Chromium, and an agent running
 
 - **MCP server:** `https://api.pdfshift.io/mcp`, over Streamable HTTP. It's in the [official MCP Registry](https://registry.modelcontextprotocol.io/?q=pdfshift). An agent can connect and list the tools without a key, then run them with your API key in the `X-API-Key` header. The `convert` tool turns an HTML document or a URL into a PDF, PNG, JPEG or WEBP and returns a temporary download link in the same call. The other ten work with saved HTML templates, credits, pricing and logs.
 - **OpenAPI spec:** `https://api.pdfshift.io/openapi.json`, OpenAPI 3.0.3. `POST /v3/convert/pdf` answers with the PDF itself. Add `webhook` when you'd rather be called back.
-- **For no-code agents:** a verified n8n node, plus guides for [Lovable](/agents/lovable/), Make, Zapier and others on the [agents page](/agents/).
+- **For no-code agents:** a verified [n8n node](/agents/n8n/), plus guides for [Lovable](/agents/lovable/), Make, Zapier and others on the [agents page](/agents/).
 
 We render with Chromium. On the free plan you get 50 credits a month with no credit card, files up to 15 MB and a 30-second timeout. Paid plans start at $9 a month for 500 credits, have no file size limit and allow up to 15 minutes per conversion. A credit covers 5 MB of output. The full list is on the [pricing page](/pricing/).
 

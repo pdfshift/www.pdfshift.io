@@ -1,11 +1,11 @@
 ---
-title: "PDFShift + n8n Integration"
-description: "Generate PDFs and screenshots in your n8n workflows with the official n8n-nodes-pdfshift community node."
+title: "n8n PDF Generator: Create PDFs From HTML | PDFShift"
+description: "Create PDFs from HTML or a URL in n8n with the verified PDFShift node, or with the built-in HTTP Request node. Setup, operations and settings."
 ---
 
-# PDFShift + n8n
+# n8n PDF Generator by PDFShift
 
-Generate PDFs and screenshots inside your n8n workflows with the official, n8n-verified [PDFShift](https://n8n.io/integrations/pdfshift/) community node, no HTTP wiring required.
+Create PDFs in n8n from a URL or from HTML your workflow builds, with the official, n8n-verified [PDFShift](https://n8n.io/integrations/pdfshift/) community node. The node returns the PDF as binary data, ready for the next node to email, upload or store. It takes screenshots too.
 
 ## Step-by-Step Setup Guide
 
@@ -72,6 +72,15 @@ Otherwise, the raw file is returned as binary data you can pass straight to the 
   "binary": "... raw pdf data ..."
 }
 ```
+
+## Without the node: the HTTP Request node
+
+If your instance can't install community nodes, n8n's built-in [HTTP Request node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/) makes the same call:
+
+1. Set **Method** to POST and **URL** to `https://api.pdfshift.io/v3/convert/pdf`.
+2. Set **Authentication** to Generic Credential Type, then Header Auth, with `X-API-Key` as the name and your API key as the value.
+3. Turn on **Send Body**, choose JSON, and send `{"source": "https://example.com"}`. Put your HTML in `source` instead to convert it.
+4. Under **Options**, add **Response** and set **Response Format** to File. The PDF lands in the field named in **Put Output in Field**.
 
 ## Related Resources
 
