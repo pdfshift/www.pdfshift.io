@@ -116,6 +116,7 @@ Flexible plans to suit your needs:
 - [Gotenberg alternative: HTML to PDF without the container](/alternatives/gotenberg/)
 - [Cloudflare Browser Rendering alternative for PDFs](/alternatives/cloudflare/)
 - [PrinceXML alternative: print HTML in a real browser](/alternatives/prince/)
+- [Browserless alternative for PDFs: EU hosting and HIPAA mode](/alternatives/browserless/)
 - [FAQ](/faq/)
 
 ## Start Converting Today

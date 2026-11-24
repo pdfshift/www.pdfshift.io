@@ -94,7 +94,7 @@ On PDFShift, the header and footer heights add to the margins. Copy Cloudflare's
 
 ## Other Cloudflare Browser Rendering alternatives
 
-Hosted browsers you control with Puppeteer or Playwright: Browserless, Apify and Playwright Cloud. [Hosted HTML-to-PDF APIs](/pdf-generator-api/): DocRaptor, PDFCrowd, Api2Pdf and PDFMonkey. Running Chromium yourself: Puppeteer or Gotenberg. We compare PDFShift with [DocRaptor](/alternatives/docraptor/), [PDFMonkey](/alternatives/pdfmonkey/), [Puppeteer](/alternatives/puppeteer/) and [Gotenberg](/alternatives/gotenberg/) on their own pages.
+Hosted browsers you control with Puppeteer or Playwright: Browserless, Apify and Playwright Cloud. [Hosted HTML-to-PDF APIs](/pdf-generator-api/): DocRaptor, PDFCrowd, Api2Pdf and PDFMonkey. Running Chromium yourself: Puppeteer or Gotenberg. We compare PDFShift with [Browserless](/alternatives/browserless/), [DocRaptor](/alternatives/docraptor/), [PDFMonkey](/alternatives/pdfmonkey/), [Puppeteer](/alternatives/puppeteer/) and [Gotenberg](/alternatives/gotenberg/) on their own pages.
 
 ## Frequently asked questions
 

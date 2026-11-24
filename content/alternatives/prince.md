@@ -87,7 +87,7 @@ Before you move a template, search it for `prince-` properties, `position: runni
 
 **Prince as a hosted API:** DocRaptor and EuroPDF run Prince for you.
 
-**Hosted APIs on Chromium,** like PDFShift: Api2Pdf, PDFBolt and CustomJS. Browserless hosts browsers for your own Puppeteer or Playwright code.
+**Hosted APIs on Chromium,** like PDFShift: Api2Pdf, PDFBolt and CustomJS. [Browserless](/alternatives/browserless/) hosts browsers for your own Puppeteer or Playwright code.
 
 **Engines you run yourself:** WeasyPrint and PDFreactor have their own layout engines, and wkhtmltopdf's repository has been archived since January 2023. Puppeteer and Playwright drive Chromium on your server (our [Puppeteer alternatives](/alternatives/puppeteer/) page covers them), and [Gotenberg](/alternatives/gotenberg/) puts Chromium in a Docker container.
 
