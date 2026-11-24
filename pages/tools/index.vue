@@ -25,7 +25,8 @@ const { data } = await useAsyncData(path, () => queryContent().where({ _path: pa
 
 // Keep in sync with the list in content/tools/index.md
 const tools = [
-    { name: 'HTML viewer', line: 'Paste HTML or open a file, and see it at A4 page width with your print CSS applied.', to: '/tools/html-viewer/' }
+    { name: 'HTML viewer', line: 'Paste HTML or open a file, and see it at A4 page width with your print CSS applied.', to: '/tools/html-viewer/' },
+    { name: 'Webpage to PDF', line: 'Paste a web address and get it back as a PDF.', to: '/tools/url-to-pdf/' }
 ]
 
 useSeoMeta({

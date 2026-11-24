@@ -3,6 +3,12 @@ const builtAt = new Date().toISOString()
 
 export default defineNuxtConfig({
     devtools: { enabled: true },
+    runtimeConfig: {
+        public: {
+            // Kill switch for /tools/url-to-pdf/: NUXT_PUBLIC_URL_TO_PDF_TOOL=off at build time pauses the converter
+            urlToPdfTool: ''
+        }
+    },
     css: ['~/assets/css/main.css'],
     app: {
         // pageTransition: { name: 'page', mode: 'out-in' },
