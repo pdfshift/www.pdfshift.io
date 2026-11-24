@@ -160,7 +160,7 @@ article pre.hljs {
 }
 
 .articles table {
-    @apply block w-full overflow-x-auto mt-6 mb-8 text-left text-navy-700 text-sm border border-purple rounded-lg bg-white;
+    @apply block w-full overflow-x-auto mt-6 mb-8 text-left text-navy-700 text-xs md:text-sm border border-purple rounded-lg bg-white;
 }
 
 .articles th {
@@ -172,7 +172,13 @@ article pre.hljs {
 }
 
 .articles td:first-child {
-    @apply font-medium whitespace-nowrap;
+    @apply font-medium;
+}
+
+@media (max-width: 767px) {
+    .articles th, .articles td {
+        min-width: 10rem;
+    }
 }
 
 .articles h4 {
