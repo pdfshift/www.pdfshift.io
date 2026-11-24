@@ -40,4 +40,4 @@ File.open('result.pdf', 'wb') { |f| f.write(response.body) }
 puts 'The PDF document was generated and saved to result.pdf'
 ```
 
-With this Ruby script, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
+With this Ruby script, you can convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
