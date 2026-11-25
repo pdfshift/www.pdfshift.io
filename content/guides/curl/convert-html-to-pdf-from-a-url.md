@@ -23,5 +23,5 @@ curl -X POST "https://api.pdfshift.io/v3/convert/pdf" \
   -o "result.pdf"
 ```
 
-With this cUrl command, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
+With this cUrl command, you can convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
 ```

@@ -46,4 +46,4 @@ except Exception as e:
     raise Exception(f'An error occurred: {e}')
 ```
 
-With this Python script, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
+With this Python script, you can convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!

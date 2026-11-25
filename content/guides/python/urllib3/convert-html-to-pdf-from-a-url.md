@@ -41,4 +41,4 @@ with open('result.pdf', 'wb') as f:
 print('The PDF document was generated and saved to result.pdf')
 ```
 
-With this Python script, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
+With this Python script, you can convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!

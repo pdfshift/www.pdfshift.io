@@ -1,6 +1,6 @@
 ---
 title: "Adding an image watermark"
-description: "Discover how to effortlessly add image watermarks to PDFs using Python and the httplib2 library. Our guide shows you how to add images on top of your PDF to protect your document easily. This is easily done with a simple request to PDFShift's API."
+description: "Discover how to add image watermarks to PDFs using Python and the httplib2 library. Our guide shows you how to add images on top of your PDF to protect your document easily. This is easily done with a simple request to PDFShift's API."
 language: 'Python'
 library: 'httplib2'
 property: 'watermark'
