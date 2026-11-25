@@ -24,4 +24,3 @@ curl -X POST "https://api.pdfshift.io/v3/convert/pdf" \
 ```
 
 With this cUrl command, you can convert raw HTML to PDF files using PDFShift's API. Happy coding!
-```

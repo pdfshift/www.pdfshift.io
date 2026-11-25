@@ -9,7 +9,7 @@ related: ['define-a-time-limit', 'loading-javascript-from-a-string']
 default: true
 ---
 
-The `wait_for` parameter is one of the most powerful feature of PDFShift. It allows you to control when the document is ready to be converted to PDF.
+The `wait_for` parameter lets you control when the document is ready to be converted to PDF.
 
 For instance, you might need the `wait_for` parameter to wait on your charts to be visible.
 

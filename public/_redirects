@@ -67,6 +67,13 @@ https://www.pdfshift.com/*                  https://pdfshift.io/:splat          
 /guides/nodejs/url                                              /guides/node/axios/convert-html-to-pdf-from-a-url/                                        301
 /guides/nodejs/raw-html                                         /guides/node/axios/convert-html-to-pdf-from-raw-html/                                     301
 /automation                                                     /agents/                                                                                  301
+/help/article/how-to-use-custom-fonts-in-pdf                    https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/blog/how-to-add-custom-fonts-to-your-pdf                       https://help.pdfshift.io/custom-fonts-in-pdfshift                                         301
+/documentation/api/parameters/wait-for                          https://help.pdfshift.io/how-to-wait-on-an-element-before-continuing-the-conversion       301
+/documentation/api/authentication                               https://docs.pdfshift.io/docs/authentication                                              301
+/guides/make                                                    /agents/make/                                                                             301
+/guides/python/accessing-secured-pages                          /guides/python/requests/accessing-secured-pages/                                          301
+/guides/node/using-cookies                                      /guides/node/axios/using-cookies/                                                         301
 
 # C# guide triplets merged into the HttpClient version (same request, same searches; HttpWebRequest is obsolete since .NET 6), 2026-11-20
 /guides/csharp/httpwebrequest/convert-html-to-pdf-from-a-url    /guides/csharp/httpclient/convert-html-to-pdf-from-a-url/                                 301

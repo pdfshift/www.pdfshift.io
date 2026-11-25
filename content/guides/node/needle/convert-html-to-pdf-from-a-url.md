@@ -40,4 +40,4 @@ needle.post(
 )
 ```
 
-With this Node script, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
+With this Node script, you can convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
