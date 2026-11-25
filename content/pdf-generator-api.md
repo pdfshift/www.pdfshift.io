@@ -25,7 +25,7 @@ Your app already renders the invoice as HTML. Send that HTML as `source`, with y
 curl https://api.pdfshift.io/v3/convert/pdf \
   -H 'X-API-Key: sk_your_api_key' \
   -H 'Content-Type: application/json' \
-  -d '{"source": "<h1>Invoice #1042</h1><p>Total: $240.00</p>"}' \
+  -d '{"source": "<html><body><h1>Invoice #1042</h1><p>Total: $240.00</p></body></html>"}' \
   -o invoice-1042.pdf
 ```
 
