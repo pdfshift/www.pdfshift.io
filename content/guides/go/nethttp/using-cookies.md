@@ -9,7 +9,7 @@ related: ['send-custom-http-headers', 'accessing-secured-pages']
 default: true
 ---
 
-In this comprehensive guide, we will demonstrate the step-by-step process of incorporating custom Cookies into your URL request for PDF conversion using PDFShift's API. By leveraging this functionality, you can maintain an active session, enabling authentication as a specific user before generating the PDF document.
+In this comprehensive guide, we will demonstrate the step-by-step process of incorporating custom Cookies into your URL request for PDF conversion using PDFShift's API. With cookies, you can maintain an active session, enabling authentication as a specific user before generating the PDF document.
 
 To do so, we'll use the `cookies` parameter when sending a request to PDFShift. It expects a list of dictionnary that contains the name and the value of the cookies (more details after):
 

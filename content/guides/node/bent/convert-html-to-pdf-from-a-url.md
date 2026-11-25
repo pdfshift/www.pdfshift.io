@@ -35,4 +35,4 @@ fs.writeFileSync('result.pdf', await getBuffer(response));
 console.log('The PDF document was generated and saved to result.pdf');
 ```
 
-With this Node script, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
+With this Node script, you can convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!

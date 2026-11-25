@@ -52,4 +52,4 @@ file_put_contents('result.pdf', $response);
 echo 'The PDF document was generated and saved to result.pdf';
 ```
 
-With this PHP script, you can effortlessly convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
+With this PHP script, you can convert HTML documents from a URL to PDF files using PDFShift's API. Happy coding!
