@@ -70,6 +70,24 @@
                 <p>Conversions return a temporary download URL, valid for about 2 days. Add <code>sandbox</code> while experimenting to generate free, watermarked documents that don&rsquo;t consume credits.</p>
             </section>
 
+            <section id="pdf-mcp-servers" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="pdf-mcp-servers-title">
+                <h2 id="pdf-mcp-servers-title">Which MCP servers can generate a PDF from <span class="text-purple-500">HTML or a URL</span>?</h2>
+                <p class="mt-7">
+                    On November 26, 2026, a search for &ldquo;pdf&rdquo; in the <a class="underline" href="https://registry.modelcontextprotocol.io/?q=pdf" target="_blank" rel="noopener">official MCP Registry</a> returned 259 servers.
+                    Most of them read, split, fill, sign or OCR PDFs you already have.
+                    34 listings say they turn HTML or a web page into a new PDF, and 26 of those are hosted.
+                    PDFShift&rsquo;s is one of the 26.
+                </p>
+                <p class="mt-6">Before you connect one, check four things:</p>
+                <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2" role="list">
+                    <div v-for="check in serverChecks" :key="check.name" role="listitem" class="rounded-xl border border-purple-400 bg-white px-6 py-5 shadow-agent-card">
+                        <h3 class="text-base font-medium text-purple-600">{{ check.name }}</h3>
+                        <p class="mt-2 text-base font-light leading-6">{{ check.why }}</p>
+                        <p class="mt-2 text-base font-light leading-6"><strong class="font-medium">PDFShift:</strong> {{ check.pdfshift }}</p>
+                    </div>
+                </div>
+            </section>
+
             <section id="browser-mcp" class="mt-18 scroll-mt-30 md:mt-24" aria-labelledby="browser-mcp-title">
                 <h2 id="browser-mcp-title">A <span class="text-purple-500">hosted PDF server</span> vs Puppeteer or Playwright MCP</h2>
                 <p class="mt-7">
@@ -94,6 +112,7 @@ const pageSections = [
     { id: 'connect', label: 'Connect your client' },
     { id: 'tools', label: 'Tools' },
     { id: 'usage', label: 'Example prompts' },
+    { id: 'pdf-mcp-servers', label: 'PDF MCP servers' },
     { id: 'browser-mcp', label: 'Hosted vs browser MCP' },
     { id: 'security', label: 'Security' },
     { id: 'related-resources', label: 'Related Resources' },
@@ -131,6 +150,13 @@ const stdioConfig = `{
     }
   }
 }`
+
+const serverChecks = [
+    { name: 'Hosted or local', why: 'A local server runs its browser or renderer on your machine.', pdfshift: 'hosted at api.pdfshift.io/mcp.' },
+    { name: 'HTML and URLs', why: 'Some servers take only templates, Markdown or a URL.', pdfshift: 'convert takes an HTML document or a URL.' },
+    { name: 'What comes back', why: 'A file saved on the server only helps an agent running on that machine.', pdfshift: 'a download link, valid for about 2 days.' },
+    { name: 'Tools before a key', why: 'Your agent can see what a server does before you hand it a key.', pdfshift: 'the 11 tools list without a key; running one needs it.' },
+]
 
 const examplePrompts = `"Convert https://example.com to a PDF in landscape."
 

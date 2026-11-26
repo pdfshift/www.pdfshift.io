@@ -109,6 +109,19 @@ Once connected, just ask your agent in plain language. For example:
 
 Conversions return a temporary download URL, valid for about 2 days. Add `sandbox` while experimenting to generate free, watermarked documents that don't consume credits.
 
+## Which MCP servers can generate a PDF from HTML or a URL?
+
+On November 26, 2026, a search for "pdf" in the [official MCP Registry](https://registry.modelcontextprotocol.io/?q=pdf) returned 259 servers. Most of them read, split, fill, sign or OCR PDFs you already have. 34 listings say they turn HTML or a web page into a new PDF, and 26 of those are hosted. PDFShift's is one of the 26.
+
+Before you connect one, check four things:
+
+| Check | Why it matters | PDFShift |
+|---|---|---|
+| Hosted or local | A local server runs its browser or renderer on your machine. | Hosted at api.pdfshift.io/mcp. |
+| HTML and URLs | Some servers take only templates, Markdown or a URL. | `convert` takes an HTML document or a URL. |
+| What comes back | A file saved on the server only helps an agent running on that machine. | A download link, valid for about 2 days. |
+| Tools before a key | Your agent can see what a server does before you hand it a key. | The 11 tools list without a key; running one needs it. |
+
 ## A hosted PDF server vs Puppeteer or Playwright MCP
 
 An agent that needs a PDF doesn't need a browser. We run Chromium on our servers, and your agent hands `convert` the HTML or URL and gets a download link back.
