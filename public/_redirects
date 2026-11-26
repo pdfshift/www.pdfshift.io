@@ -82,3 +82,17 @@ https://www.pdfshift.com/*                  https://pdfshift.io/:splat          
 /guides/csharp/restsharp/convert-html-to-pdf-from-a-url         /guides/csharp/httpclient/convert-html-to-pdf-from-a-url/                                 301
 /guides/csharp/restsharp/adding-a-text-watermark                /guides/csharp/httpclient/adding-a-text-watermark/                                        301
 /guides/csharp/restsharp/adding-an-image-watermark              /guides/csharp/httpclient/adding-an-image-watermark/                                      301
+
+# C# guide triplets, batch 2: merged into the HttpClient version (same text and request, only the C# client differs), 2026-11-26
+/guides/csharp/httpwebrequest/send-custom-http-headers          /guides/csharp/httpclient/send-custom-http-headers/                                       301
+/guides/csharp/httpwebrequest/adding-a-custom-header-or-footer  /guides/csharp/httpclient/adding-a-custom-header-or-footer/                               301
+/guides/csharp/httpwebrequest/using-cookies                     /guides/csharp/httpclient/using-cookies/                                                  301
+/guides/csharp/httpwebrequest/loading-css-from-a-string         /guides/csharp/httpclient/loading-css-from-a-string/                                      301
+/guides/csharp/httpwebrequest/save-your-pdf-to-your-amazon-s3-bucket  /guides/csharp/httpclient/save-your-pdf-to-your-amazon-s3-bucket/                         301
+/guides/csharp/httpwebrequest/loading-javascript-from-a-url     /guides/csharp/httpclient/loading-javascript-from-a-url/                                  301
+/guides/csharp/restsharp/send-custom-http-headers               /guides/csharp/httpclient/send-custom-http-headers/                                       301
+/guides/csharp/restsharp/adding-a-custom-header-or-footer       /guides/csharp/httpclient/adding-a-custom-header-or-footer/                               301
+/guides/csharp/restsharp/using-cookies                          /guides/csharp/httpclient/using-cookies/                                                  301
+/guides/csharp/restsharp/loading-css-from-a-string              /guides/csharp/httpclient/loading-css-from-a-string/                                      301
+/guides/csharp/restsharp/save-your-pdf-to-your-amazon-s3-bucket /guides/csharp/httpclient/save-your-pdf-to-your-amazon-s3-bucket/                         301
+/guides/csharp/restsharp/loading-javascript-from-a-url          /guides/csharp/httpclient/loading-javascript-from-a-url/                                  301
