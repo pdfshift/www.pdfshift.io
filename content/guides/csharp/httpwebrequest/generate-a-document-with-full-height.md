@@ -3,7 +3,7 @@ title: "Generate a document with full height"
 description: "Learn how to generate a document with full height using C# and the HTTPWebRequest library. This guide offers detailed steps with code samples in C# and the HTTPWebRequest library, showing how to create full-height PDFs."
 language: 'C#'
 library: 'HTTPWebRequest'
-property: 'full_height'
+property: 'format'
 output: 'pdf'
 related: ['exporting-only-a-specific-set-of-pages', 'save-your-pdf-online-and-get-back-a-url']
 default: false
@@ -11,7 +11,7 @@ default: false
 
 In this guide, we'll show you how to generate a document with full height using C# and the HTTPWebRequest library.
 
-When converting documents to PDF, you might want to ensure the entire document height is preserved.
+When converting documents to PDF, you might want to ensure the entire document height is preserved. A custom `{width}xauto` format, such as `1280xauto`, makes the page 1280px wide and as tall as the content.
 
 ```csharp
 using System;
@@ -32,7 +32,7 @@ var payload = new
 {
     source = "https://www.example.com",
     // Generate document with full height
-    full_height = true
+    format = "1280xauto"
 };
 
 var json = System.Text.Json.JsonSerializer.Serialize(payload);

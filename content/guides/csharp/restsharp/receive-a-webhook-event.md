@@ -32,8 +32,7 @@ var payload = new
     // Set up webhook notification
     webhook = new
     {
-        url = "https://your-server.com/webhook",
-        secret = "your-secret-key"
+        url = "https://your-server.com/webhook"
     }
 };
 
@@ -47,9 +46,8 @@ if (response.StatusCode >= System.Net.HttpStatusCode.BadRequest)
     throw new Exception($"Request failed with status code {response.StatusCode}");
 }
 
-File.WriteAllBytes("result.pdf", response.RawBytes);
-
-Console.WriteLine("The PDF document was generated and saved to result.pdf");
+// PDFShift POSTs a JSON body with the PDF's URL to your webhook.
+Console.WriteLine(response.Content);
 ```
 
 This allows you to be notified when conversions are complete without polling.

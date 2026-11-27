@@ -26,11 +26,11 @@ RequestBody body = RequestBody.create(
     "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
     "  \"header\": {\n" +
-    "    \"content\": \"<div style='text-align: center;'>Header Content</div>\",\n" +
+    "    \"source\": \"<div style='text-align: center;'>Header Content</div>\",\n" +
     "    \"height\": \"20mm\"\n" +
     "  },\n" +
     "  \"footer\": {\n" +
-    "    \"content\": \"<div style='text-align: center;'>Footer Content</div>\",\n" +
+    "    \"source\": \"<div style='text-align: center;'>Footer Content</div>\",\n" +
     "    \"height\": \"20mm\"\n" +
     "  }\n" +
     "}", MediaType.parse("application/json"));

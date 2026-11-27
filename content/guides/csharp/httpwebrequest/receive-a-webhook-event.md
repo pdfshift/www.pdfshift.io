@@ -34,8 +34,7 @@ var payload = new
     // Set up webhook notification
     webhook = new
     {
-        url = "https://your-server.com/webhook",
-        secret = "your-secret-key"
+        url = "https://your-server.com/webhook"
     }
 };
 
@@ -58,13 +57,11 @@ try
         throw new Exception($"Request failed with status code {response.StatusCode}");
     }
 
+    // PDFShift POSTs a JSON body with the PDF's URL to your webhook.
     using (var reader = new StreamReader(response.GetResponseStream()))
     {
-        var result = reader.ReadToEnd();
-        File.WriteAllText("result.pdf", result);
+        Console.WriteLine(reader.ReadToEnd());
     }
-
-    Console.WriteLine("The PDF document was generated and saved to result.pdf");
 }
 catch (WebException ex)
 {

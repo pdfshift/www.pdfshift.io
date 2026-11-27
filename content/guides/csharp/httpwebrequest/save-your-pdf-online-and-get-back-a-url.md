@@ -3,7 +3,7 @@ title: "Save your PDF online and get back a URL"
 description: "Learn how to save your PDF online and get back a URL using C# and the HTTPWebRequest library. This guide offers detailed steps with code samples in C# and the HTTPWebRequest library, showing how to store PDFs in cloud storage and retrieve URLs."
 language: 'C#'
 library: 'HTTPWebRequest'
-property: 'output'
+property: 'filename'
 output: 'url'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'receive-a-webhook-event']
 default: false
@@ -32,11 +32,7 @@ var payload = new
 {
     source = "https://www.example.com",
     // Save PDF to cloud storage and get URL
-    output = new
-    {
-        type = "url",
-        url = "https://your-storage.com/"
-    }
+    filename = "my-document.pdf"
 };
 
 var json = System.Text.Json.JsonSerializer.Serialize(payload);
@@ -58,13 +54,11 @@ try
         throw new Exception($"Request failed with status code {response.StatusCode}");
     }
 
+    // The response is JSON with a "url" key that points to your PDF.
     using (var reader = new StreamReader(response.GetResponseStream()))
     {
-        var result = reader.ReadToEnd();
-        File.WriteAllText("result.pdf", result);
+        Console.WriteLine(reader.ReadToEnd());
     }
-
-    Console.WriteLine("The PDF document was generated and saved to result.pdf");
 }
 catch (WebException ex)
 {

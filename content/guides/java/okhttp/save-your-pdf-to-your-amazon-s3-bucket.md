@@ -3,7 +3,7 @@ title: "Save your PDF to your Amazon S3 bucket"
 description: "Learn how to save your PDF to your Amazon S3 bucket using Java and the OkHTTP library. This guide offers detailed steps with code samples in Java and the OkHTTP library, showing how to store PDFs directly in AWS S3."
 language: 'Java'
 library: 'OkHTTP'
-property: 'output'
+property: 's3_destination'
 output: 's3'
 related: ['save-your-pdf-online-and-get-back-a-url', 'receive-a-webhook-event']
 default: false
@@ -25,11 +25,7 @@ OkHttpClient client = new OkHttpClient();
 RequestBody body = RequestBody.create(
     "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
-    "  \"output\": {\n" +
-    "    \"type\": \"s3\",\n" +
-    "    \"bucket\": \"your-bucket-name\",\n" +
-    "    \"key\": \"path/to/document.pdf\"\n" +
-    "  }\n" +
+    "  \"s3_destination\": \"s3://your-bucket-name/path/to/document.pdf\"\n" +
     "}", MediaType.parse("application/json"));
 
 Request request = new Request.Builder()
@@ -45,15 +41,7 @@ try (Response response = client.newCall(request).execute()) {
         throw new IOException("Request failed with status code " + response.code());
     }
     
-    ResponseBody responseBody = response.body();
-    if (responseBody != null) {
-        java.nio.file.Files.write(
-            java.nio.file.Paths.get("result.pdf"), 
-            responseBody.bytes()
-        );
-    }
-    
-    System.out.println("The PDF document was generated and saved to result.pdf");
+    System.out.println(response.body().string());
 }
 ```
 

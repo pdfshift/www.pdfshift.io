@@ -3,7 +3,7 @@ title: "Generate a document with full height"
 description: "Learn how to generate a document with full height using Java and the OkHTTP library. This guide offers detailed steps with code samples in Java and the OkHTTP library, showing how to create full-height PDFs."
 language: 'Java'
 library: 'OkHTTP'
-property: 'full_height'
+property: 'format'
 output: 'pdf'
 related: ['exporting-only-a-specific-set-of-pages', 'save-your-pdf-online-and-get-back-a-url']
 default: false
@@ -11,7 +11,7 @@ default: false
 
 In this guide, we'll show you how to generate a document with full height using Java and the OkHTTP library.
 
-When converting documents to PDF, you might want to ensure the entire document height is preserved.
+When converting documents to PDF, you might want to ensure the entire document height is preserved. A custom `{width}xauto` format, such as `1280xauto`, makes the page 1280px wide and as tall as the content.
 
 ```java
 import okhttp3.*;
@@ -25,7 +25,7 @@ OkHttpClient client = new OkHttpClient();
 RequestBody body = RequestBody.create(
     "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
-    "  \"full_height\": true\n" +
+    "  \"format\": \"1280xauto\"\n" +
     "}", MediaType.parse("application/json"));
 
 Request request = new Request.Builder()

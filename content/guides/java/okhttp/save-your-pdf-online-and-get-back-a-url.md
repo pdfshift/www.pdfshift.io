@@ -3,7 +3,7 @@ title: "Save your PDF online and get back a URL"
 description: "Learn how to save your PDF online and get back a URL using Java and the OkHTTP library. This guide offers detailed steps with code samples in Java and the OkHTTP library, showing how to store PDFs in cloud storage and retrieve URLs."
 language: 'Java'
 library: 'OkHTTP'
-property: 'output'
+property: 'filename'
 output: 'url'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'receive-a-webhook-event']
 default: false
@@ -25,10 +25,7 @@ OkHttpClient client = new OkHttpClient();
 RequestBody body = RequestBody.create(
     "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
-    "  \"output\": {\n" +
-    "    \"type\": \"url\",\n" +
-    "    \"url\": \"https://your-storage.com/\"\n" +
-    "  }\n" +
+    "  \"filename\": \"my-document.pdf\"\n" +
     "}", MediaType.parse("application/json"));
 
 Request request = new Request.Builder()
@@ -44,15 +41,8 @@ try (Response response = client.newCall(request).execute()) {
         throw new IOException("Request failed with status code " + response.code());
     }
     
-    ResponseBody responseBody = response.body();
-    if (responseBody != null) {
-        java.nio.file.Files.write(
-            java.nio.file.Paths.get("result.pdf"), 
-            responseBody.bytes()
-        );
-    }
-    
-    System.out.println("The PDF document was generated and saved to result.pdf");
+    // The response is JSON with a "url" key that points to your PDF.
+    System.out.println(response.body().string());
 }
 ```
 
