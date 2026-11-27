@@ -26,8 +26,7 @@ RequestBody body = RequestBody.create(
     "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
     "  \"webhook\": {\n" +
-    "    \"url\": \"https://your-server.com/webhook\",\n" +
-    "    \"secret\": \"your-secret-key\"\n" +
+    "    \"url\": \"https://your-server.com/webhook\"\n" +
     "  }\n" +
     "}", MediaType.parse("application/json"));
 
@@ -44,15 +43,8 @@ try (Response response = client.newCall(request).execute()) {
         throw new IOException("Request failed with status code " + response.code());
     }
     
-    ResponseBody responseBody = response.body();
-    if (responseBody != null) {
-        java.nio.file.Files.write(
-            java.nio.file.Paths.get("result.pdf"), 
-            responseBody.bytes()
-        );
-    }
-    
-    System.out.println("The PDF document was generated and saved to result.pdf");
+    // PDFShift will POST a JSON body with the PDF's URL to your webhook.
+    System.out.println(response.body().string());
 }
 ```
 

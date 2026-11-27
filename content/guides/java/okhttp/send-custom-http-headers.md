@@ -3,7 +3,7 @@ title: "Send custom HTTP headers"
 description: "Learn how to send custom HTTP headers when converting HTML to PDF using Java and the OkHTTP library. This guide offers detailed steps with code samples in Java and the OkHTTP library, showing how to customize request headers."
 language: 'Java'
 library: 'OkHTTP'
-property: 'headers'
+property: 'http_headers'
 output: 'pdf'
 related: ['accessing-secured-pages', 'using-cookies']
 default: false
@@ -25,7 +25,7 @@ OkHttpClient client = new OkHttpClient();
 RequestBody body = RequestBody.create(
     "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
-    "  \"headers\": {\n" +
+    "  \"http_headers\": {\n" +
     "    \"authorization\": \"Bearer token123\",\n" +
     "    \"user-agent\": \"MyApp/1.0\"\n" +
     "  }\n" +

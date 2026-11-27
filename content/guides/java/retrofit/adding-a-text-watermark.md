@@ -41,9 +41,9 @@ JsonObject payload = new JsonObject();
 payload.addProperty("source", "https://www.example.com");
 JsonObject watermark = new JsonObject();
 watermark.addProperty("text", "CONFIDENTIAL");
-watermark.addProperty("opacity", 0.3);
-watermark.addProperty("size", "20px");
-watermark.addProperty("color", "#000000");
+watermark.addProperty("font_opacity", 30);
+watermark.addProperty("font_size", 20);
+watermark.addProperty("font_color", "#000000");
 payload.add("watermark", watermark);
 
 Call<ResponseBody> call = api.convertToPdf("sk_xxxxxxxxxxxx", payload);

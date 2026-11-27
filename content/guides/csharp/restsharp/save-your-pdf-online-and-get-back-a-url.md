@@ -3,7 +3,7 @@ title: "Save your PDF online and get back a URL"
 description: "Learn how to save your PDF online and get back a URL using C# and the RestSharp library. This guide offers detailed steps with code samples in C# and the RestSharp library, showing how to store PDFs in cloud storage and retrieve URLs."
 language: 'C#'
 library: 'RestSharp'
-property: 'output'
+property: 'filename'
 output: 'url'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'receive-a-webhook-event']
 default: false
@@ -30,11 +30,7 @@ var payload = new
 {
     source = "https://www.example.com",
     // Save PDF to cloud storage and get URL
-    output = new
-    {
-        type = "url",
-        url = "https://your-storage.com/"
-    }
+    filename = "my-document.pdf"
 };
 
 request.AddJsonBody(payload);
@@ -47,9 +43,8 @@ if (response.StatusCode >= System.Net.HttpStatusCode.BadRequest)
     throw new Exception($"Request failed with status code {response.StatusCode}");
 }
 
-File.WriteAllBytes("result.pdf", response.RawBytes);
-
-Console.WriteLine("The PDF document was generated and saved to result.pdf");
+// The response is JSON with a "url" key that points to your PDF.
+Console.WriteLine(response.Content);
 ```
 
 This allows you to store PDFs in cloud storage and access them via URLs.

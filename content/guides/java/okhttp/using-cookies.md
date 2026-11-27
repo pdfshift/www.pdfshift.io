@@ -25,10 +25,10 @@ OkHttpClient client = new OkHttpClient();
 RequestBody body = RequestBody.create(
     "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
-    "  \"cookies\": {\n" +
-    "    \"sessionid\": \"abc123\",\n" +
-    "    \"user\": \"john_doe\"\n" +
-    "  }\n" +
+    "  \"cookies\": [\n" +
+    "    {\"name\": \"sessionid\", \"value\": \"abc123\"},\n" +
+    "    {\"name\": \"user\", \"value\": \"john_doe\"}\n" +
+    "  ]\n" +
     "}", MediaType.parse("application/json"));
 
 Request request = new Request.Builder()

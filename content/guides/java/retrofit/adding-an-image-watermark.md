@@ -41,8 +41,8 @@ JsonObject payload = new JsonObject();
 payload.addProperty("source", "https://www.example.com");
 JsonObject watermark = new JsonObject();
 watermark.addProperty("image", "https://example.com/watermark.png");
-watermark.addProperty("opacity", 0.5);
-watermark.addProperty("position", "center");
+watermark.addProperty("offset_x", "center");
+watermark.addProperty("offset_y", "middle");
 payload.add("watermark", watermark);
 
 Call<ResponseBody> call = api.convertToPdf("sk_xxxxxxxxxxxx", payload);
