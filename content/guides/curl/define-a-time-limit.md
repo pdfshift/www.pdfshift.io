@@ -3,7 +3,7 @@ title: "Define a time limit"
 description: "Learn how to define a time limit for PDF conversion using cUrl. This how-to guide offers clear cUrl code examples that show developers how to implement this using the PDFShift API."
 language: 'cUrl'
 library: 'cUrl'
-property: 'source'
+property: 'timeout'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url']
 default: true
@@ -19,9 +19,8 @@ API_KEY="sk_xxxxxxxxxxxx"
 curl -X POST "https://api.pdfshift.io/v3/convert/pdf" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: ${API_KEY}" \
-  -d '{"source": "https://www.example.com", "time_limit": 30}' \
+  -d '{"source": "https://www.example.com", "timeout": 30}' \
   -o "result.pdf"
 ```
 
 With this cUrl command, you can set a time limit for PDF conversions to prevent long-running processes. Happy coding!
-```

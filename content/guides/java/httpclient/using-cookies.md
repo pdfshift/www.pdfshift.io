@@ -33,10 +33,10 @@ HttpRequest request = HttpRequest.newBuilder()
     .header("Content-Type", "application/json")
     .POST(BodyPublishers.ofString("{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
-        "  \"cookies\": {\n" +
-        "    \"sessionid\": \"abc123\",\n" +
-        "    \"user\": \"john_doe\"\n" +
-        "  }\n" +
+        "  \"cookies\": [\n" +
+        "    {\"name\": \"sessionid\", \"value\": \"abc123\"},\n" +
+        "    {\"name\": \"user\", \"value\": \"john_doe\"}\n" +
+        "  ]\n" +
         "}"))
     .build();
 

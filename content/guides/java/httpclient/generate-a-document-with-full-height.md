@@ -3,7 +3,7 @@ title: "Generate a document with full height"
 description: "Learn how to generate a document with full height using Java and the HttpClient library. This guide offers detailed steps with code samples in Java and the HttpClient library, showing how to create full-height PDFs."
 language: 'Java'
 library: 'HttpClient'
-property: 'full_height'
+property: 'format'
 output: 'pdf'
 related: ['exporting-only-a-specific-set-of-pages', 'save-your-pdf-online-and-get-back-a-url']
 default: true
@@ -11,7 +11,7 @@ default: true
 
 In this guide, we'll show you how to generate a document with full height using Java and the HttpClient library.
 
-When converting documents to PDF, you might want to ensure the entire document height is preserved.
+When converting documents to PDF, you might want to ensure the entire document height is preserved. A custom `{width}xauto` format, such as `1280xauto`, makes the page 1280px wide and as tall as the content.
 
 ```java
 import java.net.http.*;
@@ -33,7 +33,7 @@ HttpRequest request = HttpRequest.newBuilder()
     .header("Content-Type", "application/json")
     .POST(BodyPublishers.ofString("{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
-        "  \"full_height\": true\n" +
+        "  \"format\": \"1280xauto\"\n" +
         "}"))
     .build();
 

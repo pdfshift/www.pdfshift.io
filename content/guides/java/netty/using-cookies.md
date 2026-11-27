@@ -50,10 +50,10 @@ try {
     
     String payload = "{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
-        "  \"cookies\": {\n" +
-        "    \"sessionid\": \"abc123\",\n" +
-        "    \"user\": \"john_doe\"\n" +
-        "  }\n" +
+        "  \"cookies\": [\n" +
+        "    {\"name\": \"sessionid\", \"value\": \"abc123\"},\n" +
+        "    {\"name\": \"user\", \"value\": \"john_doe\"}\n" +
+        "  ]\n" +
         "}";
     
     request.content().writeBytes(payload.getBytes(CharsetUtil.UTF_8));

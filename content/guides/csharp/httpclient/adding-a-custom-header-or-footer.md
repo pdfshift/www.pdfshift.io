@@ -31,12 +31,12 @@ var payload = new
     // Add custom header and footer
     header = new
     {
-        content = "<div style='text-align: center;'>Header Content</div>",
+        source = "<div style='text-align: center;'>Header Content</div>",
         height = "20mm"
     },
     footer = new
     {
-        content = "<div style='text-align: center;'>Footer Content</div>",
+        source = "<div style='text-align: center;'>Footer Content</div>",
         height = "20mm"
     }
 };

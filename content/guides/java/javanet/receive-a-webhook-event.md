@@ -30,8 +30,7 @@ connection.setDoOutput(true);
 String payload = "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
     "  \"webhook\": {\n" +
-    "    \"url\": \"https://your-server.com/webhook\",\n" +
-    "    \"secret\": \"your-secret-key\"\n" +
+    "    \"url\": \"https://your-server.com/webhook\"\n" +
     "  }\n" +
     "}";
 
@@ -47,17 +46,9 @@ if (responseCode >= 400) {
     throw new RuntimeException("Request failed with status code " + responseCode);
 }
 
-InputStream inputStream = connection.getInputStream();
-FileOutputStream outputStream = new FileOutputStream("result.pdf");
-byte[] buffer = new byte[1024];
-int bytesRead;
-while ((bytesRead = inputStream.read(buffer)) != -1) {
-    outputStream.write(buffer, 0, bytesRead);
-}
-outputStream.close();
-inputStream.close();
-
-System.out.println("The PDF document was generated and saved to result.pdf");
+// PDFShift will POST a JSON body with the PDF's URL to your webhook.
+String body = new String(connection.getInputStream().readAllBytes(), "utf-8");
+System.out.println(body);
 ```
 
 This allows you to be notified when conversions are complete without polling.

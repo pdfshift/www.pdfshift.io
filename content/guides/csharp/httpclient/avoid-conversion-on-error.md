@@ -3,7 +3,7 @@ title: "Avoid conversion on error"
 description: "Learn how to avoid conversion on error using C# and the HttpClient library. This guide offers detailed steps with code samples in C# and the HttpClient library, showing how to handle conversion errors gracefully."
 language: 'C#'
 library: 'HttpClient'
-property: 'continue_on_error'
+property: 'raise_for_status'
 output: 'pdf'
 related: ['define-a-time-limit', 'receive-a-webhook-event']
 default: true
@@ -11,7 +11,7 @@ default: true
 
 In this guide, we'll show you how to avoid conversion on error using C# and the HttpClient library.
 
-When converting documents to PDF, you might want to prevent conversion if certain errors occur to avoid generating invalid PDFs.
+When converting documents to PDF, you might want to prevent conversion if certain errors occur to avoid generating invalid PDFs. With `raise_for_status` set to `true`, PDFShift won't convert the document when the source URL answers with a non-2XX status.
 
 ```csharp
 using System;
@@ -29,7 +29,7 @@ var payload = new
 {
     source = "https://www.example.com",
     // Prevent conversion on error
-    continue_on_error = false
+    raise_for_status = true
 };
 
 var json = System.Text.Json.JsonSerializer.Serialize(payload);

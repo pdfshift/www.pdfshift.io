@@ -3,7 +3,7 @@ title: "Save your PDF to your Amazon S3 bucket"
 description: "Learn how to save your PDF to your Amazon S3 bucket using Java and the Netty library. This guide offers detailed steps with code samples in Java and the Netty library, showing how to store PDFs directly in AWS S3."
 language: 'Java'
 library: 'Netty'
-property: 'output'
+property: 's3_destination'
 output: 's3'
 related: ['save-your-pdf-online-and-get-back-a-url', 'receive-a-webhook-event']
 default: false
@@ -50,11 +50,7 @@ try {
     
     String payload = "{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
-        "  \"output\": {\n" +
-        "    \"type\": \"s3\",\n" +
-        "    \"bucket\": \"your-bucket-name\",\n" +
-        "    \"key\": \"path/to/document.pdf\"\n" +
-        "  }\n" +
+        "  \"s3_destination\": \"s3://your-bucket-name/path/to/document.pdf\"\n" +
         "}";
     
     request.content().writeBytes(payload.getBytes(CharsetUtil.UTF_8));
@@ -63,9 +59,7 @@ try {
     ChannelFuture f = ch.writeAndFlush(request);
     f.addListener(ChannelFutureListener.CLOSE);
     
-    // Handle response and save PDF...
-    
-    System.out.println("The PDF document was generated and saved to result.pdf");
+    // Read the response in a channel handler.
 } finally {
     group.shutdownGracefully();
 }

@@ -3,7 +3,7 @@ title: "Save your PDF online and get back a URL"
 description: "Learn how to save your PDF online and get back a URL using Java and the HttpClient library. This guide offers detailed steps with code samples in Java and the HttpClient library, showing how to store PDFs in cloud storage and retrieve URLs."
 language: 'Java'
 library: 'HttpClient'
-property: 'output'
+property: 'filename'
 output: 'url'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'receive-a-webhook-event']
 default: true
@@ -33,23 +33,19 @@ HttpRequest request = HttpRequest.newBuilder()
     .header("Content-Type", "application/json")
     .POST(BodyPublishers.ofString("{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
-        "  \"output\": {\n" +
-        "    \"type\": \"url\",\n" +
-        "    \"url\": \"https://your-storage.com/\"\n" +
-        "  }\n" +
+        "  \"filename\": \"my-document.pdf\"\n" +
         "}"))
     .build();
 
-HttpResponse<byte[]> response = client.send(request, BodyHandlers.ofByteArray());
+HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
 // Handle errors:
 if (response.statusCode() >= 400) {
     throw new RuntimeException("Request failed with status code " + response.statusCode());
 }
 
-java.nio.file.Files.write(java.nio.file.Paths.get("result.pdf"), response.body());
-
-System.out.println("The PDF document was generated and saved to result.pdf");
+// The response is JSON with a "url" key that points to your PDF.
+System.out.println(response.body());
 ```
 
 This allows you to store PDFs in cloud storage and access them via URLs.
