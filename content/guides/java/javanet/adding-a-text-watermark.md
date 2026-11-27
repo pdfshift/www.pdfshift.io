@@ -31,9 +31,9 @@ String payload = "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
     "  \"watermark\": {\n" +
     "    \"text\": \"CONFIDENTIAL\",\n" +
-    "    \"opacity\": 0.3,\n" +
-    "    \"size\": \"20px\",\n" +
-    "    \"color\": \"#000000\"\n" +
+    "    \"font_opacity\": 30,\n" +
+    "    \"font_size\": 20,\n" +
+    "    \"font_color\": \"#000000\"\n" +
     "  }\n" +
     "}";
 

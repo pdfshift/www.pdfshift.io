@@ -3,7 +3,7 @@ title: "Avoid conversion on error"
 description: "Learn how to avoid conversion on error using Java and the Java.net library. This guide offers detailed steps with code samples in Java and the Java.net library, showing how to handle conversion errors gracefully."
 language: 'Java'
 library: 'Java.net'
-property: 'continue_on_error'
+property: 'raise_for_status'
 output: 'pdf'
 related: ['define-a-time-limit', 'receive-a-webhook-event']
 default: false
@@ -11,7 +11,7 @@ default: false
 
 In this guide, we'll show you how to avoid conversion on error using Java and the Java.net library.
 
-When converting documents to PDF, you might want to prevent conversion if certain errors occur to avoid generating invalid PDFs.
+When converting documents to PDF, you might want to prevent conversion if certain errors occur to avoid generating invalid PDFs. With `raise_for_status` set to `true`, PDFShift won't convert the document when the source URL answers with a non-2XX status.
 
 ```java
 import java.net.*;
@@ -29,7 +29,7 @@ connection.setDoOutput(true);
 
 String payload = "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
-    "  \"continue_on_error\": false\n" +
+    "  \"raise_for_status\": true\n" +
     "}";
 
 try (OutputStream os = connection.getOutputStream()) {

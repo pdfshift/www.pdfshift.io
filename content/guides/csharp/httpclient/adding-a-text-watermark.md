@@ -32,9 +32,9 @@ var payload = new
     watermark = new
     {
         text = "CONFIDENTIAL",
-        opacity = 0.3,
-        size = "20px",
-        color = "#000000"
+        font_opacity = 30,
+        font_size = 20,
+        font_color = "#000000"
     }
 };
 

@@ -3,7 +3,7 @@ title: "Save your PDF online and get back a URL"
 description: "Learn how to save your PDF online and get back a URL when converting HTML to PDF using cUrl. This how-to guide offers clear cUrl code examples that show developers how to implement this using the PDFShift API."
 language: 'cUrl'
 library: 'cUrl'
-property: 'source'
+property: 'filename'
 output: 'pdf'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'convert-html-to-pdf-from-a-url']
 default: true
@@ -19,9 +19,8 @@ API_KEY="sk_xxxxxxxxxxxx"
 curl -X POST "https://api.pdfshift.io/v3/convert/pdf" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: ${API_KEY}" \
-  -d '{"source": "https://www.example.com", "filename": "my-document.pdf", "webhook": {"url": "https://yourdomain.com/webhook"}}' \
-  -o "result.pdf"
+  -d '{"source": "https://www.example.com", "filename": "my-document.pdf"}'
+# The response is JSON with a "url" key that points to your PDF
 ```
 
 With this cUrl command, you can save your PDF online and receive a URL to access it. Happy coding!
-```

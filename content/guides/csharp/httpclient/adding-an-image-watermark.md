@@ -32,8 +32,8 @@ var payload = new
     watermark = new
     {
         image = "https://example.com/watermark.png",
-        opacity = 0.5,
-        position = "center"
+        offset_x = "center",
+        offset_y = "middle"
     }
 };
 

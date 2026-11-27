@@ -3,7 +3,7 @@ title: "Convert an HTML document to PDF from raw HTML"
 description: "Learn how to easily convert HTML documents to PDF from raw HTML using cUrl. This how-to guide offers clear cUrl code examples that show developers how to implement this using the PDFShift API."
 language: 'cUrl'
 library: 'cUrl'
-property: 'html'
+property: 'source'
 output: 'pdf'
 related: ['convert-html-to-pdf-from-a-url', 'avoid-conversion-on-error']
 default: true
@@ -19,7 +19,7 @@ API_KEY="sk_xxxxxxxxxxxx"
 curl -X POST "https://api.pdfshift.io/v3/convert/pdf" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: ${API_KEY}" \
-  -d '{"html": "<h1>Hello World</h1><p>This is a test document.</p>"}' \
+  -d '{"source": "<html><body><h1>Hello World</h1><p>This is a test document.</p></body></html>"}' \
   -o "result.pdf"
 ```
 

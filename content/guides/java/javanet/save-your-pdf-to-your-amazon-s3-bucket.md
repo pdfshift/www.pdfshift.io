@@ -3,7 +3,7 @@ title: "Save your PDF to your Amazon S3 bucket"
 description: "Learn how to save your PDF to your Amazon S3 bucket using Java and the Java.net library. This guide offers detailed steps with code samples in Java and the Java.net library, showing how to store PDFs directly in AWS S3."
 language: 'Java'
 library: 'Java.net'
-property: 'output'
+property: 's3_destination'
 output: 's3'
 related: ['save-your-pdf-online-and-get-back-a-url', 'receive-a-webhook-event']
 default: false
@@ -29,11 +29,7 @@ connection.setDoOutput(true);
 
 String payload = "{\n" +
     "  \"source\": \"https://www.example.com\",\n" +
-    "  \"output\": {\n" +
-    "    \"type\": \"s3\",\n" +
-    "    \"bucket\": \"your-bucket-name\",\n" +
-    "    \"key\": \"path/to/document.pdf\"\n" +
-    "  }\n" +
+    "  \"s3_destination\": \"s3://your-bucket-name/path/to/document.pdf\"\n" +
     "}";
 
 try (OutputStream os = connection.getOutputStream()) {
@@ -48,17 +44,8 @@ if (responseCode >= 400) {
     throw new RuntimeException("Request failed with status code " + responseCode);
 }
 
-InputStream inputStream = connection.getInputStream();
-FileOutputStream outputStream = new FileOutputStream("result.pdf");
-byte[] buffer = new byte[1024];
-int bytesRead;
-while ((bytesRead = inputStream.read(buffer)) != -1) {
-    outputStream.write(buffer, 0, bytesRead);
-}
-outputStream.close();
-inputStream.close();
-
-System.out.println("The PDF document was generated and saved to result.pdf");
+String body = new String(connection.getInputStream().readAllBytes(), "utf-8");
+System.out.println(body);
 ```
 
 This allows you to store PDFs directly in your AWS S3 buckets.

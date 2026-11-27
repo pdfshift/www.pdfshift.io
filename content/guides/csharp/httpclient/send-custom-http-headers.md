@@ -3,7 +3,7 @@ title: "Send custom HTTP headers"
 description: "Learn how to send custom HTTP headers when converting HTML to PDF using C# and the HttpClient library. This guide offers detailed steps with code samples in C# and the HttpClient library, showing how to customize request headers."
 language: 'C#'
 library: 'HttpClient'
-property: 'headers'
+property: 'http_headers'
 output: 'pdf'
 related: ['accessing-secured-pages', 'using-cookies']
 default: true
@@ -15,6 +15,7 @@ When converting HTML to PDF, you might need to send custom HTTP headers to acces
 
 ```csharp
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -29,10 +30,10 @@ var payload = new
 {
     source = "https://www.example.com",
     // Send custom HTTP headers
-    headers = new
+    http_headers = new Dictionary<string, string>
     {
-        authorization = "Bearer token123",
-        "user-agent" = "MyApp/1.0"
+        ["Authorization"] = "Bearer token123",
+        ["User-Agent"] = "MyApp/1.0"
     }
 };
 

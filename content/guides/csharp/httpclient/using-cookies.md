@@ -29,10 +29,10 @@ var payload = new
 {
     source = "https://www.example.com",
     // Send cookies with the request
-    cookies = new
+    cookies = new[]
     {
-        sessionid = "abc123",
-        user = "john_doe"
+        new { name = "sessionid", value = "abc123" },
+        new { name = "user", value = "john_doe" }
     }
 };
 

@@ -19,9 +19,8 @@ API_KEY="sk_xxxxxxxxxxxx"
 curl -X POST "https://api.pdfshift.io/v3/convert/pdf" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: ${API_KEY}" \
-  -d '{"source": "https://www.example.com", "header": {"html": "<div style=\"text-align: center;\">Page Header</div>"}, "footer": {"html": "<div style=\"text-align: center;\">Page Footer</div>"}}' \
+  -d '{"source": "https://www.example.com", "header": {"source": "<div style=\"text-align: center;\">Page Header</div>"}, "footer": {"source": "<div style=\"text-align: center;\">Page Footer</div>"}}' \
   -o "result.pdf"
 ```
 
 With this cUrl command, you can add custom headers and footers to your PDF documents. Happy coding!
-```

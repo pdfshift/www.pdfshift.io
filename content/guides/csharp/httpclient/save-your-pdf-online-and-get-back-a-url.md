@@ -3,7 +3,7 @@ title: "Save your PDF online and get back a URL"
 description: "Learn how to save your PDF online and get back a URL using C# and the HttpClient library. This guide offers detailed steps with code samples in C# and the HttpClient library, showing how to store PDFs in cloud storage and retrieve URLs."
 language: 'C#'
 library: 'HttpClient'
-property: 'output'
+property: 'filename'
 output: 'url'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'receive-a-webhook-event']
 default: true
@@ -29,11 +29,7 @@ var payload = new
 {
     source = "https://www.example.com",
     // Save PDF to cloud storage and get URL
-    output = new
-    {
-        type = "url",
-        url = "https://your-storage.com/"
-    }
+    filename = "my-document.pdf"
 };
 
 var json = System.Text.Json.JsonSerializer.Serialize(payload);
@@ -47,11 +43,8 @@ if (response.StatusCode >= System.Net.HttpStatusCode.BadRequest)
     throw new Exception($"Request failed with status code {response.StatusCode}");
 }
 
-var result = await response.Content.ReadAsByteArrayAsync();
-
-System.IO.File.WriteAllBytes("result.pdf", result);
-
-Console.WriteLine("The PDF document was generated and saved to result.pdf");
+// The response is JSON with a "url" key that points to your PDF.
+Console.WriteLine(await response.Content.ReadAsStringAsync());
 ```
 
 This allows you to store PDFs in cloud storage and access them via URLs.

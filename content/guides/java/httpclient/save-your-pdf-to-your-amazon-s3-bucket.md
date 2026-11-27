@@ -3,7 +3,7 @@ title: "Save your PDF to your Amazon S3 bucket"
 description: "Learn how to save your PDF to your Amazon S3 bucket using Java and the HttpClient library. This guide offers detailed steps with code samples in Java and the HttpClient library, showing how to store PDFs directly in AWS S3."
 language: 'Java'
 library: 'HttpClient'
-property: 'output'
+property: 's3_destination'
 output: 's3'
 related: ['save-your-pdf-online-and-get-back-a-url', 'receive-a-webhook-event']
 default: true
@@ -33,24 +33,18 @@ HttpRequest request = HttpRequest.newBuilder()
     .header("Content-Type", "application/json")
     .POST(BodyPublishers.ofString("{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
-        "  \"output\": {\n" +
-        "    \"type\": \"s3\",\n" +
-        "    \"bucket\": \"your-bucket-name\",\n" +
-        "    \"key\": \"path/to/document.pdf\"\n" +
-        "  }\n" +
+        "  \"s3_destination\": \"s3://your-bucket-name/path/to/document.pdf\"\n" +
         "}"))
     .build();
 
-HttpResponse<byte[]> response = client.send(request, BodyHandlers.ofByteArray());
+HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
 // Handle errors:
 if (response.statusCode() >= 400) {
     throw new RuntimeException("Request failed with status code " + response.statusCode());
 }
 
-java.nio.file.Files.write(java.nio.file.Paths.get("result.pdf"), response.body());
-
-System.out.println("The PDF document was generated and saved to result.pdf");
+System.out.println(response.body());
 ```
 
 This allows you to store PDFs directly in your AWS S3 buckets.

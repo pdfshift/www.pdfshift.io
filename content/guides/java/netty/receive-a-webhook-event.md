@@ -51,8 +51,7 @@ try {
     String payload = "{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
         "  \"webhook\": {\n" +
-        "    \"url\": \"https://your-server.com/webhook\",\n" +
-        "    \"secret\": \"your-secret-key\"\n" +
+        "    \"url\": \"https://your-server.com/webhook\"\n" +
         "  }\n" +
         "}";
     
@@ -62,9 +61,7 @@ try {
     ChannelFuture f = ch.writeAndFlush(request);
     f.addListener(ChannelFutureListener.CLOSE);
     
-    // Handle response and save PDF...
-    
-    System.out.println("The PDF document was generated and saved to result.pdf");
+    // Read the response in a channel handler: PDFShift will POST a JSON body with the PDF's URL to your webhook.
 } finally {
     group.shutdownGracefully();
 }

@@ -34,22 +34,20 @@ HttpRequest request = HttpRequest.newBuilder()
     .POST(BodyPublishers.ofString("{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
         "  \"webhook\": {\n" +
-        "    \"url\": \"https://your-server.com/webhook\",\n" +
-        "    \"secret\": \"your-secret-key\"\n" +
+        "    \"url\": \"https://your-server.com/webhook\"\n" +
         "  }\n" +
         "}"))
     .build();
 
-HttpResponse<byte[]> response = client.send(request, BodyHandlers.ofByteArray());
+HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
 // Handle errors:
 if (response.statusCode() >= 400) {
     throw new RuntimeException("Request failed with status code " + response.statusCode());
 }
 
-java.nio.file.Files.write(java.nio.file.Paths.get("result.pdf"), response.body());
-
-System.out.println("The PDF document was generated and saved to result.pdf");
+// PDFShift will POST a JSON body with the PDF's URL to your webhook.
+System.out.println(response.body());
 ```
 
 This allows you to be notified when conversions are complete without polling.

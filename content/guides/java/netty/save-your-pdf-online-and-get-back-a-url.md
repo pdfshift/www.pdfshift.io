@@ -3,7 +3,7 @@ title: "Save your PDF online and get back a URL"
 description: "Learn how to save your PDF online and get back a URL using Java and the Netty library. This guide offers detailed steps with code samples in Java and the Netty library, showing how to store PDFs in cloud storage and retrieve URLs."
 language: 'Java'
 library: 'Netty'
-property: 'output'
+property: 'filename'
 output: 'url'
 related: ['save-your-pdf-to-your-amazon-s3-bucket', 'receive-a-webhook-event']
 default: false
@@ -50,10 +50,7 @@ try {
     
     String payload = "{\n" +
         "  \"source\": \"https://www.example.com\",\n" +
-        "  \"output\": {\n" +
-        "    \"type\": \"url\",\n" +
-        "    \"url\": \"https://your-storage.com/\"\n" +
-        "  }\n" +
+        "  \"filename\": \"my-document.pdf\"\n" +
         "}";
     
     request.content().writeBytes(payload.getBytes(CharsetUtil.UTF_8));
@@ -62,9 +59,7 @@ try {
     ChannelFuture f = ch.writeAndFlush(request);
     f.addListener(ChannelFutureListener.CLOSE);
     
-    // Handle response and save PDF...
-    
-    System.out.println("The PDF document was generated and saved to result.pdf");
+    // Read the response in a channel handler: the response is JSON with a "url" key that points to your PDF.
 } finally {
     group.shutdownGracefully();
 }

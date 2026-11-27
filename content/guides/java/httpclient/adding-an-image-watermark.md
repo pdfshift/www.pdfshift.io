@@ -35,8 +35,8 @@ HttpRequest request = HttpRequest.newBuilder()
         "  \"source\": \"https://www.example.com\",\n" +
         "  \"watermark\": {\n" +
         "    \"image\": \"https://example.com/watermark.png\",\n" +
-        "    \"opacity\": 0.5,\n" +
-        "    \"position\": \"center\"\n" +
+        "    \"offset_x\": \"center\",\n" +
+        "    \"offset_y\": \"middle\"\n" +
         "  }\n" +
         "}"))
     .build();
