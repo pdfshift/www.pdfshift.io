@@ -117,6 +117,7 @@ Flexible plans to suit your needs:
 - [Cloudflare Browser Rendering alternative for PDFs](/alternatives/cloudflare/)
 - [PrinceXML alternative: print HTML in a real browser](/alternatives/prince/)
 - [Browserless alternative for PDFs: EU hosting and HIPAA mode](/alternatives/browserless/)
+- [PDF.co alternative for HTML to PDF: billed per file, not per page](/alternatives/pdf-co/)
 - [FAQ](/faq/)
 
 ## Start Converting Today
